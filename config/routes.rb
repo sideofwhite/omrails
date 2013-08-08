@@ -1,5 +1,7 @@
 Omrails::Application.routes.draw do
   
+  resources :posts
+
   devise_for :users
   root to: 'pages#home'
   match '/about', to: 'pages#about',  via:'get'
