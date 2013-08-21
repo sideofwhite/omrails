@@ -1,12 +1,17 @@
- <tr>
-        
-        <td><%= image_tag post.image(:medium) %></td>
-        <td><strong><%= link_to (post.description), post %></strong></td>
-        
-        
-        <% if current_user == post.user %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to '|Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      
-    </tr>
+<div class="box">
+    <%= link_to (image_tag post.image(:medium)), post %>
+    <p class="description">
+        <%= post.description %>
+    </p>
+    <p>
+        <strong>
+            Posted by <%= post.user.name %>
+        </strong>
+    </p>
+    <% if current_user == post.user %>
+        <p>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+    <% end %>
+</div>
