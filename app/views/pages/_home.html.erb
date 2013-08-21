@@ -1,0 +1,12 @@
+<% unless user_signed_in? %>
+    <div class="well">
+        <h1>What's happening in the world?</h1>
+        <p>
+            First-hand accounts of the worlds news.
+            
+        </p>
+        <p>
+            <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+        </p>
+    </div>
+<% end %>

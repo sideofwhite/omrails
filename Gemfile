@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.1'
 gem 'devise'
 gem 'simple_form'
+gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
 
 # Use sqlite3 as the database for Active Record
 group :production do

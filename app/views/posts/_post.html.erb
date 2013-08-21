@@ -1,8 +1,12 @@
  <tr>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-      <% if current_user == post.user %>
+        
+        <td><%= image_tag post.image(:medium) %></td>
+        <td><strong><%= link_to (post.description), post %></strong></td>
+        
+        
+        <% if current_user == post.user %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '|Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
+      
     </tr>

@@ -1,6 +1,7 @@
 <div class="row">
     <div class="span6 offset3">
         <div class="well">
+            <%= image_tag @post.image %>
             <p>
               <%= @post.description %>
             </p>
@@ -14,3 +15,13 @@
         </div>
     </div>
 </div>
+<div>
+	<%= render :partial => @post.comments %>
+</div>
+<%= simple_form_for [@post, Comment.new] do |f| %>
+ <p>
+
+   <%= f.input :body, :label => "New Comment", as: :text, input_html: { rows: "3" } %>
+ </p>
+ <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+ <% end %>

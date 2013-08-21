@@ -1,8 +1,15 @@
-<h1>Listing posts</h1>
 
-    <table class="table table-striped">
+<%= render 'pages/home' %>
+
+
+<light><h1>In the world</h1></light>
+    <div class="well"> 
+    <table>
+       
         <thead>
             <tr>
+
+                <th>Image</th>
                 <th>Description</th>
                 <th></th>
                 <th></th>
@@ -11,10 +18,13 @@
         </thead>
 
         <tbody>
+            
             <%= render @posts %>
+        
         </tbody>
-    </table>
 
+    </table>
+ </div>
     <br />
 
-    <%= link_to 'New Post', new_post_path %>
+    
