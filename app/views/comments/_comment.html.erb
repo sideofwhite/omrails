@@ -1,5 +1,5 @@
 <%=div_for(comment) do %>
  <p> 
- 	<%= link_to (comment.title), post_comment_path(@post, @comment) %>
+ 	<%= link_to (comment.title), post_comment_path(@post, comment) %>
  	</p>
  	<% end %>

@@ -2,7 +2,7 @@
   
     <% @post.comments.each do |comment| %>
     <div>
-    <strong><td><%= link_to (comment.title), post_comment_path(comment) %></strong>
+    <strong><%= link_to (comment.title), post_comment_path(@post, comment) %></strong>
     <%= comment.subtitle %>
     </div>
     <% end %>
