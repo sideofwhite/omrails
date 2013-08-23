@@ -1,0 +1,4 @@
+<h1>Listing pictures</h1>
+<% @pictures.each do |picture| %>
+<%= image_tag picture.image(:medium) %>
+<% end %> 

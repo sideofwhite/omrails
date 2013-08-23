@@ -1,12 +1,10 @@
 Omrails::Application.routes.draw do
   
-  
-
-  
 
   resources :posts do
     
     resources :comments
+    resources :pictures
   end
 
   devise_for :users

@@ -1,27 +1,25 @@
-<div class="row">
-    <div class="span6 offset3">
-        <div class="well">
-            <%= image_tag @post.image %>
-            <p>
-              <%= @post.description %>
-            </p>
-            <p>
-              <%= @post.user.name %>
-            </p>
-            <% if current_user == @post.user %>
-                <%= link_to 'Edit', edit_post_path(@post) %> |
-            <% end %>
-            <%= link_to 'Back', posts_path %>
-        </div>
-    </div>
-</div>
+<h class="eventhead"><%= @post.description %></h>
+
+<%= link_to "Add Opinion", new_post_comment_path(@post), class: "btn btn-primary btn-medium" %>
+
+<%= link_to "View Opinions", post_comments_path(@post), class: "btn btn-primary btn-medium" %>
+
+<%= link_to "Add photo", new_post_picture_path(@post), class: "btn btn-primary btn-medium" %>
+
+      
+
 <div>
 	<%= render :partial => @post.comments %>
 </div>
-<%= simple_form_for [@post, Comment.new] do |f| %>
- <p>
 
-   <%= f.input :body, :label => "New Comment", as: :text, input_html: { rows: "3" } %>
- </p>
- <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
- <% end %>
+<div>
+    <%= render :partial => @post.pictures %>
+</div>
+
+
+
+
+
+
+ 
+

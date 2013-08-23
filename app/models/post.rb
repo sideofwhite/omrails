@@ -10,6 +10,7 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
 belongs_to :user
 
 has_many :comments
+has_many :pictures
 
 def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?
