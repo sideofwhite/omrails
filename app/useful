@@ -2,3 +2,29 @@
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% if current_user == @post.user %>
 <light>Posted <%= time_ago_in_words(comment.created_at) %></light></br>
+<%= link_to "Add Opinion", new_post_comment_path(@post)%>
+<%= link_to "Add photo", new_post_picture_path(@post)%>
+
+
+
+<div class="commentcontainer">
+	<%= render :partial => @post.comments %>
+</div>
+
+<div class="container">
+    <%= render :partial => @post.pictures %>
+</div>
+
+
+
+<body id="eventhead">
+   <h1><%= @post.title %></h1>
+</body>
+
+<div class="descriptioncontainer">
+<body id="eventhead">
+   <p1>Wiki</p1><br>
+   <p2><%= @post.description %></p2><br>
+   <%= link_to 'Edit Wiki', edit_post_path(@post) %> 
+</body>
+</div>

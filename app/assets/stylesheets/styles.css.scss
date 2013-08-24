@@ -1,6 +1,6 @@
 $navbarBackgroundHighlight: white;
 $navbarBackground: white;
-$btnPrimaryBackground: green;
+$btnPrimaryBackground: #900000;
 
 @import 'bootstrap';
 body{
@@ -51,7 +51,7 @@ body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    width: 450px;
+    width: 300px;
     
 }
 
@@ -69,11 +69,92 @@ body{
     
 }
 
+
+
+
+
+
+
+.imgcontainer {
+   width: 500px; /* look i'm now showing 5 images per line */
+   float: left;
+}
+
+.commentcontainer {
+   float: left;
+}
+
+.titlecontainer {
+    position: fixed;
+    float: left;
+     float-left: 50px;
+}
+
+
+
+
 .description {
     margin: 10px 0 5px;
     text-align: center;
 }
 
-.eventhead { 
-font-size: 22px; 
+#eventhead h1 { 
+  
+  font-size: 26px; 
+  padding: 10px;
+  
+  
 } 
+
+#eventhead p2 { 
+  text-align: center;
+  font-size: 14px; 
+  
+} 
+
+#eventhead p1 { 
+  
+  font-size: 12px; 
+  padding: 10px;
+  
+} 
+
+.descriptioncontainer {
+    width: 400px;
+}
+
+.commentcontainer {
+    
+    float: left;
+    width: 600px;
+    font-size: 26px;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.commentshowcontainer {
+    
+    float: left;
+    width: 600px;
+    font-size: 18px;
+    padding: 10px;
+
+}
+
+.usernamecontainer {
+    
+    float: left;
+    font-size: 18px;
+    margin: 10px;
+
+}
+
+.lightcontainer{
+    
+    float: left;
+    font-size: 12px;
+    margin: 10px;
+    padding: 5px;
+
+}

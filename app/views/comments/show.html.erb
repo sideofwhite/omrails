@@ -1,6 +1,22 @@
- <strong><%= (@comment.title) %></strong>
- <%= @comment.subtitle %>
- <%= @comment.body %>
-
+ <body id="eventhead">
+ <p1><light>Posted <%= time_ago_in_words(@comment.created_at) %> ago</light></p1>
   
+ <div class="usernamecontainer">
+ Posted by <%= @comment.user.name %>
+ </div>
+
+
+ <body id="eventhead">
+ <h1><%= (@comment.title) %></h1>
+
+<div class="commentshowcontainer">
+
+ <%= @comment.body %>
+</div>
+
+
+<%= link_to "Ask a question", new_post_comment_question_path(@post,@comment) %>
+
+
+<%= @question.body %>
  

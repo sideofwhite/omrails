@@ -11,14 +11,13 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
- 
   
   end
 
   # GET /comments/new
   def new
     @post = Post.find params[:post_id]
-    @post = comment
+    
   end
 
   # GET /comments/1/edit

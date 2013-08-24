@@ -1,20 +1,16 @@
-<h class="eventhead"><%= @post.description %></h>
+<%= render "posts/navbar" %>
 
-<%= link_to "Add Opinion", new_post_comment_path(@post), class: "btn btn-primary btn-medium" %>
+<body id="eventhead">
+   <h1><%= @post.title %></h1>
+</body>
 
-<%= link_to "View Opinions", post_comments_path(@post), class: "btn btn-primary btn-medium" %>
 
-<%= link_to "Add photo", new_post_picture_path(@post), class: "btn btn-primary btn-medium" %>
+    <%= render :partial => @post.comments %>
 
-      
 
-<div>
-	<%= render :partial => @post.comments %>
-</div>
 
-<div>
-    <%= render :partial => @post.pictures %>
-</div>
+
+
 
 
 

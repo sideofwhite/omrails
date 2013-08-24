@@ -1,9 +1,15 @@
 Omrails::Application.routes.draw do
   
 
+  resources :questions
+
   resources :posts do
     
-    resources :comments
+    resources :comments do
+      resources :questions
+    end
+    
+
     resources :pictures
   end
 

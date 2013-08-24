@@ -16,7 +16,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @post = Post.find params[:post_id]
-    @picture = Picture.new
+    
   end
 
   # GET /pictures/1/edit
