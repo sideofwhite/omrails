@@ -1,7 +1,7 @@
 <%=div_for(comment) do %>
  <div class="commentcontainer">
  <p> 
- 	<strong><%= link_to (comment.title), post_comment_path(@post, comment) %></strong><br><br>
+ 	<%= link_to (comment.title), post_comment_path(@post, comment) %><br><br>
  	<%= comment.subtitle %><br>
  	
     <div class="lightcontainer">

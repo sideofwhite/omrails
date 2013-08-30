@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @comment = Comment.find params[:comment_id]
+    @comment.questions
   end
 
   # GET /questions/1
@@ -14,9 +15,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @post = Post.find params[:post_id]
     @comment = Comment.find params[:comment_id]
-    @question = Question.new
   end
 
   # GET /questions/1/edit
@@ -26,12 +25,12 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:comment_id])
+   @comment = Comment.find(params[:comment_id])
     @question = @comment.questions.create(question_params)
+    
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to @comment, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { render action: 'new' }

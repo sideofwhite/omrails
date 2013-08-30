@@ -2,6 +2,8 @@
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% if current_user == @post.user %>
 <light>Posted <%= time_ago_in_words(comment.created_at) %></light></br>
+
+
 <%= link_to "Add Opinion", new_post_comment_path(@post)%>
 <%= link_to "Add photo", new_post_picture_path(@post)%>
 

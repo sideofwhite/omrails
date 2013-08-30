@@ -1,17 +1,21 @@
 Omrails::Application.routes.draw do
   
 
-  resources :questions
+
 
   resources :posts do
     
-    resources :comments do
+    resources :comments 
+  end
+      
+
+  resources :comments do
       resources :questions
     end
     
 
     resources :pictures
-  end
+  
 
   devise_for :users
   root to: 'posts#index'

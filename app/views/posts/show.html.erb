@@ -1,16 +1,19 @@
-<%= render "posts/navbar" %>
+
+<div class="span6">
 
 <body id="eventhead">
    <h1><%= @post.title %></h1>
 </body>
 
+<%= render :partial => @post.comments %>
+</div>
 
-    <%= render :partial => @post.comments %>
+<div class="span2">
 
+ 
+<%= link_to "Add to event", new_post_comment_path(@post), class: "btn btn-primary"%>
 
-
-
-
+</div>
 
 
 

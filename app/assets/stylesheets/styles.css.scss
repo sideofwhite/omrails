@@ -1,18 +1,25 @@
-$navbarBackgroundHighlight: white;
 $navbarBackground: white;
 $btnPrimaryBackground: #900000;
 
+
+@import "bootswatch/readable/variables";
+
 @import 'bootstrap';
+
+@import "bootstrap-responsive";
+
+@import "bootswatch/readable/bootswatch";
+
+
+
+
 body{
     padding-top: 60px;
+    
+    background-color: white;
+
 }
 
-@import 'bootstrap-responsive';
-
-.navbar-inner{
-    @include box-shadow(none !important);
-    border: 0;
-}
 
 .footer{
     margin-top: 50px;
@@ -100,8 +107,8 @@ body{
 
 #eventhead h1 { 
   
-  font-size: 26px; 
-  padding: 10px;
+  font-size: 30px; 
+  
   
   
 } 
@@ -138,6 +145,11 @@ body{
     float: left;
     width: 600px;
     font-size: 18px;
+    padding: 10px;
+
+}
+
+.usernameshowcontainer {
     padding: 10px;
 
 }
