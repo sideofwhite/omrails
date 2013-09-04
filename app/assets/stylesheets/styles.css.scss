@@ -1,5 +1,9 @@
 $navbarBackground: white;
-$btnPrimaryBackground: #900000;
+$linkColor: black;
+$navbarHeight: 40px;
+$btnPrimaryBackground: #B23000;
+$btnPrimaryBackgroundHighlight: #B23000;
+
 
 
 @import "bootswatch/readable/variables";
@@ -16,8 +20,14 @@ $btnPrimaryBackground: #900000;
 body{
     padding-top: 60px;
     
-    background-color: white;
+    background-color: #F5F5F5;
 
+}
+
+
+.navbar navbar-fixed-top {
+    background-color: white;
+    padding: 0px;
 }
 
 
@@ -37,15 +47,16 @@ body{
 /* Required for jQuery Masonry */
 
 .box {
-    margin: 5px;
+    margin: 20px;
     padding: 5px;
     font-size: 18px;
     line-height: 1.4em;
     float: left;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    width: 450px;
+    
+   
+    
+    border:1px solid #D8D8D8;
+    background-color: white;
     
 }
 
@@ -85,6 +96,8 @@ body{
 .imgcontainer {
    width: 500px; /* look i'm now showing 5 images per line */
    float: left;
+   
+  
 }
 
 .commentcontainer {
@@ -102,7 +115,8 @@ body{
 
 .description {
     margin: 10px 0 5px;
-    text-align: center;
+    text-align: left;
+    
 }
 
 #eventhead h1 { 
@@ -116,7 +130,7 @@ body{
 #eventhead p2 { 
   text-align: center;
   font-size: 14px; 
-  
+  text-color: black
 } 
 
 #eventhead p1 { 
@@ -142,10 +156,15 @@ body{
 
 .commentshowcontainer {
     
-    float: left;
+   
     width: 600px;
-    font-size: 18px;
+    font-size: 16px;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    margin: 10px;
     padding: 10px;
+    width: 300px;
+    height: 500px;
 
 }
 
@@ -156,9 +175,14 @@ body{
 
 .usernamecontainer {
     
-    float: left;
+    
     font-size: 18px;
     margin: 10px;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
 
 }
 
@@ -170,3 +194,76 @@ body{
     padding: 5px;
 
 }
+
+.questioncontainer {
+    
+    width: 500px;
+    margin: 15px auto;
+    left: 350px;
+    font-color: black;
+    font-size: 16px;
+    
+    padding: 10px;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    
+}
+
+.answercontainer{
+    
+    font-size: 12px;
+    color: grey;
+    font-weight: light;
+    float: right;
+    padding: 4px;
+}
+
+.editorspickscontainer{
+    float: right;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    width: 300px;
+    height: 600px;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.imgheadcontainer {
+   padding: -10px;
+   top: -100px; 
+   
+   margin-left: -50px;
+   margin-right: -50px;
+}
+
+
+.imgheadcontainer img {
+    height: 400px;
+    width: 100%;
+
+    
+}
+
+.overlay-text {
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.overlay-text2 {
+    position: absolute;
+    top: 395px;
+    left: 1100px;
+    
+    
+}
+
+
+
+
+
+

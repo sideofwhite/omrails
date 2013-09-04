@@ -1,14 +1,2 @@
-   <div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav"> 
-
-<li><%= link_to "Write Opinion", new_post_comment_path(@post)%></li>
-</div>
-</ul>
-</div>
-
-
-
-
-    <%= render :partial => @post.comments %>
+<%= render :partial => @post.comments %>
 

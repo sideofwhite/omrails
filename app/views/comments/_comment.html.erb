@@ -1,13 +1,22 @@
 <%=div_for(comment) do %>
- <div class="commentcontainer">
+ <div class="questioncontainer">
+ <div class="eventhead">
  <p> 
- 	<%= link_to (comment.title), post_comment_path(@post, comment) %><br><br>
- 	<%= comment.subtitle %><br>
- 	
-    <div class="lightcontainer">
-    <small>Posted by <%= comment.user.name %></small>
- 	
- 	</p>
- 	</div>
+ 	<p2><strong><%= link_to (comment.title), comment_questions_path(comment) %></strong></p2>
+ 	  
 
+ 	</p>
+ 	
+ 	
+ 	<% if user_signed_in? %>
+    <div class="answercontainer">
+    <%= link_to 'Answer', new_comment_question_path(comment)%>
+ 	
+ 	</div>
+    </div>
+    </div>
+ 	
+
+
+ 	<% end %>
  	<% end %>

@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @comment = Comment.find params[:comment_id]
-    @comment.questions
+    @questions = @comment.questions
   end
 
   # GET /questions/1
@@ -25,13 +25,13 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-   @comment = Comment.find(params[:comment_id])
+    @comment = Comment.find(params[:comment_id])
     @question = @comment.questions.create(question_params)
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @comment, notice: 'Question was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @question }
+        format.html { redirect_to comment_questions_path, notice: 'Question was successfully created.' }
+        format.json { render action: 'show', status: :created, location: comment_questions_path }
       else
         format.html { render action: 'new' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -42,11 +42,11 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    respond_to do |format|
+    respond_to do |format| 
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
-      else
+      else            
         format.html { render action: 'edit' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end

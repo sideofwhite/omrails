@@ -1,19 +1,24 @@
+<div class="imgheadcontainer">
+<%= image_tag @post.image %>
+</div>
 
 <div class="span6">
-
 <body id="eventhead">
-   <h1><%= @post.title %></h1>
+ <div class="overlay-text">
+ <%= @post.title %>
+</div>
+ <div class="overlay-text2">
+ <%= link_to "Ask Question", new_post_comment_path(@post), class: "btn btn-primary"%>
+</div>
+
 </body>
 
 <%= render :partial => @post.comments %>
-</div>
-
-<div class="span2">
-
- 
-<%= link_to "Add to event", new_post_comment_path(@post), class: "btn btn-primary"%>
 
 </div>
+
+</div>
+
 
 
 

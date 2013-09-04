@@ -1,4 +1,4 @@
-<%= simple_form_for [@comment, Question.new] do |f| %>
+<%= simple_form_for [@question, @answer, Answer.new] do |f| %>
  <p>
 <div>
   
@@ -8,6 +8,5 @@
 
    
  </p>
- <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+ <p><%= f.submit "Answer", class: "btn btn-primary" %></p>
  <% end %>
- 

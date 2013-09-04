@@ -30,3 +30,7 @@
    <%= link_to 'Edit Wiki', edit_post_path(@post) %> 
 </body>
 </div>
+
+
+<%= image_tag @post.image(:medium) %>
+
