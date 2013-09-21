@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
           :rememberable, :trackable, :validatable
+  has_many :posts
   has_many :comments
   has_many :questions
-  has_many :answers        
+  has_many :answers   
+  acts_as_voter     
 end

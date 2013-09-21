@@ -1,4 +1,9 @@
+<%= link_to "Upvote", like_comment_question_path(@comment, @question), method: :post %>
+<%= @question.votes.size %>
+
+  <%= @question.inspect %>
 <p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Body:</strong>

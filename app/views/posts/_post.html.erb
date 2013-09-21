@@ -1,12 +1,18 @@
-<div class="box">
-    
+<%= div_for(post) do %>
+
+   <div class="description">
+        <%= link_to (post.title), post %>
+  </div>      
+   
+  <div class="description2">
+    <%= time_ago_in_words(post.created_at) %> ago
   
-    <%= link_to (image_tag post.image(:medium)), post %>
-   <strong><p class="description">
-        <%= post.title %>
-    </p></strong>
-    
 </div>
 
-<%= render "posts/editorspicks" %>
+<% end %>
+
+
+
+
+
 

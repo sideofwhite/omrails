@@ -19,7 +19,8 @@ $btnPrimaryBackgroundHighlight: #B23000;
 
 body{
     padding-top: 60px;
-    
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #F5F5F5;
 
 }
@@ -32,8 +33,10 @@ body{
 
 
 .footer{
+    position: relative;
     margin-top: 50px;
     color: $grayLight;
+    bottom: 0px;
     a{
         color: $gray;
     }
@@ -47,9 +50,9 @@ body{
 /* Required for jQuery Masonry */
 
 .box {
-    margin: 20px;
-    padding: 5px;
-    font-size: 18px;
+    margin: 5px;
+    padding: 15px;
+    padding-left:20px;
     line-height: 1.4em;
     float: left;
     
@@ -74,8 +77,8 @@ body{
 }
 
 .box img {
-    width: 100%;
-    width: 700px;
+    
+    width: 400px;
     height: 300px;
     
 }
@@ -105,9 +108,16 @@ body{
 }
 
 .titlecontainer {
-    position: fixed;
-    float: left;
-     float-left: 50px;
+    
+    
+    width: 60%;
+    margin: 10px auto;
+    font-color: black;
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 34px;
+    text-align: center;
+
 }
 
 
@@ -116,6 +126,21 @@ body{
 .description {
     margin: 10px 0 5px;
     text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    width: 60%;
+    padding: 15px;
+    
+}
+
+.description2 {
+    text-align: left;
+    color: grey;
+    font-size: 14px;
+    width: 60%;
+    padding: 2px;
     
 }
 
@@ -129,7 +154,7 @@ body{
 
 #eventhead p2 { 
   text-align: center;
-  font-size: 14px; 
+  font-size: 30px; 
   text-color: black
 } 
 
@@ -146,11 +171,13 @@ body{
 
 .commentcontainer {
     
-    float: left;
+    
     width: 600px;
     font-size: 26px;
     margin: 10px;
     padding: 10px;
+    border:1px solid #D8D8D8;
+    background-color: white;
 
 }
 
@@ -158,7 +185,7 @@ body{
     
    
     width: 600px;
-    font-size: 16px;
+    font-size: 24px;
     border:1px solid #D8D8D8;
     background-color: white;
     margin: 10px;
@@ -196,26 +223,91 @@ body{
 }
 
 .questioncontainer {
-    
-    width: 500px;
-    margin: 15px auto;
-    left: 350px;
+    float: right;
+    width: 400px;
+    margin: 10px;
     font-color: black;
-    font-size: 16px;
-    
     padding: 10px;
-    border:1px solid #D8D8D8;
+    border: 1px solid #D8D8D8;
     background-color: white;
+    font-size: 24px;
     
 }
+
+.descriptioncontainer2{
+   
+    float: right;
+    width: 500px;
+    margin: 10px auto;
+    font-color: black;
+    padding: 10px;
+    border: 1px solid #D8D8D8;
+    background-color: white;
+    font-size: 16px; 
+}
+
+.featuredquestions{
+
+float: left;
+    
+}
+
+
+.answercontainer2{
+   
+
+    width: 800px;
+    margin: 10px auto;
+    font-color: black;
+    padding: 10px;
+    border: 1px solid #D8D8D8;
+    background-color: white;
+    font-size: 16px;
+
+    
+}
+
+.underanswercontainer2{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin: 10px auto;
+    width: 800px;
+    font-size: 12px;
+    color: grey;
+}
+
+.besideanswercontainer2{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin: 10px auto;
+    width: 1200px;
+    font-size: 12px;
+    color: grey;
+    height: 50px;
+
+}
+
+
+.answertitlecontainer{
+    color: blue;
+}
+    
+   
+    
+
+
+    
+    
+
 
 .answercontainer{
     
     font-size: 12px;
-    color: grey;
+    color: #B23000;
     font-weight: light;
     float: right;
     padding: 4px;
+
 }
 
 .editorspickscontainer{
@@ -230,37 +322,95 @@ body{
 }
 
 .imgheadcontainer {
-   padding: -10px;
-   top: -100px; 
-   
-   margin-left: -50px;
-   margin-right: -50px;
+   position: fixed;
+   margin-left: -155px;
+   float: left;
+
+}
+
+
+.imggreensquarecontainer {
+    
+}
+
+.imggreensquarecontainer img{
+    height: 50px;
+    width: 50px;
+    float: left;
 }
 
 
 .imgheadcontainer img {
-    height: 400px;
-    width: 100%;
+    
+    height: 680px;
+    width: 600px;
+    margin-top: -20px;
+
+.imgindex img {
+    width: 900px;
+}
+    
 
     
 }
 
 .overlay-text {
+    
     position: absolute;
-    top: 400px;
-    left: 50px;
-    color: white;
+    top: 80px;
+    left: 360px;
     font-size: 32px;
-    font-weight: bold;
+    color: white;
+    
+}
+.overlay-text2{
+    position: fixed;
+    top: 70px;
+    left: 20px;
 }
 
-.overlay-text2 {
-    position: absolute;
-    top: 395px;
-    left: 1100px;
-    
+.postrules{
+    margin: 15px auto;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    padding: 20px;
+    width: 815px;
+
+}
+
+.line {
+    color: black;
+    text-decoration: line-through;
     
 }
+
+.floatright {
+    float: right;
+}
+
+.red {
+    color: #B23000;
+}
+
+.darkgrey {
+    color: #34282C;
+    font-weight: bold;
+    float: right;
+}
+/////////Simple Form
+.form{
+    margin: 15px auto;
+    border:1px solid #D8D8D8;
+    background-color: white;
+    padding: 20px;
+    width: 815px;
+
+}
+
+
+
+
+
 
 
 

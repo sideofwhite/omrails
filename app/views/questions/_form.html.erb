@@ -1,13 +1,21 @@
 <%= simple_form_for [@comment, Question.new] do |f| %>
  <p>
-<div>
-  
-  <%= f.input :body, as: :text, input_html: { rows: "10" } %>
+<div class="form">
+  <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 800px' }, label: false, placeholder: "Something about you relevant to the answer" %>
+  <%= f.input :body, as: :text, input_html: { rows: "10", :style=> 'width: 800px' }, label: false,placeholder: "Write Answer" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
+ 
 
    
  </p>
- <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+ <p><%= f.submit "Answer", class: "btn btn-primary" %></p>
+ </div>
+
+ 
+ <div class="besideform">
+ 
+ </div>
+
+
  <% end %>
  

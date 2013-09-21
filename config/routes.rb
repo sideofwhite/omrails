@@ -7,11 +7,15 @@ Omrails::Application.routes.draw do
       
 
   resources :comments do
-      resources :questions
-    end
+  resources :questions do
+   put :upvote, :on => :member, :as => :like
+  end
+end
 
   resources :questions do  
-      resources :answers
+      resources :answers 
+      
+      
     end 
 
     resources :pictures
@@ -20,6 +24,7 @@ Omrails::Application.routes.draw do
   devise_for :users
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
+
   
 
 

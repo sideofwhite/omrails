@@ -1,11 +1,12 @@
 <%= simple_form_for [@post, Comment.new] do |f| %>
  <p>
-<div>
-  <%= f.input :body, as: :text, input_html: { rows: "10" } %>
+<div class="form">
+  <%= f.input :body, as: :text, input_html: { rows: "5", :style=> 'width: 400px' }, label: false,placeholder: "Add Question" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
+  
 
    
  </p>
- <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+ <p><%= f.submit "Ask Question", class: "btn btn-primary" %></p>
+ </div>
  <% end %>

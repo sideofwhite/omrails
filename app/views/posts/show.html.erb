@@ -1,23 +1,46 @@
-<div class="imgheadcontainer">
-<%= image_tag @post.image %>
+<div class="titlecontainer">
+<%= @post.title %>
+
+</div>
 </div>
 
-<div class="span6">
-<body id="eventhead">
- <div class="overlay-text">
- <%= @post.title %>
+<div class="span4 offset0">
+
+<div class="descriptioncontainer2">
+
+<%= @post.description %><br>
+<%= time_ago_in_words(@post.created_at) %> ago
 </div>
+<%= render :partial => @post.comments %>
+</div>
+ 
+
  <div class="overlay-text2">
  <%= link_to "Ask Question", new_post_comment_path(@post), class: "btn btn-primary"%>
+
 </div>
+
+
+<div class="featuredquestions">
+<%= render :partial => @post.comments %>	
+</div>
+
+
+
 
 </body>
 
-<%= render :partial => @post.comments %>
 
-</div>
 
-</div>
+
+
+
+
+
+
+
+
+
 
 
 

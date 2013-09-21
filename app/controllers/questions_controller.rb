@@ -1,5 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  
+ def upvote
+@question = Question.find params[:question_id]
+@question.liked_by current_user
+redirect_to @questions
+end
+
 
   # GET /questions
   # GET /questions.json
@@ -71,6 +78,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :comment_id, :user_id)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id)
     end
 end

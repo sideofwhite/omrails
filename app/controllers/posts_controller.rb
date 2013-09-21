@@ -6,34 +6,38 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order("created_at desc")
-  
+    @postlast = Post.order("created_at DESC").limit(1)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
   @post = Post.find(params[:id])
+  @question1 = Question.order("created_at DESC").limit(1)
+
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   # GET /posts/1/edit
   def edit
+  @post = current_user.posts.find(post_params)
   
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    
+    @post = current_user.posts.new(post_params)
     
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_path, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }

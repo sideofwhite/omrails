@@ -1,22 +1,24 @@
-<%=div_for(comment) do %>
+<%= div_for(comment) do %>
  <div class="questioncontainer">
  <div class="eventhead">
- <p> 
- 	<p2><strong><%= link_to (comment.title), comment_questions_path(comment) %></strong></p2>
- 	  
 
- 	</p>
+ 	<p2><%= link_to (comment.body), comment_questions_path(comment) %></p2>
+ 	
+ 	
+ 	</div>
+ 	
  	
  	
  	<% if user_signed_in? %>
     <div class="answercontainer">
-    <%= link_to 'Answer', new_comment_question_path(comment)%>
- 	
+     <%= link_to 'Answer', new_comment_question_path(comment)%>
+    
  	</div>
     </div>
-    </div>
  	
 
+<% end %>
+<% end %>
 
- 	<% end %>
- 	<% end %>
+ 
+ 	
