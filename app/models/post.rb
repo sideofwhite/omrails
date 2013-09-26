@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-has_attached_file :image, styles: { :small => "150x150>", :medium => "400x400#", :large => "640x640" }
+has_attached_file :image, styles: { :small => "150x150>", :medium => "740x340!", :large => "840x340!" }
 
 
 validates :description, presence: true

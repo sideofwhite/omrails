@@ -7,25 +7,37 @@
 <% end %>
   
   
-
-  <div class="answercontainer2">
-  <div class="darkgrey">
-  Username<br>
+  
+<div class="span3">
+<div class="besideanswercontainer2">
+<div class="darkgrey">
+  Username
   </div>
-  <div class="answertitlecontainer">
+</div>
+<div class="besideanswercontainer2">
+<div class="blue">
   <%= question.title %><br>
   
   </div>
+</div>
+</div>
+
+
+
+
+  <div class="span8">
+  <div class="answercontainer2">
   <%= question.body %>
   </div>
   <div class="underanswercontainer2">
   <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div class="floatright">
-Flag
+Flag -
 Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 </div>
+
 
 <% if current_user.try(:admin?) %>
 <div class="underanswercontainer2">
@@ -36,6 +48,7 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 <div class="line">
 <hr />
+</div>
 </div>
 
 

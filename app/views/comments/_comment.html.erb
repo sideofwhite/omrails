@@ -1,24 +1,29 @@
+
 <%= div_for(comment) do %>
+ <div class="span8">
  <div class="questioncontainer">
- <div class="eventhead">
+<%= link_to (comment.body), comment_questions_path(comment) %>
+ </div>
 
- 	<p2><%= link_to (comment.body), comment_questions_path(comment) %></p2>
- 	
- 	
- 	</div>
- 	
- 	
- 	
- 	<% if user_signed_in? %>
-    <div class="answercontainer">
-     <%= link_to 'Answer', new_comment_question_path(comment)%>
-    
- 	</div>
-    </div>
- 	
+ <% if comment.questions.count > 0 %>
+  
+  <div class="featuredquestions">
+  <div class="answertitle">
+  <%= comment.questions.last.try(:[],:title) %><br>
+  </div>
+  <%= comment.questions.last.try(:[],:body)[0,400] %>
+  <%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
+  </div>
+  <% end %>	
+ 
+ <div class="lightcontainer">
+ <div class="red">
+ <%= comment.questions.count %> Answers
+ </div>
+</div>
+</div>
 
-<% end %>
-<% end %>
+
+ <% end %>
 
  
- 	

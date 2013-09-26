@@ -1,34 +1,40 @@
+
+<div class="span8">
 <div class="titlecontainer">
 <%= @post.title %>
-
 </div>
 </div>
 
-<div class="span4 offset0">
+<div class="span8">
+<div class="imagepadding">
+<%= image_tag @post.image(:medium) %>
+</div>
+</div>
 
+
+<div class="span3">
 <div class="descriptioncontainer2">
-
+<strong><%= time_ago_in_words(@post.created_at) %> ago</strong><br>
 <%= @post.description %><br>
-<%= time_ago_in_words(@post.created_at) %> ago
+<%= link_to ("Ask Question"), new_post_comment_path(@post, @comment), class: "button" %>
 </div>
+</div>
+
+
+
 <%= render :partial => @post.comments %>
-</div>
+
+
+
+
+
+
+
+
+
  
 
- <div class="overlay-text2">
- <%= link_to "Ask Question", new_post_comment_path(@post), class: "btn btn-primary"%>
 
-</div>
-
-
-<div class="featuredquestions">
-<%= render :partial => @post.comments %>	
-</div>
-
-
-
-
-</body>
 
 
 

@@ -34,3 +34,29 @@
 
 <%= image_tag @post.image(:medium) %>
 
+
+<div class="overlay-text2">
+ <%= link_to "Ask Question", new_post_comment_path(@post), class: "btn btn-primary"%>
+</div>
+
+
+
+   <div class="span8">
+   <div class="description">
+        <%= link_to (post.title), post %>
+  </div>  
+  <div class="hidden-phone">
+  <div class="subtitle">
+   <%= post.description.split[0..30].join(" ") %>... 
+   </div>
+   </div>
+  <div class="description2">
+    <%= time_ago_in_words(post.created_at) %> ago |
+   
+   <%= post.comments.count %> Questions
+   </div>
+  </div>
+
+
+  <%= image_tag @postlast.last.image(:large) %>
+

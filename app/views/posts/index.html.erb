@@ -1,5 +1,12 @@
 
-  <%= render @posts %>
+<div class="span12">
+<div class="add">
+<%= link_to "+", new_post_path %>
+</div>
+</div>
+<%= image_tag @postlast.last.image(:large) %>
+
+ <%= render @posts %>
 
 
     

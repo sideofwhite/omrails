@@ -13,7 +13,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
   @post = Post.find(params[:id])
-  @question1 = Question.order("created_at DESC").limit(1)
+  @comments = Post.order("created_at desc")
+  
 
   end
 
