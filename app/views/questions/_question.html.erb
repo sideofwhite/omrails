@@ -1,31 +1,58 @@
-<%= div_for(question) do %>
-
+<% @comment.questions.order("cached_votes_total desc").each do |question| %>
 <% if question.votes.size > 0 %>
-<div class="imggreensquarecontainer">
-<img src="http://www.iconsdb.com/icons/preview/navy-blue/square-outline-xxl.png" alt="Big Boat" >
-</div>
-<% end %>
-  
-  
-  
-<div class="span3">
-<div class="besideanswercontainer2">
+
+<div class="span9">
+
+<img src="http://i.imgur.com/A4C6tMa.png" >
+<div class="verifiedanswer">
 <div class="darkgrey">
-  Username
+  <%= question.user.name %>
   </div>
-</div>
-<div class="besideanswercontainer2">
 <div class="blue">
   <%= question.title %><br>
-  
   </div>
 </div>
 </div>
 
+ <div class="span9">
+  <div class="verifiedanswer">
+  <%= question.body %>
+  </div>
+  <div class="underanswercontainer2">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div class="floatright">
+Flag -
+Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 
 
-  <div class="span8">
+</div>
+</div>
+
+<div class="line">
+<hr />
+</div>
+
+
+<% else %>
+ <div class="span8">
+<div class="answercontainer2">
+<div class="darkgrey">
+  <%= question.user.name %>
+  </div>
+<div class="blue">
+  <%= question.title %><br>
+  </div>
+</div>
+</div>
+  
+  
+
+
+
+
+ <div class="span8">
   <div class="answercontainer2">
   <%= question.body %>
   </div>
@@ -35,24 +62,31 @@
 <div class="floatright">
 Flag -
 Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-</div>
-</div>
 
 
-<% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to "Upvote", like_comment_question_path(@comment, @question), method: :put %>
-<%= link_to 'Edit', edit_comment_question_path(@comment, @question) %>
-<%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</div>
 </div>
 
 <div class="line">
 <hr />
 </div>
-</div>
-
 
 <% end %>
+
+
+<% if current_user.try(:admin?) %>
+<div class="underanswercontainer2">
+<%= link_to "Upvote", upvote_comment_question_path(@comment, question) %>
+<%= link_to 'Edit', edit_comment_question_path(@comment, question) %>
+<%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
+
+
+
+
+
 <% end %>
 
 

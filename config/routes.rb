@@ -6,9 +6,11 @@ Omrails::Application.routes.draw do
   end
       
 
-  resources :comments do
+resources :comments do
   resources :questions do
-   put :upvote, :on => :member, :as => :like
+    member do
+      get :upvote
+    end
   end
 end
 

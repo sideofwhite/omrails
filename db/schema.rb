@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914000424) do
+ActiveRecord::Schema.define(version: 20131001223506) do
 
   create_table "answers", force: true do |t|
     t.string   "body"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20130914000424) do
     t.string   "image_remote_url"
     t.string   "country"
     t.string   "title"
+    t.integer  "cached_votes_total", default: 0
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20130914000424) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.integer  "cached_votes_total", default: 0
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"

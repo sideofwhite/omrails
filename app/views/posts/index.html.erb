@@ -1,12 +1,14 @@
+<div class=" span2 offset12">
+<%= link_to image_tag('http://i.imgur.com/jcbf7qC.png'), new_post_path %>
 
-<div class="span12">
-<div class="add">
-<%= link_to "+", new_post_path %>
 </div>
-</div>
-<%= image_tag @postlast.last.image(:large) %>
+
+
+
 
  <%= render @posts %>
-
+<div class="span8 offset1">
+ <%= will_paginate @pins %>
+</div>
 
     

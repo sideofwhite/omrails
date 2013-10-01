@@ -2,9 +2,9 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   
  def upvote
-@question = Question.find params[:question_id]
+@question = Question.find params[:id]
 @question.liked_by current_user
-redirect_to @questions
+redirect_to comment_questions_path
 end
 
 

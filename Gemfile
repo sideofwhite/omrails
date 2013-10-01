@@ -8,6 +8,8 @@ gem 'simple_form'
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
 gem 'bootswatch-rails'
 gem 'acts_as_votable', '0.7.1'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use sqlite3 as the database for Active Record
 group :production do

@@ -60,3 +60,58 @@
 
   <%= image_tag @postlast.last.image(:large) %>
 
+
+  <div class="headimg">
+<%= image_tag @postlast.last.image(:large) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%= div_for(post) do %>
+
+  <div class="box">
+   <div class="span4 offset1">
+  
+  <%= image_tag post.image(:medium) %>    
+     
+      
+
+      <div class="description">
+        <%= link_to (post.title), post %>
+  </div>  
+  
+  <div class="subtitle">
+   <%= post.description.split[0..30].join(" ") %>... 
+   </div>
+   
+ 
+  
+  <% if post.comments.count > 0 %>
+  <div class="count">
+  <%= link_to (post.comments.last.try(:[],:body)), comment_questions_path(post.comments.last), class: "blue" %>
+   </div>
+   <% end %>
+
+
+
+  <div class="description2">
+    <%= time_ago_in_words(post.created_at) %> ago |
+   <%= post.comments.count %> Questions
+   </div>
+ 
+<div class="line">
+<hr />
+</div>
+ </div>
+
+
+<% end %>
+

@@ -1,28 +1,36 @@
 <%= div_for(post) do %>
 
-   <div class="span8">
-   <div class="border">
-   <div class="description">
+  <div class="span6 offset1"> 
+  
+  <%= image_tag post.image(:medium) %>    
+   </div> 
+    <div class="span8 offset1">  
+      <div class="description">
         <%= link_to (post.title), post %>
   </div>  
-  <div class="hidden-phone">
+  
   <div class="subtitle">
    <%= post.description.split[0..30].join(" ") %>... 
    </div>
-   </div>
+   
  
+  
   <% if post.comments.count > 0 %>
   <div class="count">
   <%= link_to (post.comments.last.try(:[],:body)), comment_questions_path(post.comments.last), class: "blue" %>
    </div>
    <% end %>
 
+
+
   <div class="description2">
     <%= time_ago_in_words(post.created_at) %> ago |
    <%= post.comments.count %> Questions
    </div>
- </div>
-
+ 
+<div class="line">
+<hr />
+</div>
   
 
 <% end %>
