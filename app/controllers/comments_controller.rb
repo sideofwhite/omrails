@@ -1,11 +1,22 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+  
+ def upvote
+@comment = Comment.find params[:id]
+@comment.liked_by current_user
+redirect_to posts_path
+end
+
+
+
+
   # GET /comments
   # GET /comments.json
   def index
     @post = Post.find params[:post_id]
     @post.comments
+    @comment = Comment.find(:all, :order => "id desc", :limit => 2).reverse
   end
 
   # GET /comments/1

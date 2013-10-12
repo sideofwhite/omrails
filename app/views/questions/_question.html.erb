@@ -1,46 +1,83 @@
+<div class="container">
+<div class="row">
+<div class="span2">
+<div class="floatright">
+
+ 
+</div>
+</div>
+<div class="span8">
+<div class="questioncontainer2">
+<%= @comment.body %>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="span8 offset2">
+<div class="row">
+<hr />
+<div class="questioncontainer3">  
+
+<%= link_to 'Answer', new_comment_question_path(@comment), class: "button2" %>
+</div>
+<div class="number">
+<%= @comment.questions.count %> Answers
+</div>
+</div>
+</div>
+
+
+
+
 <% @comment.questions.order("cached_votes_total desc").each do |question| %>
 <% if question.votes.size > 0 %>
-
-<div class="span9">
-
-<img src="http://i.imgur.com/A4C6tMa.png" >
+<div class="padding">
+<div class="container">
+<div class="row">
+<div class="span2">
+<div class="lightcontainer3">
+Verified Answer
+</div>
 <div class="verifiedanswer">
-<div class="darkgrey">
-  <%= question.user.name %>
-  </div>
-<div class="blue">
-  <%= question.title %><br>
+ <div class="green"> 
+<%= question.user.name %>
+</div>  
+  <div class="blue">
+<%= question.title %><br>
   </div>
 </div>
 </div>
 
- <div class="span9">
-  <div class="verifiedanswer">
-  <%= question.body %>
-  </div>
-  <div class="underanswercontainer2">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<div class="floatright">
+<div class="span8"> 
+<div class="body">
+<%= question.body %>
+</div>
+
+<div class="underanswercontainer2">
+ 
 Flag -
 Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-
-
-
 </div>
-</div>
-
-<div class="line">
 <hr />
 </div>
+</div>
+</div>
+</div>
+
+
 
 
 <% else %>
- <div class="span8">
+ <div class="padding">
+<div class="container">
+<div class="row">
+<div class="span2">
 <div class="answercontainer2">
-<div class="darkgrey">
-  <%= question.user.name %>
-  </div>
+<%= question.user.name %>
 <div class="blue">
   <%= question.title %><br>
   </div>
@@ -53,26 +90,22 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 
  <div class="span8">
-  <div class="answercontainer2">
-  <%= question.body %>
-  </div>
-  <div class="underanswercontainer2">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<div class="floatright">
+
+ <div class="body">
+ <%= question.body %>
+
+</div>
+<div class="underanswercontainer2">
 Flag -
-Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-
-
-
+Posted <%= time_ago_in_words(question.created_at) %> ago
 </div>
-</div>
-
-<div class="line">
 <hr />
+</div>
+</div>
 </div>
 
 <% end %>
+
 
 
 <% if current_user.try(:admin?) %>
@@ -82,12 +115,9 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <% end %>
-
-
-
-
-
 <% end %>
+
+
 
 
 

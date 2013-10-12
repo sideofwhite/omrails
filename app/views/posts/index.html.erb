@@ -1,14 +1,9 @@
-<div class=" span2 offset12">
-<%= link_to image_tag('http://i.imgur.com/jcbf7qC.png'), new_post_path %>
 
+<%= render 'posts/post' %>
+
+<div class="span10">
+ <%= will_paginate @posts %>
 </div>
 
-
-
-
- <%= render @posts %>
-<div class="span8 offset1">
- <%= will_paginate @pins %>
-</div>
 
     

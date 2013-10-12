@@ -1,29 +1,47 @@
 
 <%= div_for(comment) do %>
- <div class="span8">
+ <div class="span8 offset1">
+ 
+ <div class="lightcontainer2">
+ <%= time_ago_in_words(comment.created_at) %> ago
+ </div>	
  <div class="questioncontainer">
 <%= link_to (comment.body), comment_questions_path(comment) %>
+
+
  </div>
 
  <% if comment.questions.count > 0 %>
   
-  <div class="featuredquestions">
+  <div class="lightcontainer">
+
+ 1 of <%= comment.questions.count %> Answers
+ 
+</div>
+
+ <div class="featuredquestions">
   <div class="answertitle">
-  <%= comment.questions.last.try(:[],:title) %><br>
+  <strong><%= comment.questions.last.try(:[],:title) %></strong><br>
   </div>
   <%= comment.questions.last.try(:[],:body)[0,400] %>
   <%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
   </div>
-  <% end %>	
+   <% end %>	
  
- <div class="lightcontainer">
- <div class="red">
- <%= comment.questions.count %> Answers
- </div>
-</div>
-</div>
+<hr />
 
 
- <% end %>
+ <% if current_user.try(:admin?) %>
+<div class="underanswercontainer2">
+<%= link_to "Upvote", upvote_post_comment_path(@post, comment) %>
+</div>
+<% end %>
+
+
+</div>
+
+<% end %>
+
+
 
  

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-has_attached_file :image, styles: { :small => "400x250!", :medium => "740x340!", :large => "840x340!" }
+has_attached_file :image, styles: { :small => "400x250!", :medium => "740x340>", :large => "840x340!" }
 
 
 validates :description, presence: true
@@ -8,7 +8,7 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
                              size: { less_than: 5.megabytes }
 
 belongs_to :user
-
+acts_as_votable
 has_many :comments
 has_many :questions, :through => :comments
 has_many :pictures

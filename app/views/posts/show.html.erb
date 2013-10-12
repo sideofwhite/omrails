@@ -1,23 +1,44 @@
-
-<div class="span8">
+<div class="container">
+ <div class="row">
+<div class="span4 offset1">
+  <%= image_tag @post.image(:medium) %>    
+ </div>
+<div class="span6">
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
+
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+<div class="blue">
+<%= @post.country %>
 </div>
 
-<div class="span8">
-<div class="imagepadding">
-<%= image_tag @post.image(:medium) %>
+</div>
 </div>
 </div>
 
 
-<div class="span3">
+<div class="span10 offset1">
+<div class="row">
 <div class="descriptioncontainer2">
-<strong><%= time_ago_in_words(@post.created_at) %> ago</strong><br>
-<%= @post.description %><br>
-<%= link_to ("Ask Question"), new_post_comment_path(@post, @comment), class: "button" %>
+<%= @post.description %>
 </div>
+</div>
+</div>
+
+<div class="row">
+
+
+<div class="span10 offset1">
+<hr />
+<div class="questioncontainer3">  
+
+<%= link_to 'Answer', new_post_comment_path(@post), class: "button2" %>
+</div>
+<div class="number2">
+<%= @post.comments.count %> Questions
+</div>
+
 </div>
 
 

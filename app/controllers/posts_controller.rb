@@ -2,11 +2,19 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+   
+   def upvote
+@post = Post.find params[:id]
+@post.liked_by current_user
+redirect_to posts_path
+end
+
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.order("created_at desc").page(params[:page]).per_page(20)
-    @postlast = Post.order("created_at DESC").limit(1)
+    @postlast = Post.order("created_at asc")
   end
 
   # GET /posts/1
@@ -25,7 +33,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-  @post = current_user.posts.find(post_params)
+ 
   
   end
 

@@ -115,3 +115,111 @@
 
 <% end %>
 
+
+
+<div class="span2 offset12">
+<%= link_to image_tag('http://i.imgur.com/uSmWLvL.png'), new_post_path %>
+
+</div>
+
+
+@posts = Post.order("created_at desc").offset(1)
+    @postlast = Post.order("created_at asc")
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+<div class="span9">
+<div class="topimage">
+<%= image_tag @postlast.last.image(:large) %>
+</div>
+</div>
+<div class="span3">
+<div class="toptitle">
+<%= link_to @postlast.last.title, @post %>
+</div>
+ <div class="description4">
+    <%= time_ago_in_words(@postlast.last.created_at) %> ago |
+   <%= @postlast.last.comments.count %> Questions
+   </div>
+
+
+</div>
+</div>
+</div>
+
+
+
+<div class="span8 offset11">
+<div class="button">
+<%= link_to 'Answer', new_comment_question_path(@comment), class: "btn btn-primary" %>
+</div>
+</div>
+
+
+<div class="span8">
+<div class="imagepadding">
+<%= image_tag @post.image(:medium) %>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="span9">
+<div class="row">
+ <% if post.comments.count > 0 %>
+  <div class="count">
+  <%= link_to (post.comments.last.try(:[],:body)), comment_questions_path(post.comments.last), class: "blue" %>
+   </div>
+   <% else %>
+   <%= link_to ('Ask the first question'), new_post_comment_path(post, @comment), class: "first" %>
+   <% end %>
+ </div>
+</div>
+<div class="span9">
+<hr/>
+</div>
+
+
+<img src="http://i.imgur.com/A4C6tMa.png" >
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="span2">
+<div class="blue">
+<div class="q">
+<strong><%= post.comments.count %></strong> Q 
+</div>
+</div>
+ <% if post.comments.count > 0 %>
+  <div class="lightcontainer2">
+  Last Question
+  <strong><%= link_to ("(See all)"), post_path(post) %></strong>
+</div>
+  <div class="count">
+  <%= link_to (post.comments.last.try(:[],:body)), comment_questions_path(post.comments.last), class: "blue" %>
+   </div>
+   <% else %>
+   <%= link_to ('Ask the first question'), new_post_comment_path(post, @comment), class: "first" %>
+   <% end %>
+ </div>
+

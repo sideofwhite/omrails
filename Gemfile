@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-gem 'bootstrap-sass', '2.3.2.1'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'devise'
 gem 'simple_form'
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
