@@ -1,7 +1,7 @@
 <%= simple_form_for [@post, Comment.new] do |f| %>
  <p>
 <div class="form">
-  <%= f.input :body, as: :text, input_html: { rows: "5", :style=> 'width: 400px' }, label: false,placeholder: "Add Question" %>
+  <%= f.input :body, as: :text, input_html: { rows: "5", :style=> 'width: 90%', :class => "create" }, label: false,placeholder: "Add Question" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   
 

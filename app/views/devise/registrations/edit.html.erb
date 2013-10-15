@@ -1,6 +1,16 @@
+
 <div class="floatright">
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-large" %>
 </div>
+
+<div class="span3 offset1">
+<div class="titlecontainer">
+Edit your profile
+<hr/>
+</div>
+
+
+
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form' }) do |f| %>
   <%= f.error_notification %>
@@ -13,7 +23,6 @@
 
  
     <%= f.submit "Update", class: "btn btn-primary"%>
-  </div>
+ </div> 
 <% end %>
-
 

@@ -1,18 +1,25 @@
 $linkColor: black;
-$navbarHeight: 40px;
+$navbarHeight: 50px;
 $btnPrimaryBackground: #B23000;
 $btnPrimaryBackgroundHighlight: #B23000;
 
+
+
+
+
+@import "bootswatch/readable/variables";
+
 @import 'bootstrap';
 
+@import "bootstrap-responsive";
 
-
+@import "bootswatch/readable/bootswatch";
 
 
 
 
 body{
-    padding-top: 50px;
+    padding-top: 60px;
     font-weight: normal;
     background-color: white;
     font-family: 'Source Sans Pro', sans-serif;
@@ -31,7 +38,7 @@ body{
     padding-right: 30px;
     padding-bottom: 0px;
     padding-top: 5px;
-    margin-top: 6px;
+    margin-top: 8px;
     font-weight: bold;
     
     
@@ -53,7 +60,10 @@ body{
 }
 
 
+.headername {
+    font-size: 22px;
 
+}
  .navbar.transparent.navbar-inverse .navbar-inner {
    border: 0 !important;
    background: rgba(255,255,255,0.95);
@@ -75,6 +85,16 @@ body{
     color: #B23000;
     font-size: 20px;
     float: right;
+
+    
+}
+
+.button3 {
+   
+    opacity: 0.2;
+    color: #B23000;
+    font-size: 20px;
+    float: right;
     
 }
 
@@ -82,7 +102,7 @@ body{
     
     position: relative;
     margin-top: 50px;
-    
+    color: $grayLight;
     bottom: 0px;
     a{
         color: $gray;
@@ -119,10 +139,11 @@ body{
 .titlecontainer {
     
     font-color: black;
-    font-size: 34px;
+    font-size: 38px;
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
+    font-weight: lighter;
 
 }
 
@@ -132,11 +153,13 @@ body{
 .description {
     
     
-    
-    font-size: 30px;
+    color: white;
+    font-size: 38px;
     margin-bottom: 5px;
-    
     line-height: 110%;
+    font-weight: lighter;
+    
+    
 
     
     
@@ -154,12 +177,18 @@ body{
 
 .description2 {
     
-    
+    display:inline-block;
     color: grey;
-    font-size: 14px;
+    font-size: 12px;
    
      
     
+}
+
+.white {
+    color: white;
+    text-decoration: none;
+    linkColor: red;
 }
 
 .description4 {
@@ -179,15 +208,14 @@ body{
 
 
 .count{
-    
-    
-     
-    
-    
-    
+font-size: 22px;
+margin-bottom: 10px;
+
 }
+
+
 .subtitle{
-    font-size: 16px;
+    font-size: 18px;
     padding-bottom: 2px;
     
     
@@ -265,24 +293,36 @@ body{
 
 .lightcontainer{
     
-    font-size: 14px;
+    font-size: 18px;
     color: grey;
-    
+    display: inline-block;
    
 }
 
 .lightcontainer2{
     
-    font-size: 14px;
-    color: #B23000;
+    font-size: 18px;
+    color: grey;
+    color: #3333CC;
+    display: inline-block;
+    font-weight: normal;
     
    
 }
 
 .lightcontainer3{
-    text-align: right;
+    padding-top: 10px;
     font-size: 10px;
     color: grey;
+    
+   
+}
+
+.lightcontainer4{
+    
+    font-size: 10px;
+    color: grey;
+    display: inline-block;
     
    
 }
@@ -291,7 +331,7 @@ body{
 
     
     font-color: black;
-    font-size: 20px;
+    font-size: 26px;
     padding-bottom: 10px;
     
 
@@ -301,11 +341,11 @@ body{
 
 .questioncontainer2 {
 
-    padding-top: 30px;
     font-color: black;
-    font-size: 28px;
+    font-size: 32px;
     padding-bottom: 3px;
     line-height: 110%;
+    font-weight: lighter;
     
     
     
@@ -332,9 +372,9 @@ padding-bottom: 5px;
    
     
     font-color: black;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 15px;
-    font-size: 18px; 
+    font-size: 20px; 
     
 
 
@@ -368,9 +408,9 @@ width: 500px;
    
 
     
-    text-align: right;
+    
     font-color: black;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 140%;
 
     
@@ -378,10 +418,10 @@ width: 500px;
 
 .verifiedanswer {
 
-    text-align: right;
+    
     font-color: black;
-    font-size: 16px;
-    line-height: 150%;
+    font-size: 18px;
+    line-height: 140%;
     
 }
 .body{
@@ -412,6 +452,7 @@ width: 500px;
 
 .blue{
     color: #3333CC;
+
 }
 
 .answertitle  {
@@ -510,6 +551,8 @@ padding: 0px; }
 
 /////////Simple Form
 .form{
+
+
    
 
 }
@@ -521,10 +564,10 @@ border:1px solid white;
 
 
 .first {
-     
+    font-size: 20px; 
     color: grey;
-    padding-bottom: 10px;
-    font-weight0: bold;
+    
+    
     
 }
 .first2 {
@@ -560,7 +603,7 @@ border:1px solid white;
 
 .number {
     font-size: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     
 }
 
@@ -572,8 +615,9 @@ border:1px solid white;
 
 
 .q {
-    font-size: 20px;
-    text-align: right;
+    
+    font-size: 18px;
+    
 }
 
 
@@ -604,7 +648,7 @@ border:1px solid white;
 
 .create {
     
-    border:1px solid white;
+    border:1px solid #eeeee;
     resize: none;
     
 }
@@ -614,7 +658,29 @@ border:1px solid white;
 }
 
 .padding2 {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+}
+
+.info {
+    font-size: 20px;
+    display:inline-block;
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+
+.info2 {
+    font-size: 20px;
+    display:inline-block;
+    border:1px solid #DFDFDF;
+    background-color: #DFDFDF; 
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
 }
 
 
@@ -624,4 +690,68 @@ border:1px solid white;
 
 
 
+
+.background {
+  border:1px solid #EEEEEE;
+  background-color: #EEEEEE; 
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 5px;
+  padding-right: 3px;
+}
+
+.background2 {
+  border:1px solid #EEEEEE;
+  background-color: #EEEEEE; 
+  
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.margin3 {
+    margin-top: 10px;
+}
+
+
+.x {
+    font-size: 30px;
+    color: #B23000;
+   
+
+}
+
+
+
+.border5 {
+    border:1px solid black;
+    padding: 15px;
+    margin: 10px;
+}
+
+.blackborder {
+  padding-bottom: 5px;
+  
+}
+
+.questionnumber {
+    
+    font-size: 22px;
+    color: #B23000;
+    padding-bottom: 10px;
+}
+
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+}
+
+
+.formbackground {
+border:1px solid grey;
+  background-color: white;
+  padding: 10px;
+    
+}
 

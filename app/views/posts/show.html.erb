@@ -7,21 +7,14 @@
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
-
+<div class="info">
 <%= time_ago_in_words(@post.created_at) %> ago <br>
-<div class="blue">
 <%= @post.country %>
 </div>
 
-</div>
-</div>
-</div>
-
-
-<div class="span10 offset1">
-<div class="row">
 <div class="descriptioncontainer2">
 <%= @post.description %>
+</div>
 </div>
 </div>
 </div>
@@ -33,10 +26,10 @@
 <hr />
 <div class="questioncontainer3">  
 
-<%= link_to 'Answer', new_post_comment_path(@post), class: "button2" %>
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button2" %>
 </div>
 <div class="number2">
-<%= @post.comments.count %> Questions
+<%= @post.comments.count %> Questions 
 </div>
 
 </div>

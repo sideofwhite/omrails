@@ -1,9 +1,39 @@
-<div class="span6">
+<div class="container">
+<div class="row">
+<div class="span2">
+<div class="floatright">
+
+ 
+</div>
+</div>
+<div class="span8">
 <div class="questioncontainer2">
 <%= @comment.body %>
 </div>
-<hr/>
-<%= render 'form' %>
 </div>
 
+</div>
+</div>
+
+
+
+<div class="span8 offset2">
+<div class="row">
+<hr />
+<div class="questioncontainer3">  
+
+
+<strong><%= link_to 'Answer', new_comment_question_path(@comment), class: "button2" %></strong>
+</div>
+<div class="number">
+<strong><%= @comment.questions.count %> Answers</strong>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="span8 offset2">
+<%= render 'form' %>
+</div>
+</div>
 

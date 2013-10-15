@@ -1,11 +1,55 @@
-<%= render 'form' %>
-<div class="postrules">
-<strong>Before you ask question:</strong><br>
-Is there already a question like yours?<br>
-Does this question encourage thoughful answers?<br>
-Is it respectful and appropriate?
+<div class="container">
+ <div class="row">
+<div class="span4 offset1">
+  <%= image_tag @post.image(:medium) %>    
+ </div>
+<div class="span6">
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
+<div class="info">
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+<%= @post.country %>
+</div>
 
+<div class="descriptioncontainer2">
+<%= @post.description %>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+
+
+<div class="span10 offset1">
+<hr />
+<div class="questioncontainer3">  
+<div class="button3">
+Ask Question
+</div>
+</div>
+
+<div class="number2">
+<%= @post.comments.count %> Questions 
+</div>
 
 </div>
+
+
+
+<div class="span10 offset1">
+<div class="floatright">
+
+<%= link_to ("x"), post_path(@post), class: "x" %>
+
+</div>
+<%= render 'form' %>
+
+</div>
+
+
+
+
 
 

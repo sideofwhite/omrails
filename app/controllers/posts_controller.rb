@@ -14,7 +14,7 @@ end
   # GET /posts.json
   def index
     @posts = Post.order("created_at desc").page(params[:page]).per_page(20)
-    @postlast = Post.order("created_at asc")
+    @postlast = Post.order("created_at desc")
   end
 
   # GET /posts/1
@@ -33,8 +33,7 @@ end
 
   # GET /posts/1/edit
   def edit
- 
-  
+ @post = Post.find(params[:id])
   end
 
   # POST /posts
@@ -57,7 +56,7 @@ end
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-   @post = current_user.posts.find(params[:id]) 
+   @post = Post.find(params[:id]) 
    
    respond_to do |format|
       if @post.update(post_params)

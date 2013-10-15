@@ -20,11 +20,6 @@ resources :comments do
   end
 end
 
-  resources :questions do  
-      resources :answers 
-      
-      
-    end 
 
     resources :pictures
   
