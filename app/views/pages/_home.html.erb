@@ -1,10 +1,16 @@
 <% unless user_signed_in? %>
     <div class="well">
-        <h1>What's happening in the world?</h1>
-        <p>
-            First-hand accounts of the worlds news.
-            
-        </p>
+       <div class="span10">
+<div class="row">
+<div class="red">
+
+<div class="headtext">	
+Podium let's everyone have a voice on the most important events
+</div>
+</div>
+</div>
+</div>
+
         <p>
             <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
         </p>

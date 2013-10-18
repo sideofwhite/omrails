@@ -1,47 +1,58 @@
-
+<div class="span8">
 <%= div_for(comment) do %>
- <div class="span10 offset1">
- 
- <div class="lightcontainer4">
+
+<div class="boxtwo">
+<div class="newspaper">
+<div class="info4">
+<div class="lightcontainer5">
+<%= comment.questions.count %> Answers
+</div>
+</div>
+
+<div class="questioncontainer">
+<%= link_to (comment.body), comment_questions_path(comment) %>
+</div>
+ <div class="lightcontainer6">
  <%= time_ago_in_words(comment.created_at) %> ago
  </div>	
- <div class="questioncontainer">
-<%= link_to (comment.body), comment_questions_path(comment) %>
-
-
- </div>
-
  <% if comment.questions.count > 0 %>
-  
-  <div class="lightcontainer">
-
- 1 of <%= comment.questions.count %> Answers
- 
+<div class="lightcontainer7">
+Bios
 </div>
-
- <div class="featuredquestions">
-  <div class="answertitle">
-  <strong><%= comment.questions.last.try(:[],:title) %></strong><br>
-  </div>
-  <%= comment.questions.last.try(:[],:body)[0,300] %>
-  <%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
-  </div>
-   <% end %>	
- 
-<hr />
-
-
- <% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to "Upvote", upvote_post_comment_path(@post, comment) %>
+<% comment.questions.select(:title).order('created_at desc').limit(3).each do |question| %> 
+<div class="info2"> 
+<div class="answertitle">
+<%= question.title %>
+</div>
 </div>
 <% end %>
 
-
+<div class="featuredquestions"> 
+<div class="lightcontainer7">
+<div class="bordertop">
+Last 1 of <%= comment.questions.count %><br>
+</div>
+</div>
+<%= comment.questions.last.try(:[],:body)[0,200] %>
+<%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
 </div>
 
+<% else %>
+<div class="firstanswer">
+<div class="blue2">
+No one has answered yet  :(
+</div>
+<%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
+</div>
 <% end %>
 
+ 
+
+
+</div>
+</div>
+<% end %>
+</div>
 
 
  

@@ -1,79 +1,34 @@
-
-<% Post.order("cached_votes_total desc").each do |post| %>
-
- <div class="container">
- <div class="row">
-
-
-
-<div class="span4">
-<div class="padding2">
-<%= image_tag post.image %>
-</div>
-</div>
-
-
-
-<div class="span7">  
-   
- <div class="blackborder">
+<%= link_to image_tag('http://i.imgur.com/uSmWLvL.png'), new_post_path %><% Post.order("cached_votes_total desc").each do |post| %>
+<div class="box panel panel-default">
+ <div class="newspaper">
+ <%= image_tag post.image(:medium) %>
+ <div class="panel-body">
  <div class="description">
   <%= link_to (post.title), post %>
-  </div>
+</div> 
+<div class="subtitle">
+<%= post.description.split[0..15].join(" ") %>...
 </div>
-  <div class="info">
+<div class="info">
   <div class="lightcontainer">
   <%= time_ago_in_words(post.created_at) %> ago | 
 </div>
- 
-  <% if post.comments.count > 0 %>
-   
-   <div class="lightcontainer2">
-   <%= post.comments.count %> Questions
+<div class="lightcontainer2">
+<%= post.comments.count %> Questions
 </div>
 </div>
-<% end %>
 
-   
-   <% if post.comments.count > 0 %>
-   
-        <div class="lightcontainer3">
-         Newest Questions
-         </div>
-
+<% if post.comments.count > 0 %>
 <% post.comments.select(:body).order('created_at desc').limit(3).each do |comment| %>
-    
-     
-     <div class="count">
-     <%= link_to (comment.body), comment_questions_path(post, comment) %>
-  </div>
-
-  <% end %>
-
+<div class="count">
+<%= link_to (comment.body), comment_questions_path(post, comment) %>
+</div>
 <% end %>
-   </div>
-   
-
-   </div>
- </div>
-
-
-
-
-<% if current_user.try(:admin?) %>
-<div class="span10 offset1">
-<div class="underanswercontainer2">
-<%= link_to "Upvote", upvote_post_path(post) %>
-<%= link_to 'Edit', edit_post_path(post) %>
-<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-<div class="span2 offset12">
-<%= link_to image_tag('http://i.imgur.com/uSmWLvL.png'), new_post_path %>
-</div>
-</div>
-</div>
-
-
 <% end %>
+
+</div>
+</div>
+</div>
 <% end %>
 
 
