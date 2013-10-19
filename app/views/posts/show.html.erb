@@ -9,7 +9,11 @@
 </div>
 <div class="info">
 <%= time_ago_in_words(@post.created_at) %> ago <br>
+</div>
+<div class="info">
+<div class="blue">
 <%= @post.country %>
+</div>
 </div>
 
 <div class="descriptioncontainer2">
@@ -25,7 +29,6 @@
 <div class="span10">
 <hr />
 <div class="questioncontainer3">  
-
 <%= link_to 'Ask Question', new_post_comment_path(@post), class: "button2" %>
 </div>
 <div class="number2">

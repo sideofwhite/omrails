@@ -3,14 +3,7 @@
 <div class="questioncontainer2">
 <%= @comment.body %>
 </div>
-</div>
 
-
-
-
-
-
-<div class="span8 offset1">
 
 <hr />
 <div class="questioncontainer3">  
@@ -20,8 +13,6 @@
 <%= @comment.questions.count %> Answers
 </div>
 </div>
-
-
 
 
 
@@ -98,15 +89,6 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 Flag -
 Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
-<hr />
-
-
-
-
-<% end %>
-
-</div>
-
 <% if current_user.try(:admin?) %>
 <div class="underanswercontainer2">
 <%= link_to "Upvote", upvote_comment_question_path(@comment, question) %>
@@ -114,6 +96,11 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <%= link_to 'Delete', comment_question_path(@comment, question), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <% end %>
+<hr />
+
+
+<% end %>
+</div>
 <% end %>
 
 

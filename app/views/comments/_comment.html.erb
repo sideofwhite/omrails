@@ -1,6 +1,5 @@
 <div class="span8">
 <%= div_for(comment) do %>
-
 <div class="boxtwo">
 <div class="newspaper">
 <div class="info4">
@@ -26,12 +25,12 @@ Bios
 </div>
 </div>
 <% end %>
+<div class="hr2">
+</div>
 
 <div class="featuredquestions"> 
 <div class="lightcontainer7">
-<div class="bordertop">
 Last 1 of <%= comment.questions.count %><br>
-</div>
 </div>
 <%= comment.questions.last.try(:[],:body)[0,200] %>
 <%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>

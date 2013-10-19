@@ -1,32 +1,47 @@
-<%= link_to image_tag('http://i.imgur.com/uSmWLvL.png'), new_post_path %><% Post.order("cached_votes_total desc").each do |post| %>
+<% Post.order("cached_votes_total desc").each do |post| %>
 <div class="box panel panel-default">
  <div class="newspaper">
  <%= image_tag post.image(:medium) %>
  <div class="panel-body">
  <div class="description">
+  <div class="background">
   <%= link_to (post.title), post %>
 </div> 
+</div>
+<div class="lightcontainer6">
+ <%= time_ago_in_words(post.created_at) %> ago 
+</div>
 <div class="subtitle">
 <%= post.description.split[0..15].join(" ") %>...
 </div>
-<div class="info">
-  <div class="lightcontainer">
-  <%= time_ago_in_words(post.created_at) %> ago | 
-</div>
+<div class="info5">
 <div class="lightcontainer2">
 <%= post.comments.count %> Questions
 </div>
 </div>
 
 <% if post.comments.count > 0 %>
-<% post.comments.select(:body).order('created_at desc').limit(3).each do |comment| %>
-<div class="count">
-<%= link_to (comment.body), comment_questions_path(post, comment) %>
+ <div class="lightcontainer6">
+ Newest Questions 
 </div>
+ <% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>
+<div class="hr2">
+</div>
+<div class="count">
+<%= link_to (comment.body), comment_questions_path(:comment_id) %>
+</div>
+
 <% end %>
 <% end %>
 
 </div>
+<% if current_user.try(:admin?) %>
+<div class="underanswercontainer2">
+<%= link_to "Upvote", upvote_post_path(post) %>
+<%= link_to 'Edit', edit_post_path(post) %>
+<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
 </div>
 </div>
 <% end %>
