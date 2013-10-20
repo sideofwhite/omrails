@@ -1,10 +1,8 @@
 $linkColor: black;
 $navbarHeight: 50px;
 $btnPrimaryBackground: #B23000;
+$btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
-
-
-
 
 
 @import "bootswatch/readable/variables";
@@ -19,6 +17,7 @@ $btnPrimaryBackgroundHighlight: #B23000;
 
 
 body{
+    
     padding-top: 60px;
     font-weight: normal;
     background-color: white;
@@ -30,6 +29,7 @@ body{
 
 
 .navbar .brand{
+    
     color: white;
     font-size: 30px;
     border:1px solid white;
@@ -42,6 +42,61 @@ body{
     font-weight: bold;
     
     
+}
+
+
+@media only screen and (min-width : 1199px),
+only screen and (min-device-width : 1199px){
+     .navbar .brand {
+        position: fixed;
+        left: 95px;
+    }
+}
+
+@media only screen and (max-width : 1150px),
+only screen and (max-device-width : 1150px){
+    .navbar .brand {
+        position: absolute;
+        left: 30px;
+    }
+}
+ 
+@media only screen and (max-width : 799px),
+only screen and (max-device-width : 799px){
+    .navbar .brand {
+       position: absolute;
+       left: 30px; 
+    }
+}
+ 
+@media only screen and (max-width : 599px),
+only screen and (max-device-width : 599px){
+    .navbar .brand  {
+        position: absolute;
+        left: 30px;
+    }
+}
+ 
+@media only screen and (max-width : 399px),
+only screen and (max-device-width : 399px){
+    .navbar .brand  {
+        position: absolute;
+        left: 30px;
+    }
+}
+
+
+.navbar .btn-navbar {
+
+
+float: right;
+color: white;
+
+background-color: red;
+
+
+border-color: black;
+*background-color: yellow;
 }
 
 .icons {
@@ -67,6 +122,14 @@ body{
 .headername {
     font-size: 22px;
 
+}
+
+.headername2 {
+    color: #3333CC;
+    font-size: 22px;
+    border: 1px solid #EEEEEE;
+    padding: 2px;
+    margin-bottom: 3px;
 }
  .navbar.transparent.navbar-inverse .navbar-inner {
    border: 0 !important;
@@ -142,12 +205,23 @@ body{
 
 .titlecontainer {
     
-    font-color: black;
+    color: black;
     font-size: 40px;
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
     font-weight: lighter;
+
+}
+
+.titlecontainer2 {
+    
+    color: #B23000;
+    font-size: 40px;
+    text-align: left;
+    padding-bottom: 15px;
+    line-height: 110%;
+    font-weight: normal;
 
 }
 
@@ -361,8 +435,8 @@ font-size: 20px;
 
     
     font-color: black;
-    font-size: 30px;
-    
+    font-size: 32px;
+    font-weight: lighter;
     line-height: 110%;
     
 
@@ -713,8 +787,8 @@ border:1px solid white;
 .info {
     display:inline-block;
     font-size: 20px;
-    border:1px solid #E8E8E8;
-    background-color: #E8E8E8; 
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
     padding: 3px;
     padding-left: 5px;
     padding-right: 5px;
@@ -726,8 +800,8 @@ border:1px solid white;
 .info2 {
     
     display:inline-block;
-    border:1px solid #E8E8E8;
-    background-color: #E8E8E8;  
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE;  
     padding-left: 1px;
     padding-right: 1px;
     margin-bottom: 5px;
@@ -739,33 +813,29 @@ border:1px solid white;
 .info3 {
     font-size: 20px;
     display:inline-block;
-    border:1px solid #E8E8E8;
-    background-color: #E8E8E8; 
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
     padding: 15px;
-    margin-bottom: 15px;
+    
 }
 
 
 .info4 {
     font-size: 20px;
     display:inline-block;
-    border:1px solid #E8E8E8;
-    background-color: #E8E8E8; 
-    padding: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 5px;
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
+    padding: 5px;
+    
 }
 
 .info5 {
     font-size: 20px;
     display:inline-block;
-    border:1px solid #E8E8E8;
-    background-color: #E8E8E8; 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 2px;
-    padding-right: 2px;
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
+    padding: 5px;
+   
     
     
 }
@@ -858,7 +928,7 @@ border:1px solid grey;
 }
 
 .borderleft2{
-border-left:1px solid #D8D8D8;
+border-left:1px solid #EEEEEE;
 padding-left: 10px;
 
 
@@ -868,47 +938,167 @@ padding-left: 10px;
 
 #pins {
   margin: 0 auto;
+  
+}
+
+.paddinglefthome .visible-desktop {
+    
 }
 
 #pin {
   margin: 0 auto;
+  
 }
 
 .box {
   margin: 5px;
-  width: 370px;
+  width: 494px;
 
 }
 
+
+
+
+
 .box img {
-  height: 270px;
+  height: 300px;
   width: 100%;
 }
 
+.commentimage img {
+    height: 250px;
+    width: 100%;
+}
+
+
+
+
+
+
+/*Media Queries*/
+@media only screen and (max-width : 1199px),
+only screen and (max-device-width : 1199px){
+    .box {
+        width: 494px;
+    }
+}
+ 
+ 
+@media only screen and (max-width : 999px),
+only screen and (max-device-width : 999px){
+    .box {
+        width: 600px;
+    }
+}
+ 
+@media only screen and (max-width : 799px),
+only screen and (max-device-width : 799px){
+    .box {
+        width: 600px;
+    }
+}
+ 
+@media only screen and (max-width : 599px),
+only screen and (max-device-width : 599px){
+    .box {
+        width: 400px;
+    }
+}
+ 
+@media only screen and (max-width : 399px),
+only screen and (max-device-width : 399px){
+    .box {
+        width: 200px;
+    }
+}
+////////////////////
+@media only screen and (max-width : 1199px),
+only screen and (max-device-width : 1199px){
+    .boxtwo {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width : 999px),
+only screen and (max-device-width : 999px){
+    .boxtwo {
+        width: 600px;
+    }
+}
+ 
+@media only screen and (max-width : 799px),
+only screen and (max-device-width : 799px){
+    .boxtwo {
+        width: 600px;
+    }
+}
+ 
+@media only screen and (max-width : 599px),
+only screen and (max-device-width : 599px){
+    .boxtwo {
+        width: 400px;
+    }
+}
+ 
+@media only screen and (max-width : 399px),
+only screen and (max-device-width : 399px){
+    .boxtwo {
+        width: 400px;
+    }
+}
+//////////////////
 
 .boxtwo {
  margin: 5px;
  width: 400px;
- 
-
 }
 
 
+
 .bordertop {
-    border-top: 1px solid #D8D8D8;
+    border-top: 1px solid #EEEEEE;
 
 }
 
 
 .newspaper {
-    border: 3px solid #E8E8E8;
-    padding:10px;
+    border: 3px solid #EEEEEE;
+    padding: 10px;
 }
 
+.newspaper2 {
+    border: 3px solid #EEEEEE;
+    padding: 5px;
+}
+
+
 .newspapernumber {
-    border: 1px solid #E8E8E8;
-    background-color: #E8E8E8;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
     color: white;
     font-size: 38px;
     padding: 30px;
 }
+
+.homepadding {
+    padding-left: 50px;
+}
+
+
+.paddingleft2 {
+padding-left: 60px;
+}
+
+
+.margintop {
+   margin-top: 68px;
+   padding: 10px;
+}
+.margintop2 {
+  
+   padding: 10px;
+}
+.displayinlineblock {
+display:inline-block;
+}
+

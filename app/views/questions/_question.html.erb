@@ -1,5 +1,4 @@
-
-<div class="span8 offset1">
+<div class="span8">
 <div class="questioncontainer2">
 <%= @comment.body %>
 </div>
@@ -17,7 +16,7 @@
 
 
 <% @comment.questions.order("cached_votes_total desc").each do |question| %>
-<div class="span8 offset1"> 
+<div class="span8"> 
 <% if question.votes.size > 0 %>
 
 <div class="floatright">
@@ -102,9 +101,3 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <% end %>
 </div>
 <% end %>
-
-
-
-
-
-

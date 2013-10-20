@@ -4,9 +4,9 @@
  <%= image_tag post.image(:medium) %>
  <div class="panel-body">
  <div class="description">
-  <div class="background">
+ 
   <%= link_to (post.title), post %>
-</div> 
+
 </div>
 <div class="lightcontainer6">
  <%= time_ago_in_words(post.created_at) %> ago 

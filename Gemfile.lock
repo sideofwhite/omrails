@@ -40,6 +40,10 @@ GEM
     acts_as_votable (0.7.1)
     arel (4.0.0)
     atomic (1.1.12)
+    aws-sdk (1.20.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4, < 1.6.0)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.1.1)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
@@ -87,6 +91,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.8)
+    nokogiri (1.5.10)
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -146,6 +151,7 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
@@ -155,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (= 0.7.1)
+  aws-sdk (~> 1.20.0)
   bootstrap-sass (= 2.3.2.1)
   bootstrap-will_paginate
   bootswatch-rails
