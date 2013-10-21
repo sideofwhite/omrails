@@ -1,24 +1,84 @@
-<%= link_to "Upvote", like_comment_question_path(@comment, @question), method: :post %>
-<%= @question.votes.size %>
+<div class="span8"> 
+<% if @question.votes.size > 0 %>
 
-  <%= @question.inspect %>
-<p id="notice"><%= notice %></p>
+<div class="floatright">
+<%= image_tag('http://i.imgur.com/4Iq16fx.png') %>
+<div class="lightcontainer4">
+Verified Answer
+</div>
+</div>
+
+<div class="verifiedanswer">
+ <div class="info">
+ 
+<%= @question.user.name %>
+</div> 
+
+  <div class="blue">
+<div class="info">
+<%= @question.title %><br>
+  </div>
+  </div>
+</div>
 
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @question.comment_id %>
-</p>
+<div class="padding">
+<div class="body">
+<%= @question.body %>
+</div>
+</div>
+<div class="underanswercontainer2">
+ 
+Flag -
+Posted <%= time_ago_in_words(@question.created_at) %> ago <br>
+</div>
+<hr />
 
-<p>
-  <strong>User:</strong>
-  <%= @question.user_id %>
-</p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+
+
+
+
+
+
+<% else %>
+
+
+<div class="answercontainer2">
+ <div class="info">
+ <%= @question.user.name %>
+ </div> 
+  <div class="blue">
+<div class="info">
+<%= @question.title %><br>
+  </div>
+  </div>
+</div>
+
+
+
+
+<div class="padding">
+<div class="body">
+<%= @question.body %>
+</div>
+</div>
+
+<div class="underanswercontainer2">
+ 
+Flag -
+Posted <%= time_ago_in_words(@question.created_at) %> ago <br>
+</div>
+<% if current_user.try(:admin?) %>
+<div class="underanswercontainer2">
+<%= link_to "Upvote", upvote_comment_question_path(@comment, question) %>
+<%= link_to 'Edit', edit_comment_question_path(@comment, question) %>
+<%= link_to 'Delete', comment_question_path(@comment, question), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
+<hr />
+
+
+<% end %>
+</div>

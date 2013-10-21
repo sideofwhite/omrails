@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001223506) do
+ActiveRecord::Schema.define(version: 20131021013300) do
 
   create_table "answers", force: true do |t|
     t.string   "body"
@@ -75,6 +75,11 @@ ActiveRecord::Schema.define(version: 20131001223506) do
     t.datetime "updated_at"
     t.string   "title"
     t.integer  "cached_votes_total", default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image_remote_url"
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"
