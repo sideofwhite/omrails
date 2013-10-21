@@ -14,11 +14,20 @@
 <div class="subtitle">
 <%= post.description.split[0..15].join(" ") %>...
 </div>
+
+<% if post.comments.count == 1 %>
+<div class="info5">
+<div class="lightcontainer2">
+<%= post.comments.count %> Question
+</div>
+</div>
+<% else %>
 <div class="info5">
 <div class="lightcontainer2">
 <%= post.comments.count %> Questions
 </div>
 </div>
+<% end %>
 
 <% if post.comments.count > 0 %>
  <div class="lightcontainer6">
