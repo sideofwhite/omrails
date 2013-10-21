@@ -28,7 +28,8 @@
 <div class="hr2">
 </div>
 <div class="count">
-<%= link_to (comment.body), comment_question_path(comment, @question) %>
+
+<%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 
 <% end %>

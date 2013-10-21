@@ -4,14 +4,11 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 
-
-@import "bootswatch/readable/variables";
-
 @import 'bootstrap';
 
 @import "bootstrap-responsive";
 
-@import "bootswatch/readable/bootswatch";
+
 
 
 
@@ -30,6 +27,8 @@ body{
 
 .navbar .brand{
     
+    position: absolute;
+    left: 45px;
     color: white;
     font-size: 30px;
     border:1px solid white;
@@ -45,45 +44,7 @@ body{
 }
 
 
-@media only screen and (min-width : 1199px),
-only screen and (min-device-width : 1199px){
-     .navbar .brand {
-        position: fixed;
-        left: 95px;
-    }
-}
 
-@media only screen and (max-width : 1150px),
-only screen and (max-device-width : 1150px){
-    .navbar .brand {
-        position: absolute;
-        left: 30px;
-    }
-}
- 
-@media only screen and (max-width : 799px),
-only screen and (max-device-width : 799px){
-    .navbar .brand {
-       position: absolute;
-       left: 30px; 
-    }
-}
- 
-@media only screen and (max-width : 599px),
-only screen and (max-device-width : 599px){
-    .navbar .brand  {
-        position: absolute;
-        left: 30px;
-    }
-}
- 
-@media only screen and (max-width : 399px),
-only screen and (max-device-width : 399px){
-    .navbar .brand  {
-        position: absolute;
-        left: 30px;
-    }
-}
 
 
 .navbar .btn-navbar {
@@ -206,7 +167,7 @@ border-color: black;
 .titlecontainer {
     
     color: black;
-    font-size: 40px;
+    font-size: 36px;
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
@@ -488,7 +449,7 @@ font-size: 18px;
     font-color: black;
     padding-top: 10px;
     padding-bottom: 15px;
-    font-size: 20px; 
+    font-size: 18px; 
     
 
 
@@ -795,7 +756,7 @@ border:1px solid white;
 
 .info {
     display:inline-block;
-    font-size: 20px;
+    font-size: 18px;
     border:1px solid #EEEEEE;
     background-color: #EEEEEE; 
     padding: 3px;
