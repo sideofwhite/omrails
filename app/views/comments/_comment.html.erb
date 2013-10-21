@@ -1,7 +1,7 @@
 <%= div_for(comment) do %>
 <div class="boxtwo">
 <div class="newspaper2">
-<div class="info4">
+<div class="info5">
 <div class="lightcontainer5">
 <%= comment.questions.count %> Answers
 </div>
@@ -37,7 +37,7 @@ Last 1 of <%= comment.questions.count %><br>
 <% else %>
 <div class="firstanswer">
 <div class="blue2">
-No one has answered yet  :(
+No one has answered yet 
 </div>
 <%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
 </div>
