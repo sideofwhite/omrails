@@ -1,5 +1,5 @@
 $linkColor: black;
-$navbarHeight: 50px;
+$navbarHeight: 40px;
 $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
@@ -27,7 +27,7 @@ body{
 
 .navbar .brand{
     
-    position: fixed;
+    position: static;
     left: 45px;
     color: white;
     font-size: 30px;
@@ -949,13 +949,14 @@ only screen and (max-device-width : 999px){
 only screen and (max-device-width : 799px){
     .box {
         width: 600px;
+        
     }
 }
  
 @media only screen and (max-width : 599px),
 only screen and (max-device-width : 599px){
     .box {
-        width: 400px;
+        width: 350px;
     }
 }
  
