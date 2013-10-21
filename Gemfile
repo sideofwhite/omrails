@@ -5,7 +5,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.1'
 gem 'devise'
 gem 'simple_form'
-gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
+gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.20.0'
 gem 'bootswatch-rails'
 gem 'acts_as_votable', '0.7.1'
