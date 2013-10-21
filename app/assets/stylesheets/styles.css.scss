@@ -30,10 +30,13 @@ body{
     position: fixed;
     left: 45px;
     color: white;
-    font-size: 24px;
-    border: 1px solid white;
+    font-size: 30px;
+    border:1px solid white;
     background-color: black;
-    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
     margin-top: 8px;
     font-weight: bold;
 }
@@ -906,7 +909,7 @@ padding-left: 10px;
 
 .box {
   margin: 5px;
-  width: 440px;
+  width: 460px;
 
 }
 .box img {
