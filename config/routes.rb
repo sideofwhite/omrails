@@ -21,7 +21,7 @@ resources :comments do
 end
 
 
-    resources :pictures
+
   
 
   devise_for :users
