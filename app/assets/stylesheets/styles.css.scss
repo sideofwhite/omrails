@@ -28,7 +28,7 @@ body{
 .navbar .brand{
     
     position: absolute;
-    left: 45px;
+    left: 30px;
     color: white;
     font-size: 30px;
     border:1px solid white;
@@ -909,7 +909,7 @@ padding-left: 10px;
 
 .box {
   margin: 5px;
-  width: 460px;
+  width: 440px;
 
 }
 .box img {
@@ -941,7 +941,7 @@ only screen and (max-device-width : 1199px){
 @media only screen and (max-width : 999px),
 only screen and (max-device-width : 999px){
     .box {
-        width: 600px;
+        width: 500px;
     }
 }
  

@@ -46,6 +46,12 @@ Verified Answer
 <%= question.body %>
 </div>
 </div>
+
+ <div class="newspaper">
+ <%= image_tag question.image(:medium) %>
+</div>
+
+
 <div class="underanswercontainer2">
  
 Flag -
@@ -82,6 +88,12 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <%= question.body %>
 </div>
 </div>
+
+
+ <div class="newspaper">
+ <%= image_tag question.image(:small) %>
+</div>
+
 
 <div class="underanswercontainer2">
  

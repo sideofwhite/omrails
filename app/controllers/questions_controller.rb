@@ -33,7 +33,7 @@ end
   # POST /questions.json
   def create
     @comment = Comment.find(params[:comment_id])
-    @question = @comment.questions.create(question_params)
+    @question = @comment.questions.new(question_params)
     
     respond_to do |format|
       if @question.save
@@ -78,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :title, :comment_id, :user_id)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id, :image, :image_remote_url,)
     end
 end
