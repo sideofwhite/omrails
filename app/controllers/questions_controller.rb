@@ -78,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :title, :comment_id, :user_id, :image, :image_remote_url)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id)
     end
 end
