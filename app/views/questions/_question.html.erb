@@ -5,9 +5,15 @@
 
 
 <hr />
+<% if user_signed_in? %>
 <div class="questioncontainer3">  
 <%= link_to 'Answer', new_comment_question_path(@comment), class: "button2" %>
 </div>
+<% else %>
+<div class="questioncontainer3">  
+<%= link_to 'Answer', new_user_registration_path, class: "button2" %>
+</div>
+<% end %>
 <div class="number">
 <%= @comment.questions.count %> Answers
 </div>
