@@ -113,6 +113,22 @@ body{
     
 }
 
+.button4 {
+    color: #B23000;
+    font-size: 20px;
+    float: right;
+    border: 1px solid #B23000;
+    padding: 5px;
+
+    
+}
+
+
+.buttonborder {
+    border: 1px solid #B23000;
+    padding: 5px;
+}
+
 .footer{
     
     position: relative;
@@ -684,13 +700,15 @@ border:1px solid white;
 }
 
 .number {
-    font-size: 20px;
+    padding-top: 5px;
+    font-size: 22px;
     padding-bottom: 40px;
     
 }
 
 .number2 {
-    font-size: 20px;
+    padding-top: 5px;
+    font-size: 22px;
     padding-bottom: 20px;
     
 }
