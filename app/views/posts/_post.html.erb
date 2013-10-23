@@ -16,16 +16,18 @@
 </div>
 
 <% if post.comments.count == 1 %>
-<div class="info5">
-<div class="lightcontainer2">
-<%= post.comments.count %> Question
+<div class="info6">
+<%= post.comments.count %>
 </div>
+<div class="lightcontainer2">
+ Question
 </div>
 <% else %>
-<div class="info5">
-<div class="lightcontainer2">
-<%= post.comments.count %> Questions
+<div class="info6">
+<%= post.comments.count %>
 </div>
+<div class="lightcontainer2">
+ Questions
 </div>
 <% end %>
 
