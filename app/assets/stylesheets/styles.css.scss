@@ -200,7 +200,16 @@ body{
 
 }
 
+.titlecontainer4 {
+    
+    color: black;
+    font-size: 28px;
+    text-align: left;
+    padding-bottom: 15px;
+    line-height: 110%;
+    font-weight: lighter;
 
+}
 
 .description {
     
@@ -458,7 +467,17 @@ font-size: 18px;
 
 }
 
+.descriptioncontainer2b{
+   
+    
+    
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 16px; 
+    
 
+
+}
 
 .descriptioncontainer3 {
    
@@ -772,6 +791,20 @@ border:1px solid white;
     margin-right: 5px;
     
 }
+
+.infob {
+    display:inline-block;
+    font-size: 16px;
+    border:1px solid #EEEEEE;
+    background-color: #EEEEEE; 
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    
+}
+
 
 .info2 {
     
@@ -1098,4 +1131,6 @@ padding-left: 60px;
 .displayinlineblock {
 display:inline-block;
 }
+
+
 
