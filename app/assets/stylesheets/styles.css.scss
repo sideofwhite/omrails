@@ -114,12 +114,12 @@ body{
 }
 
 .button4 {
-    color: #B23000;
+    color: #B23000 !important;
     font-size: 20px;
     float: right;
     border: 1px solid #B23000;
     padding: 5px;
-
+    
     
 }
 
@@ -975,7 +975,7 @@ padding-left: 10px;
 @media only screen and (max-width : 1199px),
 only screen and (max-device-width : 1199px){
     .box {
-        width: 500px;
+        width: 440px;
     }
 }
  
@@ -1005,7 +1005,7 @@ only screen and (max-device-width : 599px){
 @media only screen and (max-width : 399px),
 only screen and (max-device-width : 399px){
     .box {
-        width: 340px;
+        width: 330px;
     }
 }
 ////////////////////
@@ -1040,7 +1040,7 @@ only screen and (max-device-width : 599px){
 @media only screen and (max-width : 399px),
 only screen and (max-device-width : 399px){
     .boxtwo {
-        width: 400px;
+        width: 330px;
     }
 }
 //////////////////
