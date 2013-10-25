@@ -1,6 +1,8 @@
-<div class="span8">
+<div class="container">
+ <div class="row">
 
-<%= @comment.post.title %>
+
+<div class="span7">
 <div class="questioncontainer2">
 <%= @comment.body %>
 </div>
@@ -19,12 +21,12 @@
 <div class="number">
 <%= @comment.questions.count %> Answers
 </div>
-</div>
+
 
 
 
 <% @comment.questions.order("cached_votes_total desc").each do |question| %>
-<div class="span8"> 
+
 <% if question.votes.size > 0 %>
 
 <div class="floatright">
@@ -55,23 +57,12 @@ Verified Answer
 </div>
 </div>
 
- <div class="newspaper">
- <%= image_tag question.image(:medium) %>
-</div>
-
-
 <div class="underanswercontainer2">
  
 Flag -
 Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 <hr />
-
-
-
-
-
-
 
 
 <% else %>
@@ -98,9 +89,6 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 
 
- <div class="newspaper">
- <%= image_tag question.image(:small) %>
-</div>
 
 
 <div class="underanswercontainer2">
@@ -116,8 +104,32 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 <% end %>
 <hr />
-
+<% end %>
 
 <% end %>
 </div>
-<% end %>
+
+<div class="span4 offset1">
+<div class="titlecontainer">
+<%= @comment.post.title %>
+</div>
+<div class="info">
+<%= time_ago_in_words(@comment.post.created_at) %> ago <br>
+</div>
+<div class="info">
+<div class="blue">
+<%= @comment.post.country %>
+</div>
+</div>
+<div class="descriptioncontainer2">
+<%= @comment.post.description %>
+</div>
+<div class="commentimage">
+  <%= image_tag @comment.post.image(:small) %>    
+ </div>
+
+
+
+
+</div>
+</div>

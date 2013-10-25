@@ -118,7 +118,7 @@
 
 
 <div class="span2 offset12">
-<%= link_to image_tag('http://i.imgur.com/uSmWLvL.png'), new_post_path %>
+<%= image_tag('http://i.imgur.com/wMZKHQW.png') %>
 
 </div>
 
@@ -233,3 +233,24 @@
     <%= time_ago_in_words(post.created_at) %> ago 
     </div>
 
+
+
+
+
+  <% @comment.post.title.select(:title).order('created_at desc').limit(2).each do |comment| %>
+<div class="span4">
+<div class="hr2">
+</div>
+<div class="count">
+  <%= @comment.post.title %>
+</div>
+<div class="hr2">
+</div>
+</div>
+<% end %>
+
+
+
+ <div class="newspaper">
+ <%= image_tag question.image(:small) %>
+</div>
