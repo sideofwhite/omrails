@@ -275,3 +275,4 @@ No one has answered yet
 </div>
 <% end %>
 
+<% Post.order("cached_votes_total desc").each do |post| %>

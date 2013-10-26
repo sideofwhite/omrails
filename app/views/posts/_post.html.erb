@@ -1,6 +1,7 @@
-<% Post.order("cached_votes_total desc").each do |post| %>
+<% Post.order("created_at desc").each do |post| %>
 <div class="box panel panel-default">
- <div class="home">
+<div class="newspaper"> 
+
  <%= image_tag post.image(:small) %>
  <div class="panel-body">
  <div class="description">
@@ -20,7 +21,9 @@
 <%= post.comments.count %>
 </div>
 <div class="lightcontainer2">
+<div class="red">  
  Question
+</div>
 </div>
 <% else %>
 <div class="info6">
@@ -38,7 +41,17 @@
 Latest Questions 
 </div>
 
-<% if post.comments.count > 0 %>
+<% if post.comments.count == 1 %>
+<% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>
+<div class="count">
+<div class="fifty2">
+<div class="newspaper3">
+  <%= comment.body %>
+</div>
+</div>
+</div>
+<% end %>
+<% else %>
 <% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
 <div class="fifty">
@@ -51,6 +64,15 @@ Latest Questions
 <% end %>
 
 </div>
+
+
+
+
+
+
+
+
+
 <% if current_user.try(:admin?) %>
 <div class="underanswercontainer2">
 <%= link_to "Upvote", upvote_post_path(post) %>
@@ -61,6 +83,7 @@ Latest Questions
 
 </div>
 </div>
+
 <% end %>
 
 

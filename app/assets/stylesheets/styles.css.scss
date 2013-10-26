@@ -1121,9 +1121,11 @@ only screen and (max-device-width : 399px){
 
 
 .newspaper {
-    border-right: 2px solid #EEEEEE;
     border-left: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
+    border-top: 2px solid #EEEEEE;
     padding: 10px;
+    margin: 5px;
 }
 
 .home {
@@ -1192,6 +1194,13 @@ display:inline-block;
     float: left;
 
 }
+
+.fifty2 {
+    width: 100%;
+    float: left;
+
+}
+
 
 .answerbio{
     color: grey;
