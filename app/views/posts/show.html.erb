@@ -10,11 +10,13 @@
 <%= @post.title %>
 </div>
 <div class="info">
+<div class="newspaper4"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
-<div class="info">
+<div class="newspaper4"> 
 <div class="blue">
 <%= @post.country %>
+</div>
 </div>
 </div>
 
@@ -33,7 +35,7 @@
 
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button2" %>
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
 </div>
 <% else %>
 <div class="questioncontainer3">  

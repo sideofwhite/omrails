@@ -11,8 +11,6 @@ $btnPrimaryBackgroundHighlight: #B23000;
 
 
 
-
-
 body{
     
     padding-top: 60px;
@@ -123,6 +121,14 @@ body{
     
 }
 
+.button4 {
+    color: #B23000 !important;
+    font-size: 20px;
+    border: 1px solid #B23000;
+    padding: 5px;
+    
+    
+}
 
 .buttonborder {
     border: 1px solid #B23000;
@@ -358,8 +364,10 @@ font-size: 18px;
 }
 
 .lightcontainer2{
+    
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
+    padding-top: 5px;
     
 }
 
@@ -414,16 +422,32 @@ font-size: 18px;
     color: grey;
 }
 
+.lightcontainer10{
+    padding-top: 10px;
+    display: inline-block;
+    font-size: 10px;
+    color: grey;
+    float: right;
+    padding-right: 5px;
+}
+
 .questioncontainer {
 
     
     font-color: black;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 110%;
+    padding-bottom: 10px;
     
 
     
     
+}
+
+.thirty {
+    width: 50%;
+    float: left;
+    display:inline-block;
 }
 
 .questioncontainer2 {
@@ -555,14 +579,14 @@ width: 500px;
 .blue2{
     color: grey;
     font-size: 16px;
-    padding-top: 15px;
+    padding-top: 10px;
     font-weight: normal;
     
 
 }
 .answertitle  {
      color: #3333CC;
-     font-size: 12px;
+     font-size: 16px;
     
 }  
    
@@ -635,7 +659,7 @@ hr {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 2px solid #E8E8E8;
+border-top: 3px solid #EEEEEE;;
 margin-top: 10px; 
 margin-bottom: 10px;
 padding: 0px; 
@@ -645,7 +669,16 @@ padding: 0px;
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #E8E8E8;
+border-top: 1px solid #EEEEEE;
+margin-top: 2px;
+margin-bottom: 2px;
+ }
+
+.hr3 { 
+display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid #B23000;
 margin-top: 2px;
 margin-bottom: 2px;
  }
@@ -782,13 +815,7 @@ border:1px solid white;
 .info {
     display:inline-block;
     font-size: 18px;
-    border:1px solid #EEEEEE;
-    background-color: #EEEEEE; 
-    padding: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
+    
     
 }
 
@@ -853,25 +880,26 @@ border:1px solid white;
     display:inline-block;
     font-size: 22px;
     border:1px solid #B23000;
-    background-color: #B23000; 
-    color: white;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.info7 {
-    display:inline-block;
-    font-size: 20px;
-    border:1px solid #EEEEEE;
-    background-color: #EEEEEE; 
+    
     color: #B23000;
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 4px;
     padding-right: 4px;
     margin-bottom: 10px;
+}
+
+.info7 {
+    display:inline-block;
+    font-size: 18px;
+    border:1px solid #B23000;
+    color: #B23000;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 
@@ -902,7 +930,8 @@ border:1px solid white;
 
 .x {
     font-size: 30px;
-    color: #B23000;
+    color: #B23000 !important;
+    text-decoration: none !important;
    
 
 }
@@ -952,9 +981,9 @@ border:1px solid grey;
 .firstanswer {
     
     font-weight: lighter;
-    
     font-size: 22px;
     color: grey;
+    padding-bottom: 10px;
 
 }
 
@@ -1092,13 +1121,39 @@ only screen and (max-device-width : 399px){
 
 
 .newspaper {
-    border: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
     padding: 10px;
+}
+
+.home {
+    padding: 10px;
+}
+.redline {
+    border-left: 2px solid  #B23000;
+    padding-left: 3px;
 }
 
 .newspaper2 {
     border: 1px solid #EEEEEE;
+    padding: 15px;
+    margin: 0px;
+}
+.newspaper3 {
+    border-top: 3px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+
     padding: 5px;
+    margin-right: 3px;
+}
+
+.newspaper4 {
+    border: 1px solid #EEEEEE;
+    padding: 3px;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 
@@ -1132,5 +1187,18 @@ padding-left: 60px;
 display:inline-block;
 }
 
+.fifty {
+    width: 50%;
+    float: left;
 
+}
 
+.answerbio{
+    color: grey;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-left: 3px;
+    font-weight: normal;
+    
+
+}

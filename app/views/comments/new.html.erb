@@ -1,20 +1,22 @@
 <div class="container">
  <div class="row">
 <div class="span4">
-<div class="commentimage">  
- <%= image_tag @post.image(:small) %>    
+<div class="commentimage">
+  <%= image_tag @post.image(:small) %>    
  </div>
- </div>
+</div>
 <div class="span6">
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
 <div class="info">
+<div class="newspaper4"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
-<div class="info">
+<div class="newspaper4"> 
 <div class="blue">
 <%= @post.country %>
+</div>
 </div>
 </div>
 

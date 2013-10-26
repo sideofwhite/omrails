@@ -254,3 +254,24 @@
  <div class="newspaper">
  <%= image_tag question.image(:small) %>
 </div>
+
+
+
+
+<div class="featuredquestions"> 
+<div class="lightcontainer7">
+Last 1 of <%= comment.questions.count %><br>
+</div>
+<%= comment.questions.last.try(:[],:body)[0,200] %>
+<%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
+</div>
+
+<% else %>
+<div class="firstanswer">
+<div class="blue2">
+No one has answered yet 
+</div>
+<%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
+</div>
+<% end %>
+
