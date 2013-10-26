@@ -1,8 +1,9 @@
+
 <%= simple_form_for [@comment, Question.new] do |f| %>
  <p>
 <div class="form">
-  <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 800px' }, label: false, placeholder: "Something about you relevant to the answer" %>
-  <%= f.input :body, as: :text, input_html: { rows: "10", :style=> 'width: 800px' }, label: false,placeholder: "Write Answer" %>
+  <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 100%' }, label: false, placeholder: "Something about you relevant to the answer" %>
+  <%= f.input :body, as: :text, input_html: { rows: "10", :style=> 'width: 100%' }, label: false,placeholder: "Write Answer" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
  
   <div class="titlecontainer3">

@@ -38,9 +38,15 @@ Ask Question
 </div>
 </div>
 
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<%= @post.comments.count %> Question
+</div>
+<% else %>
 <div class="number2">
 <%= @post.comments.count %> Questions 
 </div>
+<% end %>
 
 </div>
 

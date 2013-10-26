@@ -6,7 +6,9 @@
 <div class="questioncontainer2">
 <%= @comment.body %>
 </div>
-
+<div class="lightcontainer6">
+ <%= time_ago_in_words(@comment.created_at) %> ago 
+</div>
 
 <hr />
 <% if user_signed_in? %>
@@ -121,24 +123,27 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 
 
-<div class="span4 offset1">
+<div class="span3 offset1">
 <div class="titlecontainer4">
 <%= @comment.post.title %>
 </div>
+<div class="newspaper4">
 <div class="infob">
 <%= time_ago_in_words(@comment.post.created_at) %> ago <br>
 </div>
+</div>
+<div class="newspaper4">
 <div class="infob">
 <div class="blue">
 <%= @comment.post.country %>
 </div>
 </div>
+</div>
 <div class="descriptioncontainer2b">
 <%= @comment.post.description %>
 </div>
-<div class="commentimage">
-  <%= image_tag @comment.post.image(:small) %>    
- </div>
+
+
 
 
 

@@ -107,13 +107,15 @@ body{
     opacity: 0.2;
     color: #B23000;
     font-size: 20px;
+    border: 1px solid #B23000;
+    padding: 5px;
     float: right;
     
 }
 
 .button4 {
     color: #B23000 !important;
-    font-size: 20px;
+    font-size: 22px;
     float: right;
     border: 1px solid #B23000;
     padding: 5px;
@@ -121,14 +123,7 @@ body{
     
 }
 
-.button4 {
-    color: #B23000 !important;
-    font-size: 20px;
-    border: 1px solid #B23000;
-    padding: 5px;
-    
-    
-}
+
 
 .buttonborder {
     border: 1px solid #B23000;
@@ -213,7 +208,7 @@ body{
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
-    font-weight: lighter;
+    
 
 }
 
@@ -659,7 +654,7 @@ hr {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 3px solid #EEEEEE;;
+border-top: 2px solid #EEEEEE;;
 margin-top: 10px; 
 margin-bottom: 10px;
 padding: 0px; 
@@ -753,14 +748,14 @@ border:1px solid white;
 
 .number {
     padding-top: 5px;
-    font-size: 22px;
+    font-size: 24px;
     padding-bottom: 40px;
     
 }
 
 .number2 {
     padding-top: 5px;
-    font-size: 22px;
+    font-size: 24px;
     padding-bottom: 20px;
     
 }
@@ -822,13 +817,8 @@ border:1px solid white;
 .infob {
     display:inline-block;
     font-size: 16px;
-    border:1px solid #EEEEEE;
-    background-color: #EEEEEE; 
-    padding: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
+     
+   
     
 }
 
