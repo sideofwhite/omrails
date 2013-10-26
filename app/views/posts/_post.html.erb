@@ -36,10 +36,13 @@
 </div>
 </div>
 <% end %>
-
+<% if post.comments.count > 0 %>
 <div class="lightcontainer10">
 Latest Questions 
 </div>
+<% else %>
+<%= link_to 'Ask the first question', new_post_comment_path(post), class: "lightcontainer10" %>
+<% end %>
 
 <% if post.comments.count == 1 %>
 <% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>

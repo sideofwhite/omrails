@@ -18,10 +18,15 @@
 <%= link_to 'Answer', new_user_registration_path, class: "button4" %>
 </div>
 <% end %>
+<% if @comment.questions.count == 1 %>
+<div class="number">
+<%= @comment.questions.count %> Answer
+</div>
+<% else %>
 <div class="number">
 <%= @comment.questions.count %> Answers
 </div>
-
+<% end %>
 
 
 
@@ -36,17 +41,19 @@ Verified Answer
 </div>
 </div>
 
+<div class="newspaper5"> 
 <div class="verifiedanswer">
  <div class="info">
- 
-<%= question.user.name %>
+ <%= question.user.name %>
 </div> 
-
+</div>
+<div class="newspaper4"> 
   <div class="blue">
 <div class="info">
 <%= question.title %><br>
   </div>
   </div>
+</div>
 </div>
 
 
@@ -70,13 +77,17 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 <div class="answercontainer2">
  <div class="info">
- <%= question.user.name %>
+ <div class="newspaper5">  
+ <strong><%= question.user.name %></strong>
  </div> 
-  <div class="blue">
+</div>
+<div class="blue">
 <div class="info">
+  <div class="newspaper5"> 
 <%= question.title %><br>
   </div>
   </div>
+</div>
 </div>
 
 

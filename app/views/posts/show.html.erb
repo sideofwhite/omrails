@@ -42,9 +42,15 @@
 <%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
 </div>
 <% end %>
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<%= @post.comments.count %> Question
+</div>
+<% else %>
 <div class="number2">
 <%= @post.comments.count %> Questions 
 </div>
+<% end %>
 
 </div>
 </div>
