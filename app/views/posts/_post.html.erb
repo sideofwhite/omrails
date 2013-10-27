@@ -45,21 +45,21 @@ Latest Questions
 <% end %>
 
 <% if post.comments.count == 1 %>
-<% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>
+<% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
 <div class="fifty2">
 <div class="newspaper3">
-  <%= comment.body %>
+  <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
 </div>
 <% end %>
 <% else %>
-<% post.comments.select(:body).order('created_at desc').limit(2).each do |comment| %>
+<% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
 <div class="fifty">
 <div class="newspaper3">
-  <%= comment.body %>
+<%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
 </div>

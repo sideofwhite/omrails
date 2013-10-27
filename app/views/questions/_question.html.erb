@@ -43,15 +43,17 @@ Verified Answer
 </div>
 </div>
 
-<div class="newspaper5"> 
+ 
 <div class="verifiedanswer">
  <div class="info">
+ <div class="newspaper4"> 
  <%= question.user.name %>
 </div> 
 </div>
-<div class="newspaper4"> 
+
   <div class="blue">
 <div class="info">
+<div class="newspaper4">   
 <%= question.title %><br>
   </div>
   </div>
@@ -101,6 +103,16 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 </div>
 
+<% if question.image? %>
+ <%= image_tag question.image(:large) %>
+ <div class="newspaper4">
+ <div class="body">
+ <div class="italic">
+ <%= question.caption %>
+</div>
+</div>
+</div>
+<% end %>
 
 
 
@@ -124,6 +136,8 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 
 <div class="span3 offset1">
+<div class="visible-desktop hidden-phone visible-tablet">
+<div class="newspaper2">
 <div class="titlecontainer4">
 <%= @comment.post.title %>
 </div>
@@ -142,8 +156,11 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <div class="descriptioncontainer2b">
 <%= @comment.post.description %>
 </div>
+</div>
+</div>
 
 
+</div>
 
 
 
