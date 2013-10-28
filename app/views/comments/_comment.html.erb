@@ -48,7 +48,7 @@ Latest Bio's
 Last 1 of <%= comment.questions.count %><br>
 </div>
 <%= comment.questions.last.try(:[],:body)[0,200] %>
-<%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
+<%= link_to "(read more...)", comment_questions_path(comment, @question), class: "blue"  %>
 </div>
 
 <% else %>
