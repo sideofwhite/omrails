@@ -82,7 +82,7 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <div class="answercontainer2">
  <div class="info">
  <div class="newspaper5">  
- <strong><%= question.user.name %></strong>
+ <strong><%= link_to (question.user.name), comment_question_path(@comment, question) %></strong>
  </div> 
 </div>
 <div class="blue">
@@ -160,7 +160,6 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 
 
-</div>
 
 
 

@@ -14,7 +14,7 @@ end
     @comment = Comment.find params[:comment_id]
     @questions = @comment.questions
     @question = Question.find params[:comment_id]
-    @comments = @question.comments.order(:created_at).limit(2).reverse_order
+    @comments = Comment.all.limit(2)
 
   end
 

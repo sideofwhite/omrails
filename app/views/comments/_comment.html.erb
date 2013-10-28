@@ -38,6 +38,15 @@ Answer Bio's
 </div>
 </div>
 <% end %>
+
+<div class="featuredquestions"> 
+<div class="lightcontainer7">
+Last 1 of <%= comment.questions.count %><br>
+</div>
+<%= comment.questions.last.try(:[],:body)[0,200] %>
+<%= link_to "(read more...)", comment_question_path(comment, @question), class: "blue"  %>
+</div>
+
 <% else %>
 
 <div class="firstanswer">
