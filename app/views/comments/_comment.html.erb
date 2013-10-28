@@ -6,7 +6,9 @@
 <%= comment.questions.count %>
 </div>
 <div class="lightcontainer2">
+ <div class="red">
  Answer
+</div>
 </div>
 <% else %>
 
@@ -14,7 +16,9 @@
 <%= comment.questions.count %>
 </div>
 <div class="lightcontainer2">
+ <div class="red">
 Answers
+</div>
 </div>
 <% end %>
 <div class="questioncontainer">
@@ -28,13 +32,13 @@ Answers
 
 
  <% if comment.questions.count > 0 %>
-<div class="lightcontainer6">
-Answer Bio's
+<div class="lightcontainer7">
+Latest Bio's
 </div>
-<% comment.questions.select(:title).order('created_at desc').limit(3).each do |question| %> 
+<% comment.questions.select([:id, :title]).order('created_at desc').limit(3).each do |question| %> 
 <div class="newspaper4"> 
 <div class="answertitle">
-<%= question.title %>
+<%= link_to question.title, comment_question_path(comment, question), class: "blue" %>
 </div>
 </div>
 <% end %>

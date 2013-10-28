@@ -2,30 +2,37 @@
 <div class="box panel panel-default">
 <div class="newspaper"> 
 
- <%= image_tag post.image(:small) %>
- <div class="panel-body">
- <div class="description">
- 
-  <%= link_to (post.title), post %>
+<%= image_tag post.image(:small) %>
 
+<div class="panel-body">
+
+<div class="description">
+<%= link_to (post.title), post %>
 </div>
+
 <div class="lightcontainer6">
- <%= time_ago_in_words(post.created_at) %> ago 
+<%= time_ago_in_words(post.created_at) %> ago 
 </div>
+
 <div class="subtitle">
-<%= post.description.split[0..15].join(" ") %>...
+<%= post.description.split[0..20].join(" ") %>...
 </div>
+
 
 <% if post.comments.count == 1 %>
+
 <div class="info6">
 <%= post.comments.count %>
 </div>
+
 <div class="lightcontainer2">
 <div class="red">  
  Question
 </div>
 </div>
+
 <% else %>
+
 <div class="info6">
 <%= post.comments.count %>
 </div>
@@ -35,45 +42,38 @@
  Questions
 </div>
 </div>
+
 <% end %>
+
 <% if post.comments.count > 0 %>
+
 <div class="lightcontainer10">
 Latest Questions 
 </div>
+
 <% else %>
+
 <%= link_to 'Ask the first question', new_post_comment_path(post), class: "lightcontainer10" %>
+
 <% end %>
 
-<% if post.comments.count == 1 %>
-<% post.comments.order('created_at desc').limit(2).each do |comment| %>
-<div class="count">
-<div class="fifty2">
-<div class="newspaper3">
-  <%= link_to (comment.body), comment_questions_path(comment) %>
-</div>
-</div>
-</div>
-<% end %>
-<% else %>
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
 <div class="fifty">
 <div class="newspaper3">
-<%= link_to (comment.body), comment_questions_path(comment) %>
+ <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
+<div class="clear"></div>
 </div>
 <% end %>
-<% end %>
+
+
+
 
 </div>
-
-
-
-
-
-
-
+</div>
+</div>
 
 
 <% if current_user.try(:admin?) %>
@@ -84,8 +84,7 @@ Latest Questions
 </div>
 <% end %>
 
-</div>
-</div>
+
 
 <% end %>
 

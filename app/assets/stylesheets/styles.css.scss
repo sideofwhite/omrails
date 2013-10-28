@@ -272,8 +272,7 @@ body{
 
 
 .count{
-
-
+display: inline-block;
 font-size: 18px;
 
 
@@ -404,8 +403,10 @@ font-size: 18px;
 
 .lightcontainer7{
     
-    font-size: 16px;
-    color: black;
+    
+    font-size: 12px;
+    font-weight: bold;
+    
     
    
 }
@@ -583,7 +584,7 @@ width: 500px;
 
 
 .blue{
-    color: #3333CC;
+    color: #3333CC !important;
 
 }
 
@@ -887,7 +888,6 @@ border:1px solid white;
     display:inline-block;
     font-size: 22px;
     border:1px solid #B23000;
-    
     color: #B23000;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -906,7 +906,7 @@ border:1px solid white;
     padding-left: 4px;
     padding-right: 4px;
     margin-bottom: 10px;
-    font-weight: bold;
+    
 }
 
 
@@ -1106,9 +1106,8 @@ only screen and (min-width : 320px)
 
 
 .newspaper {
-    border-left: 2px solid #EEEEEE;
-    border-right: 2px solid #EEEEEE;
-    border-top: 2px solid #EEEEEE;
+    
+    border: 2px solid #EEEEEE;
     padding: 15px;
     margin: 2px;
 }
@@ -1127,13 +1126,14 @@ only screen and (min-width : 320px)
     margin: 0px;
 }
 .newspaper3 {
-    border-top: 3px solid #EEEEEE;
+    display:inline-block;
+    border-top: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
-
     padding: 5px;
     margin-right: 3px;
+    
 }
 
 .newspaper4 {
@@ -1180,14 +1180,16 @@ display:inline-block;
 }
 
 .fifty {
-    width: 50%;
-    float: left;
+    display: inline-block; 
+    vertical-align: top;
+    width: 100%;
+    
 
 }
 
 .fifty2 {
     width: 100%;
-    float: left;
+    
 
 }
 
@@ -1204,4 +1206,8 @@ display:inline-block;
 
 .italic {
     font-style:italic;
+}
+
+.clear { 
+   clear: both;
 }

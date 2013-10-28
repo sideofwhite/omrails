@@ -10,7 +10,7 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
 belongs_to :user
 acts_as_votable
 belongs_to :comment
-has_many :comments
+
 has_many :pictures
 
 
