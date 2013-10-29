@@ -14,7 +14,7 @@ end
     @comment = Comment.find params[:comment_id]
     @questions = @comment.questions
     @question = Question.find params[:comment_id]
-    @comments = Comment.all.limit(2)
+    
 
   end
 
