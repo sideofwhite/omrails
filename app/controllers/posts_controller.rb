@@ -12,12 +12,9 @@ end
   # GET /posts
   # GET /posts.json
   def index
-    
-    if params[:tag]
-     @posts = Post.tagged_with(params[:tag])
-    else
-     @posts = Post.order("created_at desc")
-   end
+   
+    @posts = Post.order("created_at desc")
+  
   end
 
   # GET /posts/1
