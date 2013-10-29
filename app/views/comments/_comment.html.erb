@@ -35,7 +35,7 @@ Answers
 <div class="lightcontainer7">
 Latest Bio's
 </div>
-<% comment.questions.select([:id, :title]).order('created_at desc').limit(3).each do |question| %> 
+<% comment.questions.order('created_at desc').limit(3).each do |question| %> 
 <div class="newspaper4"> 
 <div class="answertitle">
 <%= link_to question.title, comment_question_path(comment, question), class: "blue" %>
