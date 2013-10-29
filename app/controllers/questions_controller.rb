@@ -13,7 +13,7 @@ end
   def index
     @comment = Comment.find params[:comment_id]
     @questions = @comment.questions
-    @question = Question.find params[:comment_id]
+    
     
 
   end

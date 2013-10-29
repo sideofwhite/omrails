@@ -1107,9 +1107,12 @@ only screen and (min-width : 320px)
 
 .newspaper {
     
-    border: 2px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
     padding: 15px;
-    margin: 2px;
+    
 }
 
 .home {

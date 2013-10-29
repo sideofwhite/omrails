@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.1'
@@ -12,6 +12,8 @@ gem 'acts_as_votable', '0.7.1'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'masonry-rails', '~> 0.2.0'
+gem 'acts-as-taggable-on'
+gem 'pry'
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'
@@ -19,7 +21,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
-  
+
 end
 
 # Use SCSS for stylesheets
