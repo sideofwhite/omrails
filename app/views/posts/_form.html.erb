@@ -16,7 +16,12 @@ Post an event
   <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 600px', },label: false, placeholder: "Event Headline" %>
   <%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 600px', }, label: false, placeholder: "City and/or Country" %>
   <%= f.input :description, as: :text, input_html: { rows: "8", :style=> 'width: 600px' }, label: false, placeholder: "Event Description"%>
-  <%= f.text_field :tag_list %>
+
+  <%= f.label :tag_list %>
+  <%= f.check_box :tag_list, { :multiple => true }, 'politics', nil %>
+  <%= f.check_box :tag_list, { :multiple => true }, 'science', nil %>
+  <%= f.check_box :tag_list, { :multiple => true }, 'social', nil %>
+  <%= f.check_box :tag_list, { :multiple => true }, 'sports', nil %>
   <div class="titlecontainer2">
 Add an image
 <hr/>
