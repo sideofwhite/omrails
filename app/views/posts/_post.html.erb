@@ -69,7 +69,7 @@ Latest Questions
 
 
 <div class="newspaper5">
-<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 
 </div>
