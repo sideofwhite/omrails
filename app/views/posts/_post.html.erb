@@ -1,4 +1,4 @@
-<% Post.order("created_at desc").each do |post| %>
+<% @posts.order("created_at desc").each do |post| %>
 <div class="box panel panel-default">
 <div class="newspaper"> 
 
@@ -68,9 +68,10 @@ Latest Questions
 <% end %>
 
 
-<div class="newspaper5">
-Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-</div>
+<br>
+Tags: 
+<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+
 
 </div>
 </div>
