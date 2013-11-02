@@ -13,9 +13,15 @@
 <div class="margintopp">
 </div>
 
+<% if user_signed_in? %>
 <div class="addevent">
 <%= link_to ('Add Event'), new_post_path, class: "white" %>
 </div>
+<% else %>
+<div class="addevent"> 
+<%= link_to 'Add Event', new_user_registration_path, class: "white" %>
+</div>
+<% end %>
 
 
 <div class="newspaper6">
