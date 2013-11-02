@@ -114,11 +114,13 @@ body{
 }
 
 .button4 {
-    color: #B23000 !important;
+    color: white !important;
     font-size: 20px;
     float: right;
     border: 1px solid #B23000;
+    background-color: #B23000;
     padding: 5px;
+    font-weight: lighter;
     
     
 }
@@ -227,7 +229,7 @@ body{
     font-size: 32px;
     padding-bottom: 10px;
     line-height: 110%;
-    
+    font-weight: lighter;
 }
 
 .border{
@@ -842,7 +844,7 @@ border:1px solid white;
 
 
 .info2 {
-    
+    color: #3333CC;
     display:inline-block;
     border:1px solid #EEEEEE;
     background-color: #EEEEEE;  
@@ -885,26 +887,23 @@ border:1px solid white;
 }
 
 .info6 {
-    display:inline-block;
-    font-size: 22px;
+    display: inline-block;
+    font-size: 18px;
     border:1px solid #B23000;
-    color: #B23000;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    background-color: #B23000;
+    color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 4px;
     padding-right: 4px;
     margin-bottom: 10px;
+    font-weight: lighter;
 }
 
 .info7 {
     display:inline-block;
     font-size: 18px;
-    border:1px solid #B23000;
     color: #B23000;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
     margin-bottom: 10px;
     
 }
@@ -1190,6 +1189,72 @@ only screen and (max-device-width : 399px){
     margin-bottom: 5px;
 }
 
+
+///////////sidebar//////////////////////////////////
+.newspaper6 {
+    
+    border: 1px solid #EEEEEE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 50px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: lighter;
+    
+}
+
+.sidebar {
+    border: 1px solid #EEEEEE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 50px;
+    margin-bottom: 10px;
+
+}
+
+.addevent {
+    border: 1px solid #B23000;
+    background-color: #B23000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: lighter;
+
+}
+
+.addevent2 {
+    opacity: 0.2;
+    border: 1px solid #B23000;
+    background-color: #B23000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: lighter;
+
+}
+
+
+//////////////////////////////////////////////////////
+
+.margintopp {
+    margin-top: 5px;
+}
+
+.tagtext {
+    
+    font-size: 20px;
+    color: black;
+
+}
+
 .newspapernumber {
     border: 1px solid #EEEEEE;
     background-color: #EEEEEE;
@@ -1251,4 +1316,33 @@ display:inline-block;
 
 .clear { 
    clear: both;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.white {
+    color: white !important;
+}
+
+
+.belowsidebar {
+    padding-top: 40px;
+    padding-left: 11px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.belowsidebar2 {
+    
+    padding-left: 11px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.paddingtopuser {
+    padding-right: 10px;
+    display: inline-block;
+    vertical-align: bottom;
 }

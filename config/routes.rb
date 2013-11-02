@@ -27,6 +27,7 @@ end
   devise_for :users
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
+  match '/contact', to: 'pages#contact',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   

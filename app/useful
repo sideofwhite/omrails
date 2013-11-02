@@ -251,7 +251,7 @@
 
 
 
- <div class="newspaper">
+ <div class="newspaper4">
  <%= image_tag question.image(:small) %>
 </div>
 
@@ -276,3 +276,6 @@ No one has answered yet
 <% end %>
 
 <% Post.order("cached_votes_total desc").each do |post| %>
+
+<%= link_to image_tag ("http://i.imgur.com/3UUq6r6.png"), "http://twitter.com" %>
+

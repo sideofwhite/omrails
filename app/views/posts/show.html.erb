@@ -1,10 +1,12 @@
 <div class="container">
  <div class="row">
+
 <div class="span4">
 <div class="commentimage">
   <%= image_tag @post.image(:small) %>    
  </div>
 </div>
+
 <div class="span6">
 <div class="titlecontainer">
 <%= @post.title %>
@@ -28,24 +30,26 @@
 <%= @post.description %>
 </div>
 </div>
+
+<div class="span2">
+<div class="addevent"> 
+<% if user_signed_in? %>
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+<% else %>
+<%= link_to 'Ask Question', new_user_registration_path, class: "white" %>
+<% end %>
+</div>
+</div>
+
 </div>
 </div>
 
 <div class="row">
 
-
 <div class="span10">
 <hr />
 
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
-</div>
-<% end %>
+
 <% if @post.comments.count == 1 %>
 <div class="number2">
 <%= @post.comments.count %> Question

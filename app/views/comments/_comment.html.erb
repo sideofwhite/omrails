@@ -1,26 +1,17 @@
 <%= div_for(comment) do %>
 <div class="boxtwo">
 <div class="newspaper2">
+
 <% if comment.questions.count == 1 %>
 <div class="info7">
-<%= comment.questions.count %>
-</div>
-<div class="lightcontainer2">
- <div class="red">
- Answer
-</div>
+<%= comment.questions.count %> Answer
 </div>
 <% else %>
-
 <div class="info7">
-<%= comment.questions.count %>
-</div>
-<div class="lightcontainer2">
- <div class="red">
-Answers
-</div>
+<%= comment.questions.count %> Answers
 </div>
 <% end %>
+
 <div class="questioncontainer">
 <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
