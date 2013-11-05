@@ -1,16 +1,13 @@
 <div class="container">
  <div class="row">
 
+
+<div class="fixed">
 <div class="span4">
 <div class="commentimage">
   <%= image_tag @post.image(:small) %>    
  </div>
-</div>
 
-<div class="span6">
-<div class="titlecontainer">
-<%= @post.title %>
-</div>
 
 <div class="info">
 <div class="newspaper4"> 
@@ -26,17 +23,22 @@
 </div>
 </div>
 
+<div class="newspaper3"> 
 <div class="descriptioncontainer2">
 <%= @post.description %>
 </div>
 </div>
+
 </div>
 </div>
 
+<div class="span8 offset4">
 
-<div class="row">
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
 
-<div class="span10">
+
 <hr />
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
@@ -57,18 +59,13 @@
 <%= @post.comments.count %> Questions 
 </div>
 <% end %>
-
-
-
-</div>
-</div>
-
-
 <div id="pin" class="transitions-enabled">
 <%= render :partial => @post.comments %>
 </div>
 
-
+</div>
+</div>
+</div>
 
 
 

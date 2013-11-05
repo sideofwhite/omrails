@@ -185,7 +185,7 @@ body{
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
-    font-weight: lighter;
+    
 
 }
 
@@ -229,7 +229,7 @@ body{
     font-size: 32px;
     padding-bottom: 10px;
     line-height: 110%;
-    font-weight: lighter;
+    
 }
 
 .border{
@@ -459,10 +459,10 @@ font-size: 18px;
 .questioncontainer2 {
 
     font-color: black;
-    font-size: 32px;
+    font-size: 34px;
     padding-bottom: 3px;
     line-height: 110%;
-    font-weight: lighter;
+    
     
     
     
@@ -1033,6 +1033,7 @@ padding-left: 10px;
 .commentimage img {
     height: 250px;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 
@@ -1080,7 +1081,7 @@ only screen and (max-device-width : 399px){
 }
 
 .boxtwo {
- margin: 10px;
+ margin: 5px;
  
  
 }
@@ -1089,7 +1090,7 @@ only screen and (max-device-width : 399px){
 @media only screen and (max-width : 2000px),
 only screen and (max-device-width : 2000px){
     .boxtwo {
-        width: 410px;
+        width: 300px;
     }
 }
 
@@ -1166,7 +1167,7 @@ only screen and (max-device-width : 399px){
     margin: 0px;
 }
 .newspaper3 {
-    display:inline-block;
+    
     border-top: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
     border-left: 1px solid #EEEEEE;
@@ -1200,7 +1201,7 @@ only screen and (max-device-width : 399px){
     padding-right: 50px;
     margin-bottom: 10px;
     font-size: 24px;
-    font-weight: lighter;
+    
     
 }
 
@@ -1236,7 +1237,7 @@ only screen and (max-device-width : 399px){
     padding-right: 30px;
     margin-bottom: 20px;
     font-size: 24px;
-    font-weight: lighter;
+    
 
 }
 
@@ -1250,7 +1251,7 @@ only screen and (max-device-width : 399px){
     padding-right: 30px;
     margin-bottom: 20px;
     font-size: 24px;
-    font-weight: lighter;
+    
 
 }
 
