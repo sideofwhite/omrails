@@ -3,6 +3,7 @@
 
 
 <div class="fixed">
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span4">
 <div class="commentimage">
   <%= image_tag @post.image(:small) %>    
@@ -10,13 +11,13 @@
 
 
 <div class="info">
-<div class="newspaper4"> 
+<div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
 </div>
 
 <div class="info">
-<div class="newspaper4"> 
+<div class="newspaper7"> 
 <div class="blue">
 <%= @post.country %>
 </div>
@@ -29,10 +30,13 @@
 </div>
 </div>
 
+<% render 'links/link' %>
+
+</div>
 </div>
 </div>
 
-<div class="span8 offset4">
+<div class="span7 offset4">
 
 <div class="titlecontainer">
 <%= @post.title %>
@@ -52,11 +56,11 @@
 
 <% if @post.comments.count == 1 %>
 <div class="number2">
-<%= @post.comments.count %> Question
+<strong><%= @post.comments.count %></strong> Question
 </div>
 <% else %>
 <div class="number2">
-<%= @post.comments.count %> Questions 
+<strong><%= @post.comments.count %></strong> Questions 
 </div>
 <% end %>
 <div id="pin" class="transitions-enabled">

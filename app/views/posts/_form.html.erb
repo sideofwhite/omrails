@@ -15,6 +15,7 @@ Post an event
 
   <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 600px', },label: false, placeholder: "Event Headline" %>
   <%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 600px', }, label: false, placeholder: "City and/or Country" %>
+  <%= f.input :URL, as: :text, input_html: { rows: "1",:style=> 'width: 600px', }, label: false, placeholder: "Add a link" %>
   <%= f.input :description, as: :text, input_html: { rows: "8", :style=> 'width: 600px' }, label: false, placeholder: "Event Description"%>
 
   <%= f.label :tag_list %>
