@@ -6,8 +6,9 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span4">
 <div class="commentimage">
-  <%= image_tag @post.image(:small) %>    
+  <%= image_tag @post.image %>    
  </div>
+
 
 
 <div class="info">
@@ -23,14 +24,16 @@
 </div>
 </div>
 </div>
-
-<div class="newspaper3"> 
+<hr/>
 <div class="descriptioncontainer2">
+<div class="newspaper7"> 
 <%= @post.description %>
 </div>
 </div>
 
-<% render 'links/link' %>
+<hr/>
+
+<%= render 'links/link' %>
 
 </div>
 </div>

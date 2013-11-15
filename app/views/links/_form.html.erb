@@ -1,10 +1,12 @@
-<%= simple_form_for(@link) do |f| %>
+<%= simple_form_for [@post, Link.new] do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
+   <%= f.input :URL, as: :text, input_html: { rows: "3", :style=> 'width: 85%', :class => "create" }, label: false,placeholder: "Add Link" %>
+   <%= f.input :description, as: :text, input_html: { rows: "3", :style=> 'width: 85%', :class => "create" }, label: false,placeholder: "Link Description" %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Add", class: "button5" %>
   </div>
 <% end %>

@@ -3,12 +3,38 @@ $navbarHeight: 40px;
 $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
+$baseBorderRadius: 0;
+
+
+
 
 @import 'bootstrap';
 
 @import "bootstrap-responsive";
 
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: #EEEEEE;
+    box-shadow: none;
+    outline: 0 none;
+}
 
+textarea {
+    color: black;
+    font-color: black;
+    font-size: 16px; 
+    line-height: 120%;
+    
+}
+
+label {
+    
+    color: #B23000;
+    font-size: 20px; 
+    padding-bottom: 5px;
+    
+
+    
+}
 
 
 body{
@@ -23,10 +49,9 @@ body{
 
 
 
+
 .navbar .brand{
     
-    position: absolute;
-    left: 26px;
     color: white;
     font-size: 30px;
     border:1px solid white;
@@ -37,6 +62,7 @@ body{
     padding-top: 7px;
     margin-top: 5px;
     font-weight: bold;
+    margin-left: 1px;
 }
 
 .dropdown-backdrop{
@@ -79,7 +105,7 @@ body{
  
  .navbar.transparent.navbar-inverse .navbar-inner {
    border: 0 !important;
-   background: rgba(255,255,255,0.95);
+   background: white;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
 
@@ -127,13 +153,28 @@ body{
 
 .button5 {
    
-    color: #B23000 !important;
+    margin-top: 5px;
+    color: white !important;
     font-size: 18px;
     border: 1px solid #B23000;
+    background-color: #B23000;
+    padding: 7px;
+    font-weight: lighter;
+
+}
+
+.button6 {
+    color: white !important;
+    font-size: 16px;
+    float: right;
+    border: 1px solid #B23000;
+    background-color: #B23000;
     padding: 5px;
+    font-weight: lighter;
     
     
 }
+
 
 .buttonborder {
     border: 1px solid #B23000;
@@ -226,9 +267,10 @@ body{
     
     padding-top: 10px;
     color: white;
-    font-size: 32px;
+    font-size: 28px;
     padding-bottom: 10px;
     line-height: 110%;
+    
     
 }
 
@@ -459,8 +501,8 @@ font-size: 18px;
 .questioncontainer2 {
 
     font-color: black;
-    font-size: 34px;
-    padding-bottom: 3px;
+    font-size: 26px;
+    padding-bottom: 10px;
     line-height: 110%;
     
     
@@ -470,8 +512,8 @@ font-size: 18px;
 }
 
 .questioncontainer3 {
-float: right;
-    
+    font-color: black;
+    font-size: 16px;
     
     
 }
@@ -497,8 +539,9 @@ font-size: 18px;
    
     
     font-color: black;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     font-size: 18px; 
+    line-height: 120%;
     
     
 
@@ -559,7 +602,7 @@ width: 500px;
     line-height: 140%;
     
 }
-.body{
+.body2{
     font-size: 20px;
     line-height: 140%;
     
@@ -568,8 +611,7 @@ width: 500px;
 
 .underanswercontainer2{
     padding-top: 5px;
-    padding-bottom: 0px;
-    
+    padding-bottom: 40px;
     font-size: 12px;
     color: grey;
 }
@@ -587,6 +629,7 @@ width: 500px;
 
 .blue{
     color: #3333CC !important;
+    display: inline-block;
 
 }
 
@@ -767,7 +810,7 @@ border:1px solid white;
 
 .number {
     padding-top: 5px;
-    font-size: 24px;
+    font-size: 22px;
     padding-bottom: 40px;
     
 }
@@ -887,17 +930,12 @@ border:1px solid white;
 }
 
 .info6 {
-    display: inline-block;
-    font-size: 18px;
-    border:1px solid #B23000;
-    background-color: #B23000;
-    color: white;
-    padding-top: 3px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
+    
+    display:inline-block;
+    font-size: 20px;
+    color: #B23000;
     margin-bottom: 10px;
-    font-weight: lighter;
+    
 }
 
 .info7 {
@@ -1019,7 +1057,7 @@ padding-left: 10px;
 
 .box {
   margin: 5px;
-  width: 460px;
+  width: 430px;
 
 }
 
@@ -1045,7 +1083,7 @@ padding-left: 10px;
 @media only screen and (max-width : 1199px),
 only screen and (max-device-width : 1199px){
     .box {
-        width: 440px;
+        width: 200px;
     }
 }
  
@@ -1190,7 +1228,12 @@ only screen and (max-device-width : 399px){
     margin-bottom: 5px;
 }
 
+.newspaper7 {
+    border: 1px solid white;
+    display: inline-block;
+  
 
+}
 ///////////sidebar//////////////////////////////////
 .newspaper6 {
     
@@ -1359,4 +1402,81 @@ display:inline-block;
     padding-right: 10px;
     display: inline-block;
     vertical-align: bottom;
+}
+
+
+
+
+///////////////////////////////////
+
+.redborder {
+
+border-left: 1px solid black;
+border-right: 1px solid black;    
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+padding: 15px;
+}
+
+.redborder2 {
+   border-left: 1px solid black;
+border-right: 1px solid black;    
+border-top: 1px solid black;
+
+padding: 15px; 
+}
+
+.logo {
+    display: inline-block;
+    color: white;
+    font-size: 30px;
+    border:1px solid white;
+    background-color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    font-weight: bold; 
+}
+
+.logotext {
+ display: inline-block;
+ padding-left: 5px;
+ padding-top: 20px;
+ vertical-align: text-bottom;
+ font-size: 22px;
+    
+}
+
+.font22 {
+  
+padding-top: 10px;
+font-size: 22px;
+line-height: 110%;
+  
+}
+
+.besideformtext {
+
+padding-top: 10px;
+font-size: 28px;
+line-height: 110%;
+    
+}
+
+.learnmore {
+    display: inline-block;
+    font-size: 18px;
+   
+    padding-bottom: 10px;
+    
+}
+
+.link {
+    border: 1px solid #EEEEEE;
+    padding: 3px;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 15px;
+    margin-bottom: 5px;
 }

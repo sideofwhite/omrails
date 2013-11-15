@@ -1,6 +1,9 @@
 class Question < ActiveRecord::Base
 has_attached_file :image, styles: { :small => "400x250>", :medium => "320x240>", :large => "740x340>" }
 
+def to_param
+	"#{id} #{title}".parameterize
+end
 
 validates :body, presence: true
 validates :title, presence: true

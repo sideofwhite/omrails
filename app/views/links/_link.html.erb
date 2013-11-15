@@ -1,5 +1,14 @@
-<%= div_for(link) do %>
-<div class="newspaper2">
-<%= link.URL %>
+<div class="learnmore">
+Read More
+</div>
+<div class="floatright">
+<div class="learnmore">
+<%= link_to 'See All...', post_links_path(@post), class: "blue" %>
+</div>
+</div>
+
+<% @links.each do |link| %>
+<div class="link">
+<b> <a href="<%= link.URL %>"> <%= link.description %> </a> </b>
 </div>
 <% end %>

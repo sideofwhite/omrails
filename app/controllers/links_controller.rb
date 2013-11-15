@@ -1,10 +1,24 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
+   
+def upvote
+@link = Link.find params[:id]
+@link.liked_by current_user
+redirect_to post_links_path
+end
+
+
+
+
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+   @post = Post.find params[:post_id]
+   @post.links
+  
+    
+    
   end
 
   # GET /links/1
@@ -14,7 +28,7 @@ class LinksController < ApplicationController
 
   # GET /links/new
   def new
-    @link = Link.new
+    @post = Post.find params[:post_id]
   end
 
   # GET /links/1/edit
@@ -24,12 +38,13 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
-
+     @post = Post.find(params[:post_id])
+     @link = @post.links.create(link_params)
+    
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @link }
+        format.html { redirect_to @post, notice: 'Link was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -69,6 +84,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params[:link]
+      params.require(:link).permit(:post_id, :user_id, :URL, :description, :tag_list)
     end
 end

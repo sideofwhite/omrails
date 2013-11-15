@@ -1,65 +1,33 @@
 <div class="container">
 <div class="row">
-<div class="span3 offset1">
-<div class="titlecontainer2">
-Post an event
-<hr/>
-</div>
 
-
-<%= simple_form_for(@post) do |f| %>
+<div class="span7">
+   <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
+   <%= f.input :title, as: :text, input_html: { rows: "3", :style=> 'width: 100%',:class => "create" },label: "Headline", placeholder: "Event Headline" %>
+   <%= f.input :description, as: :text, input_html: { rows: "7", :style=> 'width: 100%',:class => "create" }, label: "Summary", placeholder: "Summary of the event"%>
+  </div>
 
-  <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 600px', },label: false, placeholder: "Event Headline" %>
-  <%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 600px', }, label: false, placeholder: "City and/or Country" %>
-  <%= f.input :URL, as: :text, input_html: { rows: "1",:style=> 'width: 600px', }, label: false, placeholder: "Add a link" %>
-  <%= f.input :description, as: :text, input_html: { rows: "8", :style=> 'width: 600px' }, label: false, placeholder: "Event Description"%>
-
-  <%= f.label :tag_list %>
-  <%= f.check_box :tag_list, { :multiple => true }, 'politics', nil %>
-  <%= f.check_box :tag_list, { :multiple => true }, 'science', nil %>
-  <%= f.check_box :tag_list, { :multiple => true }, 'social', nil %>
-  <%= f.check_box :tag_list, { :multiple => true }, 'sports', nil %>
-  <div class="titlecontainer2">
-Add an image
-<hr/>
+<div class="span3">
+<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 100%',:class => "create" }, label: "Location", placeholder: "City and/or Country" %>
+<%= f.label :tag_list, label: "Tags (separated by commas)" %>
+  <%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 100%',:class => "create" }, label: false, placeholder: "World, United States, Politics, Technology, Science" %>
+<%= f.input :image, label: "Image" %>
+  <%= f.input :image_remote_url, as: :text,  input_html: { rows: "1", :style=> 'width: 100%',:class => "create" }, label: false, placeholder: "Or a URL" %>
 </div>
-  <%= f.input :image, label: "Upload an image" %>
-  <%= f.input :image_remote_url, label: false, placeholder: "Or a URL" %>
-  
-  <%= f.submit "Add Event", class: "btn btn-primary" %>
- </div>
+
+
+
+
+<div class="span10">
+
+  <%= f.submit "Add Event", class: "button5" %>
+
  <% end %>
-
-
-<div class="span3 offset5">
-<div class="visible-desktop">
-<div class="margintop">
-<div class="newspaper4">
-<div class="subtitle">
-<strong>Before you post:</strong><br>
-Make sure to check for the same event so there are no duplicates.
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="span3 offset5">
-<div class="visible-desktop">
-<div class="margintop2">
-<div class="newspaper4">
-<div class="subtitle">
-<strong>Note:</strong><br>
-Your event may be edited by moderators. 
-</div>
-</div>
 </div>
 </div>
 </div>
 
-
-</div>
-</div>

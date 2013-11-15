@@ -1,6 +1,6 @@
 Omrails::Application.routes.draw do
   
-  resources :links
+
 
 resources :posts do
   member do
@@ -41,7 +41,7 @@ end
   match '/about', to: 'pages#about',  via:'get'
   match '/contact', to: 'pages#contact',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
-
+ 
   
 
 
