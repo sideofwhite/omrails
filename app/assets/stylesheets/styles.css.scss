@@ -53,16 +53,14 @@ body{
 .navbar .brand{
     
     color: white;
-    font-size: 30px;
-    border:1px solid white;
+    font-size: 34px;
+    border:1px solid black;
     background-color: black;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: 7px;
-    padding-top: 7px;
-    margin-top: 5px;
     font-weight: bold;
     margin-left: 1px;
+    height: 100%;
 }
 
 .dropdown-backdrop{
@@ -130,12 +128,14 @@ body{
 
 .button3 {
    
-    opacity: 0.2;
-    color: #B23000;
+    color: white !important;
     font-size: 20px;
-    border: 1px solid #B23000;
-    padding: 5px;
     float: right;
+    border: 1px solid #B23000;
+    background-color: #B23000;
+    padding: 5px;
+    font-weight: lighter;
+    opacity: 0.2;
     
 }
 
@@ -163,18 +163,19 @@ body{
 
 }
 
-.button6 {
+.button7 {
+   
     color: white !important;
-    font-size: 16px;
-    float: right;
-    border: 1px solid #B23000;
+    font-size: 14px;
+    border: 1px solid white;
     background-color: #B23000;
-    padding: 5px;
-    font-weight: lighter;
+    padding-left: 3px;
+    padding-right: 3px;
+    paddong-top: 1px;
+    padding-bottom: 1px;
     
-    
-}
 
+}
 
 .buttonborder {
     border: 1px solid #B23000;
@@ -222,7 +223,18 @@ body{
 .titlecontainer {
     
     color: black;
-    font-size: 36px;
+    font-size: 32px;
+    text-align: left;
+    padding-bottom: 15px;
+    line-height: 110%;
+    
+
+}
+
+.titlecontainerb {
+    
+    color: #B23000;
+    font-size: 32px;
     text-align: left;
     padding-bottom: 15px;
     line-height: 110%;
@@ -254,11 +266,25 @@ body{
 
 .titlecontainer4 {
     
-    color: black;
-    font-size: 28px;
-    text-align: left;
+    
+    font-size: 18px;
     padding-bottom: 15px;
     line-height: 110%;
+    color: #B23000 !important;
+    
+    
+
+}
+
+
+.titlecontainer5 {
+    
+    
+    font-size: 18px;
+    padding-bottom: 15px;
+    line-height: 110%;
+    color: grey;
+    
     
 
 }
@@ -483,7 +509,7 @@ font-size: 18px;
 
     
     font-color: black;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 110%;
     padding-bottom: 10px;
     
@@ -561,14 +587,11 @@ font-size: 18px;
 }
 
 .descriptioncontainer3 {
-   
-    float: left;
-    width: 30%;
     font-color: black;
-    padding: 15px;
-    border: 1px solid #D8D8D8;
-    background-color: white;
-    font-size: 16px; 
+    padding-bottom: 5px;
+    font-size: 19px; 
+    line-height: 140%; 
+ 
 }
 
 
@@ -628,7 +651,7 @@ width: 500px;
 
 
 .blue{
-    color: #3333CC !important;
+    color: #003399!important;
     display: inline-block;
 
 }
@@ -1128,7 +1151,7 @@ only screen and (max-device-width : 399px){
 @media only screen and (max-width : 2000px),
 only screen and (max-device-width : 2000px){
     .boxtwo {
-        width: 300px;
+        width: 310px;
     }
 }
 
@@ -1220,6 +1243,27 @@ only screen and (max-device-width : 399px){
     padding: 3px;
     display: inline-block;
     margin-bottom: 5px;
+}
+
+.newspaper4b {
+    border: 1px solid #EEEEEE;
+    width: 35px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    display: inline-block;
+    float: right;
+}
+
+.newspaper4c {
+    border-right: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    width: 35px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    display: inline-block;
+    float: right;
+    text-align: center;
 }
 
 .newspaper5 {
@@ -1467,16 +1511,41 @@ line-height: 110%;
 .learnmore {
     display: inline-block;
     font-size: 18px;
-   
     padding-bottom: 10px;
+    font-weight: bold;
     
 }
 
 .link {
-    border: 1px solid #EEEEEE;
-    padding: 3px;
+   
     margin-bottom: 5px;
     color: black;
-    font-size: 15px;
-    margin-bottom: 5px;
+    font-size: 18px;
+
+    
+    
+}
+.line {
+    border-left: 2px solid #EEEEEE;
+    padding-left: 15px;
+}
+
+.line2 {
+    border-right: 2px solid #EEEEEE;
+    padding-right: 15px;
+}
+
+.upvotes {
+    color: #B23000;
+    font-size: 18px;
+    display: inline-block;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.upvote {
+   
+    font-size: 18px;
+    display: inline-block;
+   
 }

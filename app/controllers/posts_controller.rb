@@ -28,7 +28,7 @@ end
   def show
   @post = Post.find(params[:id])
   @comments = Post.order("created_at desc")
-  @links = @post.links.order(:created_at).limit(3)
+  @links = @post.links.order(:created_at).limit(2)
 
   end
 

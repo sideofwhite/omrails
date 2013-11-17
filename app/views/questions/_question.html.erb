@@ -4,10 +4,8 @@
 
 <div class="fixed">
 <div class="span4">
+<div class="line2">
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="titlecontainer4">
-<%= @comment.post.title %>
-</div>
 <div class="commentimage">
   <%= image_tag @comment.post.image(:small) %>    
  </div>
@@ -24,16 +22,23 @@
 </div>
 </div>
 </div>
-<div class="newspaper3"> 
+<hr/>
+<div class="newspaper7"> 
 <div class="descriptioncontainer2">
 <%= @comment.post.description %>
 </div>
+</div>
+<hr/>
 </div>
 </div>
 </div>
 </div>
 
 <div class="span7 offset4">
+<div class="titlecontainer4">
+<%= @comment.post.title %>
+</div>
+
 <div class="titlecontainer">
 <%= @comment.body %>
 </div>
@@ -64,24 +69,43 @@
 
 
 <% @comment.questions.order("cached_votes_total desc").each do |question| %>
-
-<% if question.votes.size > 0 %>
-
+<div class="container">
+ <div class="row">
+<div class="span5">
 <div class="info">
 <strong><%= question.user.name %></strong> |
 <div class="blue">
 <%= question.title %>
 </div>
 </div>
+</div>
 
-<%= link_to "Upvote", upvote_comment_question_path(@comment, question) %>
+<div class="span2">
+<div class="newspaper4c">
+<div class="upvotes">
+<%= question.votes.size %> 
+</div>
+</div>
+<div class="newspaper4b">
+<% if user_signed_in? %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_comment_question_path(@comment, question) %>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+
 
 
 
 <hr/>
 
 
-<div class="descriptioncontainer2">
+<div class="descriptioncontainer3">
 <%= question.body %>
 </div>
 
@@ -93,31 +117,6 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 </div>
 
 
-
-<% else %>
-
-
-<div class="answercontainer2">
- <div class="info">
-
- <strong><%= link_to (question.user.name), comment_question_path(@comment, question) %></strong> |
- </div> 
-
-<div class="blue">
-<div class="info">
-
-<%= question.title %><br>
-  </div>
-  </div>
-</div>
-<%= link_to "Upvote", upvote_comment_question_path(@comment, question) %>
-<hr/>
-
-
-
-<div class="descriptioncontainer2">
-<%= question.body %>
-</div>
 
 
 <% if question.image? %>
@@ -132,13 +131,6 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <% end %>
 
 
-
-
-<div class="underanswercontainer2">
- 
-Flag -
-Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-</div>
 <% if current_user.try(:admin?) %>
 <div class="underanswercontainer2">
 <%= link_to 'Edit', edit_comment_question_path(@comment, question) %>
@@ -149,7 +141,7 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 <% end %>
 
-<% end %>
+
 </div>
 
 

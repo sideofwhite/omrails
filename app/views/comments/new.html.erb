@@ -1,64 +1,111 @@
 <div class="container">
  <div class="row">
+
+
+<div class="fixed">
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span4">
+<div class="line2">
 <div class="commentimage">
-  <%= image_tag @post.image(:small) %>    
+  <%= image_tag @post.image %>    
  </div>
-</div>
-<div class="span6">
-<div class="titlecontainer">
-<%= @post.title %>
-</div>
+
+
+
 <div class="info">
-<div class="newspaper4"> 
+<div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
-<div class="newspaper4"> 
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
 <div class="blue">
 <%= @post.country %>
 </div>
 </div>
 </div>
-
+<hr/>
 <div class="descriptioncontainer2">
+<div class="newspaper7"> 
 <%= @post.description %>
 </div>
 </div>
+
+<hr/>
+
+</div>
+</div>
 </div>
 </div>
 
-<div class="row">
+<div class="span7 offset4">
+
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
 
 
-<div class="span10">
 <hr />
+<% if user_signed_in? %>
 <div class="questioncontainer3">  
-<div class="button3">
-Ask Question
-</div>
-</div>
-
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<%= @post.comments.count %> Question
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button3" %>
 </div>
 <% else %>
-<div class="number2">
-<%= @post.comments.count %> Questions 
+<div class="questioncontainer3">  
+<%= link_to 'Ask Question', new_user_registration_path, class: "button3" %>
 </div>
 <% end %>
 
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Question
 </div>
-
-
-
-<div class="span5">
+<% else %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Questions 
+</div>
+<% end %>
 <div class="floatright">
 <%= link_to ("x"), post_path(@post), class: "x" %>
 </div>
 <%= render 'form' %>
 
+
 </div>
+</div>
+</div>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
 
 
 

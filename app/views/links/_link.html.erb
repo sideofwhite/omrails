@@ -1,14 +1,15 @@
 <div class="learnmore">
-Read More
+Around the web
 </div>
 <div class="floatright">
-<div class="learnmore">
-<%= link_to 'See All...', post_links_path(@post), class: "blue" %>
+<div class="button7">
+<%= link_to 'See all...', post_links_path(@post), class: "white" %>
 </div>
 </div>
 
 <% @links.each do |link| %>
 <div class="link">
-<b> <a href="<%= link.URL %>"> <%= link.description %> </a> </b>
+<a href="<%= link.URL %>"> <%= link.description %> </a> 
 </div>
+
 <% end %>

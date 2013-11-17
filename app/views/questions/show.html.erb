@@ -1,93 +1,45 @@
-<div class="span8">
 <div class="row">
+<div class="container">
 
-
+<div class="span2">
 <%= link_to ('See all answers'), comment_questions_path, class: "button5" %>
-<div class="questioncontainer4">
+</div>
+
+<div class="span8 offset2">
+<div class="titlecontainer">
 <%= @question.comment.body %>
 </div>
 <div class="lightcontainer6">
  <%= time_ago_in_words(@question.comment.created_at) %> ago 
 </div>
 <hr/>
-</div>
 
 
 
-
-
-
-
-<div class="row">
-<% if @question.votes.size > 0 %>
-
-
-<div class="floatright">
-<%= image_tag('http://i.imgur.com/4Iq16fx.png') %>
-<div class="lightcontainer4">
-Verified Answer
-</div>
-</div>
-
- 
 <div class="verifiedanswer">
  <div class="info">
- <div class="newspaper4"> 
+
  <%= @question.user.name %>
 </div> 
-</div>
+
 
   <div class="blue">
 <div class="info">
-<div class="newspaper4">   
+  
 <%= @question.title %><br>
   </div>
   </div>
 </div>
-</div>
 
 
 
-<div class="padding">
-<div class="body">
+
+<div class="descriptioncontainer2">
 <%= @question.body %>
 </div>
-</div>
-
-<div class="underanswercontainer2">
- 
-Flag -
-Posted <%= time_ago_in_words(@question.created_at) %> ago <br>
-</div>
-<hr />
-
-
-<% else %>
-
-
-<div class="answercontainer2">
- <div class="info">
- <div class="newspaper5">  
- <strong><%= @question.user.name %></strong>
- </div> 
-</div>
-<div class="blue">
-<div class="info">
-  <div class="newspaper5"> 
-<%= @question.title %><br>
-  </div>
-  </div>
-</div>
-</div>
 
 
 
-
-<div class="padding">
-<div class="body">
-<%= @question.body %>
-</div>
-</div>
 
 <% if @question.image? %>
  <%= image_tag @question.image(:large) %>
@@ -98,7 +50,7 @@ Posted <%= time_ago_in_words(@question.created_at) %> ago <br>
 </div>
 </div>
 </div>
-<% end %>
+
 
 
 

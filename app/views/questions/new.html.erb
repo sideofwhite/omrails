@@ -1,65 +1,28 @@
 <div class="container">
- <div class="row">
-
-
-<div class="span7">
-<div class="questioncontainer2">
-<%= @comment.body %>
-</div>
-<div class="lightcontainer6">
- <%= time_ago_in_words(@comment.created_at) %> ago 
-</div>
-
-<hr />
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_comment_question_path(@comment), class: "button4" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_user_registration_path, class: "button4" %>
-</div>
-<% end %>
-<% if @comment.questions.count == 1 %>
-<div class="number">
-<%= @comment.questions.count %> Answer
-</div>
-<% else %>
-<div class="number">
-<%= @comment.questions.count %> Answers
-</div>
-<% end %>
-
-<%= render 'form' %>
-
-</div>
+<div class="row">
 
 <div class="span3 offset1">
-<div class="titlecontainer4">
+<div class="line2">
+<div class="titlecontainerb">
+<%= @comment.body %>
+</div>
+<hr/>
+<div class="titlecontainer5">
 <%= @comment.post.title %>
 </div>
-<div class="newspaper4">
-<div class="infob">
-<%= time_ago_in_words(@comment.post.created_at) %> ago <br>
-</div>
-</div>
-<div class="newspaper4">
-<div class="infob">
-<div class="blue">
-<%= @comment.post.country %>
-</div>
-</div>
-</div>
-<div class="descriptioncontainer2b">
-<%= @comment.post.description %>
-</div>
-
-
-
 
 
 </div>
 </div>
+
+<div class="span6">
+<%= render 'form' %>
+</div>
+
+</div>
+</div>
+</div>
+
 
 
 
