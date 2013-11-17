@@ -1,4 +1,5 @@
 <% @posts.order("created_at desc").each do |post| %>
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="box panel panel-default">
 <div class="newspaper"> 
 
@@ -74,9 +75,74 @@ Latest Questions
 <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <% end %>
+</div>
 
 
 
+
+<div class="visible-phone visible-tablet">
+<div class="span12">
+<div class="newspaper">
+<%= image_tag post.image(:small) %>
+<div class="description">
+<%= link_to (post.title), post %>
+</div>
+
+<div class="lightcontainer6">
+<%= time_ago_in_words(post.created_at) %> ago 
+</div>
+
+<div class="subtitle">
+<%= post.description.split[0..20].join(" ") %>...
+</div>
+
+
+<% if post.comments.count == 1 %>
+
+<div class="info6">
+<strong><%= post.comments.count %></strong> Question
+</div>
+<% else %>
+
+<div class="info6">
+<strong><%= post.comments.count %></strong> Questions
+</div>
+
+<% end %>
+
+<% if post.comments.count > 0 %>
+
+<div class="lightcontainer10">
+Latest Questions 
+</div>
+
+<% else %>
+
+<%= link_to 'Ask the first question', new_post_comment_path(post), class: "lightcontainer10" %>
+
+<% end %>
+
+<% post.comments.order('created_at desc').limit(2).each do |comment| %>
+<div class="count">
+<div class="fifty">
+<div class="newspaper3">
+ <%= link_to (comment.body), comment_questions_path(comment) %>
+</div>
+</div>
+</div>
+<% end %>
+
+
+<br>
+
+<div class="info2">
+<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</div>
+
+
+</div>
+</div>
+</div>
 <% end %>
 
 

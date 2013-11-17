@@ -1,4 +1,5 @@
 <%= div_for(comment) do %>
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="boxtwo">
 <div class="newspaper2">
 
@@ -17,12 +18,7 @@
 </div>
 
 
-
-
-
-
-
- <% if comment.questions.count > 0 %>
+<% if comment.questions.count > 0 %>
 <div class="lightcontainer7">
 Latest Bio's
 </div>
@@ -51,16 +47,67 @@ No one has answered yet
 <%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
 </div>
 
+<% end %>
+
+</div>
+</div>
+</div>
 
 
+<div class="visible-phone visible-tablet">
+<div class="span12">
+<div class="newspaper2">
+
+<% if comment.questions.count == 1 %>
+<div class="info7">
+<%= comment.questions.count %> Answer
+</div>
+<% else %>
+<div class="info7">
+<%= comment.questions.count %> Answers
+</div>
+<% end %>
+
+<div class="questioncontainer">
+<%= link_to (comment.body), comment_questions_path(comment) %>
+</div>
+
+
+<% if comment.questions.count > 0 %>
+<div class="lightcontainer7">
+Latest Bio's
+</div>
+<% comment.questions.order('created_at desc').limit(3).each do |question| %> 
+<div class="newspaper4"> 
+<div class="answertitle">
+<%= link_to question.title, comment_question_path(comment, question), class: "blue" %>
+</div>
+</div>
+<% end %>
+
+<div class="featuredquestions"> 
+<div class="lightcontainer7">
+Last 1 of <%= comment.questions.count %><br>
+</div>
+<%= comment.questions.last.try(:[],:body)[0,200] %>
+<%= link_to "(read more...)", comment_questions_path(comment), class: "blue"  %>
+</div>
+
+<% else %>
+
+<div class="firstanswer">
+<div class="blue2">
+No one has answered yet 
+</div>
+<%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
+</div>
 
 <% end %>
 
- 
-
-
 </div>
 </div>
+</div>
+
 <% end %>
 
 

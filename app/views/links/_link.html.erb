@@ -1,3 +1,4 @@
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="learnmore">
 Around the web
 </div>
@@ -13,3 +14,14 @@ Around the web
 </div>
 
 <% end %>
+</div>
+
+<div class="visible-phone visible-tablet">
+<div class="span12">
+
+<div class="learnmore">
+<%= link_to 'More on this event', post_links_path(@post) %>
+</div>
+
+</div>
+</div>

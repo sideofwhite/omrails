@@ -1,3 +1,4 @@
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="container">
  <div class="row">
 
@@ -86,6 +87,78 @@ Around the web
 
 </div>
 </div>
+</div>
+</div>
+
+<div class="visible-phone visible-tablet">
+<div class="span12">
+<div class="titlecontainer4">
+Around the web
+</div>
+<div class="commentimage">
+  <%= image_tag @post.image %>    
+ </div>
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+</div>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<div class="blue">
+<%= @post.country %>
+</div>
+</div>
+</div>
+
+<hr/>
+
+<div class="descriptioncontainer2">
+<div class="newspaper7"> 
+<%= @post.description %>
+</div>
+</div>
+
+<hr/>
+
+<% if user_signed_in? %>
+<div class="questioncontainer3">  
+<%= link_to '+ Link', new_post_link_path(@post), class: "button4" %>
+</div>
+<% else %>
+<div class="questioncontainer3">  
+<%= link_to '+ Link', new_user_registration_path, class: "button4" %>
+</div>
+<% end %>
+
+<% if @post.links.count == 1 %>
+<div class="number2">
+<strong><%= @post.links.count %></strong> Link
+</div>
+<% else %>
+<div class="number2">
+<strong><%= @post.links.count %></strong> Links
+</div>
+<% end %>
+
+<div id="pin" class="transitions-enabled">
+<% @post.links.order("cached_votes_total desc").each do |link| %>
+<div class="newspaper2">
+<%= link.votes.size %>
+<div class="questioncontainer">  
+<a href="<%= link.URL %>"> <%= link.description %> </a> 
+</div>
+<%= link_to "^ Upvote", upvote_post_link_path(@post, link) %>
+</div>
+
+<% end %>
+</div>
+
 </div>
 
 

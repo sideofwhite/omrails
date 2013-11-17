@@ -1344,6 +1344,14 @@ only screen and (max-device-width : 399px){
 
 
 //////////////////////////////////////////////////////
+.mobilesidebar {
+    display: inline-block;
+    font-size: 20px;
+    border: 1px solid #EEEEEE;
+    padding: 5px;
+    margin-bottom: 5px;
+
+}
 
 .margintopp {
     margin-top: 5px;
