@@ -15,6 +15,8 @@ gem 'masonry-rails', '~> 0.2.0'
 gem 'acts-as-taggable-on'
 gem 'pry'
 
+
+
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'

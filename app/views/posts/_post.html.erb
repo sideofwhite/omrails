@@ -1,67 +1,63 @@
 <% @posts.order("created_at desc").each do |post| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="box panel panel-default">
-<div class="newspaper"> 
-
-<%= image_tag post.image(:small) %>
-
-<div class="panel-body">
-
-<div class="description">
-<%= link_to (post.title), post %>
-</div>
-
-<div class="lightcontainer6">
-<%= time_ago_in_words(post.created_at) %> ago 
-</div>
-
-<div class="subtitle">
-<%= post.description.split[0..20].join(" ") %>...
-</div>
 
 
 <% if post.comments.count == 1 %>
 
 <div class="info6">
-<strong><%= post.comments.count %></strong> Question
+<%= post.comments.count %> Question
 </div>
 <% else %>
 
 <div class="info6">
-<strong><%= post.comments.count %></strong> Questions
+<%= post.comments.count %> Questions
 </div>
 
 <% end %>
 
+<div class="newspaper"> 
+<%= image_tag post.image(:small) %>
+
+<div class="panel-body">
+
+<div class="lightcontainer6">
+<%= time_ago_in_words(post.created_at) %> ago 
+</div>
+
+<div class="description">
+<%= link_to (post.title), post %>
+</div>
+
+
+<div class="subtitle">
+<%= post.description.split[0..20].join(" ") %>...
+</div>
+
+<hr/>
+
 <% if post.comments.count > 0 %>
 
-<div class="lightcontainer10">
-Latest Questions 
+<div class="lightcontainer11">
+<div class="red">
+<strong> 2 of <%= post.comments.count %> Questions </strong>
+</div>
 </div>
 
 <% else %>
-
-<%= link_to 'Ask the first question', new_post_comment_path(post), class: "lightcontainer10" %>
-
+<div class="lightcontainer11">
+<%= link_to 'Ask the first question', new_post_comment_path(post), class: "red" %>
+</div>
 <% end %>
 
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
-<div class="fifty">
 <div class="newspaper3">
- <%= link_to (comment.body), comment_questions_path(comment) %>
+<%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
-</div>
+
 <% end %>
-
-
-<br>
-
-<div class="info2">
-<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-</div>
-
 
 </div>
 </div>
@@ -82,6 +78,19 @@ Latest Questions
 
 <div class="visible-phone visible-tablet">
 <div class="span12">
+<% if post.comments.count == 1 %>
+
+<div class="info6">
+<%= post.comments.count %> Question
+</div>
+<% else %>
+
+<div class="info6">
+<%= post.comments.count %> Questions
+</div>
+
+<% end %>
+
 <div class="newspaper">
 <%= image_tag post.image(:small) %>
 <div class="description">
@@ -96,49 +105,31 @@ Latest Questions
 <%= post.description.split[0..20].join(" ") %>...
 </div>
 
-
-<% if post.comments.count == 1 %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Question
-</div>
-<% else %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Questions
-</div>
-
-<% end %>
+<hr/>
 
 <% if post.comments.count > 0 %>
 
-<div class="lightcontainer10">
-Latest Questions 
+<div class="lightcontainer7">
+<div class="red">
+<strong> 2 of <%= post.comments.count %> Questions </strong>
+</div>
 </div>
 
 <% else %>
 
-<%= link_to 'Ask the first question', new_post_comment_path(post), class: "lightcontainer10" %>
+<%= link_to 'Ask the first question', new_post_comment_path(post), class: "red" %>
 
 <% end %>
 
+
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
-<div class="fifty">
 <div class="newspaper3">
  <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
-</div>
+
 <% end %>
-
-
-<br>
-
-<div class="info2">
-<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-</div>
-
 
 </div>
 </div>

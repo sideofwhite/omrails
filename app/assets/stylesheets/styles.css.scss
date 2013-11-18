@@ -89,13 +89,13 @@ body{
 
 
 .headername {
-    font-size: 22px;
+    font-size: 20px;
 
 }
 
 .headername2 {
     color: #3333CC;
-    font-size: 22px;
+    font-size: 20px;
     border: 1px solid #EEEEEE;
     padding: 2px;
     margin-bottom: 3px;
@@ -291,7 +291,7 @@ body{
 
 .description {
     
-    padding-top: 10px;
+    
     color: white;
     font-size: 28px;
     padding-bottom: 10px;
@@ -342,7 +342,7 @@ body{
 
 
 .count{
-display: inline-block;
+
 font-size: 18px;
 
 
@@ -351,7 +351,7 @@ font-size: 18px;
 
 .subtitle{
     font-size: 18px;
-    padding-bottom: 10px;
+    
     
     
 
@@ -466,8 +466,9 @@ font-size: 18px;
 
 .lightcontainer6{
     
-    font-size: 10px;
-    color: grey;
+   font-size: 12px;
+    font-weight: bold;
+    
 }
 
 
@@ -499,10 +500,16 @@ font-size: 18px;
 .lightcontainer10{
     padding-top: 10px;
     display: inline-block;
-    font-size: 10px;
-    color: grey;
-    float: right;
+    font-size: 16px;
+    
     padding-right: 5px;
+}
+
+.lightcontainer11{
+  
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
 }
 
 .questioncontainer {
@@ -916,7 +923,7 @@ border:1px solid white;
     background-color: #EEEEEE;  
     padding-left: 1px;
     padding-right: 1px;
-    margin-bottom: 5px;
+    
     
     
 }
@@ -955,10 +962,14 @@ border:1px solid white;
 .info6 {
     
     display:inline-block;
-    font-size: 20px;
-    color: #B23000;
-    margin-bottom: 10px;
-    
+    font-size: 18px;
+    color: white;
+    margin-top: 5px;
+    padding-left: 3px;
+    border:0px solid #B23000;
+    background-color: #B23000; 
+    padding: 3px;
+    margin-left: 15px;
 }
 
 .info7 {
@@ -1069,9 +1080,7 @@ padding-left: 10px;
   
 }
 
-.paddinglefthome .visible-desktop {
-    
-}
+
 
 #pin {
   margin: 0 auto;
@@ -1079,7 +1088,7 @@ padding-left: 10px;
 }
 
 .box {
-  margin: 5px;
+  margin-right: 15px;
   width: 430px;
 
 }
@@ -1106,7 +1115,7 @@ padding-left: 10px;
 @media only screen and (max-width : 1199px),
 only screen and (max-device-width : 1199px){
     .box {
-        width: 200px;
+        width: 380px;
     }
 }
  
@@ -1114,7 +1123,7 @@ only screen and (max-device-width : 1199px){
 @media only screen and (max-width : 999px),
 only screen and (max-device-width : 999px){
     .box {
-        width: 500px;
+        width: 600px;
     }
 }
  
@@ -1126,20 +1135,7 @@ only screen and (max-device-width : 799px){
     }
 }
  
-@media only screen 
-and (max-width : 599px),
-only screen and  (max-device-width : 599px){
-    .box {
-        width: 340px;
-    }
-}
- 
-@media only screen and (max-device-width : 399px),
-only screen and (max-device-width : 399px){
-    .box {
-        width: 330px;
-    }
-}
+
 
 .boxtwo {
  margin: 5px;
@@ -1206,10 +1202,7 @@ only screen and (max-device-width : 399px){
 
 .newspaper {
     
-    border-top: 1px solid #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
-    border-left: 1px solid #EEEEEE;
-    border-right: 1px solid #EEEEEE;
+    border: 1px solid #EEEEEE;
     padding: 15px;
     
 }
@@ -1229,12 +1222,10 @@ only screen and (max-device-width : 399px){
 }
 .newspaper3 {
     
-    border-top: 1px solid #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
-    border-left: 1px solid #EEEEEE;
-    border-right: 1px solid #EEEEEE;
+    border: 1px solid #EEEEEE;
     padding: 5px;
     margin-bottom: 5px;
+
     
 }
 
@@ -1394,13 +1385,7 @@ padding-left: 60px;
 display:inline-block;
 }
 
-.fifty {
-    display: inline-block; 
-    vertical-align: top;
-    min-width: 100%;
-    
 
-}
 
 .fifty2 {
     width: 100%;
@@ -1539,7 +1524,7 @@ line-height: 110%;
 }
 
 .line2 {
-    border-right: 2px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
     padding-right: 15px;
 }
 
@@ -1557,3 +1542,4 @@ line-height: 110%;
     display: inline-block;
    
 }
+
