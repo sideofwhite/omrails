@@ -21,10 +21,6 @@
 
 <div class="panel-body">
 
-<div class="lightcontainer6">
-<%= time_ago_in_words(post.created_at) %> ago 
-</div>
-
 <div class="description">
 <%= link_to (post.title), post %>
 </div>
@@ -33,14 +29,16 @@
 <div class="subtitle">
 <%= post.description.split[0..20].join(" ") %>...
 </div>
-
+<div class="lightcontainer6">
+<%= time_ago_in_words(post.created_at) %> ago 
+</div>
 <hr/>
 
 <% if post.comments.count > 0 %>
 
 <div class="lightcontainer11">
 <div class="red">
-<strong> 2 of <%= post.comments.count %> Questions </strong>
+Latest Questions 
 </div>
 </div>
 

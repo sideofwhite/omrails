@@ -351,10 +351,6 @@ font-size: 18px;
 
 .subtitle{
     font-size: 18px;
-    
-    
-    
-
 }
 
 #eventhead h1 { 
@@ -467,7 +463,8 @@ font-size: 18px;
 .lightcontainer6{
     
    font-size: 12px;
-    font-weight: bold;
+   
+ 
     
 }
 
@@ -507,9 +504,9 @@ font-size: 18px;
 
 .lightcontainer11{
   
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 18px;
     padding-left: 5px;
+    padding-bottom: 5px;
 }
 
 .questioncontainer {
@@ -962,14 +959,18 @@ border:1px solid white;
 .info6 {
     
     display:inline-block;
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     margin-top: 5px;
     padding-left: 3px;
     border:0px solid #B23000;
     background-color: #B23000; 
-    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 1px;
     margin-left: 15px;
+
 }
 
 .info7 {
