@@ -1,7 +1,7 @@
 <% @posts.order("created_at desc").each do |post| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="box panel panel-default">
-
+<div class="newspaper"> 
 
 <% if post.comments.count == 1 %>
 
@@ -16,7 +16,7 @@
 
 <% end %>
 
-<div class="newspaper"> 
+
 <%= image_tag post.image(:small) %>
 
 <div class="panel-body">
@@ -50,7 +50,7 @@ Latest Questions
 
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
-<div class="newspaper3">
+<div class="newspaper10">
 <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
