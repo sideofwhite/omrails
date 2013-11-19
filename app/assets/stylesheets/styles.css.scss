@@ -1,5 +1,5 @@
 $linkColor: black;
-$navbarHeight: 40px;
+$navbarHeight: 30px;
 $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
@@ -53,7 +53,7 @@ body{
 .navbar .brand{
     
     color: white;
-    font-size: 34px;
+    font-size: 30px;
     border:1px solid black;
     background-color: black;
     padding-left: 30px;
@@ -103,7 +103,7 @@ body{
  
  .navbar.transparent.navbar-inverse .navbar-inner {
    border: 0 !important;
-   background: white;
+   background: #EEEEEE;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
 
@@ -296,6 +296,7 @@ body{
     font-size: 28px;
     padding-bottom: 10px;
     line-height: 110%;
+    padding-top: 10px;
     
     
 }
@@ -967,8 +968,8 @@ border:1px solid white;
     background-color: #B23000; 
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 2px;
-    padding-bottom: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     margin-left: 15px;
 
 }
