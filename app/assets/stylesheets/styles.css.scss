@@ -29,7 +29,7 @@ textarea {
 label {
     
     color: #B23000;
-    font-size: 20px; 
+    font-size: 16px; 
     padding-bottom: 5px;
     
 
@@ -123,12 +123,14 @@ body{
 .button3 {
    
     color: white !important;
-    font-size: 20px;
+    font-size: 18px;
     float: right;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding: 5px;
-    font-weight: lighter;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     opacity: 0.2;
     
 }
@@ -139,20 +141,23 @@ body{
     float: right;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding: 5px;
-    
-    
-    
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .button5 {
    
-    margin-top: 5px;
+    
     color: white !important;
     font-size: 18px;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     
 
 }
@@ -217,10 +222,9 @@ body{
 .titlecontainer {
     
     color: black;
-    font-size: 32px;
-    text-align: left;
-    
+    font-size: 28px;
     line-height: 110%;
+    padding-bottom: 5px;
     
 
 }
@@ -262,7 +266,7 @@ body{
     
     
     font-size: 18px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     line-height: 110%;
     color: #B23000 !important;
     
@@ -287,7 +291,7 @@ body{
     
     
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     padding-bottom: 10px;
     line-height: 110%;
     padding-top: 10px;
@@ -652,7 +656,6 @@ width: 500px;
 }
 
 .blue2{
-    color: grey;
     font-size: 16px;
     padding-top: 10px;
     font-weight: normal;
@@ -965,9 +968,9 @@ border:1px solid white;
 
 .info7 {
     display:inline-block;
-    font-size: 18px;
+    font-size: 16px;
     color: #B23000;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     
 }
 
@@ -1087,13 +1090,13 @@ padding-left: 10px;
 
 .box img {
   width: 100%;
-  height: 250px;
+  height: 230px;
 }
 
 
 
 .commentimage img {
-    height: 250px;
+    height: 210px;
     width: 100%;
     padding-bottom: 20px;
 }

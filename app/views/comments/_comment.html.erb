@@ -40,12 +40,12 @@ Last 1 of <%= comment.questions.count %><br>
 
 <% else %>
 
-<div class="firstanswer">
+
 <div class="blue2">
-No one has answered yet 
+No one has answered yet <br>
+<%= link_to "Write the first answer", new_comment_question_path(comment, @question), class: "blue" %>
 </div>
-<%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "firstanswer" %>
-</div>
+
 
 <% end %>
 

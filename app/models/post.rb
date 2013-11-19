@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-has_attached_file :image, styles: { :small => "400x250>", :medium => "430x340>", :large => "740x340>" }
+has_attached_file :image, styles: { :small => "400x200>", :medium => "430x340>", :large => "740x340>" }
 
 def to_param
 	"#{id} #{title}".parameterize

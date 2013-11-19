@@ -3,7 +3,7 @@
 
 <div class="form">
   <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 100%' }, label: "Bio", placeholder: "Relevant to the answer" %>
-  <%= f.input :body, as: :text, input_html: { rows: "14", :style=> 'width: 100%' }, label: "Answer", placeholder: "Write Answer" %>
+  <%= f.input :body, as: :text, input_html: { rows: "10", :style=> 'width: 100%' }, label: "Answer", placeholder: "Write Answer" %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <%= f.input :image, label: "Upload an image" %>
