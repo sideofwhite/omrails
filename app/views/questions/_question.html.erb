@@ -1,11 +1,11 @@
 <div class="container">
  <div class="row">
 
-
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="fixed">
 <div class="span4">
 <div class="line2">
-<div class="visible-desktop hidden-phone hidden-tablet">
+
 <div class="commentimage">
   <%= image_tag @comment.post.image(:small) %>    
  </div>
@@ -36,6 +36,7 @@
 </div>
 
 <div class="span7 offset4">
+
 <div class="titlecontainer4">
 <%= @comment.post.title %>
 </div>
@@ -145,6 +146,18 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 </div>
 
+<div class="span1">
+<div class="facebook">
+ <a href="twitter.com">  
+<img src="http://i.imgur.com/Txpzr2v.png"></a></p> 
+<div class="twitter">
+<a href="twitter.com"> Tweet </a> 
+</div>
+</div>
+</div>
 
+
+</div>
+</div>
 </div>
 </div>

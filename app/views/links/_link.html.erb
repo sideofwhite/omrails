@@ -4,13 +4,15 @@ Around the web
 </div>
 <div class="floatright">
 <div class="button7">
-<%= link_to 'See all...', post_links_path(@post), class: "white" %>
+<%= link_to 'See all', post_links_path(@post), class: "white" %>
 </div>
 </div>
 
 <% @links.each do |link| %>
 <div class="link">
+<div class="newspaper10">	
 <a href="<%= link.URL %>"> <%= link.description %> </a> 
+</div>
 </div>
 
 <% end %>
