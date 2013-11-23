@@ -3,27 +3,29 @@
 Around the web
 </div>
 <div class="floatright">
-<div class="button7">
-<%= link_to 'See all', post_links_path(@post), class: "white" %>
-</div>
+<%= link_to 'See all links', post_links_path(@post), class: "red" %>
 </div>
 
+
 <% @links.each do |link| %>
-<div class="link">
 <div class="newspaper10">	
 <a href="<%= link.URL %>"> <%= link.description %> </a> 
 </div>
-</div>
+
 
 <% end %>
 </div>
 
 <div class="visible-phone visible-tablet">
-<div class="span12">
+<div class="span10">
+<div class="row">
 
 <div class="learnmore">
 <%= link_to 'More on this event', post_links_path(@post) %>
 </div>
 
+<hr/>
+
+</div>
 </div>
 </div>

@@ -41,6 +41,7 @@ body{
     
     padding-top: 60px;
     font-weight: normal;
+    font-size: 15px;
     background-color: white;
     font-family: 'Roboto', sans-serif;
     
@@ -137,7 +138,7 @@ body{
 
 .button4 {
     color: white !important;
-    font-size: 18px;
+    font-size: 16px;
     float: right;
     border: 1px solid #B23000;
     background-color: #B23000;
@@ -151,7 +152,7 @@ body{
    
     
     color: white !important;
-    font-size: 18px;
+    font-size: 16px;
     border: 1px solid #B23000;
     background-color: #B23000;
     padding-left: 5px;
@@ -222,7 +223,7 @@ body{
 .titlecontainer {
     
     color: black;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 110%;
     padding-bottom: 5px;
     
@@ -291,7 +292,7 @@ body{
     
     
     color: white;
-    font-size: 26px;
+    font-size: 22px;
     padding-bottom: 10px;
     line-height: 110%;
     padding-top: 10px;
@@ -340,17 +341,17 @@ body{
 
 
 
-.count{
+.text{
 
-font-size: 16px;
+font-size: 15px;
 
 
 }
 
 
-.subtitle{
-    font-size: 16px;
-}
+
+
+
 
 #eventhead h1 { 
   
@@ -460,9 +461,9 @@ font-size: 16px;
 
 
 .lightcontainer6{
-    
-   font-size: 12px;
-   color: grey;
+   padding-top: 10px;
+   font-size: 10px;
+   
    
  
     
@@ -471,9 +472,9 @@ font-size: 16px;
 
 .lightcontainer7{
     
-    
-    font-size: 12px;
-    font-weight: bold;
+   padding-bottom: 5px;
+   font-size: 12px;
+   font-weight: bold;
     
     
    
@@ -497,14 +498,14 @@ font-size: 16px;
 .lightcontainer10{
     padding-top: 10px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     
     padding-right: 5px;
 }
 
 .lightcontainer11{
   
-    font-size: 16px;
+    font-size: 15px;
     
     padding-bottom: 5px;
 }
@@ -513,9 +514,9 @@ font-size: 16px;
 
     
     font-color: black;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 110%;
-    padding-bottom: 10px;
+    
     
 
     
@@ -552,26 +553,10 @@ font-size: 16px;
     
     font-color: black;
     font-size: 32px;
-    padding-top: 20px;
-    line-height: 110%;
-    font-weight: lighter; 
+    
 }
 
 
-
-
-.descriptioncontainer2{
-   
-    
-    font-color: black;
-    padding-bottom: 5px;
-    font-size: 16px; 
-    line-height: 120%;
-    
-    
-
-
-}
 
 .descriptioncontainer2b{
    
@@ -579,7 +564,7 @@ font-size: 16px;
     
     padding-top: 10px;
     padding-bottom: 15px;
-    font-size: 16px; 
+    font-size: 15px; 
     
 
 
@@ -588,7 +573,7 @@ font-size: 16px;
 .descriptioncontainer3 {
     font-color: black;
     padding-bottom: 5px;
-    font-size: 16px; 
+    font-size: 15px; 
     line-height: 140%; 
  
 }
@@ -650,21 +635,15 @@ width: 500px;
 
 
 .blue{
-    color: #003399!important;
+    color: #003399 !important;
     display: inline-block;
 
 }
 
-.blue2{
-    font-size: 16px;
-    padding-top: 10px;
-    font-weight: normal;
-    
 
-}
 .answertitle  {
      color: #3333CC;
-     font-size: 16px;
+     font-size: 15px;
     
 }  
    
@@ -767,7 +746,7 @@ margin-bottom: 2px;
 }
 
 .red {
-    color: #B23000;
+    color: #B23000 !important;
 }
 
 .darkgrey {
@@ -831,14 +810,14 @@ border:1px solid white;
 
 .number {
     padding-top: 5px;
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 40px;
     
 }
 
 .number2 {
     padding-top: 5px;
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 20px;
     
 }
@@ -892,7 +871,7 @@ border:1px solid white;
 
 .info {
     display:inline-block;
-    font-size: 16px;
+    font-size: 15px;
     
     
     
@@ -953,22 +932,21 @@ border:1px solid white;
 .info6 {
     
     display:inline-block;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
-    padding-left: 3px;
     border:0px solid #B23000;
     background-color: #B23000; 
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 0px;
+    padding-bottom: 1px;
     
 
 }
 
 .info7 {
     display:inline-block;
-    font-size: 16px;
+    font-size: 15px;
     color: #B23000;
     margin-bottom: 5px;
     
@@ -1084,13 +1062,13 @@ padding-left: 10px;
 .box {
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 430px;
+  width: 410px;
 
 }
 
 .box img {
   width: 100%;
-  height: 230px;
+  height: 210px;
 }
 
 
@@ -1110,7 +1088,7 @@ padding-left: 10px;
 @media only screen and (max-width : 1199px),
 only screen and (max-device-width : 1199px){
     .box {
-        width: 380px;
+        width: 340px;
     }
 }
  
@@ -1215,8 +1193,15 @@ only screen and (max-device-width : 399px){
 .newspaper2 {
     border: 1px solid #EEEEEE;
     padding: 15px;
-    margin: 0px;
+    
 }
+
+.newspaper2b {
+    border: 1px solid #EEEEEE;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
 .newspaper3 {
     
     border: 1px solid #EEEEEE;
@@ -1274,9 +1259,9 @@ only screen and (max-device-width : 399px){
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
-    padding-right: 50px;
+    padding-right: 30px;
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 18px;
     
     
 }
@@ -1287,9 +1272,9 @@ only screen and (max-device-width : 399px){
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
-    padding-right: 50px;
+    padding-right: 30px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 18px;
     
     
 }
@@ -1312,7 +1297,7 @@ only screen and (max-device-width : 399px){
     padding-left: 10px;
     padding-right: 30px;
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 18px;
     
 
 }
@@ -1326,7 +1311,7 @@ only screen and (max-device-width : 399px){
     padding-left: 10px;
     padding-right: 30px;
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 20px;
     
 
 }
@@ -1501,9 +1486,10 @@ line-height: 110%;
 
 .learnmore {
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     padding-bottom: 10px;
     font-weight: bold;
+    
     
 }
 
@@ -1511,7 +1497,7 @@ line-height: 110%;
    
     margin-bottom: 5px;
     color: black;
-    font-size: 16px;
+    font-size: 15px;
 
     
     

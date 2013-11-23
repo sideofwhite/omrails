@@ -7,7 +7,7 @@
 <div class="span4">
 <div class="line2">
 <div class="commentimage">
-  <%= image_tag @post.image(:small) %>    
+ <%= image_tag @post.image(:small) %>    
  </div>
 
 
@@ -26,6 +26,11 @@
 </div>
 </div>
 <hr/>
+
+<div class="learnmore">
+Summary
+</div>
+
 <div class="descriptioncontainer2">
 <div class="newspaper7"> 
 <%= @post.description %>
@@ -81,13 +86,14 @@
 
 
 <div class="visible-phone visible-tablet">
-<div class="span12">
+<div class="span10">
 <div class="commentimage">
   <%= image_tag @post.image %>    
  </div>
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
+
 
 <div class="info">
 <div class="newspaper7"> 
@@ -109,12 +115,12 @@
 <div class="newspaper7"> 
 <%= @post.description %>
 </div>
+<%= render 'links/link' %>
+<hr/>
 </div>
 
-<%= render 'links/link' %>
 
 
-<hr/>
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
 <%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
