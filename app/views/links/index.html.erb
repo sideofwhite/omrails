@@ -3,11 +3,11 @@
  <div class="row">
 
 
-<div class="fixed">
+ <div class="fixed">
 <div class="span4">
 <div class="line2">
 <div class="commentimage">
-  <%= image_tag @post.image %>    
+ <%= image_tag @post.image(:small) %>    
  </div>
 
 
@@ -26,18 +26,22 @@
 </div>
 </div>
 <hr/>
+
 <div class="learnmore">
 Summary
 </div>
+
 <div class="descriptioncontainer2">
 <div class="newspaper7"> 
 <%= @post.description %>
+</div>
+</div>
+
 <hr/>
+
 </div>
 </div>
-</div>
-</div>
-</div>
+</div> 
 
 
 
