@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
 redirect_to posts_path
 end
 
-
+def comments_count
+  questions.count
+end
 
 
   # GET /comments

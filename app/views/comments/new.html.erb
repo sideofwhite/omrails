@@ -13,26 +13,35 @@
 
 
 <div class="info">
+<div class="learnmore3">
+Posted
+</div>
 <div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
 </div>
 
 <div class="info">
+<div class="learnmore3">
+Location
+</div>	
 <div class="newspaper7"> 
-<div class="blue">
 <%= @post.country %>
 </div>
 </div>
+
+
+<div class="learnmore">
+Summary
 </div>
-<hr/>
 <div class="descriptioncontainer2">
 <div class="newspaper7"> 
 <%= @post.description %>
 </div>
 </div>
 
-<hr/>
+
+
 
 </div>
 </div>
@@ -69,8 +78,12 @@
 <div class="floatright">
 <%= link_to ("x"), post_path(@post), class: "x" %>
 </div>
+
 <%= render 'form' %>
 
+<div id="pin" class="transitions-enabled">
+<%= render :partial => @post.comments %>
+</div>
 
 </div>
 </div>

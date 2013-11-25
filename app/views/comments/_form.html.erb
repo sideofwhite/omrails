@@ -1,7 +1,8 @@
+<div class="margin5">
 <%= simple_form_for [@post, Comment.new] do |f| %>
  <p>
 <div class="form">
-  <%= f.input :body, as: :text, input_html: { rows: "5", :style=> 'width: 85%', :class => "create" }, label: false,placeholder: "Add Question" %>
+  <%= f.input :body, as: :text, input_html: { :style=> 'width: 70%', :class => "create" }, label: false,placeholder: "Add Question" %>
  
   
 
@@ -10,3 +11,4 @@
  <p><%= f.submit "Ask Question", class: "button5" %></p>
  </div>
  <% end %>
+</div>
