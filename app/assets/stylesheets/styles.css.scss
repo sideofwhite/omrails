@@ -1,5 +1,5 @@
 $linkColor: black;
-$navbarHeight: 30px;
+$navbarHeight: 35px;
 $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
@@ -164,15 +164,12 @@ body{
 }
 
 .button7 {
-   
-    color: white !important;
-    font-size: 14px;
-    border: 1px solid white;
-    background-color: #B23000;
-    padding-left: 3px;
-    padding-right: 3px;
-    paddong-top: 1px;
-    padding-bottom: 1px;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 15px;
+    border: 1px solid #EEEEEE;
+    background-color: white;
+    padding: 3px;
     
 
 }
@@ -232,23 +229,22 @@ body{
 
 .titlecontainerb {
     
-    color: #B23000;
-    font-size: 32px;
-    text-align: left;
-    padding-bottom: 15px;
+    color: black;
+    font-size: 20px;
     line-height: 110%;
+    padding-bottom: 10px;
+    padding-top: 10px;
     
 
 }
 
 .titlecontainer2 {
-    
-    color: #B23000;
-    font-size: 40px;
-    text-align: left;
-    padding-bottom: 15px;
+    color: black;
+    font-size: 24px;
     line-height: 110%;
-    font-weight: normal;
+    padding-bottom: 5px; 
+    padding-top: 20px;
+   
 
 }
 
@@ -293,7 +289,7 @@ body{
     
     color: white;
     font-size: 22px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     line-height: 110%;
     padding-top: 10px;
     
@@ -349,7 +345,9 @@ font-size: 15px;
 }
 
 
-
+.subtitle {
+    padding-bottom: 10px;
+}
 
 
 
@@ -822,7 +820,7 @@ border:1px solid white;
 .number {
     padding-top: 5px;
     font-size: 18px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     
 }
 
@@ -883,6 +881,7 @@ border:1px solid white;
 .info {
     display:inline-block;
     font-size: 15px;
+    padding-top: 10px;
     
     
     
@@ -898,13 +897,10 @@ border:1px solid white;
 
 
 .info2 {
-    color: #3333CC;
-    display:inline-block;
-    border:1px solid #EEEEEE;
-    background-color: #EEEEEE;  
-    padding-left: 1px;
-    padding-right: 1px;
     
+    display:inline-block;
+    font-size: 15px;
+    padding-top: 30px;
     
     
 }
@@ -1073,7 +1069,7 @@ padding-left: 10px;
 .box {
   margin-right: 30px;
   margin-bottom: 10px;
-  width: 42%;
+  width: 45%;
 
 }
 
@@ -1085,12 +1081,16 @@ padding-left: 10px;
 
 
 .commentimage img {
-    height: 210px;
+    height: 200px;
     width: 100%;
-    padding-bottom: 20px;
+    
 }
 
-
+.commentimage2 img {
+    height: 150px;
+    width: 100%;
+    padding-bottom: 10px;
+}
 
 
 
@@ -1237,20 +1237,6 @@ only screen and (max-device-width : 399px){
     margin-bottom: 5px;
 }
 
-.newspaper4b {
-    border: 1px solid #EEEEEE;
-    width: 35px;
-    display: inline-block;
-    float: right;
-}
-
-.newspaper4c {
-    border-right: 1px solid #EEEEEE;
-    border-top: 1px solid #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
-    display: inline-block;
-    float: right;
-}
 
 .newspaper5 {
     border: 1px solid #EEEEEE;
@@ -1488,7 +1474,7 @@ padding: 15px;
 .font22 {
   
 padding-top: 10px;
-font-size: 22px;
+font-size: 18px;
 line-height: 110%;
   
 }
@@ -1496,7 +1482,7 @@ line-height: 110%;
 .besideformtext {
 
 padding-top: 10px;
-font-size: 28px;
+font-size: 22px;
 line-height: 110%;
     
 }
@@ -1505,7 +1491,8 @@ line-height: 110%;
     
     font-size: 15px;
     font-weight: bold;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
     
 }
@@ -1550,7 +1537,7 @@ line-height: 110%;
 
 .upvotes {
     color: #B23000;
-    font-size: 18px;
+    font-size: 16px;
     display: inline-block;
     padding: 6px;
     font-weight: bold;
@@ -1566,12 +1553,12 @@ line-height: 110%;
 .facebook {
     border: 1px solid #EEEEEE; 
     display: inline-block;
-    font-size: 12px;
+    
 }
 
 .facebook img {
-    height: 40px; 
-    width: 40px;
+    height: 50px; 
+    width: 50px;
 }
 
 

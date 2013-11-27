@@ -1,21 +1,9 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="learnmore2">
-Around the web
-</div>
-<div class="floatright">
-<div class="red2">	
-<%= link_to 'See all links', post_links_path(@post), class: "red" %>
-</div>
+
+<div class="button7">	
+<%= link_to 'Around the web', post_links_path(@post), class: "blue" %>
 </div>
 
-
-<% @links.each do |link| %>
-<div class="newspaper10">	
-<a href="<%= link.URL %>"> <%= link.description %> </a> 
-</div>
-
-
-<% end %>
 </div>
 
 <div class="visible-phone visible-tablet">

@@ -1,7 +1,7 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
+
 <div class="container">
  <div class="row">
-
 
 <div class="fixed">
 <div class="span4">
@@ -9,8 +9,6 @@
 <div class="commentimage">
  <%= image_tag @post.image(:small) %>    
  </div>
-
-
 
 <div class="info">
 <div class="newspaper7"> 
@@ -20,12 +18,11 @@
 
 <div class="info">
 <div class="newspaper7"> 
-<div class="blue">
+<div class="red">
 <%= @post.country %>
 </div>
 </div>
 </div>
-
 
 <div class="learnmore">
 Summary
@@ -39,6 +36,7 @@ Summary
 
 
 
+
 <%= render 'links/link' %>
 
 </div>
@@ -46,8 +44,8 @@ Summary
 </div>
 
 
-
 <div class="span7 offset4">
+
 <div class="titlecontainer">
 <%= @post.title %>
 </div>

@@ -215,3 +215,14 @@ Latest Bio's
 </div>
 <% end %>
 
+
+
+<% @links.each do |link| %>
+<div class="newspaper10"> 
+<a href="<%= link.URL %>"> <%= link.description %> </a> 
+</div>
+
+
+<% end %>
+
+
