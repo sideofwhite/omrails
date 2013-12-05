@@ -3,42 +3,38 @@
 <div class="box panel panel-default">
 
 <div class="newspaper">
+
 <div class="homeborder">
+<div class="description">
+<%= link_to (post.title), post %>
+</div>
+<div class="subtitle">
+<%= post.description.split[0..15].join(" ") %>...
+</div>
+
+<% if post.comments.count == 1 %>
+
+<div class="info6">
+<%= post.comments.count %> Question
+</div>
+<% else %>
+
+<div class="info6">
+<%= post.comments.count %> Questions
+</div>
+
+<% end %> 
 
 <%= image_tag post.image(:small) %>
  
 <div class="panel-body">
 
 
-<% if post.comments.count == 1 %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Question
-</div>
-<% else %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Questions
-</div>
-
-<% end %> 
-
-<div class="description">
-<%= link_to (post.title), post %>
-</div>
 
 
-<div class="subtitle">
-<%= post.description.split[0..20].join(" ") %>...
-</div>
 
 <% if post.comments.count > 0 %>
 
-<div class="lightcontainer11">
-<div class="red">
-Latest Questions 
-</div>
-</div>
 
 <% else %>
 <div class="lightcontainer11">

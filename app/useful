@@ -1,4 +1,4 @@
-
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 
 <%= div_for(post) do %>
@@ -224,5 +224,58 @@ Latest Bio's
 
 
 <% end %>
+
+<%= link_to "^ Upvote", upvote_post_link_path(@post, link) %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="span3">
+<div class="titlecontainer">
+<div class="blue">
+Posts
+<hr/>
+</div>
+</div>
+<% current_user.posts.each do |post| %>
+<div class="editpadding">
+<%= link_to (post.title), post_path(post) %>
+</div>
+<hr/>
+
+<% end %>
+
+</div>  
+
+<div class="span3">
+<div class="titlecontainer">
+<div class="blue">
+Questions
+<hr/>
+</div>
+</div>
+<% current_user.comments.each do |comment| %>
+<div class="editpadding">
+<%= link_to (comment.body), comment_questions_path(comment) %>
+</div>
+<hr/>
+
+<% end %>
+
+</div>
 
 

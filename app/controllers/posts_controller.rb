@@ -34,6 +34,7 @@ end
 
   # GET /posts/new
   def new
+    @posts = Post.all
     @post = current_user.posts.new
   end
 

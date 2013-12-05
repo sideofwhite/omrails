@@ -11,7 +11,7 @@ end
   # GET /questions
   # GET /questions.json
   def index
-    
+   
     @comment = Comment.find params[:comment_id]
     @questions = @comment.questions
     
@@ -23,6 +23,7 @@ end
   # GET /questions/1
   # GET /questions/1.json
   def show
+  @comment = Comment.find params[:comment_id]
   end
 
   # GET /questions/new
@@ -42,8 +43,8 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to comment_questions_path, notice: 'Question was successfully created.' }
-        format.json { render action: 'show', status: :created, location: comment_questions_path }
+        format.html { redirect_to comment_question_path, notice: 'Question was successfully created.' }
+        format.json { render action: 'show', status: :created, location: comment_question_path }
       else
         format.html { render action: 'new' }
         format.json { render json: @question.errors, status: :unprocessable_entity }

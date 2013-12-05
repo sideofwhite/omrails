@@ -1,33 +1,41 @@
 <div class="container">
 <div class="row">
 
-<div class="span5">
+<div class="span3">
    <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-   <%= f.input :title, as: :text, input_html: { rows: "3", :style=> 'width: 100%',:class => "create" },label: "Headline", placeholder: "Event Headline" %>
-   <%= f.input :description, as: :text, input_html: { rows: "7", :style=> 'width: 100%',:class => "create" }, label: "Summary", placeholder: "Summary of the event"%>
+   <%= f.input :title, as: :text, input_html: { rows: "3", :style=> 'width: 100%',:class => "create" },label: false, placeholder: "Event Headline" %>
+   <%= f.input :description, as: :text, input_html: { rows: "5", :style=> 'width: 100%',:class => "create" }, label: false, placeholder: "Summary of the event"%>
   </div>
 
 <div class="span3">
-<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 100%',:class => "create" }, label: "Location", placeholder: "City and/or Country" %>
-<%= f.label :tag_list, label: "Tags (separated by commas)" %>
+<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 100%',:class => "create" }, label: false, placeholder: "Location" %>
+<%= f.label :tag_list, label: false %>
   <%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 100%',:class => "create" }, label: false, placeholder: "World, United States, Politics, Technology, Science" %>
-<%= f.input :image, label: "Image" %>
+<%= f.input :image, label: "Add Image" %>
   <%= f.input :image_remote_url, as: :text,  input_html: { rows: "1", :style=> 'width: 100%',:class => "create" }, label: false, placeholder: "Or a URL" %>
 </div>
 
 
 
 
-<div class="span10">
+<div class="span8">
 
   <%= f.submit "Add Event", class: "button5" %>
 
  <% end %>
 </div>
+</div>
+
+</div>
+
+
+<div class="row">
+<div class="span7">
+  <hr/>
 </div>
 </div>
 

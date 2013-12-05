@@ -8,7 +8,13 @@
 
    
  </p>
- <p><%= f.submit "Ask Question", class: "button5" %></p>
+ <%= f.submit "Ask Question", class: "button5" %>
+ <div class="cancel">
+<%= link_to ("Cancel"), post_path(@post) %>
+</div>
  </div>
  <% end %>
+
+<hr/>
 </div>
+

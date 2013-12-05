@@ -10,30 +10,23 @@
   <%= image_tag @post.image %>    
  </div>
 
-
-
+<div class="paddingleft">
 <div class="info">
-<div class="learnmore3">
-Posted
-</div>
 <div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
 </div>
 
 <div class="info">
-<div class="learnmore3">
-Location
-</div>	
 <div class="newspaper7"> 
+<div class="red">
 <%= @post.country %>
 </div>
 </div>
-
-
-<div class="learnmore">
-Summary
 </div>
+
+<hr/>
+
 <div class="descriptioncontainer2">
 <div class="newspaper7"> 
 <%= @post.description %>
@@ -43,10 +36,14 @@ Summary
 
 
 
+<%= render 'links/link' %>
+
 </div>
 </div>
 </div>
 </div>
+</div>
+
 
 <div class="span7 offset4">
 
@@ -75,9 +72,6 @@ Summary
 <strong><%= @post.comments.count %></strong> Questions 
 </div>
 <% end %>
-<div class="floatright">
-<%= link_to ("x"), post_path(@post), class: "x" %>
-</div>
 
 <%= render 'form' %>
 

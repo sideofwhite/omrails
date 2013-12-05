@@ -13,8 +13,7 @@
 
 
 <div class="span1">
-<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a>
-<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
+
 
 
 </div>
@@ -124,10 +123,14 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <div class="titlecontainerb">
 <%= @comment.post.title %>
 </div>
-
-
-
+<hr/>
 <%= @comment.post.description.split[0..50].join(" ") %>
+<hr/>
+<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a><br>
+<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
+
+
+
 </div>
 
 

@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-   <%= f.input :URL, as: :text, input_html: { rows: "3", :style=> 'width: 85%', :class => "create" }, label: false,placeholder: "Add Link" %>
-   <%= f.input :description, as: :text, input_html: { rows: "3", :style=> 'width: 85%', :class => "create" }, label: false,placeholder: "Link Description" %>
+   <%= f.input :URL, as: :text, input_html: { rows: "2", :class => "create" }, label: false,placeholder: "Add Link" %>
+   <%= f.input :description, as: :text, input_html: { rows: "2", :class => "create" }, label: false,placeholder: "Link Description" %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Add", class: "button5" %>
+    <%= f.button :submit, "Post Link", class: "button5" %>
   </div>
 <% end %>
