@@ -9,8 +9,9 @@
 <div class="description">
 <%= link_to (post.title), post %>
 </div>
-
-
+<div class="lightcontainer">
+<%= time_ago_in_words(post.created_at) %> ago
+</div>
 
 <%= image_tag post.image(:small) %>
  

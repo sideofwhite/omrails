@@ -154,14 +154,14 @@ body{
 .button3 {
      text-decoration: none !important;
     color: white !important;
-    font-size: 16px;
+    font-size: 15px;
     float: right;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     border-radius: 2px;
   
     opacity: 0.2;
@@ -171,14 +171,14 @@ body{
 .button4 {
     text-decoration: none !important;
     color: white !important;
-    font-size: 16px;
+    font-size: 15px;
     float: right;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     border-radius: 2px;
 
 }
@@ -194,13 +194,13 @@ body{
     display: inline-block;
     text-decoration: none !important;
     color: white !important;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid #B23000;
     background-color: #B23000;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     border-radius: 2px;
     
 }
@@ -241,6 +241,21 @@ body{
     color: #003399 !important; 
     margin-bottom: 10px;
     
+
+}
+
+.cancel {
+    display: inline-block;
+    text-decoration: none !important;
+    color: black !important;
+    font-size: 15px;
+    border: 0px solid #EEEEEE;
+    background-color: #EEEEEE;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 2px;
 
 }
 
@@ -361,7 +376,8 @@ body{
     
     
     font-size: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     line-height: 110%;
     
     
@@ -494,10 +510,11 @@ font-size: 15px;
 }
 
 .lightcontainer{
-    display: inline-block;
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
+    
+    font-size: 10px;
+    color: grey;
+    padding-bottom: 2px;
+
     
    
 }
@@ -1266,7 +1283,10 @@ only screen and (max-device-width : 399px){
 
 .newspaper {
     border: 1px solid #EEEEEE;
-    padding: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 10px;
+    padding-top: 10px;
    
     
 }
@@ -1312,8 +1332,8 @@ only screen and (max-device-width : 399px){
 }
 
 .newspaper10 {
-    border-bottom: 1px solid #EEEEEE;
-    padding-bottom: 5px;
+    border-top: 1px solid #EEEEEE;
+    padding-top: 5px;
     
     margin-bottom: 5px;
 }
@@ -1650,10 +1670,6 @@ text-align:center;
 }
 
 
-.cancel {
-    display: inline-block;
-
-}
 
 .editpadding {
     
