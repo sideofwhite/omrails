@@ -10,7 +10,7 @@
   <%= image_tag @post.image %>    
  </div>
 
-<div class="paddingleft">
+<div class="paddingside">
 <div class="info">
 <div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
@@ -19,9 +19,9 @@
 
 <div class="info">
 <div class="newspaper7"> 
-<div class="red">
-<%= @post.country %>
-</div>
+
+<strong><%= @post.country %></strong>
+
 </div>
 </div>
 

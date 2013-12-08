@@ -30,11 +30,6 @@
 <div class="container">
 <div class="row">
 
-<div class="span9 offset1">
-<div id="pins" class="transitions-enabled">
-<%= render 'posts/post' %>
-</div>
-</div>
 
 
 <div class="span2">
@@ -47,11 +42,11 @@
 
 <% if user_signed_in? %>
 <div class="addevent">
-<%= link_to ('Add Event'), new_post_path, class: "white" %>
+<%= link_to ('Add Event'), new_post_path, class: "blue" %>
 </div>
 <% else %>
 <div class="addevent"> 
-<%= link_to 'Add Event', new_user_registration_path, class: "white" %>
+<%= link_to 'Add Event', new_user_registration_path, class: "blue" %>
 </div>
 <% end %>
 
@@ -77,13 +72,13 @@
 <a href="/tags/science">Science</a>
 </div>
 
-<div class="hrleft">
+
 <hr/>
-</div>
+
 
 
 <div class="belowsidebar">
-<%= link_to "About Podium", about_path, class: "red" %>
+<%= link_to "About Podium", about_path %>
 </div>
 
 <div class="belowsidebar2">
@@ -91,6 +86,14 @@
 </div>
 </div>
 </div>
+</div>
+
+<div class="span9 offset2">
+<div id="pins" class="transitions-enabled">
+<%= render 'posts/post' %>
+</div>
+</div>
+
 </div>
 </div>
 

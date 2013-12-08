@@ -4,13 +4,13 @@
  <div class="row">
 
 <div class="fixed">
-<div class="span4">
-<div class="line2">
-<div class="commentimage">
+<div class="span3">
+
+<div class="commentimage2">
  <%= image_tag @post.image(:small) %>    
  </div>
 
-<div class="paddingside">
+
 <div class="info">
 <div class="newspaper7"> 
 <%= time_ago_in_words(@post.created_at) %> ago <br>
@@ -38,10 +38,10 @@
 
 </div>
 </div>
-</div>
-</div>
 
-<div class="span7 offset4">
+
+
+<div class="span7 offset3", style="padding-left: 30px;">
 
 <div class="titlecontainer">
 <%= @post.title %>

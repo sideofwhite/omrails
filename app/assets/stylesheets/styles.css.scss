@@ -21,15 +21,15 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 textarea {
     color: black;
     font-color: black;
-    font-size: 16px; 
+    font-size: 14px; 
     line-height: 120%;
     
 }
 
 label {
     
-    color: #B23000;
-    font-size: 16px; 
+    color: black;
+    font-size: 14px; 
     padding-bottom: 5px;
     
 
@@ -40,6 +40,8 @@ label {
 body{
     
     padding-top: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
     font-weight: normal;
     font-size: 15px;
     background-color: white;
@@ -62,6 +64,12 @@ body{
     font-weight: bold;
     margin-left: 0px;
     height: 100%;
+}
+
+
+.brand:hover {
+    border:1px solid #B23000;
+    background-color: #B23000; 
 }
 
 .dropdown-backdrop{
@@ -91,7 +99,29 @@ body{
 
 .headername {
     font-size: 16px;
+    border: 1px solid #EEEEEE;
+}
 
+.headername:hover {
+    border: 1px solid #B23000;
+    background-color:#B23000 !important; 
+    color: white !important;
+ 
+}
+
+.headerbutton {
+    border: 1px solid white;
+    background-color: white !important;
+    font-size: 16px;
+    color: black !important;
+    
+}
+
+.headerbutton:hover {
+    border: 1px solid #B23000;
+    background-color:#B23000 !important; 
+    color: white !important;
+ 
 }
 
 
@@ -122,7 +152,7 @@ body{
 }
 
 .button3 {
-   
+     text-decoration: none !important;
     color: white !important;
     font-size: 16px;
     float: right;
@@ -132,11 +162,14 @@ body{
     padding-right: 5px;
     padding-top: 3px;
     padding-bottom: 3px;
+    border-radius: 2px;
+  
     opacity: 0.2;
     
 }
 
 .button4 {
+    text-decoration: none !important;
     color: white !important;
     font-size: 16px;
     float: right;
@@ -146,11 +179,20 @@ body{
     padding-right: 5px;
     padding-top: 3px;
     padding-bottom: 3px;
+    border-radius: 2px;
+
 }
 
-.button5 {
+.button4:hover {
+    border: 1px solid #8e2600;
+    background-color: #8e2600;
    
+}
+
+
+.button5 {
     display: inline-block;
+    text-decoration: none !important;
     color: white !important;
     font-size: 16px;
     border: 1px solid #B23000;
@@ -159,9 +201,38 @@ body{
     padding-right: 5px;
     padding-top: 3px;
     padding-bottom: 3px;
+    border-radius: 2px;
     
-
 }
+
+.button5:hover {
+    border: 1px solid #8e2600;
+    background-color: #8e2600;
+    color: white;
+    
+}
+
+.button5blue {
+   
+    display: inline-block;
+    color:#B23000 !important;
+    font-size: 18px;
+    border: 3px solid #B23000;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.button5blue:hover {
+  background-color: #B23000;
+  color: white !important;
+    
+}
+
 
 .button7 {
     margin-top: 10px;
@@ -179,13 +250,6 @@ body{
 }
 
 
-.headerbutton {
-    border: 1px solid white;
-    background-color: white !important;
-    font-size: 16px;
-    color: black !important;
-    
-}
 
 
 .footer{
@@ -295,11 +359,12 @@ body{
 .description {
     
     
-    color: white;
-    font-size: 22px;
-    padding-bottom: 5px;
+    
+    font-size: 20px;
+    padding-bottom: 10px;
     line-height: 110%;
-    padding-top: 10px;
+    
+    
     
     
 }
@@ -642,7 +707,7 @@ width: 500px;
 
 
 .blue{
-    color: #003399 !important;
+    color: #19558d !important;
     display: inline-block;
 
 }
@@ -957,9 +1022,9 @@ border:1px solid white;
     background-color: #B23000; 
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 1px;
+    padding-top: 2px;
     padding-bottom: 1px;
-    margin-top: 5px;
+    margin-bottom: 10px;
     
 
 }
@@ -1080,22 +1145,22 @@ padding-left: 10px;
 }
 
 .box {
-  margin-right: 30px;
+  margin-right: 10px;
   margin-bottom: 10px;
-  width: 42%;
+  width: 41%;
 
 }
 
 .box img {
   width: 100%;
-  height: 190px;
-  padding-bottom: 10px;
+  height: 180px;
+  
 }
 
 
 
 .commentimage img {
-    height: 200px;
+    height: 170px;
     width: 100%;
     padding-bottom: 10px;
     
@@ -1200,7 +1265,8 @@ only screen and (max-device-width : 399px){
 
 
 .newspaper {
-    
+    border: 1px solid #EEEEEE;
+    padding: 10px;
    
     
 }
@@ -1263,12 +1329,8 @@ only screen and (max-device-width : 399px){
 ///////////sidebar//////////////////////////////////
 .newspaper6 {
     
-    border: 0px solid #EEEEEE;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 5px;
+    
+    margin-bottom: 15px;
     font-size: 18px;
     
     
@@ -1302,15 +1364,10 @@ only screen and (max-device-width : 399px){
 }
 
 .addevent {
-    border: 1px solid #B23000;
-    background-color: #B23000;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+   
     margin-bottom: 20px;
     font-size: 18px;
-
+    font-weight: bold;
     
 
 }
@@ -1418,15 +1475,15 @@ display:inline-block;
 
 
 .belowsidebar {
-    padding-top: 20px;
-    padding-left: 5px;
+    padding-top: 10px;
+    font-weight: bold;
     font-size: 12px;
-    text-align: left;
+    
 }
 
 .belowsidebar2 {
     
-    padding-left: 5px;
+   
     font-size: 12px;
     text-align: left;
 }
@@ -1444,18 +1501,21 @@ display:inline-block;
 
 .redborder {
 
-border-left: 1px solid black;
-border-right: 1px solid black;    
-border-top: 1px solid black;
-border-bottom: 1px solid black;
+border-left: 2px solid #EEEEEE;
+border-right: 2px solid #EEEEEE;    
+border-top: 2px solid #EEEEEE;
+border-bottom: 2px solid #EEEEEE;
 padding: 15px;
+border-radius: 1px;
 }
 
 .redborder2 {
-   border-left: 1px solid black;
-border-right: 1px solid black;    
-border-top: 1px solid black;
-
+   border-left: 2px solid #EEEEEE;
+border-right: 2px solid #EEEEEE;    
+border-top: 2px solid #EEEEEE;
+border-bottom: 2px solid #EEEEEE;
+margin-bottom: 10px;
+border-radius: 1px;
 padding: 15px; 
 }
 
@@ -1475,9 +1535,11 @@ padding: 15px;
 .logotext {
  display: inline-block;
  padding-left: 5px;
- padding-top: 20px;
+ padding-top: 10px;
  vertical-align: text-bottom;
- font-size: 22px;
+ font-size: 26px;
+ font-weight: bold;
+ color: #B23000;
     
 }
 

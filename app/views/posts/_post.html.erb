@@ -2,16 +2,19 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="box panel panel-default">
 
+
+
 <div class="newspaper">
 
-<div class="homeborder">
 <div class="description">
 <%= link_to (post.title), post %>
 </div>
-<div class="subtitle">
-<%= post.description.split[0..15].join(" ") %>...
-</div>
 
+
+
+<%= image_tag post.image(:small) %>
+ 
+<div class="panel-body">
 <% if post.comments.count == 1 %>
 
 <div class="info6">
@@ -25,21 +28,17 @@
 
 <% end %> 
 
-<%= image_tag post.image(:small) %>
- 
-<div class="panel-body">
-
 
 
 
 
 <% if post.comments.count > 0 %>
 
-
 <% else %>
 <div class="lightcontainer11">
 <%= link_to 'Ask the first question', new_post_comment_path(post), class: "red" %>
 </div>
+<hr/>
 <% end %>
 
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
@@ -65,7 +64,7 @@
 <% end %>
 </div>
 
-</div>
+
 
 
 <div class="visible-phone visible-tablet">
@@ -132,9 +131,6 @@ Latest Questions
 
 
 <% end %>
-
-
-
 
 
 
