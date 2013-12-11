@@ -1,10 +1,16 @@
+<div class="visible-desktop hidden-tablet hidden-phone">
 <hr/>
-<div class="visible-desktop hidden-phone hidden-tablet">
+<strong>Around the web</strong><br><br>
 
-	
-<%= link_to 'Around the web', post_links_path(@post), class: "blue" %>
+<% @links.each do |link| %>
+<div class="linktext">
+<a href="<%= link.URL %>" style="color: #19558d !important;"> <%= link.description %> </a> <br>
+</div>
 
-
+<% end %>
+<div class="viewall">
+<%= link_to 'View All', post_links_path(@post) %>
+</div>
 </div>
 
 <div class="visible-phone visible-tablet">
@@ -12,10 +18,9 @@
 <div class="row">
 
 <div class="learnmore">
-<%= link_to 'More on this event', post_links_path(@post) %>
+<%= link_to 'Read more...', post_links_path(@post), class: "blue" %>
 </div>
 
-<hr/>
 
 </div>
 </div>

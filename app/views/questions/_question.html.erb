@@ -8,6 +8,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
+<div class="visible-desktop hidden-phone hidden-tablet">
+
 <div class="container">
  <div class="row">
 
@@ -121,7 +123,7 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
  </div>
 
 <div class="titlecontainerb">
-<%= @comment.post.title %>
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
 </div>
 <hr/>
 <%= @comment.post.description.split[0..50].join(" ") %>
@@ -138,7 +140,102 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 
 
+</div>
+</div>
+</div>
+
+
+
+<div class="visible-phone visible-tablet">
+<div class="span6">
+
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
+<hr/>
+
+<div class="titlecontainer">
+<%= @comment.body %>
+</div>
+
+<hr />
+<% if user_signed_in? %>
+<div class="questioncontainer3">  
+<%= link_to 'Answer', new_comment_question_path(@comment), class: "button4" %>
+</div>
+<% else %>
+<div class="questioncontainer3">  
+<%= link_to 'Answer', new_user_registration_path, class: "button4" %>
+</div>
+<% end %>
+
+<% if @comment.questions.count == 1 %>
+<div class="number">
+<strong><%= @comment.questions.count %></strong> Answer
+</div>
+<% else %>
+<div class="number">
+<strong><%= @comment.questions.count %></strong> Answers
+</div>
+<% end %>
+
+
+
+<% @comment.questions.order("cached_votes_total desc").each do |question| %>
+<div class="container">
+ <div class="row">
+
+<div class="span4">
+<div class="info2">
+<strong><%= question.user.name %></strong> <br>
+<div class="blue">
+<%= question.title %>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+
+
+
+<%= question.body %><br><br>
+
+
+<div class="upvotes">
+<%= question.votes.size %> 
+</div>
+<% if user_signed_in? %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_comment_question_path(@comment, question) %>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
+<% end %>
+
+
+
+<div class="lightcontainer6">
+ 
+Flag -
+Posted <%= time_ago_in_words(question.created_at) %> ago <br>
+</div>
+
+
+
+
+<% if question.image? %>
+ <%= image_tag question.image(:large) %>
+ <div class="newspaper4">
+ <div class="body">
+ <div class="italic">
+ <%= question.caption %>
+</div>
+</div>
+</div>
+<% end %>
+<hr/>
+
+<% end %>
+
 
 </div>
-</div>
+
+
 

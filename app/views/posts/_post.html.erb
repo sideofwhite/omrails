@@ -16,6 +16,7 @@
 <%= image_tag post.image(:small) %>
  
 <div class="panel-body">
+
 <% if post.comments.count == 1 %>
 
 <div class="info6">
@@ -37,9 +38,9 @@
 
 <% else %>
 <div class="lightcontainer11">
-<%= link_to 'Ask the first question', new_post_comment_path(post), class: "red" %>
-</div>
 <hr/>
+<%= link_to 'Ask the first question', new_post_comment_path(post) %>
+</div>
 <% end %>
 
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
@@ -69,49 +70,37 @@
 
 
 <div class="visible-phone visible-tablet">
-<div class="span12">
-<div class="homeborder">
-
-<%= image_tag post.image(:small) %>
- 
-
-
-
-<% if post.comments.count == 1 %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Question
-</div>
-<% else %>
-
-<div class="info6">
-<strong><%= post.comments.count %></strong> Questions
-</div>
-
-<% end %> 
+<div class="span8">
+<div class="newspaperm">
 
 <div class="description">
 <%= link_to (post.title), post %>
 </div>
-
-
-<div class="subtitle">
-<%= post.description.split[0..20].join(" ") %>...
+<div class="lightcontainer">
+<%= time_ago_in_words(post.created_at) %> ago
 </div>
 
+<%= image_tag post.image(:small) %>
+ 
+<% if post.comments.count == 1 %>
 
+<div class="info6">
+<%= post.comments.count %> Question
+</div>
+<% else %>
+
+<div class="info6">
+<%= post.comments.count %> Questions
+</div>
+
+<% end %> 
 
 <% if post.comments.count > 0 %>
 
-<div class="lightcontainer11">
-<div class="red">
-Latest Questions 
-</div>
-</div>
-
 <% else %>
 <div class="lightcontainer11">
-<%= link_to 'Ask the first question', new_post_comment_path(post), class: "red" %>
+<hr/>
+<%= link_to 'Ask the first question', new_post_comment_path(post) %>
 </div>
 <% end %>
 
@@ -121,7 +110,9 @@ Latest Questions
 <%= link_to (comment.body), comment_questions_path(comment) %>
 </div>
 </div>
+
 <% end %>
+
 
 </div>
 </div>

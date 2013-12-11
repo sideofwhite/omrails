@@ -48,9 +48,9 @@ No one has answered yet <br>
 
 
 <div class="visible-phone visible-tablet">
-<div class="span10">
+<div class="span12">
 <div class="row">
-<div class="newspaper2b">
+
 
 <% if comment.questions.count == 1 %>
 <div class="info7">
@@ -68,16 +68,7 @@ No one has answered yet <br>
 
 
 <% if comment.questions.count > 0 %>
-<div class="lightcontainer7">
-Latest Bio's
-</div>
-<% comment.questions.order('created_at desc').limit(3).each do |question| %> 
-<div class="newspaper4"> 
-<div class="answertitle">
-<%= link_to question.title, comment_question_path(comment, question), class: "blue" %>
-</div>
-</div>
-<% end %>
+
 
 <div class="count"> 
 <div class="lightcontainer7">
@@ -97,10 +88,12 @@ No one has answered yet <br>
 
 <% end %>
 
+
+<hr/>
 </div>
 </div>
 </div>
-</div>
+
 
 <% end %>
 

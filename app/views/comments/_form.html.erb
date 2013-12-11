@@ -2,7 +2,7 @@
 <%= simple_form_for [@post, Comment.new] do |f| %>
  <p>
 <div class="form">
-  <%= f.input :body, as: :text, input_html: { :style=> 'width: 70%', :class => "create" }, label: false,placeholder: "Add Question" %>
+  <%= f.input :body, as: :text, input_html: { :style=> 'width: 50%', :class => "create" }, label: false,placeholder: "Add Question" %>
  
   
 
@@ -10,7 +10,7 @@
  </p>
  <%= f.submit "Ask Question", class: "button5" %>
  <div class="cancel">
-<%= link_to ("Cancel"), post_path(@post) %>
+<%= link_to "Cancel", post_path(@post), class: "grey" %>
 </div>
  </div>
  <% end %>

@@ -1,4 +1,4 @@
-
+<div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="container">
  <div class="row">
@@ -137,8 +137,17 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 
 </div>
 </div>
+</div>
 
+<div class="visible-phone visible-tablet">
+<div class="titlecontainer">
+<%= @comment.body %>
+</div>
 
+<hr/>
 
+<%= render 'form' %>
+
+</div>
 
 

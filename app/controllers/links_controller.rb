@@ -16,7 +16,7 @@ end
   def index
    @post = Post.find params[:post_id]
    @post.links
-  
+   @links = @post.links.order(:created_at)
     
     
   end

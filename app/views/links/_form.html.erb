@@ -2,11 +2,13 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-   <%= f.input :URL, as: :text, input_html: { rows: "2", :class => "create" }, label: false,placeholder: "Add Link" %>
-   <%= f.input :description, as: :text, input_html: { rows: "2", :class => "create" }, label: false,placeholder: "Link Description" %>
+   <%= f.input :URL, as: :text, input_html: { rows: "1", :class => "create" }, label: false,placeholder: "Add Link" %>
+   <%= f.input :description, as: :text, input_html: { rows: "1", :class => "create" }, label: false,placeholder: "Link Description" %>
   </div>
 
-  <div class="actions">
+
     <%= f.button :submit, "Post Link", class: "button5" %>
-  </div>
+<div class="cancel">
+  <%= link_to ("Cancel"), post_links_path(@post) %>
+</div>
 <% end %>

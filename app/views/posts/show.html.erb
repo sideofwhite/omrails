@@ -31,7 +31,7 @@
 </div>
 </div>
 
-
+</hr>
 
 
 <%= render 'links/link' %>
@@ -82,13 +82,14 @@
 
 <div class="visible-phone visible-tablet">
 <div class="span10">
+
 <div class="commentimage">
   <%= image_tag @post.image %>    
  </div>
+
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
-
 
 <div class="info">
 <div class="newspaper7"> 
@@ -98,13 +99,11 @@
 
 <div class="info">
 <div class="newspaper7"> 
-<div class="blue">
-<%= @post.country %>
+<strong><%= @post.country %></strong>
 </div>
 </div>
-</div>
-
 <hr/>
+
 
 <div class="descriptioncontainer2">
 <div class="newspaper7"> 

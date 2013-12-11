@@ -3,73 +3,97 @@
 <div class="container">
  <div class="row">
 
-<div class="fixed">
-<div class="span4">
-<div class="line2">
-<div class="commentimage">
+
+<div class="span3">
+
+<div class="commentimage2">
  <%= image_tag @post.image(:small) %>    
  </div>
 
- 
-Post a link that explains more about the event
+
+<div class="info">
+<div class="newspaper7"> 
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+</div>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<strong><%= @post.country %></strong>
+</div>
+</div>
 
 <hr/>
 
-<%= render 'form' %>
-
+<div class="descriptioncontainer2">
+<div class="newspaper7"> 
+<%= @post.description %>
 </div>
 </div>
+
+<hr/>
+
+
 </div>
 
-
-<div class="span7 offset4">
+<div class="span7", style="padding-left: 30px;">
 
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
-
-
 <hr />
+
+
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+<%= link_to 'Post Link', new_post_link_path(@post), class: "button3" %>
 </div>
 <% else %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
+<%= link_to 'Post Link', new_user_registration_path, class: "button3" %>
 </div>
 <% end %>
 
 <% if @post.comments.count == 1 %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Question
+<strong><%= @post.links.count %></strong> Link
 </div>
 <% else %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Questions 
+<strong><%= @post.links.count %></strong> Links 
 </div>
 <% end %>
 
-<div id="pin" class="transitions-enabled">
-<%= render :partial => @post.comments %>
+<div class="paddingtop">
 </div>
 
+<%= render 'form' %>
+<hr/>
+<% @post.links.order("cached_votes_total desc").each do |link| %>
+<div class="linktext">  
+<a href="<%= link.URL %>" style="color: #19558d !important;"> <%= link.description %> </a> 
+<div class="linktext2"> 
+| <%= link_to "Upvote", upvote_post_link_path(@post, link) %>
+</div>
+<% end %>
 </div>
 </div>
-</div>
-</div>
+
+
 
 
 
 <div class="visible-phone visible-tablet">
-<div class="span10">
+<div class="span12">
+<div class="titlecontainer4">
+Around the web
+</div>
 <div class="commentimage">
   <%= image_tag @post.image %>    
  </div>
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
-
 
 <div class="info">
 <div class="newspaper7"> 
@@ -91,37 +115,43 @@ Post a link that explains more about the event
 <div class="newspaper7"> 
 <%= @post.description %>
 </div>
-<%= render 'links/link' %>
-<hr/>
 </div>
 
-
+<hr/>
 
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+<%= link_to '+ Link', new_post_link_path(@post), class: "button4" %>
 </div>
 <% else %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
+<%= link_to '+ Link', new_user_registration_path, class: "button4" %>
 </div>
 <% end %>
 
-<% if @post.comments.count == 1 %>
+<% if @post.links.count == 1 %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Question
+<strong><%= @post.links.count %></strong> Link
 </div>
 <% else %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Questions 
+<strong><%= @post.links.count %></strong> Links
 </div>
 <% end %>
 
 <div id="pin" class="transitions-enabled">
-<%= render :partial => @post.comments %>
+<% @post.links.order("cached_votes_total desc").each do |link| %>
+<div class="newspaper2">
+<%= link.votes.size %>
+<div class="questioncontainer">  
+<a href="<%= link.URL %>"> <%= link.description %> </a> 
+</div>
+<%= link_to "^ Upvote", upvote_post_link_path(@post, link) %>
 </div>
 
+<% end %>
 </div>
+
 </div>
 
 

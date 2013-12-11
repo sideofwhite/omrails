@@ -30,7 +30,7 @@ end
   # GET /comments/new
   def new
     @post = Post.find params[:post_id]
-    
+    @links = @post.links.order(:created_at).limit(5)
   end
 
   # GET /comments/1/edit

@@ -4,73 +4,80 @@
  <div class="row">
 
 
-<div class="span4">
-<div class="line2">
-<div class="commentimage">
+<div class="span3">
+
+<div class="commentimage2">
  <%= image_tag @post.image(:small) %>    
  </div>
 
 
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to '+ Link', new_post_link_path(@post), class: "button7" %>
+<div class="info">
+<div class="newspaper7"> 
+<%= time_ago_in_words(@post.created_at) %> ago <br>
 </div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to '+ Link', new_user_registration_path, class: "button7" %>
 </div>
-<% end %>
 
+<div class="info">
+<div class="newspaper7"> 
+<strong><%= @post.country %></strong>
+</div>
+</div>
 
-<% @post.links.order("cached_votes_total desc").each do |link| %>
+<hr/>
 
- 
-<a href="<%= link.URL %>"> <%= link.description %> </a> <br>
+<div class="descriptioncontainer2">
+<div class="newspaper7"> 
+<%= @post.description %>
+</div>
+</div>
+
 <hr/>
 
 
-
-<% end %>
-
-
-</div>
 </div>
 
-<div class="span7">
+<div class="span7", style="padding-left: 30px;">
 
 <div class="titlecontainer">
 <%= @post.title %>
 </div>
-
-
 <hr />
+
+
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+<%= link_to 'Post Link', new_post_link_path(@post), class: "button4" %>
 </div>
 <% else %>
 <div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
+<%= link_to 'Post Link', new_user_registration_path, class: "button4" %>
 </div>
 <% end %>
 
 <% if @post.comments.count == 1 %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Question
+<strong><%= @post.links.count %></strong> Link
 </div>
 <% else %>
 <div class="number2">
-<strong><%= @post.comments.count %></strong> Questions 
+<strong><%= @post.links.count %></strong> Links 
 </div>
 <% end %>
 
-<div id="pin" class="transitions-enabled">
-<%= render :partial => @post.comments %>
+<div class="paddingtop">
 </div>
 
+<% @post.links.order("cached_votes_total desc").each do |link| %>
+<div class="linktext">  
+<a href="<%= link.URL %>" style="color: #19558d !important;"> <%= link.description %> </a> 
+<div class="linktext2"> 
+| <%= link_to "Upvote", upvote_post_link_path(@post, link) %>
+</div>
+<% end %>
 </div>
 </div>
-</div>
+
+
 
 
 
