@@ -24,7 +24,6 @@ textarea {
     
     font-color: black;
     font-size: 14px; 
-    line-height: 120%;
     box-shadow: none !important;
     border-color: #EEEEEE;
     
@@ -53,7 +52,6 @@ body{
     padding-left: 30px;
     font-weight: normal;
     font-size: 15px;
-    
     font-family: 'Roboto', sans-serif;
     
 
@@ -66,19 +64,20 @@ body{
     
     color: white;
     font-size: 28px;
-    border:1px solid black;
-    background-color: black;
-    padding-left: 30px;
-    padding-right: 30px;
+    border:1px solid #B23000;
+    background-color: #B23000;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: bold;
     margin-left: 0px;
     height: 100%;
+
 }
 
 
 .brand:hover {
-    border:1px solid #B23000;
-    background-color: #B23000; 
+    border:1px solid #8e2600;
+    background-color: #8e2600; 
 }
 
 .dropdown-backdrop{
@@ -107,9 +106,10 @@ body{
 
 
 .headername {
-    font-size: 16px;
+    font-size: 18px;
     border: 1px solid #EEEEEE;
     color: black !important;
+    font-family: 'Roboto', sans-serif;
 }
 
 .headername:hover {
@@ -122,9 +122,9 @@ body{
 .headerbutton {
     border: 1px solid white;
     background-color: white !important;
-    font-size: 16px;
+    font-size: 18px;
     color: black !important;
-    
+    font-family: 'Roboto', sans-serif;
 }
 
 .headerbutton:hover {
@@ -202,10 +202,11 @@ body{
 
 .button5 {
     display: inline-block;
+    vertical-align: top;
     text-decoration: none !important;
     color: white !important;
     font-size: 15px;
-    border: 1px solid #B23000;
+    border: 2px solid #B23000;
     background-color: #B23000;
     padding-left: 4px;
     padding-right: 4px;
@@ -216,7 +217,7 @@ body{
 }
 
 .button5:hover {
-    border: 1px solid #8e2600;
+    border: 2px solid #8e2600;
     background-color: #8e2600;
     color: white;
     
@@ -259,18 +260,19 @@ body{
     display: inline-block;
     color: black !important;
     font-size: 15px;
-    border: 1px solid grey;
-    background-color: white;
+    border: 2px solid #EEEEEE;
+    background-color: #EEEEEE;
     padding-left: 4px;
     padding-right: 4px;
     padding-top: 2px;
     padding-bottom: 2px;
     border-radius: 2px;
+    vertical-align: bottom;
 
 }
 
 .cancel:hover {
-  border: 1px solid grey;  
+   
   text-decoration: none !important;
 }
 
@@ -291,6 +293,22 @@ body{
     
 
 }
+
+.addeventbutton {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none !important;
+    color:  #19558d !important;
+    border: 0px solid #EEEEEE;
+    background-color: #EEEEEE;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 2px;
+    
+}
+
 
 .buttonborder {
     border: 1px solid #B23000;
@@ -408,14 +426,16 @@ body{
     
     
     
-    font-size: 21px;
+    font-size: 22px;
     padding-bottom: 5px;
     padding-top: 5px;
-    line-height: 110%;
+    line-height: 105%;
     
-    
-    
-    
+}
+
+.description:hover {
+    text-decoration: none !important;
+    color: #19558d !important;
 }
 
 .border{
@@ -787,7 +807,9 @@ width: 500px;
 }  
    
     
-
+.paddingbottom {
+    padding-bottom: 10px;
+}
 
     
     
@@ -1078,7 +1100,7 @@ border:1px solid white;
 .info6 {
     
     display:inline-block;
-    font-size: 12px;
+    font-size: 13px;
     color: white;
     border:0px solid #B23000;
     background-color: #B23000; 
@@ -1209,13 +1231,13 @@ padding-left: 10px;
 .box {
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 41%;
+  width: 42%;
 
 }
 
 .box img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   
 }
 
@@ -1454,7 +1476,7 @@ only screen and (max-device-width : 399px){
 
 .addevent {
    
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 18px;
     font-weight: bold;
     
@@ -1775,4 +1797,66 @@ text-align:center;
 .form-signin{
   border-color: white;
   
+}
+
+.displayinlineblock {
+    display: inline-block;
+}
+
+
+
+
+.aboutimage img {
+    height: 180px;
+    width: 341px;
+}
+
+.aboutbox {
+    width: 349px;
+}
+
+.aboutpadding {
+    padding-top: 100px;
+}
+
+.aboutpadding2 {
+    padding-top: 120px;
+}
+ 
+.aboutpadding3 {
+    padding-top: 50px;
+}
+
+
+.aboutpaddingleft {
+    padding-left: 50px;
+}
+
+.aboutpaddingbottom {
+    padding-bottom: 10px;
+}
+
+.aboutlinkpadding {
+    margin-top: 80px;
+}
+
+.aboutlink {
+    text-decoration: none !important;
+    
+    text-align: center;
+    border: 2px solid #EEEEEE;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    color: #B23000;
+}
+
+.aboutlink:hover {
+    text-decoration: none !important;
+    background-color: #EEEEEE;
+}
+
+.screenshot img {
+    width: 644px;
+    height: 255px;
 }

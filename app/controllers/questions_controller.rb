@@ -10,15 +10,15 @@ end
 
   # GET /questions
   # GET /questions.json
-  def index
+ 
    
-    @comment = Comment.find params[:comment_id]
-    @questions = @comment.questions
-    
-    
+   def index 
+  @comment = Comment.find params[:comment_id]
+  @questions = @comment.questions
+  @comments = @comment.post.comments.order(:created_at).last(5)
+end
     
 
-  end
 
   # GET /questions/1
   # GET /questions/1.json
@@ -29,6 +29,7 @@ end
   # GET /questions/new
   def new
     @comment = Comment.find params[:comment_id]
+    @comments = @comment.post.comments.order(:created_at).last(5)
   end
 
   # GET /questions/1/edit

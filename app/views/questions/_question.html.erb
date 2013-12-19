@@ -121,19 +121,39 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <div class="commentimage2">
  <%= image_tag @comment.post.image(:small) %>    
  </div>
-
 <div class="titlecontainerb">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
 </div>
 <hr/>
 <%= @comment.post.description.split[0..50].join(" ") %>
 <hr/>
+<style type="text/css" media="screen">
+  iframe { vertical-align: top; }
+</style>
+<div class="displayinlineblock">
 <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a><br>
+</div>
+<div class="displayinlineblock">
 <div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
+</div>
+<hr/>
 
-
+<div class="paddingbottom">
+<div class="newspaper7"> 
+<strong>More Questions</strong>
+</div>
+</div>
+<% @comments.each do |comment| %>
+  <div class="linktext">
+  <%= link_to (comment.body), comment_questions_path(comment), class: "blue" %>
+</div>
+<% end %>
+<div class="viewall">
+<%= link_to 'View All', post_path(@comment.post) %>
+</div>
 
 </div>
+
 
 
 

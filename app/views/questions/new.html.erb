@@ -1,3 +1,15 @@
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="container">
@@ -118,15 +130,37 @@ Posted <%= time_ago_in_words(question.created_at) %> ago <br>
 <div class="commentimage2">
  <%= image_tag @comment.post.image(:small) %>    
  </div>
-
 <div class="titlecontainerb">
-<%= @comment.post.title %>
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
+</div>
+<hr/>
+<%= @comment.post.description.split[0..50].join(" ") %>
+<hr/>
+<style type="text/css" media="screen">
+  iframe { vertical-align: top; }
+</style>
+<div class="displayinlineblock">
+<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a><br>
+</div>
+<div class="displayinlineblock">
+<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
 </div>
 <hr/>
 
+<div class="paddingbottom">
+<div class="newspaper7"> 
+<strong>More Questions</strong>
+</div>
+</div>
+<% @comments.each do |comment| %>
+  <div class="linktext">
+  <%= link_to (comment.body), comment_questions_path(comment), class: "blue" %>
+</div>
+<% end %>
+<div class="viewall">
+<%= link_to 'View All', post_path(@comment.post) %>
+</div>
 
-<%= @comment.post.description.split[0..50].join(" ") %>
-<hr/>
 </div>
 
 
