@@ -9,18 +9,24 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.20.0'
 gem 'bootswatch-rails'
 gem 'acts_as_votable', '0.7.1'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'dragonfly', "~>1.0.2"
+gem "jquery-turbolinks", "~> 2.0.1"
 gem 'masonry-rails', '~> 0.2.0'
 gem 'acts-as-taggable-on'
 gem 'pry'
-
-
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'twitter'
+gem 'fb_graph'
+gem 'kaminari'
+gem 'simple_dragonfly_preview'
 
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
+	gem 'rack-cache', :require => 'rack/cache'
 end
 group :development, :test do
   gem 'sqlite3'
@@ -44,7 +50,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-gem 'jquery-turbolinks'
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

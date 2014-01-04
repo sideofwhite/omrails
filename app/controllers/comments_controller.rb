@@ -24,12 +24,15 @@ end
   # GET /comments/1
   # GET /comments/1.json
   def show
-  
+  @post = Post.find params[:post_id]
+  @comment = 
+  @comments = @comment.post.comments.order(:created_at).last(5)
   end
 
   # GET /comments/new
   def new
     @post = Post.find params[:post_id]
+    @comments = @post.comments
     @links = @post.links.order(:created_at).limit(5)
   end
 

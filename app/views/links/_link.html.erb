@@ -5,15 +5,28 @@
 <strong>Around the web</strong>
 </div>
 
+ 
+<% if @post.links.count > 0 %>
+
 <% @links.each do |link| %>
 <div class="linktext">
 <a href="<%= link.URL %>" style="color: #19558d !important;"> <%= link.description %> </a> <br>
 </div>
-
+<div class="lightcontainerlink">
+<%= link.URL[0,30] %>
+</div>
 <% end %>
 <div class="viewall">
 <%= link_to 'View All', post_links_path(@post) %>
 </div>
+
+
+<% else %>
+
+No articles have been posted
+<%= link_to ("Add the first link"), new_post_link_path(@post), class: "blue" %>
+
+<% end %>
 </div>
 
 <div class="visible-phone visible-tablet">

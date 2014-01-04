@@ -426,7 +426,7 @@ body{
     
     
     
-    font-size: 22px;
+    font-size: 23px;
     padding-bottom: 5px;
     padding-top: 5px;
     line-height: 105%;
@@ -572,6 +572,12 @@ font-size: 15px;
    
 }
 
+.lightcontainerlink {
+    
+    font-size: 10px;
+    padding-bottom: 5px; 
+}
+
 .lightcontainer2{
     
     display: inline-block;
@@ -614,10 +620,9 @@ font-size: 15px;
 
 .lightcontainer7{
    padding-top: 10px; 
-   padding-bottom: 5px;
-   font-size: 12px;
+   padding-bottom: 2px;
+   font-size: 10px;
    font-weight: bold;
-    
     
    
 }
@@ -902,12 +907,30 @@ margin-bottom: 2px;
  }
 
 
+hr4 {
+ display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid #EEEEEE;;
+margin-top: 5px; 
+margin-bottom: 5px;
+padding: 0px; 
+    
+}
+
+
 .floatright {
     float: right;
 }
 
 .red {
     color: #B23000 !important;
+
+}
+
+.redinlineblock {
+    color: #B23000 !important;
+    display: inline-block;
 }
 
 .red2 {
@@ -1067,6 +1090,16 @@ border:1px solid white;
 }
 
 
+.info2b {
+    
+    
+    font-size: 15px;
+    padding-top: 10px;
+    
+    
+}
+
+
 .info3 {
     font-size: 20px;
     display:inline-block;
@@ -1113,6 +1146,20 @@ border:1px solid white;
 
 }
 
+.viewallposts {
+    display:inline-block;
+    font-size: 11px;
+    border: 0px solid #EEEEEE;
+    background-color: #EEEEEE; 
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    margin-top: 5px;
+    font-weight: bold;
+    
+
+}
 .info7 {
     display:inline-block;
     font-size: 15px;
@@ -1286,7 +1333,7 @@ only screen and (max-device-width : 799px){
 
 
 .boxtwo {
- margin: 5px;
+ 
  
  
 }
@@ -1339,7 +1386,11 @@ only screen and (max-device-width : 399px){
  
 //////////////////
 
-
+.boxthree {
+ margin: 5px;
+ 
+ 
+}
 
 
 .bordertop {
@@ -1352,7 +1403,6 @@ only screen and (max-device-width : 399px){
     border: 1px solid #EEEEEE;
     padding-left: 7px;
     padding-right: 7px;
-    padding-bottom: 10px;
     padding-top: 10px;
    
     
@@ -1612,22 +1662,12 @@ display:inline-block;
 
 .redborder {
 
-border-left: 2px solid #EEEEEE;
-border-right: 2px solid #EEEEEE;    
-border-top: 2px solid #EEEEEE;
-border-bottom: 2px solid #EEEEEE;
-padding: 15px;
-border-radius: 1px;
+
 }
 
 .redborder2 {
-   border-left: 2px solid #EEEEEE;
-border-right: 2px solid #EEEEEE;    
-border-top: 2px solid #EEEEEE;
-border-bottom: 2px solid #EEEEEE;
-margin-bottom: 10px;
-border-radius: 1px;
-padding: 15px; 
+margin-bottom: 0px;
+
 }
 
 .logo {
@@ -1644,13 +1684,11 @@ padding: 15px;
 }
 
 .logotext {
- display: inline-block;
- padding-left: 5px;
- padding-top: 10px;
- vertical-align: text-bottom;
+
  font-size: 26px;
  font-weight: bold;
  color: #B23000;
+ margin-bottom: 20px;
     
 }
 
@@ -1773,10 +1811,6 @@ text-align:center;
 }
 
 
-.linktext {
-    padding-bottom: 5px;
-}
-
 .linktext2 {
     display: inline-block;
     color: grey;
@@ -1860,3 +1894,238 @@ text-align:center;
     width: 644px;
     height: 255px;
 }
+
+.fontsize16 {
+    font-size: 15px;
+}
+
+
+
+.allquestions {
+    padding-top: 25px;
+    font-weight: bold;
+}
+
+.allquestions2 {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.questionborder {
+    border: 1px solid #EEEEEE;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.usernametext {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block
+}
+
+.usernametext2 {
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.usernamelinks {
+    padding-bottom: 5px;
+
+}
+
+.usernamepadding {
+    
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.return {
+    display: inline-block;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+}
+
+.center {
+    
+    float: none;
+    margin: 0 auto;
+}
+
+[class*="span"].centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+
+.blackbackground {
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 10px;
+}
+
+
+
+.redhead {
+    background-color: #b23000;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 10px;
+}
+
+.aboutheadtext {
+    text-align: center;
+    color: white;
+    font-size: 26px;
+}
+
+.greyhead {
+    background-color: #EEEEEE;
+    padding: 20px;
+
+}
+
+
+.logohead {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 30px;
+    margin: 0 auto;
+
+}
+
+.logotexthead {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+
+.darkgreyhead {
+    background-color: grey;
+    padding: 10px;
+    margin-top: 114px;
+}
+
+.verticalalignmiddle {
+    vertical-align: middle;
+}
+
+pull-left{
+    float:left;
+
+}
+
+.loadmorebutton {
+    background-color: #EEEEEE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 38%;
+    padding-right: 37.5%;
+    font-size: 18px;
+    
+    margin-top: 30px;
+    text-align: center;
+}
+
+.loadmorebutton:hover {
+    text-decoration: none;
+    color: #b23000 ;
+}
+
+.margintopbutton {
+    margin-top: 30px;
+}
+
+.center {
+    text-align: center;
+}
+
+
+.paddingtop15 {
+    padding-top: 15px;
+}
+
+.paddingleft {
+    padding-left: 30px;
+}
+
+.userimage {
+   display: inline-block; 
+}
+
+.userimage img {
+    
+    height: 175px;
+
+}
+
+
+.noposts {
+    text-align: center;
+    font-size: 18px;
+    padding-top: 40px;
+}
+
+
+.userimageborder {
+    border: 1px solid #EEEEEE;
+    height: 175px;
+    padding: 10px;
+}
+
+.userpadding {
+    padding-top: 10px;
+}
+
+
+
+.button10::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.button10:before {
+  content: 'Select some files';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.button10:hover:before {
+  border-color: black;
+}
+.button10:active:before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+
+
+
+
+
+
+

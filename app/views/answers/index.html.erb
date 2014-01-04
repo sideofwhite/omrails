@@ -1,31 +1,202 @@
-<h1>Listing answers</h1>
+<div class="visible-desktop hidden-phone hidden-tablet">
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Question</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container">
+ <div class="row">
 
-  <tbody>
-    <% @answers.each do |answer| %>
-      <tr>
-        <td><%= answer.body %></td>
-        <td><%= answer.question_id %></td>
-        <td><%= answer.user_id %></td>
-        <td><%= link_to 'Show', answer %></td>
-        <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
-        <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="span3">
 
-<%= link_to 'New Answer', new_answer_path %>
+<div class="commentimage2">
+ <%= image_tag @post.image(:small) %>    
+ </div>
+
+
+<div class="info">
+<div class="newspaper7"> 
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+</div>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<strong><%= @post.country %></strong>
+</div>
+</div>
+
+<hr/>
+
+<div class="descriptioncontainer2">
+<div class="newspaper7"> 
+<%= @post.description %>
+</div>
+</div>
+
+</hr>
+
+
+<%= render 'links/link' %>
+
+</div>
+
+
+
+
+<div class="span7", style="padding-left: 30px;">
+
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
+
+
+<hr />
+<% if user_signed_in? %>
+<div class="questioncontainer3">  
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+</div>
+<% else %>
+<div class="questioncontainer3">  
+<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
+</div>
+<% end %>
+
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Question
+</div>
+<% else %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Questions 
+</div>
+<% end %>
+
+<div class="container">
+<div class="row">
+<div class="span6">
+<% @questions.each do |question| %>
+
+<div class="questionborder">
+<div class="questioncontainer">
+<%= link_to (question.comment.body), post_comment_questions_path(@post, @comment_id), class: "blue" %>
+</div>
+</div>
+
+<div class="info2b">
+<strong><%= question.user.name %></strong> <br>
+</div>
+<div class="blue">
+<%= question.title %>
+</div>
+<hr/>
+
+<%= question.body %>
+<div class="lightcontainer6">
+ 
+Flag -
+Posted <%= time_ago_in_words(question.created_at) %> ago <br>
+</div>
+
+<% end %>
+
+</div>
+<div class="span2 offset1">
+<div class="allquestions">
+<%= link_to ("Questions"), post_path(@post), class: "blue" %>
+</div>
+<div class="allquestions2">
+Top Answers
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="visible-phone visible-tablet">
+<div class="span10">
+
+<div class="commentimage">
+  <%= image_tag @post.image %>    
+ </div>
+
+<div class="titlecontainer">
+<%= @post.title %>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<%= time_ago_in_words(@post.created_at) %> ago <br>
+</div>
+</div>
+
+<div class="info">
+<div class="newspaper7"> 
+<strong><%= @post.country %></strong>
+</div>
+</div>
+<hr/>
+
+
+<div class="descriptioncontainer2">
+<div class="newspaper7"> 
+<%= @post.description %>
+</div>
+<%= render 'links/link' %>
+<hr/>
+</div>
+
+
+
+<% if user_signed_in? %>
+<div class="questioncontainer3">  
+<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
+</div>
+<% else %>
+<div class="questioncontainer3">  
+<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
+</div>
+<% end %>
+
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Question
+</div>
+<% else %>
+<div class="number2">
+<strong><%= @post.comments.count %></strong> Questions 
+</div>
+<% end %>
+
+<div id="pin" class="transitions-enabled">
+<%= render 'comments/comment' %>
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

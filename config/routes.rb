@@ -2,6 +2,9 @@ Omrails::Application.routes.draw do
   
 
 
+  get "profile/place"
+  get "profile/bio"
+  get "users/show"
 resources :posts do
   member do
       get :upvote
@@ -10,8 +13,13 @@ resources :posts do
     member do
       get :upvote
     end
+    resources :questions do
+    member do
+      get :upvote
+    end
   end
 end 
+end
       
 resources :posts do
   member do
@@ -24,8 +32,11 @@ resources :posts do
   end
 end 
 
-resources :comments do
-  resources :questions do
+resources :posts do
+  member do
+      get :upvote
+    end
+  resources :answers do
     member do
       get :upvote
     end
@@ -34,16 +45,22 @@ end
 
 
 
+
+
+
   
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    get "/info" => "registrations#info"
+  end
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
   match '/contact', to: 'pages#contact',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
- 
+  get 'users/:id', to: 'users#show', as: :user
+  get 'users/:id/questions', to: 'users#questions', as: :questions
   
-
 
 
 

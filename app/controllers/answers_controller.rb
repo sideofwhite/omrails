@@ -4,8 +4,10 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-    @question = Question.find params[:question_id]
-    @question.answers
+   @post = Post.find params[:post_id]
+   @comments = @post.comments
+   @links = @post.links.order(:created_at).limit(5)
+   @questions = @post.questions.order("cached_votes_total desc")
   end
 
   # GET /answers/1

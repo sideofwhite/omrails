@@ -69,8 +69,23 @@
 </div>
 <% end %>
 
+<div class="container">
+<div class="row">
+<div class="span7">
 <div id="pin" class="transitions-enabled">
-<%= render :partial => @post.comments %>
+<%= render 'comments/comment' %>
+</div>
+</div>
+<div class="span2">
+<div class="allquestions">
+Questions
+</div>
+<div class="allquestions2">
+<%= link_to ("Top Answers"), post_answers_path(@post), class: "blue" %>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 </div>
@@ -136,8 +151,11 @@
 <% end %>
 
 <div id="pin" class="transitions-enabled">
-<%= render :partial => @post.comments %>
+<%= render 'comments/comment' %>
 </div>
+
+
+
 
 </div>
 </div>

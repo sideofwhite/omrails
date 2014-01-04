@@ -8,5 +8,4 @@ $ ->
       itemSelector: '.box'
       isResizable: true
 
-
-      
+ 

@@ -1,15 +1,19 @@
+
+<div class="greyhead">
+
 <div class="container">
 <div class="row">
 
-<div class="span3">
-<div class="redborder2">
+
+
+<div class="span6">
 
 <div class="logotext">
 Sign Up
 </div>
-</div>
 
-<div class="redborder">
+
+
 <form class="form-signin"
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form'}) do |f| %>
   <%= f.error_notification %>
@@ -19,13 +23,24 @@ Sign Up
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 
-  
+  <div class="paddingbottom">
+</div>
     <%= f.submit "Sign Up", class: "button5" %>
   
-</div>
+<div class="paddingtop">
+<div class="lightcontainer">
+By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service.
+</div>	
 </div>
 
+</div>
+
+<% end %>
+
+
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span4">
+
 <div class="besideformtext">
 <div class="blue">
 Podium let's you read about breaking events from experts around the world.
@@ -35,13 +50,10 @@ Podium let's you read about breaking events from experts around the world.
 Returning user? <strong><%= link_to 'Login', new_user_session_path %></strong>
 </div>
 </div>
-
-
+</div>
 
 
 </div>
 </div>
 
-
-<% end %>
-
+</div>

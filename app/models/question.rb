@@ -12,7 +12,7 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
                              size: { less_than: 5.megabytes }
 belongs_to :user
 acts_as_votable
-belongs_to :comment
+belongs_to :comment, :counter_cache => true
 
 has_many :pictures
 

@@ -1,0 +1,97 @@
+<div class="username">	
+<%= @user.name %>
+</div>
+
+<div class="container">
+<div class="row">
+
+
+
+
+
+<div class="span2">
+
+<div class="userimage">
+<%= image_tag @user.image %>
+</div>
+
+
+<div class="userpadding">
+Location <strong><%= @user.place %></strong>
+</div>
+
+<hr/>
+
+Age <strong><%= @user.age %></strong>
+
+
+
+</div>
+
+<div class="span7", style="padding-left: 30px;">
+
+<div class="usernametext">
+<%= @user.comments.count %> Questions 
+</div>
+<div class="usernametext">
+<%= link_to raw("#{@user.questions.count} Answers"), user_path, class: "blue" %>
+</div>
+
+
+<hr/>
+
+<% if @user.comments.count > 0 %>
+
+<% @comments.each do |comment| %>
+<% if comment.questions.count == 1 %>
+<div class="info7">
+<%= comment.questions.count %> Answer
+</div>
+<% else %>
+<div class="info7">
+<%= comment.questions.count %> Answers
+</div>
+<% end %>
+
+
+<div class="questioncontainer">
+<%= link_to (comment.body), post_comment_questions_path(@post, comment) %>
+</div>
+<div class="lightcontainer">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+<hr/>
+<% end %>
+
+<% else %>
+
+<div class="noposts">
+<%= @user.name %> has not asked any questions yet.
+</div>
+<% end %>
+
+<div class="margintopbutton">
+<div class="center">
+<%= link_to_next_page @comments, 'Load more', class: "cancel" %>
+</div>
+</div>
+</div>
+
+
+<div class="span2">
+<% if @user == current_user %>
+<%= link_to "Account Settings", edit_user_registration_path, class: "button5" %>
+<div class="paddingbottom">
+</div>
+<div class="lightcontainer">
+Edit your username, email and password
+</div>
+<% end %>
+</div>
+
+
+
+
+</div>
+</div>

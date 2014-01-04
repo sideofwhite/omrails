@@ -1,4 +1,4 @@
-<%= div_for(comment) do %>
+<% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="boxtwo">
 <div class="newspaper2">
@@ -14,7 +14,7 @@
 <% end %>
 
 <div class="questioncontainer">
-<%= link_to (comment.body), comment_questions_path(comment) %>
+<%= link_to (comment.body), post_comment_questions_path(@post, comment) %>
 </div>
 
 
@@ -27,7 +27,7 @@
 Last 1 of <%= comment.questions.count %><br>
 </div>
 <%= comment.questions.last.try(:[],:body)[0,200] %>
-<%= link_to "(read more...)", comment_questions_path(comment), class: "blue"  %>
+<%= link_to "(read more...)", post_comment_questions_path(@post, comment), class: "blue"  %>
 
 
 
@@ -36,7 +36,7 @@ Last 1 of <%= comment.questions.count %><br>
 
 <div class="blue2">
 No one has answered yet <br>
-<%= link_to "Write the first answer", new_comment_question_path(comment, @question), class: "blue" %>
+<%= link_to "Write the first answer", new_post_comment_question_path(comment, @question), class: "blue" %>
 </div>
 
 
@@ -63,7 +63,7 @@ No one has answered yet <br>
 <% end %>
 
 <div class="questioncontainer">
-<%= link_to (comment.body), comment_questions_path(comment) %>
+<%= link_to (comment.body), post_comment_questions_path(@post, comment) %>
 </div>
 
 
@@ -75,7 +75,7 @@ No one has answered yet <br>
 Last 1 of <%= comment.questions.count %><br>
 </div>
 <%= comment.questions.last.try(:[],:body)[0,200] %>
-<%= link_to "(read more...)", comment_questions_path(comment), class: "blue"  %>
+<%= link_to "(read more...)", post_comment_questions_path(@post, comment), class: "blue"  %>
 </div>
 
 <% else %>
@@ -83,9 +83,14 @@ Last 1 of <%= comment.questions.count %><br>
 
 <div class="blue2">
 No one has answered yet <br>
-<%= link_to "write the first answer", new_comment_question_path(comment, @question), class: "blue" %>
 </div>
 
+<% if user_signed_in? %>
+<%= link_to "write the first answer", new_post_comment_question_path(comment, @question), class: "blue" %>
+<% else %>
+<%= link_to "write the first answer", new_user_registration_path, class: "blue" %>
+
+<% end %>
 <% end %>
 
 

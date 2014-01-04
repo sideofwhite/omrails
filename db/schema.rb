@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111012911) do
+ActiveRecord::Schema.define(version: 20140104032134) do
 
   create_table "answers", force: true do |t|
     t.string   "body"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131111012911) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comment_id"
+    t.integer  "questions_count", default: 0
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
@@ -144,6 +145,16 @@ ActiveRecord::Schema.define(version: 20131111012911) do
     t.datetime "updated_at"
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "place"
+    t.string   "image_uid"
+    t.integer  "age"
+    t.string   "twitter"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

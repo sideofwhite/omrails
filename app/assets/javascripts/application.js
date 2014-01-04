@@ -16,5 +16,9 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require jquery.masonry.min.js
+//= require masonry/jquery.infinitescroll.min
+//= require jquery.infinitescroll
 //= require_tree .
+
 

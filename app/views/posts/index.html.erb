@@ -1,3 +1,8 @@
+
+<% render 'devise/registrations/edit' %>
+
+
+<div class="post-box pins-masonry">
 <div class="visible-phone visible-tablet">
 <%= render 'posts/post' %>
 
@@ -68,10 +73,18 @@
 </div>
 
 <div class="span9 offset1">
-<div id="pins" class="transitions-enabled">
+
+<div id="pins" class="transitions-disabled">
 <%= render 'posts/post' %>
 </div>
+
+<div class="margintopbutton">
+
+
+<%= link_to_next_page @posts, 'Load more', class: "loadmorebutton" %>
 </div>
+
+
 
 </div>
 </div>

@@ -43,12 +43,20 @@
 </div>
 <% end %>
 
-<% post.comments.order('created_at desc').limit(2).each do |comment| %>
-<div class="count">
+<% post.comments.order('created_at desc').limit(3).each do |comment| %>
+<div class="fontsize16">
 <div class="newspaper10">
-<%= link_to (comment.body), comment_questions_path(comment) %>
+<%= link_to (comment.body), post_comment_questions_path(post, comment) %>
 </div>
 </div>
+
+<% end %>
+
+<% if post.comments.count > 3 %>
+<div class="viewallposts">
+<%= link_to "View all", post  %>
+</div>
+<% else %>
 
 <% end %>
 
@@ -107,7 +115,7 @@
 <% post.comments.order('created_at desc').limit(2).each do |comment| %>
 <div class="count">
 <div class="newspaper10">
-<%= link_to (comment.body), comment_questions_path(comment) %>
+<%= link_to (comment.body), post_comment_questions_path(post, comment) %>
 </div>
 </div>
 

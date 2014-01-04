@@ -1,29 +1,39 @@
+
+<div class="greyhead">
+
 <div class="container">
 <div class="row">
 
-<div class="span3">
-<div class="redborder2">
+
+
+<div class="span6">
 
 <div class="logotext">
-Login
-</div>
+Sign In
 </div>
 
-<div class="redborder">
+<form class="form-signin"
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form'}) do |f| %>
 
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :password %>
-  <%= f.input :remember_me, as: :boolean %>
+  <%= f.input :remember_me, as: :boolean, input_html: { :class => "pull-left dispo" }, label: "Remember me" %>
 
  
     <%= f.submit "Sign in", class: "button5" %>
+   <div class="return">
+    <%= link_to "Forgot your password?", new_user_password_path(resource_name), class: "red" %>
+   </div>
+   
    </div>
 
-</div>
 
+<% end %>
+
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span4">
+
 <div class="besideformtext">
 <div class="blue">
 Podium let's you read about breaking events from experts around the world.
@@ -33,13 +43,13 @@ Podium let's you read about breaking events from experts around the world.
 New to Podium? <strong><%= link_to 'Sign Up', new_user_registration_path %></strong>
 </div>
 </div>
-
-
+</div>
 
 
 </div>
-</div> 
-<% end %>
+</div>
+
+</div>
 
 
 

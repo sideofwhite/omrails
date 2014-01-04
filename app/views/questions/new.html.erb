@@ -33,7 +33,7 @@
 <hr />
 <% if user_signed_in? %>
 <div class="questioncontainer3">  
-<%= link_to 'Answer', new_comment_question_path(@comment), class: "button3" %>
+<%= link_to 'Answer', new_post_comment_question_path(:post_id, @comment), class: "button3" %>
 </div>
 <% else %>
 <div class="questioncontainer3">  

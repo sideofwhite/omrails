@@ -14,10 +14,15 @@ end
   def index
    
 if params[:tag]
-@posts = Post.tagged_with(params[:tag])
+@posts = Post.tagged_with(params[:tag]).page params[:page]
 else
-@posts = Post.all
+@posts = Post.all.page(params[:page]).per(25)
 end
+
+respond_to do |format|
+  format.html
+  format.js
+ end
 end
     
   
@@ -27,7 +32,7 @@ end
   # GET /posts/1.json
   def show
   @post = Post.find(params[:id])
-  @comments = Post.order("created_at desc")
+  @comments = @post.comments.order('comments.questions_count desc')
   @links = @post.links.order(:created_at).limit(5)
 
   end
