@@ -1,24 +1,9 @@
-
-<%= simple_form_for(@question) do |f| %>
-
-<div class="form">
-  <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 100%' }, label: false, placeholder: "Relevant to the answer" %>
-  <%= f.input :body, as: :text, input_html: { rows: "5", :style=> 'width: 100%' }, label: false, placeholder: "Write Answer" %>
- 
+<%= simple_form_for [@comment, Question.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <%= f.input :image, label: false, placeholder: "Upload Image" %>
-<%= f.input :image_remote_url, input_html: { rows: "1", :style=> 'width: 30%' }, label: false, placeholder: "Or a URL" %>
+  <%= f.input :body, as: :text, input_html: { :class => "hello3" }, label: false, placeholder: "Ask Question" %>
 
-
-  <%= f.input :caption, as: :text, input_html: { rows: "1", :style=> 'width: 30%' }, label: false,placeholder: "Image description" %>
-
-<%= f.submit "Answer", class: "button5" %>
-  <div class="cancel">
-<%= link_to ("Cancel"), comment_question_path(@comment, @question)%>
-</div>
- </div>
+<%= f.submit "Ask", class: "button5" %>
 
 <% end %>
-
 

@@ -1,84 +1,36 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
+
 <div class="container">
- <div class="row">
+<div class="row">
+<div class="span1">
 
-<div class="span3">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 
-<div class="commentimage2">
- <%= image_tag @post.image(:small) %>    
+</div>
+
+<div class="span6">
+<%= render 'form' %>
+</div>
+
+<div class="span3 offset2">
+<div class="eventimage">
+ <div class="titlecontainershow">
+<%= link_to (@post.title), post_path(@post) %>
+</div>   
+ <style media="screen">
+  .eventimage::after { background-image: url(<%= @post.image %>); background-size: cover;}
+ </style>
+
+
  </div>
 
-
-<div class="info">
-<div class="newspaper7"> 
-<%= time_ago_in_words(@post.created_at) %> ago <br>
-</div>
-</div>
-
-<div class="info">
-<div class="newspaper7"> 
-<strong><%= @post.country %></strong>
-</div>
-</div>
-
-<hr/>
-
-<div class="descriptioncontainer2">
-<div class="newspaper7"> 
-<%= @post.description %>
-</div>
 </div>
 
 
 
 
-<%= render 'links/link' %>
-
-</div>
 
 
-
-
-<div class="span7", style="padding-left: 30px;">
-
-
-
-
-
-<div class="titlecontainer">
-<%= @post.title %>
-</div>
-
-
-<hr />
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button3" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button3" %>
-</div>
-<% end %>
-
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Question
-</div>
-<% else %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Questions 
-</div>
-<% end %>
-
-<%= render 'form' %>
-
-<div id="pin" class="transitions-enabled">
-<%= render 'comments/comment' %>
-</div>
-
-</div>
-</div>
 </div>
 </div>
 

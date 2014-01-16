@@ -19,9 +19,12 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'twitter'
 gem 'fb_graph'
-gem 'kaminari'
 gem 'simple_dragonfly_preview'
-
+gem 'bootstrap-wysihtml5-rails'
+gem 'autosize-rails'
+gem 'will_paginate'
+gem 'geocoder'
+gem 'geokit-rails'
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'

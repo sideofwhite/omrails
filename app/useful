@@ -279,3 +279,75 @@ Questions
 </div>
 
 
+
+
+
+
+<div class="margintopbutton">
+
+<%= link_to_next_page @posts, 'Load more', class: "loadmorebutton" %>
+</div>
+
+
+
+<% @comments.each do |comment| %>
+<% if comment.questions.count == 1 %>
+<div class="info7">
+<%= comment.questions.count %> Answer
+</div>
+<% else %>
+<div class="info7">
+<%= comment.questions.count %> Answers
+</div>
+<% end %>
+
+
+<div class="questioncontainer">
+<%= link_to (comment.body), post_comment_questions_path(@post, comment) %>
+</div>
+<div class="lightcontainer">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+<hr/>
+<% end %>
+
+
+<style type="text/css" media="screen">
+  iframe { vertical-align: top; }
+</style>
+<div class="displayinlineblock">
+<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a><br>
+</div>
+<div class="displayinlineblock">
+<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
+</div>
+<hr/>
+
+
+
+
+
+
+
+
+
+
+
+<div class="upvotes">
+<%= @comment.votes.size %> 
+</div>
+<% if user_signed_in? %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_post_comment_path(@post, @comment) %>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
+<% end %>
+
+
+
+<%= link_to_next_page @posts, 'Load more', class: "loadmorebutton" %>
+
+
+
+
+

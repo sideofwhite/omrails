@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-   
-   def upvote
+def top
+@city = request.location.country
+@closepost = Post.near(@city, 50, :order => :distance)
+end
+
+
+def upvote
 @post = Post.find params[:id]
 @post.liked_by current_user
 redirect_to posts_path
@@ -14,9 +19,10 @@ end
   def index
    
 if params[:tag]
-@posts = Post.tagged_with(params[:tag]).page params[:page]
+@posts = Post.tagged_with(params[:tag]).page(params[:page]).per_page(25)
 else
-@posts = Post.all.page(params[:page]).per(25)
+@posts = Post.all.page(params[:page]).per_page(25)
+@toppost = Post.order('cached_votes_total desc').limit(1)
 end
 
 respond_to do |format|
@@ -32,7 +38,7 @@ end
   # GET /posts/1.json
   def show
   @post = Post.find(params[:id])
-  @comments = @post.comments.order('comments.questions_count desc')
+  @comments = @post.comments.order('cached_votes_total desc')
   @links = @post.links.order(:created_at).limit(5)
 
   end
@@ -101,6 +107,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :image, :image_remote_url, :title, :country, :tag_list)
+      params.require(:post).permit(:description, :image, :image_remote_url, :title, :country, :tag_list, :latitude, :longitude)
     end
 end

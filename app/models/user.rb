@@ -16,7 +16,9 @@ has_attached_file :image, :styles => { :thumb => "100x200>" }
   has_many :comments
   has_many :questions
   has_many :answers   
-  acts_as_voter     
+  acts_as_voter   
+  
+ 
 
 
 end

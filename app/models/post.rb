@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-has_attached_file :image, styles: { :small => "400x200>", :medium => "430x340>", :large => "740x340>" }
+has_attached_file :image, styles: { :small => "365x205>", :medium => "430x340>", :large => "740x340>" }
 
 def to_param
 	"#{id} #{title}".parameterize
@@ -16,7 +16,8 @@ has_many :comments
 has_many :links
 has_many :questions, :through => :comments
 has_many :pictures
-
+geocoded_by :country
+after_validation :geocode, :if => :country_changed?
 def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?
     super

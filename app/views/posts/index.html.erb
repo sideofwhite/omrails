@@ -1,4 +1,3 @@
-
 <% render 'devise/registrations/edit' %>
 
 
@@ -74,19 +73,37 @@
 
 <div class="span9 offset1">
 
-<div id="pins" class="transitions-disabled">
+
+
+
+
+
+<div id="products">
 <%= render 'posts/post' %>
 </div>
+
 
 <div class="margintopbutton">
 
 
-<%= link_to_next_page @posts, 'Load more', class: "loadmorebutton" %>
+<%= will_paginate @posts %>
 </div>
 
 
 
 </div>
+
+<div class="span1">
+
+<div class="allquestions">
+Events 
+</div>
+<div class="allquestions2">
+<%= link_to "Top Posts", top_path, class: "blue" %>
+</div>
+</div>
+
+
 </div>
 </div>
 

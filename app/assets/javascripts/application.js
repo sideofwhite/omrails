@@ -12,13 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.autosize.js
 //= require bootstrap
+//= require bootstrap-modal
 //= require jquery.turbolinks
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require jquery.masonry.min.js
 //= require masonry/jquery.infinitescroll.min
 //= require jquery.infinitescroll
+//= require bootstrap-wysihtml5
 //= require_tree .
 
 

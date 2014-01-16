@@ -1,20 +1,22 @@
-<div class="margin5">
-<%= simple_form_for [@post, Comment.new] do |f| %>
- <p>
-<div class="form">
-  <%= f.input :body, as: :text, input_html: { :style=> 'width: 50%', :class => "create" }, label: false,placeholder: "Add Question" %>
- 
-  
+<div class="span6">
 
-   
- </p>
- <%= f.submit "Ask Question", class: "button5" %>
- <div class="cancel">
-<%= link_to "Cancel", post_path(@post)%>
-</div>
- </div>
+<%= simple_form_for [@post, Comment.new] do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<%= f.input :title, as: :text, input_html: { :class => "hello" }, label: false,placeholder: "Title" %>
+
+
+<%= f.input :subtitle, as: :text, input_html: { :class => "hello2" }, label: false, placeholder: "Short Bio" %>
+<hr/>
+
+
+<%= f.input :body, as: :text, input_html: { :class => "hello3", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Write" %>
+
+<div class="underbutton2"></div> 
+<%= f.submit "Post", class: "button5" %>
+
  <% end %>
 
-<hr/>
-</div>
 
+
+</div>

@@ -5,11 +5,20 @@ Omrails::Application.routes.draw do
   get "profile/place"
   get "profile/bio"
   get "users/show"
+
+
 resources :posts do
   member do
       get :upvote
     end
   resources :comments do
+    member do
+      get :upvote
+    end
+  end 
+end
+      
+resources :comments do
     member do
       get :upvote
     end
@@ -19,8 +28,10 @@ resources :posts do
     end
   end
 end 
-end
-      
+
+
+
+
 resources :posts do
   member do
       get :upvote
@@ -32,16 +43,10 @@ resources :posts do
   end
 end 
 
-resources :posts do
-  member do
-      get :upvote
-    end
-  resources :answers do
-    member do
-      get :upvote
-    end
-  end
+resources :questions do
+  resources :answers 
 end
+
 
 
 
@@ -59,7 +64,8 @@ end
   match '/contact', to: 'pages#contact',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'users/:id', to: 'users#show', as: :user
-  get 'users/:id/questions', to: 'users#questions', as: :questions
+  get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
+  get 'top', to: 'posts#top', as: :top
   
 
 

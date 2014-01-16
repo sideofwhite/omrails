@@ -69,7 +69,9 @@
 
 <% @post.links.order("cached_votes_total desc").each do |link| %>
 <div class="linktext">  
+
 <a href="<%= link.URL %>" style="color: #19558d !important;"> <%= link.description %> </a> 
+
 <div class="linktext2"> 
 | <%= link_to "Upvote", upvote_post_link_path(@post, link) %>
 </div>

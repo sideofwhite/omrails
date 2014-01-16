@@ -2,18 +2,17 @@ class Question < ActiveRecord::Base
 has_attached_file :image, styles: { :small => "400x250>", :medium => "320x240>", :large => "740x340>" }
 
 def to_param
-	"#{id} #{title}".parameterize
+	"#{id} #{body}".parameterize
 end
 
 validates :body, presence: true
-validates :title, presence: true
 validates :user_id, presence: true
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                              size: { less_than: 5.megabytes }
 belongs_to :user
 acts_as_votable
 belongs_to :comment, :counter_cache => true
-
+has_many :answers
 has_many :pictures
 
 

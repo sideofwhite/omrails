@@ -1,11 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  
+ def top
+@comments = Comment.order("cached_votes_total desc")
+end  
+ 
+
+
  def upvote
 @comment = Comment.find params[:id]
 @comment.liked_by current_user
-redirect_to posts_path
+redirect_to post_comment_path
 end
 
 def comments_count
@@ -25,14 +30,16 @@ end
   # GET /comments/1.json
   def show
   @post = Post.find params[:post_id]
-  @comment = 
-  @comments = @comment.post.comments.order(:created_at).last(5)
+  @comment = Comment.find params[:id]
+  @question = Question.new
+  @answer = Answer.new
+  @comments = @post.comments.order('cached_votes_total desc').limit(3)
+  @questions = @comment.questions.order('cached_votes_total desc').limit(3)
   end
 
   # GET /comments/new
   def new
     @post = Post.find params[:post_id]
-    @comments = @post.comments
     @links = @post.links.order(:created_at).limit(5)
   end
 
@@ -89,6 +96,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body)
+      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image)
     end
 end

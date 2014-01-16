@@ -1,68 +1,78 @@
-<div class="username">	
-<%= @user.name %>
-</div>
+<div class="span9 offset1">
 
 <div class="container">
 <div class="row">
 
 
-
-
-
-<div class="span2">
-
+<div class="span3 offset3">
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
+<div class="usernameback">	
+<%= @user.name %>
+</div>
 
+</div>
+
+
+<div class="span4">
 
 <div class="userpadding">
 Location <strong><%= @user.place %></strong>
 </div>
 
-<hr/>
 
 Age <strong><%= @user.age %></strong>
 
 
 
+
+</div>
+</div>
 </div>
 
-<div class="span7", style="padding-left: 30px;">
+<div class="paddingtop"></div>
 
 <div class="usernametext">
-<%= @user.comments.count %> Questions 
+<%= link_to raw("#{@user.comments.count} Questions "), userquestions_path, class: "blue" %>
 </div>
 <div class="usernametext">
-<%= link_to raw("#{@user.questions.count} Answers"), user_path, class: "blue" %>
+<%= @user.questions.count %> Answers
 </div>
-
 
 <hr/>
 
+
+<div class="span7 offset1">
+
+
 <% if @user.comments.count > 0 %>
-
+<div id="pin" class="transitions-enabled">
 <% @comments.each do |comment| %>
-<% if comment.questions.count == 1 %>
-<div class="info7">
-<%= comment.questions.count %> Answer
-</div>
-<% else %>
-<div class="info7">
-<%= comment.questions.count %> Answers
-</div>
-<% end %>
-
+<div class="boxtwo">
+<div class="newspaper2">
 
 <div class="questioncontainer">
-<%= link_to (comment.body), post_comment_questions_path(@post, comment) %>
+<%= link_to (comment.body), post_comment_path(@post, comment) %>
 </div>
+
 <div class="lightcontainer">
 <%= time_ago_in_words(comment.created_at) %> ago
 </div>
 
-<hr/>
+<div class="lightcontainer7">
+<%= comment.title %>
+</div>
+<%= comment.body[0,400] %>
+<%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
+
+</div>
+</div>
+
+
+
 <% end %>
+</div>
 
 <% else %>
 
@@ -71,27 +81,18 @@ Age <strong><%= @user.age %></strong>
 </div>
 <% end %>
 
-<div class="margintopbutton">
-<div class="center">
-<%= link_to_next_page @comments, 'Load more', class: "cancel" %>
-</div>
-</div>
-</div>
 
-
-<div class="span2">
-<% if @user == current_user %>
-<%= link_to "Account Settings", edit_user_registration_path, class: "button5" %>
-<div class="paddingbottom">
-</div>
-<div class="lightcontainer">
-Edit your username, email and password
-</div>
-<% end %>
 </div>
 
 
 
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+

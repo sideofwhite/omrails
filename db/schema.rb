@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104032134) do
+ActiveRecord::Schema.define(version: 20140116012556) do
 
   create_table "answers", force: true do |t|
     t.string   "body"
@@ -29,11 +29,17 @@ ActiveRecord::Schema.define(version: 20140104032134) do
     t.integer  "user_id"
     t.string   "title"
     t.string   "subtitle"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comment_id"
-    t.integer  "questions_count", default: 0
+    t.integer  "questions_count",    default: 0
+    t.string   "image_uid"
+    t.integer  "cached_votes_total", default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
@@ -77,8 +83,13 @@ ActiveRecord::Schema.define(version: 20140104032134) do
     t.string   "country"
     t.string   "title"
     t.integer  "cached_votes_total", default: 0
+    t.string   "slug"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "distance"
   end
 
+  add_index "posts", ["slug"], name: "index_posts_on_slug"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "questions", force: true do |t|

@@ -1,101 +1,61 @@
-<div class="username">	
-<%= @user.name %>
-</div>
+<div class="span9 offset1">
 
 <div class="container">
 <div class="row">
 
 
-
-
-
-<div class="span2">
-
+<div class="span3 offset3">
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
+<div class="usernameback">	
+<%= @user.name %>
+</div>
 
+</div>
+
+
+<div class="span4">
 
 <div class="userpadding">
 Location <strong><%= @user.place %></strong>
 </div>
 
-<hr/>
 
 Age <strong><%= @user.age %></strong>
 
-<hr/>
 
-<a href="twitter.com/<% @user.twitter %>"> Twitter Profile </a> <br>
 
 
 </div>
+</div>
+</div>
 
-<div class="span7", style="padding-left: 30px;">
-
-
+<div class="paddingtop"></div>
 
 <div class="usernametext">
-<%= link_to raw("#{@user.comments.count} Questions "), questions_path, class: "blue" %>
+<%= link_to raw("#{@user.comments.count} Questions "), userquestions_path, class: "blue" %>
 </div>
 <div class="usernametext">
 <%= @user.questions.count %> Answers
 </div>
 
-
 <hr/>
 
 
-<% if @user.questions.count > 0 %>
+<% @uservotes.each do |comment| %>
+<div class="box panel panel-default">
+<div class="newspaper">
+<div class="postimage">
 
-<div id="pin" class="transitions-disabled">
-<% @questions.each do |question| %>
-<div class="boxtwo">
-<div class="newspaper2">
-<div class="questioncontainer">
-<%= link_to (question.comment.body), post_comment_question_path(@post, @comment, question) %>
-</div>
-<div class="lightcontainer7">
-<%= @user.name %>'s Answer<br>
-</div>
-<div class="usernamelinks">
-<%= question.body[0,200] %>
-<%= link_to "(read more...)", post_comment_question_path(:post_id, :comment_id, @question), class: "blue"  %>
-</div>
-</div>
-</div>
-<% end %>
-</div>
+<%= comment.post.id %>
 
 
-<% else %>
-
-<div class="noposts">
-<%= @user.name %> has not answered any questions yet.
 </div>
+</div>
+</div>
+
 <% end %>
 
-</div>
-
-<div class="span2">
-<% if @user == current_user %>
-<%= link_to "Account Settings", edit_user_registration_path, class: "button5" %>
-<div class="paddingbottom">
-</div>
-<div class="lightcontainer">
-Edit your username, email and password
-</div>
-<% end %>
-</div>
 
 
-
-
-</div>
-</div>
-
-<div class="margintopbutton">
-<div class="center">
-<%= link_to_next_page @questions, 'Load more', class: "cancel" %>
-</div>
-</div>
