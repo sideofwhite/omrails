@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 def top
-@city = request.location.country
-@closepost = Post.near(@city, 50, :order => :distance)
+@country = request.location.country
+
+@closepost = Post.near(@country, :order => :distance)
 end
 
 
