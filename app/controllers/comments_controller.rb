@@ -8,7 +8,7 @@ end
 
 
  def upvote
-@comment = Comment.find params[:id]
+@comment = Comment.friendly.find params[:id]
 @comment.liked_by current_user
 redirect_to post_comment_path
 end
@@ -21,25 +21,26 @@ end
   # GET /comments
   # GET /comments.json
   def index
-    @post = Post.find params[:post_id]
-    @post.comments
-    @comment = Comment.find(:all, :order => "id desc", :limit => 2).reverse
+     @post = Post.friendly.find(params[:post_id])
+     @questions = @post.questions
+     @links = @post.links.order(:created_at).limit(5)
+     @comments = @post.comments
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-  @post = Post.find params[:post_id]
-  @comment = Comment.find params[:id]
+  @post = Post.friendly.find(params[:post_id])
+  @comment = Comment.friendly.find params[:id]
   @question = Question.new
   @answer = Answer.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
-  @questions = @comment.questions.order('cached_votes_total desc').limit(3)
+  @questions = @comment.questions.order('cached_votes_total desc')
   end
 
   # GET /comments/new
   def new
-    @post = Post.find params[:post_id]
+    @post = Post.friendly.find(params[:post_id])
     @links = @post.links.order(:created_at).limit(5)
   end
 
@@ -50,12 +51,12 @@ end
   # POST /comments
   # POST /comments.json
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        format.html { redirect_to post_comment_path(@post, @comment), notice: 'Posted Successfully' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
         format.html { render action: 'new' }
@@ -91,7 +92,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = Comment.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

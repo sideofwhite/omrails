@@ -1,0 +1,24 @@
+<div class="visible-phone hidden-tablet hidden-desktop">
+
+<div class="postimage">
+ <%= image_tag @post.image %> 
+<%= link_to (@post.title), post_path(@post), class: "description" %> 
+</div>
+
+<div class="mobilepadding5"></div>
+
+<div class="greyeventmobile">
+<%= @post.description %>
+</div>
+<div class="greyeventbottommobile">
+<%= time_ago_in_words(@post.created_at) %> ago
+<div class="floatright">
+<%= @post.country %>
+</div>
+</div>
+
+<div class="mobilepadding"></div>
+
+<%= render 'comments/commentmobile' %>
+
+</div>

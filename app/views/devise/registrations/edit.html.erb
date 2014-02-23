@@ -1,7 +1,7 @@
-<div class="container">
+
 <div class="row">
 
-<div class="span2">
+<div class="span2 offset3">
 <div class="username">
 <%= current_user.name %>
 </div>
@@ -12,31 +12,59 @@
 </div>
 
 
-<div class="span3">
-
+<div class="span3 centered">
+ <form class="form-horizontal">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :name %>
-
-  <hr/>
-  <%= f.input :email %>
-  <hr/>
-  <%= image_tag @user.image(:thumb) %>
+  <%= f.input :name, input_html: {  :class => "hellogrey" }, label: "Name", placeholder: "Name" %>
+    <div class="paddingbottom">
+</div>
+  <%= f.input :email, input_html: {  :class => "hellogrey" }, label: "Email", placeholder: "email" %>
+    <div class="paddingbottom">
+</div>
+  <%= f.input :password, input_html: {  :class => "hellogrey" }, label: "Password", placeholder: "New Password" , autocomplete: "off" %>
+  <%= f.input :password_confirmation, input_html: {  :class => "hellogrey" }, label: false, placeholder: "New Password Confirmation", autocomplete: "off" %>
+    <div class="paddingbottom">
+</div>
+<div class="label2">
+ Profile Image
+</div>
+ <div class="userimage2">
+<div class="addimage">
+<%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
+</div>
+ <img id="blah"/>
+<div class="opaquepic">
+ <%= image_tag current_user.image %>
+</div>
+</div>
   <div class="paddingbottom">
 </div>
-  <%= f.input :image %>
-  <hr/>
-  <%= f.input :password, label: "New Password", autocomplete: "off" %>
-  <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
-  <%= f.input :current_password %>
  <hr/>
- 
-    <%= f.submit "Update", class: "button5"%>
+  <%= f.submit "Update", class: "button4"%>
 
 <% end %>
 
 </div>
-</div>
-</div>
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#user_image").change(function(){
+        readURL(this);
+    });
+
+</script>
 

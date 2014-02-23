@@ -1,6 +1,6 @@
-<%= simple_form_for [@question, Answer.new] do |f| %>
-<%= f.input :body, as: :text, input_html: { :id => "inputBody", class: "hello3" }, label: false,placeholder: "Answer" %>
- <%= f.submit "Answer", { :id => "button", class: "button5" } %>
+<%= simple_form_for [question, Answer.new] do |f| %>
+<%= f.input :body, as: :text, input_html: { rows: "1", class: "inputBody hello3" }, label: false,placeholder: "Answer" %>
+<%= f.submit "Answer", {  class: "button5 myButton" } %>
  <% end %>
 
 

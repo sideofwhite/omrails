@@ -13,9 +13,10 @@ end
  
    
    def index 
-  @comment = Comment.find params[:comment_id]
-  @questions = @comment.questions
+  @comment = Comment.friendly.find params[:comment_id]
+  @questions = @comment.questions.order('cached_votes_total desc')
   @comments = @comment.post.comments.order(:created_at).last(5)
+  @answer = Answer.new
 end
     
 
@@ -23,13 +24,14 @@ end
   # GET /questions/1
   # GET /questions/1.json
   def show
-  @comment = Comment.find params[:comment_id]
+  @comment = Comment.friendly.find params[:comment_id]
+  @comments = @comment.questions.order(:created_at).last(5)
+  
   end
 
   # GET /questions/new
   def new
-    @comment = Comment.find params[:comment_id]
-    @comments = @comment.post.comments.order(:created_at).last(5)
+  @comment = Comment.friendly.find(params[:comment_id])
   end
 
   # GET /questions/1/edit
@@ -39,16 +41,16 @@ end
   # POST /questions
   # POST /questions.json
   def create
-    @comment = Comment.find(params[:comment_id])
+    @comment = Comment.friendly.find(params[:comment_id])
     @question = @comment.questions.new(question_params)
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to :back, notice: 'Question was successfully created.' }
-    
+        format.html { redirect_to comment_questions_path(@question.comment, :anchor => "@question_#{@question.id}"), notice: 'Question was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @question }
       else
-        format.html { redirect_to :back }
-       
+        format.html { redirect_to root_path }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end

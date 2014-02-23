@@ -28,13 +28,21 @@ $ ->
        $(document).on "page:load", ->
          window["rangy"].initialized = false
 
-      $("#button").hide()
-      $("#inputBody").keyup ->
-        val = $(this).val()
-        if val.length > 0
-          $("#button").show()
-        else
-          $("#button").hide()
+     $ ->
+     $(".myButton").hide()
+     $(".inputBody").keyup ->
+       val = $(this).val()
+       if val.length > 0
+        $(this).parent().siblings(".myButton").show()
+       else
+        $(this).parent().siblings(".myButton").hide()
+       return
+
+      return
+
+
+      
+
 
 
 

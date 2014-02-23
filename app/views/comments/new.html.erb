@@ -2,28 +2,25 @@
 
 <div class="container">
 <div class="row">
-<div class="span1">
-
+<div class="span1 offset1">
+<div class="circle">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
-
+</div>
+<div class="namepadding">
+<strong><%= link_to current_user.name, user_path(current_user) %> </strong>
+</div>
 </div>
 
-<div class="span6">
+<div class="span7">
+
 <%= render 'form' %>
 </div>
 
-<div class="span3 offset2">
-<div class="eventimage">
- <div class="titlecontainershow">
-<%= link_to (@post.title), post_path(@post) %>
-</div>   
- <style media="screen">
-  .eventimage::after { background-image: url(<%= @post.image %>); background-size: cover;}
- </style>
-
-
- </div>
-
+<div class="span3">
+<div class="eventimage"> 
+<%= image_tag @post.image %>
+<%= link_to (@post.title), post_path(@post), class: "titlecontainershow" %> 
+</div>
 </div>
 
 

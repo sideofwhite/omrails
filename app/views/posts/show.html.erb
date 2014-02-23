@@ -1,41 +1,56 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
+
 <div class="container">
- <div class="row">
-
-
-<div class="span3">
-
-<div class="eventshowimage">
-
-<div class="titlecontainershownolink">
+<div class="row">
+<div class="span8 offset1">
+<div class="postimagetop">
+<%= image_tag @post.image %>
+<div class="descriptiontop2">
 <%= @post.title %>
 </div>
-
-<style media="screen">
-  .eventshowimage::after { background-image: url(<%= @post.image %>); background-size: cover;}
- </style>
-
-<div class="time">
-<%= time_ago_in_words(@post.created_at) %> ago
 </div>
+<div class="squaregreybutton">
+<% if @post.comments.count == 1 %>
+<div class="number2">
+<%= @post.comments.count %> Post<br>
 </div>
+<% else %>
+<div class="number2">
+<%= @post.comments.count %> Posts <br>
+</div>
+<% end %>
+</div>
+<% if user_signed_in? %> 
+<%= link_to 'Post', new_post_comment_path(@post), class: "squareredbutton" %>
+<% else %>
+<%= link_to 'Post', new_user_registration_path, class: "squareredbutton" %>
+<% end %>
 
 
-<hr/>
+<div class="paddingtop"></div>
+<div class="marginbottom20"></div>
 
-<div class="descriptioncontainer2">
-<div class="newspaper7"> 
+
+
+
+<%= render 'comments/comment' %>
+
+
+
+
+
+</div>
+<div class="span3">	
+<div class="greyevent">
 <%= @post.description %>
+<hr/>
 </div>
+<div class="greyeventbottom">
+<%= time_ago_in_words(@post.created_at) %> ago
+<div class="floatright">
+<%= @post.country %>
 </div>
-</hr>
-
-
-
-
-<%= render 'links/link' %>
-
 <% if @post.country? %>
 
 <hr/>
@@ -52,38 +67,9 @@
 <% end %>
 
 
-<div class="span7", style="padding-left: 30px;">
-
-
-<div class="container">
-<div class="row">
-<div class="span7">
-
-<div id="pin" class="transitions-enabled">
-<%= render 'comments/comment' %>
 </div>
 </div>
-<div class="span2">
-<div class="underbutton"></div>
-
-<div class="squaregreybutton">
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Post
 </div>
-<% else %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Posts 
-</div>
-<% end %>
-</div>
-
-<% if user_signed_in? %> 
-<%= link_to 'Write Post', new_post_comment_path(@post), class: "squareredbutton" %>
-<% else %>
-<%= link_to 'Write Post', new_user_registration_path, class: "squareredbutton" %>
-<% end %>
-
 
 
 </div>
@@ -91,80 +77,13 @@
 </div>
 </div>
 
-</div>
-</div>
-</div>
-
-
-
-
-<div class="visible-phone visible-tablet">
-<div class="span10">
-
-<div class="commentimage">
-  <%= image_tag @post.image %>    
- </div>
-
-<div class="titlecontainer">
-<%= @post.title %>
+<div class="visible-phone hidden-tablet hidden-desktop">
+<%= render 'posts/showmobile' %>
 </div>
 
-<div class="info">
-<div class="newspaper7"> 
-<%= time_ago_in_words(@post.created_at) %> ago <br>
+<div class="visible-tablet hidden-phone hidden-desktop">
+<%= render 'posts/showtablet' %>
 </div>
-</div>
-
-<div class="info">
-<div class="newspaper7"> 
-<strong><%= @post.country %></strong>
-</div>
-</div>
-<hr/>
-
-
-<div class="descriptioncontainer2">
-<div class="newspaper7"> 
-<%= @post.description %>
-</div>
-<%= render 'links/link' %>
-<hr/>
-</div>
-
-
-
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_post_comment_path(@post), class: "button4" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Ask Question', new_user_registration_path, class: "button4" %>
-</div>
-<% end %>
-
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Question
-</div>
-<% else %>
-<div class="number2">
-<strong><%= @post.comments.count %></strong> Questions 
-</div>
-<% end %>
-
-<div id="pin" class="transitions-enabled">
-<%= render 'comments/comment' %>
-</div>
-
-
-
-
-</div>
-</div>
-
- 
-
 
 
 

@@ -6,13 +6,12 @@ def to_param
 end
 
 validates :body, presence: true
-validates :user_id, presence: true
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                              size: { less_than: 5.megabytes }
 belongs_to :user
 acts_as_votable
 belongs_to :comment, :counter_cache => true
-has_many :answers
+has_one :answer
 has_many :pictures
 
 

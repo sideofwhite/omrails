@@ -3,8 +3,7 @@ class PostsController < ApplicationController
 
 def top
 @country = request.location.country
-
-@closepost = Post.near(@country, :order => :distance)
+@closepost = Post.near(@country, 100000, :order => :distance)
 end
 
 
@@ -38,7 +37,7 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
-  @post = Post.find(params[:id])
+  @post = Post.friendly.find(params[:id])
   @comments = @post.comments.order('cached_votes_total desc')
   @links = @post.links.order(:created_at).limit(5)
 
@@ -103,7 +102,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

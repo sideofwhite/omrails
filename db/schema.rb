@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116012556) do
+ActiveRecord::Schema.define(version: 20140222053530) do
 
   create_table "answers", force: true do |t|
     t.string   "body"
@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 20140116012556) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "slug"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["slug"], name: "index_comments_on_slug"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "links", force: true do |t|
@@ -166,10 +168,12 @@ ActiveRecord::Schema.define(version: 20140116012556) do
     t.string   "image_uid"
     t.integer  "age"
     t.string   "twitter"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
   create_table "votes", force: true do |t|
     t.integer  "votable_id"

@@ -1,252 +1,58 @@
- <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-
 <div class="container">
- <div class="row">
+<div class="row"> 
 
 
+<div class="span1 offset1">
+<div class="circle">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+</div>
+</div>
+
+<div class="span7">
+
+<strong><%= link_to @comment.user.name, user_path(@comment.user) %></strong> 
+
+<%= @comment.subtitle %>
 
 
-<div class="span6 offset1">
+<div class="paddingtop"></div>
 
 
 <div class="titlecontainer">
-<%= @comment.body %>
+<%= link_to (@comment.title), post_comment_path(@comment.post, @comment) %>
 </div>
 
-<hr />
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_post_comment_question_path(:post_id, :comment_id), class: "button4" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_user_registration_path, class: "button4" %>
-</div>
-<% end %>
+<div class="paddingtop"></div>
 
-<% if @comment.questions.count == 1 %>
-<div class="number">
-<strong><%= @comment.questions.count %></strong> Answer
-</div>
-<% else %>
-<div class="number">
-<strong><%= @comment.questions.count %></strong> Answers
-</div>
-<% end %>
-
-
-
-<% @comment.questions.order("cached_votes_total desc").each do |question| %>
-<div class="container">
- <div class="row">
-
-<div class="span4">
-<div class="info2">
-<%= link_to question.user.name, user_path(question.user), class: "blue" %> <br>
-<%= question.title %>
-</div>
-</div>
-</div>
-</div>
-<hr/>
-
-
-
-<%= question.body %><br><br>
-
-
-<div class="upvotes">
-<%= question.votes.size %> 
-</div>
-<% if user_signed_in? %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_post_comment_question_path(@post, @comment, question) %>
-<% else %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
-<% end %>
-
-
-
-<div class="lightcontainer6">
- 
-Flag -
-Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-</div>
-
-
-
-
-<% if question.image? %>
- <%= image_tag question.image(:large) %>
- <div class="newspaper4">
- <div class="body">
- <div class="italic">
- <%= question.caption %>
-</div>
-</div>
-</div>
-<% end %>
-
-
-<% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to 'Edit', edit_comment_question_path(@comment, question) %>
-<%= link_to 'Delete', comment_question_path(@comment, question), method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
-<% end %>
-
-
-<% end %>
-</div>
-
-<div class="span3 offset1">
-<div class="commentimage2">
- <%= image_tag @comment.post.image(:small) %>    
- </div>
-<div class="titlecontainerb">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
-</div>
-<hr/>
-<%= @comment.post.description.split[0..50].join(" ") %>
-<hr/>
-<style type="text/css" media="screen">
-  iframe { vertical-align: top; }
-</style>
-<div class="displayinlineblock">
-<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a><br>
-</div>
-<div class="displayinlineblock">
-<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
-</div>
-<hr/>
-
-<div class="paddingbottom">
-<div class="newspaper7"> 
-<strong>More Questions</strong>
-</div>
-</div>
-<% @comments.each do |comment| %>
-  <div class="linktext">
-  <%= link_to (comment.body), post_comment_questions_path(@post, comment), class: "blue" %>
-</div>
-<% end %>
-<div class="viewall">
-<%= link_to 'View All', post_path(@comment.post) %>
-</div>
-
-</div>
-
-
-
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-<div class="visible-phone visible-tablet">
-<div class="span6">
-
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "blue" %>
-<hr/>
-
-<div class="titlecontainer">
-<%= @comment.body %>
-</div>
-
-<hr />
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_post_comment_question_path(@post, @comment), class: "button4" %>
-</div>
-<% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_user_registration_path, class: "button4" %>
-</div>
-<% end %>
-
-<% if @comment.questions.count == 1 %>
-<div class="number">
-<strong><%= @comment.questions.count %></strong> Answer
-</div>
-<% else %>
-<div class="number">
-<strong><%= @comment.questions.count %></strong> Answers
-</div>
-<% end %>
-
-
-
-<% @comment.questions.order("cached_votes_total desc").each do |question| %>
-<div class="container">
- <div class="row">
-
-<div class="span4">
-<div class="info2">
-<strong><%= question.user.name %></strong> <br>
 <div class="blue">
-<%= question.title %>
+<strong>Unanswered Questions</strong>
 </div>
-</div>
-</div>
-</div>
-</div>
-<hr/>
 
-
-
-<%= question.body %><br><br>
-
-
-<div class="upvotes">
-<%= question.votes.size %> 
+<% @questions.each do |question| %>
+<% unless question.answer.present? %>
+<div class="questionname">
+<strong><%= link_to (question.user), user_path(question.user) %></strong> asks...
 </div>
-<% if user_signed_in? %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_post_comment_question_path(@post, @comment, question) %>
-<% else %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
+
+<div class="commentquestion">
+<%= question.body %>
+</div>
+
+<% if @comment.user == current_user %>
+<%= render :partial => "answers/form", locals: {question:question} %>
 <% end %>
 
-
-
-<div class="lightcontainer6">
- 
-Flag -
-Posted <%= time_ago_in_words(question.created_at) %> ago <br>
-</div>
-
-
-
-
-<% if question.image? %>
- <%= image_tag question.image(:large) %>
- <div class="newspaper4">
- <div class="body">
- <div class="italic">
- <%= question.caption %>
-</div>
-</div>
-</div>
 <% end %>
-<hr/>
-
 <% end %>
 
-
 </div>
 
+<div class="span3">
+<div class="eventimage"> 
+<%= image_tag @comment.post.image %>
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "titlecontainershow" %> 
+</div>
+</div>
 
-
+</div>
+</div>

@@ -6,6 +6,8 @@ Sign Up
 </div>
 </div>
 
+ <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class: "headerbutton" %>
+
 <div class="redborder">
 <form class="form-signin"
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form'}) do |f| %>

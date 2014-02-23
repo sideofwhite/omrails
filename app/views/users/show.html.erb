@@ -1,10 +1,14 @@
-<div class="span9 offset1">
+<div class="span10 centered">
+<div class="floatright">	
+<% if current_user == @user %>
+<%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logoutbutton" %>
+<% end %>
+</div>
+</div>
 
-<div class="container">
-<div class="row">
 
-
-<div class="span3 offset3">
+<div class="span2 centered">		
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
@@ -12,50 +16,73 @@
 <%= @user.name %>
 </div>
 
-</div>
+<div class="center">
+<% if @user.twitter.present? %>
+<hr/>
+<strong><%= @user.twitter %></strong>
+<% end %>
+<div class="mobilepadding5"></div>
 
-
-<div class="span4">
-
-<div class="userpadding">
-Location <strong><%= @user.place %></strong>
-</div>
-
-
-Age <strong><%= @user.age %></strong>
-
-
-
+<strong><%= @user.place %></strong>
 
 </div>
 </div>
-</div>
 
-<div class="paddingtop"></div>
 
-<div class="usernametext">
-<%= link_to raw("#{@user.comments.count} Questions "), userquestions_path, class: "blue" %>
-</div>
-<div class="usernametext">
-<%= @user.questions.count %> Answers
-</div>
 
+
+
+
+<div class="span10 centered">
 <hr/>
 
-
-<% @uservotes.each do |comment| %>
-<div class="box panel panel-default">
-<div class="newspaper">
-<div class="postimage">
-
-<%= comment.post.id %>
-
+<div class="mobilepadding20"></div>
+<% @comments.each do |comment| %>
+<div class="container">
+<div class="row">
+<div class="span3">
+<div class="eventimage">
+ 
+<%= image_tag comment.post.image %> 
+<%= link_to (comment.post.title), post_path(comment.post), class: "titlecontainershow" %> 
 
 </div>
 </div>
+
+
+<div class="span7">
+
+<div class="newspaper2">
+<div class="greysubtitle">
+<%= comment.subtitle %>
+</div>
+<div class="mobilepadding10"></div>
+
+<div class="questioncontainer">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+<%= comment.body[0,300] %>
+<%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
+
+
 </div>
 
+</div>
+
+</div>
+</div>
+
+<div class="mobilepadding20"></div>
 <% end %>
+
+
+</div>
+
+
+
+
+
+
 
 
 

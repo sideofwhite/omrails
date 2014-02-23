@@ -1,133 +1,69 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="container">
  <div class="row">
+ 
+<div class="span2">
 
 
-<div class="span1">
-<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="medium" data-count="none">Tweet</a>
-<div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div>
-
-
+<div class="circle">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+</div>
+<div class="greyevent">
+<strong><%= link_to @comment.user.name, user_path(@comment.user) %> </strong>
+<%= @comment.subtitle %>
+</div>
 </div>
 
-
-
-
-<div class="span6">
+<div class="span7">
 
 
 <div class="titlecontainer">
-<%= @question.comment.body %>
+<%= @question.body %>
+</div>
+<div class="lightcontainer">
+<%= time_ago_in_words(@question.created_at) %> ago <br>
 </div>
 
-<hr />
-<% if user_signed_in? %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_comment_question_path(@comment), class: "button4" %>
-</div>
+<% if @question.answers.count > 0 %>
+fuck off
 <% else %>
-<div class="questioncontainer3">  
-<%= link_to 'Answer', new_user_registration_path, class: "button4" %>
-</div>
+
+<% if current_user == @comment.user %>
+<%= link_to ("Answer this question"), new_question_answer_path(@question) %>
 <% end %>
 
-
-<div class="number">
-<%= link_to ('See all answers'), comment_questions_path, class: "blue" %>
-</div>
-
-
-
-
-
-<div class="container">
- <div class="row">
-
-<div class="span4">
-<div class="info2">
-<strong><%= @question.user.name %></strong> <br>
-<div class="blue">
-<%= @question.title %>
-</div>
-</div>
-</div>
-</div>
-</div>
-<hr/>
-
-
-
-<%= @question.body %><br><br>
-
-
-<div class="upvotes">
-<%= @question.votes.size %> 
-</div>
-<% if user_signed_in? %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), upvote_comment_question_path %>
-<% else %>
-<%= link_to (image_tag("http://i.imgur.com/yWWtsMN.png")), new_user_registration_path %>
 <% end %>
 
-
-
-<div class="lightcontainer6">
- 
-Flag -
-Posted <%= time_ago_in_words(@question.created_at) %> ago <br>
 </div>
 
 
+<div class="span3">
+<div class="eventimage">
+<%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment), class: "titlecontainershow" %>  
+ <style media="screen">
+  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
+ </style>
 
 
-<% if @question.image? %>
- <%= image_tag @question.image(:large) %>
- <div class="newspaper4">
- <div class="body">
- <div class="italic">
- <%= @question.caption %>
-</div>
-</div>
-</div>
-
-
-
-<% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to 'Edit', edit_comment_question_path(@comment, question) %>
-<%= link_to 'Delete', comment_question_path(@comment, question), method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
-<% end %>
-
-
-<% end %>
-</div>
-
-<div class="span3 offset1">
-<div class="commentimage2">
- <%= image_tag @comment.post.image(:small) %>   
  </div>
 
-<div class="titlecontainerb">
-<%= @comment.post.title %>
-</div>
-
-<%= @comment.post.description.split[0..50].join(" ") %>
-
-
-
 </div>
 
 
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="visible-phone hidden-desktop hidden-tablet">
+<%= render 'comments/showphone' %>
+</div>
 
 
 

@@ -1,59 +1,41 @@
+<div class="span4 centered">
+ <div class="twitterlogin">
+ <div class="twitterbird">	
+ <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
+</div>
+ <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
+</div>
+<div class="loginborder">
 
-<div class="greyhead">
-
-<div class="container">
-<div class="row">
-
-
-
-<div class="span6">
-
+<div class="center">
 <div class="logotext">
-Sign Up
+Sign up with email
+</div>
 </div>
 
-
-
-<form class="form-signin"
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form'}) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-
+  <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Name" %>
+  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
+  <% if f.object.password_required? %>
+  <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
+  <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: false, placeholder: "Password Confirmation"%>
+<% end %>
   <div class="paddingbottom">
 </div>
-    <%= f.submit "Sign Up", class: "button5" %>
-  
+<%= f.submit "Sign Up", class: "button4" %>
+
 <div class="paddingtop">
 <div class="lightcontainer">
-By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service.
+By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
 </div>	
 </div>
-
 </div>
 
 <% end %>
 
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span4">
-
-<div class="besideformtext">
-<div class="blue">
-Podium let's you read about breaking events from experts around the world.
+<div class="logotext2">
+Already have an account? <%= link_to ("Login"), new_user_session_path, class: "blue" %>
 </div>
-</div>
-<div class="font22">
-Returning user? <strong><%= link_to 'Login', new_user_session_path %></strong>
-</div>
-</div>
-</div>
-
-
-</div>
-</div>
-
 </div>

@@ -3,13 +3,20 @@
 
 <div class="span1">
 <div class="newspaper6">
-<%= @city %>
+<%= @country %>
 </div>
 </div>
 
 <div class="span9 offset1">
 <% @closepost.each do |post| %>
-hello
+<div class="box panel panel-default">
+<div class="newspaper">
+<div class="postimage">
+<%= link_to (post.title), post, class: "description" %> 
+<%= image_tag post.image %> 
+</div>
+</div>
+</div>
 <% end %>
 </div>
 

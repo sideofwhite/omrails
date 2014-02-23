@@ -1,44 +1,45 @@
-<% render 'devise/registrations/edit' %>
-
-
-<div class="post-box pins-masonry">
-<div class="visible-phone visible-tablet">
-<%= render 'posts/post' %>
-
-</div>
-
-<div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="container">
 <div class="row">
 
 
 
+<div id="products">
+<div class="span9 offset1">
+<%= render 'posts/post' %>
+</div>
+<%= render 'posts/postmobile' %>
+<%= render 'posts/posttablet' %>
+</div>
+
+
+<div class="margintopbutton">
+<%= will_paginate @posts %>
+</div>
+
+
+
+<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span1">
 <div class="fixed">
-<div class="margintopp">
-
-
-
-
 
 <% if user_signed_in? %>
-<div class="addevent">
-<%= link_to ('Add Event'), new_post_path, class: "blue" %>
+<div class="newspaper6">
+<%= link_to ('Add Event'), new_post_path %>
 </div>
 <% else %>
-<div class="addevent"> 
-<%= link_to 'Add Event', new_user_registration_path, class: "blue" %>
+<div class="newspaper6"> 
+<%= link_to 'Add Event', new_user_registration_path %>
 </div>
 <% end %>
 
 
 <div class="newspaper6">
-<a href="/tags/world">World</a>
+<a href="/tags/world" >World</a>
 </div>
 
 <div class="newspaper6">
-<a href="/tags/unitedstates">United States</a>
+<a href="/tags/unitedstates" >United States</a>
 </div>
 
 
@@ -55,8 +56,9 @@
 </div>
 
 
-<hr/>
-
+<div class="newspaper6">
+<%= link_to "Top Posts", top_path %>
+</div>
 
 
 <div class="belowsidebar">
@@ -66,46 +68,11 @@
 <div class="belowsidebar2">
 <%= link_to "Contact", contact_path %>
 </div>
-
 </div>
 </div>
 </div>
-
-<div class="span9 offset1">
-
-
-
-
-
-
-<div id="products">
-<%= render 'posts/post' %>
 </div>
 
-
-<div class="margintopbutton">
-
-
-<%= will_paginate @posts %>
-</div>
-
-
-
-</div>
-
-<div class="span1">
-
-<div class="allquestions">
-Events 
-</div>
-<div class="allquestions2">
-<%= link_to "Top Posts", top_path, class: "blue" %>
-</div>
-</div>
-
-
-</div>
-</div>
 
 
     

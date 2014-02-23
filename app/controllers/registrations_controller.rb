@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
         if @user 
             render :info
         else
-            render file: 'public/404', status: 404, formats: [:html]
+            redirect_to root_path
          end 
     end
 
@@ -31,10 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
     '/info'
   end
 
-  def needs_password?(user, params)
-    user.email != params[:user][:email] ||
-      params[:user][:password].present?
-  end
+
 
 
 

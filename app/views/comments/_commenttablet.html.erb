@@ -8,11 +8,10 @@
 
 
 <% @comments.each do |comment| %>
-<div class="visible-desktop hidden-phone hidden-tablet">
 <div class="container">
 <div class="row">
 
-<div class="span1">
+<div class="span2">
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
@@ -22,7 +21,7 @@
 </div>
 
 
-<div class="span7">
+<div class="span9">
 
 <div class="newspaper2">
 <div class="greysubtitle">
@@ -41,9 +40,5 @@
 </div>
 </div>
 </div>
-</div>
 
 <% end %>
-
-
- 

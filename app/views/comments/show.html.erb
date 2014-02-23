@@ -1,26 +1,42 @@
+<div class="visible-phone hidden-desktop hidden-tablet">
+<%= render 'comments/showmobile' %>
+</div>
+<div class="visible-tablet hidden-desktop hidden-phone">
+<%= render 'comments/showtablet' %>
+</div>
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="container">
- <div class="row">
+<div class="row"> 
 
 
-<div class="span1">
+<div class="span1 offset1">
 <div class="circle">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
-<hr/>
-<div class="center">
-<%= link_to @comment.user.name, user_path(@comment.user) %> 
+<div class="namepadding">
+<strong><%= link_to @comment.user.name, user_path(@comment.user) %></strong>
 </div>
-
-
-
 </div>
-
-
-
 
 <div class="span7">
+<div class="container">
+<div class="row"> 
+<div class="span4"> 
+<div class="greysubtitle"> 	
+<%= @comment.subtitle %>
+</div>
+</div>
+
+<div class="span2">
+
+</div>
+</div>
+</div>
+
+<hr/>
+
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -29,17 +45,7 @@
 
 <%= simple_format(@comment.body) %>
 
-
-
-
-<div class="lightcontainer6">
- Posted <%= time_ago_in_words(@comment.created_at) %> ago <br>
-</div>
-
-
-
-
-
+<% if @comment.image? %>
 <%= image_tag @comment.image %>
  <div class="newspaper4">
  <div class="body">
@@ -48,115 +54,91 @@ Caption
 </div>
 </div>
 </div>
-
-<% if user_signed_in? %>
-<%= link_to ("Favourite"), upvote_post_comment_path(@post, @comment), class: "favouritebutton" %>
-<% else %>
-<%= link_to ("Favourite"), new_user_registration_path, class: "favouritebutton" %>
-<% end %>
-
-<% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
 <% end %>
 
 <div class="paddingtop"></div>
 
+<div class="container">
+<div class="row"> 
+<div class="span2">
+<% if user_signed_in? %>
+<%= link_to ("Push"), upvote_post_comment_path(@post, @comment), class: "favouritebutton" %>
+<% else %>
+<%= link_to ("Push"), new_user_registration_path, class: "favouritebutton" %>
+<% end %>
+</div>
+<div class="span5">
+<div class="floatright">
+<div class="lightcontainer6">
+ Posted <%= time_ago_in_words(@comment.created_at) %> ago <br>
+<% if current_user.try(:admin?) %>
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
+<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<div class="grey">
-Questions
+<% end %>
+
+<% if @comment.user == current_user %>
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment), class: "lightcontainer6" %>
+<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
+<% end %>
+</div>
+</div>
 </div>
 
+</div>
+</div>
 
+<div class="paddingtop"></div>
 <hr/>
 
+<div class="span5">
+<div class="paddingtop"></div>
+<div class="row"> 
 
-<% @questions.each do |question| %>
-<%= question.body %>
-<div class="lightcontainer6b">
-<%= time_ago_in_words(question.created_at) %> ago <br>
+<div class="commentquestion">
+<%= @comment.questions.count %> Questions
 </div>
-
-<%= question.answers.count %>
-
-<% if current_user == @comment.user %>
-<%= render :partial => "answers/form" %>
-<% end %>
-
-
-<% end %>
 
 <%= render :partial => "questions/form" %>
 
-<div class="readmorepadding">
-<div class="grey">
-Read more
+<% @questions.each do |question| %>
+<% if question.answer.present? %>
+
+<div class="commentquestion">
+<%= question.body %>
 </div>
+<div class="commentquestionanswer">
+<%= question.answer.body %>
 </div>
-
-<hr/>
-
- 
-
- <div id="pin" class="transitions-disabled">
-<% @comments.each do |comment| %>
- <div class="boxtwo">
-<div class="newspaper2">
-
-<div class="underline"></div> 
-
-  <div class="titlecontainerb">
-  <%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-
-<div class="lightcontainer7">
-<%= comment.title %>
-</div>
-<%= comment.body[0,200] %>
-<%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
-
-</div>
-</div>
+<% else %>
 
 <% end %>
+
+
+<% end %>
+<div class="greybio">
+<%= link_to ("Unanswered questions"), comment_questions_path(@comment) %>
+</div>
+</div>
+</div>
 </div>
 
-<div class="viewall">
-<%= link_to 'View All', post_path(@comment.post) %>
+<div class="span3">
+<div class="eventimage"> 
+<%= image_tag @comment.post.image %>
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "titlecontainershow" %> 
 </div>
-
-
-
-</div>
-
-<div class="span3 offset1">
-<div class="eventimage">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "titlecontainershow" %>  
- <style media="screen">
-  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
- </style>
-
-
- </div>
-
-</div>
-
-
-
+</div>	
 
 
 
 
 </div>
 </div>
-</div>
 
 
-<div class="visible-phone hidden-desktop hidden-tablet">
-<%= render 'comments/showphone' %>
-</div>
+
+
 
 
 

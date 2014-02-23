@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    
+  @question = Question.find(params[:question_id]) 
   end
 
   # GET /answers/1/edit
@@ -27,15 +27,17 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.new(answer_params)
+    @answer = Answer.new(answer_params)
+  @question = Question.find(params[:question_id])
+  @question.answer = @answer
+    
     
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to post_path }
+        format.html { redirect_to post_comment_path(@comment.post, @question.comment) }
         
       else
-        
+        redirect_to root_path
         
       end
     end

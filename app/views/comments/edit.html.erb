@@ -1,6 +1,49 @@
-<h1>Editing comment</h1>
+<div class="visible-desktop hidden-phone hidden-tablet">
+
+<div class="container">
+<div class="row">
+<div class="span1">
+<div class="circle">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+</div>
+<hr/>
+<div class="center">
+<%= link_to current_user.name, user_path(current_user) %> 
+</div>
+</div>
+
+<div class="span6">
+<%= render 'form' %>
+</div>
+
+<div class="span3 offset2">
+<div class="eventimage">
+ <div class="titlecontainershow">
+<%= link_to (@comment.post.title), post_path(@post) %>
+</div>   
+ <style media="screen">
+  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
+ </style>
+
+
+ </div>
+
+</div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+<div class="visible-phone visible-tablet">
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+</div>
+
+

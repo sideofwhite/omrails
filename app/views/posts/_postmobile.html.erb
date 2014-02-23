@@ -1,10 +1,7 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
+<div class="visible-phone hidden-tablet hidden-desktop">
 
 <% @posts.order('cached_votes_total desc').each do |post| %>
 
-
-
-<div class="box">
 <div class="newspaper">
 <div class="postimage">
  
@@ -31,19 +28,8 @@
 
 
 
-<% if current_user.try(:admin?) %>
-<div class="underanswercontainer2">
-<%= link_to "Upvote", upvote_post_path(post) %>
-<%= link_to 'Edit', edit_post_path(post) %>
-<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
-<% end %>
-</div>
-
 
 
 <% end %>
 
-
 </div>
-

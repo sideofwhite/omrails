@@ -345,9 +345,41 @@ Questions
 
 
 
+
+
+
+
+
+
+
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    get "/info" => "registrations#info"
+  end
+
+
+
 <%= link_to_next_page @posts, 'Load more', class: "loadmorebutton" %>
 
 
+<% if user_signed_in? %>
+<%= link_to ("Favourite"), upvote_post_comment_path(@post, @comment), class: "favouritebutton" %>
+<% else %>
+<%= link_to ("Favourite"), new_user_registration_path, class: "favouritebutton" %>
+<% end %>
 
+
+
+
+
+<% unless params[:tag] %>
+<div class="postimagetop">
+<% @toppost.each do |post| %>
+<%= image_tag post.image %>
+<%= link_to (post.title), post_path(post), class: "descriptiontop" %>
+</div>
+<% end %>
+<% end %>
 
 

@@ -9,7 +9,7 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.20.0'
 gem 'bootswatch-rails'
 gem 'acts_as_votable', '0.7.1'
-gem 'dragonfly', "~>1.0.2"
+gem 'dragonfly'
 gem "jquery-turbolinks", "~> 2.0.1"
 gem 'masonry-rails', '~> 0.2.0'
 gem 'acts-as-taggable-on'
@@ -17,14 +17,13 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'twitter'
-gem 'fb_graph'
 gem 'simple_dragonfly_preview'
 gem 'bootstrap-wysihtml5-rails'
 gem 'autosize-rails'
 gem 'will_paginate'
 gem 'geocoder'
-gem 'geokit-rails'
+gem 'friendly_id'
+
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'

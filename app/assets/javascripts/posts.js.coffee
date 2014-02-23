@@ -18,5 +18,12 @@ $ ->
               $.getScript(url)
           $(window).scroll()
 
+      $("nav li ul").hide().removeClass "fallback"
+      $("nav li").hover (->
+       $("ul", this).stop().slideDown 100
+       return
+      ), ->
+        $("ul", this).stop().slideUp 100
+        return
 
  

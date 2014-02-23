@@ -1,0 +1,28 @@
+<div class="visible-phone hidden-desktop hidden-tablet">
+
+	
+<div class="span1">
+<div class="circle">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+</div>
+</div>
+<div class="namepadding">
+<strong><%= link_to @comment.user.name, user_path(@comment.user) %></strong>
+</div>
+
+<div class="mobilepadding20"></div>
+
+<div class="greysubtitle"> 	
+<%= @comment.subtitle %>
+</div>
+
+<div class="mobilepadding10"></div>
+
+<div class="titlecontainer">
+<%= @comment.title %>
+</div>
+
+
+<%= simple_format(@comment.body) %>
+
+</div>
