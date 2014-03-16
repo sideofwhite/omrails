@@ -16,11 +16,12 @@
 <%= render 'form' %>
 </div>
 
-<div class="span3">
-<div class="eventimage"> 
-<%= image_tag @post.image %>
-<%= link_to (@post.title), post_path(@post), class: "titlecontainershow" %> 
+<div class="span2 offset1">
+
+<div class="mobilepadding10">
+<strong><%= link_to (@post.title), post_path(@post) %> </strong>
 </div>
+<hr/>
 </div>
 
 

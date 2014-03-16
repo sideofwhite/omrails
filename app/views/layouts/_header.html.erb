@@ -1,39 +1,3 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="fixed">
-<div class="navbar">
-  <div class="nav-collapse">
-         
-           <ul class="nav nav-tabs nav-stacked span1">
-                    
-                    <div class="whitebrand">
-                   <%= link_to "Podium", root_path, class: "white" %>
-                    </div>
-
-                    <% if user_signed_in? %>
-                        
-                        
-                        <div class="headername">
-                      <li> <%= link_to (current_user.name), user_path(current_user), class: "white" %></li>
-                     </div>
-                     <% else %>
-                      <div class="headerbutton">
-                     <%= link_to "Sign Up", new_user_registration_path, class: "white" %>
-                     </div>
-                     <div class="headerbutton">
-                    <%= link_to "Login", new_user_session_path, class: "white" %>
-                  </div>
-                      <% end %>
-
-            </ul>
-
-
-                </div>
-        </div>
-  
-</div>
-</div>
-
-<div class="visible-phone visible-tablet hidden-desktop">
 <div class="navbar transparent navbar-inverse navbar-fixed-top">
    <nav class="navbar-inner">
       <div class="container">
@@ -43,9 +7,8 @@
           <span class="icon-bar"></span>
             </a>
              
-           <div class="whitebrand2">
-             <%= link_to "Podium", root_path, class: "white" %>
-           </div>
+            
+             <%= link_to "Podium", root_path, class: "brand" %>
 
          <div class="nav-collapse">
          <ul class="nav">
@@ -58,11 +21,13 @@
                         
                         
                         
-                       <li><%= link_to (current_user.name), user_path(current_user) %></li>
-                  
+                       
+                       <div class="circlehead">
+                       <li><%= image_tag current_user.image %></li>
+                     </div>
                      <% else %>
-                     <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                    <li><%= link_to "Login", new_user_session_path%></li>
+                     <li><%= link_to "Sign Up", new_user_registration_path, class: "headtext" %></li>
+                    <li><%= link_to "Login", new_user_session_path, class: "headtext2" %></li>
                       <% end %>
 
             </ul>
@@ -72,5 +37,6 @@
         </div>
     </div>
 </div>
+ 
 
-</div>
+

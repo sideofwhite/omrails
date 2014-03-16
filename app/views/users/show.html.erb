@@ -17,13 +17,14 @@
 </div>
 
 <div class="center">
-<% if @user.twitter.present? %>
+<% if @user.twitter.present? or @user.place.present? %>
 <hr/>
 <strong><%= @user.twitter %></strong>
+<strong><%= @user.place %></strong>
 <% end %>
 <div class="mobilepadding5"></div>
 
-<strong><%= @user.place %></strong>
+
 
 </div>
 </div>
@@ -34,6 +35,8 @@
 
 
 <div class="span10 centered">
+<%= @comments.count %> Pushed Posts |
+<%= link_to "Posts", userquestions_path %>
 <hr/>
 
 <div class="mobilepadding20"></div>

@@ -4,44 +4,55 @@
 <strong>There are no posts yet.</strong>
 </div>
 </div>
+<% else %>
+<div class="span8 offset2">
+<div class="row">
+<div class="eventmargin">	
+<strong><%= @post.comments.count %> Posts</strong>
+</div>
+</div>
+</div>
 <% end %>
 
 
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="container">
 <div class="row">
-
-<div class="span1">
+<div class="span8 offset2">
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
-<div class="namepadding">
-<strong><%= link_to comment.user.name, user_path(comment.user) %></strong>
-</div>
-</div>
 
 
-<div class="span7">
 
 <div class="newspaper2">
-<div class="greysubtitle">
-<%= comment.subtitle %>
-</div>
-<hr/>
 
+<div class="attempt2">
 <div class="questioncontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-<%= comment.body[0,300] %>
+<%= simple_format(comment.body)[0,500] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
 
+<div class="namemargin">
+<div class="floatright">
+<div class="realgrey3">
+<%= comment.questions.count %> Questions
+</div>
+</div>	
+<%= link_to (comment.user.name), user_path(comment.user), class: "realgrey" %>
+</div>
+<div class="realgrey2">
+<%= time_ago_in_words(@post.created_at) %> ago
+</div>
+</div>
+
+<hr6/>
 
 </div>
 </div>
 </div>
-</div>
-</div>
+
 
 <% end %>
 

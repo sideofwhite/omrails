@@ -1,80 +1,93 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
+<div class="span10 centered">
+<div class="floatright">	
+<% if current_user == @user %>
+<%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logoutbutton" %>
+<% end %>
+</div>
+</div>
 
 
+<div class="span2 centered">		
+<div class="userimage">
+<%= image_tag @user.image %>
+</div>
+<div class="usernameback">	
+<%= @user.name %>
+</div>
+
+<div class="center">
+<% if @user.twitter.present? or @user.place.present? %>
+<hr/>
+<strong><%= @user.twitter %></strong>
+<strong><%= @user.place %></strong>
+<% end %>
+<div class="mobilepadding5"></div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="span10 centered">
+<%= @comments.count %> Pushed Posts |
+<%= link_to "Posts", userquestions_path %>
+<hr/>
+
+<div class="mobilepadding20"></div>
+<% @comments.each do |comment| %>
 <div class="container">
 <div class="row">
-<div class="span8 offset1">
-<div class="postimagetop">
-<%= image_tag @comment.post.image %>
-<div class="descriptiontop2">
-<%= @post.title %>
-</div>
-</div>
-<div class="squaregreybutton">
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<%= @post.comments.count %> Post<br>
-</div>
-<% else %>
-<div class="number2">
-<%= @post.comments.count %> Posts <br>
-</div>
-<% end %>
-</div>
-<% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "squareredbutton" %>
-<% else %>
-<%= link_to 'Post', new_user_registration_path, class: "squareredbutton" %>
-<% end %>
-
-
-<div class="paddingtop"></div>
-<div class="marginbottom20"></div>
-
-
-
-
-
-
-
+<div class="span3">
+<div class="eventimage">
+ 
 
 
 </div>
-<div class="span3">	
-<div class="greyevent">
-<%= @post.description %>
-<hr/>
-</div>
-<div class="greyeventbottom">
-<%= time_ago_in_words(@post.created_at) %> ago
-<div class="floatright">
-<%= @post.country %>
-</div>
-<% if @post.country? %>
-
-<hr/>
-
-<div class="maptext">
-<%= @post.country %>
 </div>
 
-<div class="map">
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
+
+<div class="span7">
+
+<div class="newspaper2">
+<div class="greysubtitle">
+<%= comment.subtitle %>
+</div>
+<div class="mobilepadding10"></div>
+
+<div class="questioncontainer">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+<%= comment.body[0,300] %>
+<%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
+
+
+</div>
+
+</div>
+
 </div>
 </div>
 
+<div class="mobilepadding20"></div>
 <% end %>
 
 
 </div>
-</div>
-</div>
 
 
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
 
 
 

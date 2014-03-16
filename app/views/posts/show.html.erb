@@ -1,37 +1,42 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 
+
 <div class="container">
 <div class="row">
-<div class="span8 offset1">
-<div class="postimagetop">
-<%= image_tag @post.image %>
-<div class="descriptiontop2">
-<%= @post.title %>
+<div class="span4 offset2">
+<div class='titlecontainershow'>
+<%= @post.title %> 
 </div>
+<div class="descriptionmargin">
+<%= @post.description %>
 </div>
-<div class="squaregreybutton">
-<% if @post.comments.count == 1 %>
-<div class="number2">
-<%= @post.comments.count %> Post<br>
+<div class="countrymargin">
+<strong><%= @post.country %></strong>
 </div>
-<% else %>
-<div class="number2">
-<%= @post.comments.count %> Posts <br>
-</div>
-<% end %>
-</div>
+<%= time_ago_in_words(@post.created_at) %> ago
+<div class="floatright">
 <% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "squareredbutton" %>
+<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebutton" %>
 <% else %>
-<%= link_to 'Post', new_user_registration_path, class: "squareredbutton" %>
+<%= link_to 'Post', new_user_registration_path, class: "favouritebutton" %>
 <% end %>
+</div>
+<hr6/>
+</div>
+
+<div class="span3 offset1">
+
+<div class="eventimage">
+ <%= image_tag @post.image %> 
+</div>
+
+</div>
 
 
-<div class="paddingtop"></div>
-<div class="marginbottom20"></div>
+</div>
 
-
+</div>
 
 
 <%= render 'comments/comment' %>
@@ -40,42 +45,15 @@
 
 
 
-</div>
-<div class="span3">	
-<div class="greyevent">
-<%= @post.description %>
-<hr/>
-</div>
-<div class="greyeventbottom">
-<%= time_ago_in_words(@post.created_at) %> ago
-<div class="floatright">
-<%= @post.country %>
-</div>
-<% if @post.country? %>
-
-<hr/>
-
-<div class="maptext">
-<%= @post.country %>
-</div>
-
-<div class="map">
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
-</div>
-</div>
-
-<% end %>
 
 
-</div>
-</div>
-</div>
 
 
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+
 
 <div class="visible-phone hidden-tablet hidden-desktop">
 <%= render 'posts/showmobile' %>

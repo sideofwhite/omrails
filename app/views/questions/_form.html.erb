@@ -1,12 +1,19 @@
 <% if user_signed_in? %>
-<%= simple_form_for [@comment, Question.new] do |f| %>
 
+<div class="circlecomment">
+<%= image_tag current_user.image %>
+</div>
+<div class="lightcontainer6">
+<%= current_user.name %>
+</div>
+
+<%= simple_form_for [@comment, Question.new] do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey inputBody" }, label: false, placeholder: "Ask Question" %>
 
-<%= f.submit "Ask", class: "button5 myButton" %>
-
+<%= f.submit "Ask", class: "questionbutton myButton" %>
+<hr6/>
 <% end %>
-
 <% else %>
 <%= link_to "Ask Question", new_user_session_path, class: "questionlink" %>
 <div class="questionlinkpadding"></div>

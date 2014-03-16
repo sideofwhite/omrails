@@ -8,7 +8,7 @@ end
 
 
 def upvote
-@post = Post.find params[:id]
+@post = Post.friendly.find(params[:id])
 @post.liked_by current_user
 redirect_to posts_path
 end
@@ -52,7 +52,7 @@ end
 
   # GET /posts/1/edit
   def edit
- @post = Post.find(params[:id])
+ @post = Post.friendly.find(params[:id])
   end
 
   # POST /posts
@@ -75,7 +75,7 @@ end
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-   @post = Post.find(params[:id]) 
+   @post = Post.friendly.find(params[:id])
    
    respond_to do |format|
       if @post.update(post_params)

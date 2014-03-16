@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="//use.typekit.net/wgh3scb.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Podium</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -20,10 +19,11 @@
       <button class="close" data-dismiss="alert">×</button>
     <% end %>
   </div>
+  <div class="container">
     <%= yield %>
     <%= render 'layouts/footer' %>
     
-
+</div>
 
 
 </body>
