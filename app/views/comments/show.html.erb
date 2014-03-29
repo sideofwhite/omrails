@@ -7,44 +7,55 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
+
 <div class="container">
 <div class="row"> 
 
+<div class="span7 centered">
 
-<div class="span1 offset1">
+
+<div class="eventtoptext">
+<%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
+</div>
+
+<% if @comment.image? %>
+<div class="interviewbanner">
+<%= image_tag @comment.image %>
+
+</div>
+<% end %>
+
 <div class="circle">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
-<div class="namepadding">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>
-</div>
-
-<div class="span7">
-
+	
+<div class="attempt">
 
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
 
+<div class="nameblueside">
+<%= link_to @comment.user.name, user_path(@comment.user) %>
+</div>
 
+<div class="descriptionpadding">	
 <%= simple_format(@comment.body) %>
+</div>
+
+<div class="toplight2">
+<%= time_ago_in_words(@comment.created_at) %> ago <br>
+</div>
+
+
+</div>
+
 
 <div class="favouritebuttonmargin"></div>
 
-<div class="container">
-<div class="row"> 
-<div class="span2">
-<% if user_signed_in? %>
-<%= link_to ("+ Your Page"), upvote_post_comment_path(@post, @comment), class: "favouritebutton" %>
-<% else %>
-<%= link_to ("+ Your Page"), new_user_registration_path, class: "favouritebutton" %>
-<% end %>
-</div>
-<div class="span5">
+
 <div class="floatright">
 <div class="lightcontainer6">
- Posted <%= time_ago_in_words(@comment.created_at) %> ago <br>
 <% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
 <%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -57,15 +68,10 @@
 <% end %>
 </div>
 </div>
-</div>
-</div>
-</div>
 
-<div class="row">
-<div class="span7">
-<hr6/>
-</div>
-</div>
+<%= render :partial => "questions/form" %>
+
+<div class="favouritebuttonmargin"></div>
 
 <% @questions.each do |question| %>
 <% if question.answer.present? %>
@@ -75,7 +81,7 @@
 </div>
 
 
-<div class="lightcontainer6">
+<div class="lightname">
 <%= question.user.name %>
 </div>
 
@@ -90,8 +96,11 @@
 
 <div class="commentquestionanswer">
 <div class="attempt">	
+<p>
 <%= question.answer.body %>
+</p>
 <div class="lightcontainercomment">
+<%= link_to "Upvote", upvote_comment_question_path(question.comment, question) %>
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 </div>
@@ -105,25 +114,60 @@
 <% end %>
 
 <div>
-<%= render :partial => "questions/form" %>
 </div>
 
-<%= link_to ("All questions"), comment_questions_path(@comment), class: "favouritebutton" %>
-</div>
-
-<div class="span2 offset1">
-
-<div class="mobilepadding10">
-<strong><%= link_to (@comment.post.title), post_path(@comment.post) %> </strong>
+<div class="eventmargin">	
+<strong>Unanswered Questions</strong>
 </div>
 <hr/>
+
+<% @questions.each do |question| %>
+<% unless question.answer.present? %>
+<div class="circlecomment">
+<%= image_tag question.user.image %>
+</div>
+
+<div class="attempt">
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
+<div class="commentquestion">
+<%= question.body %>
+</div>
+
+<% if @comment.user == current_user %>
+
+<div class="commentmargin10"></div>
+
+<div class="circlecomment2">
+<%= image_tag question.comment.user.image %>
+</div>
+
+<div class="commentquestionanswer">
+<div class="attempt">	
+<div class="lightname">
+<%= current_user.name %>
+</div>
+<p>
+<%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
+<p/>
+</div>
 </div>
 
 
-</div>
+<% end %>
+
 </div>
 
+<div class="commentquestionmargin"></div>
 
+<% end %>
+<% end %>
+
+</div>
+
+</div>
 
 
 

@@ -1,45 +1,57 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-
-
-<div class="container">
 <div class="row">
-<div class="span4 offset2">
+<div class="span8 offset2">
 <div class='titlecontainershow'>
 <%= @post.title %> 
 </div>
-<div class="descriptionmargin">
+<hr7/>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="span5 offset2">
+<div class="descriptionmargin">	
+<p>
+<strong><%= @post.country %></strong> - 
 <%= @post.description %>
+<p/>
 </div>
-<div class="countrymargin">
-<strong><%= @post.country %></strong>
 </div>
+<div class="span2 offset1">
+<div class="floatright">
 <%= time_ago_in_words(@post.created_at) %> ago
+</div>
+<div class="namemargin2">
 <div class="floatright">
 <% if user_signed_in? %> 
 <%= link_to 'Post', new_post_comment_path(@post), class: "favouritebutton" %>
 <% else %>
 <%= link_to 'Post', new_user_registration_path, class: "favouritebutton" %>
 <% end %>
-</div>
-<hr6/>
+</div>	
 </div>
 
-<div class="span3 offset1">
+</div>
+</div>
+</div>
+</div>
+<div class="aboveimage"></div>
+
+<div class="row">
+<div class="span8 offset2">
 
 <div class="eventimage">
  <%= image_tag @post.image %> 
 </div>
-
-</div>
-
-
-</div>
-
-</div>
-
+<div class="span7 centered">
 
 <%= render 'comments/comment' %>
+
+</div>
+
+</div>
 
 
 

@@ -34,7 +34,7 @@ class AnswersController < ApplicationController
     
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to post_comment_path(@comment.post, @question.comment) }
+        format.html { redirect_to question_answer_path(@question, @answer) }
         
       else
         redirect_to root_path

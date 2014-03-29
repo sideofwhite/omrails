@@ -1,17 +1,54 @@
-
+<div class="span7 centered">
 
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
+<div class="interviewbanner">
+<div class="addimage">
+<%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
+</div>
+<img id="blah" />
+</div>
+
+<div class="circle">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+</div>
+
+<div class="attemt">
 
 <%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
-<div class="paddingtop"></div>
 
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello3 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Write" %>
+
+<div class="nameblueside">
+<%= link_to current_user.name, user_path(current_user) %>
+</div>
+
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello3 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
 
 
 <div class="underbutton2"></div> 
-<%= f.submit "Post", class: "button5 myButton" %>
-
+<%= f.submit "Post", class: "favouritebutton myButton" %>
+</div>
  <% end %>
 
+</div>
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#user_image").change(function(){
+        readURL(this);
+    });
+
+</script>

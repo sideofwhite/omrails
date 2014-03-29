@@ -1,5 +1,4 @@
 $linkColor: black;
-$navbarHeight: 32px;
 $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
@@ -136,29 +135,32 @@ placeholder {
 
 body{
     
-    font-family: Freight Sans Pro, sans-serif !important;
-    padding-top: 70px;
+    font-family: freight-sans-pro, serif !important;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 17px;
     color: black;
-    
+   
     
 
+}
+
+.opensans {
+    font-family: Open Sans, sans-serif !important;
 }
 
 p {
     
     
     font-weight: normal;
-    font-size: 16px;
-    font-family: Freight Sans Pro, sans-serif !important;
-      
+    font-size: 19px !important;
+    font-family: freight-sans-pro, serif !important;
+    line-height: 1.5; 
 }
 
 
 
 
-.whitebrands {
+.whitebrand {
     color: white !important;
     font-size: 20px;
     background-color: black;
@@ -172,22 +174,18 @@ p {
     font-weight: bold;
     margin: 0px !important;
     
-    
 }
 
 .brand {
 
 
-    color: black !important;
-    font-size: 26px !important;
+    
+    font-size: 28px !important;
     border:1px solid white;
-    padding-left: 7px !important;
-    padding-right: 7px !important;
-    padding-top: 7px !important;
-    padding-bottom: 7px !important;
     font-weight: bold !important;
-    color: #19558d !important;
-
+    background-color: white;
+    color:  black !important;
+    vertical-align: middle;
     
     
 }
@@ -217,9 +215,8 @@ p {
    background: #EEEEEE;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
-
+  border-top : 3px solid #a03600;
    
-
 }
 
 .navbar navbar-fixed-top {
@@ -514,7 +511,7 @@ p {
 
 
 .favouritebutton {
-    color: #19558d !important;
+    color: #006aa0 !important;
     font-weight: bold;
     border: 1px solid #eeeeee;
     padding: 7px;
@@ -534,6 +531,14 @@ p {
 
 .favouritebutton:visited {
     opacity: 0.5;
+}
+
+.blueblue {
+    font-weight: bold;
+    padding: 4px;
+    background-color: #006aa0;
+    border: 0px solid white !important;
+    color: white !important;
 }
 
 
@@ -622,21 +627,39 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 110%;
-    font-weight: bold;
     margin-bottom: 20px;
-    
+    font-family: Open Sans, sans-serif;
+    font-weight: bold;
+
 }
 
 
 .titlecontainershow {
     
-   color: black;
-    font-size: 24px;
+    color: black;
+    font-size: 28px;
     line-height: 110%;
     font-weight: bold;
-    margin-bottom: 20px;
+    border-left: 10px solid #a03600;
+    padding-left: 20px;
+   
+    
+    
+}
+
+
+.titlecontainershowtop {
+    
+    
+    color: black;
+    font-size: 28px;
+    line-height: 110%;
+    font-weight: bold;
+    border-left: 10px solid #a03600;
+    padding-left: 20px;
+    margin-bottom: 30px;
     
     
 }
@@ -662,17 +685,13 @@ p {
 
 
 
-.titlecontainershow2 {
-    background: rgba(0,0,0,0.7);
-    position: absolute;
-    line-height: 115%;
-    padding: 10px;
-    color: white;
+.titlecontainershowb {
+     color: black;
+    font-size: 28px;
+    line-height: 110%;
     font-weight: bold;
-    top: 0;
-    bottom: 0;
-    margin-top: 0 auto !important;
-    margin-bottom: 0 auto !important;
+    border-left: 10px solid #a03600;
+    padding-left: 20px;
 
 }
 
@@ -747,28 +766,16 @@ p {
 .description {
     
     
-    background: rgba(0,0,0,0.2);
-    position: absolute;
-    font-size: 26px;
-    line-height: 105%;
-    padding: 15px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    color: white;
+    color: black;
+    font-size: 28px;
+    line-height: 110%;
+    font-family: Open Sans, sans-serif !important;
+    display: inline-block;
     font-weight: bold;
-    font-family: FF Dagny Pro, sans-serif !important;
     
 }
 
-.description:hover {
 
-   color: white !important;
-   text-decoration: none;
-   background: rgba(0,0,0,0.2);
-    
-}
 
 .descriptiontop {
     
@@ -1077,7 +1084,7 @@ font-size: 15px;
 
     
     font-color: black;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 110%;
     font-weight: bold;
     margin-bottom: 10px;
@@ -1243,7 +1250,7 @@ width: 500px;
 
 
 .blue{
-    color: #19558d !important;
+    color: #006aa0 !important;
     display: inline-block;
 
 }
@@ -1340,8 +1347,8 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #EEEEEE;;
-margin-top: 10px; 
-margin-bottom: 10px;
+margin-top: 30px; 
+margin-bottom: 30px;
 padding: 0px; 
 }
 
@@ -1389,6 +1396,17 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #EEEEEE;;
+margin-top: 40px; 
+margin-bottom: 40px;
+padding: 0px; 
+
+}
+
+hr7 {
+display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid #EEEEEE;;
 margin-top: 25px; 
 margin-bottom: 25px;
  
@@ -1397,14 +1415,12 @@ margin-bottom: 25px;
 
 
 
-
-
 .floatright {
     float: right;
 }
 
 .red {
-    color: #B23000 !important;
+    color: #a03600 !important;
 
 }
 
@@ -1532,13 +1548,13 @@ border:1px solid white;
     border: 0px solid white !important;
     resize: none;
     padding: 0px !important;
-    margin: 0px !important;
-    font-family: "nimbus-sans",sans-serif;
-    width: 100% !important;
-    font-size: 20px;
+    margin-bottom: 20px !important;
+    font-family: Open Sans, sans-serif !important;
+    width: 80% !important;
+    font-size: 24px !important;
     font-weight: bold;
     color: black;
-
+    display: inline-block !important;
 
 }
 
@@ -1549,8 +1565,8 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: "nimbus-sans",sans-serif;
-    width: 100% !important;
+    font-family: Open Sans, sans-serif !important;
+    width: 80% !important;
     font-weight: bold;
     font-style: italic;
     color: #b7b7b7;
@@ -1566,9 +1582,9 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: "nimbus-sans",sans-serif;
-    width: 100% !important;
-    font-size: 15px;
+    font-family: Open Sans, sans-serif !important;
+    width: 75% !important;
+    font-size: 17px !important;
     color: black;
 
 
@@ -1588,7 +1604,7 @@ border:1px solid white;
     padding-bottom: 8px !important;
     padding-right: 8px !important;
     margin-bottom: 2px !important;
-    font-family: "nimbus-sans",sans-serif;
+    font-family: Open Sans, sans-serif !important;
     width: 100% !important;
     font-size: 17px !important;
     color: black !important;
@@ -1604,7 +1620,6 @@ border:1px solid white;
     background-color: #EEEEEE;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: "nimbus-sans",sans-serif;
     width: 100% !important;
     color: black;
     
@@ -1612,17 +1627,16 @@ border:1px solid white;
 
 .hellogrey {
     
-     resize: none;
-     border: 0px solid white !important;
+    resize: none;
+    border: 0px solid white !important;
     padding: 0px !important;
-    font-family: "nimbus-sans",sans-serif;
-    width: 92% !important;
+    width: 100% !important;
     font-weight: bold !important;
-    font-size: 18px !important;
+    font-size: 20px !important;
     color: black !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 0px !important;
     box-shadow: none !important;
-    display: inline-block;
+    
 
 
 }
@@ -1765,14 +1779,13 @@ border:1px solid white;
 .info6 {
     
     display:inline-block;
-    font-size: 18px;
     color: white;
-    background-color: #19558d;
-    font-weight: bold;
-    padding: 10px;
+    background-color: #006aa0;
+    padding: 5px;
     position: absolute;
     bottom: 0;
-    margin-left: 15px;
+    right: 0;
+   
 
    
 
@@ -1780,23 +1793,15 @@ border:1px solid white;
 
 
 .info7 {
-    
+   
     display:inline-block;
-    font-size: 16px;
-    color: #19558d ;
-    font-weight: bold;
-    border:0px solid  rgba(192, 192, 192, 0.8);
-    background-color: rgba(192, 192, 192, 0.8); 
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
+    color: white;
+    background-color: #a03600;
+    padding: 7px !important;
+    font-size: 18px;
     position: absolute;
-    bottom: 0px !important;
-    text-align: center;
-    margin-left: 10px;
-    right: 10px;
-    display: inline-block;
+    top: 0;
+    
     
 
 }
@@ -2179,11 +2184,12 @@ only screen and (max-device-width : 399px){
 ///////////sidebar//////////////////////////////////
 .newspaper6 {
     
-    
-    margin-bottom: 20px;
+
     font-size: 18px;
     color: black;
     font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
 }
 
 .newspaper6:hover {
@@ -2795,26 +2801,28 @@ pull-left{
 }
 
 .userimage img {
-     display: block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
+    margin-bottom: 20px;
 
 }
 
-
-.userimage2 {
- 
-   position: relative;
-  
+.usernametext2 {
+    font-size: 24px; 
+    font-weight: bold;
+    text-align: center;
 }
+
 
 .userimage2 img {
    
     height: 100px;
     width: 100px;
-
+    float: left;
+margin-right: 15px;
 }
 
 .userimage3 {
@@ -2882,19 +2890,21 @@ pull-left{
 }
 
 
-.postimage {
-    border: 0px solid #EEEEEE; 
-    display: block;
-    position: relative;
-    margin-bottom: 20px;
-    margin-right: 20px;
-}
 
 .postimage img {
-    width: 100%;
-    height: 280px;
+    
+    
+    height: 200px;
+width: 100%;
+float: left;
+margin-bottom: 70px;
     
 
+}
+
+.counttext {
+    font-size: 24px;
+    display: inline-block;
 }
 
 .postimage img:hover {
@@ -2924,11 +2934,32 @@ shadow: none !important;
 .eventimage img {
     
     width: 100%;
-    height: 200px;
+    height: 340px;
 
 }
 
+.eventimagetop img {
+    
+    width: 100%;
+    height: 340px;
+    margin-bottom: 70px;
+}
 
+.eventimagetop {
+    
+}
+
+.eventimage2 img {
+    
+    width: 100%;
+    height: 230px;
+    
+}
+
+.eventimage2 img {
+    position: relative;
+    display: block;
+}
 
 .eventimage {
     border: 0px solid #EEEEEE; 
@@ -2991,8 +3022,22 @@ shadow: none !important;
 
 
 .circle img {
-width: 60px;
-height: 60px;
+width: 90px;
+height: 90px;
+border-radius:0px;
+font-size:20px;
+color:#fff;
+line-height:100px;
+background:#000;
+text-align: right;
+float: left;
+margin-right: 35px;
+
+}
+
+.circleb img {
+width: 80px;
+height: 80px;
 border-radius:0px;
 font-size:20px;
 color:#fff;
@@ -3034,42 +3079,43 @@ background:#000;
 
 
 .circlehead img {
-    width: 42px;
-    height: 42px;
+    width: 35px;
+    height: 35px;
     display: inline-block;
 
 }
 
 .circlecomment img {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
     display: inline-block;
 
 }
 
 .circlecomment {
-    margin-right: 10px;
+    margin-right: 15px;
      display: inline-block;
     float: left;
 }
 
 .circlecomment2 img {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
+    margin-left: 60px;
     display: inline-block;
-
+    
 }
 
 .circlecomment2 {
-    margin-right: 10px;
-    margin-left: 52px;
-
+      margin-right: 15px;
      display: inline-block;
     float: left;
+  
+   
 }
 
 .commentmargin10 {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .attempt {
@@ -3333,9 +3379,14 @@ background:#000;
 
 .commentquestion {
     font-weight: bold;
-    padding-bottom: 10px;
-    font-size: 18px;
+    padding-bottom: 5px;
+    font-size: 22px;
+    font-family: Open Sans, sans-serif !important;
+    
+}
 
+.commentquestionmargin {
+    margin: 40px;
 }
 
 .commentquestionbox {
@@ -3368,7 +3419,7 @@ background:#000;
     
      font-size: 10px;
      color: grey;
-     margin-top: 5px;
+     
 }
 
 .commentquestionuser {
@@ -3558,12 +3609,16 @@ margin-bottom: 20px;
 }
 
 .countrymargin {
-    display: inline-block;
-    margin-right: 10px;
+    
+    margin-bottom: 5px;
 }
 
 .namemargin {
     margin-top: 20px;
+}
+
+.namemargin2 {
+    margin-top: 50px;
 }
 
 .favouritemargin{
@@ -3584,12 +3639,167 @@ margin-bottom: 20px;
 }
 
 .realgrey3 {
-    color: #19558d;
-  font-size: 14px;
+    color: #006aa0;
+  font-size: 16px;
   display: inline-block;
   font-weight: bold;
 }
 
+.realgreyb {
+    color: #006aa0;
+  font-size: 16px;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 .eventmargin {
+
+    margin-top: 40px;
+    font-size: 20px !important;
+}
+
+.eventmargin2 {
+    padding: 5px;
+}
+
+.aboveimage {
+    padding-bottom: 10px;
+}
+
+.margintest {
+    float: left !important;
+    float: right !important;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.toplight {
+    
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.toplight2 {
+    border-top: 1px solid #eeeeee;
+    padding-top: 5px;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.lightname {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.eventpage img {
+    width: 200px; 
+    height: 120px;
+    float: left;
+    margin-right: 10px;
+    }
+
+.eventpage {
+    
+    display: inline-block;
+    float: left
+}
+
+.eventimageright {
+    overflow: none;
+
+}
+
+.marginal {
+    margin: 10px;
+}
+
+.attempt2 {
+    margin-left: 60px;
+}
+
+.padding10 {
+    padding-top: 20px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.eventtoptext {
+    
+    font-weight: bold;
+    border-left: 8px solid #a03600;
     margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+
+.nameblueside {
+    margin-bottom: 20px;
+    border-left: 8px solid #006aa0;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+
+.blueanswer {
+    padding-top: 10px;
+    font-weight: bold;
+    color: #006aa0;
+    font-size: 14px;
+}
+
+
+.fakeenter {
+    color: grey;
+
+}
+
+.fakeenter:hover {
+    text-decoration: none !important;
+}
+
+
+
+
+.interviewbanner img {
+    width: 100%;
+    height: 280px;
+    display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.interviewbanner {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.bluename {
+    display: inline-block;
+}
+
+.verticalalignmiddle {
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.bannerpreviewimage {
+    width: 100%;
+
+}
+
+.addbannerimage {
+    background-image: url("http://i.imgur.com/cks6uPN.png");
+    position: absolute;
+    top: 0;
 }

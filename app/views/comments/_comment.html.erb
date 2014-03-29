@@ -5,53 +5,43 @@
 </div>
 </div>
 <% else %>
-<div class="span8 offset2">
-<div class="row">
+
 <div class="eventmargin">	
 <strong><%= @post.comments.count %> Posts</strong>
 </div>
-</div>
-</div>
+<hr/>
+
+<div class="eventmargin2"></div>
+
 <% end %>
 
 
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="row">
-<div class="span8 offset2">
-<div class="circle">
+<div class="circleb">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
 
 
-
-<div class="newspaper2">
-
 <div class="attempt2">
-<div class="questioncontainer">
+	
+<div class="titlecontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-<%= simple_format(comment.body)[0,500] %>
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>
+<%= simple_format(comment.body)[0,300] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
 
 <div class="namemargin">
-<div class="floatright">
-<div class="realgrey3">
-<%= comment.questions.count %> Questions
 </div>
-</div>	
-<%= link_to (comment.user.name), user_path(comment.user), class: "realgrey" %>
-</div>
-<div class="realgrey2">
-<%= time_ago_in_words(@post.created_at) %> ago
-</div>
-</div>
-
 <hr6/>
+</div>
 
-</div>
-</div>
-</div>
+
+
+
 
 
 <% end %>

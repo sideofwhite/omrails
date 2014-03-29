@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
  def upvote
 @question = Question.find params[:id]
 @question.liked_by current_user
-redirect_to post_comment_questions_path
+redirect_to post_comment_path(@comment.post, @comment)
 end
 
 
@@ -46,7 +46,7 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to comment_questions_path(@question.comment, :anchor => "@question_#{@question.id}"), notice: 'Question was successfully created.' }
+        format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { redirect_to root_path }

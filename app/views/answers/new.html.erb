@@ -1,34 +1,36 @@
-<div class="container">
-<div class="row">
-<div class="span2">
-<div class="circle">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+<div class="span7 centered">
+
+<div class="circlecomment">
+<%= image_tag @question.user.image %>
 </div>
-<hr/>
-<div class="titlecontainer">
-<div class="center">
-<%= link_to @comment.user.name, user_path(@comment.user) %> 
+
+
+<div class="lightname">
+<%= @question.user.name %>
 </div>
-</div>
-</div>
-<div class="span7">
-<div class="titlecontainer">
+
+<div class="commentquestion">
 <%= @question.body %>
 </div>
+
+<% if @question.comment.user == current_user %>
+<div class="commentmargin10"></div>
+<div class="circlecomment2">
+<%= image_tag @question.comment.user.image %>
+</div>
+
+<div class="commentquestionanswer">
+<div class="attempt">
+<div class="lightname">
+<%= current_user.name %>
+</div>	
 <%= render 'form' %>
 </div>
-<div class="span3">
-<div class="eventimage">
-<%= link_to (@comment.post.title), post_comments_path(@comment.post), class: "titlecontainershow" %>  
- <style media="screen">
-  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
- </style>
+</div>
 
-
- </div>
-
+<hr6/>
+<% end %>
 </div>
 
 
-</div>
-</div>
+

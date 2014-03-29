@@ -1,13 +1,8 @@
-
-<div class="container">
-<div class="row">
-
+<div class="visible-desktop hidden-phone hidden-tablet">
 
 
 <div id="products">
-<div class="span9 offset1">
 <%= render 'posts/post' %>
-</div>
 <%= render 'posts/postmobile' %>
 <%= render 'posts/posttablet' %>
 </div>
@@ -17,57 +12,6 @@
 <%= will_paginate @posts %>
 
 
-
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span1">
-<div class="fixed">
-
-<% if user_signed_in? %>
-<div class="newspaper6">
-<%= link_to ('Add Event'), new_post_path %>
-</div>
-<% else %>
-<div class="newspaper6"> 
-<%= link_to 'Add Event', new_user_registration_path %>
-</div>
-<% end %>
-
-
-<div class="newspaper6">
-<a href="/tags/world" >World</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/unitedstates" >United States</a>
-</div>
-
-
-<div class="newspaper6">
-<a href="/tags/politics">Politics</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/technology">Technology</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/science">Science</a>
-</div>
-
-
-
-<div class="belowsidebar">
-<%= link_to "About Podium", about_path %>
-</div>
-
-<div class="belowsidebar2">
-<%= link_to "Contact", contact_path %>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
 

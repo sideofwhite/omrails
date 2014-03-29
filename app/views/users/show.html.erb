@@ -12,7 +12,7 @@
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
-<div class="usernameback">	
+<div class="usernametext2">	
 <%= @user.name %>
 </div>
 
@@ -20,6 +20,9 @@
 <% if @user.twitter.present? or @user.place.present? %>
 <hr/>
 <strong><%= @user.twitter %></strong>
+<div class="verticalalignmiddle">
+<%= image_tag "http://i.imgur.com/cks6uPN.png" %>
+</div>
 <strong><%= @user.place %></strong>
 <% end %>
 <div class="mobilepadding5"></div>
@@ -41,41 +44,44 @@
 
 <div class="mobilepadding20"></div>
 <% @comments.each do |comment| %>
-<div class="container">
 <div class="row">
-<div class="span3">
-<div class="eventimage">
+<div class="span2 offset4">
+
  
-<%= image_tag comment.post.image %> 
-<%= link_to (comment.post.title), post_path(comment.post), class: "titlecontainershow" %> 
-
-</div>
+<strong><%= link_to (comment.post.title), post_path(comment.post)%> </strong>
 </div>
 
-
-<div class="span7">
-
-<div class="newspaper2">
-<div class="greysubtitle">
-<%= comment.subtitle %>
 </div>
-<div class="mobilepadding10"></div>
+<div class="row">
+<div class="span8 offset1">
+<div class="mobilepadding10"></div>	
+<div class="mobilepadding10"></div>	
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+<div class="attempt2">
 
 <div class="questioncontainer">
 <%= link_to (comment.title), post_comment_path(comment.post, comment) %>
 </div>
 <%= comment.body[0,300] %>
 <%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
-
-
+<div class="namemargin">
+<div class="floatright">
+<div class="realgrey3">
+<%= comment.questions.count %> Questions
+</div>
+</div>	
+<%= link_to (comment.user.name), user_path(comment.user), class: "realgrey" %>
+</div>
+<div class="realgrey2">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+</div>
+<hr6/>
+</div>
 </div>
 
-</div>
-
-</div>
-</div>
-
-<div class="mobilepadding20"></div>
 <% end %>
 
 
