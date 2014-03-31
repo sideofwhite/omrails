@@ -139,7 +139,7 @@ body{
     font-weight: normal;
     font-size: 18px;
     color: #333332;
-    font-family: jaf-bernino-sans, serif !important;
+    
     
 
 }
@@ -3029,10 +3029,12 @@ shadow: none !important;
 width: 110px;
 height: 110px;
 border-radius: 55px;
-margin-bottom: 40px;
-margin-right: 20px;
+display: inline-block;
 
+}
 
+.circle {
+    padding-bottom: 40px;
 }
 
 .circleb img {
@@ -3738,17 +3740,15 @@ margin-bottom: 20px;
     
     font-weight: bold;
     border-left: 8px solid #a03600;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     padding-left: 10px;
+    font-size: 18px !important;
 }
 
 
 .nameblueside {
     margin-left: 20px;
-    border-left: 8px solid #006aa0;
-    padding-left: 5px;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 28px;
     display: inline-block;
 
 }
@@ -3806,3 +3806,9 @@ margin-right: auto;
     position: absolute;
     top: 0;
 }
+
+.margin130 {
+    margin-left: 130px;
+}
+
+
