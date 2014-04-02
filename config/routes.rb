@@ -72,9 +72,7 @@ end
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
   get 'top', to: 'posts#top', as: :top
-   devise_scope :user do
-    get "/info" => "registrations#info"
-  end
+  
 
 
 
