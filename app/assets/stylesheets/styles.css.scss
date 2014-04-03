@@ -627,7 +627,7 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
@@ -638,7 +638,7 @@ p {
 .titlecontainershow {
     
     color: black;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 110%;
     font-weight: bold;
     border-left: 10px solid #a03600;
@@ -766,7 +766,7 @@ p {
     
     
     color: black;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 110%;
     font-family: Open Sans, sans-serif !important;
     display: inline-block;
@@ -3653,7 +3653,7 @@ margin-bottom: 20px;
 
 .eventmargin {
 
-    margin-top: 40px;
+    margin-top: 60px;
     font-size: 20px !important;
 }
 
@@ -3739,6 +3739,7 @@ margin-bottom: 20px;
     margin-bottom: 50px;
     padding-left: 10px;
     font-size: 18px !important;
+    font-size: 22px;
 }
 
 
@@ -3814,4 +3815,8 @@ margin-right: auto;
     float: right;
     font-weight: bold;
     font-size: 14px;
+}
+
+.aboveimage2 {
+    padding-bottom: 30px;
 }

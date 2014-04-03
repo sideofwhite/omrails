@@ -21,7 +21,7 @@ end
 if params[:tag]
 @posts = Post.tagged_with(params[:tag]).page(params[:page]).per_page(25)
 else
-@posts = Post.all.page(params[:page]).per_page(25)
+@posts = Post.order('cached_votes_total desc').page(params[:page]).per_page(25).limit(25).offset(1)
 @toppost = Post.order('cached_votes_total desc').limit(1)
 end
 
