@@ -63,8 +63,9 @@ end
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-                   controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
-
+                   controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  
+  
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
   match '/contact', to: 'pages#contact',  via:'get'
@@ -72,7 +73,9 @@ end
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
   get 'top', to: 'posts#top', as: :top
-  
+   devise_scope :user do
+    get "/info" => "registrations#info"
+  end
 
 
 

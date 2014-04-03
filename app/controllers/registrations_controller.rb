@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
  def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
 
    
       # remove the virtual current_password attribute update_without_password
