@@ -138,7 +138,7 @@ body{
     font-weight: normal;
     font-size: 19px;
     font-family: proxima-nova-condensed, sans-serif !important;
-    
+    color: black;
 
 }
 
@@ -534,11 +534,12 @@ p {
 }
 
 .blueblue {
-    font-weight: bold;
-    padding: 4px;
-    background-color: #006aa0;
+    margin-top: 20px;
+    color: #006aa0 !important;
+    background-color: white !important;
     border: 0px solid white !important;
-    color: white !important;
+    padding: 0px !important;
+    font-size: 16px;
 }
 
 
@@ -1548,9 +1549,9 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin-bottom: 20px !important;
-    font-family: Open Sans, sans-serif !important;
+    font-family: proxima-nova-condensed, sans-serif !important;
     width: 80% !important;
-    font-size: 24px !important;
+    font-size: 28px !important;
     font-weight: bold;
     color: black;
     display: inline-block !important;
@@ -1564,7 +1565,7 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: Open Sans, sans-serif !important;
+    font-family: proxima-nova-condensed, sans-serif !important;
     width: 80% !important;
     font-weight: bold;
     font-style: italic;
@@ -1581,9 +1582,9 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: Open Sans, sans-serif !important;
+    font-family: freight-text-pro, sans-serif !important;
     width: 75% !important;
-    font-size: 17px !important;
+    font-size: 19px !important;
     color: black;
 
 
@@ -3652,8 +3653,9 @@ margin-bottom: 20px;
 
 .eventmargin {
 
-    margin-top: 60px;
+    
     font-size: 20px !important;
+    font-weight: bold;
 }
 
 .eventmargin2 {
@@ -3737,7 +3739,9 @@ margin-bottom: 20px;
     border-left: 8px solid #a03600;
     margin-bottom: 50px;
     padding-left: 10px;
-    font-size: 18px !important;
+    padding-right: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-size: 22px;
 }
 

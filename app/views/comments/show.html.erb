@@ -120,6 +120,7 @@
 <div class="eventmargin">	
 <strong>Unanswered Questions</strong>
 </div>
+
 <hr/>
 
 <% @questions.each do |question| %>
@@ -128,7 +129,6 @@
 <%= image_tag question.user.image %>
 </div>
 
-<div class="attempt">
 <div class="lightname">
 <%= question.user.name %>
 </div>
@@ -154,12 +154,12 @@
 <%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
 <p/>
 </div>
+<hr6/>
 </div>
 
 
 <% end %>
 
-</div>
 
 <div class="commentquestionmargin"></div>
 

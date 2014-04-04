@@ -3,6 +3,13 @@
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
+<div class="eventtoptext">
+<%= link_to (@post.title), post_path(@post) %>
+</div>
+
+<hr/>
+
+
 <div class="interviewbanner">
 <div class="addimage">
 <%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
@@ -16,12 +23,13 @@
 
 <div class="attemt">
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
-
-
 <div class="nameblueside">
 <%= link_to current_user.name, user_path(current_user) %>
 </div>
+
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
+
 
 <%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello3 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
 
