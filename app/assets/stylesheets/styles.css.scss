@@ -627,7 +627,7 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 26px;
+    font-size: 28px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
@@ -653,7 +653,7 @@ p {
     
     
     color: black;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 110%;
     font-weight: bold;
     border-left: 10px solid #a03600;
@@ -686,7 +686,7 @@ p {
 
 .titlecontainershowb {
      color: black;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 110%;
     font-weight: bold;
     border-left: 10px solid #a03600;
@@ -3022,16 +3022,15 @@ shadow: none !important;
 
 .circle img {
 
-width: 110px;
-height: 110px;
-border-radius: 55px;
-display: inline-block;
+width: 100px;
+height: 100px;
+border-radius: 50px;
+float: left;
+margin-right: 20px;
 
 }
 
-.circle {
-    padding-bottom: 40px;
-}
+
 
 .circleb img {
 width: 80px;
@@ -3118,7 +3117,7 @@ background:#000;
 
 .attempt {
    overflow: hidden;
-
+   
 }
 
 .attempt2 {
@@ -3744,12 +3743,9 @@ margin-bottom: 20px;
 
 
 .nameblueside {
-    border-left: 8px solid #006aa0;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    display: inline-block;
-    padding-left: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 
 }
 
