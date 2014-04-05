@@ -39,7 +39,52 @@
 
 
 <div class="span7 centered">
+
 <hr/>
+
+<% if @comments.count > 0 %>
+<div class="countheader">
+<%= @comments.count %> Interviews
+</div>
+<% end %>
+
+<% @comments.each do |comment| %>
+
+<% if comment.post.present? %>
+<div class="eventtoptext">
+<%= link_to (comment.post.title), post_path(comment.post) %>
+</div>
+<% end %>
+
+<hr/>
+
+
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+
+<div class="attempt">
+<div class="titlecontainer">
+<%= comment.title %>
+</div>
+
+<div class="toplight2">
+<%= time_ago_in_words(comment.created_at) %> ago <br>
+</div>
+
+
+</div>
+
+
+<hr6/>
+
+<% end %>
+
+<% if @questions.count > 0 %>
+<div class="countheader">
+Upvoted Answers
+</div>
+<% end %>
 
 <div class="mobilepadding20"></div>
 <% @questions.each do |question| %>
@@ -59,8 +104,10 @@
 <%= question.user.name %>
 </div>
 
+<div class="attempt">
 <div class="commentquestion">
 <%= question.body %>
+</div>
 </div>
 
 <div class="commentmargin10"></div>

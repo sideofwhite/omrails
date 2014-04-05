@@ -1,4 +1,4 @@
-<div class="span10 centered">
+<div class="span7 centered">
 <div class="floatright">	
 <% if current_user == @user %>
 <%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
@@ -8,18 +8,22 @@
 </div>
 
 
-<div class="span2 centered">		
+<div class="span4 centered">		
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
-<div class="usernameback">	
+<div class="usernametext2">	
 <%= @user.name %>
 </div>
 
+<div class="paddingtop"></div>
+
 <div class="center">
 <% if @user.twitter.present? or @user.place.present? %>
-<hr/>
 <strong><%= @user.twitter %></strong>
+<div class="verticalalignmiddle">
+<%= image_tag "http://i.imgur.com/cks6uPN.png" %>
+</div>
 <strong><%= @user.place %></strong>
 <% end %>
 <div class="mobilepadding5"></div>
@@ -33,53 +37,49 @@
 
 
 
-
-<div class="span10 centered">
-<%= @comments.count %> Pushed Posts |
-<%= link_to "Posts", userquestions_path %>
+<div class="span7 centered">
+<%= link_to "Upvoted", userquestions_path %>
 <hr/>
 
 <div class="mobilepadding20"></div>
-<% @comments.each do |comment| %>
-<div class="container">
-<div class="row">
-<div class="span3">
-<div class="eventimage">
- 
+<% @question.each do |question| %>
 
-
-</div>
+<div class="eventtoptext">
+<%= link_to (@comment.post.title), post_path(question.comment.post) %>
 </div>
 
 
-<div class="span7">
-
-<div class="newspaper2">
-<div class="greysubtitle">
-<%= comment.subtitle %>
-</div>
-<div class="mobilepadding10"></div>
-
-<div class="questioncontainer">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-<%= comment.body[0,300] %>
-<%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
-
-
+<div class="circlecomment">
+<%= image_tag question.user.image %>
 </div>
 
+
+<div class="lightname">
+<%= question.user.name %>
 </div>
 
-</div>
+<div class="commentquestion">
+<%= question.body %>
 </div>
 
-<div class="mobilepadding20"></div>
+<div class="commentquestionanswer">
+<div class="attempt">	
+
+<% if question.answer.present? %>
+<div class="lightnamepreview">
+<%= question.user.name %>
+</div>
+<p>
+<%= question.answer.body[0, 300] %>
+<%= link_to "(read more...)", question_answer_path(question, question.answer), class: "blue"  %>
+</p>
 <% end %>
-
-
+<hr6/>
 </div>
+ </div>
 
+<% end %>
+</div>
 
 
 

@@ -30,9 +30,10 @@
 <div class="titlecontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
+<p>
 <%= simple_format(comment.body)[0,300] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
-
+</p>
 <div class="namemargin">
 </div>
 <hr6/>
