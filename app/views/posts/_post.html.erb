@@ -2,9 +2,32 @@
 
 <div class="span8 centered">
 <% @toppost.each do |post| %>
-<div class="titlecontainershowtop">
+<div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
+
+<% if post.comments.count > 0 %>
+<div class="postinterviewmargintop">
+<% post.comments.limit(2).each do |comment| %>
+<% if comment.user.present? %>
+<div class="postinterviewtext">
+<%= comment.user.name %>,
+</div>
+<% end %>
+<% end %>
+
+<% if post.comments.count > 2 %>
+<div class="postinterviewtext"%>
+and <%= post.comments.count - 2 %> more are answering questions
+</div>
+<% else %>
+
+<% end %>
+
+</div>
+<% else %>
+
+<% end %>
 
 <div class="eventimagetop">
 <%= image_tag post.image %>
@@ -30,18 +53,29 @@
 <%= link_to (post.title), post_path(post)%> 
 </div>
 
+<% if post.comments.count > 0 %>
 <div class="postinterviewmargin">
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
-<div class="postinterview">
-<%= image_tag comment.user.image %>
+<div class="postinterviewtext">
+<%= comment.user.name %>
 </div>
 <% end %>
 <% end %>
+
+<% if post.comments.count > 2 %>
 <div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> more
+and <%= post.comments.count - 2 %> more are answering questions
 </div>
+<% else %>
+
+<% end %>
+
 </div>
+<% else %>
+
+<% end %>
+
 </div>
 
 </div>

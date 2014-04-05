@@ -652,7 +652,7 @@ p {
 
 .titlecontainershowtop {
     
-    
+    font-family: proxima-nova-condensed, sans-serif !important;
     color: black;
     font-size: 32px;
     line-height: 110%;
@@ -693,7 +693,7 @@ p {
     font-weight: bold;
     border-left: 10px solid #a03600;
     padding-left: 20px;
-
+   font-family: proxima-nova-condensed, sans-serif !important;
 }
 
 .titlecontainershow3 {
@@ -713,7 +713,7 @@ p {
     font-size: 18px;
     line-height: 110%;
     font-weight: 700;
-    
+    font-family: proxima-nova-condensed, sans-serif !important;
 
 }
 
@@ -3842,6 +3842,13 @@ margin-right: auto;
     overflow: hidden;
 }
 
+.postinterviewmargintop {
+    padding-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
 .postinterview img {
     width: 40px;
     height: 40px;
@@ -3853,12 +3860,21 @@ margin-right: auto;
     vertical-align:text-top;
 }
 
-.postinterview {
-    vertical-align:text-bottom;
+.postinterviewtop img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    vertical-align:text-top;
 }
+
 
 .postinterviewtext {
     
-   
+    font-size: 16px;
+    display: inline-block;
     
 }
