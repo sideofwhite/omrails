@@ -12,6 +12,11 @@
 <% if comment.user.present? %>
 <div class="postinterviewtext">
 <strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
+<% if post.comments.count > 1 %>
+,
+<% elsif post.comments.count == 1 %>
+
+<% end %>
 </div>
 <% end %>
 <% end %>
@@ -19,10 +24,16 @@
 <% if post.comments.count > 2 %>
 
 <div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> more are answering questions
+and <%= post.comments.count - 2 %> others are answering questions
 </div>
-<% else %>
-
+<% elsif post.comments.count == 2 %>
+<div class="postinterviewtext"%>
+are answering questions
+</div>
+<% elsif post.comments.count == 1 %>
+<div class="postinterviewtext"%>
+is answering questions
+</div>
 <% end %>
 
 </div>
@@ -55,27 +66,39 @@ and <%= post.comments.count - 2 %> more are answering questions
 </div>
 
 <% if post.comments.count > 0 %>
-<div class="postinterviewmargin">
+<div class="postinterviewmargintop">
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
 <div class="postinterviewtext">
 <strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
+<% if post.comments.count > 1 %>
+,
+<% elsif post.comments.count == 1 %>
+<% end %>
 </div>
 <% end %>
 <% end %>
 
 <% if post.comments.count > 2 %>
+
 <div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> more are answering questions
+and <%= post.comments.count - 2 %> others are answering questions
 </div>
-<% else %>
-
+<% elsif post.comments.count == 2 %>
+<div class="postinterviewtext"%>
+are answering questions
+</div>
+<% elsif post.comments.count == 1 %>
+<div class="postinterviewtext"%>
+is answering questions
+</div>
 <% end %>
 
 </div>
 <% else %>
 
 <% end %>
+
 
 </div>
 

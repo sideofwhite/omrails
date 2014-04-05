@@ -70,9 +70,22 @@
 </div>
 </div>
 
-<%= render :partial => "questions/form" %>
 
 <div class="favouritebuttonmargin"></div>
+
+<div class="eventmargin">
+<%= @comment.questions.count %> Questions
+</div>
+
+<hr/>
+
+
+<%= render :partial => "questions/form" %>
+
+<hr/>
+
+<div class="favouritebuttonmargin"></div>
+
 
 <% @questions.each do |question| %>
 <% if question.answer.present? %>
