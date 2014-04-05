@@ -660,6 +660,7 @@ p {
     border-left: 10px solid #a03600;
     padding-left: 20px;
     margin-bottom: 30px;
+    width: 50%;
     
     
 }
@@ -2804,14 +2805,15 @@ pull-left{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 110px;
-    width: 110px;
+    height: 140px;
+    width: 140px;
     margin-bottom: 20px;
+    border-radius: 70px;
 
 }
 
 .usernametext2 {
-    font-size: 24px; 
+    font-size: 30px; 
     font-weight: bold;
     text-align: center;
 }
@@ -3659,7 +3661,7 @@ margin-bottom: 20px;
 }
 
 .eventmargin2 {
-    padding: 5px;
+    padding-top: 50px;
 }
 
 .aboveimage {
@@ -3819,4 +3821,15 @@ margin-right: auto;
 
 .aboveimage2 {
     padding-bottom: 30px;
+}
+
+
+.lightnamepreview {
+    margin-bottom: 10px; 
+    font-weight: bold;
+
+}
+
+.lightnamepreviewlight {
+    display: inline-block;
 }

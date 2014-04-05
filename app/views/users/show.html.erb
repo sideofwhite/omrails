@@ -1,4 +1,4 @@
-<div class="span10 centered">
+<div class="span7 centered">
 <div class="floatright">	
 <% if current_user == @user %>
 <%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
@@ -8,7 +8,7 @@
 </div>
 
 
-<div class="span2 centered">		
+<div class="span4 centered">		
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
@@ -16,9 +16,10 @@
 <%= @user.name %>
 </div>
 
+<div class="paddingtop"></div>
+
 <div class="center">
 <% if @user.twitter.present? or @user.place.present? %>
-<hr/>
 <strong><%= @user.twitter %></strong>
 <div class="verticalalignmiddle">
 <%= image_tag "http://i.imgur.com/cks6uPN.png" %>
@@ -37,53 +38,53 @@
 
 
 
-<div class="span10 centered">
-<%= @comments.count %> Pushed Posts |
-<%= link_to "Posts", userquestions_path %>
+<div class="span7 centered">
 <hr/>
 
 <div class="mobilepadding20"></div>
-<% @comments.each do |comment| %>
-<div class="row">
-<div class="span2 offset4">
+<% @questions.each do |question| %>
 
- 
-<strong><%= link_to (comment.post.title), post_path(comment.post)%> </strong>
+<% if question.comment.post.present? %>
+<div class="eventtoptext">
+<%= link_to (question.comment.post.title), post_path(question.comment.post) %>
 </div>
-
-</div>
-<div class="row">
-<div class="span8 offset1">
-<div class="mobilepadding10"></div>	
-<div class="mobilepadding10"></div>	
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-<div class="attempt2">
-
-<div class="questioncontainer">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-<%= comment.body[0,300] %>
-<%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
-<div class="namemargin">
-<div class="floatright">
-<div class="realgrey3">
-<%= comment.questions.count %> Questions
-</div>
-</div>	
-<%= link_to (comment.user.name), user_path(comment.user), class: "realgrey" %>
-</div>
-<div class="realgrey2">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-</div>
-<hr6/>
-</div>
-</div>
-
 <% end %>
 
+<div class="circlecomment">
+<%= image_tag question.user.image %>
+</div>
+
+
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
+<div class="commentquestion">
+<%= question.body %>
+</div>
+
+<div class="commentmargin10"></div>
+<div class="circlecomment2">
+<%= image_tag question.comment.user.image %>
+</div>
+
+<div class="commentquestionanswer">
+<div class="attempt">	
+<% if question.answer.present? %>
+<div class="lightnamepreview">
+<%= question.comment.user.name %>
+</div>
+<p>
+<%= question.answer.body[0, 300] %>
+<%= link_to "(read more...)", question_answer_path(question, question.answer), class: "blue"  %>
+</p>
+</div>
+<% end %>
+<hr6/>
+</div>
+ 
+
+<% end %>
 
 </div>
 
