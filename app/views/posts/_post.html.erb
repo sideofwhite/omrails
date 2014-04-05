@@ -11,12 +11,13 @@
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
 <div class="postinterviewtext">
-<%= comment.user.name %>,
+<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
 </div>
 <% end %>
 <% end %>
 
 <% if post.comments.count > 2 %>
+
 <div class="postinterviewtext"%>
 and <%= post.comments.count - 2 %> more are answering questions
 </div>
@@ -58,7 +59,7 @@ and <%= post.comments.count - 2 %> more are answering questions
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
 <div class="postinterviewtext">
-<%= comment.user.name %>
+<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
 </div>
 <% end %>
 <% end %>
