@@ -32,9 +32,11 @@
 
 <div class="postinterviewmargin">
 <% post.comments.limit(2).each do |comment| %>
+<% if comment.user.present? %>
 <div class="postinterview">
 <%= image_tag comment.user.image %>
 </div>
+<% end %>
 <% end %>
 <div class="postinterviewtext"%>
 and <%= post.comments.count - 2 %> more
