@@ -29,8 +29,18 @@
 <div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
-</div>
 
+<div class="postinterviewmargin">
+<% post.comments.limit(2).each do |comment| %>
+<div class="postinterview">
+<%= image_tag comment.user.image %>
+</div>
+<% end %>
+<div class="postinterviewtext"%>
+and <%= post.comments.count - 2 %> more
+</div>
+</div>
+</div>
 
 </div>
 </div>
