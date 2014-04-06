@@ -1,3 +1,14 @@
+<div class="visible-phone hidden-tablet hidden-desktop">
+<%= render 'posts/showmobile' %>
+</div>
+
+<div class="visible-tablet hidden-phone hidden-desktop">
+<%= render 'posts/showtablet' %>
+</div>
+
+
+
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="row">
@@ -36,44 +47,27 @@
 </div>
 </div>
 </div>
-</div>
+
 <div class="aboveimage2"></div>
 
 <div class="row">
 <div class="span8 offset2">
 
 <div class="eventimage">
- <%= image_tag @post.image %> 
+<%= image_tag @post.image %> 
 </div>
+
 <div class="span7 centered">
-
 <%= render 'comments/comment' %>
-
 </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="visible-phone hidden-tablet hidden-desktop">
-<%= render 'posts/showmobile' %>
+</div>
 </div>
 
-<div class="visible-tablet hidden-phone hidden-desktop">
-<%= render 'posts/showtablet' %>
-</div>
+
+
+
 
 
 

@@ -1,24 +1,32 @@
-<div class="visible-phone hidden-tablet hidden-desktop">
+<div class='span8'>
 
-<div class="postimage">
- <%= image_tag @post.image %> 
-<%= link_to (@post.title), post_path(@post), class: "description" %> 
+<div class="postimagemobile">
+<%= image_tag @post.image %> 
 </div>
 
-<div class="mobilepadding5"></div>
+<div class='titlecontainershowmobile'>
+<%= @post.title %> 
+</div>
+<hr/>
 
-<div class="greyeventmobile">
+<p>
+<strong><%= @post.country %></strong> - 
 <%= @post.description %>
-</div>
-<div class="greyeventbottommobile">
-<%= time_ago_in_words(@post.created_at) %> ago
+<p/>
+
+<strong><%= time_ago_in_words(@post.created_at) %> ago </strong>
+
 <div class="floatright">
-<%= @post.country %>
-</div>
+<% if user_signed_in? %> 
+<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebutton" %>
+<% else %>
+<%= link_to 'Post', new_user_registration_path, class: "favouritebutton" %>
+<% end %>
 </div>
 
-<div class="mobilepadding"></div>
+
+
+</div>
 
 <%= render 'comments/commentmobile' %>
 
-</div>

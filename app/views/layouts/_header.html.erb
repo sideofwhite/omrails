@@ -19,9 +19,9 @@
                         
                         
                        
-                       <div class="circlehead">
-                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user) %></li>
-                     </div>
+                       
+                       <li><%= link_to (current_user.name), user_path(current_user), class: "userlink" %></li>
+                    
                      <% else %>
                      <li><%= link_to "Sign Up", new_user_registration_path, class: "headtext" %></li>
                     <li><%= link_to "Login", new_user_session_path, class: "headtext2" %></li>
@@ -58,4 +58,5 @@
 
 </ul>
 </div>
+<hr/>
 </div>
