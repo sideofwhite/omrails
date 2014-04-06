@@ -1,35 +1,49 @@
 <div class="visible-phone hidden-tablet hidden-desktop">
+<div class="span2 centered">
 
-<% @posts.order('cached_votes_total desc').each do |post| %>
+<% @postsmobile.order('cached_votes_total desc').each do |post| %>
+<div class="postimagemobile">
+<%= image_tag post.image %>
+</div>
 
-<div class="newspaper">
-<div class="postimage">
- 
+<div class="titlecontainershowmobile">
+<%= link_to (post.title), post_path(post)%> 
+</div>
 
+<% if post.comments.count > 0 %>
+<div class="postinterviewmargintopmobile">
+<% post.comments.limit(2).each do |comment| %>
+<% if comment.user.present? %>
+<div class="postinterviewtext">
+<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
+<% if post.comments.count > 1 %>
+,
+<% elsif post.comments.count == 1 %>
+<% end %>
+</div>
+<% end %>
+<% end %>
 
-<%= image_tag post.image %> 
-<%= link_to (post.title), post_path(post), class: "description" %> 
-<% if post.comments.count == 1 %>
+<% if post.comments.count > 2 %>
 
-<div class="info6">
-<%= post.comments.count %> Post
+<div class="postinterviewtext"%>
+and <%= post.comments.count - 2 %> others are answering questions
+</div>
+<% elsif post.comments.count == 2 %>
+<div class="postinterviewtext"%>
+are answering questions
+</div>
+<% elsif post.comments.count == 1 %>
+<div class="postinterviewtext"%>
+is answering questions
+</div>
+<% end %>
+
 </div>
 <% else %>
 
-<div class="info6">
-<%= post.comments.count %> Posts
+<% end %>
 </div>
-
-<% end %> 
-
-
- </div>
-</div>
-
-
-
-
-
 <% end %>
 
 </div>

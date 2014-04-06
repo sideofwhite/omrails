@@ -29,7 +29,6 @@ body .modal {
 
 
 
-
 .btn-primary {
     display: inline-block;
     vertical-align: top;
@@ -650,6 +649,22 @@ p {
 }
 
 
+.titlecontainershowmobile {
+    
+    color: black;
+    font-size: 26px;
+    line-height: 110%;
+    font-weight: bold;
+    border-left: 5px solid #a03600;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+   
+    
+    
+}
+
+
 .titlecontainershowtop {
     
     font-family: proxima-nova-condensed, sans-serif !important;
@@ -696,15 +711,7 @@ p {
    font-family: proxima-nova-condensed, sans-serif !important;
 }
 
-.titlecontainershow3 {
-    position: relative;
-    padding: 10px;
-    bottom: 0;
-    color: white;
-    
 
-
-}
 
 
 .titlecontainerb {
@@ -727,28 +734,6 @@ p {
 
 }
 
-.titlecontainer3 {
-    
-    color: #B23000;
-    font-size: 26px;
-    text-align: left;
-    padding-bottom: 15px;
-    line-height: 110%;
-    font-weight: lighter;
-
-}
-
-.titlecontainer4 {
-    
-    display: inline-block;
-    font-size: 18px;
-    padding-bottom: 10px;
-    line-height: 110%;
-    color: #B23000 !important;
-    
-    
-
-}
 
 
 
@@ -2904,6 +2889,17 @@ margin-bottom: 70px;
 
 }
 
+.postimagemobile img {
+    
+    
+    height: 200px;
+width: 100%;
+float: left;
+padding-bottom: 20px;
+    
+
+}
+
 .counttext {
     font-size: 24px;
     display: inline-block;
@@ -3850,6 +3846,13 @@ margin-right: auto;
     overflow: hidden;
 }
 
+.postinterviewmargintopmobile {
+    padding-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
 .postinterview img {
     width: 40px;
     height: 40px;
@@ -3877,5 +3880,13 @@ margin-right: auto;
     
     font-size: 17px;
     display: inline-block;
+    
+}
+
+.postinterviewtextmobile {
+    
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
     
 }
