@@ -523,6 +523,17 @@ p {
   
 }
 
+.favouritebuttontb {
+    display: inline-block;
+    color: #006aa0 !important;
+    font-weight: bold;
+    border: 1px solid #eeeeee;
+    padding: 7px;
+    margin-bottom: 10px;
+
+  
+}
+
 .favouritebutton:hover {
     border: 1px solid #19558d;
     text-decoration: none !important;
@@ -646,7 +657,7 @@ p {
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
-    margin-top: 50px;
+   
 
 }
 
@@ -3157,19 +3168,14 @@ background:#000;
 
 
 .circlecommentmobile img {
-    width: 70px;
-    height: 70px;
-    display: inline-block;
-    border-radius: 35px;
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 45px;
     vertical-align: text-bottom !important;
 }
 
-.circlecommentmobile {
-    margin-right: 10px;
-    display: inline-block;
-    float: left;
-    vertical-align: text-bottom !important;
-}
 
 .circlecomment2 img {
     width: 50px;
@@ -3833,7 +3839,9 @@ margin-bottom: 20px;
     font-size: 22px;
     font-weight: bold;
     padding-bottom: 20px;
+    padding-top: 30px;
     display: inline-block;
+    text-align: center;
 
 }
 

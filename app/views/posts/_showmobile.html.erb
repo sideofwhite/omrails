@@ -1,3 +1,4 @@
+<div class="visible-phone hidden-tablet hidden-desktop">
 <div class='span8'>
 
 <div class="postimagemobile">
@@ -18,9 +19,9 @@
 
 <div class="floatright">
 <% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebutton" %>
+<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebuttontb" %>
 <% else %>
-<%= link_to 'Post', new_user_registration_path, class: "favouritebutton" %>
+<%= link_to 'Post', new_user_registration_path, class: "favouritebuttontb" %>
 <% end %>
 </div>
 
@@ -30,3 +31,4 @@
 
 <%= render 'comments/commentmobile' %>
 
+</div>

@@ -1,37 +1,39 @@
-<div class="span11 centered">
+<div class="visible-tablet hidden-phone hidden-desktop">
 
-<div class="postimagetop">
-<%= image_tag @post.image %>
-<div class="descriptiontop2">
-<%= @post.title %>
+<div class="span10 centered">
+
+<div class='titlecontainershowtablet'>
+<%= @post.title %> 
 </div>
-</div>
+<hr/>
 
-<div class="mobilepadding10"></div>
-
-<div class="container">
-<div class="row">
-
-<div class="span8">
-
-<div class="greyevent">
+<p>
+<strong><%= @post.country %></strong> - 
 <%= @post.description %>
-</div>
+<p/>
+
+
+<strong><%= time_ago_in_words(@post.created_at) %> ago</strong>
+
+<div class="floatright">
+<% if user_signed_in? %> 
+<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebuttontb" %>
+<% else %>
+<%= link_to 'Post', new_user_registration_path, class: "favouritebuttontb" %>
+<% end %>
+</div>	
+
+<div class="aboveimage2"></div>
+
+<div class="eventimagetoptablet">
+<%= image_tag @post.image %> 
 </div>
 
-<div class="span3">
-<div class="greyeventbottomtablet">
-<%= time_ago_in_words(@post.created_at) %> ago
-<%= @post.country %>
 </div>
-</div>
-</div>
-</div>
-<div class="mobilepadding"></div>
 
-<div class="span11 centered">
+
+
 <%= render 'comments/commenttablet' %>
-</div>
+
 
 </div>
-

@@ -1,44 +1,47 @@
+<div class="span10 centered">
+
 <% if @post.comments.count < 1 %>
 <div class="center">
 <div class="paddingtop">
 <strong>There are no posts yet.</strong>
 </div>
 </div>
+<% else %>
+
+<div class="eventmargin">	
+<strong><%= @post.comments.count %> Posts</strong>
+</div>
+<hr/>
+
+<div class="eventmargin2"></div>
+
 <% end %>
 
 
 <% @comments.each do |comment| %>
-<div class="container">
-<div class="row">
 
-<div class="span2">
-<div class="circle">
+<div class="circleb">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
-<div class="namepadding">
-<strong><%= link_to comment.user.name, user_path(comment.user) %></strong>
-</div>
-</div>
 
+<div class="attempt2">
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>	
 
-<div class="span9">
-
-<div class="newspaper2">
-<div class="greysubtitle">
-<%= comment.subtitle %>
-</div>
-<hr/>
-
-<div class="questioncontainer">
+<div class="titlecontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-<%= comment.body[0,300] %>
+<p>
+<%= simple_format(comment.body)[0,200] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
+</p>
+<div class="namemargin">
+<hr6/>
+</div>
+</div>
 
-
-</div>
-</div>
-</div>
-</div>
 
 <% end %>
+
+</div>
