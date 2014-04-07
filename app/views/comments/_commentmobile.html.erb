@@ -1,0 +1,42 @@
+<% if @post.comments.count < 1 %>
+<div class="center">
+<div class="paddingtop">
+<strong>There are no posts yet.</strong>
+</div>
+</div>
+<% else %>
+
+<div class="eventmargin2">	
+<strong><%= @post.comments.count %> Posts</strong>
+</div>
+<hr/>
+
+<div class="eventmargin2"></div>
+
+<% end %>
+
+
+<% @comments.each do |comment| %>
+
+<div class="circlecommentmobile">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+
+<div class="namebluesidemobile">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>	
+
+<div class="titlecontainermobile">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+<p>
+<%= simple_format(comment.body)[0,200] %>
+<%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
+</p>
+<div class="namemargin">
+<hr6/>
+</div>
+
+
+
+<% end %>
