@@ -3742,7 +3742,9 @@ margin-bottom: 20px;
 .eventmargin2 {
     padding-top: 50px;
     font-size: 20px;
+
 }
+
 
 .aboveimage {
     padding-bottom: 10px;
@@ -3820,6 +3822,19 @@ margin-bottom: 20px;
     
     border-left: 8px solid #a03600;
     margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.eventtoptext2 {
+    
+    
+    border-left: 8px solid #a03600;
+    margin-bottom: 40px;
     padding-left: 10px;
     padding-right: 0px;
     padding-top: 3px;
@@ -3925,9 +3940,15 @@ margin-right: auto;
 }
 
 .countheader {
-    font-weight: bold;
+   
     margin-bottom: 40px;
+    font-size: 16px;
+    background-color: #006aa0;
+    color: white;
+    padding: 7px;
+    display: inline-block;
 }
+
 
 
 .postinterviewmargin {
