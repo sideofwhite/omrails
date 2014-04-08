@@ -76,11 +76,15 @@
 
 <% end %>
 
-<% if @questions.count > 0 %>
-<div class="eventmargin">
+<% if @comments.count > 0 %>
+<hr/>
+<div class="countheader">
 Upvoted Answers
 </div>
-<hr/>
+<% else %>
+<div class="countheader">
+Upvoted Answers
+</div>
 <% end %>
 
 <div class="mobilepadding20"></div>
