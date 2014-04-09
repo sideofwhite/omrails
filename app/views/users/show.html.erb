@@ -88,7 +88,7 @@ Upvoted Answers
 <% @questions.each do |question| %>
 
 <% if question.comment.post.present? %>
-<div class="eventtoptext">
+<div class="eventtoptext2">
 <%= link_to (question.comment.post.title), post_path(question.comment.post) %>
 </div>
 <% end %>
