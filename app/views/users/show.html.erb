@@ -67,26 +67,22 @@
 </div>
 
 <p>
+<% if comment.body.present? %>
 <%= comment.body[0,200] %>
 <%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue"  %>
 </p>
-
-<hr6/>
-</div>
-
-
 <% end %>
 
-<% if @comments.count > 0 %>
+</div>
 <hr/>
-<div class="countheader">
-Upvoted Answers
-</div>
-<% else %>
-<div class="countheader">
-Upvoted Answers
-</div>
+
 <% end %>
+
+
+<div class="countheader">
+Upvoted Answers
+</div>
+
 
 <div class="mobilepadding20"></div>
 <% @questions.each do |question| %>
