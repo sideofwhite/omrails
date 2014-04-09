@@ -111,11 +111,11 @@ Upvoted Answers
 <div class="commentquestionanswer">
 <div class="attempt">	
 <% if question.answer.present? %>
-<div class="lightnamepreview">
+<div class="lightname">
 <%= question.comment.user.name %>
 </div>
 <p>
-<%= question.answer.body[0, 300] %>
+<%= question.answer.body[0, 200] %>
 <%= link_to "(read more...)", question_answer_path(question, question.answer), class: "blue"  %>
 </p>
 </div>
