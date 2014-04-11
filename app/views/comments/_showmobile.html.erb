@@ -1,10 +1,3 @@
-
-<div class="container">
-<div class="row"> 
-
-
-
-
 <div class="eventtoptext">
 <%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
 </div>
@@ -26,6 +19,9 @@
 <div class="namebluesidemobile">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>	
+
+<div class="namebluesidemargin">
+</div>
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -90,8 +86,10 @@
 <%= question.user.name %>
 </div>
 
+<div class="attempt">	
 <div class="commentquestion">
 <%= question.body %>
+</div>
 </div>
 
 <div class="commentmargin10"></div>
@@ -160,7 +158,6 @@
 </div>
 <hr6/>
 </div>
-
 
 <% end %>
 
