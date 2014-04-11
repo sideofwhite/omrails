@@ -8,14 +8,15 @@
 <div class='titlecontainershowmobile'>
 <%= @post.title %> 
 </div>
-<hr/>
 
 <p>
 <strong><%= @post.country %></strong> - 
 <%= @post.description %>
 <p/>
 
-<strong><%= time_ago_in_words(@post.created_at) %> ago </strong>
+<div class="toplight2">
+<%= time_ago_in_words(@post.created_at) %> ago 
+</div>
 
 <div class="floatright">
 <% if user_signed_in? %> 
