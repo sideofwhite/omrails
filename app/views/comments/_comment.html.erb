@@ -26,6 +26,11 @@ There are no posts yet.
 <div class="nameblueside">
 <%= link_to comment.user.name, user_path(comment.user) %>
 </div>	
+<div class="postinterviewtext2">
+ asked <%= comment.questions.count %> questions
+</div>
+<div class="namebluesidemargin">
+</div>
 <div class="titlecontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
@@ -33,9 +38,6 @@ There are no posts yet.
 <%= simple_format(comment.body)[0,300] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
 </p>
-<div class="postinterviewtext2">
-<%= comment.user.name %> has been asked <%= comment.questions.count %> questions
-</div>
 <div class="namemargin">
 </div>
 <hr6/>

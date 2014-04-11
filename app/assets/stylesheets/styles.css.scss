@@ -3741,7 +3741,7 @@ margin-bottom: 20px;
 
 .eventmargin2 {
     padding-top: 50px;
-    font-size: 22px;
+    font-size: 17px;
 
 }
 
@@ -3847,8 +3847,12 @@ margin-bottom: 20px;
 .nameblueside {
     font-size: 22px;
     font-weight: bold;
-    padding-bottom: 20px;
+    display: inline-block;
 
+}
+
+.namebluesidemargin {
+    padding-bottom: 20px;
 }
 
 .namebluesidemobile {
@@ -4004,7 +4008,8 @@ margin-right: auto;
 
 .postinterviewtext2 {
     
-    margin-top: 10px;
+    color: #666665;
+    margin-left: 5px;
     font-size: 17px;
     display: inline-block;
     
