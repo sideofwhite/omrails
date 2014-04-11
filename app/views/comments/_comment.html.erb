@@ -1,13 +1,13 @@
 <% if @post.comments.count < 1 %>
 <div class="center">
 <div class="eventmargin2">
-<strong>There are no posts yet.</strong>
+There are no posts yet.
 </div>
 </div>
 <% else %>
 
 <div class="eventmargin2">	
-<strong><%= @post.comments.count %> Posts</strong>
+<%= @post.comments.count %> people are answering questions
 </div>
 <hr/>
 
@@ -33,6 +33,9 @@
 <%= simple_format(comment.body)[0,300] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue"  %>
 </p>
+<div class="postinterviewtext2">
+<%= comment.user.name %> has been asked <%= comment.questions.count %> questions
+</div>
 <div class="namemargin">
 </div>
 <hr6/>
