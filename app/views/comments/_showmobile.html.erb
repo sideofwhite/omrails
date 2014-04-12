@@ -97,15 +97,13 @@
 <%= image_tag question.comment.user.image %>
 </div>
 
-<div class="commentquestionanswer">
-<div class="attempt">	
+<div class="commentquestionanswer">	
 <p>
 <%= question.answer.body %>
 </p>
 <div class="lightcontainercomment">
 <%= link_to (image_tag("http://i.imgur.com/WaGz5vN.png")), upvote_comment_question_path(question.comment, question) %>
 <%= time_ago_in_words(question.answer.created_at) %> ago
-</div>
 </div>
 <hr6/>
 </div>
