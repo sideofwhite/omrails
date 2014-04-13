@@ -10,20 +10,13 @@
 <hr/>
 
 
-<div class="interviewbanner">
-<div class="addimage">
-<%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
-</div>
-<img id="blah" />
-</div>
-
 <div class="circle">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
 
 <div class="attemt">
 
-<div class="nameblueside">
+<div class="nameblueside2">
 <%= link_to current_user.name, user_path(current_user) %>
 </div>
 

@@ -18,12 +18,6 @@
 <%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
 </div>
 
-<% if @comment.image? %>
-<div class="interviewbanner">
-<%= image_tag @comment.image %>
-</div>
-<% end %>
-
 <hr/>
 
 <div class="circle">

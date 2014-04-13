@@ -531,12 +531,15 @@ p {
 
 
 .favouritebutton {
-    color: #006aa0 !important;
-    font-weight: bold;
-    border: 1px solid #eeeeee;
+    color: black !important;
+    border: 0px solid #eeeeee;
+    background-color: #eeeeee; 
     padding: 7px;
+    font-size: 17px;
     margin-bottom: 10px;
-  
+    display: inline-block;
+    float: right;
+    margin-top: 43px;
 }
 
 .favouritebuttontb {
@@ -550,10 +553,7 @@ p {
   
 }
 
-.favouritebutton:hover {
-    border: 1px solid #19558d;
-    text-decoration: none !important;
-}
+
 
 .favouritebuttonmargin {
     margin-top: 50px;
@@ -3020,6 +3020,23 @@ shadow: none !important;
 
 }
 
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+ {
+.eventimage img {
+    width: 100%;
+    height: 265px;
+}
+}
+
+@media (min-width 980px) and (max-width: 1024px) {
+  .eventimage img {
+    width: 100%;
+    height: 265px;
+  }
+}
+
 .eventimagetop img {
     
     width: 100%;
@@ -3051,15 +3068,7 @@ shadow: none !important;
     display: block;
 }
 
-.eventimage {
-    border: 0px solid #EEEEEE; 
-    display: block;
-    position: relative; 
-    min-height: 112px;
 
-    
-
-}
 
 .eventimagetablet img {
     height: 160px;
@@ -3784,6 +3793,7 @@ margin-bottom: 20px;
     padding-top: 50px;
     font-size: 17px;
     font-weight: bold;
+    display: inline-block;
 }
 
 
@@ -3970,8 +3980,7 @@ margin-right: auto;
 
 .timeright {
     float: right;
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .aboveimage2 {

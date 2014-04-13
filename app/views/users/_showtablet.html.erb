@@ -1,13 +1,5 @@
-<div class="visible-phone hidden-tablet hidden-desktop">
-<%= render 'users/showmobile' %>
-</div>
 
-<div class="visible-tablet hidden-phone hidden-desktop">
-<%= render 'users/showtablet' %>
-</div>
-
-
-<div class="span7 centered">
+<div class="span10 centered">
 <div class="floatright">	
 <% if current_user == @user %>
 <%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
@@ -17,7 +9,7 @@
 </div>
 
 
-<div class="span4 centered">		
+<div class="span3 centered">		
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
@@ -47,7 +39,7 @@
 
 
 
-<div class="span7 centered">
+<div class="span10 centered">
 
 <hr/>
 
@@ -136,12 +128,3 @@ Upvoted Answers
 <% end %>
 
 </div>
-
-
-
-
-
-
-
-
-

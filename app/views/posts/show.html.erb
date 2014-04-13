@@ -31,15 +31,7 @@
 <div class="timeright">
 <%= time_ago_in_words(@post.created_at) %> ago
 </div>
-<div class="namemargin2">
-<div class="floatright">
-<% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebutton" %>
-<% else %>
-<%= link_to 'Post', new_user_registration_path, class: "favouritebutton" %>
-<% end %>
-</div>	
-</div>
+
 
 </div>
 </div>
