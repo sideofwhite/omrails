@@ -43,10 +43,7 @@
 </div>
 
 
-
-<div class="favouritebuttonmargin"></div>
-
-
+<div class="floatright">
 <div class="lightcontainer6">
 <% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
@@ -59,7 +56,7 @@
 <%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
 <% end %>
 </div>
-
+</div>
 
 </div>
 
