@@ -24,7 +24,7 @@ end
      @post = Post.friendly.find(params[:post_id])
      @questions = @post.questions
      @links = @post.links.order(:created_at).limit(5)
-     @comments = @post.comments
+     @comments = @post.comments.order('cached_votes_total desc')
   end
 
   # GET /comments/1
