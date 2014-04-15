@@ -63,13 +63,6 @@
 
 </div>
 
-<div class="favouritebuttonmargin"></div>
-
-
-<%= render :partial => "questions/form" %>
-
-<div class="favouritebuttonmargin"></div>
-
 
 <div class="eventmargin">
 <%= @comment.questions.count %> Questions
@@ -124,8 +117,15 @@
 
 <div class="favouritebuttonmargin"></div>
 
+
+<%= render :partial => "questions/form" %>
+
+<div class="favouritebuttonmargin"></div>
+
+<div class="favouritebuttonmargin"></div>
+
 <div class="eventmargin">	
-Unanswered Questions
+<strong>Unanswered Questions</strong>
 </div>
 
 <hr/>
