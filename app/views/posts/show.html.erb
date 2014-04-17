@@ -22,12 +22,14 @@
 <div class="span6 offset2">
 <div class="descriptionmargin">	
 <p>
-<strong><%= @post.country %></strong> - 
 <%= @post.description %>
 <p/>
 </div>
 </div>
 <div class="span2">
+<div class="timeright">
+<strong><%= @post.country %></strong> 	
+</div>
 <div class="timeright">
 <%= time_ago_in_words(@post.created_at) %> ago
 </div>
