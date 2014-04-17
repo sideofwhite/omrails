@@ -15,7 +15,7 @@
 
 
 <div class="eventtoptext">
-<%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
+<%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
 <hr/>
@@ -41,7 +41,6 @@
 <div class="toplight2">
 <%= time_ago_in_words(@comment.created_at) %> ago <br>
 </div>
-
 
 <div class="floatright">
 <div class="lightcontainer6">
