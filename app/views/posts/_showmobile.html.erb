@@ -15,9 +15,12 @@
 
 <div class="toplight2">
 <strong><%= @post.country %></strong> 
+</div>
+<div class="toplight2">
 <%= time_ago_in_words(@post.created_at) %> ago 
 </div>
 
+<br>
 
 <% if user_signed_in? %> 
 <%= link_to 'Post', new_post_comment_path(@post), class: "favouritebuttontb" %>

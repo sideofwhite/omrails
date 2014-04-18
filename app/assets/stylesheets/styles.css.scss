@@ -82,6 +82,10 @@ ul.wysihtml5-toolbar {
 
 }
 
+.headermargin {
+    margin: 20px;
+}
+
 
 
 .navbar .btn-navbar .icon-bar {
@@ -551,13 +555,13 @@ p {
 }
 
 .favouritebuttontb {
-     color: black !important;
+    color: black !important;
     border: 0px solid #eeeeee;
     background-color: #eeeeee; 
     padding: 5px;
     font-size: 16px;
-    margin-bottom: 10px;
-    margin-top: 15px;
+    margin-bottom: 10px !important;
+    margin-top: 15px !important;
 
   
 }
@@ -678,7 +682,7 @@ p {
 .titlecontainermobile {
     
     color: black;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 110%;
     margin-bottom: 20px;
     
@@ -3830,9 +3834,10 @@ margin-bottom: 20px;
 
 .toplight2 {
 
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
     margin-bottom: 20px;
+    margin-right: 5px;
 
 }
 
@@ -3886,6 +3891,20 @@ margin-bottom: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
     font-size: 22px;
+
+
+}
+
+
+.eventtoptextmobile {
+    
+    
+    border-left: 5px solid #a03600;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 20px;
 
 
 }
