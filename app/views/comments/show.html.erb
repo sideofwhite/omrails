@@ -30,6 +30,10 @@
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>	
 
+<div class="toplight2">
+<%= time_ago_in_words(@comment.created_at) %> ago <br>
+</div>
+
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
@@ -38,9 +42,6 @@
 <%= simple_format(@comment.body) %>
 </div>
 
-<div class="toplight2">
-<%= time_ago_in_words(@comment.created_at) %> ago <br>
-</div>
 
 <div class="floatright">
 <div class="lightcontainer6">

@@ -659,7 +659,7 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 28px;
+    font-size: 30px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
@@ -784,7 +784,15 @@ p {
    font-family: proxima-nova-condensed, sans-serif !important;
 }
 
-
+.titlecontainershowc {
+     color: black;
+    font-size: 36px;
+    line-height: 110%;
+    font-weight: bold;
+    border-left: 10px solid #a03600;
+    padding-left: 20px;
+   font-family: proxima-nova-condensed, sans-serif !important;
+}
 
 
 .titlecontainerb {
@@ -3879,6 +3887,7 @@ margin-bottom: 20px;
     padding-bottom: 3px;
     font-size: 24px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .eventtoptext2 {
