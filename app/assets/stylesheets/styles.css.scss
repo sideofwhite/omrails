@@ -786,7 +786,7 @@ p {
 
 .titlecontainershowc {
      color: black;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 110%;
     font-weight: bold;
     border-left: 10px solid #a03600;
@@ -3880,14 +3880,17 @@ margin-bottom: 20px;
     
     
     border-left: 8px solid #a03600;
-    margin-bottom: 30px;
     padding-left: 10px;
     padding-right: 0px;
     padding-top: 3px;
     padding-bottom: 3px;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+
+}
+
+.eventtoptextmargin {
+    padding-top: 20px;
 }
 
 .eventtoptext2 {
@@ -3914,7 +3917,7 @@ margin-bottom: 20px;
 .nameblueside2 {
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
 }
 
