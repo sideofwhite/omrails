@@ -551,12 +551,13 @@ p {
 }
 
 .favouritebuttontb {
-    display: inline-block;
-    color: #006aa0 !important;
-    font-weight: bold;
-    border: 1px solid #eeeeee;
-    padding: 7px;
+     color: black !important;
+    border: 0px solid #eeeeee;
+    background-color: #eeeeee; 
+    padding: 5px;
+    font-size: 16px;
     margin-bottom: 10px;
+    margin-top: 15px;
 
   
 }
@@ -680,7 +681,7 @@ p {
     font-size: 22px;
     line-height: 110%;
     margin-bottom: 20px;
-    font-weight: bold;
+    
    
 
 }
@@ -706,8 +707,8 @@ p {
     line-height: 110%;
     border-left: 5px solid #a03600;
     padding-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
    
     
     
@@ -3927,9 +3928,9 @@ margin-bottom: 20px;
 }
 
 .namebluesidemobile {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 40px;
     display: inline-block;
     text-align: center;
 
