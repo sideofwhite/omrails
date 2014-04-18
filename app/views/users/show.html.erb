@@ -1,11 +1,4 @@
-<div class="visible-phone hidden-tablet hidden-desktop">
-<%= render 'users/showmobile' %>
-</div>
-
-<div class="visible-tablet hidden-phone hidden-desktop">
-<%= render 'users/showtablet' %>
-</div>
-
+<div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="span7 centered">
 <div class="floatright">	
@@ -41,6 +34,7 @@
 
 </div>
 </div>
+
 
 
 
@@ -137,8 +131,13 @@ Upvoted Answers
 
 </div>
 
+<div class="visible-phone hidden-tablet hidden-desktop">
+<%= render 'users/showmobile' %>
+</div>
 
-
+<div class="visible-tablet hidden-phone hidden-desktop">
+<%= render 'users/showtablet' %>
+</div>
 
 
 
