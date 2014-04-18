@@ -141,6 +141,8 @@ body{
 
 }
 
+
+
 .opensans {
     font-family: Open Sans, sans-serif !important;
 }
@@ -156,6 +158,14 @@ p {
     font-style: normal;
 }
 
+@media screen and (max-width: 500px) 
+{ 
+
+p {
+    font-size: 17px !important
+}
+
+}
 
 
 
@@ -185,7 +195,7 @@ p {
     background-color: white;
     color:  black !important;
     vertical-align: middle;
-    
+    padding-top: 10px !important;
     
 }
 
@@ -194,19 +204,16 @@ p {
 
     
     font-size: 28px !important;
-    border:1px solid white;
-    bordder-top: 5px solid white;
     font-weight: bold !important;
     background-color: white;
     color:  black !important;
-    vertical-align: middle;
-    padding-top: 10px;
+    margin-top: 20px !important;
     
     
 }
 
 .userlink {
-    padding-top: 10px;
+    padding-top: 20px !important;
     font-weight: bold;
 }
 
@@ -659,7 +666,7 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 30px;
+    font-size: 28px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
@@ -669,7 +676,7 @@ p {
 .titlecontainermobile {
     
     color: black;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: bold;
@@ -3519,7 +3526,7 @@ background:#000;
 .commentquestion {
     font-weight: bold;
     padding-bottom: 5px;
-    font-size: 26px;
+    font-size: 24px;
     
     
 }
@@ -4089,6 +4096,11 @@ margin-right: auto;
     
     font-size: 16px;
     display: inline-block;
-    margin-bottom: 20px;
     
+    
+}
+
+.postinterviewmargin {
+    
+    margin-bottom: 50px;
 }
