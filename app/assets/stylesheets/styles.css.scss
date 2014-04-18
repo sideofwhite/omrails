@@ -1622,7 +1622,6 @@ border:1px solid white;
     font-family: source-sans-pro, sans-serif !important;
     width: 80% !important;
     font-size: 28px !important;
-    font-weight: bold;
     color: black;
     display: inline-block !important;
 
@@ -1637,7 +1636,6 @@ border:1px solid white;
     margin: 0px !important;
     font-family: source-sans-pro, sans-serif !important;
     width: 80% !important;
-    font-weight: bold;
     font-style: italic;
     color: #b7b7b7;
 
@@ -1653,7 +1651,7 @@ border:1px solid white;
     padding: 0px !important;
     margin: 0px !important;
     font-family: ff-meta-serif-web-pro, serif !important;
-    width: 75% !important;
+    width: 80% !important;
     font-size: 19px !important;
     color: black;
 
@@ -3912,6 +3910,7 @@ margin-bottom: 20px;
 .nameblueside {
     font-size: 20px;
     display: inline-block;
+    font-weight: bold;
 
 }
 
@@ -3919,6 +3918,7 @@ margin-bottom: 20px;
     font-size: 20px;
     margin-bottom: 20px;
     display: inline-block;
+    font-weight: bold;
 
 }
 
@@ -3996,7 +3996,14 @@ margin-right: auto;
     float: right;
     font-size: 16px;
     padding-bottom: 10px;
-    display: block;
+    
+}
+
+.timeright2 {
+    float: right;
+    font-size: 16px;
+    padding-bottom: 10px;
+    
 }
 
 .aboveimage2 {
