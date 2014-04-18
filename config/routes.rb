@@ -62,8 +62,8 @@ end
 
 
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-                   controllers: {omniauth_callbacks: "omniauth_callbacks"}
+devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, 
+controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registrations}
   
   
   root to: 'posts#index'

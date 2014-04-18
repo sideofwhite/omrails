@@ -39,7 +39,7 @@ def self.new_with_session(params, session)
 end
 
 def password_required?
-  super && provider.blank?
+  false
 end
 
 def email_required?

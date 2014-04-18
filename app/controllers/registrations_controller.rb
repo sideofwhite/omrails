@@ -8,19 +8,27 @@ class RegistrationsController < Devise::RegistrationsController
          end 
     end
 
- def update
-    @user = User.find(params[:id])
+   def update
+    # For Rails 4
+    account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
 
-   
-      # remove the virtual current_password attribute update_without_password
-      # doesn't know how to ignore it
-      
-      @user.update_without_password(devise_parameter_sanitizer.for(:account_update))
-      # Rails 3: @user.update_without_password(params[:user])
-    
+    # required for settings form to submit when password is left blank
+    if account_update_params[:password].blank?
+      account_update_params.delete("password")
+      account_update_params.delete("password_confirmation")
+    end
+
+    @user = User.find(current_user.id)
+    if @user.update_attributes(account_update_params)
+      set_flash_message :notice, :updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
       redirect_to user_path(current_user)
-   
+    else
+      render "edit"
+    end
   end
+
 
 
 
