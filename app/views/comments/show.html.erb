@@ -36,8 +36,9 @@
 <%= time_ago_in_words(@comment.created_at) %> ago <br>
 </div>
 
+
 <div class="titlecontainer">
-<%= @comment.title %>
+<p><%= @comment.title %></p>
 </div>
 
 <div class="descriptionpadding">	
@@ -85,7 +86,7 @@
 </div>
 
 <div class="commentquestion">
-<%= question.body %>
+<p><%= question.body %></p>
 </div>
 
 <div class="commentmargin10"></div>
