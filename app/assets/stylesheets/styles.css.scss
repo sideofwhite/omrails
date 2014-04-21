@@ -657,24 +657,17 @@ p {
 /* Required for jQuery Masonry */
 
 
-
-
-
-
-
-
-
-
-.imgcontainer {
-   width: 500px; /* look i'm now showing 5 images per line */
-   float: left;
+.commentquestion {
+    font-size: 24px;
    
-  
+    
 }
 
-.commentcontainer {
-   float: left;
+.commentquestionmargin {
+    margin: 40px;
 }
+
+
 
 .titlecontainer {
     
@@ -682,7 +675,7 @@ p {
     font-size: 26px;
     line-height: 110%;
     margin-bottom: 10px;
-    font-weight: 600;
+    
 }
 
 .titlecontainermobile {
@@ -704,7 +697,7 @@ p {
     line-height: 110%;
     border-left: 10px solid #a03600;
     padding-left: 20px;
-    font-weight: 600;
+    
     
 }
 
@@ -793,7 +786,7 @@ p {
     line-height: 110%;
     border-left: 10px solid #a03600;
     padding-left: 20px;
-    font-weight: 600;
+   
 }
 
 .titlecontainershowc {
@@ -802,7 +795,7 @@ p {
     line-height: 110%;
     border-left: 10px solid #a03600;
     padding-left: 20px;
-    font-weight: 600;
+   
 }
 
 
@@ -3536,15 +3529,6 @@ background:#000;
    
 }
 
-.commentquestion {
-    font-size: 24px;
-    font-weight: 600;
-    
-}
-
-.commentquestionmargin {
-    margin: 40px;
-}
 
 .commentquestionbox {
 
