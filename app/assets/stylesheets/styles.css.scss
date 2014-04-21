@@ -675,8 +675,8 @@ p {
     font-size: 26px;
     line-height: 110%;
     margin-bottom: 20px;
-    margin-top: 10px;
-    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
 }
 
 .titlecontainermobile {
@@ -821,7 +821,9 @@ p {
 
 
 .underneath {
-    text-align: center;
+
+    font-family: "jaf-bernino-sans", sans-serif !important;
+    font-size: 22px;
 
 }
 
