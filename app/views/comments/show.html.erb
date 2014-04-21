@@ -24,14 +24,18 @@
 
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
-</div>
-
-<div class="attempt">
-
 
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
+
 </div>	
+
+</div>
+
+
+<div class="attempt">
+<div class="circleborderright">
+
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -55,6 +59,7 @@
 <%= link_to 'Edit', edit_post_comment_path(@post, @comment), class: "lightcontainer6" %>
 <%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
 <% end %>
+</div>
 </div>
 </div>
 </div>
