@@ -825,7 +825,8 @@ p {
     font-family: "jaf-bernino-sans", sans-serif !important;
     font-size: 18px;
     letter-spacing: -0.02em;
-    line-height: 1.4
+    line-height: 1.4;
+    overflow: hidden;
 }
 
 
@@ -3165,10 +3166,9 @@ margin: 0 auto;
 width: 140px;
 height: 140px;
 border-radius: 70px;
-margin-bottom: 20px;
 float: left;
 margin-right: 40px;
-vertical-align: middle;
+
 
 }
 
@@ -3881,7 +3881,7 @@ margin-bottom: 20px;
 }
 
 .attempt2 {
-    margin-left: 60px;
+    overflow: hidden;
 }
 
 .padding10 {

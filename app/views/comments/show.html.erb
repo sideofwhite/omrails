@@ -12,7 +12,6 @@
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
-<div class="eventtoptextmargin"></div>
 
 <hr/>
 
@@ -20,6 +19,8 @@
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
+
+<div class="attempt">
 
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
@@ -29,7 +30,7 @@
 <%= @comment.questions.count %> Questions
 </div>	
 
-<div class="row"></div>
+<div class="eventtoptextmargin"></div>
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -54,7 +55,7 @@
 <% end %>
 </div>
 
-
+</div>
 
 
 
