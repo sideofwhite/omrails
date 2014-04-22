@@ -562,11 +562,12 @@ p {
 }
 
 .favouritebuttonleft2 {
-    color: black !important;
+    color: white !important;
     font-size: 16px;
     display: inline-block;
-    font-weight: bold;
-    font-type: italic;
+    background-color: #a03600;
+    padding: 5px;
+    margin-top: 40px;
 }
 
 .favouritebuttontb {
@@ -3910,7 +3911,7 @@ margin-bottom: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
     font-size: 17px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   
 
 }
