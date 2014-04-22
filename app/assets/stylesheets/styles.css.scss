@@ -561,6 +561,16 @@ p {
     margin-top: 15px;
 }
 
+.favouritebuttonleft2 {
+    color: black !important;
+    border: 0px solid #eeeeee;
+    background-color: #eeeeee; 
+    padding: 7px;
+    font-size: 16px;
+    display: inline-block;
+    font-weight: bold;
+}
+
 .favouritebuttontb {
     color: black !important;
     border: 0px solid #eeeeee;
@@ -673,10 +683,11 @@ p {
     
     color: black;
     font-size: 24px;
-    line-height: 110%;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 300;
     margin-top: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
 }
 
 .titlecontainermobile {
@@ -3166,8 +3177,8 @@ margin: 0 auto;
 width: 140px;
 height: 140px;
 border-radius: 70px;
-float: left;
-margin-right: 40px;
+float: right;
+margin-left: 40px;
 
 
 }
@@ -3950,7 +3961,6 @@ margin-bottom: 20px;
     
      font-weight: 600;
      font-size: 28px;
-     padding-top: 20px;
      
 }
 

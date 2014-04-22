@@ -26,15 +26,15 @@
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>	
 
-<div class="nameblueside3">
-<%= @comment.questions.count %> Questions
-</div>	
-
-<div class="eventtoptextmargin"></div>
-
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
+
+<div class="favouritebuttonleft2">
+<%= @comment.questions.count %> Questions
+</div>	
+
+<hr/>
 
 
 <div class="underneath">	
