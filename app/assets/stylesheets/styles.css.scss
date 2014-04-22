@@ -672,10 +672,11 @@ p {
 .titlecontainer {
     
     color: black;
-    font-size: 26px;
+    font-size: 24px;
     line-height: 110%;
     margin-bottom: 20px;
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .titlecontainermobile {
@@ -3164,23 +3165,15 @@ margin: 0 auto;
 width: 140px;
 height: 140px;
 border-radius: 70px;
-display: block;
-margin: 0 auto;
-
+margin-bottom: 20px;
+float: left;
+margin-right: 40px;
+vertical-align: middle;
 
 }
 
 
 
-
-
-.circleborderright {
-    border-right: 1px solid #eeeeee;
-    padding-right: 25px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-   
-}
 
 .circlebmargin {
     margin: 20px;
@@ -3955,11 +3948,16 @@ margin-bottom: 20px;
 
 .nameblueside2 {
     
-    font-weight: 600;
-     font-size: 18px;
-     padding-top: 20px ;
-     word-break: break-word;
-     text-align: center;
+     font-weight: 600;
+     font-size: 28px;
+     padding-top: 20px;
+     
+}
+
+.nameblueside3 {
+    font-weight: 300;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .namebluesidemargin {
