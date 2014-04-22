@@ -3144,7 +3144,6 @@ and (max-device-width : 1024px)
 
 width: 100px;
 height: 100px;
-border-radius: 50px;
 float: left;
 margin-right: 20px;
 
@@ -3154,7 +3153,6 @@ margin-right: 20px;
 
 width: 100px;
 height: 100px;
-border-radius: 50px;
 display: block;
 margin: 0 auto;
 
@@ -3164,7 +3162,6 @@ margin: 0 auto;
 .circleb img {
 width: 140px;
 height: 140px;
-border-radius: 70px;
 margin-bottom: 20px;
 float: left;
 margin-right: 40px;
@@ -3184,7 +3181,6 @@ vertical-align: middle;
 .circle2 img {
 width: 100px;
 height: 100px;
-border-radius:0px;
 font-size:20px;
 color:#fff;
 line-height:100px;
@@ -3215,7 +3211,7 @@ background:#000;
     width: 50px;
     height: 50px;
     display: inline-block;
-    border-radius: 25px;
+    
 }
 
 .circlecomment {
@@ -3228,7 +3224,7 @@ background:#000;
     width: 50px;
     height: 50px;
     display: inline-block;
-    border-radius: 25px;
+   
 }
 
 .circlecommentmobile2 {
@@ -3242,7 +3238,7 @@ background:#000;
     height: 90px;
     display: block;
     margin: 0 auto;
-    border-radius: 45px;
+  
     vertical-align: text-bottom !important;
 }
 
@@ -3252,14 +3248,14 @@ background:#000;
     height: 50px;
     margin-left: 60px;
     display: inline-block;
-    border-radius: 25px;
+
 }
 
 .circlecomment2mobile img {
     width: 50px;
     height: 50px;
     display: inline-block;
-    border-radius: 25px;
+   
 }
 
 .circlecomment2mobile {
@@ -3296,7 +3292,6 @@ background:#000;
 .circlemobile img {
 width: 80px;
 height: 60px;
-border-radius:0px;
 font-size:20px;
 color:#fff;
 line-height:100px;
