@@ -6,13 +6,7 @@
 </div>
 
 <div class="visible-desktop hidden-phone hidden-tablet">
-
-
-<div class="container">
-<div class="row"> 
-
 <div class="span7 centered">
-
 
 <div class="eventtoptext">
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
@@ -22,18 +16,10 @@
 
 <hr/>
 
-<div class="circleb">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-
-</div>	
-
-</div>
+<div class="sixtypercent">
 
 
-<div class="attempt">
 <div class="circleborderright">
 
 
@@ -61,8 +47,29 @@
 <% end %>
 </div>
 </div>
+
 </div>
 </div>
+
+<div class="fourtypercent">
+
+<div class="circleb">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+
+</div>
+
+<div class="nameblueside2">
+<%= link_to @comment.user.name, user_path(@comment.user) %>
+
+</div>	
+
+</div>
+
+</div>
+
+<div class="row"></div>
+
+<div class="span7 centered">
 
 <div class="favouritebuttonmargin"></div>
 

@@ -675,7 +675,6 @@ p {
     font-size: 26px;
     line-height: 110%;
     margin-bottom: 20px;
-    margin-top: 20px;
     font-weight: 600;
 }
 
@@ -3165,15 +3164,13 @@ margin: 0 auto;
 width: 140px;
 height: 140px;
 border-radius: 70px;
-float: right;
+display: block;
+margin: 0 auto;
 margin-left: 10px;
 
 }
 
-.circleb {
-    float: right;
 
-}
 
 
 
@@ -3960,10 +3957,10 @@ margin-bottom: 20px;
 .nameblueside2 {
     
     font-weight: 600;
-    text-align: center;
-    margin-left: 20px;
-    padding: 20px !important;
+    
+    padding-top: 20px !important;
      word-break: break-word;
+     text-align: center;
 }
 
 .namebluesidemargin {
@@ -4155,4 +4152,16 @@ margin-right: auto;
     margin-bottom: 40px;
     font-size: 17px;
     font-weight: 600;
+}
+
+
+.sixtypercent {
+    width: 75%;
+    display: inline-block;
+    float: left;
+}
+
+.fourtypercent {
+    width: 25%;
+    display: inline-block;
 }
