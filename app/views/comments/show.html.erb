@@ -8,12 +8,6 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
-<div class="eventtoptext">
-<%= link_to (@comment.post.title), post_path(@comment.post) %>
-</div>
-
-
-<hr/>
 
 
 <div class="circleb">
@@ -21,6 +15,10 @@
 </div>
 
 <div class="attempt">
+
+<div class="eventtoptext">
+<%= link_to (@comment.post.title), post_path(@comment.post) %>
+</div>	
 
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
