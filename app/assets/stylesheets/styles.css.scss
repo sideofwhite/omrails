@@ -151,7 +151,7 @@ p {
     
     
     font-weight: normal;
-    font-size: 19px !important;
+    font-size: 18px !important;
     line-height: 1.4; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -834,11 +834,12 @@ p {
 .underneath {
 
     font-family: "jaf-bernino-sans", sans-serif !important;
-    font-size: 19px;
+    font-size: 18px;
     letter-spacing: -0.02em;
     line-height: 1.4;
     overflow: hidden;
     color: #333332;
+    font-weight: 300;
 }
 
 
@@ -4178,4 +4179,9 @@ margin-right: auto;
 .fourtypercent {
     width: 30%;
     display: inline-block;
+}
+
+.biobackground {
+    background-color: #eeeeee;
+    padding: 20px;
 }
