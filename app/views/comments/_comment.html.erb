@@ -46,7 +46,9 @@ There are no posts yet.
 
 <%= simple_format(comment.body)[0,300] %>
 </p>
-<%= link_to "Read more...", post_comment_path(@post, comment), class: "favouritebuttonleft3"  %>
+<div class="favouritebuttonleft3">
+<%= link_to "Read more...", post_comment_path(@post, comment) %>
+</div>
 </div>
 <div class="namemargin">
 </div>
