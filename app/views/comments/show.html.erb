@@ -29,8 +29,16 @@
 <%= @comment.title %>
 </div>
 
+<div class="interviewdate">
+<%= time_ago_in_words(@comment.created_at) %>
+</div>
+
+<hr/>
+
 <div class="underneath">	
+<p>
 <%= @comment.body %>
+</p>
 </div>
 
 </div>
