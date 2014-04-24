@@ -1472,11 +1472,14 @@ padding: 0px;
 }
 
 hr5 {
+
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #EEEEEE;;
-padding-bottom: 10px;
+border-top: 1px solid #f2f2f0;
+margin-top: 30px; 
+margin-bottom: 30px;
+padding: 0px; 
     
 }
 
@@ -1485,8 +1488,8 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #f2f2f0;
-margin-top: 50px; 
-margin-bottom: 50px;
+margin-top: 60px; 
+margin-bottom: 60px;
 padding: 0px; 
 
 }
@@ -4179,7 +4182,7 @@ margin-right: auto;
 }
 
 .biobackground {
-    border-left: 1px solid #dededc;
+    border-left: 1px solid #f2f2f0;
     padding-left: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
