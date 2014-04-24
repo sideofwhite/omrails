@@ -29,18 +29,21 @@
 </div>
 </div>
 <div class="span2">
+<% if @post.country.present? %>
 <div class="boldletters">
 Location
 </div>
-<p>
+<div class="boldletters2">
 <%= @post.country %>
-</p>
+</div>
+<% end %>
+
 <div class="boldletters">
 Happened
 </div>
-<p>
+<div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
-</p>
+</div>
 <% if user_signed_in? %> 
 <%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebuttonleft" %>
 <% else %>
