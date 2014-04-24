@@ -570,6 +570,16 @@ p {
     margin-top: 20px;
 }
 
+.favouritebuttonleft3 {
+    color: black !important;
+    border: 0px solid #eeeeee;
+    background-color: #eeeeee; 
+    padding: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 .favouritebuttontb {
     color: black !important;
     border: 0px solid #eeeeee;
@@ -3962,9 +3972,10 @@ margin-bottom: 20px;
 
 
 .nameblueside {
-    font-size: 18px;
+
     display: inline-block;
     font-weight: 600;
+    font-size: 24px;
     color: #333332 !important;
 }
 
@@ -4214,6 +4225,6 @@ margin-right: auto;
 
 .boldletters2 {
     
-    font-size: 16px;
+    font-size: 16px !important;
     display: inline-block;
 }
