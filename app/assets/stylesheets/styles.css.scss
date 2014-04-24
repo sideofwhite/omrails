@@ -563,12 +563,11 @@ p {
 }
 
 .favouritebuttonleft2 {
-    color: white !important;
     font-size: 16px;
+    font-weight: bold;
     display: inline-block;
-    background-color: #a03600;
-    padding: 7px !important;
-    margin-top: 40px;
+    color: #a03600 !important;
+    margin-top: 20px;
 }
 
 .favouritebuttontb {
@@ -586,7 +585,7 @@ p {
 
 
 .favouritebuttonmargin {
-    margin-top: 50px;
+    margin: 60px;
 }
 
 
@@ -1477,8 +1476,8 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #f2f2f0;
-margin-top: 30px; 
-margin-bottom: 30px;
+margin-top: 20px; 
+margin-bottom: 20px;
 padding: 0px; 
     
 }
@@ -1498,9 +1497,10 @@ hr7 {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #EEEEEE;;
-margin-top: 25px; 
-margin-bottom: 25px;
+border-top: 1px solid #dededc;
+margin-top: 60px; 
+margin-bottom: 60px;
+padding: 0px; 
  
 
 }
