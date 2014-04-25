@@ -22,10 +22,7 @@
 
 <div class="center">
 <% if @user.twitter.present? or @user.place.present? %>
-<strong><%= @user.twitter %></strong>
-<div class="verticalalignmiddle">
-<%= image_tag "http://i.imgur.com/cks6uPN.png" %>
-</div>
+<%= @user.twitter %>
 <strong><%= @user.place %></strong>
 <% end %>
 <div class="mobilepadding5"></div>
@@ -100,32 +97,25 @@ Upvoted Answers
 <%= image_tag question.user.image %>
 </div>
 
-<div class="attempt">
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
 <div class="commentquestion">
 <%= question.body %>
 </div>
-</div>
+
 
 <div class="commentmargin10"></div>
-<div class="circlecomment2">
-<%= image_tag question.comment.user.image %>
-</div>
 
-<div class="commentquestionanswer">
-<div class="attempt">	
 <% if question.answer.present? %>
-<div class="lightname">
-<%= question.comment.user.name %>
-</div>
 <p>
 <%= question.answer.body[0, 200] %>
 <%= link_to "(read more...)", question_answer_path(question, question.answer), class: "blue"  %>
-</p>
-</div>
-<% end %>
 <hr6/>
-</div>
- 
+</p>
+<% end %>
+
 
 <% end %>
 
