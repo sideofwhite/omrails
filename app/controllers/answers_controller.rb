@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-   @post = Post.find params[:post_id]
+   @post = Post.friendly.find params[:post_id]
    @comments = @post.comments
    @links = @post.links.order(:created_at).limit(5)
    @questions = @post.questions.order("cached_votes_total desc")
@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-  @question = Question.find(params[:question_id]) 
+  @question = Question.friendly.find(params[:question_id]) 
   end
 
   # GET /answers/1/edit
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-  @question = Question.find(params[:question_id])
+  @question = Question.friendly.find(params[:question_id])
   @question.answer = @answer
     
     
@@ -70,7 +70,7 @@ class AnswersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
-      @answer = Answer.find(params[:id])
+      @answer = Answer.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
