@@ -1,19 +1,27 @@
+<div class="completeyourprofile">
+Complete your profile
+</div>
+
+<div class="underneathcompleteyourprofile">
+<%= link_to ("...or skip for now"), root_path %>
+</div>
+
 <div class="span2 centered">   
 
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification %>
 
-<div class="userimage3">
+<div class="userimagecomplete">
 <div class="addimage">
 <%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
 </div>
 <img id="blah" />
 </div>
-<div class="usernameback">  
+<div class="usernametext2">  
 <%= current_user.name %>
 </div>  
-<hr/>
+<div class="paddingtop"></div>
 <%= f.input :twitter, as: :text, input_html: { rows: "1", :class => "hellobio" }, label: false,placeholder: "Short Bio" %>
 <div class="mobilepadding5"></div>
 <%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
@@ -25,19 +33,16 @@
 
 </div>
 
-<div class="span10 centered">
+<div class="span7 centered">
 <hr/>
-<div class="center">
-<div class="paddingtop">
-<div class="titlecontainer">
-Complete your profile
 </div>
-</div>
+
+<div class="span2 centered">
 <div class="center">  
-<%= f.submit "Done", class: "fullorange"%>
+<%= f.submit "Done", class: "buttonred"%>
 </div>
 </div>
-</div>
+
 
 <% end %>
 <script>
