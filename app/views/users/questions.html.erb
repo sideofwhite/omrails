@@ -17,7 +17,23 @@ Your Questions
 <%= question.body %>
 </div>
 
+<% if question.answer.present? %>
+
+<div class="commentmargin10"></div>
+
+<div class="commentquestionanswer">
+<div class="attempt">	
+<p>
+<%= question.answer.body %>
+</p>
+</div>
+</div>
+
+<% end %>
+
+<div>
 <hr6/>
+</div>	
 
 <% end %>
 </div>
