@@ -1,58 +1,13 @@
 <div class="span7 centered">
-<div class="floatright">	
-<% if current_user == @user %>
-<%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logoutbutton" %>
-<% end %>
-</div>
-</div>
-
-
-<div class="span4 centered">		
-<div class="userimage">
-<%= image_tag @user.image %>
-</div>
-<div class="usernametext2">	
-<%= @user.name %>
-</div>
-
-<div class="paddingtop"></div>
-
-<div class="center">
-<% if @user.twitter.present? or @user.place.present? %>
-<strong><%= @user.twitter %></strong>
-<div class="verticalalignmiddle">
-<%= image_tag "http://i.imgur.com/cks6uPN.png" %>
-</div>
-<strong><%= @user.place %></strong>
-<% end %>
-<div class="mobilepadding5"></div>
-
-
-
-</div>
-</div>
-
-
-
-
-
-<div class="span7 centered">
-<%= link_to "Upvoted", userquestions_path %>
+Your Questions
 <hr/>
 
 <div class="mobilepadding20"></div>
 <% @question.each do |question| %>
 
-<div class="eventtoptext">
-<%= link_to (@comment.post.title), post_path(question.comment.post) %>
-</div>
-
-
 <div class="circlecomment">
 <%= image_tag question.user.image %>
 </div>
-
 
 <div class="lightname">
 <%= question.user.name %>
@@ -62,21 +17,7 @@
 <%= question.body %>
 </div>
 
-<div class="commentquestionanswer">
-<div class="attempt">	
-
-<% if question.answer.present? %>
-<div class="lightnamepreview">
-<%= question.user.name %>
-</div>
-<p>
-<%= question.answer.body[0, 300] %>
-<%= link_to "(read more...)", question_answer_path(question, question.answer), class: "blue"  %>
-</p>
-<% end %>
 <hr6/>
-</div>
- </div>
 
 <% end %>
 </div>

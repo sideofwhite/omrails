@@ -18,10 +18,10 @@ Sign up with email
 
   <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Name" %>
   <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
-  <% if f.object.password_required? %>
+
   <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
   <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: false, placeholder: "Password Confirmation"%>
-<% end %>
+
   <div class="paddingbottom">
 </div>
 <%= f.submit "Sign Up", class: "favouritebuttonnoleft" %>

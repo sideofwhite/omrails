@@ -13,8 +13,7 @@ Login with email
 </div>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Name" %>
+  
   <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
   <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
   <%= f.input :remember_me, as: :boolean, input_html: { :class => "pull-left" }, label: "Remember me" %>

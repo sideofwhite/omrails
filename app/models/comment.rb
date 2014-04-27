@@ -7,7 +7,7 @@ has_attached_file :image, :styles => { :medium => "400x300>" }
 
 validates :user_id, presence: true
 acts_as_votable
-belongs_to :post
+belongs_to :post, :counter_cache => true
 belongs_to :user
 has_many :questions
 

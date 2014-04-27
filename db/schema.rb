@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421001259) do
+ActiveRecord::Schema.define(version: 20140425215913) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140421001259) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "distance"
+    t.integer  "comments_count",     default: 0
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug"

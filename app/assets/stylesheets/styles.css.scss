@@ -1774,15 +1774,21 @@ border:1px solid white;
 
 .alert-info {
     border: 0px solid white !important;
-    color: black !important;
-    background-color: #EEEEEE !important;
+    color: white !important;
+    background-color: #333332 !important;
     text-align: center;
     position: fixed;
     top: 0;
+    font-size: 16px !important;
+    display: inline-block;
     
 }
 
 .button.close {
+
+position: fixed;
+top: 0;
+display: inline-block;
    
 }
 

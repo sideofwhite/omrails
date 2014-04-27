@@ -21,9 +21,17 @@ end
 if params[:tag]
 @posts = Post.tagged_with(params[:tag]).page(params[:page]).per_page(25)
 else
-@posts = Post.order('cached_votes_total desc').page(params[:page]).per_page(25).limit(25).offset(1)
+@posts = Post.select('posts.*, count(comments.id) as count_comments')
+             .joins('left join comments on comments.post_id = posts.id')
+             .where('comments.created_at >= ?', Time.zone.now.beginning_of_day)
+             .group('posts.id')
+             .order('count_comments desc').page(params[:page]).per_page(25).limit(25).offset(1)
 @postsmobile = Post.order('cached_votes_total desc')
-@toppost = Post.order('cached_votes_total desc').limit(1)
+@toppost = Post.select('posts.*, count(comments.id) as count_comments')
+             .joins('left join comments on comments.post_id = posts.id')
+             .where('comments.created_at >= ?', Time.zone.now.beginning_of_day)
+             .group('posts.id')
+             .order('count_comments desc').limit(1)
 end
 
 respond_to do |format|

@@ -17,6 +17,8 @@ has_attached_file :image, :styles => { :thumb => "100x200>" }
   has_many :questions
   has_many :answers   
   acts_as_voter   
+
+  validates_uniqueness_of :name
   
  def self.from_omniauth(auth)
   where(auth.slice(:provider, :uid)).first_or_create do |user|
