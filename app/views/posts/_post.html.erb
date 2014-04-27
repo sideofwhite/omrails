@@ -24,7 +24,7 @@
 <% if post.comments.count > 2 %>
 
 <div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> others are answering questions
+and <%= pluralize(post.comments.count - 2, 'other') %> are answering questions
 </div>
 <% elsif post.comments.count == 2 %>
 <div class="postinterviewtext"%>

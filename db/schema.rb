@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425215913) do
+ActiveRecord::Schema.define(version: 20140427023254) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20140425215913) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["slug"], name: "index_answers_on_slug"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "comments", force: true do |t|
@@ -109,9 +111,11 @@ ActiveRecord::Schema.define(version: 20140425215913) do
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "caption"
+    t.string   "slug"
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"
+  add_index "questions", ["slug"], name: "index_questions_on_slug"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "taggings", force: true do |t|

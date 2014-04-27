@@ -225,18 +225,16 @@ p {
 }
 
 .headtext {
-    color:  black !important;
-    border-right: 1px solid #EEEEEE;
-    padding-right: 5px;
-    font-weight: bold;
-    font-size: 16px !important;
+    color:  #333332 !important;
+    margin-top: 5px !important;
+    padding-right: 3px !important;
+    font-size: 15px !important;
 }
 
 .headtext2 {
-    color:  black !important;
-    font-weight: bold;
-    font-size: 16px !important;
-
+    color:  #333332 !important;
+    font-size: 15px !important;
+    margin-top: 5px !important;
 }
 
  .navbar.transparent.navbar-inverse .navbar-inner {
@@ -519,6 +517,20 @@ p {
     font-weight: bold;
     
 
+}
+
+.buttonred {
+    width: 100% !important;
+    background-color: #a03600;
+    color: white;
+    padding: 12px;
+    margin-top: 18px;
+    border: 0px !important;
+    font-size: 16px !important;
+}
+
+.buttonred:hover {
+    opacity: 0.7;
 }
 
 
@@ -1697,22 +1709,23 @@ border:1px solid white;
 .hello4 {
     
     
-  
     resize: none;
-    border-bottom: none !important;
-    border-top: none !important;
-    border-right: none !important;
-    border-left: none !important;
+    border: 1px solid #eeeeee !important;
+    border-shadow: 0px !important;
     margin-left: none !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-    padding-right: 8px !important;
-    margin-bottom: 2px !important;
-    font-family: Open Sans, sans-serif !important;
-    width: 100% !important;
-    font-size: 17px !important;
-    color: black !important;
+    margin-right: 0px !important;
+    padding-top: 9px !important;
+    padding-left: 7px !important;
+    padding-bottom: 9px !important;
+    padding-right: 0px !important;
+    margin-bottom: 7px !important;
+    margin-left: 0px !important;
+    font-family: jaf-bernino-sans, sans-serif !important;
+    width: 97% !important;
+    font-size: 16px !important;
+    color: #333332 !important;
     box-shadow: none !important;
+    text-shadow: 0px !important;
 
 
 }
@@ -1772,35 +1785,22 @@ border:1px solid white;
     text-align: center;
 }
 
-.alert-info {
-    border: 0px solid white !important;
-    color: white !important;
-    background-color: #333332 !important;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    font-size: 16px !important;
-    display: inline-block;
-    
+
+
+.alert-danger {
+  top: 0px;
+  position: fixed;
+  background-color: #eeeeee !important;
+  color: #333332 !important;
+  font-size: 16px !important;
+  border: 0px solid white !important;
+  text-shadow: 0px !important;
+  
 }
 
-.button.close {
-
-position: fixed;
-top: 0;
-display: inline-block;
-   
-}
-
-
-
-.wysihtml5 {
-    border: 0px solid white !important;
-    resize: none;
-    padding: 0px !important;
-    margin: 0px !important;
-    font-family: 'Roboto', sans-serif;
-    width: 100% !important;
+.close {
+    color: #333332 !important;
+    opacity: 0.8 !important;
 }
 
 
@@ -1810,10 +1810,6 @@ display: inline-block;
 }
 
 
-
-.twitter-share-button{
-    color: blue;
-}
 
 .paddingleft {
    padding-right: 20%; 
@@ -3674,12 +3670,12 @@ margin-left: 65px;
 .twitterlogin {
     border: 1px solid #bebebe;
     background-color: #bebebe;
-    padding: 20px;
-    font-size: 26px;
+    padding: 15px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     line-height: 110%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .twitterblue {
@@ -4236,4 +4232,21 @@ margin-right: auto;
     
     font-size: 16px !important;
     display: inline-block;
+}
+
+.signuptext {
+    font-size: 22px;
+    margin-bottom: 30px;
+    border-left: 1px solid #333332;
+    border-top: 1px solid #333332;
+    border-right: 1px solid #333332;
+    padding: 10px;
+    display: inline-block;
+    color: #333332 !important;
+
+}
+
+.ortext {
+    font-size: 16px;
+    margin-bottom: 20px;
 }

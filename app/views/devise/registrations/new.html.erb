@@ -1,17 +1,22 @@
-<div class="span4 centered">
+
+
+<div class="span3 centered">
+ 
+
  <div class="twitterlogin">
  <div class="twitterbird">	
  <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
 </div>
  <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
 </div>
-<div class="loginborder">
 
 <div class="center">
-<div class="logotext">
-Sign up with email
+<div class="toplight">
+or
 </div>
 </div>
+
+
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -24,13 +29,12 @@ Sign up with email
 
   <div class="paddingbottom">
 </div>
-<%= f.submit "Sign Up", class: "favouritebuttonnoleft" %>
+<%= f.submit "Sign Up", class: "buttonred" %>
 
 <div class="paddingtop">
 <div class="lightcontainer">
 By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
 </div>	
-</div>
 </div>
 
 <% end %>
@@ -39,3 +43,4 @@ By clicking "Sign Up" you indicate that you have read <br> and agree to the Term
 Already have an account? <%= link_to ("Login"), new_user_session_path, class: "blue" %>
 </div>
 </div>
+

@@ -1,9 +1,9 @@
 class Question < ActiveRecord::Base
+extend FriendlyId
+friendly_id :body, use: :slugged
+
 has_attached_file :image, styles: { :small => "400x250>", :medium => "320x240>", :large => "740x340>" }
 
-def to_param
-	"#{id} #{body}".parameterize
-end
 
 validates :body, presence: true
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },

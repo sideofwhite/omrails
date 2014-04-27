@@ -29,7 +29,7 @@
 <%= link_to comment.user.name, user_path(comment.user) %>
 </div>	
 <div class="postinterviewtext2">
- asked <%= comment.questions.count %> questions
+asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
 <div class="namebluesidemargin">
 </div>

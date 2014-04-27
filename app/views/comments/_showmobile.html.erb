@@ -62,7 +62,7 @@
 <div class="favouritebuttonmargin"></div>
 
 <div class="eventmargin">
-<%= @comment.questions.count %> Questions
+<%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
 <hr/>

@@ -61,9 +61,7 @@
 
 </div>
 
-<div class="favouritebuttonleft2">
-<%= @comment.questions.count %> Questions
-</div>	
+<%= pluralize(@comment.questions.count, 'Question') %>
 
 <hr/>
 
