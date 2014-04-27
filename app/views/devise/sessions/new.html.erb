@@ -1,4 +1,7 @@
- <div class="span4 centered">
+ <div class="visible-desktop hidden-phone hidden-tablet">
+
+ <div class="px300">
+
   <div class="twitterlogin"> 
  <div class="twitterbird">	
  <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
@@ -6,21 +9,24 @@
  <%= link_to "Login with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
 </div>
 
-<div class="loginborder">
-
-<div class="logotext">
-Login with email
+<div class="center">
+<div class="toplight">
+or
 </div>
+</div>
+
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-  
+
   <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
   <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
-  <%= f.input :remember_me, as: :boolean, input_html: { :class => "pull-left" }, label: "Remember me" %>
-
-  <div class="paddingbottom">
-</div>
-<%= f.submit "Login", class: "favouritebuttonnoleft" %>
+  <div class="checkboxmargin"></div>
+  <%= f.input :remember_me, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+  <div class="buttoncheckbox2">
+    Remember Me
+  </div>
+ 
+<%= f.submit "Login", class: "buttonred" %>
 
   <div class="return">
     <%= link_to "Forgot your password?", new_user_password_path(resource_name) %>
@@ -31,7 +37,7 @@ Login with email
 By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
 </div>	
 </div>
-</div>
+
 
 <% end %>
 
@@ -40,4 +46,56 @@ Need an account? <%= link_to ("Sign Up"), new_user_registration_path, class: "bl
 </div>
 </div>
 
+</div>
+
+<div class="hidden-desktop visible-phone visible-tablet">
+
+ <div class="span5 centered">
+
+  <div class="twitterlogin"> 
+ <div class="twitterbird">  
+ <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
+</div>  
+ <%= link_to "Login with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
+</div>
+
+<div class="center">
+<div class="toplight">
+or
+</div>
+</div>
+
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
+  <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
+  <div class="checkboxmargin"></div>
+  <%= f.input :remember_me, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+  <div class="buttoncheckbox2">
+    Remember Me
+  </div>
+ 
+<%= f.submit "Login", class: "buttonred" %>
+
+  <div class="return">
+    <%= link_to "Forgot your password?", new_user_password_path(resource_name) %>
+   </div>
+
+<div class="paddingtop">
+<div class="lightcontainer">
+By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
+</div>  
+</div>
+
+
+<% end %>
+
+<div class="logotext2">
+Need an account? <%= link_to ("Sign Up"), new_user_registration_path, class: "blue" %>
+</div>
+</div>
+
+
+</div>
 

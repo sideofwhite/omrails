@@ -12,7 +12,7 @@ $placeholderText: #bebebe;
 @import "bootstrap-responsive";
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-    border-color: black !important;
+    border-color:  #bebebe !important;
     box-shadow: none !important;
     
 
@@ -28,6 +28,27 @@ body .modal {
 }
 
 
+
+
+.buttoncheckbox {
+   font-size: 14px !important;
+   display: inline-block !important;
+   float: left !important;
+   margin-bottom: 5px !important;
+}
+
+.buttoncheckbox2 {
+   font-size: 14px !important;
+   display: inline-block;
+   float: left;
+   margin-left: 5px;
+   margin-top: 3px;
+   color: #bebebe;
+}
+
+.checkboxmargin {
+    margin: 10px;
+}
 
 .btn-primary {
     display: inline-block;
@@ -244,6 +265,19 @@ p {
   -webkit-box-shadow: none !important;
   border-top : 3px solid #a03600;
    
+}
+
+
+.error {
+    font-size: 12px !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+    color: #a03600 !important;
+    padding-left: 7px !important;
+}
+
+.error_notification {
+    font-size: 12px !important;
 }
 
 .navbar navbar-fixed-top {
@@ -1718,7 +1752,8 @@ border:1px solid white;
     padding-left: 7px !important;
     padding-bottom: 9px !important;
     padding-right: 0px !important;
-    margin-bottom: 7px !important;
+    margin-top: 7px !important;
+    margin-bottom: 0px !important;
     margin-left: 0px !important;
     font-family: jaf-bernino-sans, sans-serif !important;
     width: 97% !important;
@@ -4249,4 +4284,11 @@ margin-right: auto;
 .ortext {
     font-size: 16px;
     margin-bottom: 20px;
+}
+
+
+.px300 {
+    width: 290px;
+    display: block;
+    margin: 0 auto;
 }

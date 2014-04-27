@@ -1,16 +1,11 @@
-<div class="span4 offset3">
+<div class="span3 centered">
 <div class="redborder2">
 
-
-
-<strong>Forgot password?</strong>
-
-
-
-<div class="paddingbottom">
-</div>
+<div class="toplight">
 
 Enter the email address you registered with and we'll send instructions on how to reset your password.
+
+</div>
 
 <div class="paddingbottom">
 </div>
@@ -18,10 +13,10 @@ Enter the email address you registered with and we'll send instructions on how t
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true %>
+ 
+  <%= f.email_field :email, input_html: { :class => "hello4" }, label: false %>
 
-  <%= f.submit "Send instructions", class: "button5" %>
+  <%= f.submit "Send instructions", class: "favouritebuttonleft" %>
   <div class="return">
   	<%= link_to ("Return to Sign In"), new_user_session_path, class: "red" %>
   </div>
