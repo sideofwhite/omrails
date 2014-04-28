@@ -46,7 +46,7 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Question was successfully created.' }
+        format.html { redirect_to post_comment_path(@comment.post, @comment) + "#question_#{@question.id.to_s}", notice: 'Question posted' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { redirect_to root_path }

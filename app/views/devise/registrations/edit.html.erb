@@ -1,54 +1,53 @@
+<div class="row">
+<div class="span4 offset3">
+
+<div class="settings">
+Settings
+</div>
+
+</div>
+</div>
 
 <div class="row">
 
-<div class="span2 offset1">
-<div class="username">
-<%= current_user.name %>
-</div>
-<div class="paddingbottom">
-</div>
-<%= link_to ("Back to profile"), user_path(current_user), class: "blue" %>
 
-</div>
+<div class="span4 offset3">
 
 
-<div class="span3 centered">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :name, input_html: {  :class => "hellogrey" }, label: "Name", placeholder: "Name" %>
-    <div class="paddingbottom">
-</div>
-  <%= f.input :email, input_html: {  :class => "hellogrey" }, label: "Email", placeholder: "email" %>
-    <div class="paddingbottom">
-</div>
-  <%= f.input :password, input_html: {  :class => "hellogrey" }, label: "Password", placeholder: "New Password" , autocomplete: "off" %>
-  <%= f.input :password_confirmation, input_html: {  :class => "hellogrey" }, label: false, placeholder: "New Password Confirmation", autocomplete: "off" %>
-    <div class="paddingbottom">
-</div>
+  <%= f.input :name, input_html: {  :class => "hellogrey" }, label: "Your name", placeholder: "Your name", autocomplete: "off" %>
+  <hr/>
+  <%= f.input :email, input_html: {  :class => "hellogrey" }, label: "Your email", placeholder: "Your email", autocomplete: "off" %>
+  <hr/>
+  <%= f.input :password, input_html: {  :class => "hellogrey" }, label: "Change Password", placeholder: "Password" , autocomplete: "off" %>
+  <%= f.input :password_confirmation, input_html: {  :class => "hellogrey" }, label: false, placeholder: "Password again", autocomplete: "off" %>
+  <hr/>
 <div class="label2">
  Profile Image
 </div>
+ 
  <div class="userimage2">
 <div class="addimage">
 <%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
 </div>
  <img id="blah"/>
-<div class="opaquepic">
- <%= image_tag current_user.image %>
 </div>
+
 </div>
-  <div class="paddingbottom">
+<div class="span2">
+
+  <%= f.submit "Save Changes", class: "settingsbutton"%>
 </div>
- <hr/>
-
-
-  <%= f.submit "Update", class: "button4"%>
-
 <% end %>
 
+<div class="userimage2">
 </div>
 
+ <style media="screen">
+  .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 70px; width: 140px; height: 140px; background-repeat: no-repeat !important; display: block; margin-right: 0 auto; margin-left: 0 auto;}
+ </style>
 
 <script>
 function readURL(input) {
