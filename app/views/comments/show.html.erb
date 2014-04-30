@@ -127,12 +127,13 @@
 
 <% @questions.each do |question| %>
 <% unless question.answer.present? %>
+
 <div class="circlecomment">
 <%= image_tag question.user.image %>
 </div>
 
 <div class="lightname">
-<%= question.user.name %>
+<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}" %>
 </div>
 
 <div class="commentquestion">
