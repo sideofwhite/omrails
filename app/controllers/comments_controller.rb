@@ -38,6 +38,18 @@ end
   @questions = @comment.questions.order('cached_votes_total desc')
   end
 
+  def unansweredquestions
+  @post = Post.friendly.find(params[:post_id])
+  @comment = Comment.friendly.find params[:id]  
+  @questions = @comment.questions.order('cached_votes_total desc')
+  end 
+
+  def delete_content
+  respond_to do |format|               
+    format.js
+  end        
+end 
+
   # GET /comments/new
   def new
     @post = Post.friendly.find(params[:post_id])

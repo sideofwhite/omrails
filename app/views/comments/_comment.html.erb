@@ -1,22 +1,6 @@
-<% if @post.comments.count < 1 %>
-<div class="center">
-<div class="eventmargin2">
-There are no posts yet.
-</div>
-</div>
-<% else %>
-
-<div class="eventmargin2">	
-<%= pluralize(@post.comments.count, 'person') %> answering questions
-</div>
-
-<hr/>
-<div class="hraddon"></div>
 
 
-<% end %>
-
-
+<div id="products">	
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 
@@ -61,6 +45,8 @@ There are no posts yet.
 
 
 <% end %>
+</div>
 
 
+<%= will_paginate @comments %>
  

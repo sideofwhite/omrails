@@ -25,7 +25,10 @@ else
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
              .order('count_comments desc').page(params[:page]).per_page(25).limit(25).offset(1)
-@postsmobile = Post.order('cached_votes_total desc')
+@postsmobile = Post.select('posts.*, count(comments.id) as count_comments')
+             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
+             .group('posts.id')
+             .order('count_comments desc') 
 @toppost = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
@@ -45,7 +48,7 @@ end
   # GET /posts/1.json
   def show
   @post = Post.friendly.find(params[:id])
-  @comments = @post.comments.order('comments.questions_count desc')
+  @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(2)
   @links = @post.links.order(:created_at).limit(5)
 
   end

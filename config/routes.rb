@@ -9,22 +9,25 @@ Omrails::Application.routes.draw do
 
 resources :posts do
   member do
-      get :upvote
+      put :upvote
     end
   resources :comments do
     member do
-      get :upvote
+      put :upvote
+    end
+    member do 
+      get :unansweredquestions
     end
   end 
 end
       
 resources :comments do
     member do
-      get :upvote
+      put :upvote
     end
     resources :questions do
     member do
-      get :upvote
+      put :upvote
     end
   end
 end 
@@ -34,22 +37,22 @@ end
 
 resources :posts do
   member do
-      get :upvote
+      put :upvote
     end
   resources :links do
     member do
-      get :upvote
+      put :upvote
     end
   end
 end 
 
 resources :questions do
   member do
-      get :upvote
+      put :upvote
     end
   resources :answers do
     member do
-      get :upvote
+      put :upvote
     end
   end 
 end
@@ -73,6 +76,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
   get 'top', to: 'posts#top', as: :top
+
    devise_scope :user do
     get "/info" => "registrations#info"
   end

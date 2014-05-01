@@ -4,7 +4,6 @@ class QuestionsController < ApplicationController
  def upvote
 @question = Question.find params[:id]
 @question.liked_by current_user
-redirect_to post_comment_path(@question.comment.post, @question.comment)
 end
 
 
