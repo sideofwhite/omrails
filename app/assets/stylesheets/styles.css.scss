@@ -3251,8 +3251,8 @@ height: 140px;
 border-radius: 70px;
 display: block;
 margin-bottom: 30px;
-float: right;
-margin-left: 50px;
+float: left;
+margin-right: 50px;
 
 
 }
@@ -4045,7 +4045,8 @@ margin-bottom: 20px;
 
 .nameblueside {
 
-    display: inline-block;
+    float: left;
+    margin-right: 50px;
     font-weight: 600;
     font-size: 24px;
     color: #333332 !important;
