@@ -21,29 +21,22 @@
 <div class="row">
 <div class="span6 offset2">
 <div class="descriptionmargin">	
-<div class="eventsidebar">
 <p>
 <%= @post.description %>
 <p/>
 </div>
 </div>
-</div>
 <div class="span2">
-<% if @post.country.present? %>
-<div class="boldletters">
-Location
+<div class="floatright">
+<%= time_ago_in_words(@post.created_at) %> ago
 </div>
+
+<% if @post.country.present? %>
 <div class="boldletters2">
 <%= @post.country %>
 </div>
 <% end %>
 
-<div class="boldletters">
-Happened
-</div>
-<div class="boldletters2">
-<%= time_ago_in_words(@post.created_at) %> ago
-</div>
 <% if user_signed_in? %> 
 <%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebuttonleft" %>
 <% else %>

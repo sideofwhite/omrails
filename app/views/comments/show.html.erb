@@ -8,18 +8,17 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
-<div class="eventtoptext">
-<%= link_to (@comment.post.title), post_path(@comment.post) %>
-</div>	
-
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 
 
 <div class="attempt">
-<div class="biobackground">
-
+<div class="eventtoptext">
+<%= link_to (@comment.post.title), post_path(@comment.post) %>
+</div>
+</div>
+<div class="row"></div>
 
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
@@ -29,6 +28,8 @@
 <%= @comment.title %>
 </div>
 
+
+
 <div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago
 
@@ -37,12 +38,10 @@
 
 
 <div class="underneath">	
-<p>
 <%= @comment.body %>
-</p>
 </div>
 
-</div>
+
 
 
 
@@ -59,8 +58,7 @@
 <% end %>
 </div>
 
-</div>
-
+<div class="favouritebuttonmargin"></div>
 <%= pluralize(@comment.questions.count, 'Question') %>
 
 <hr/>

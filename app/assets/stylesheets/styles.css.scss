@@ -164,7 +164,7 @@ body{
     letter-spacing: -0.02em;
     line-height: 1.1; 
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "jaf-bernino-sans", sans-serif !important;
     color: #333332 !important;
 
@@ -587,14 +587,21 @@ p {
 }
 
 .favouritebuttonleft {
-    color: black !important;
-    border: 0px solid #eeeeee;
-    background-color: #eeeeee; 
-    padding: 7px;
-    font-size: 16px;
+    color: #8e8e8c !important;
+    border: 1px solid #f2f2f0;
+    background-color: white; 
+    padding: 6px;
+    font-size: 15px;
     margin-bottom: 15px;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 18px;
+    float: right;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.favouritebuttonleft:hover {
+   border: 1px solid #8e8e8c; 
 }
 
 .favouritebuttonleft2 {
@@ -726,11 +733,12 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 300;
     margin-top: 10px;
     letter-spacing: -0.02em;
     line-height: 1.4;
+    display: inline-block;
 }
 
 .titlecontainermobile {
@@ -879,6 +887,10 @@ p {
 
     overflow: hidden;
     color: #333332;
+    font-size: 18px;
+    line-height: 1.5; 
+    letter-spacing: -0.02em;
+    font-weight: 300;
     
 }
 
@@ -3237,11 +3249,13 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 110px;
-height: 110px;
-border-radius: 55px;
+width: 140px;
+height: 140px;
+border-radius: 70px;
+display: block;
+margin-bottom: 30px;
 float: left;
-margin-right: 20px;
+margin-right: 50px;
 
 
 }
@@ -4041,8 +4055,10 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: 600;
-     font-size: 24px;
+     font-size: 30px;
      color: #333332 !important;
+     display: inline-block;
+     margin-right: 5px;
      
 }
 
@@ -4283,9 +4299,9 @@ margin-right: auto;
 }
 
 .boldletters2 {
-    
-    font-size: 16px !important;
-    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    float: right;
 }
 
 .signuptext {
