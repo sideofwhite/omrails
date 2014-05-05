@@ -164,7 +164,7 @@ body{
     letter-spacing: -0.02em;
     line-height: 1.1; 
     font-weight: normal;
-    font-size: 18px;
+    font-size: 19px;
     font-family: "jaf-bernino-sans", sans-serif !important;
     color: #333332 !important;
 
@@ -175,7 +175,7 @@ p {
     
     
     font-weight: normal;
-    font-size: 20px !important;
+    font-size: 21px !important;
     line-height: 1.5; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -739,9 +739,9 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 30px;
     letter-spacing: -0.02em;
     line-height: 1.4;
     display: inline-block;
@@ -891,7 +891,8 @@ p {
 .underneath {
 
 
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: #333332;
 
     
@@ -1552,6 +1553,16 @@ margin-bottom: 30px;
 padding: 0px; 
  
 
+}
+
+.hrevent {
+    display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid #dededc;
+margin-top: 30px; 
+margin-bottom: 10px;
+padding: 0px;
 }
 
 .hraddon {
@@ -3265,7 +3276,7 @@ width: 140px;
 height: 140px;
 border-radius: 70px;
 display: block;
-margin-bottom: 30px;
+margin-bottom: 10px;
 
 
 
@@ -4042,10 +4053,10 @@ margin-bottom: 20px;
     
     
 
-    font-size: 18px;
+    font-size: 16px;
     color: #333332 !important;
     line-height: 1.2;
-    display: inline;
+    
   
 }
 
@@ -4067,10 +4078,10 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: 600;
-     font-size: 24px;
+     font-size: 18px;
      color: #333332 !important;
      display: inline !important;
-    
+     
      
 }
 
