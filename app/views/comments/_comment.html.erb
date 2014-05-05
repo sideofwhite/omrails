@@ -4,41 +4,37 @@
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="circleb">
+<div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
 
-<div class="attempt">
-<div class="biobackground">
+<div class="hrevent"></div>
 
-<div class="nameblueside">
+<div class="nameblueside2">
 <%= link_to comment.user.name, user_path(comment.user) %>
-</div>	
+</div>
+
 <div class="postinterviewtext2">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
+
+<div class="row"></div>
 
 <div class="titlecontainer">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
-<div class="interviewdate">
-<%= time_ago_in_words(comment.created_at) %> ago
-
-<hr5/>
-</div>
-
-<%= simple_format(comment.body)[0,300] %>
+<p>
+<%= simple_format(comment.body)[0,200] %>
 </p>
+
 <div class="favouritebuttonleft3">
 <%= link_to "Read more...", post_comment_path(@post, comment) %>
 </div>
-</div>
-<div class="namemargin">
-</div>
-<hr6/>
 
-</div>
+
+<div class="margin60"></div>
+
 
 
 
@@ -48,5 +44,5 @@
 </div>
 
 
-<%= will_paginate @comments %>
+
  

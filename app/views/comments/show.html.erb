@@ -8,25 +8,27 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
+
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 
 <div class="hrevent"></div>
 
+<div class="nameblueside2">
+<%= link_to @comment.user.name, user_path(@comment.user) %>
+</div>
+<div class="on">
+on
+</div>
 <div class="eventtoptext2">
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
+<div class="row"></div>
 
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
-
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>
-
-<div class="hrevent2"></div>
 
 <div class="underneath">
 <p>	
