@@ -167,6 +167,8 @@ body{
     font-size: 18px;
     font-family: "jaf-bernino-sans", sans-serif !important;
     color: #333332 !important;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 
 }
 
@@ -182,6 +184,8 @@ p {
     font-style: normal;
     color: #333332 !important;
     font-family: "freight-text-pro", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 @media screen and (max-width: 500px) 
@@ -726,7 +730,7 @@ p {
 
 .commentquestion {
     font-size: 24px;
-
+    font-weight: bold;
     
 }
 
@@ -893,12 +897,8 @@ p {
 
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #333332 !important;
-    letter-spacing: -0.02em;
-    line-height: 1.5;
-    font-size: 22px;
-    font-family: "freight-text-pro", sans-serif !important;
     
+ 
 }
 
 
@@ -1565,6 +1565,16 @@ border: 0;
 border-top: 1px solid #dededc;
 margin-top: 30px; 
 margin-bottom: 10px;
+padding: 0px;
+}
+
+.hrevent2 {
+    display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid #f2f2f0;
+margin-top: 30px; 
+margin-bottom: 30px;
 padding: 0px;
 }
 
@@ -4080,10 +4090,10 @@ margin-bottom: 20px;
 
 .nameblueside2 {
     
-     font-weight: 600;
-     font-size: 18px;
+     font-weight: bold;
+     font-size: 20px;
      color: #333332 !important;
-     display: inline !important;
+     margin-top: 15px;
      
      
 }
