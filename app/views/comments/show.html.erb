@@ -8,28 +8,33 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
-<div class="eventtoptext2">
-<%= link_to (@comment.post.title), post_path(@comment.post) %>
-</div>
-
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 <div class="attempt">
-	
+<div class="online">
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>	
+</div>
+on
+<div class="eventtoptext2">
+<%= link_to (@comment.post.title), post_path(@comment.post) %>
+</div>
+
+<div class="interviewdate">
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
+</div>
+</div>
 
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
 
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
 
+<div class="row"></div>
 <hr5/>
-</div>
+
 
 
 <div class="underneath">	
@@ -55,7 +60,7 @@
 <% end %>
 </div>
 
-</div>
+
 
 <div class="favouritebuttonmargin"></div>
 <%= pluralize(@comment.questions.count, 'Question') %>
@@ -126,9 +131,10 @@
 
 <hr/>
 
+<%= render 'comments/unansweredquestionshow' %>
 
-<%= link_to "Load", unansweredquestions_post_comment_path, id: "new_link", :remote => true %>
 
+<%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 
 
 </div>

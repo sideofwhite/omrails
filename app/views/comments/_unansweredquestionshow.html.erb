@@ -1,4 +1,4 @@
-<% @unanswered.each do |question| %>
+<% @unansweredshow.each do |question| %>
 <% unless question.answer.present? %>
 
 <div class="circlecomment">
@@ -6,7 +6,7 @@
 </div>
 
 <div class="lightname">
-<%= link_to (question.user.name), user_path(question.user) %>
+<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}" %>
 </div>
 
 <div class="commentquestion">
@@ -41,3 +41,4 @@
 <% end %>
 
 <% end %>
+

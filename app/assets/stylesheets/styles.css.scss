@@ -222,7 +222,7 @@ p {
     color:  black !important;
     vertical-align: middle;
     padding-top: 10px !important;
-    
+    font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
 .brandmobile {
@@ -234,7 +234,7 @@ p {
     background-color: white;
     color:  black !important;
     margin-top: 20px !important;
-    
+    font-family: "jaf-bernino-sans", sans-serif !important;
     
 }
 
@@ -277,10 +277,12 @@ p {
     margin-bottom: 20px !important;
     color: #a03600 !important;
     padding-left: 7px !important;
+    font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
 .error_notification {
     font-size: 12px !important;
+
 }
 
 .navbar navbar-fixed-top {
@@ -550,6 +552,7 @@ p {
     margin-top: 18px;
     border: 0px !important;
     font-size: 16px !important;
+    font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
 .buttonred:hover {
@@ -575,18 +578,6 @@ p {
 
 
 .favouritebutton {
-    color: black !important;
-    border: 0px solid #eeeeee;
-    background-color: #eeeeee; 
-    padding: 7px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: inline-block;
-    float: right;
-    margin-top: 15px;
-}
-
-.favouritebuttonleft {
     color: #8e8e8c !important;
     border: 1px solid #f2f2f0;
     background-color: white; 
@@ -595,13 +586,28 @@ p {
     margin-bottom: 15px;
     display: inline-block;
     margin-top: 18px;
-    float: right;
     text-decoration: none !important;
     cursor: pointer;
+    float: right;
+    font-family: "jaf-bernino-sans", sans-serif !important;
+}
+
+.favouritebuttonleft {
+    color: #8e8e8c !important;
+    border: 1px solid #f2f2f0;
+    background-color: white; 
+    padding: 7px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: inline-block;
+    margin-top: 18px;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
 .favouritebuttonleft:hover {
-   border: 1px solid #8e8e8c; 
+   color: #a03600 !important; 
 }
 
 .favouritebuttonleft2 {
@@ -885,7 +891,7 @@ p {
 .underneath {
 
 
-    overflow: hidden;
+    
     color: #333332;
 
     
@@ -1775,7 +1781,7 @@ border:1px solid white;
     
 }
 
-.hellogrey {
+.hellogrey2 {
     
     resize: none;
     border: 0px solid white !important;
@@ -1790,6 +1796,26 @@ border:1px solid white;
     box-shadow: none !important;
     letter-spacing: -0.02em;
     line-height: 1.5;
+
+
+}
+
+.hellogrey2 {
+    
+    resize: none;
+    border: 0px solid white !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important;
+    font-family: jaf-bernino-sans, sans-serif !important;
+    font-size: 26px !important;
+    color: #333332 !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    box-shadow: none !important;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-weight: bold;
 
 
 }
@@ -3246,13 +3272,13 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 140px;
-height: 140px;
-border-radius: 70px;
+width: 110px;
+height: 110px;
+border-radius: 55px;
 display: block;
 margin-bottom: 30px;
 float: left;
-margin-right: 50px;
+margin-right: 20px;
 
 
 }
@@ -4027,19 +4053,13 @@ margin-bottom: 20px;
 .eventtoptext2 {
     
     
-    
-    margin-bottom: 20px;
-    border-left: 8px solid #a03600;
-    padding-left: 10px;
-    padding-right: 0px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+
     font-size: 17px;
-    margin-bottom: 60px;
     font-weight: 300;
     color: #333332 !important;
     line-height: 1.2;
-   
+    display: inline;
+  
 }
 
 
@@ -4048,16 +4068,21 @@ margin-bottom: 20px;
     float: left;
     margin-right: 50px;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     color: #333332 !important;
+    display: inline;
+}
+
+.online {
+    
 }
 
 .nameblueside2 {
     
      font-weight: 600;
-     font-size: 30px;
+     font-size: 24px;
      color: #333332 !important;
-     display: inline-block;
+     display: inline !important;
      margin-right: 5px;
      
 }

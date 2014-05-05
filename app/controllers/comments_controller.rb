@@ -36,12 +36,13 @@ end
   @answer = Answer.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
   @questions = @comment.questions.order('cached_votes_total desc')
+  @unansweredshow = @comment.questions.order("created_at desc").limit(3)
   end
 
   def unansweredquestions
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]  
-  @questions = @comment.questions.order('cached_votes_total desc')
+  @unanswered = @comment.questions.order("created_at desc").offset(3)
   end 
 
   def delete_content
