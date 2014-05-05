@@ -164,7 +164,7 @@ body{
     letter-spacing: -0.02em;
     line-height: 1.1; 
     font-weight: normal;
-    font-size: 19px;
+    font-size: 18px;
     font-family: "jaf-bernino-sans", sans-serif !important;
     color: #333332 !important;
 
@@ -742,8 +742,8 @@ p {
     font-size: 38px;
     font-weight: bold;
     margin-top: 30px;
-    letter-spacing: -0.02em;
-    line-height: 1.4;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
     display: inline-block;
 }
 
@@ -893,8 +893,9 @@ p {
 
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #333332;
-
+    color: #333332 !important;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
     
 }
 
