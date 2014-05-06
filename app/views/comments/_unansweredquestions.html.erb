@@ -9,8 +9,10 @@
 <%= link_to (question.user.name), user_path(question.user) %>
 </div>
 
+<div class="attempt">
 <div class="commentquestion">
 <%= question.body %>
+</div>
 </div>
 
 <% if @comment.user == current_user %>
