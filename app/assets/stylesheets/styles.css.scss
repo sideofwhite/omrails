@@ -585,7 +585,7 @@ p {
     color: #8e8e8c !important;
     border: 1px solid #f2f2f0;
     background-color: white; 
-    padding: 6px;
+    padding: 7px;
     font-size: 15px;
     margin-bottom: 15px;
     display: inline-block;
@@ -601,13 +601,17 @@ p {
     border: 1px solid #f2f2f0;
     background-color: white; 
     padding: 7px;
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 15px;
     display: inline-block;
     margin-top: 18px;
     text-decoration: none !important;
     cursor: pointer;
     font-family: "jaf-bernino-sans", sans-serif !important;
+}
+
+.favouritebutton:hover {
+   color: #a03600 !important; 
 }
 
 .favouritebuttonleft:hover {
@@ -766,7 +770,7 @@ p {
 .titlecontainershow {
     
     color: #333332 !important;
-    font-size: 34px;
+    font-size: 38px;
     line-height: 110%;
     border-left: 10px solid #a03600;
     padding-left: 20px;
