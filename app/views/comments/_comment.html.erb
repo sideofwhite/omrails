@@ -20,7 +20,7 @@
 
 <div class="row"></div>
 
-<div class="titlecontainerb">
+<div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
@@ -28,9 +28,9 @@
 <%= simple_format(comment.body)[0,200] %>
 </p>
 
-<div class="favouritebutton">
-<%= link_to "Read more...", post_comment_path(@post, comment) %>
-</div>
+
+<%= link_to "Read more...", post_comment_path(@post, comment), class: "favouritebuttonleft" %>
+
 
 
 <div class="margin60"></div>

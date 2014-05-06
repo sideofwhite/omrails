@@ -1,0 +1,38 @@
+<div class="container">
+<div class-"row">
+
+<div class="span9 offset1">
+<div id="pins" class="transitions-disabled">
+
+
+<% @comments.each do |comment| %>
+
+
+<div class="box panel panel-default">
+
+
+<div class="newspaper2">
+<%= link_to (comment.title), post_comment_path(comment.post_id, comment) %>
+</div>
+</div>
+
+
+
+<% end %>
+
+
+</div>
+</div>
+
+
+<div class="span1">
+<div class="allquestions">
+<%= link_to ("Events"), root_path, class: "blue" %>
+</div>
+<div class="allquestions2">
+Top Posts
+</div>
+</div>
+
+</div>
+</div>
