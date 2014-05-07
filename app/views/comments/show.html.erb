@@ -56,10 +56,14 @@ on
 </div>
 
 
-<hr/>
+<div class="hrevent"></div>
 
 <div class="eventtoptext2">
 <%= pluralize(@comment.questions.count, 'Question') %>
+</div>
+
+<div class="eventtoptext3">
+<a href="#form">Ask Question</a>
 </div>
 
 <div class="favouritebuttonmargin"></div>
@@ -115,8 +119,9 @@ on
 
 <div class="favouritebuttonmargin"></div>
 
-
+<a name="form">
 <%= render :partial => "questions/form" %>
+</a>
 
 <div class="favouritebuttonmargin"></div>
 
