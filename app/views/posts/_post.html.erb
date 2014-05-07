@@ -1,7 +1,7 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="span8 centered">
-<% @toppost.each do |post| %>
+<% @posts.each do |post| %>
 <div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -46,67 +46,8 @@ is answering questions
 </div>
 
 <% end %>
-</div>
-
-<% @posts.each do |post| %>
-
-<div class="container">
-<div class="row">
-
-<div class='span4 offset2'>
-<div class="postimage">
-<%= image_tag post.image %>
-
-</div>
-</div>
-
-<div class='span4'>
-<div class="titlecontainershowc">
-<%= link_to (post.title), post_path(post)%> 
-</div>
-
-<% if post.comments.count > 0 %>
-<div class="postinterviewmargintop">
-<% post.comments.limit(2).each do |comment| %>
-<% if comment.user.present? %>
-<div class="postinterviewtext">
-<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
-<% if post.comments.count > 1 %>
-,
-<% elsif post.comments.count == 1 %>
-<% end %>
-</div>
-<% end %>
-<% end %>
-
-<% if post.comments.count > 2 %>
-
-<div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> others are answering questions
-</div>
-<% elsif post.comments.count == 2 %>
-<div class="postinterviewtext"%>
-are answering questions
-</div>
-<% elsif post.comments.count == 1 %>
-<div class="postinterviewtext"%>
-is answering questions
-</div>
-<% end %>
-
-</div>
-<% else %>
-
-<% end %>
 
 
 </div>
-
-</div>
-</div>
-
-<% end %>
-
-
 </div>
 
