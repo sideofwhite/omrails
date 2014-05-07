@@ -1,10 +1,6 @@
 <% @unanswered.each do |question| %>
 <% unless question.answer.present? %>
 
-<div class="circlecomment">
-<%= image_tag question.user.image %>
-</div>
-
 <div class="lightname">
 <%= link_to (question.user.name), user_path(question.user) %>
 </div>
@@ -19,12 +15,9 @@
 
 <div class="commentmargin10"></div>
 
-<div class="commentquestionanswer">
-<div class="attempt">	
+
 <%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
-<p/>
-</div>
-</div>
+
 
 
 <% end %>
