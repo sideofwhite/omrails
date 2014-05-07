@@ -73,9 +73,6 @@ on
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
 <% if question.answer.present? %>
-<div class="circlecomment">
-<%= image_tag question.user.image %>
-</div>
 
 <div class="lightname">
 <%= question.user.name %>
@@ -88,12 +85,11 @@ on
 </div>
 
 <div class="commentmargin10"></div>
-
-<div class="commentquestionanswer">
-<div class="attempt">	
+	
 <p>
 <%= question.answer.body %>
 </p>
+
 <div class="lightcontainercomment">
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/Md4N4Ge.png") %>
@@ -102,10 +98,10 @@ on
 <% end %>
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
-</div>
 <hr6/>
 </div>
-</div>
+
+
 <% else %>
 
 <% end %>

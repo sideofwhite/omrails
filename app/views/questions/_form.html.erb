@@ -1,9 +1,5 @@
 <% if user_signed_in? %>
 
-<div class="circlecomment">
-<%= image_tag current_user.image %>
-</div>
-<div class="attempt">
 <div class="lightname">
 <%= current_user.name %>
 </div>
@@ -13,7 +9,6 @@
 <%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2 inputBody" }, label: false, placeholder: "Ask Question" %>
 
 <%= f.submit "Ask", class: "favouritebuttonleft myButton" %>
-</div>
 <% end %>
 <% else %>
 <%= link_to "Login to Ask Question", new_user_session_path, class: "favouritebuttonleft" %>
