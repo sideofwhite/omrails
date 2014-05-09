@@ -100,9 +100,9 @@ on
 
 <div class="lightcontainercomment">
 <% if current_user.voted_for? question %>
-<%= image_tag ("http://i.imgur.com/Md4N4Ge.png") %>
+<%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/I8mHZaF.png")), upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
+<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
 <% end %>
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
