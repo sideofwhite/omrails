@@ -749,10 +749,10 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     letter-spacing: -0.04em;
     line-height: 1.1;
     
@@ -903,11 +903,10 @@ p {
 
 .underneath {
 
-
-    margin-top: 25px;
-    margin-bottom: 30px;
-    border-left: 7px solid #a03600;
-    padding-left: 15px;
+ 
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 20px;
  
 }
 
@@ -3294,12 +3293,12 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 130px;
-height: 130px;
-border-radius: 65px;
-
-
-
+width: 120px;
+height: 120px;
+border-radius: 60px;
+float: left;
+margin-right: 20px;
+margin-bottom: 20px;
 
 
 
@@ -4079,6 +4078,17 @@ margin-bottom: 20px;
     
     
     display: inline;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #a03600 !important;
+    font-style: italic;
+  
+}
+
+.eventtoptext4 {
+    
+    
+    display: inline;
     font-size: 18px;
     line-height: 1.2;
     color: #a03600 !important;
@@ -4116,10 +4126,9 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: bold;
-     font-size: 18px;
+     font-size: 30px;
      color: #333332 !important;
-     margin-top: 15px;
-     display: inline;
+     margin-bottom: 5px;
      
      
 }
@@ -4429,7 +4438,7 @@ margin-right: auto;
 
 .on {
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .margin60 {

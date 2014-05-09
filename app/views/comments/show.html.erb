@@ -12,16 +12,11 @@
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 
-
-<div class="titlecontainer">
-<%= @comment.title %>
-</div>
-
-
-
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>
+
+
 <div class="on">
 on
 </div>
@@ -29,11 +24,17 @@ on
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
+<div class="row"></div>
+<div class="hrevent"></div>
+
+<div class="titlecontainer">
+<%= @comment.title %>
+</div>
+
+
 
 <div class="underneath">
-<p>
 <%= @comment.body %>
-</p>
 </div>
 
 <div class="interviewdate">
@@ -60,7 +61,7 @@ on
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext2">
+<div class="eventtoptext4">
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
@@ -130,7 +131,7 @@ on
 <div class="favouritebuttonmargin"></div>
 
 <div class="hrevent"></div>
-<div class="eventtoptext2">	
+<div class="eventtoptext4">	
 Unanswered Questions
 </div>
 
