@@ -8,11 +8,12 @@
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
+<div class="redline">
 <p>
 <%= comment.body[0,200] %>
 <%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue" %>
 </p>
-
+</div>
 
 
 <div class="row"></div>
@@ -31,7 +32,7 @@
 </div>
 
 
-<div class="margin60"></div>
+<div class="margin70"></div>
 
 
 
