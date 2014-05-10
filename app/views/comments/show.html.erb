@@ -24,6 +24,10 @@ on
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
+<div class="interviewdate">
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
+
 <div class="row"></div>
 <div class="hrevent"></div>
 
@@ -31,15 +35,12 @@ on
 <%= @comment.title %>
 </div>
 
-
-
 <div class="underneath">
+<p>
 <%= @comment.body %>
+</p>
 </div>
 
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
-</div>
 
 
 
@@ -99,11 +100,16 @@ on
 
 
 <div class="lightcontainercomment">
+<% if user_signed_in? %>
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
 <% end %>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
+<% end %>
+
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 <hr6/>
