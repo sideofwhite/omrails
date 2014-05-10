@@ -4,36 +4,31 @@
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-
-<div class="nameblueside2">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
-
-<div class="postinterviewtext2">
- asked <%= pluralize(comment.questions.count, 'question') %>
-</div>
-
-<div class="row"></div>
-<div class="hrevent"></div>
-
-
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
 <p>
 <%= comment.body[0,200] %>
+<%= link_to "(read more...)", post_comment_path(@post, comment), class: "blue" %>
 </p>
 
 
-<%= link_to "Read more...", post_comment_path(@post, comment), class: "favouritebuttonleft" %>
 
+<div class="row"></div>
+<div class="hrpost"></div>
 
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
 
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>
+
+<div class="postinterviewtext2">
+ asked <%= pluralize(comment.questions.count, 'question') %>
+</div>
 
 
 <div class="margin60"></div>

@@ -40,7 +40,7 @@
 <% if user_signed_in? %> 
 <%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebutton" %>
 <% else %>
-<%= link_to 'Be Intervied', new_user_registration_path, class: "favouritebutton" %>
+<%= link_to 'Be Interviewed', new_user_registration_path, class: "favouritebutton" %>
 <% end %>
 </div>	
 
@@ -79,7 +79,7 @@ There are no posts yet.
 
 <% end %>
 
-<div class="span7 centered">
+<div class="span6 centered">
 <%= render 'comments/comment' %>
 </div>
 
