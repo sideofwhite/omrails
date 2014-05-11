@@ -1,7 +1,14 @@
 <%= simple_form_for [@question, Answer.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.input :body, as: :text, input_html: { rows: "1", class: "inputBody hello3" }, label: false,placeholder: "Answer" %>
-<%= f.submit "Post", {  class: "blueblue myButton" } %>
+<%= f.submit "Post", {  class: "myButton favouritebuttonleft" } %>
  <% end %>
 
+<script>
+$("#hello3").click(function(){
 
+     $(this).css("border-left","3px solid #a03600 !important");
+
+})
+
+</script>

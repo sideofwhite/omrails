@@ -605,7 +605,6 @@ p {
     font-size: 15px;
     margin-bottom: 15px;
     display: inline-block;
-    margin-top: 18px;
     text-decoration: none !important;
     cursor: pointer;
     font-family: "jaf-bernino-sans", sans-serif !important;
@@ -737,13 +736,13 @@ p {
 
 
 .commentquestion {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     
 }
 
 .commentquestionmargin {
-    margin: 60px;
+    margin: 40px;
 }
 
 
@@ -751,7 +750,7 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 36px;
+    font-size: 34px;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -892,7 +891,7 @@ p {
 
 .titlecontainer2 {
     
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -1491,7 +1490,7 @@ hr {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #dededc;
+border-top: 1px solid #eeeeee;
 margin-top: 30px; 
 margin-bottom: 30px;
 padding: 0px; 
@@ -1520,7 +1519,7 @@ hr4 {
  display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #EEEEEE;;
+border-top: 1px solid #EEEEEE;
 margin-top: 5px; 
 margin-bottom: 5px;
 padding: 0px; 
@@ -1532,7 +1531,7 @@ hr5 {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #f2f2f0;
+border-top: 1px solid #eeeeee;
 margin-top: 20px; 
 margin-bottom: 20px;
 padding: 0px; 
@@ -1543,7 +1542,7 @@ hr6 {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #f2f2f0;
+border-top: 1px solid #eeeeee;
 margin-top: 60px; 
 margin-bottom: 60px;
 padding: 0px; 
@@ -1554,7 +1553,7 @@ hr7 {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #dededc;
+border-top: 1px solid #eeeeee;
 margin-top: 30px; 
 margin-bottom: 30px;
 padding: 0px; 
@@ -1566,7 +1565,7 @@ padding: 0px;
  
 height: 1px;
 border: 0; 
-border-top: 1px solid #dededc; 
+border-top: 1px solid #eeeeee; 
 margin-bottom: 10px;
 padding: 0px;
 
@@ -1576,7 +1575,7 @@ padding: 0px;
     display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #f2f2f0;
+border-top: 1px solid #eeeeee;
 margin-top: 30px; 
 margin-bottom: 30px;
 padding: 0px;
@@ -1586,7 +1585,7 @@ padding: 0px;
  
 height: 1px;
 border: 0; 
-border-top: 1px solid #dededc; 
+border-top: 1px solid #eeeeee; 
 margin-bottom: 20px;
 margin-top: 20px;
 padding: 0px;
@@ -1597,7 +1596,7 @@ padding: 0px;
  
 height: 1px;
 border: 0; 
-border-top: 1px solid #dededc; 
+border-top: 1px solid #eeeeee; 
 margin-bottom: 10px;
 padding: 0px;
 
@@ -1770,16 +1769,26 @@ border:1px solid white;
 .hello3 {
     
     
-    border: 0px solid white !important;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: ff-meta-serif-web-pro, serif !important;
+    font-family: "freight-text-pro", sans-serif !important;
     width: 80% !important;
-    font-size: 19px !important;
+    font-size: 22px !important;
     color: rgba(0,0,0,0.8);
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    line-height: 1.4; 
+    letter-spacing: -0.02em;
+    border-left: 3px solid #a03600 !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    border-top: 0px !important;
+    padding-left: 15px !important;
+}
 
-
+.hello3:hover {
+    border-left: 3px solid #a03600 !important;
 }
 
 .hello4 {
@@ -2528,6 +2537,8 @@ display:inline-block;
     
 
 }
+
+
 
 
 .answerbio{
@@ -3729,9 +3740,17 @@ background:#000;
 
 .lightcontainercomment {
     
-     font-size: 10px;
-     color: grey;
+   
      margin-top: 20px;
+
+     
+}
+
+.lightcontainercomment2 {
+    
+     font-size: 10px;
+     color: black;
+     margin-top: 10px;
 
      
 }
@@ -4107,11 +4126,22 @@ margin-bottom: 20px;
     
     
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.2;
     color: #a03600 !important;
     font-weight: bold;
 
+  
+}
+
+.eventtoptext5 {
+    
+    
+    display: inline;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 40px;
   
 }
 
@@ -4120,14 +4150,22 @@ margin-bottom: 20px;
 }
 
 .thirty {
+    margin: 50px;
+}
+
+.twenty {
     margin: 30px;
+}
+
+.sixty {
+    margin: 60px;
 }
 
 .eventtoptext3 {
     
     
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.2;
     font-weight: bold;
     float: right;
@@ -4139,7 +4177,7 @@ margin-bottom: 20px;
 .nameblueside {
 
     font-weight: bold;
-    font-size: 24px;
+    font-size: 22px;
    
 }
 
@@ -4335,7 +4373,15 @@ margin-right: auto;
     
 }
 
+.postinterviewtext3 {
+    
 
+    
+    font-size: 16px;
+    margin-top: 10px;
+    display: inline;
+    
+}
 
 .postinterviewtextmobile {
     
@@ -4496,4 +4542,13 @@ margin-right: auto;
 .margin40 {
     margin: 40px;
 }
+
+
+.btnHousing {
+    background-image: url('http://i.imgur.com/SYYaeQ4.png');
+    height: 32px;
+    width: 32px;
+    margin-top: 20px;
+}
+
 

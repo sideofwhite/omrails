@@ -92,8 +92,16 @@ on
 
 <div class="redline">
 <p>	
-<%= question.answer.body %>
+ <% if question.answer.body.length > 250 %>
+    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
+    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+  <% else %>
+    <%= question.answer.body %>
+  <% end %>
 </p>
+<div class="lightcontainercomment2">
+<%= time_ago_in_words(question.answer.created_at) %> ago
+</div>
 </div>
 
 
@@ -109,7 +117,6 @@ on
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
 <% end %>
 
-<%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 <hr6/>
 </div>
@@ -122,8 +129,6 @@ on
 
 <% end %>
 
-<div>
-</div>
 
 <div class="favouritebuttonmargin"></div>
 
@@ -139,8 +144,7 @@ on
 <div class="eventtoptext4">	
 Unanswered Questions
 </div>
-
-<div class="favouritebuttonmargin"></div>
+<div class="commentquestionmargin"></div>
 
 <%= render 'comments/unansweredquestionshow' %>
 
@@ -151,8 +155,6 @@ Unanswered Questions
 </div>
 
 </div>
-
-
 
 
 

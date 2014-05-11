@@ -1,36 +1,26 @@
+<% if @question.comment.user == current_user %>
+
 <div class="span7 centered">
 
-<div class="circlecomment">
-<%= image_tag @question.user.image %>
-</div>
-
-
 <div class="lightname">
-<%= @question.user.name %>
+<%= link_to (@question.user.name), user_path(@question.user) %>
 </div>
 
 <div class="commentquestion">
 <%= @question.body %>
 </div>
 
-<% if @question.comment.user == current_user %>
 <div class="commentmargin10"></div>
-<div class="circlecomment2">
-<%= image_tag @question.comment.user.image %>
-</div>
 
 <div class="commentquestionanswer">
 <div class="attempt">
-<div class="lightname">
-<%= current_user.name %>
-</div>	
 <%= render 'form' %>
 </div>
 </div>
 
 <hr6/>
-<% end %>
+
 </div>
 
 
-
+<% end %>

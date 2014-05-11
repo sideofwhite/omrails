@@ -1,0 +1,46 @@
+<% @questions.each do |question| %>
+
+<% if question.comment.post.present? %>
+<div class="sixty"></div>
+<div class="eventtoptext5">
+<%= link_to (question.comment.user.name), user_path(question.comment.user) %>
+</div>
+<div class="on">
+on
+</div>
+<div class="eventtoptext5">
+<%= link_to (question.comment.post.title), post_path(question.comment.post) %>
+</div>
+
+<% end %>
+
+<div class="twenty"></div>
+
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
+<div class="attempt">
+<div class="commentquestion">
+<%= question.body %>
+</div>
+</div>
+
+<div class="commentmargin10"></div>
+
+<% if question.answer.present? %>
+
+<div class="redline">
+<p>	
+ <% if question.answer.body.length > 250 %>
+    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
+    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+  <% else %>
+    <%= question.answer.body %>
+
+  <% end %>
+</p>
+</div>
+<hr6/>
+<% end %>
+<% end %>

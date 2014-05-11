@@ -74,6 +74,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   match '/contact', to: 'pages#contact',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'users/:id', to: 'users#show', as: :user
+  get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
   get 'top', to: 'posts#top', as: :top
 
