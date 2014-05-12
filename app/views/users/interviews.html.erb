@@ -1,0 +1,25 @@
+<div class="span7 centered">
+
+<% if current_user == @user %>
+
+<div class="greysettings">
+<%= link_to "Profile", user_path(@user) %>
+<%= link_to "Questions", userquestions_path(@user) %>
+<strong>Interviews</strong>
+<div class="floatright">
+<%= link_to "Settings", edit_user_registration_path(@user) %>	
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</div>
+</div>
+<% end %>
+
+
+<div class="mobilepadding20"></div>
+<% @comment.each do |comment| %>
+<% @question.each do |question| %>
+
+<%= question.body %>
+
+<% end %>
+<% end %>
+</div>

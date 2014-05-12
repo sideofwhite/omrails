@@ -3,14 +3,18 @@
 <div class="span7 centered">
 <% if current_user == @user %>
 
+<div class="greysettings">
+<strong>Profile</strong>
+<%= link_to "Questions", userquestions_path(@user) %>
+<%= link_to "Interviews", userinterviews_path(@user) %>
 <div class="floatright">
-<%= link_to "Your Questions", userquestions_path(@user) %>
-
-<%= link_to "Settings", edit_user_registration_path(@user), class: "button4" %>
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logoutbutton" %>
+<%= link_to "Settings", edit_user_registration_path(@user) %>	
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</div>
+</div>
 <% end %>
 </div>
-</div>
+
 
 
 <div class="span4 centered">		
@@ -112,24 +116,16 @@ Upvoted Answers
 <% @questions.each do |question| %>
 
 <% if question.comment.post.present? %>
-
-<div class="eventtoptext5">
-<%= link_to (question.comment.user.name), user_path(question.comment.user) %>
+<div class="sixty"></div>
+<%= link_to post_comment_path(question.comment.post, question.comment) do %>
+  <div class="interviewgrey">
+  <%= question.comment.user.name %> on <%= question.comment.post.title %>
 </div>
-<div class="on">
-on
-</div>
-<div class="eventtoptext5">
-<%= link_to (question.comment.post.title), post_path(question.comment.post) %>
-</div>
+<% end %>
 
 <% end %>
 
 <div class="twenty"></div>
-
-<div class="lightname">
-<%= question.user.name %>
-</div>
 
 <div class="attempt">
 <div class="commentquestion">
@@ -143,13 +139,16 @@ on
 
 <div class="redline">
 <p>	
- <% if question.answer.body.length > 250 %>
+ <% if question.answer.body.length > 150 %>
     <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
     <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
   <% else %>
     <%= question.answer.body %>
 
   <% end %>
+  <div class="lightcontainercomment2">
+<%= time_ago_in_words(question.answer.created_at) %> ago
+</div>
 </p>
 </div>
 <hr6/>

@@ -20,6 +20,7 @@
 //= require masonry/jquery.masonry
 //= require jquery.masonry.min.js
 //= require masonry/jquery.infinitescroll.min
+//= require bigSlide.js
 //= require jquery.infinitescroll
 //= require bootstrap-wysihtml5
 //= require_tree .

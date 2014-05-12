@@ -111,7 +111,7 @@ on
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
+<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
 <% end %>
 <% else %>
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
@@ -119,14 +119,14 @@ on
 
 </div>
 <hr6/>
-</div>
+
 
 
 <% else %>
 
 <% end %>
 
-
+</div>
 <% end %>
 
 

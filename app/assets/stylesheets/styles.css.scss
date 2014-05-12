@@ -750,7 +750,7 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 34px;
+    font-size: 36px;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -1906,8 +1906,7 @@ border:1px solid white;
 }
 
 .close {
-    color: rgba(0,0,0,0.8) !important;
-    opacity: 0.8 !important;
+    font-size: 22px;
 }
 
 
@@ -4551,4 +4550,21 @@ margin-right: auto;
     margin-top: 20px;
 }
 
+.panel {
+    position: fixed;
+    left: -15.625em; /*left or right and the width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+}
 
+.greysettings {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 40px;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.interviewgrey {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgba(0,0,0,0.6);
+}

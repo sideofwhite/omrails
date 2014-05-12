@@ -12,7 +12,14 @@ class UsersController < ApplicationController
 
   def questions
   @user = User.friendly.find(params[:id])
-  @question = @user.questions.order(:created_at)
+  @question = @user.questions.order("created_at desc")
   
   end 
+
+   def interviews
+  @user = User.friendly.find(params[:id])
+  @comment = @user.comments
+  @question = @comment.questions.order("created_at desc")
+  end 
+
 end

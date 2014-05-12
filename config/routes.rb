@@ -76,6 +76,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
+  get 'users/:id/userinterviews', to: 'users#interviews', as: :userinterviews
   get 'top', to: 'posts#top', as: :top
 
    devise_scope :user do

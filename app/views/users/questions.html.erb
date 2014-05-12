@@ -1,40 +1,57 @@
 <div class="span7 centered">
-Your Questions
-<hr/>
+
+<% if current_user == @user %>
+
+<div class="greysettings">
+<%= link_to "Profile", user_path(@user) %>
+<strong>Questions</strong>
+<%= link_to "Interviews", userinterviews_path(@user) %>
+<div class="floatright">
+<%= link_to "Settings", edit_user_registration_path(@user) %>	
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</div>
+</div>
+<% end %>
+
+
 
 <div class="mobilepadding20"></div>
 <% @question.each do |question| %>
-
-<div class="circlecomment">
-<%= image_tag question.user.image %>
-</div>
-
-<div class="lightname">
-<%= question.user.name %>
-</div>
-
+<% if question.answer.present? %>
+<div id="<%= question.id %>">
+Your question was answered...
+<div class="commentmargin10"></div>
 <div class="commentquestion">
 <%= question.body %>
 </div>
 
-<% if question.answer.present? %>
-
 <div class="commentmargin10"></div>
 
-<div class="commentquestionanswer">
-<div class="attempt">	
-<p>
-<%= question.answer.body %>
+<div class="redline">
+<p>	
+ <% if question.answer.body.length > 250 %>
+    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
+    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+  <% else %>
+    <%= question.answer.body %>
+  <% end %>
 </p>
+<div class="lightcontainercomment2">
+<%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 </div>
-
-<% end %>
-
-<div>
 <hr6/>
-</div>	
-
+<% else %>
+<%= link_to post_comment_path(question.comment.post, question.comment) do %>
+  <div class="interviewgrey">
+  <%= question.comment.user.name %> on <%= question.comment.post.title %>
+</div>
+<% end %>
+<div class="commentquestion">
+<%= question.body %>
+<hr6/>
+</div>
+<% end %>
 <% end %>
 </div>
 
