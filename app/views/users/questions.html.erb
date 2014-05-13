@@ -47,13 +47,14 @@ Your Questions
 </div>
 </div>
 <hr6/>
-<div class="sixty">
+<div class="sixty"></div>
 <% else %>
 <%= link_to post_comment_path(question.comment.post, question.comment) do %>
   <div class="interviewgrey">
   <%= question.comment.user.name %> on <%= question.comment.post.title %>
 </div>
 <% end %>
+<div class="commentmargin10"></div>
 <div class="commentquestion">
 <%= question.body %>
 </div>
