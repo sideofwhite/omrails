@@ -13,13 +13,19 @@
 </div>
 <% end %>
 
-
+<div class="settings">
+Your Questions
+</div>
 
 <div class="mobilepadding20"></div>
 <% @question.each do |question| %>
 <% if question.answer.present? %>
 <div id="<%= question.id %>">
-Your question was answered...
+<%= link_to post_comment_path(question.comment.post, question.comment) do %>
+  <div class="interviewgrey">
+  <%= question.comment.user.name %> on <%= question.comment.post.title %>
+</div>
+<% end %>
 <div class="commentmargin10"></div>
 <div class="commentquestion">
 <%= question.body %>
@@ -41,6 +47,7 @@ Your question was answered...
 </div>
 </div>
 <hr6/>
+<div class="sixty">
 <% else %>
 <%= link_to post_comment_path(question.comment.post, question.comment) do %>
   <div class="interviewgrey">
@@ -49,8 +56,12 @@ Your question was answered...
 <% end %>
 <div class="commentquestion">
 <%= question.body %>
+</div>
+ <div class="lightcontainercomment2">
+<%= time_ago_in_words(question.created_at) %> ago
 <hr6/>
 </div>
+
 <% end %>
 <% end %>
 </div>
