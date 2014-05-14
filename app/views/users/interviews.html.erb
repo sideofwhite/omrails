@@ -1,6 +1,7 @@
+<% if current_user == @user %>
+
 <div class="span7 centered">
 
-<% if current_user == @user %>
 
 <div class="greysettings">
 <%= link_to "Profile", user_path(@user) %>
@@ -11,15 +12,54 @@
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
 </div>
-<% end %>
 
+<div class="settings">
+Your Interviews
+</div>
 
 <div class="mobilepadding20"></div>
 <% @comment.each do |comment| %>
-<% @question.each do |question| %>
 
+
+ <div class="interviewgrey">
+ You on <%= comment.post.title %>
+</div>
+<div class="commentmargin10"></div>
+<div class="interviewcontainer">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+
+<div class="margin40"></div>
+
+<div class="hrevent"></div>
+
+<div class="eventtoptext4">
+<%= pluralize(comment.questions.count, 'Question') %>
+</div>
+
+<div class="commentquestionmargin"></div>
+
+<% comment.questions.order("created_at desc").each do |question| %>
+
+<div class="lightname">
+<%= link_to (question.user.name), user_path(question.user) %>
+</div>
+
+<div class="commentquestion">
 <%= question.body %>
+</div>
+
+
+
+<div class="commentmargin10"></div>
+
+<%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
+
+<div class="commentquestionmargin"></div>
+
 
 <% end %>
 <% end %>
 </div>
+
+<% end %>

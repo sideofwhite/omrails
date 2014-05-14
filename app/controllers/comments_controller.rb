@@ -32,6 +32,7 @@ end
   def show
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]
+  @question2 = @comment.questions
   @question = Question.new
   @answer = Answer.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)

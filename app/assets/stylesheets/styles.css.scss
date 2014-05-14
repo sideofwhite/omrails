@@ -736,7 +736,7 @@ p {
 
 
 .commentquestion {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     
 }
@@ -1828,7 +1828,7 @@ border:1px solid white;
     
 }
 
-.hellogrey2 {
+.hellogrey {
     
     resize: none;
     border: 0px solid white !important;
@@ -2877,7 +2877,7 @@ text-align:center;
 }
 
 .usernametext2 {
-    font-size: 16px;
+    font-size: 36px;
     padding-top: 10px;
     font-weight: bold;
 }
@@ -3300,9 +3300,9 @@ and (max-device-width : 1024px)
 
 .circle img {
 
-width: 80px;
-height: 80px;
-border-radius: 40px;
+width: 90px;
+height: 90px;
+border-radius: 45px;
 float: left;
 margin-right: 20px;
 
@@ -3321,9 +3321,9 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 120px;
-height: 120px;
-border-radius: 60px;
+width: 130px;
+height: 130px;
+border-radius: 65px;
 float: left;
 margin-right: 20px;
 margin-bottom: 20px;
@@ -3819,17 +3819,23 @@ background:#000;
 .twitterlogin {
     border: 1px solid #bebebe;
     background-color: #bebebe;
-    padding: 15px;
-    font-size: 20px;
+    padding: 25px;
+    font-size: 16px !important;
     font-weight: bold;
     text-align: center;
     line-height: 110%;
     margin-bottom: 20px;
+    vertical-align: middle;
 }
 
 .twitterblue {
-    color: white;
+    color: white !important;
     text-decoration: none !important;
+    display: inline;
+}
+
+.twitterblue {
+    
 }
 
 .twitterblue:hover {
@@ -3837,9 +3843,11 @@ background:#000;
 }
 
 .twitterbird img {
-    height: 30px;
-    width: 40px;
-    margin-bottom: 10px;
+    height: 20px;
+    width: 25px;
+    display: inline;
+    float: left;
+     vertical-align: middle !important;
 }
 
 .previewimage img {
@@ -4176,7 +4184,7 @@ margin-bottom: 20px;
 .nameblueside {
 
     font-weight: bold;
-    font-size: 22px;
+    font-size: 24px;
    
 }
 
@@ -4319,10 +4327,11 @@ margin-right: auto;
 }
 
 .postinterviewmargintop {
-    padding-left: 30px;
-    margin-top: 15px;
+    margin-left: 30px;
+    margin-top: 20px;
     margin-bottom: 30px;
     overflow: hidden;
+    display: inline-block;
 }
 
 .postinterviewmargintopmobile {
@@ -4567,4 +4576,9 @@ margin-right: auto;
 .interviewgrey {
     font-size: 16px;
     
+}
+
+.interviewcontainer {
+    font-size: 36px;
+    font-weight: bold;
 }
