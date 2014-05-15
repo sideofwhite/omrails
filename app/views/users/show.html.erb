@@ -58,7 +58,7 @@ Interviews
 <div class="commentquestionmargin"></div>
 
 <% @comments.each do |comment| %>
-
+<div class="row"></div>
 <div class="titlecontainer2">
 <%= comment.title %>
 </div>
@@ -91,7 +91,9 @@ Interviews
 on <strong><%= link_to (comment.post.title), post_path(comment.post) %></strong>
 </div>
 <div class="row"></div>
+<% unless @comments.last %>
 <hr6/>
+<% end %>
 <% end %>
 
 <% end %>
