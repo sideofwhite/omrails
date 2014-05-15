@@ -3039,7 +3039,7 @@ pull-left{
 }
 
 .usernametext2 {
-    font-size: 30px; 
+    font-size: 40px; 
     font-weight: bold;
     text-align: center;
 }
@@ -3300,9 +3300,9 @@ and (max-device-width : 1024px)
 
 .circle img {
 
-width: 90px;
-height: 90px;
-border-radius: 45px;
+width: 100px;
+height: 100px;
+border-radius: 50px;
 float: left;
 margin-right: 20px;
 
@@ -4571,6 +4571,12 @@ margin-right: auto;
     margin-bottom: 40px;
     font-size: 16px;
     padding-bottom: 20px;
+    font-weight: bold;
+
+}
+
+.greymargin {
+    margin-right: 3px;
 }
 
 .interviewgrey {

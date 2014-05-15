@@ -3,11 +3,11 @@
 <% if current_user == @user %>
 
 <div class="greysettings">
-<%= link_to "Profile", user_path(@user) %>
+<%= link_to "Profile", user_path(@user), class: "greymargin" %>
 <strong>Questions</strong>
-<%= link_to "Interviews", userinterviews_path(@user) %>
+<%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
 <div class="floatright">
-<%= link_to "Settings", edit_user_registration_path(@user) %>	
+<%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
 </div>
