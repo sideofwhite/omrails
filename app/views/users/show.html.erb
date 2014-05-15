@@ -58,11 +58,15 @@ Interviews
 <div class="commentquestionmargin"></div>
 
 <% @comments.each do |comment| %>
-<div class="row"></div>
-<div class="titlecontainer2">
+
+ <div class="interviewgrey">
+ <%= @user.name %> on <%= comment.post.title %>
+</div>
+<div class="commentmargin10"></div>
+<div class="interviewcontainer">
 <%= comment.title %>
 </div>
-
+<div class="commentmargin10"></div>
 <% if comment.body.present? %>
 <div class="redline">
 <p>
@@ -71,30 +75,9 @@ Interviews
 </p>
 </div>
 <% end %>
-
 <div class="row"></div>
-<div class="hrpost"></div>
-
-
-
-
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-
-<div class="postinterviewtext3">
-<strong><%= comment.user.name %></strong>
-</div>
-
-<% if comment.post.present? %>
-<div class="postinterviewtext3">
-on <strong><%= link_to (comment.post.title), post_path(comment.post) %></strong>
-</div>
-<div class="row"></div>
-<% unless @comments.last %>
 <hr6/>
-<% end %>
-<% end %>
+
 
 <% end %>
 
