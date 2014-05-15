@@ -4,12 +4,13 @@
 <% if current_user == @user %>
 
 <div class="greysettings">
+<div class="greymargin">
 <strong>Profile</strong>
-<%= link_to "Questions", userquestions_path(@user) %>
-<%= link_to "Interviews", userinterviews_path(@user) %>
+</div>
+<%= link_to "Questions", userquestions_path(@user), class: "greymargin" %>
+<%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
 <div class="floatright">
-<%= link_to "Settings", edit_user_registration_path(@user) %>	
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
 </div>
 <% end %>
@@ -30,7 +31,7 @@
 <div class="center">
 <% if @user.twitter.present? or @user.place.present? %>
 <%= @user.twitter %>
-<strong><%= @user.place %></strong>
+<%= @user.place %>
 <% end %>
 <div class="commentquestionmargin"></div>
 
@@ -53,7 +54,7 @@
 <div class="eventtoptext4">	
 Interviews
 </div>
-<div class="commentquestionmargin"></div>
+<div class="margin70"></div>
 <% end %>
 
 <% @comments.each do |comment| %>
@@ -95,6 +96,8 @@ on <strong><%= link_to (comment.post.title), post_path(comment.post) %></strong>
 
 
 <% end %>
+
+
 <div class="commentquestionmargin"></div>
 <div class="hrevent"></div>
 <% if @user.votes.count > 0 %>

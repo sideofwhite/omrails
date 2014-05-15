@@ -6,7 +6,9 @@
 <div class="greysettings">
 <%= link_to "Profile", user_path(@user), class: "greymargin" %>
 <%= link_to "Questions", userquestions_path(@user), class: "greymargin" %>
+<div class="greymargin">
 <strong>Interviews</strong>
+</div>
 <div class="floatright">
 <%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>

@@ -4,7 +4,9 @@
 
 <div class="greysettings">
 <%= link_to "Profile", user_path(@user), class: "greymargin" %>
+<div class="greymargin">
 <strong>Questions</strong>
+</div>
 <%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
 <div class="floatright">
 <%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	

@@ -147,13 +147,6 @@ textarea {
 }
 
 
-label {
-    
-    color: rgba(0,0,0,0.8);
-    font-size: 14px; 
-    
-    
-}
 
 placeholder {
     color: rgba(0,0,0,0.8) !important;
@@ -894,7 +887,7 @@ p {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-top: 20px;
+
   
    
 
@@ -1863,6 +1856,7 @@ border:1px solid white;
     letter-spacing: -0.02em;
     line-height: 1.1;
     font-weight: bold;
+    display: inline-block;
 
 
 }
@@ -2106,12 +2100,6 @@ border:1px solid grey;
 }
 
 
-.headtext {
-    font-size: 34px;
-    display: inline-block;
-
-
-}
 
 .firstanswer {
     
@@ -2877,9 +2865,10 @@ text-align:center;
 }
 
 .usernametext2 {
-    font-size: 36px;
+    font-size: 38px;
     padding-top: 10px;
     font-weight: bold;
+    text-align: center;
 }
 
 .usernamelinks {
@@ -3020,39 +3009,33 @@ pull-left{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 140px;
-    width: 140px;
+    height: 150px;
+    width: 150px;
     margin-bottom: 20px;
-    border-radius: 70px;
+    border-radius: 75px;
 }
 
 .userimagecomplete img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 140px;
-    width: 140px;
+    height: 150px;
+    width: 150px;
     margin-bottom: 20px;
-    border-radius: 70px;
+    border-radius: 75px;
     border: 2px solid white !important;
     background-image: url(http://i.imgur.com/hdGIvWW.png);
 }
 
-.usernametext2 {
-    font-size: 40px; 
-    font-weight: bold;
-    text-align: center;
-}
+
 
 
 .userimage2 img {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    height: 140px;
-    width: 140px;
-    border-radius: 70px;
-   
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    margin: 0 auto;
+
     
    
 }
@@ -3226,7 +3209,7 @@ and (max-device-width : 1024px)
     
     width: 100%;
     height: 265px;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
 }
 
 
@@ -3892,6 +3875,7 @@ label {
     color: rgba(0,0,0,0.8) !important;
     font-size: 20px !important;
     font-weight: bold !important;
+    display: inline-block;
 
 }
 
@@ -3899,7 +3883,7 @@ label {
      color: rgba(0,0,0,0.8) !important;
     font-size: 20px !important;
     font-weight: bold !important;
-    margin-bottom: 20ppx;
+    margin-bottom: 20px;
 }
 
 .profileborder {
@@ -4161,7 +4145,7 @@ margin-bottom: 20px;
 }
 
 .twenty {
-    margin: 30px;
+    margin: 20px;
 }
 
 .sixty {
@@ -4328,7 +4312,7 @@ margin-right: auto;
 
 .postinterviewmargintop {
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 30px;
     overflow: hidden;
     display: inline-block;
@@ -4508,8 +4492,9 @@ margin-right: auto;
     padding: 10px;
     background-color: #a03600;
     color: white !important;
-    float: right;
     border: 0px !important;
+    display: inline-block;
+    position: fixed;
 }
 
 .settingsbutton:hover {
@@ -4522,7 +4507,7 @@ margin-right: auto;
 }
 
 .margin70 {
-    padding: 50px;
+    padding: 60px;
 }
 
 .redline {
@@ -4571,12 +4556,13 @@ margin-right: auto;
     margin-bottom: 40px;
     font-size: 16px;
     padding-bottom: 20px;
-    font-weight: bold;
+    
 
 }
 
 .greymargin {
     margin-right: 3px;
+    display: inline;
 }
 
 .interviewgrey {
@@ -4588,3 +4574,5 @@ margin-right: auto;
     font-size: 36px;
     font-weight: bold;
 }
+
+
