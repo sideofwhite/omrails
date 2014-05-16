@@ -8,6 +8,13 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
+<div class="span8 centered">
+<div class="eventimage">
+<%= image_tag @post.image %> 
+</div>
+</div>
+
+<div class="aboveimage2"></div>
 
 <div class="span7 centered">
 <div class='titlecontainershow'>
@@ -40,12 +47,6 @@
 <% end %>
 
 
-<div class="aboveimage2"></div>
-
-
-<div class="eventimage">
-<%= image_tag @post.image %> 
-</div>
 
 <% if @post.comments.count < 1 %>
 <div class="center">
@@ -57,13 +58,12 @@ There are no posts yet.
 
 <div class="thirty"></div>
 
-<div class="span6 centered">
 <div class="hrevent"></div>
 
 <div class="eventtoptext4">	
 <%= pluralize(@post.comments.count, 'Interview') %> 
 </div>
-</div>
+
 
 <div class="fifty"></div>
 
@@ -71,7 +71,7 @@ There are no posts yet.
 
 <% end %>
 
-<div class="span6 centered">
+<div class="span7 centered">
 <%= render 'comments/comment' %>
 </div>
 
