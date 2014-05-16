@@ -4,6 +4,16 @@
 <% @comments.each do |comment| %>
 <div class="visible-desktop hidden-phone hidden-tablet">
 
+
+
+
+
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+
+<div class="row"></div>
+
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
@@ -15,17 +25,6 @@
 <div class="postinterviewtext3">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
-
-<div class="row"></div>
-
-
-
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-
-
-
 
 
 <div class="margin70"></div>
