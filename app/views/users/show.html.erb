@@ -57,8 +57,8 @@ Interviews
 <% end %>
 <div class="commentquestionmargin"></div>
 
-<% @comments.each do |comment| %>
-
+<% @comments.each_with_index do |comment, i| %>
+<div class="sixty"></div>
  <div class="interviewgrey">
  <%= @user.name %> on <%= comment.post.title %>
 </div>
@@ -75,9 +75,15 @@ Interviews
 </p>
 </div>
 <% end %>
+<div class="commentmargin10"></div>
+<div class="eventtoptext4">	
+<%= comment.questions.count %> Questions
+</div>
+
+<% unless (i + 1) == @comments.length %>
 <div class="row"></div>
 <hr6/>
-
+<% end %>
 
 <% end %>
 
@@ -89,9 +95,12 @@ Interviews
 Upvoted Answers
 </div>
 <% else %>
+<div class="eventtoptext4">	
+Upvoted Answers
+</div>
 <div class="center">
 <div class="eventmargin2">
-<%= @user.name %> is still getting started on Podium.
+<%= @user.name %> hasn't upvoted any answers yet.
 </div>
 </div>
 <% end %>
@@ -144,7 +153,10 @@ Upvoted Answers
 
 <div class="commentquestionmargin"></div>
 
+<% if @user.votes.count > 5 %>
 <%= link_to "See all...", upvoted_path(@user), class: "favouritebuttonleft", id: "new_link", :remote => true %>
+<% end %>
+
 </div>
 
 <div class="visible-phone hidden-tablet hidden-desktop">
