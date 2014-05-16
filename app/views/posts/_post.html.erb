@@ -1,6 +1,10 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span8 centered">
 
+<% if current_user.try(:admin?) %>
+<%= link_to "New Post", new_post_path %>
+<% end %>
+
 <% @posts.each do |post| %>
 <div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
