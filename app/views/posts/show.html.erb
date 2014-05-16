@@ -8,28 +8,24 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="row">
-<div class="span8 offset2">
+
+<div class="span7 centered">
 <div class='titlecontainershow'>
 <%= @post.title %> 
 </div>
+<div>
 <hr7/>
 </div>
-</div>
 
-<div class="container">
-<div class="row">
-<div class="span6 offset2">
 <div class="descriptionmargin">	
 <p>
 <%= @post.description %>
 <p/>
 </div>
-</div>
-<div class="span2">
-<div class="floatright">
+
+
 <%= time_ago_in_words(@post.created_at) %> ago
-</div>
+
 
 <% if @post.country.present? %>
 <div class="boldletters2">
@@ -42,15 +38,10 @@
 <% else %>
 <%= link_to 'Be Interviewed', new_user_registration_path, class: "favouritebutton" %>
 <% end %>
-</div>	
 
-</div>
-</div>
 
 <div class="aboveimage2"></div>
 
-<div class="row">
-<div class="span8 offset2">
 
 <div class="eventimage">
 <%= image_tag @post.image %> 
@@ -66,10 +57,12 @@ There are no posts yet.
 
 <div class="thirty"></div>
 
+<div class="span6 centered">
 <div class="hrevent"></div>
 
 <div class="eventtoptext4">	
 <%= pluralize(@post.comments.count, 'Interview') %> 
+</div>
 </div>
 
 <div class="fifty"></div>

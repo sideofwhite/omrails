@@ -582,12 +582,11 @@ p {
     background-color: white; 
     padding: 7px;
     font-size: 15px;
-    margin-bottom: 15px;
-    margin-top: 18px;
     text-decoration: none !important;
     cursor: pointer;
     float: right;
     font-family: "jaf-bernino-sans", sans-serif !important;
+    display: inline-block !important;
 }
 
 .favouritebuttonleft {
@@ -3932,7 +3931,7 @@ margin-bottom: 20px;
 }
 
 .descriptionmargin {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .countrymargin {
@@ -4436,7 +4435,7 @@ margin-right: auto;
 .boldletters2 {
     margin-top: 5px;
     font-weight: bold;
-    float: right;
+    display: inline;
 }
 
 .signuptext {
@@ -4576,3 +4575,6 @@ margin-right: auto;
 }
 
 
+.thirtythirty {
+    padding: 30px;
+}
