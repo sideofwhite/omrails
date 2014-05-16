@@ -771,6 +771,7 @@ p {
     border-left: 10px solid #a03600;
     padding-left: 20px;
     font-weight: 600;
+    margin-bottom: 40px;
     
 }
 
@@ -883,7 +884,7 @@ p {
 
 .titlecontainer2 {
     
-    font-size: 30px;
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
 
@@ -3287,7 +3288,7 @@ height: 60px;
 border-radius: 30px;
 float: left;
 margin-right: 20px;
-
+margin-bottom: 20px;
 
 }
 
@@ -4135,6 +4136,20 @@ margin-bottom: 20px;
   
 }
 
+.eventtoptext6 {
+    
+    
+    display: inline;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #a03600 !important;
+    font-weight: bold;
+    margin-bottom: 60px;
+
+  
+}
+
+
 .fifty {
     margin: 50px;
 }
@@ -4354,26 +4369,17 @@ margin-right: auto;
     
 }
 
-.postinterviewtext2 {
-    
-
-    
-    font-size: 16px;
-    margin-bottom: 30px;
-    color: #a03600 !important;
-    font-weight: bold;
-    
-}
-
 .postinterviewtext3 {
     
 
     
     font-size: 16px;
     margin-top: 10px;
-    display: inline;
+    
     
 }
+
+
 
 .postinterviewtextmobile {
     
@@ -4434,9 +4440,9 @@ margin-right: auto;
 }
 
 .boldletters2 {
-    margin-top: 5px;
-    font-weight: bold;
-    display: inline;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
 }
 
 .signuptext {

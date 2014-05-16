@@ -21,7 +21,6 @@
 <%= @post.title %> 
 </div>
 <div>
-<hr7/>
 </div>
 
 <div class="descriptionmargin">	
@@ -30,13 +29,13 @@
 <p/>
 </div>
 
-
+<div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
-
+</div>
 
 <% if @post.country.present? %>
 <div class="boldletters2">
-<%= @post.country %>
+<strong><%= @post.country %></strong>
 </div>
 <% end %>
 
@@ -60,12 +59,10 @@ There are no posts yet.
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext4">	
+<div class="eventtoptext6">	
 <%= pluralize(@post.comments.count, 'Interview') %> 
 </div>
-
-
-<div class="fifty"></div>
+<div class="margin70"></div>
 
 
 
