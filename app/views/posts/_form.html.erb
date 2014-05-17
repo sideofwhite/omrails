@@ -1,35 +1,47 @@
+
+
 <% if current_user.try(:admin?) %>
 
 
-<div class="descriptionaddevent">
-<div class="red">
-Add Event
-</div>
-</div>
-<hr/>
 
 
    <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
+<div class="span8 centered">
 
-   <p><%= f.input :title, as: :text, input_html: { rows: "3", :style=> 'width: 95.7%',:class => "create2" },label: false, placeholder: "Event Headline" %></p>
-   <p><%= f.input :description, as: :text, input_html: { rows: "5", :style=> 'width: 95.7%',:class => "create2" }, label: false, placeholder: "Summary of the event"%></p>
+<div class="eventimage">
+<div class="addimage">
+<%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
+</div>
+<img id="blah"/>
+</div>
+</div>
+
+</div>
+
+<div class="span7 centered">
+   <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "posttitleform inputBody" },label: false, placeholder: "Event Headline" %>
+   <%= f.input :description, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "underneathform inputBody" }, label: false, placeholder: "Summary of the event"%>
  
 
 
-<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "Location" %>
-<%= f.label :tag_list, label: false %>
-  <%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "World, United States, Politics, Technology, Science" %>
-<%= f.input :image, label: "Add Image" %>
-  <%= f.input :image_remote_url, as: :text,  input_html: { rows: "1", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "Or a URL" %>
+<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Location" %>
 
- <%= f.submit "Add Event", class: "button5" %>
-  <div class="cancel">
-  <%= link_to ("Cancel"), posts_path %>
+<hr/>
+<%= f.input :link, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Link" %>
+
+<%= f.label :tag_list, label: false %>
+  
+<%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "World, United States, Politics, Technology, Science" %>
+
 </div>
 
+
+<div class="span2 centered">
+ <%= f.submit "POST", class: "buttonred" %>
+</div>
  <% end %>
 
 <% else %>
@@ -40,9 +52,24 @@ This page doesn't exist
 <% end %>
 
 
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#post_image").change(function(){
+        readURL(this);
+    });
 
-
-
+</script>
 
 
 

@@ -1,7 +1,7 @@
 <div class="visible-tablet hidden-phone hidden-desktop">
 
 <div class="span10 centered">
-<% @toppost.each do |post| %>
+<% @posts.each do |post| %>
 <div class="titlecontainershowtablet">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -48,62 +48,5 @@ is answering questions
 <% end %>
 </div>
 
-<% @posts.order('cached_votes_total desc').each do |post| %>
 
-<div class="container">
-<div class="row">
-
-<div class='span5 offset1'>
-<div class="postimagetablet">
-<%= image_tag post.image %>
-
-</div>
-</div>
-
-<div class='span5'>
-<div class="titlecontainershowtablet2">
-<%= link_to (post.title), post_path(post)%> 
-</div>
-
-<% if post.comments.count > 0 %>
-<div class="postinterviewmargintop">
-<% post.comments.limit(2).each do |comment| %>
-<% if comment.user.present? %>
-<div class="postinterviewtext">
-<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
-<% if post.comments.count > 1 %>
-,
-<% elsif post.comments.count == 1 %>
-<% end %>
-</div>
-<% end %>
-<% end %>
-
-<% if post.comments.count > 2 %>
-
-<div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> others are answering questions
-</div>
-<% elsif post.comments.count == 2 %>
-<div class="postinterviewtext"%>
-are answering questions
-</div>
-<% elsif post.comments.count == 1 %>
-<div class="postinterviewtext"%>
-is answering questions
-</div>
-<% end %>
-
-</div>
-<% else %>
-
-<% end %>
-
-
-</div>
-
-</div>
-</div>
-
-<% end %>
 </div>

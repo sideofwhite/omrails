@@ -19,7 +19,15 @@ end
   def index
    
 if params[:tag]
-@posts = Post.tagged_with(params[:tag]).page(params[:page]).per_page(25)
+@posts = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
+             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
+             .group('posts.id')
+             .order('count_comments desc').page(params[:page]).per_page(25).limit(25)
+@postsmobile = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
+             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
+             .group('posts.id')
+             .order('count_comments desc') 
+
 else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")

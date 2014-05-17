@@ -1,7 +1,7 @@
 <div class="visible-phone hidden-tablet hidden-desktop">
 
 
-<% @postsmobile.order('cached_votes_total desc').each do |post| %>
+<% @postsmobile.each do |post| %>
 <div class="postimagemobile">
 <%= image_tag post.image %>
 </div>

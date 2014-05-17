@@ -8,7 +8,7 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="span9 centered">
+<div class="span8 centered">
 <div class="eventimage">
 <%= image_tag @post.image %> 
 </div>
@@ -17,6 +17,9 @@
 <div class="aboveimage2"></div>
 
 <div class="span7 centered">
+<div class="posttag">
+<%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</div>
 <div class='titlecontainershow'>
 <%= @post.title %> 
 </div>
@@ -25,6 +28,9 @@
 
 <div class="descriptionmargin">	
 <%= @post.description %>
+</div>
+<div class='linkinline'>
+<%= @post.link %>
 </div>
 
 <% if user_signed_in? %> 

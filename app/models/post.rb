@@ -2,12 +2,12 @@ class Post < ActiveRecord::Base
 extend FriendlyId
 friendly_id :title, use: :slugged
 
-has_attached_file :image, styles: { :small => "365x205>", :medium => "430x340>", :large => "740x340>" }
+has_attached_file :image, styles: { :large => "740x340>" }
 
 
 validates :user_id, presence: true
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
-                             size: { less_than: 5.megabytes }
+                             size: { less_than: 100.megabytes }
 
 belongs_to :user
 acts_as_votable
