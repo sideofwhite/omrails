@@ -8,6 +8,13 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
+<div class="titlecontainer">
+<%= @comment.title %>
+</div>
+
+<div class="row"></div>
+<hr/>
+
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
@@ -16,10 +23,6 @@
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>
 
-
-<div class="on">
-on
-</div>
 <div class="eventtoptext2">
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
@@ -28,20 +31,21 @@ on
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
 
+
 <div class="row"></div>
-<div class="hrevent"></div>
 
-<div class="titlecontainer">
-<%= @comment.title %>
+<div class="commentlabel">
+About 
 </div>
-
-
-
 <div class="underneath">
 <%= @comment.body %>
 </div>
-
-
+<div class="commentlabel2">
+Ask <%= current_user.name %> about 
+</div>
+<div class="underneath">
+<%= @comment.body %>
+</div>
 
 <div class="lightcontainer6">
 <% if current_user.try(:admin?) %>

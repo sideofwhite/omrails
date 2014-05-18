@@ -3,33 +3,38 @@
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<div class="eventtoptext">
-<%= link_to (@post.title), post_path(@post) %>
-</div>
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
 
 <hr/>
 
 
-<div class="circle">
+<div class="circleb">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
-
-<div class="attemt">
 
 <div class="nameblueside2">
 <%= link_to current_user.name, user_path(current_user) %>
 </div>
+<div class="eventtoptext2">
+<%= link_to (@post.title), post_path(@post) %>
+</div>
+
+<div class="row"></div>
 
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
+<div class="commentlabel">
+About
+</div>
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
 
-
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello3 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
-
+<div class="commentlabel2">
+Ask <%= current_user.name %> about 
+</div>
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
 
 <div class="underbutton2"></div> 
 <%= f.submit "Post", class: "favouritebutton myButton" %>
-</div>
+
  <% end %>
 
 </div>
