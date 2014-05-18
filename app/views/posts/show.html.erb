@@ -28,10 +28,11 @@
 
 <div class="descriptionmargin">	
 <%= @post.description %>
-</div>
 <div class='linkinline'>
-<%= @post.link %>
+<%= link_to (@post.domain), url_for(@post.link) %>
 </div>
+</div>
+
 
 <% if user_signed_in? %> 
 <%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebutton" %>

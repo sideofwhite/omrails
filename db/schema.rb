@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518005757) do
+ActiveRecord::Schema.define(version: 20140518195830) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140518005757) do
     t.integer  "distance"
     t.integer  "comments_count",     default: 0
     t.string   "link"
+    t.string   "domain"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug"

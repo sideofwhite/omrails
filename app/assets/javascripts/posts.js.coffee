@@ -17,6 +17,7 @@ $ ->
               $('.pagination').text("Fetching more products...")
               $.getScript(url)
           $(window).scroll()
+ 
 
       $("nav li ul").hide().removeClass "fallback"
       $("nav li").hover (->

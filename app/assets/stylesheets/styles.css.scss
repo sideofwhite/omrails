@@ -77,6 +77,11 @@ a {
     color: white;
 }
 
+.bordernone {
+ border:0;
+ border-style: none;
+}
+
 
 .btn {
 
@@ -778,7 +783,7 @@ p {
     color: #333332 !important;
     font-size: 42px;
     line-height: 110%;
-    padding-top: 30px;
+    padding-top: 10px;
     font-weight: 600;
     margin-bottom: 30px;
     
@@ -4694,18 +4699,22 @@ margin-right: auto;
 
 .posttag {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     border-top: 10px solid #a03600;
     font-weight: normal;
-    padding-top: 10px;
+    padding-top: 20px;
+    color: grey !important;
 }
 
 .linkinline {
   
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     display: inline;
-    
+    font-family: "jaf-bernino-sans", sans-serif !important;
+    background-color: #eeeeee;
+    padding: 3px;
+    font-style: italic;
 }
 
 
@@ -4744,4 +4753,23 @@ margin-right: auto;
 
 .openinterviewmargin {
     padding-top: 20px;
+}
+
+.socialshare {
+    display: inline;
+}
+
+.inline {
+    display: inline;
+}
+
+.white {
+    color: white !important;
+    padding: 10px;
+    background-color: white;
+    width: 100%;
+}
+
+.pagination {
+    color: white !important;
 }

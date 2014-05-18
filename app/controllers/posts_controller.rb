@@ -32,7 +32,7 @@ else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').page(params[:page]).per_page(25).limit(25)
+             .order('count_comments desc').page(params[:page]).per_page(1)
 @postsmobile = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
@@ -125,6 +125,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :image, :image_remote_url, :title, :country, :tag_list, :latitude, :longitude, :link)
+      params.require(:post).permit(:description, :image, :image_remote_url, :title, :country, :tag_list, :latitude, :longitude, :link, :domain)
     end
 end

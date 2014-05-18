@@ -105,7 +105,7 @@ Ask Question
 <% if question.answer.present? %>
 
 <div class="lightname">
-<%= question.user.name %>
+<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
 </div>
 
 <div class="attempt">
@@ -134,17 +134,28 @@ Ask Question
 
 
 
-<div class="lightcontainercomment">
+<div class="lightcontainercomment">	
 <% if user_signed_in? %>
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
+<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), class: "inline", remote: true, method: :put %>
+
 <% end %>
 <% else %>
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
 <% end %>
 
+
+
+<div class="floatright">
+<div class="socialshare">
+<%= image_tag ("http://i.imgur.com/LElz0jY.png") %>
+</div>
+<div class="socialshare">
+<%= image_tag ("http://i.imgur.com/L61g3oz.png") %>
+</div>
+</div>
 </div>
 <hr6/>
 
@@ -181,6 +192,12 @@ Unanswered Questions
 
 
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
+
+<div class="row"></div>
+
+<div class="commentquestionmargin"></div>
+
+
 
 
 </div>

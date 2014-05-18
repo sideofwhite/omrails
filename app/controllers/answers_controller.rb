@@ -34,7 +34,7 @@ class AnswersController < ApplicationController
     
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to question_answer_path(@question, @answer) }
+        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer posted' }
         
       else
         redirect_to root_path
