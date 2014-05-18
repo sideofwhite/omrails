@@ -24,6 +24,17 @@ Open interview
 </div>
 <% end %>
 
+<% if current_user.try(:admin?) or @comment.user == current_user %>
+<div class="floatright">
+<%= image_tag ("http://i.imgur.com/uapCdlf.png
+") %>
+<div class="openinterview2">
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
+</div>
+</div>
+<% end %>
+
+
 <div class="openinterviewmargin"></div>
 
 <div class="titlecontainer">
@@ -67,18 +78,6 @@ Ask <%= current_user.name %> about
 <%= @comment.about %>
 </div>
 
-<div class="lightcontainer6">
-<% if current_user.try(:admin?) %>
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<% end %>
-
-<% if @comment.user == current_user %>
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment), class: "lightcontainer6" %>
-<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
-<% end %>
-</div>
 
 <div class="margin40"></div>
 

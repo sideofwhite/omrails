@@ -589,6 +589,7 @@ p {
     display: inline-block !important;
 }
 
+
 .favouritebuttonleft {
     color: rgba(0,0,0,0.8) !important;
     border: 1px solid #eeeeee;
@@ -602,6 +603,20 @@ p {
     font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
+.favouritebuttonleft2 {
+    color: rgba(0,0,0,0.8) !important;
+    border: 1px solid #eeeeee;
+    background-color: white; 
+    padding: 7px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-family: "jaf-bernino-sans", sans-serif !important;
+    margin-top: 30px;
+}
+
 .favouritebutton:hover {
    color: #a03600 !important; 
 }
@@ -610,13 +625,10 @@ p {
    color: #a03600 !important; 
 }
 
-.favouritebuttonleft2 {
-    font-size: 20px;
-    font-weight: bold;
-    display: inline-block;
-    color: #a03600 !important;
-    margin-top: 20px;
+.favouritebuttonleft2:hover {
+   color: #a03600 !important; 
 }
+
 
 .favouritebuttonleft3 {
     color: black !important;
@@ -903,7 +915,7 @@ p {
     font-family: "georgia", sans-serif !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    
+    display: inline;
  
 }
 
@@ -4634,7 +4646,7 @@ margin-right: auto;
 }
 
 .margin40 {
-    margin: 40px;
+    margin: 60px;
 }
 
 
@@ -4722,6 +4734,12 @@ margin-right: auto;
     font-size: 12px;
     display: inline;
     color: #702600;
+}
+
+.openinterview2 {
+    font-size: 12px;
+    display: inline;
+    
 }
 
 .openinterviewmargin {

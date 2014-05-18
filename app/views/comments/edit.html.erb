@@ -1,5 +1,13 @@
 <div class="span7 centered">
 
+<div class="settings">
+Edit Interview
+</div>	
+
+<div class="floatright">
+ <%= link_to 'Delete Interview', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Your interview will be deleted. Are you sure?' }, class: "favouritebutton" %> 	
+</div>
+
 <%= simple_form_for [@post, @comment], :html => { :method => :put } do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
@@ -43,12 +51,14 @@ Ask <%= current_user.name %> about:
 Close interview to new questions
   </div>
 
-<%= f.submit "Save Edits", class: "favouritebutton myButton" %>
+ <div class="row"></div>
+
+<%= f.submit "Save Edits", class: "favouritebuttonleft2" %>
 
  <% end %>
 
-</div>
 
+</div>
 
 <script>
 function readURL(input) {
