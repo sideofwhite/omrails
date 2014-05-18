@@ -84,7 +84,7 @@ end
   # PATCH/PUT /comments/1.json
   def update
     @post = Post.friendly.find(params[:post_id])  
-    
+
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Comment was successfully updated.' }
@@ -114,6 +114,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :link, :active)
+      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active)
     end
 end

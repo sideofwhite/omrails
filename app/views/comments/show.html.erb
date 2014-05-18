@@ -8,13 +8,6 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
-
-<div class="titlecontainer">
-<%= @comment.title %>
-</div>
-
-<div class="openinterviewmargin"></div>
-
 <% if @comment.active? %>
 <%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
 <div class="openinterview2">
@@ -30,6 +23,14 @@ Open interview
 <% end %>
 </div>
 <% end %>
+
+<div class="openinterviewmargin"></div>
+
+<div class="titlecontainer">
+<%= @comment.title %>
+</div>
+
+
 
 <div class="row"></div>
 <hr/>
@@ -54,13 +55,13 @@ Open interview
 <div class="row"></div>
 
 <div class="commentlabel">
-About:
+About
 </div>
 <div class="underneath">
 <%= @comment.body %>
 </div>
 <div class="commentlabel2">
-Ask <%= current_user.name %> about:
+Ask <%= current_user.name %> about
 </div>
 <div class="underneath">
 <%= @comment.about %>
