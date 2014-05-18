@@ -56,7 +56,7 @@ end
   # GET /posts/1.json
   def show
   @post = Post.friendly.find(params[:id])
-  @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(2)
+  @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(10)
   @links = @post.links.order(:created_at).limit(5)
 
   end

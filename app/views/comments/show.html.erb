@@ -8,9 +8,28 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
+
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
+
+<div class="openinterviewmargin"></div>
+
+<% if @comment.active? %>
+<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
+<div class="openinterview2">
+Closed interview
+</div>
+<% else %>
+<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
+<div class="openinterview">
+<% if current_user == @comment.user %>
+<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
+<% else %>
+Open interview
+<% end %>
+</div>
+<% end %>
 
 <div class="row"></div>
 <hr/>
@@ -35,16 +54,16 @@
 <div class="row"></div>
 
 <div class="commentlabel">
-About 
+About:
 </div>
 <div class="underneath">
 <%= @comment.body %>
 </div>
 <div class="commentlabel2">
-Ask <%= current_user.name %> about 
+Ask <%= current_user.name %> about:
 </div>
 <div class="underneath">
-<%= @comment.body %>
+<%= @comment.about %>
 </div>
 
 <div class="lightcontainer6">
@@ -68,9 +87,15 @@ Ask <%= current_user.name %> about
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
+<% if @comment.active? %>
+<div class="eventtoptext3">
+Ask Question
+</div>
+<% else %>
 <div class="eventtoptext3">
 <a href="#form">Ask Question</a>
 </div>
+<% end %>
 
 <div class="favouritebuttonmargin"></div>
 
@@ -135,13 +160,14 @@ Ask <%= current_user.name %> about
 
 <div class="favouritebuttonmargin"></div>
 
+<% unless @comment.active? %>
 <a name="form">
 <%= render :partial => "questions/form" %>
 </a>
-
 <div class="favouritebuttonmargin"></div>
-
 <div class="favouritebuttonmargin"></div>
+<% end %>
+
 
 
 

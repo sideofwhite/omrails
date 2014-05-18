@@ -23,16 +23,17 @@
 
 
 <div class="commentlabel">
-About
+About:
 </div>
 <%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
 
 <div class="commentlabel2">
-Ask <%= current_user.name %> about 
+Ask <%= current_user.name %> about: 
 </div>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
+<%= f.input :about, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
 
 <div class="underbutton2"></div> 
+
 <%= f.submit "Post", class: "favouritebutton myButton" %>
 
  <% end %>

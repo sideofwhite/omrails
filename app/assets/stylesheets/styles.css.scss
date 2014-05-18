@@ -744,8 +744,6 @@ p {
     color: #333332 !important;
     font-size: 40px;
     font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 10px;
     letter-spacing: -0.04em;
     line-height: 1.1;
     
@@ -4263,7 +4261,17 @@ margin-bottom: 20px;
   
 }
 
-
+.eventtoptext3b {
+    
+    
+    display: inline;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: bold;
+    float: right;
+    opacity: 0.1;
+  
+}
 
 .nameblueside {
 
@@ -4700,5 +4708,21 @@ margin-right: auto;
    font-weight: bold;
    font-size: 14px;
    margin-bottom: 5px; 
-   margin-top: 15px;
+   margin-top: 20px;
+}
+
+.openinterview {
+    font-size: 12px;
+    display: inline;
+    color: #a03600 !important;
+}
+
+.openinterview2 {
+    font-size: 12px;
+    display: inline;
+    color: #702600;
+}
+
+.openinterviewmargin {
+    padding-top: 20px;
 }

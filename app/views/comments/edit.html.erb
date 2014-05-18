@@ -1,49 +1,70 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
+<div class="span7 centered">
 
-<div class="container">
-<div class="row">
-<div class="span1">
-<div class="circle">
+<%= simple_form_for [@post, @comment], :html => { :method => :put } do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
+
+<hr/>
+
+
+<div class="circleb">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
+
+<div class="nameblueside2">
+<%= link_to current_user.name, user_path(current_user) %>
+</div>
+<% if @post.present? %>
+<div class="eventtoptext2">
+<%= link_to (@post.title), post_path(@post) %>
+</div>
+<% end %>
+
+<div class="row"></div>
+
+
+<div class="commentlabel">
+About:
+</div>
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
+
+<div class="commentlabel2">
+Ask <%= current_user.name %> about: 
+</div>
+<%= f.input :about, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
+
 <hr/>
-<div class="center">
-<%= link_to current_user.name, user_path(current_user) %> 
-</div>
-</div>
 
-<div class="span6">
-<%= render 'form' %>
-</div>
+<a id="close">
+<%= f.check_box :active, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+</a>
+<div class="buttoncheckbox2">
+Close interview to new questions
+  </div>
 
-<div class="span3 offset2">
-<div class="eventimage">
- <div class="titlecontainershow">
-<%= link_to (@comment.post.title), post_path(@post) %>
-</div>   
- <style media="screen">
-  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
- </style>
+<%= f.submit "Save Edits", class: "favouritebutton myButton" %>
 
-
- </div>
+ <% end %>
 
 </div>
 
 
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#user_image").change(function(){
+        readURL(this);
+    });
 
-
-
-
-</div>
-</div>
-
-
-
-<div class="visible-phone visible-tablet">
-
-<%= render 'form' %>
-
-</div>
-
-
+</script>
