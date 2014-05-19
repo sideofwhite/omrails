@@ -18,10 +18,12 @@
 
 
 
-<div class="span4 centered">		
+<div class="span4 centered">	
+<% if @user.image? %>	
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
+<% end %>
 <div class="usernametext2">	
 <%= @user.name %>
 </div>

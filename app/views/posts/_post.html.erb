@@ -1,11 +1,14 @@
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span8 centered">
 
-<% if current_user.try(:admin?) %>
-<%= link_to "New Post", new_post_path %>
-<% end %>
+<% @toppost.each do |post| %>
+<div class="eventimagetop">
+<%= image_tag post.image %>
+</div>
 
-<% @posts.each do |post| %>
 <div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -42,14 +45,28 @@ No interviews just yet.
 </div>
 </div>
 <% end %>
-
-<div class="eventimagetop">
-<%= image_tag post.image %>
-</div>
+<div class="postgridmargin"></div>
 
 <% end %>
 
+<div class='yui3-g'>
+
+<% @posts.each do |post| %>
+<div class="yui3-u-1-2">
+<div class="content">
+ <div class="marginpost"> 
+<div class="eventimage2">
+<%= image_tag post.image %>
+</div> 
+<div class="posttext">
+<%= link_to (post.title), post_path(post)%> 
+</div>
+</div>
+<div class="postgridmargin"></div>
+</div>
+</div>
+<% end %>
 
 </div>
 </div>
-
+</div>

@@ -563,7 +563,21 @@ p {
     opacity: 0.7;
 }
 
+.buttonredinfo {
+    width: 40% !important;
+    background-color: #a03600;
+    color: white;
+    padding: 10px;
+    margin-top: 18px;
+    border: 0px !important;
+    font-size: 16px !important;
+    font-family: "jaf-bernino-sans", sans-serif !important;
 
+}
+
+.buttonredinfo:hover {
+    opacity: 0.7;
+}
 
 .addeventbutton {
     display: inline-block;
@@ -1965,7 +1979,6 @@ border:1px solid white;
     width: 100% !important;
     font-size: 18px;
     color: rgba(0,0,0,0.8);
-    font-weight: bold;
     text-align: center;
 }
 
@@ -3121,15 +3134,19 @@ pull-left{
     height: 150px;
     width: 150px;
     border-radius: 75px;
-    margin: 0 auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    display: block;
 
     
    
 }
 
 .userimage2 {
- 
+   display: block;
    position: relative;
+   margin-left: 0 auto;
+    margin-right: 0 auto;
    
 }
 
@@ -3293,7 +3310,7 @@ and (max-device-width : 1024px)
     
     width: 100%;
     height: 340px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 .eventimagetoptablet img {
@@ -3311,7 +3328,7 @@ and (max-device-width : 1024px)
 .eventimage2 img {
     
     width: 100%;
-    height: 230px;
+    height: 210px;
     
 }
 
@@ -3320,7 +3337,9 @@ and (max-device-width : 1024px)
     display: block;
 }
 
-
+.marginpost {
+    
+}
 
 .eventimagetablet img {
     height: 160px;
@@ -4581,10 +4600,10 @@ margin-right: auto;
 }
 
 .completeyourprofile {
-    font-size: 32px;
-    font-weight: 300;
+    font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: bold;
 }
 
 
@@ -4709,12 +4728,9 @@ margin-right: auto;
 .linkinline {
   
     font-size: 14px;
-    font-weight: normal;
     display: inline;
     font-family: "jaf-bernino-sans", sans-serif !important;
-    background-color: #eeeeee;
-    padding: 3px;
-    font-style: italic;
+    font-weight: bold;
 }
 
 
@@ -4772,4 +4788,24 @@ margin-right: auto;
 
 .pagination {
     color: white !important;
+}
+
+
+.posttext {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.postgridmargin {
+    padding: 20px;
+}
+
+.yui3-g .content {
+    
+   margin-left: 15px; 
+   margin-right: 15px;
+
+    
 }

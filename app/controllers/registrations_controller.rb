@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case his password changed
       sign_in @user, :bypass => true
-      redirect_to user_path(current_user)
+      redirect_to root_path, notice: 'Welcome to Podium!' 
     else
       render "edit"
     end
