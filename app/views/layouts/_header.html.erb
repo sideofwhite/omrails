@@ -1,12 +1,17 @@
 <div class="visible-desktop visible-tablet hidden-phone">
 <div class="navbar transparent navbar-inverse ">
    <nav class="navbar-inner">
-      <div class="container">
-       
+      
+  <div class='span12 centered'>   
              
-            
-             <%= link_to "PODIUM", root_path, class: "brand" %>
 
+
+            
+              <div class="logoimage">
+              <%= link_to (image_tag("http://i.imgur.com/yNtJVuq.png")), root_path  %>
+              
+              </div>
+            
          <div class="nav-collapse">
          <ul class="nav">
            
@@ -25,13 +30,13 @@
                      <% else %>
                      <li><%= link_to "Login", new_user_session_path, class: "headtext" %></li>
                      <li><%= link_to "Sign Up", new_user_registration_path, class: "headtext2" %></li>
-            
+ </div>           
                       <% end %>
 
             </ul>
 
 
-                </div>
+               
         </div>
     </div>
 </div>

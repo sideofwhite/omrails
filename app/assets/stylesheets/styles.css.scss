@@ -32,6 +32,11 @@ a {
     color: rgba(0,0,0,0.8) !important;
 }
 
+.navbar .brand {
+    float: left;
+    display: inline;
+}
+
 
 
 .buttoncheckbox {
@@ -216,7 +221,7 @@ p {
 .brand {
 
 
-    
+    color: rgba(0,0,0,0.8) !important;
     font-size: 28px !important;
     border:1px solid white;
     font-weight: bold !important;
@@ -225,6 +230,8 @@ p {
     vertical-align: middle;
     padding-top: 10px !important;
     font-family: "jaf-bernino-sans", sans-serif !important;
+    text-align: center !important;
+    display: inline !important;
 }
 
 
@@ -254,24 +261,25 @@ p {
 
 .headtext {
     color:  #333332 !important;
-    margin-top: 5px !important;
+    margin-top: 10px !important;
     padding-right: 3px !important;
-    font-size: 15px !important;
+    font-size: 16px !important;
+    font-weight: bold;
 }
 
 .headtext2 {
     color:  #333332 !important;
-    font-size: 15px !important;
-    margin-top: 5px !important;
+    font-size: 16px !important;
+    margin-top: 10px !important;
+    font-weight: bold;
 }
 
  .navbar.transparent.navbar-inverse .navbar-inner {
    border-bottom: 0px solid #eeeeee !important;
-   background: #EEEEEE;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
   border-top : 3px solid #a03600;
-   
+   text-align: center !important;
 }
 
 
@@ -4808,4 +4816,17 @@ margin-right: auto;
    margin-right: 15px;
 
     
+}
+
+.logoimage img {
+    width: 150px;
+    height: 40.5px;
+    float: left;
+    display: inline;
+    margin-top: 10px;
+    float: left;
+}
+
+.logoimage {
+    display: inline !important;
 }
