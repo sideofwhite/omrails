@@ -14,7 +14,7 @@
 <body>
 
 
-<%= render 'layouts/header' %>
+<%= render 'layouts/header' unless @skip_footer %>
 <% flash.each do |name, msg| %>
 <div class="span3 centered">
       <div class="alert alert-danger alert-dismissable">

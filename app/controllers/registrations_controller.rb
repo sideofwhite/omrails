@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
     def info
+      @skip_footer = true 
         @user = current_user
         if @user 
             render :info
@@ -7,6 +8,13 @@ class RegistrationsController < Devise::RegistrationsController
             redirect_to root_path
          end 
     end
+
+    def new
+      @skip_footer = true 
+      super
+    
+  end
+
 
    def update
     # For Rails 4

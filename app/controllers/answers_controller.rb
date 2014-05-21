@@ -17,6 +17,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
+   @skip_footer = true 
   @question = Question.friendly.find(params[:question_id]) 
   end
 
@@ -27,6 +28,8 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
+    @skip_footer = true
+
     @answer = Answer.new(answer_params)
   @question = Question.friendly.find(params[:question_id])
   @question.answer = @answer

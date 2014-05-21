@@ -1,23 +1,22 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
-
+<div class="headermargin"></div>
 <div class="px300">
- 
+
+
+<div class="loginlogo">
+<%= image_tag ("http://i.imgur.com/IgMPC2v.png") %>
+</div>
 
  <div class="twitterlogin">
- <div class="twitterbird">	
- <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
-</div>
- <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
+
+ <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
 </div>
 
-<div class="center">
-<div class="toplight">
-or
-</div>
+<div class="twitterlogin">
+<a name="answer" value="Done" class="white" onclick="showDiv()" > Sign up with Email</>
 </div>
 
-
-
+<div id="welcomeDiv"  style="display:none;" class="answer_list" >
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
  
 
@@ -34,15 +33,11 @@ or
 By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
 </div>	
 </div>
-
+</div>
 <% end %>
 
-<div class="logotext2">
-Already have an account? <%= link_to ("Login"), new_user_session_path, class: "blue" %>
-</div>
-</div>
 
-</div>
+
 
 
 <div class="hidden-desktop visible-phone visible-tablet">
@@ -85,8 +80,23 @@ By clicking "Sign Up" you indicate that you have read <br> and agree to the Term
 <% end %>
 
 <div class="logotext2">
-Already have an account? <%= link_to ("Login"), new_user_session_path, class: "blue" %>
+ <%= link_to ("Login"), new_user_session_path, class: "blue" %>
 </div>
 </div>
 
 </div>
+
+<script>
+
+function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+}
+
+ var button = document.getElementById('show_button')
+    button.addEventListener('click',hideshow,false);
+
+    function hideshow() {
+        document.getElementById('hidden-div').style.display = 'block'; 
+        this.style.display = 'none'
+    }  
+</script>

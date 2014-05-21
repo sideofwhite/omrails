@@ -2,6 +2,14 @@
 
 <div class="span7 centered">
 
+<div class="paddingtop"></div>
+<div class="paddingtop"></div>
+<div class="paddingtop"></div>
+
+<div class="floatright">
+<%= link_to_function "x", "history.back()", class: "close" %>
+</div>
+
 <div class="lightname">
 <%= link_to (@question.user.name), user_path(@question.user) %>
 </div>
