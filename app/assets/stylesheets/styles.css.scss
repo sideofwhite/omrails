@@ -75,6 +75,30 @@ a {
     filter: none;
 }
 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 
 .btn-primary:hover {
     border: 2px solid #8e2600;
@@ -3921,24 +3945,48 @@ background:#000;
 
 .twitterlogin {
    
-    font-size: 26px !important;
+    font-size: 24px !important;
     text-align: center;
     line-height: 110%;
     margin-bottom: 5px;
     vertical-align: middle;
     color: white;
-    padding: 15px;
+    padding: 20px;
     width: 100%;
-    font-weight: bold;
+    background-color: #333332;
+    margin-top:  30% !important;
+
+
+}
+
+.twitterlogin2 {
+   
+    font-size: 24px !important;
+    text-align: center;
+    line-height: 110%;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    color: white;
+    padding: 20px;
+    width: 100%;
     background-color: #333332;
 
+    
+
+}
+
+.twitterloginborder {
+    border: 1px solid #eeeeee;
+    padding: 20px;
 }
 
 .twitterlogin:hover {
     opacity: 0.9;
 }
 
-
+.twitterlogin2:hover {
+    opacity: 0.9;
+}
 
 .percentmargin {
     margin-top: 50%;
@@ -3948,7 +3996,13 @@ background:#000;
     display: block;
     margin: 0 auto;
     margin-bottom: 40px;
+    width: 41px;
+    height: 41px;
+    margin-top: 10px;
+    vertical-align: middle;
+
 }
+
 
 .emaillogin {
     font-size: 26px !important;
@@ -4661,6 +4715,7 @@ margin-right: auto;
     font-size: 14px;
     margin-bottom: 60px;
     text-align: center;
+    margin-top: 160px;
 }
 
 
@@ -4874,4 +4929,31 @@ margin-right: auto;
 .headermargin {
     margin: 75px;
    
+}
+
+.absolute {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-bottom: 50px;
+}
+
+.relative {
+    poition: relative !important;
+
+}
+
+.footertext {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline;
+}
+
+.opacitylogo {
+    opacity: 0.4;
+}
+
+.opacitylogo:hover {
+    opacity: 1;
 }

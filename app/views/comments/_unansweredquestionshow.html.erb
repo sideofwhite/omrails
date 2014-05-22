@@ -12,7 +12,8 @@
 </div>
 </div>
 
-<% if @comment.user == current_user %>
+<% if @comment.user == current_user or current_user.try(:admin?) %>
+ <%= link_to 'Delete', comment_question_path(question.comment, question), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainercomment2" %> 	
 
 <div class="commentmargin10"></div>
 

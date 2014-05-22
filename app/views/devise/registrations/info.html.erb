@@ -1,4 +1,17 @@
-<div class="headermargin"></div>
+
+ <div class="absolute">
+<div class="visible-desktop visible-tablet hidden-phone">
+<div class="navbar transparent navbar-inverse ">
+   <nav class="navbar-inner">
+<div class="span12 centered">
+<div class="loginlogo">
+<%= image_tag ("http://i.imgur.com/IgMPC2v.png") %>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
 
 <% if current_user.email.present? %>
 
@@ -8,6 +21,9 @@
 Complete your profile
 </div>
 
+<div class="completeyourprofile">
+Complete
+</div>
 <div class="underneathcompleteyourprofile">
 <%= link_to ("...or skip for now"), root_path %>
 </div>
