@@ -51,20 +51,34 @@ No interviews just yet.
 
 <div class='yui3-g'>
 
-<% @posts.each do |post| %>
+<% @posts.each_with_index do |post, i| %>
+<% if i.odd? %>
 <div class="yui3-u-1-2">
-<div class="content">
- <div class="marginpost"> 
+<div class="marginpost"> 
 <div class="eventimage2">
 <%= image_tag post.image %>
 </div> 
 <div class="posttext">
 <%= link_to (post.title), post_path(post)%> 
 </div>
+<div class="postgridmargin"></div>
+</div>
+</div>
+<% else %>
+<div class="yui3-u-1-2">
+<div class="marginpost2"> 
+<div class="eventimage2">
+<%= image_tag post.image %>
+</div> 
+<div class="posttext">
+<%= link_to (post.title), post_path(post)%> 
 </div>
 <div class="postgridmargin"></div>
 </div>
 </div>
+
+
+<% end %>
 <% end %>
 
 </div>

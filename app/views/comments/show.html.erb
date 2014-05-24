@@ -71,6 +71,7 @@ About
 <div class="underneath">
 <%= @comment.body %>
 </div>
+<div class="commentlabelmargin"></div>
 <div class="commentlabel2">
 Ask <%= current_user.name %> about
 </div>
@@ -193,12 +194,6 @@ Unanswered Questions
 <% if @unanswered.length > 2 %>
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 <% end %>
-
-<div class="row"></div>
-
-<div class="commentquestionmargin"></div>
-
-
 
 
 </div>

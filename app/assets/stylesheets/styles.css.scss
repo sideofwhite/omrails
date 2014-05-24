@@ -3372,7 +3372,11 @@ and (max-device-width : 1024px)
 }
 
 .marginpost {
-    
+    margin-left: 20px;
+}
+
+.marginpost2 {
+    margin-right: 20px;
 }
 
 .eventimagetablet img {
@@ -3448,9 +3452,9 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 80px;
-height: 80px;
-border-radius: 40px;
+width: 90px;
+height: 90px;
+border-radius: 45px;
 float: left;
 margin-right: 15px;
 margin-bottom: 30px;
@@ -4842,7 +4846,7 @@ margin-right: auto;
    font-weight: bold;
    font-size: 18px;
    margin-bottom: 5px; 
-   display: inline;
+   display: inline-block;
 }
 
 .commentlabel2 {
@@ -4850,7 +4854,11 @@ margin-right: auto;
    font-size: 18px;
    margin-bottom: 5px; 
    margin-top: 20px;
-   display: inline;
+   display: inline-block;
+}
+
+.commentlabelmargin {
+    margin: 20px;
 }
 
 .openinterview {
@@ -4906,8 +4914,7 @@ margin-right: auto;
 
 .yui3-g .content {
     
-   margin-left: 15px; 
-   margin-right: 15px;
+ 
 
     
 }
