@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<div id="wrap">
 <%= render 'layouts/header' unless @skip_footer %>
 <% flash.each do |name, msg| %>
 <div class="span3 centered">
@@ -27,11 +26,11 @@
 <div class="container">
     <%= yield %>
 </div>
-  </div>
+<div id="wrap">
 <div class="container">
     <%= render 'layouts/footer' %>
 </div>
-
+</div>
 
 </body>
 </html>

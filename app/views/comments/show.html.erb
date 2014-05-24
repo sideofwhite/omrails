@@ -73,7 +73,7 @@ About
 </div>
 <div class="commentlabelmargin"></div>
 <div class="commentlabel2">
-Ask <%= current_user.name %> about
+Ask <%= @comment.user.name %> about
 </div>
 <div class="underneath">
 <%= @comment.about %>
@@ -140,7 +140,7 @@ Ask Question
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), class: "inline", remote: true, method: :put %>
+<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
 
 <% end %>
 <% else %>
@@ -191,6 +191,7 @@ Unanswered Questions
 
 <%= render 'comments/unansweredquestionshow' %>
 <% end %>
+
 <% if @unanswered.length > 2 %>
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 <% end %>

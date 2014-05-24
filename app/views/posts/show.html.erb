@@ -53,6 +53,9 @@
 
 
 <% if @post.comments.count < 1 %>
+<div class="thirty"></div>
+
+<div class="hrevent"></div>
 <div class="center">
 <div class="eventmargin2">
 There are no posts yet.
@@ -64,7 +67,7 @@ There are no posts yet.
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext6">	
+<div class="eventtoptext4">	
 <%= pluralize(@post.comments.count, 'Interview') %> 
 </div>
 <div class="sixty"></div>
