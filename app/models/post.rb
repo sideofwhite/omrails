@@ -18,6 +18,12 @@ has_many :questions, :through => :comments
 has_many :pictures
 geocoded_by :country
 after_validation :geocode, :if => :country_changed?
+
+ def next
+    post.comments.where("id > ?", id).order("id ASC").first
+  end
+
+
 def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?
     super

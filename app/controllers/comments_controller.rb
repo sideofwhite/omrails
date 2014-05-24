@@ -32,12 +32,16 @@ end
   def show
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]
+  @commentnext = @post.comments.friendly.find(params[:id])
   @question = Question.new
   @answer = Answer.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
   @questions = @comment.questions.order('cached_votes_total desc')
   @unansweredshow = @comment.questions.order("created_at desc").limit(3)
   @unanswered = @comment.questions.order("created_at desc").offset(3)
+  def next
+    @post.comments.where("id > ?", id).order("id ASC").first
+  end
   end
 
 

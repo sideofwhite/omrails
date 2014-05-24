@@ -196,6 +196,8 @@ Unanswered Questions
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 <% end %>
 
+<%= link_to "#{@comment.title}", post_comment_path(@post, @commentnext.next) %>
+
 
 </div>
 

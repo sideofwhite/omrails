@@ -2,6 +2,9 @@ class Comment < ActiveRecord::Base
 extend FriendlyId
 friendly_id :title, use: :slugged
 
+def next
+    post.comments.where("id < ?", id).order('cached_votes_total desc').first
+  end
 
 has_attached_file :image, :styles => { :medium => "400x300>" }
 
