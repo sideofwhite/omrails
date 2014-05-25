@@ -34,12 +34,6 @@
 </div>
 
 
-<% if user_signed_in? %> 
-<%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebutton" %>
-<% else %>
-<%= link_to 'Be Interviewed', new_user_registration_path, class: "favouritebutton" %>
-<% end %>
-
 <div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
 </div>
@@ -70,6 +64,11 @@ There are no posts yet.
 <div class="eventtoptext4">	
 <%= pluralize(@post.comments.count, 'Interview') %> 
 </div>
+<% if user_signed_in? %> 
+<%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "eventtoptext3" %>
+<% else %>
+<%= link_to 'Be Interviewed', new_user_registration_path, class: "eventtoptext3" %>
+<% end %>
 <div class="sixty"></div>
 
 

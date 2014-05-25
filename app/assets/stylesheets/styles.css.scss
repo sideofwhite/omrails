@@ -3955,17 +3955,22 @@ background:#000;
 
 
 .twitterlogin {
-   
-    font-size: 24px !important;
-    text-align: center;
-    line-height: 110%;
-    margin-bottom: 5px;
-    vertical-align: middle;
-    color: white;
-    padding: 20px;
-    width: 100%;
-    background-color: #333332;
-    margin-top:  30% !important;
+
+
+
+display: block;
+background-color: #55acee;
+border-radius: 2px;
+margin: 0 auto;
+margin-top: 30px;
+color: white;
+padding: 12px;
+margin-bottom: 20px;
+border: 0px !important;
+font-size: 18px !important;
+font-family: "jaf-bernino-sans", sans-serif !important;
+text-align: center;
+font-weight: bold;
 
 
 }
@@ -4722,6 +4727,7 @@ margin-right: auto;
     font-size: 22px;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .completeyourprofile2 {
@@ -4983,4 +4989,10 @@ margin-right: auto;
 
 .menu {
     margin-top: 100px;
+}
+
+.or {
+    text-align:center;
+    margin-bottom: 10px;
+    font-size: 14px;
 }

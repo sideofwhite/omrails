@@ -1,36 +1,21 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
-
-
-<div class="absolute">
-<div class="visible-desktop visible-tablet hidden-phone">
-<div class="navbar transparent navbar-inverse ">
-   <nav class="navbar-inner">
-<div class="span12 centered">
-<div class="loginlogo">
-<%= image_tag ("http://i.imgur.com/IgMPC2v.png") %>
-</div>
-</div>
-</nav>
-</div>
-</div>
-</div>
-
-<div class="relative">]
+<div class="sixty"></div>
 <div class="px300">
+ <div class="completeyourprofile">
+Sign In
+</div> 
+ <div class="or">
+<%= link_to "I need an account", new_user_registration_path %>
+</div>  
+
+<hr/>
  <div class="twitterlogin">
 
  <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
 </div>
 
-<div class="twitterlogin2">
-<div id="showmenu">Sign in with Email</div>
-</div>
-
-
-<div class="menu" style="display: none;">
-
- <div class="completeyourprofile">
-Sign In
+ <div class="or">
+or with email
 </div> 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -58,7 +43,7 @@ Sign In
 
 </div>
 </div>
-</div>
+
 
 <div class="hidden-desktop visible-phone visible-tablet">
 
@@ -104,17 +89,8 @@ or
 
 </div>
 
-<script>
 
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-                $('.menu').slideToggle("fast");
-                $('#showmenu').hide();
-                $('.twitterlogin2').hide();
-                $('.twitterlogin').hide();
-        });
-    }); 
-</script>
+
 
 
 

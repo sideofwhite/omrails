@@ -1,34 +1,23 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-
-<div class="absolute">
-<div class="visible-desktop visible-tablet hidden-phone">
-<div class="navbar transparent navbar-inverse ">
-   <nav class="navbar-inner">
-<div class="span12 centered">
-<div class="loginlogo">
-<%= image_tag ("http://i.imgur.com/IgMPC2v.png") %>
-</div>
-</div>
-</nav>
-</div>
-</div>
-</div>
-
-<div class="relative">]
 <div class="px300">
+<div class="sixty"></div>
+   <div class="completeyourprofile">
+Create an account
+</div> 
+ <div class="or">
+<%= link_to "I already have one", new_user_session_path %>
+</div> 	
+
+<hr/>
+
  <div class="twitterlogin">
-
- <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
+<%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
 </div>
 
-<div class="twitterlogin2">
-<div id="showmenu">Sign in with Email</div>
-</div>
 
-<div class="menu" style="display: none;">
- <div class="completeyourprofile">
-Sign Up
+ <div class="or">
+or with email
 </div> 	
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
  
@@ -96,18 +85,8 @@ By clicking "Sign Up" you indicate that you have read <br> and agree to the Term
 <div class="logotext2">
  <%= link_to ("Login"), new_user_session_path, class: "blue" %>
 </div>
-</div>
+
 
 </div>
 
-<script>
 
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-                $('.menu').slideToggle("fast");
-                $('#showmenu').hide();
-                $('.twitterlogin2').hide();
-                $('.twitterlogin').hide();
-        });
-    }); 
-</script>
