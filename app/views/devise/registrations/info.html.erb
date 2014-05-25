@@ -1,31 +1,16 @@
 
- <div class="absolute">
-<div class="visible-desktop visible-tablet hidden-phone">
-<div class="navbar transparent navbar-inverse ">
-   <nav class="navbar-inner">
-<div class="span12 centered">
-<div class="loginlogo">
-<%= image_tag ("http://i.imgur.com/IgMPC2v.png") %>
-</div>
-</div>
-</nav>
-</div>
-</div>
-</div>
 
 <% if current_user.email.present? %>
 
 <div class='span4 centered'>
+<div class="sixty"></div>
 
 <div class="completeyourprofile">
-Complete your profile
+Complete Your Profile
 </div>
 
-<div class="completeyourprofile">
-Complete
-</div>
 <div class="underneathcompleteyourprofile">
-<%= link_to ("...or skip for now"), root_path %>
+<%= link_to ("Skip For Now"), root_path %>
 </div>
  
 
@@ -33,12 +18,15 @@ Complete
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification %>
 
+
 <div class="userimagecomplete">
 <div class="addimage">
-<%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
+<%= f.input :image, input_html: { :style => "opacity:0; z-index:-1 !important;"  }, label: false %>
 </div>
 <img id="blah" />
 </div>
+
+
 <div class="usernametext2">  
 <%= current_user.name %>
 </div>  
@@ -46,15 +34,11 @@ Complete
 <%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
 
 
+<div class="sixty"></div>
 
 
-
-<hr/>
-
-
-
-<div class="center">  
-<%= f.submit "Done", class: "buttonredinfo"%>
+<div class="center"> 
+<%= f.submit "Finish", class: "buttonred"%>
 </div>
 </div>
 
@@ -113,7 +97,7 @@ Complete your profile
 <div class="paddingtop"></div>
 <%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
 
-<hr/>
+<div class="sixty"></div>
 
 
 <div class="center">  

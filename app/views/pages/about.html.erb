@@ -8,6 +8,15 @@ What is Podium?
 </div>
 </div>
 
+<div class='post'>ABC</div>
+
+<button id='item'>Toggle Me!</button>
 
 
-
+<script>
+$(document).ready(function(){
+   $("#item").click(function(){
+     $(.post).toggle();
+   });
+ });
+</script>
