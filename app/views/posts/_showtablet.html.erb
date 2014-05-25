@@ -1,39 +1,80 @@
 <div class="visible-tablet hidden-phone hidden-desktop">
 
-<div class="span10 centered">
-
-<div class='titlecontainershowtablet'>
-<%= @post.title %> 
+<div class="span12 centered">
+<div class="eventimage">
+<%= image_tag @post.image %> 
 </div>
-<hr/>
-
-<p>
-<strong><%= @post.country %></strong> - 
-<%= @post.description %>
-<p/>
-
-
-<strong><%= time_ago_in_words(@post.created_at) %> ago</strong>
-
-<div class="floatright">
-<% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebuttontb" %>
-<% else %>
-<%= link_to 'Post', new_user_registration_path, class: "favouritebuttontb" %>
-<% end %>
-</div>	
+</div>
 
 <div class="aboveimage2"></div>
 
-<div class="eventimagetoptablet">
-<%= image_tag @post.image %> 
+<div class="span10 centered">
+<div class="posttag">
+<%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</div>
+<div class='titlecontainershow'>
+<%= @post.title %> 
+</div>
+<div>
 </div>
 
+<div class="descriptionmargin">	
+<%= @post.description %>
+<div class='linkinline'>
+<%= link_to (@post.domain), url_for(@post.link) %>
+</div>
 </div>
 
 
+<% if user_signed_in? %> 
+<%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "favouritebutton" %>
+<% else %>
+<%= link_to 'Be Interviewed', new_user_registration_path, class: "favouritebutton" %>
+<% end %>
 
+<div class="boldletters2">
+<%= time_ago_in_words(@post.created_at) %> ago
+</div>
+
+<% if @post.country.present? %>
+<div class="boldletters2">
+<strong><%= @post.country %></strong>
+</div>
+<% end %>
+
+
+
+<% if @post.comments.count < 1 %>
+<div class="thirty"></div>
+
+<div class="hrevent"></div>
+<div class="center">
+<div class="eventmargin2">
+There are no posts yet.
+</div>
+</div>
+<% else %>
+
+<div class="thirty"></div>
+
+<div class="hrevent"></div>
+
+<div class="eventtoptext4">	
+<%= pluralize(@post.comments.count, 'Interview') %> 
+</div>
+<div class="sixty"></div>
+
+
+
+<% end %>
+
+<div class="span10 centered">
 <%= render 'comments/commenttablet' %>
+</div>
+
+</div>
+
+
 
 
 </div>

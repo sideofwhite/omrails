@@ -1,13 +1,20 @@
-<div class="visible-tablet hidden-phone hidden-desktop">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
-<div class="span10 centered">
-<% @posts.each do |post| %>
-<div class="titlecontainershowtablet">
+
+<div class="span12 centered">
+
+<% @toppost.each do |post| %>
+<div class="eventimagetop">
+<%= image_tag post.image %>
+</div>
+
+<div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
 
 <% if post.comments.count > 0 %>
 <div class="postinterviewmargintop">
+Interview
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
 <div class="postinterviewtext">
@@ -24,29 +31,56 @@
 <% if post.comments.count > 2 %>
 
 <div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> others are answering questions
+and <%= pluralize(post.comments.count - 2, 'other') %> 
 </div>
-<% elsif post.comments.count == 2 %>
-<div class="postinterviewtext"%>
-are answering questions
-</div>
-<% elsif post.comments.count == 1 %>
-<div class="postinterviewtext"%>
-is answering questions
-</div>
+
 <% end %>
 
 </div>
 <% else %>
+<div class="postinterviewmargintop">
+<div class="postinterviewtext"%>
+No interviews just yet.
+</div>
+</div>
+<% end %>
+<div class="postgridmargin"></div>
 
 <% end %>
 
-<div class="eventimagetoptablet">
+<div class='yui3-g'>
+
+<% @posts.each_with_index do |post, i| %>
+<% if i.odd? %>
+<div class="yui3-u-1-2">
+<div class="marginpost"> 
+<div class="eventimage2">
 <%= image_tag post.image %>
+</div> 
+<div class="posttext">
+<%= link_to (post.title), post_path(post)%> 
 </div>
+
+<div class="postgridmargin"></div>
+</div>
+</div>
+<% else %>
+<div class="yui3-u-1-2">
+<div class="marginpost2"> 
+<div class="eventimage2">
+<%= image_tag post.image %>
+</div> 
+<div class="posttext">
+<%= link_to (post.title), post_path(post)%> 
+</div>
+
+<div class="postgridmargin"></div>
+</div>
+</div>
+
 
 <% end %>
+<% end %>
+
 </div>
-
-
 </div>

@@ -7,7 +7,8 @@
 </div>
 <%= link_to "Questions", userquestions_path(@user), class: "greymargin" %>
 <%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
-<div class="floatright">
+<div class="row">
+<div class="paddingtop"></div>	
 <%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
 </div>
