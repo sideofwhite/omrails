@@ -592,27 +592,19 @@ p {
 }
 
 .buttonredcenter {
-    background-color: #a03600;
-    margin: 0 auto;
-    border-radius: 2px;
-    color: white;
+   
     margin-top: 20px;
     margin-bottom: 40px;
-    padding: 12px;
-    border: 0px !important;
     font-size: 16px !important;
-    display: block;
-    width: 82px;
     font-family: "jaf-bernino-sans", sans-serif !important;
+    text-align: center;
 }
 
 .buttonred:hover {
     opacity: 0.7;
 }
 
-.buttonredcenter:hover {
-    opacity: 0.7;
-}
+
 
 .buttonredinfo {
     width: 40% !important;
@@ -5025,7 +5017,7 @@ margin-right: auto;
 
 .headexplainer {
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -5033,5 +5025,6 @@ margin-right: auto;
 .headexplainer2 {
     text-align: center;
     font-size: 22px;
+
   
 }
