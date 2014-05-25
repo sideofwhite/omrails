@@ -194,10 +194,36 @@ Unanswered Questions
 
 <% if @unanswered.length > 2 %>
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
+<div class="commentquestionmargin"></div>
 <% end %>
 
-<%= link_to "#{@comment.title}", post_comment_path(@post, @commentnext.next) %>
 
+<% if @commentnext.next.present? %>
+<div class="hrevent"></div>
+<div class="eventtoptext4">	
+Next Interview
+</div>
+<div class='sixty'></div>
+
+<div class="titlecontainer2">
+<%= link_to "#{@commentnext.next.title}", post_comment_path(@post, @commentnext.next) %>
+</div>
+
+<div class="row"></div>
+
+<div class="circle">
+<%= link_to (image_tag(@commentnext.next.user.image)), user_path(@commentnext.next.user) %>
+</div>
+
+<div class="nameblueside">
+<%= link_to @commentnext.next.user.name, user_path(@commentnext.next.user) %>
+</div>
+
+<div class="postinterviewtext3">
+ asked <%= pluralize(@commentnext.next.questions.count, 'question') %>
+</div>
+
+<% end %>
 
 </div>
 
