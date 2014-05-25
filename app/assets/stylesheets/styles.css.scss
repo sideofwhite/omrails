@@ -52,7 +52,7 @@ a {
    float: left;
    margin-left: 5px;
    margin-top: 3px;
-   color: #bebebe;
+   color: #333332;
 }
 
 .checkboxmargin {
@@ -2034,6 +2034,8 @@ border:1px solid white;
 
 .close {
     font-size: 22px;
+    opacity: 1 !important;
+    color: white !important;
 }
 
 
@@ -3019,11 +3021,8 @@ text-align:center;
 
 .return {
     display: inline-block;
-    font-size: 12px;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 4px;
-    padding-bottom: 2px;
+    font-size: 14px;
+
 }
 
 .center {
@@ -4397,6 +4396,10 @@ margin-bottom: 20px;
     margin: 60px;
 }
 
+.sixtyb {
+    margin: 60px;
+}
+
 .eventtoptext3 {
     
     
@@ -4716,6 +4719,12 @@ margin-right: auto;
 }
 
 .completeyourprofile {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.completeyourprofile2 {
     font-size: 22px;
     text-align: center;
     font-weight: bold;

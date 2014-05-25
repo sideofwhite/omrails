@@ -21,7 +21,7 @@ Complete Your Profile
 
 <div class="userimagecomplete">
 <div class="addimage">
-<%= f.input :image, input_html: { :style => "opacity:0; z-index:-1 !important;"  }, label: false %>
+<%= f.input :image, input_html: { :style => "opacity:0;"  }, label: false %>
 </div>
 <img id="blah" />
 </div>
@@ -54,26 +54,26 @@ Complete Your Profile
 
 
 
-<div class="span4 centered">  
-<div class="completeyourprofile">
+<div class="span4 centered"> 
+<div class="sixty"></div> 
+<div class="completeyourprofile2">
 We still need your email
 </div>
-
+<div class="sixty"></div>
 <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
 <div>
 <div class="center">
-<button type="button" name="answer" value="Done" onclick="showDiv()" class="buttonredinfo"> Next </>
+<div class="buttonred">
+<div id="showmenu">Next</div>
+</div>
 </div>
 </div>
     <div class="row"></div>
-
-<hr/>
 </div>
 
-
+<div class="menu" style="display: none;">
 <div class="span4 centered">  
 
-<div id="welcomeDiv"  style="display:none;" class="answer_list" >
 <div class="completeyourprofile">
 Complete your profile
 </div>
@@ -81,7 +81,9 @@ Complete your profile
 <div class="underneathcompleteyourprofile">
 <%= link_to ("Skip for now"), root_path %>
 </div>
- 
+</div>
+
+<div class="span2 centered"> 
 
 <div class="userimage2">
 <div class="addimage">
@@ -89,15 +91,16 @@ Complete your profile
 </div>
  <img id="blah"/>
 </div>
+</div>
 
-
+<div class="span4 centered"> 
 <div class="usernametext2">  
 <%= current_user.name %>
 </div>  
 <div class="paddingtop"></div>
 <%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
 
-<div class="sixty"></div>
+<div class="sixtyb"></div>
 
 
 <div class="center">  
@@ -132,17 +135,17 @@ function readURL(input) {
     });
 
 
-    function showDiv() {
-   document.getElementById('welcomeDiv').style.display = "block";
-}
-
- var button = document.getElementById('show_button')
-    button.addEventListener('click',hideshow,false);
-
-    function hideshow() {
-        document.getElementById('hidden-div').style.display = 'block'; 
-        this.style.display = 'none'
-    }  
+    $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu').slideToggle("fast");
+                $('#showmenu').hide();
+                $('.twitterlogin2').hide();
+                $('.buttonred').hide();
+                $('.hello4').hide();
+                $('.completeyourprofile2').hide();
+                $('.sixty').hide();
+        });
+    }); 
 
 </script>
 
