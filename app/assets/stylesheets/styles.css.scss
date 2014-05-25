@@ -285,7 +285,6 @@ p {
 
 .headtext {
     color:  #333332 !important;
-    margin-top: 10px !important;
     padding-right: 0px !important;
     font-size: 14px !important;
     
@@ -294,7 +293,8 @@ p {
 .headtext2 {
     color:  #333332 !important;
     font-size: 14px !important;
-    margin-top: 10px !important;
+    padding-right: 0px !important;
+    font-weight: bold;
     }
 
  .navbar.transparent.navbar-inverse .navbar-inner {
@@ -580,19 +580,37 @@ p {
 }
 
 .buttonred {
-    display: block;
+    display: inline-block !important;
     background-color: #a03600;
     border-radius: 2px;
-    margin: 0 auto;
     color: white;
     padding: 12px;
-    margin-top: 18px;
+    margin-top: 30px;
     border: 0px !important;
     font-size: 16px !important;
     font-family: "jaf-bernino-sans", sans-serif !important;
 }
 
+.buttonredcenter {
+    background-color: #a03600;
+    margin: 0 auto;
+    border-radius: 2px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 12px;
+    border: 0px !important;
+    font-size: 16px !important;
+    display: block;
+    width: 82px;
+    font-family: "jaf-bernino-sans", sans-serif !important;
+}
+
 .buttonred:hover {
+    opacity: 0.7;
+}
+
+.buttonredcenter:hover {
     opacity: 0.7;
 }
 
@@ -5003,4 +5021,17 @@ margin-right: auto;
     text-align:center;
     margin-bottom: 10px;
     font-size: 14px;
+}
+
+.headexplainer {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.headexplainer2 {
+    text-align: center;
+    font-size: 22px;
+  
 }

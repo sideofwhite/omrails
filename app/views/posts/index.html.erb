@@ -1,5 +1,20 @@
-
-
+<div class="span8 centered">
+<% if params[:tag] %>
+<div class="settings">
+<%= params[:tag] %>
+</div>
+<% else %>
+<div class="headexplainer">
+Podium
+</div>
+<div class="headexplainer2">
+Interview experts on news events
+</div>
+<div class="buttonredcenter">
+<%= link_to "Learn More", about_path, class: "white" %>
+</div>
+<% end %>
+</div>
 
 <div id="products">
 <%= render 'posts/post' %>
@@ -9,9 +24,7 @@
 
 
 <div class="span7 centered">
-<div class='white'>
 <%= will_paginate @posts, :style => 'color: white !important;' %>
-</div>
 </div>
 
 
