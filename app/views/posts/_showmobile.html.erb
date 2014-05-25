@@ -20,17 +20,6 @@
 <%= time_ago_in_words(@post.created_at) %> ago 
 </div>
 
-<br>
-
-<% if user_signed_in? %> 
-<%= link_to 'Post', new_post_comment_path(@post), class: "favouritebuttontb" %>
-<% else %>
-<%= link_to 'Post', new_user_registration_path, class: "favouritebuttontb" %>
-<% end %>
-
-
-
-
 </div>
 
 <%= render 'comments/commentmobile' %>

@@ -45,9 +45,10 @@
 
 
 <div class="hidden-desktop visible-phone hidden-tablet">
-<div class="navbar transparent navbar-inverse ">
-<div class="headermargin"></div>
-<%= link_to "PODIUM", root_path, class: "brandmobile" %>
+   <div class="row">
+<div class="logoimage">
+              <%= link_to (image_tag("http://i.imgur.com/IgMPC2v.png")), root_path  %>
+              </div>
 
 <ul class="nav pull-right">
  <% if user_signed_in? %>
@@ -63,8 +64,7 @@
                     <li><%= link_to "Login", new_user_session_path, class: "headtext2" %></li>
                       <% end %>
 
-                   
-
-</ul>
+            
+<div class="sixty"></div>
 </div>
 </div>
