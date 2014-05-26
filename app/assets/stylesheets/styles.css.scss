@@ -593,8 +593,8 @@ p {
 
 .buttonredcenter {
    
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 15px;
+    margin-bottom: 60px;
     font-size: 16px !important;
     font-family: "jaf-bernino-sans", sans-serif !important;
     text-align: center;
@@ -5017,14 +5017,30 @@ margin-right: auto;
 
 .headexplainer {
     text-align: center;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .headexplainer2 {
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
 
   
+}
+
+
+.upvotebutton2 {
+   background-image: url("http://i.imgur.com/SYYaeQ4.png"); 
+   width: 32px;
+   height: 32px;
+   display: inline-block;
+
+}
+
+.clicked {
+    background-image: url("http://i.imgur.com/gNpXAWn.png");
+    width: 32px;
+    height: 32px;
+    display: inline-block;
 }

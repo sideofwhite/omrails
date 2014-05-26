@@ -137,12 +137,16 @@ Ask Question
 
 <div class="lightcontainercomment">	
 <% if user_signed_in? %>
+
 <% if current_user.voted_for? question %>
 <%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
-
+<%= link_to upvote_comment_question_path(question.comment, question), remote: true, method: :put do %>
+<div class="upvotebutton2"></div>
 <% end %>
+<% end %>
+
+
 <% else %>
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
 <% end %>
@@ -155,7 +159,6 @@ Ask Question
 </div>
 <div class="socialshare">
 <%= image_tag ("http://i.imgur.com/L61g3oz.png") %>
-</div>
 </div>
 </div>
 <hr6/>
@@ -231,7 +234,15 @@ Next Interview
 
 
 
+<script>
 
+$(document).ready(function(){
+    $('.upvotebutton2').click(function(){
+        $(this).toggleClass("clicked");
+    });
+});
+
+</script>
 
 
 

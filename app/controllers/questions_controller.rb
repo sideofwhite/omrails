@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   
  def upvote
-@question = Question.find params[:id]
+@question = Question.friendly.find params[:id]
 @question.liked_by current_user
 end
 
