@@ -117,9 +117,7 @@ Ask Question
 
 <div class="commentmargin10"></div>
 
-	
 
-<div class="redline">
 <p>	
  <% if question.answer.body.length > 250 %>
     <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
@@ -131,7 +129,7 @@ Ask Question
 <div class="lightcontainercomment2">
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
-</div>
+
 
 
 
