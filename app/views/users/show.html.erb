@@ -61,26 +61,25 @@ Interviews
 
 <% @comments.each_with_index do |comment, i| %>
 <div class="sixty"></div>
- <div class="interviewgrey">
- <%= @user.name %> on <%= comment.post.title %>
+
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-<div class="commentmargin10"></div>
-<div class="interviewcontainer">
-<%= comment.title %>
+
+<div class="row"></div>
+
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
-<div class="commentmargin10"></div>
-<% if comment.body.present? %>
-<div class="redline">
-<p>
-<%= comment.body[0,200] %>
-<%= link_to "(read more...)", post_comment_path(comment.post, comment), class: "blue" %>
-</p>
+
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
 </div>
-<% end %>
-<div class="commentmargin10"></div>
-<div class="eventtoptext4">	
-<%= comment.questions.count %> Questions
+
+<div class="postinterviewtext3">
+ asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
+
 
 <% unless (i + 1) == @comments.length %>
 <div class="row"></div>

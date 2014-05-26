@@ -27,7 +27,7 @@ Complete Your Profile
 </div>
 
 
-<div class="usernametext2">  
+<div class="usernametext2b">  
 <%= current_user.name %>
 </div>  
 <div class="paddingtop"></div>
@@ -59,8 +59,8 @@ Complete Your Profile
 <div class="completeyourprofile2">
 We still need your email
 </div>
-<div class="sixty"></div>
-<%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
+<div class="paddingtop"></div>
+<%= f.input :email, input_html: { :class => "hello4" }, label: "Email", placeholder: "Email" %>
 <div>
 <div class="center">
 <div class="buttonred">
@@ -72,6 +72,7 @@ We still need your email
 </div>
 
 <div class="menu" style="display: none;">
+<div class="sixtyb"></div>   
 <div class="span4 centered">  
 
 <div class="completeyourprofile">
@@ -101,11 +102,9 @@ Complete your profile
 <%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
 
 <div class="sixtyb"></div>
-
-
-<div class="center">  
+ 
 <%= f.submit "Done", class: "buttonredinfo"%>
-</div>
+
 
 </div>
 
@@ -144,6 +143,8 @@ function readURL(input) {
                 $('.hello4').hide();
                 $('.completeyourprofile2').hide();
                 $('.sixty').hide();
+                $('label').hide();
+                $('.center').hide();
         });
     }); 
 

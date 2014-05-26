@@ -589,6 +589,7 @@ p {
     border: 0px !important;
     font-size: 16px !important;
     font-family: "jaf-bernino-sans", sans-serif !important;
+    cursor: pointer !important;
 }
 
 .buttonredcenter {
@@ -607,10 +608,13 @@ p {
 
 
 .buttonredinfo {
-    width: 40% !important;
+
     background-color: #a03600;
     color: white;
-    padding: 10px;
+    margin: 0 auto;
+    border-radius: 2px;
+    display: block;
+    padding: 12px;
     margin-top: 18px;
     border: 0px !important;
     font-size: 16px !important;
@@ -2033,13 +2037,16 @@ border:1px solid white;
 
 .alert-danger {
   top: 0px;
+  width: 230px;
+  min-height: 30px;
   position: fixed;
   background-color: #a03600 !important;
   color: white !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   border: 0px solid white !important;
   text-shadow: 0px !important;
   border-radius: 2px;
+  font-weight: bold;
 }
 
 .close {
@@ -3014,6 +3021,13 @@ text-align:center;
 .usernametext2 {
     font-size: 38px;
     padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.usernametext2 {
+    font-size: 38px;
+    padding-top: 30px;
     font-weight: bold;
     text-align: center;
 }
@@ -5006,7 +5020,7 @@ margin-right: auto;
 }
 
 .menu {
-    margin-top: 100px;
+    
 }
 
 .or {
@@ -5043,4 +5057,8 @@ margin-right: auto;
     width: 32px;
     height: 32px;
     display: inline-block;
+}
+
+.twentypixel {
+    margin: 20px;
 }
