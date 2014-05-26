@@ -19,6 +19,16 @@
 Your Questions
 </div>
 
+<% if @user.questions.count < 1 %>
+<div class="sixty">
+<div class="center">
+<div class="postinterviewtext3"%>
+You have no questions yet.
+</div>
+</div>
+</div>
+<% end %>
+
 <div class="mobilepadding20"></div>
 <% @question.each do |question| %>
 <% if question.answer.present? %>

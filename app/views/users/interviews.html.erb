@@ -19,6 +19,16 @@
 Your Interviews
 </div>
 
+<% if @user.comments.count < 1 %>
+<div class="sixty">
+<div class="center">
+<div class="postinterviewtext3"%>
+You have no interviews yet.
+</div>
+</div>
+</div>
+<% end %>
+
 <div class="mobilepadding20"></div>
 <% @comment.each do |comment| %>
 
