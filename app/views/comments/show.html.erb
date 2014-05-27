@@ -182,8 +182,6 @@ Ask Question
 <% end %>
 
 
-<% if @unanswered.length > 0 %>
-
 <div class="hrevent"></div>
 <div class="eventtoptext4">	
 Unanswered Questions
@@ -191,12 +189,10 @@ Unanswered Questions
 <div class="commentquestionmargin"></div>
 
 <%= render 'comments/unansweredquestionshow' %>
-<% end %>
 
-<% if @unanswered.length > 2 %>
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 <div class="commentquestionmargin"></div>
-<% end %>
+
 
 
 <% if @commentnext.next.present? %>
