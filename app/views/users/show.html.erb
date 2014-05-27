@@ -110,7 +110,7 @@ Upvoted Answers
 <div class="commentquestionmargin"></div>
 
 <div class="mobilepadding20"></div>
-<% @questions.each do |question| %>
+<% @questions.each_with_index do |question, i| %>
 
 <% if question.comment.post.present? %>
 <div class="sixty"></div>
@@ -134,7 +134,6 @@ Upvoted Answers
 
 <% if question.answer.present? %>
 
-<div class="redline">
 <p>	
  <% if question.answer.body.length > 150 %>
     <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
@@ -147,8 +146,11 @@ Upvoted Answers
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 </p>
-</div>
+
+<% unless (i + 1) == @questions.length %>
 <hr6/>
+<% end %>
+
 <% end %>
 <% end %>
 
