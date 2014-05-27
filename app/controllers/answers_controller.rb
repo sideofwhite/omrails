@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-   @skip_footer = true 
+    
   @question = Question.friendly.find(params[:question_id]) 
   end
 
