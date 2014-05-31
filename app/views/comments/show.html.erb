@@ -37,28 +37,32 @@ Open interview
 
 <div class="openinterviewmargin"></div>
 
-<div class="titlecontainer">
-<%= @comment.title %>
-</div>
 
+<div class="middle">
+<div class="circleb">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+<div class="nameblueside2">
+<%= link_to @comment.user.name, user_path(@comment.user) %>
+</div>
+</div>
+</div>
 
 
 <div class="row"></div>
 
-
-<div class="circleb">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+<div class="titlecontainer">
+<%= @comment.title %>
 </div>
 
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>
+<div class="twentypixel"></div>
+
+<div class="hrevent"></div>
 
 <div class="eventtoptext2">
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
-<div class="row"></div>
+<div class="twentypixel"></div>
 
 <div class="commentlabel">
 About <%= @comment.user.name %>
