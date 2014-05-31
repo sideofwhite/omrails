@@ -37,10 +37,9 @@
 <% end %>
 
 <div class="boldletters2">
-<%= time_ago_in_words(@post.created_at) %> ago
+<%= time_ago_in_words(@post.created_at) %> ago in
 </div>
 <div class="posttag">
-in
 <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 
