@@ -12,13 +12,17 @@
 
 <% if post.comments.count > 0 %>
 <div class="postinterviewmargintopmobile">
+<div class="postinterviewtextmobile">
+Interview
+</div>
 <% post.comments.limit(2).each do |comment| %>
 <% if comment.user.present? %>
-<div class="postinterviewtext">
+<div class="postinterviewtextmobile">
 <strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
 <% if post.comments.count > 1 %>
 ,
 <% elsif post.comments.count == 1 %>
+
 <% end %>
 </div>
 <% end %>
@@ -26,25 +30,27 @@
 
 <% if post.comments.count > 2 %>
 
-<div class="postinterviewtext"%>
-and <%= post.comments.count - 2 %> others are answering questions
+<div class="postinterviewtextmobile"%>
+and <%= pluralize(post.comments.count - 2, 'other') %> 
 </div>
-<% elsif post.comments.count == 2 %>
-<div class="postinterviewtext"%>
-are answering questions
-</div>
-<% elsif post.comments.count == 1 %>
-<div class="postinterviewtext"%>
-is answering questions
-</div>
+
 <% end %>
 
 </div>
 <% else %>
-
+<div class="postinterviewmargintopmobile">
+<div class="postinterviewtextmobile"%>
+No interviews yet.
+</div>
+</div>
 <% end %>
 
-<div class="postinterviewmargin"></div>
+<hr/>
+
+
+
+
+
 
 <% end %>
 </div>

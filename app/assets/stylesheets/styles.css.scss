@@ -862,7 +862,7 @@ p {
 .titlecontainershowmobile {
     
     color: #333332 !important;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 110%;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -4682,7 +4682,7 @@ margin-right: auto;
 
 .postinterviewtextmobile {
     
-    font-size: 16px;
+    font-size: 14px;
     display: inline;
 
     
@@ -5083,4 +5083,15 @@ margin-right: auto;
 
 .twentypixel {
     padding-top: 20px;
+}
+
+
+.mobilenavbar {
+    margin-top: 10px;
+    float: right;
+    font-size: 18px;
+}
+
+.mobilenavbarmargin {
+    margin-bottom: 30px;
 }
