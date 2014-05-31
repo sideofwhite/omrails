@@ -44,7 +44,7 @@ Open interview
 
 
 <div class="row"></div>
-<hr/>
+
 
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
@@ -57,11 +57,6 @@ Open interview
 <div class="eventtoptext2">
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
-
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
-</div>
-
 
 <div class="row"></div>
 
@@ -77,6 +72,10 @@ Ask about
 </div>
 <div class="underneath">
 <%= @comment.about %>
+</div>
+
+<div class="interviewdate">
+Started <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
 
 

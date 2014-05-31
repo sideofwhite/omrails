@@ -764,6 +764,7 @@ p {
     color: white !important;
     font-size: 16px;
     font-weight: bold;
+    border-radius: 2px;
 
     
     
@@ -808,7 +809,7 @@ p {
 
 
 .commentquestion {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     
 }
@@ -863,6 +864,20 @@ p {
     
     color: #333332 !important;
     font-size: 24px;
+    line-height: 110%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+ 
+    
+    
+}
+
+
+.titlecontainershowmobile2 {
+    
+    color: #333332 !important;
+    font-size: 28px;
     line-height: 110%;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -4290,8 +4305,7 @@ margin-bottom: 20px;
 }
 
 .lightname {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
     margin-bottom: 5px;
 }
 
@@ -4370,7 +4384,7 @@ margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.2;
     color: #a03600 !important;
-    font-style: italic;
+    
   
 }
 
@@ -4940,12 +4954,14 @@ margin-right: auto;
     font-size: 12px;
     display: inline;
     color: #a03600 !important;
+    font-weight: bold
 }
 
 .openinterview2 {
     font-size: 12px;
     display: inline;
     color: #702600;
+    font-weight: bold;
 }
 
 .openinterview2 {
@@ -5089,7 +5105,7 @@ margin-right: auto;
 .mobilenavbar {
     margin-top: 10px;
     float: right;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .mobilenavbarmargin {
