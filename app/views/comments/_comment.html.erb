@@ -2,6 +2,7 @@
 
 <div id="products">	
 <% @comments.each_with_index do |comment, i| %>
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="sixty"></div>
@@ -26,7 +27,10 @@
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
 
+<div class="row"></div>
+
 <% unless (i + 1) == @comments.length %>
+
 <hr6/>
 
 <% end %>

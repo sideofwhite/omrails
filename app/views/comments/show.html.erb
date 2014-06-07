@@ -8,34 +8,8 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
-<% if @comment.active? %>
-<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
-<div class="openinterview2">
-Closed interview
-</div>
-<% else %>
-<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
-<div class="openinterview">
-<% if current_user == @comment.user %>
-<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
-<% else %>
-Open interview
-<% end %>
-</div>
-<% end %>
-
-<% if current_user.try(:admin?) or @comment.user == current_user %>
-<div class="floatright">
-<%= image_tag ("http://i.imgur.com/uapCdlf.png
-") %>
-<div class="openinterview2">
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-</div>
-</div>
-<% end %>
 
 
-<div class="openinterviewmargin"></div>
 
 
 <div class="middle">
@@ -54,7 +28,7 @@ Open interview
 <%= @comment.title %>
 </div>
 
-<div class="twentypixel"></div>
+<div class="fifteenpixel"></div>
 
 <div class="hrevent"></div>
 
@@ -62,7 +36,7 @@ Open interview
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
-<div class="twentypixel"></div>
+<div class="fifteenpixel"></div>
 
 <div class="commentlabel">
 About <%= @comment.user.name %>
@@ -77,10 +51,37 @@ Ask about
 <div class="underneath">
 <%= @comment.about %>
 </div>
+<% if @comment.active? %>
+<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
+<div class="openinterview2">
+Closed interview
+</div>
+<% else %>
+<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
+<div class="openinterview">
+<% if current_user == @comment.user %>
+<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
+<% else %>
+Open interview
+<% end %>
+</div>
+<% end %>
+<% if current_user.try(:admin?) or @comment.user == current_user %>
+<div class="floatright">
+<%= image_tag ("http://i.imgur.com/uapCdlf.png
+") %>
+<div class="openinterview2">
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
+</div>
+</div>
+<% end %>
 
+<div class="openinterviewmargin"></div>
 <div class="interviewdate">
 Started <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
+
+
 
 
 <div class="margin40"></div>

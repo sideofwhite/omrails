@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518195830) do
+ActiveRecord::Schema.define(version: 20140601180607) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20140518195830) do
     t.string   "image_remote_url"
     t.string   "caption"
     t.string   "slug"
+    t.integer  "answers_count",      default: 0
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"
