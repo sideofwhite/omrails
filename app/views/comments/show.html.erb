@@ -36,19 +36,20 @@
 <%= link_to (@comment.post.title), post_path(@comment.post) %>
 </div>
 
-<div class="openinterviewmargin"></div>
+<div class="thirtypixel"></div>
 
-<div class="commentlabel">
-About <%= @comment.user.name %>
-</div>
+
 <div class="underneath">
+<div class="strong">
+About <%= @comment.user.name %>
+</div>	
 <%= @comment.body %>
 </div>
 <div class="commentlabelmargin"></div>
-<div class="commentlabel2">
-Ask about
-</div>
 <div class="underneath">
+<div class="strong">
+Ask about
+</div>	
 <%= @comment.about %>
 </div>
 <div class="openinterviewmargin"></div>
