@@ -4933,15 +4933,35 @@ margin-right: auto;
 
 
 .commentlabel {
-   font-weight: bold;
-   font-size: 12px;
+    font-weight: bold;
+    font-size: 20px !important;
+    line-height: 1.4; 
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(0,0,0,0.8) !important;
+    font-family: "georgia", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility;
+    display: inline;
    
 }
 
 .commentlabel2 {
-   font-weight: bold;
-   font-size: 14px;
-   margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px !important;
+    line-height: 1.4; 
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(0,0,0,0.8) !important;
+    font-family: "georgia", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility;
+    display: inline;
+   margin-top: 15px;
    
 }
 
@@ -5120,5 +5140,5 @@ margin-right: auto;
 }
 
 .thirtypixel {
-    padding-top: 15px;
+    padding-top: 30px;
 }
