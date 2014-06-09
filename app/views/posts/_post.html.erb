@@ -54,7 +54,6 @@ No interviews yet.
 <div class='yui3-g'>
 
 <% @posts.each_with_index do |post, i| %>
-<% if i.odd? %>
 <div class="yui3-u-1-2">
 <div class="eventimage2">
 <%= image_tag post.image %>
@@ -102,63 +101,7 @@ No interviews yet.
 
 </div>
 </div>
-<% else %>
-<div class="yui3-u-1-2">
-<div class="marginpost2"> 
-<div class="eventimage2">
-<%= image_tag post.image %>
-</div> 
-<div class="posttextpadding">
-<div class="posttext">
-<%= link_to (post.title), post_path(post)%> 
-</div>
 
-<% if post.comments.count > 0 %>
-<div class="postinterviewmargintop3">
-<div class="postinterviewtext3">  
-Interview
-</div>
-<% post.comments.limit(2).each do |comment| %>
-<% if comment.user.present? %>
-<div class="postinterviewtext3">
-<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
-<% if post.comments.count > 1 %>
-,
-<% elsif post.comments.count == 1 %>
-
-<% end %>
-</div>
-<% end %>
-<% end %>
-
-<% if post.comments.count > 2 %>
-
-<div class="postinterviewtext3"%>
-and <%= pluralize(post.comments.count - 2, 'other') %> 
-</div>
-
-<% end %>
-
-</div>
-<% else %>
-<div class="postinterviewmargintop3">
-<div class="postinterviewtext3"%>
-No interviews yet.
-</div>
-</div>
-<% end %>
-
-
-
-
-
-
-<div class="postgridmargin"></div>
-</div>
-</div>
-</div>
-
-<% end %>
 <% end %>
 
 </div>
