@@ -17,19 +17,20 @@
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
 <div class="row"></div>
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>
 
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
-
 <div class="postinterviewtext4">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
-
+<div class="interviewgriddate">
+Started <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 
 
 <hr6/>
@@ -45,20 +46,19 @@
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
 <div class="row"></div>
-
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-
 <div class="nameblueside">
 <%= link_to comment.user.name, user_path(comment.user) %>
+</div>
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
 <div class="postinterviewtext4">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
-
-
+<div class="interviewgriddate">
+Started <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 
 <hr6/>
 
