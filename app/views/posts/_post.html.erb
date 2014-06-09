@@ -56,10 +56,10 @@ No interviews yet.
 <% @posts.each_with_index do |post, i| %>
 <% if i.odd? %>
 <div class="yui3-u-1-2">
-<div class="marginpost"> 
 <div class="eventimage2">
 <%= image_tag post.image %>
 </div> 
+<div class="posttextpadding">
 <div class="posttext">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -108,6 +108,7 @@ No interviews yet.
 <div class="eventimage2">
 <%= image_tag post.image %>
 </div> 
+<div class="posttextpadding">
 <div class="posttext">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -155,7 +156,7 @@ No interviews yet.
 <div class="postgridmargin"></div>
 </div>
 </div>
-
+</div>
 
 <% end %>
 <% end %>

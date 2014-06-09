@@ -1,200 +1,173 @@
 <div class="span10 centered">
 
 
-<% if @comment.active? %>
-<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
-<div class="openinterview2">
-Closed interview
+<div class="eventtoptext">
+<%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
 </div>
-<% else %>
-<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
-<div class="openinterview">
-<% if current_user == @comment.user %>
-<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
-<% else %>
-Open interview
-<% end %>
+
+<% if @comment.image? %>
+<div class="interviewbanner">
+<%= image_tag @comment.image %>
 </div>
 <% end %>
 
-<% if current_user.try(:admin?) or @comment.user == current_user %>
-<div class="floatright">
-<%= image_tag ("http://i.imgur.com/uapCdlf.png
-") %>
-<div class="openinterview2">
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-</div>
-</div>
-<% end %>
+<hr/>
 
+<div class="circle">
+<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+</div>
 
-<div class="openinterviewmargin"></div>
+<div class="attempt">
+
+<div class="nameblueside2">
+<%= link_to @comment.user.name, user_path(@comment.user) %>
+</div>	
 
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
 
-
-
-<div class="row"></div>
-<hr/>
-
-<div class="circleb">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+<div class="descriptionpadding">	
+<%= simple_format(@comment.body) %>
 </div>
 
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>
-
-<div class="eventtoptext2">
-<%= link_to (@comment.post.title), post_path(@comment.post) %>
-</div>
-
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
+<div class="toplight2">
+<%= time_ago_in_words(@comment.created_at) %> ago <br>
 </div>
 
 
-<div class="row"></div>
-
-<div class="commentlabel">
-About
-</div>
-<div class="underneath">
-<%= @comment.body %>
-</div>
-<div class="commentlabelmargin"></div>
-<div class="commentlabel2">
-Ask <%= @comment.user.name %> about
-</div>
-<div class="underneath">
-<%= @comment.about %>
 </div>
 
 
-<div class="margin40"></div>
+<div class="favouritebuttonmargin"></div>
 
-<div class="hrevent"></div>
 
-<div class="eventtoptext4">
+<div class="floatright">
+<div class="lightcontainer6">
+<% if current_user.try(:admin?) %>
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
+<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+<% if @comment.user == current_user %>
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment), class: "lightcontainer6" %>
+<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
+<% end %>
+</div>
+</div>
+
+
+<div class="favouritebuttonmargin"></div>
+
+<div class="eventmargin">
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
-<% if @comment.active? %>
-<div class="eventtoptext3">
-Ask Question
-</div>
-<% else %>
-<div class="eventtoptext3">
-<a href="#form">Ask Question</a>
-</div>
-<% end %>
+<hr/>
+
+
+<%= render :partial => "questions/form" %>
+
+<hr/>
 
 <div class="favouritebuttonmargin"></div>
 
 
 <% @questions.each do |question| %>
-<div id="<%= question.id %>">
 <% if question.answer.present? %>
 
-<div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
+<div class="circlecomment">
+<%= image_tag question.user.image %>
 </div>
 
-<div class="attempt">
+
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
 <div class="commentquestion">
 <%= question.body %>
 </div>
-</div>
 
 <div class="commentmargin10"></div>
+<div class="circlecomment2">
+<%= image_tag question.comment.user.image %>
+</div>
 
-
-
-<div class="redline">
-<p>	
- <% if question.answer.body.length > 250 %>
-    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
-    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
-  <% else %>
-    <%= question.answer.body %>
-  <% end %>
+<div class="commentquestionanswer">
+<div class="attempt">	
+<p>
+<%= question.answer.body %>
 </p>
-<div class="lightcontainercomment2">
+<div class="lightcontainercomment">
+<%= link_to (image_tag("http://i.imgur.com/WaGz5vN.png")), upvote_comment_question_path(question.comment, question) %>
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
 </div>
-
-
-
-<div class="lightcontainercomment">	
-<% if user_signed_in? %>
-<% if current_user.voted_for? question %>
-<%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
+<hr6/>
+</div>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")),                    upvote_comment_question_path(question.comment, question), remote: true, method: :put %>
 
-<% end %>
-<% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
 <% end %>
 
 
+<% end %>
 
-<div class="floatright">
-<div class="socialshare">
-<%= image_tag ("http://i.imgur.com/LElz0jY.png") %>
+<div>
 </div>
-<div class="socialshare">
-<%= image_tag ("http://i.imgur.com/L61g3oz.png") %>
+
+<div class="eventmargin">	
+<strong>Unanswered Questions</strong>
 </div>
+
+<hr/>
+
+<% @questions.each do |question| %>
+<% unless question.answer.present? %>
+<div class="circlecomment">
+<%= image_tag question.user.image %>
 </div>
+
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
+<div class="commentquestion">
+<%= question.body %>
+</div>
+
+<% if @comment.user == current_user %>
+
+<div class="commentmargin10"></div>
+
+<div class="circlecomment2">
+<%= image_tag question.comment.user.image %>
+</div>
+
+<div class="commentquestionanswer">
+<div class="attempt">	
+<div class="lightname">
+<%= current_user.name %>
+</div>
+<p>
+<%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
+<p/>
 </div>
 <hr6/>
-
-
-
-<% else %>
-
-<% end %>
-
 </div>
+
+
 <% end %>
 
 
-<div class="favouritebuttonmargin"></div>
-
-<% unless @comment.active? %>
-<a name="form">
-<%= render :partial => "questions/form" %>
-</a>
-<div class="favouritebuttonmargin"></div>
-<div class="favouritebuttonmargin"></div>
-<% end %>
-
-
-<% if @unanswered.length > 0 %>
-
-<div class="hrevent"></div>
-<div class="eventtoptext4">	
-Unanswered Questions
-</div>
 <div class="commentquestionmargin"></div>
 
-<%= render 'comments/unansweredquestionshow' %>
 <% end %>
-
-<% if @unanswered.length > 2 %>
-<%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
 <% end %>
-
-<%= link_to "#{@comment.title}", post_comment_path(@post, @commentnext.next) %>
-
-
-
 
 
 </div>
+
 
 

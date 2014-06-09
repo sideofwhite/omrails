@@ -151,9 +151,9 @@ Ask <%= @comment.user.name %> about
 
 <div class="sixty"></div>
 <% unless @comment.active? %>
-<a name="form">
+
 <%= render :partial => "questions/form" %>
-</a>
+
 <% end %>
 <div class="sixty"></div>
 
