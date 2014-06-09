@@ -1,22 +1,25 @@
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
-
-<div id="products">	
-<% @comments.each_with_index do |comment, i| %>
 
 <div class="visible-desktop hidden-phone hidden-tablet">
+<div class="span7 centered">
+<div id="products">	
+<div class='yui3-g'>
 
-<div class="sixty"></div>
 
-
-
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-
-<div class="row"></div>
+	
+<% @comments.each_with_index  do |comment, i| %>
+<div class="yui3-u-1-2">
+<% if i.odd? %>
+<div class="interviewgrid">
 
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+<div class="row"></div>
+
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
 <div class="nameblueside">
@@ -27,20 +30,46 @@
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
 
-<div class="row"></div>
 
-<% unless (i + 1) == @comments.length %>
 
 <hr6/>
 
-<% end %>
 
 
+</div>
 
 
-<% end %>
+<% else %>
+<div class="interviewgrid2">
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+<div class="row"></div>
+
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>
+
+<div class="postinterviewtext4">
+ asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
 
 
 
+<hr6/>
+
+
+
+</div>
+<% end %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
  
