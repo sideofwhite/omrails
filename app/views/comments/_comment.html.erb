@@ -24,13 +24,13 @@
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-
+<div class="interviewgriddate">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
 <div class="postinterviewtext4">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
-<div class="interviewgriddate">
-Started <%= time_ago_in_words(comment.created_at) %> ago
-</div>
+
 
 
 <hr6/>
@@ -52,13 +52,13 @@ Started <%= time_ago_in_words(comment.created_at) %> ago
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-
+<div class="interviewgriddate">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
 <div class="postinterviewtext4">
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
-<div class="interviewgriddate">
-Started <%= time_ago_in_words(comment.created_at) %> ago
-</div>
+
 
 <hr6/>
 

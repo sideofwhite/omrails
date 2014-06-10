@@ -23,25 +23,29 @@
 <div>
 </div>
 
+<div class="floatright">
+<% if @post.country.present? %>
+<div class="boldletters3">
+<%= image_tag ("http://i.imgur.com/GR9sx1c.png") %>
+<%= @post.country %>
+</div>
+<% end %>
+<%= image_tag ("http://i.imgur.com/TeucG8m.png") %>
+<div class="boldletters2">
+<%= time_ago_in_words(@post.created_at) %> ago
+</div>
+<div class="posttag">
+<%= image_tag ("http://i.imgur.com/WPRxG3G.png") %>	
+<%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</div>
+
+</div>
+
 <div class="descriptionmargin">	
 <%= @post.description %>
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link) %>
 </div>
-</div>
-
-
-<% if @post.country.present? %>
-<div class="boldletters3">
-<strong><%= @post.country %></strong>
-</div>
-<% end %>
-
-<div class="boldletters2">
-<%= time_ago_in_words(@post.created_at) %> ago in
-</div>
-<div class="posttag">
-<%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 
 
