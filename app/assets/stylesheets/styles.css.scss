@@ -3312,13 +3312,15 @@ margin-bottom: 50px;
 .postimagemobile img {
     
     
-height: 200px;
-width: 100%;
-float: left;
-padding-bottom: 20px;
+
 
 
     
+
+}
+
+.postimagemobile {
+
 
 }
 
@@ -3488,9 +3490,9 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 70px;
-height: 70px;
-border-radius: 35px;
+width: 80px;
+height: 80px;
+border-radius: 40px;
 float: left;
 margin-right: 15px;
 margin-bottom: 40px;
@@ -5151,8 +5153,9 @@ margin-right: auto;
 }
 
 .interviewborder10 {
-    border-color: 1px solid #eeeeee;
-    padding: 10px;
+    border: 1px solid #eeeeee !important;
+    padding: 15px;
+    border-radius: 2px;
 
 }
 
@@ -5175,5 +5178,5 @@ margin-right: auto;
 .interviewgriddate {
     display: inline-block;
     float: right;
-    font-size: 12px;
+    font-size: 10px;
 }

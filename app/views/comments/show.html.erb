@@ -12,14 +12,13 @@
 
 
 
-<div class="middle">
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>
-</div>
+
 
 
 <div class="row"></div>
@@ -113,7 +112,6 @@ Ask Question
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
 <% if question.answer.present? %>
-<%= question.answers_count %>
 <div class="lightname">
 <%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
 </div>
