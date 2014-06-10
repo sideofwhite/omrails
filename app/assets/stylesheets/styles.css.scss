@@ -846,7 +846,7 @@ p {
 .titlecontainershow {
     
     color: #333332 !important;
-    font-size: 44px;
+    font-size: 46px;
     line-height: 110%;
     font-weight: 600;
     margin-bottom: 20px;
@@ -3401,7 +3401,7 @@ and (max-device-width : 1024px)
 .eventimage2 img {
     
     width: 100%;
-    height: 250;
+    height: 250px;
     
 }
 
@@ -4753,14 +4753,14 @@ margin-right: auto;
 }
 
 .boldletters2 {
-    margin-bottom: 10px;
+   
     display: block;
     font-size: 14px;
     display: inline-block;
 }
 
 .boldletters3 {
-    margin-bottom: 10px;
+
     display: block;
     font-size: 14px;
    
@@ -4923,9 +4923,10 @@ margin-right: auto;
 
 .linkinline {
   
-    font-size: 16px;
+    font-size: 12px !important;
+    background-color: #eeeeee;
+    padding: 4px;
     display: inline;
-    font-weight: bold;
     font-family: "raleway", sans-serif !important;
 }
 
