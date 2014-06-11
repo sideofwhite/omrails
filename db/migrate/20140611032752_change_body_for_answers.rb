@@ -3,6 +3,3 @@ class ChangeBodyForAnswers < ActiveRecord::Migration
   	change_column :answers, :body, :text, :limit => nil
   end
 end
-
-
-
