@@ -1655,7 +1655,7 @@ padding: 0px;
 height: 1px;
 border: 0; 
 border-top: 1px solid #eeeeee; 
-margin-bottom: 10px;
+
 padding: 0px;
 
 }
@@ -4392,10 +4392,11 @@ margin-bottom: 20px;
     
     
     display: inline;
-    font-size: 16px;
+    font-size: 13px;
+    padding-top: 5px;
     line-height: 1.2;
-    color: #a03600 !important;
     font-weight: bold;
+    margin-right: 5px;
 
   
 }
@@ -5180,4 +5181,15 @@ margin-right: auto;
     display: inline-block;
     float: right;
     font-size: 10px;
+}
+
+.redtopline {
+    display: inline;
+    font-size: 13px;
+    line-height: 1.2;
+    color: #a03600 !important;
+    font-weight: bold;
+    padding-top: 5px;
+    border-top: 1px solid #a03600;
+    margin-right: 5px;
 }

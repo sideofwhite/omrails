@@ -27,23 +27,19 @@
 <div class="hrevent"></div>
 <%= link_to "Upvoted", user_path(@user), class: "eventtoptext4" %>
 <%= link_to "Questions", userquestions_path(@user), class: "eventtoptext4" %>
+
+<div class="redtopline">	
+Interviews
+</div>
+
+
 <% if @user.votes.count > 0 %>
-<div class="eventtoptext4">	
-Interviews
-</div>
-<% else %>
-<div class="eventtoptext4">	
-Interviews
-</div>
 <div class="center">
 <div class="eventmargin2">
 <%= @user.name %> hasn't been interviewed yet.
 </div>
 </div>
 <% end %>
-
-
-
 
 <div class="mobilepadding20"></div>
 

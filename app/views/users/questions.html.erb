@@ -26,23 +26,21 @@
 <div class="span7 centered">
 <div class="hrevent"></div>
 <%= link_to "Upvoted", user_path(@user), class: "eventtoptext4" %>
+
+
+<div class="redtopline">	
+Questions
+</div>
+<%= link_to "Interviews", userinterviews_path(@user), class: "eventtoptext4" %>
+
+
 <% if @user.questions.count > 0 %>
-<div class="eventtoptext4">	
-Questions
-</div>
-<% else %>
-<div class="eventtoptext4">	
-Questions
-</div>
 <div class="center">
 <div class="eventmargin2">
 <%= @user.name %> hasn't asked any questions yet.
 </div>
 </div>
 <% end %>
-<%= link_to "Interviews", userinterviews_path(@user), class: "eventtoptext4" %>
-
-
 
 <div class="mobilepadding20"></div>
 
