@@ -7,8 +7,6 @@
 <div class="greymargin">
 <strong>Profile</strong>
 </div>
-<%= link_to "Questions", userquestions_path(@user), class: "greymargin" %>
-<%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
 <div class="floatright">
 <%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
@@ -51,45 +49,7 @@
 <div class="span7 centered">
 
 
-<% if @comments.count > 0 %>
-<div class="hrevent"></div>
-<div class="eventtoptext4">	
-Interviews
-</div>
-<% end %>
-<div class="commentquestionmargin"></div>
 
-<% @comments.each_with_index do |comment, i| %>
-<div class="sixty"></div>
-
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-
-<div class="row"></div>
-
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
-
-<div class="postinterviewtext4">
- asked <%= pluralize(comment.questions.count, 'question') %>
-</div>
-
-
-<% unless (i + 1) == @comments.length %>
-<div class="row"></div>
-<hr6/>
-<% end %>
-
-<% end %>
-
-
-<div class="sixty"></div>
 <div class="hrevent"></div>
 <% if @user.votes.count > 0 %>
 <div class="eventtoptext4">	
@@ -105,9 +65,10 @@ Upvoted Answers
 </div>
 </div>
 <% end %>
+<%= link_to "Questions", userquestions_path(@user), class: "eventtoptext4" %>
+<%= link_to "Interviews", userinterviews_path(@user), class: "eventtoptext4" %>
 
 
-<div class="commentquestionmargin"></div>
 
 <div class="mobilepadding20"></div>
 <% @questions.each_with_index do |question, i| %>

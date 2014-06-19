@@ -1,83 +1,50 @@
-<div class="span7 centered">
-
-<% if current_user == @user %>
-
-<div class="greysettings">
-<%= link_to "Profile", user_path(@user), class: "greymargin" %>
-<div class="greymargin">
-<strong>Questions</strong>
-</div>
-<%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
-<div class="floatright">
-<%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-</div>
+<div class="span4 centered">	
+<% if @user.image? %>	
+<div class="userimage">
+<%= image_tag @user.image %>
 </div>
 <% end %>
-
-<div class="settings">
-Your Questions
+<div class="usernametext2">	
+<%= @user.name %>
 </div>
 
-<% if @user.questions.count < 1 %>
-<div class="sixty">
+<div class="paddingtop"></div>
+
 <div class="center">
-<div class="postinterviewtext3"%>
-You have no questions yet.
+<% if @user.twitter.present? or @user.place.present? %>
+<%= @user.twitter %>
+<%= @user.place %>
+<% end %>
+<div class="commentquestionmargin"></div>
+
+
+
 </div>
+</div>
+
+
+<div class="span7 centered">
+<div class="hrevent"></div>
+<%= link_to "Upvoted", user_path(@user), class: "eventtoptext4" %>
+<% if @user.questions.count > 0 %>
+<div class="eventtoptext4">	
+Questions
+</div>
+<% else %>
+<div class="eventtoptext4">	
+Questions
+</div>
+<div class="center">
+<div class="eventmargin2">
+<%= @user.name %> hasn't asked any questions yet.
 </div>
 </div>
 <% end %>
+<%= link_to "Interviews", userinterviews_path(@user), class: "eventtoptext4" %>
+
+
 
 <div class="mobilepadding20"></div>
-<% @question.each do |question| %>
-<% if question.answer.present? %>
-<div id="<%= question.id %>">
-<%= link_to post_comment_path(question.comment.post, question.comment) do %>
-  <div class="interviewgrey">
-  <%= question.comment.user.name %> on <%= question.comment.post.title %>
-</div>
-<% end %>
-<div class="commentmargin10"></div>
-<div class="commentquestion">
-<%= question.body %>
-</div>
-
-<div class="commentmargin10"></div>
-
-<div class="redline">
-<p>	
- <% if question.answer.body.length > 250 %>
-    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
-    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
-  <% else %>
-    <%= question.answer.body %>
-  <% end %>
-</p>
-<div class="lightcontainercomment2">
-<%= time_ago_in_words(question.answer.created_at) %> ago
-</div>
-</div>
-<hr6/>
-<div class="sixty"></div>
-<% else %>
-<%= link_to post_comment_path(question.comment.post, question.comment) do %>
-  <div class="interviewgrey">
-  <%= question.comment.user.name %> on <%= question.comment.post.title %>
-</div>
-<% end %>
-<div class="commentmargin10"></div>
-<div class="commentquestion">
-<%= question.body %>
-</div>
- <div class="lightcontainercomment2">
-<%= time_ago_in_words(question.created_at) %> ago
-<hr6/>
-</div>
-
-<% end %>
-<% end %>
-</div>
 
 
 
