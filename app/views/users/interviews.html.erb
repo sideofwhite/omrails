@@ -2,7 +2,7 @@
 
 
 <div class="span7 centered">
-<div class="hrevent"></div>
+<div class="hrevent2"></div>
 <%= link_to "Upvoted", user_path(@user), class: "eventtoptext4" %>
 <%= link_to "Questions", userquestions_path(@user), class: "eventtoptext4" %>
 
@@ -23,6 +23,9 @@ Interviews
 
 
 <div class='yui3-g'>
+
+
+	
 <% @comment.each_with_index  do |comment, i| %>
 <div class="yui3-u-1-2">
 <% if i.odd? %>
@@ -81,8 +84,5 @@ Interviews
 
 </div>
 <% end %>
-
 </div>
-
 <% end %>
-</div>
