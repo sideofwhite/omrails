@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+
 <%= render 'users/userhead' %>
 
 
@@ -11,7 +13,7 @@ Interviews
 </div>
 
 
-<% if @user.votes.count > 0 %>
+<% if @user.comments.count == 0 %>
 <div class="center">
 <div class="eventmargin2">
 <%= @user.name %> hasn't been interviewed yet.
@@ -19,7 +21,7 @@ Interviews
 </div>
 <% end %>
 
-<div class="mobilepadding20"></div>
+<div class="profilemargin"></div>
 
 
 <div class='yui3-g'>
@@ -89,3 +91,4 @@ Interviews
 
 </div>
 </div>
+
