@@ -1,26 +1,4 @@
-<div class="span4 centered">	
-<% if @user.image? %>	
-<div class="userimage">
-<%= image_tag @user.image %>
-</div>
-<% end %>
-<div class="usernametext2">	
-<%= @user.name %>
-</div>
-
-<div class="paddingtop"></div>
-
-<div class="center">
-<% if @user.twitter.present? or @user.place.present? %>
-<%= @user.twitter %>
-<%= @user.place %>
-<% end %>
-<div class="commentquestionmargin"></div>
-
-
-
-</div>
-</div>
+<%= render 'users/userhead' %>
 
 
 <div class="span7 centered">

@@ -1,0 +1,30 @@
+<div class="span7 centered">	
+
+<% if @user.image? %>	
+
+<div class="userimage">
+<%= image_tag @user.image %>
+</div>
+<% end %>
+
+
+<div class="profilebox">
+
+<div class="usernametext2">	
+<%= @user.name %>
+</div>
+
+<div class="paddingtop"></div>
+
+
+<% if @user.twitter.present? or @user.place.present? %>
+<%= @user.twitter %>
+<%= @user.place %>
+<% end %>
+
+</div>
+
+<div class="profilemargin"></div>
+
+
+</div>
