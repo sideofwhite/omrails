@@ -826,7 +826,7 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 44px;
+    font-size: 38px;
     font-weight: bold;
     letter-spacing: -0.04em;
     line-height: 1.1;
@@ -849,7 +849,7 @@ p {
 .titlecontainershow {
     
     color: #333332 !important;
-    font-size: 42px;
+    font-size: 36px;
     line-height: 110%;
     font-weight: 600;
     margin-bottom: 20px;
@@ -4495,7 +4495,7 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: bold;
-     font-size: 24px;
+     font-size: 22px;
      color: #333332 !important;
      margin-bottom: 5px;
      
@@ -5033,7 +5033,7 @@ margin-right: auto;
 }
 
 .postgridmargin {
-    padding: 30px;
+    padding: 20px;
 }
 
 
@@ -5200,7 +5200,7 @@ margin-right: auto;
     line-height: 1.2;
     color: #a03600 !important;
     font-weight: bold;
-    padding-top: 5px;
+    padding-top: 3px;
     border-top: 1px solid #a03600;
     margin-right: 5px;
 }
@@ -5215,11 +5215,24 @@ margin-right: auto;
 }
 
 .homepagegrid {
-    margin-left: 10px;
+    margin-left: 6px;
 
 }
 
 .homepagegrid2 {
-    margin-right: 10px;
+    margin-right: 6px;
     
+}
+
+
+.eventtoptextnew {
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+.textbox {
+    margin-right: 15px;
+    overflow: hidden;
+    float: left;
 }

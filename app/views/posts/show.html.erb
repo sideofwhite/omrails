@@ -41,13 +41,14 @@
 
 </div>
 
+<div class='textbox'>
 <div class="descriptionmargin">	
 <%= @post.description %>
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link) %>
 </div>
 </div>
-
+</div>
 
 
 <% if @post.comments.count < 1 %>
