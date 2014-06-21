@@ -6,10 +6,14 @@
 <div class="span9 centered">
 
 <% @toppost.each do |post| %>
+
+<div class="span6">
 <div class="eventimagetop">
 <%= image_tag post.image %>
 </div>
+</div>
 
+<div class="span2">
 <div class="titlecontainershowb">
 <%= link_to (post.title), post_path(post)%> 
 </div>
@@ -48,7 +52,7 @@ No interviews yet.
 <% end %>
 <div class="tenpixel"></div>
 <hr/>
-
+</div>
 
 <% end %>
 
