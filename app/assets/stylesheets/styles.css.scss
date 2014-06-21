@@ -803,7 +803,7 @@ p {
 
 
 .commentquestion {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     
 }
@@ -3176,9 +3176,12 @@ pull-left{
     width: 120px;
     margin-bottom: 20px;
     border-radius: 60px;
-    margin-right: 20px;
     display: block;
+    margin: 0 auto;
+
 }
+
+
 
 .userimagecomplete img {
     display: block;
@@ -4902,7 +4905,8 @@ margin-right: auto;
 }
 
 .interviewgrey {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
     
 }
 
@@ -5193,7 +5197,7 @@ margin-right: auto;
 }
 
 .profilebox {
-    border: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
     padding: 20px;
 }
 

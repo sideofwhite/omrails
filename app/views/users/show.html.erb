@@ -46,8 +46,18 @@ Upvoted
 
 <% @questions.each_with_index do |question, i| %>
 
-<% if question.comment.post.present? %>
+
+
+
 <div class="sixty"></div>
+<div class="attempt">
+<div class="commentquestion">
+<%= question.body %>
+</div>
+</div>
+<div class="twenty"></div>
+<% if question.comment.post.present? %>
+
 <%= link_to post_comment_path(question.comment.post, question.comment) do %>
   <div class="interviewgrey">
   <%= question.comment.user.name %> on <%= question.comment.post.title %>
@@ -55,14 +65,6 @@ Upvoted
 <% end %>
 
 <% end %>
-
-<div class="twenty"></div>
-
-<div class="attempt">
-<div class="commentquestion">
-<%= question.body %>
-</div>
-</div>
 
 <div class="commentmargin10"></div>
 
