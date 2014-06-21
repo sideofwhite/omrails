@@ -16,6 +16,9 @@
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
+<div class="redquestionsbox">
+<%= comment.questions.count %>
+</div>
 <div class="row"></div>
 <div class="nameblueside">
 <%= link_to comment.user.name, user_path(comment.user) %>
@@ -44,6 +47,9 @@
 <div class="interviewgrid2">
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+<div class="redquestionsbox">
+<%= comment.questions.count %>
 </div>
 <div class="row"></div>
 <div class="nameblueside">
