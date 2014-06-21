@@ -128,7 +128,7 @@ Ask Question
 <p>	
  <% if question.answer.body.length > 250 %>
     <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
-    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
   <% else %>
     <%= question.answer.body %>
   <% end %>
