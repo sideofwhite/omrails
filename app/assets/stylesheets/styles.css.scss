@@ -3495,12 +3495,12 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 80px;
-height: 80px;
-border-radius: 40px;
-float: left;
-margin-right: 15px;
-margin-bottom: 40px;
+width: 110px;
+height: 110px;
+display: block;
+margin: 0 auto;
+border-radius: 55px;
+margin-bottom: 20px;
 display: inline;
 vertical-align: middle;
 
@@ -4495,9 +4495,10 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: bold;
-     font-size: 22px;
+     font-size: 28px;
      color: #333332 !important;
-     margin-bottom: 5px;
+     margin-bottom: 20px;
+     text-align: center;
      
      
      
@@ -5235,4 +5236,12 @@ margin-right: auto;
     padding-right: 15px;
     overflow: hidden;
     
+}
+
+
+.redquestionbox {
+    display: inline;
+    background-color: #eeeeee;
+    padding: 3px;
+    float:right;
 }
