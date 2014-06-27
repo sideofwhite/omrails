@@ -8,6 +8,21 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
 
+<% if @comment.active? %>
+<div class="openinterview2">
+Closed interview
+</div>
+<% else %>
+<% if current_user.try(:admin?) or @comment.user == current_user %>
+<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
+<div class="openinterview2">
+<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
+</div>
+<% end %>
+<% end %>
+
+
+<div class="fourtypixel"></div>
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -26,6 +41,8 @@
 <div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
+
+<div class="row"></div>
 
 <hr/>
 
@@ -49,44 +66,11 @@ Ask about
 </div>
 
 
-<div class="fourtypixel"></div>
-
-<% if @comment.active? %>
-<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
-<div class="openinterview2">
-Closed interview
-</div>
-<% else %>
-<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
-<div class="openinterview">
-<% if current_user == @comment.user %>
-<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
-<% else %>
-Open interview
-<% end %>
-</div>
-<% end %>
-<% if current_user.try(:admin?) or @comment.user == current_user %>
-<div class="floatright">
-<%= image_tag ("http://i.imgur.com/uapCdlf.png
-") %>
-<div class="openinterview2">
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-</div>
-</div>
-<% end %>
-
-<div class="openinterviewmargin"></div>
-
-
-
-
-
 <div class="margin40"></div>
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext4">
+<div class="bignumber">
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
