@@ -226,7 +226,7 @@ No one has answered yet
 
 <% Post.order("cached_votes_total desc").each do |post| %>
 
-<%= link_to image_tag ("http://i.imgur.com/3UUq6r6.png"), "http://twitter.com" %>
+<%= image_tag "http://i.imgur.com/cks6uPN.png" %>
 
 
 <div class="lightcontainer7">
@@ -493,4 +493,18 @@ Questions
 <a href="/tags/science">Science</a>
 </div>
 
+
+
+
+
+
+<% if @comment.active? %>
+<div class="eventtoptext3">
+Ask Question
+</div>
+<% else %>
+<div class="eventtoptext3">
+<a href="#form">Ask Question</a>
+</div>
+<% end %>
 

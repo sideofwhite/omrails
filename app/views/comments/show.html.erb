@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+
 <div class="visible-phone hidden-desktop hidden-tablet">
 <%= render 'comments/showmobile' %>
 </div>
@@ -66,25 +68,11 @@ Ask about
 </div>
 
 
-<div class="margin40"></div>
-
-<div class="hrevent"></div>
-
 <div class="bignumber">
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
-<% if @comment.active? %>
-<div class="eventtoptext3">
-Ask Question
-</div>
-<% else %>
-<div class="eventtoptext3">
-<a href="#form">Ask Question</a>
-</div>
-<% end %>
 
-<div class="favouritebuttonmargin"></div>
 
 
 <% @questions.each do |question| %>
@@ -179,22 +167,33 @@ Next Interview
 </div>
 <div class='sixty'></div>
 
-<div class="titlecontainer2">
-<%= link_to "#{@commentnext.next.title}", post_comment_path(@post, @commentnext.next) %>
-</div>
 
-<div class="row"></div>
+<div class='yui3-g'>
+<div class="yui3-u-1-2">
 
 <div class="circle">
 <%= link_to (image_tag(@commentnext.next.user.image)), user_path(@commentnext.next.user) %>
 </div>
-
+<div class="redquestionsbox">
+<%= @commentnext.next.questions.count %>
+</div>
+<div class="row"></div>
 <div class="nameblueside">
 <%= link_to @commentnext.next.user.name, user_path(@commentnext.next.user) %>
 </div>
 
+<div class="titlecontainer2">
+<%= link_to "#{@commentnext.next.title}", post_comment_path(@post, @commentnext.next) %>
+</div>
+<div class="interviewgriddate">
+<%= time_ago_in_words(@commentnext.next.created_at) %> ago
+</div>
 <div class="postinterviewtext4">
  asked <%= pluralize(@commentnext.next.questions.count, 'question') %>
+</div>
+
+
+</div>
 </div>
 
 <% end %>
@@ -202,6 +201,7 @@ Next Interview
 </div>
 
 </div>
+
 
 
 

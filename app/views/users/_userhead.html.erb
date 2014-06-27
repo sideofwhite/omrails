@@ -9,7 +9,6 @@
 <% end %>
 
 
-<div class="profilebox"></div>
 
 <div class="usernametext2">	
 <%= @user.name %>
@@ -18,13 +17,14 @@
 <div class="paddingtop"></div>
 
 
-<% if @user.twitter.present? or @user.place.present? %>
-<%= @user.twitter %>
+<% if @user.place.present? %>
+<div class="country">
 <%= @user.place %>
+</div>
 <% end %>
 
-<div>
+
 <div class="profilemargin"></div>
-</div>
+
 
 </div>
