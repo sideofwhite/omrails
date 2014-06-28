@@ -1,78 +1,40 @@
-<% if @comment.active? %>
-<%= image_tag ("http://i.imgur.com/sXeYOWH.png") %> 
-<div class="openinterview2">
-Closed interview
-</div>
-<% else %>
-<%= image_tag ("http://i.imgur.com/HExUKnz.png") %> 
-<div class="openinterview">
-<% if current_user == @comment.user %>
-<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
-<% else %>
-Open interview
-<% end %>
-</div>
-<% end %>
-
-
 <div class="titlecontainershowmobile">
 <%= @comment.title %>
 </div>
 
-<hr/>
 
 <div class="circlecommentmobile2">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
 
 <div class="attempt">
+
+
 <div class="namebluesidemobile">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>	
-
 <div class="eventtoptextmobile">
 <%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment) %>
 </div>
-
-<div class="toplight2">
+<div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago <br>
 </div>
+
+
 </div>
 
-<div class="namebluesidemargin">
-</div>
-
-
+<hr/>
 <div class="commentlabel">
 About
 </div>
 <%= simple_format(@comment.body) %>
 <div class="commentlabelmargin"></div>
+
 <div class="commentlabel2">
-Ask <%= @comment.user.name %> about
+Ask 
 </div>
+
 <%= simple_format(@comment.about) %>
-
-
-
-
-<div class="favouritebuttonmargin"></div>
-
-
-<div class="floatright">
-<div class="lightcontainer6">
-<% if current_user.try(:admin?) %>
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<% end %>
-
-<% if @comment.user == current_user %>
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment), class: "lightcontainer6" %>
-<%= link_to 'Delete', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainer6" %>
-<% end %>
-</div>
-</div>
 
 <div class="margin40"></div>
 
@@ -82,6 +44,7 @@ Ask <%= @comment.user.name %> about
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
+
 <div class="margin40"></div>
 
 
@@ -90,7 +53,7 @@ Ask <%= @comment.user.name %> about
 <div class="sixty"></div>
 
 <div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
+<%= link_to (question.user.name), user_path(question.user), class: "bordernone" %>
 </div>
 
 <div class="commentquestionmobile">
@@ -100,7 +63,6 @@ Ask <%= @comment.user.name %> about
 
 <div class="commentmargin10"></div>
 
-<div class="redline">
 <p>	
  <% if question.answer.body.length > 250 %>
     <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
@@ -112,7 +74,7 @@ Ask <%= @comment.user.name %> about
 <div class="lightcontainercomment2">
 <%= time_ago_in_words(question.answer.created_at) %> ago
 </div>
-</div>
+
 
 <div class="lightcontainercomment">	
 <% if user_signed_in? %>
@@ -126,16 +88,6 @@ Ask <%= @comment.user.name %> about
 <%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
 <% end %>
 
-
-
-<div class="floatright">
-<div class="socialshare">
-<%= image_tag ("http://i.imgur.com/LElz0jY.png") %>
-</div>
-<div class="socialshare">
-<%= image_tag ("http://i.imgur.com/L61g3oz.png") %>
-</div>
-</div>
 </div>
 <hr6/>
 
@@ -146,8 +98,6 @@ Ask <%= @comment.user.name %> about
 
 <% end %>
 
-<div>
-</div>
 
 <div class="sixty"></div>
 <% unless @comment.active? %>
@@ -176,4 +126,5 @@ Unanswered Questions
 <% end %>
 
 
+</div>
 

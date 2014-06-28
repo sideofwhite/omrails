@@ -1,11 +1,5 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
-<div class="visible-phone hidden-desktop hidden-tablet">
-<%= render 'comments/showmobile' %>
-</div>
-<div class="visible-tablet hidden-desktop hidden-phone">
-<%= render 'comments/showtablet' %>
-</div>
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
@@ -14,17 +8,18 @@
 <div class="openinterview2">
 Closed interview
 </div>
+<div class="fourtypixel"></div>
 <% else %>
 <% if current_user.try(:admin?) or @comment.user == current_user %>
 <%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
 <div class="openinterview2">
 <%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
 </div>
-<% end %>
-<% end %>
-
-
 <div class="fourtypixel"></div>
+<% end %>
+<% end %>
+
+
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -34,6 +29,7 @@ Closed interview
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
 </div>
+<div class="attempt">
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>
@@ -43,6 +39,7 @@ Closed interview
 <div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
+</div>
 
 <div class="row"></div>
 
@@ -50,23 +47,24 @@ Closed interview
 
 
 
-<div class="fourtypixel"></div>
-
-
 
 <div class="underneath">
 <div class="commentlabel">
-About <%= @comment.user.name %>
+About 
 </div>	
 <%= @comment.body %>
 <div class="fifteenpixel"></div>
 
 <div class="commentlabel2">
-Ask about
+Ask 
 </div>	
 <%= @comment.about %>
 </div>
 
+
+<div class="bignumbermargin"></div>
+
+<div class="hrevent"></div>
 
 <div class="bignumber">
 <%= pluralize(@comment.questions.count, 'Question') %>
@@ -77,6 +75,7 @@ Ask about
 
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
+
 <% if question.answer.present? %>
 <div class="lightname">
 <%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
@@ -130,7 +129,6 @@ Ask about
 <% else %>
 
 <% end %>
-
 </div>
 <% end %>
 
@@ -145,7 +143,7 @@ Ask about
 <div class="favouritebuttonmargin"></div>
 <% end %>
 
-
+<%= @unanswered.count %>
 <% if @unanswered.present? %>
 <div class="hrevent"></div>
 <div class="eventtoptext4">	
@@ -155,7 +153,10 @@ Unanswered Questions
 
 <%= render 'comments/unansweredquestionshow' %>
 
+<% if @unanswered.count > 3 %>
 <%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
+
+<% end %>
 <div class="commentquestionmargin"></div>
 <% end %>
 
@@ -202,6 +203,13 @@ Next Interview
 
 </div>
 
+
+<div class="visible-phone hidden-desktop hidden-tablet">
+<%= render 'comments/showmobile' %>
+</div>
+<div class="visible-tablet hidden-desktop hidden-phone">
+<%= render 'comments/showtablet' %>
+</div>
 
 
 

@@ -3,15 +3,23 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span7 centered">
-<div id="products">	
+
+
 <div class='yui3-g'>
-
-
 	
+
+
 <% @comments.each_with_index  do |comment, i| %>
 <div class="yui3-u-1-2">
 <% if i.odd? %>
 <div class="interviewgrid">
+
+
+<% if i > 1 %>
+<hr6/>
+<div class="gridmargin"></div>
+<% end %>
+
 
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
@@ -34,9 +42,6 @@
  asked <%= pluralize(comment.questions.count, 'question') %>
 </div>
 
-
-
-<hr6/>
 
 
 
@@ -45,6 +50,12 @@
 
 <% else %>
 <div class="interviewgrid2">
+
+<% if i > 1 %>
+<hr6/>
+<div class="gridmargin"></div>
+<% end %>
+
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
@@ -66,7 +77,7 @@
 </div>
 
 
-<hr6/>
+
 
 
 
@@ -74,8 +85,16 @@
 <% end %>
 </div>
 <% end %>
+
+
+
 </div>
 </div>
+
+
+
+
 </div>
-</div>
+
  
+

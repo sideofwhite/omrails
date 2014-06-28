@@ -52,7 +52,7 @@ Upvoted
 <div class="sixty"></div>
 <div class="attempt">
 <div class="commentquestion">
-<%= question.body %>
+<%= link_to (question.body), post_comment_path(question.comment.post, question.comment) %>
 </div>
 </div>
 <div class="twenty"></div>

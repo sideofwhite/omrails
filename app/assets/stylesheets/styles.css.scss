@@ -828,7 +828,7 @@ p {
     color: #333332 !important;
     font-size: 42px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     letter-spacing: -0.04em;
     line-height: 1.1;
     
@@ -954,6 +954,13 @@ p {
     font-size: 42px;
     line-height: 110%;
     font-weight: 600;
+}
+
+@media (max-width: 975px) {
+    .titlecontainershowb {
+      font-size: 38px;
+      
+    }
 }
 
 .titlecontainershowc {
@@ -1647,8 +1654,8 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #eeeeee;
-margin-top: 30px; 
-margin-bottom: 30px;
+margin-top: 60px; 
+margin-bottom: 60px;
 padding: 0px; 
  
 
@@ -3032,6 +3039,7 @@ text-align:center;
     font-size: 34px;
     font-weight: bold;
     text-align: center;
+    margin-top: 20px;
     
 }
 
@@ -3500,9 +3508,9 @@ width: 70px;
 height: 70px;
 display: block;
 float: left;
-margin-right: 10px;
+margin-right: 15px;
 border-radius: 35px;
-margin-bottom: 10px;
+
 
 
 }
@@ -3786,7 +3794,7 @@ background:#000;
   background-repeat: no-repeat;
   position: absolute;
   width: 0px;
-  right: 0;
+  left: 0;
 
 }
 
@@ -4155,9 +4163,9 @@ label {
 
 .label2 {
      color: rgba(0,0,0,0.8) !important;
-    font-size: 20px !important;
-    font-weight: bold !important;
+    font-size: 14px !important;
     margin-bottom: 20px;
+    margin-top: 40px !important;
 }
 
 .profileborder {
@@ -5247,16 +5255,68 @@ margin-right: auto;
 }
 
 .bignumber {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    display: inline-block;
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+}
+
+.bignumbermargin {
+    margin-top: 80px;
 }
 
 .country {
     text-align: center;
     font-weight: bold;
     font-size: 14px;
+    margin-top: 10px;
 }
+
+.gridmargin {
+    margin-top: 60px;
+}
+
+.thirtys {
+    margin-top: 30px;
+}
+
+
+
+
+//////////// images
+
+@media (min-width: 760px) {
+    .eventimagetop img {
+      height: 370px;
+    }
+}
+
+
+@media (min-width: 975px) {
+    .eventimagetop img {
+      height: 345px;
+    }
+}
+
+@media (min-width: 1195px) {
+    .eventimagetop img {
+      height: 430px;
+    }
+}
+
+
+////////
+
+@media (min-width: 760px) {
+    .eventimage2 img {
+      height: 205px;
+    }
+}
+
+
+@media (min-width: 1195px) {
+    .eventimage2 img {
+      height: 249px;
+    }
+}
+

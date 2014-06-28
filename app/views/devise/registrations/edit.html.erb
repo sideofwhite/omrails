@@ -2,15 +2,7 @@
 <% if current_user == @user %>
 
 <div class="greysettings">
-<%= link_to "Profile", user_path(@user), class: "greymargin" %>
-<%= link_to "Questions", userquestions_path(@user), class: "greymargin" %>
-<%= link_to "Interviews", userinterviews_path(@user), class: "greymargin" %>
-<div class="floatright">
-<div class="greymargin">
-<strong> Settings</strong>
-</div>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-</div>
+<%= link_to "Back to profile", user_path(@user), class: "greymargin" %>
 </div>
 <% end %>
 
@@ -37,14 +29,14 @@ Settings
 </div>
 
   <%= f.input :name, input_html: {  :class => "hellogrey" }, label: "Your name", placeholder: "Your name", autocomplete: "off" %>
-  <div class="thirty"></div>
+  <div class="thirtys"></div>
   <%= f.input :email, input_html: {  :class => "hellogrey" }, label: "Your email", placeholder: "Your email", autocomplete: "off" %>
-  <div class="thirty"></div>
+  <div class="thirtys"></div>
   <%= f.input :place, input_html: {  :class => "hellogrey" }, label: "Your location", placeholder: "Where you live", autocomplete: "off" %>
-  <div class="thirty"></div>
+  <div class="thirtys"></div>
   <%= f.input :password, input_html: {  :class => "hellogrey" }, label: "Change Password", placeholder: "Password" , autocomplete: "off" %>
   <%= f.input :password_confirmation, input_html: {  :class => "hellogrey" }, label: false, placeholder: "Password again", autocomplete: "off" %>
-  <div class="thirty"></div>
+  <div class="thirtys"></div>
 <div class="label2">
  Change Image
 </div>
