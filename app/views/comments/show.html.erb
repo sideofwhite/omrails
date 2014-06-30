@@ -20,6 +20,13 @@ Closed interview
 <% end %>
 
 
+<div class="eventimagepreviewtext">
+<%= @comment.post.title %>
+</div>
+
+
+<hr/>
+
 
 <div class="titlecontainer">
 <%= @comment.title %>
@@ -33,9 +40,7 @@ Closed interview
 <div class="nameblueside2">
 <%= link_to @comment.user.name, user_path(@comment.user) %>
 </div>
-<div class="eventtoptext2">
-<%= link_to (@comment.post.title), post_path(@comment.post) %>
-</div>
+
 <div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>

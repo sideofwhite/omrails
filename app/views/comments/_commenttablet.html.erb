@@ -1,36 +1,96 @@
-<div id="products">	
-<% @comments.each do |comment| %>
-
-<div class="sixty"></div>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
 
+<div class="span10 centered">
 
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
 
-<div class="row"></div>
+<div class='yui3-g'>
+	
+
+
+<% @comments.each_with_index  do |comment, i| %>
+<div class="yui3-u-1-2">
+<% if i.odd? %>
+<div class="interviewgrid">
+
+
+<% if i > 1 %>
+<hr6/>
+<div class="gridmargin"></div>
+<% end %>
+
 
 <div class="circle">
 <%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
 </div>
-
+<div class="redquestionsbox">
+<%= comment.questions.count %>
+</div>
+<div class="row"></div>
 <div class="nameblueside">
 <%= link_to comment.user.name, user_path(comment.user) %>
 </div>
 
-<div class="postinterviewtext3">
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+<div class="interviewgriddate">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+<div class="postinterviewtext4">
  asked <%= pluralize(comment.questions.count, 'question') %>
+</div>
+
+
+
 
 </div>
 
-<div class="sixty"></div>
+
+<% else %>
+<div class="interviewgrid2">
+
+<% if i > 1 %>
+<hr6/>
+<div class="gridmargin"></div>
+<% end %>
+
+<div class="circle">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+<div class="redquestionsbox">
+<%= comment.questions.count %>
+</div>
+<div class="row"></div>
+<div class="nameblueside">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+<div class="interviewgriddate">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+<div class="postinterviewtext4">
+ asked <%= pluralize(comment.questions.count, 'question') %>
+</div>
 
 
-<div class="hrevent"></div>
 
 
 
 
+</div>
 <% end %>
 </div>
+<% end %>
+
+
+
+</div>
+</div>
+
+
+
+
+
