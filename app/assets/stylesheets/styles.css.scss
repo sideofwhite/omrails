@@ -3504,12 +3504,12 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 70px;
-height: 70px;
+width: 90px;
+height: 90px;
 display: block;
-float: left;
-margin-right: 15px;
-border-radius: 35px;
+float: right;
+margin-left: 20px;
+border-radius: 45px;
 
 
 
@@ -4445,7 +4445,7 @@ margin-bottom: 20px;
 
 
 .fifty {
-    margin: 50px;
+    margin-top: 50px;
 }
 
 .thirty {
@@ -4957,7 +4957,7 @@ margin-right: auto;
 
 .commentlabel {
     font-weight: bold !important;
-    font-size: 17px !important;
+    font-size: 14px !important;
     line-height: 1.4; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -4967,13 +4967,12 @@ margin-right: auto;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
-    display: inline;
-    margin-right: 5px;
+   
 }
 
 .commentlabel2 {
     font-weight: bold !important;
-    font-size: 17px !important;
+    font-size: 14px !important;
     line-height: 1.4; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -4983,8 +4982,7 @@ margin-right: auto;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
-    display: inline;
-    margin-right: 5px;
+    margin-top: 5px;
    
 }
 
@@ -5255,10 +5253,10 @@ margin-right: auto;
 }
 
 .bignumber {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .bignumbermargin {
@@ -5331,7 +5329,11 @@ margin-right: auto;
 }
 
 .eventimagepreviewtext {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
+
+.fourty {
+    margin-top: 50px
+}

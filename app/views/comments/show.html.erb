@@ -25,7 +25,8 @@ Closed interview
 </div>
 
 
-<hr/>
+<div class="hrevent"></div>
+<div class="fourty"></div>
 
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
@@ -41,10 +42,6 @@ Closed interview
 </div>
 <div class="titlecontainer">
 <%= @comment.title %>
-</div>
-
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
 </div>
 
 </div>
@@ -67,9 +64,12 @@ Ask
 </div>	
 <%= @comment.about %>
 </div>
+<div class="interviewdate">
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
 
 
-<div class="bignumbermargin"></div>
+<div class="fourty"></div>
 
 <div class="hrevent"></div>
 
