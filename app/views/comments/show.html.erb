@@ -26,7 +26,7 @@ Closed interview
 
 
 <div class="hrevent"></div>
-<div class="fourty"></div>
+<div class="commentshowmargin"></div>
 
 <div class="circleb">
 <%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
@@ -39,7 +39,7 @@ Closed interview
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
-
+<div class="commentshowmargin"></div>
 
 
 <div class="row"></div>
@@ -64,8 +64,7 @@ Ask
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
 
-
-<div class="fourty"></div>
+<div class="commentshowmargin"></div>
 
 <div class="hrevent"></div>
 
@@ -73,7 +72,7 @@ Ask
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
-
+<div class="commentshowmargin"></div>
 
 
 <% @questions.each do |question| %>
