@@ -205,7 +205,7 @@ p {
     
     
     font-weight: normal;
-    font-size: 17px !important;
+    font-size: 19px !important;
     line-height: 27px; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -996,7 +996,7 @@ p {
 .underneath {
 
     font-weight: normal;
-    font-size: 17px !important;
+    font-size: 19px !important;
     line-height: 27px; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -3504,12 +3504,13 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 90px;
-height: 90px;
+width: 80px;
+height: 80px;
 display: block;
-float: right;
-margin-left: 20px;
-border-radius: 45px;
+float: left;
+margin-right: 20px;
+margin-bottom: 30px;
+border-radius: 40px;
 
 
 
@@ -5056,6 +5057,8 @@ margin-right: auto;
 
 .logoimage {
     display: inline !important;
+    font-size: 34px;
+    font-weight: bold;
 }
 
 
@@ -5285,20 +5288,20 @@ margin-right: auto;
 
 @media (min-width: 760px) {
     .eventimagetop img {
-      height: 370px;
+      height: 355px;
     }
 }
 
 
 @media (min-width: 975px) {
     .eventimagetop img {
-      height: 345px;
+      height: 330px;
     }
 }
 
 @media (min-width: 1195px) {
     .eventimagetop img {
-      height: 430px;
+      height: 408px;
     }
 }
 
