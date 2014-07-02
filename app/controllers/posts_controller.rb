@@ -22,29 +22,22 @@ if params[:tag]
 @posts = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').page(params[:page]).per_page(25).offset(1)
+             .order('count_comments desc').page(params[:page]).per_page(25)
 @postsmobile = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc') 
-@toppost = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc').limit(1)             
+             .order('count_comments desc')             
 
 else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').page(params[:page]).per_page(25).offset(1)
+             .order('count_comments desc').page(params[:page]).per_page(25)
 @postsmobile = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
              .order('count_comments desc') 
-@toppost = Post.select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc').limit(1)
+
 end
 
 respond_to do |format|

@@ -5,57 +5,6 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 <div class="span9 centered">
 
-<% @toppost.each do |post| %>
-
-
-<div class="eventimagetop">
-<%= image_tag post.image %>
-</div>
-
-
-
-<div class="titlecontainershowb">
-<%= link_to (post.title), post_path(post)%> 
-</div>
-
-<% if post.comments.count > 0 %>
-<div class="postinterviewmargintop">
-Interview
-<% post.comments.limit(2).each do |comment| %>
-<% if comment.user.present? %>
-<div class="postinterviewtext">
-<strong><%= link_to (comment.user.name), post_comment_path(comment.post, comment) %></strong>
-<% if post.comments.count > 1 %>
-,
-<% elsif post.comments.count == 1 %>
-
-<% end %>
-</div>
-<% end %>
-<% end %>
-
-<% if post.comments.count > 2 %>
-
-<div class="postinterviewtext"%>
-and <%= pluralize(post.comments.count - 2, 'other') %> 
-</div>
-
-<% end %>
-
-</div>
-<% else %>
-<div class="postinterviewmargintop">
-<div class="postinterviewtext"%>
-No interviews yet.
-</div>
-</div>
-<% end %>
-<div class="tenpixel"></div>
-<hr/>
-
-
-<% end %>
-
 <div class='yui3-g'>
 
 <% @posts.each_with_index do |post, i| %>
