@@ -9,6 +9,12 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
+<div class="span8 centered">
+<div class="eventimagetop">
+<%= image_tag @post.image %> 
+</div>
+</div>
+
 
 <div class="span7 centered">
 <div class='titlecontainershow'>
@@ -43,15 +49,8 @@
 </div>
 </div>
 </div>
-</div>
 
-<div class="span9 centered">
-<div class="eventimagetop">
-<%= image_tag @post.image %> 
-</div>
-</div>
 
-<div class="span7 centered">
 <% if @post.comments.count < 1 %>
 <div class="thirty"></div>
 
