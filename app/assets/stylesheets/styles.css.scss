@@ -661,18 +661,14 @@ p {
 
 
 .favouritebuttonleft {
-    color: rgba(0,0,0,0.8) !important;
-    border: 1px solid #eeeeee;
-    background-color: white; 
-    padding: 7px;
     font-size: 12px;
-    margin-bottom: 15px;
-    display: inline-block;
-    text-decoration: none !important;
-    cursor: pointer;
-    font-family: "raleway", sans-serif !important;
+    padding: 5px;
     font-weight: bold;
-    border-radius: 2px;
+    color: white !important;
+    background-color: #a03600;
+    margin-top: 5px;
+    cursor: pointer;
+
 }
 
 .favouritebuttonleft2 {
@@ -1882,24 +1878,22 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     margin: 0px !important;
-    font-family: "georgia", sans-serif !important;
+    font-family: "PT-serif", sans-serif !important;
     width: 80% !important;
-    font-size: 20px !important;
-    color: rgba(0,0,0,0.8);
+    font-size: 17px !important;
+    color: rgba(0,0,0,0.78);
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    line-height: 1.4; 
+    line-height: 27px; 
     letter-spacing: -0.02em;
-    border-left: 3px solid #a03600 !important;
+    border-left: 0px !important;
     border-right: 0px !important;
     border-bottom: 0px !important;
     border-top: 0px !important;
-    padding-left: 15px !important;
+
 }
 
-.hello3:hover {
-    border-left: 3px solid #a03600 !important;
-}
+
 
 .underneathform {
     resize: none;
@@ -3489,7 +3483,7 @@ and (max-device-width : 1024px)
 width: 70px;
 height: 70px;
 border-radius: 35px;
-
+margin-bottom: 20px;
 
 
 
@@ -3942,7 +3936,7 @@ background:#000;
     
      font-size: 10px;
      color: black;
-     float: right;
+     
 
      
 }
@@ -4475,19 +4469,20 @@ margin-bottom: 20px;
     font-size: 14px;
     line-height: 1.2;
     font-weight: bold;
-    margin-left: 10px;
+    float: right;
   
 }
 
 .eventtoptext3b {
-    
-    
+   
     display: inline;
-    font-size: 16px;
+    font-size: 14px;
+    padding-top: 5px;
     line-height: 1.2;
     font-weight: bold;
-    margin-left: 10px;
-    opacity: 0.1;
+    color: #a03600;
+   
+
   
 }
 
@@ -4543,7 +4538,14 @@ margin-bottom: 20px;
 
 
 .fakeenter {
-    color: grey;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: bold;
+    color: white !important;
+    background-color: #a03600;
+    margin-top: 5px;
+    display: inline-block;
+    float: right;
 
 }
 
@@ -5349,5 +5351,5 @@ margin-right: auto;
 }
 
 .commentshowmargin {
-    margin-top: 60px;
+    margin-top: 70px;
 }

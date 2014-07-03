@@ -67,7 +67,7 @@ Ask
 
 <div class="hrevent"></div>
 
-<div class="bignumber">
+<div class="eventtoptext3b">
 <%= pluralize(@comment.questions.count, 'Question') %>
 </div>
 
@@ -146,7 +146,7 @@ Ask
 
 <% if @unanswered.present? %>
 <div class="hrevent"></div>
-<div class="eventtoptext4">	
+<div class="eventtoptext3b">	
 Unanswered Questions
 </div>
 <div class="commentquestionmargin"></div>
@@ -163,7 +163,7 @@ Unanswered Questions
 
 <% if @commentnext.next.present? %>
 <div class="hrevent"></div>
-<div class="eventtoptext4">	
+<div class="eventtoptext3b">	
 Next Interview
 </div>
 <div class='sixty'></div>
@@ -174,9 +174,6 @@ Next Interview
 
 <div class="circle">
 <%= link_to (image_tag(@commentnext.next.user.image)), user_path(@commentnext.next.user) %>
-</div>
-<div class="redquestionsbox">
-<%= @commentnext.next.questions.count %>
 </div>
 <div class="row"></div>
 <div class="nameblueside">
