@@ -286,26 +286,25 @@ p {
 }
 
 .headtext {
-    color:  #333332 !important;
+    color:  #3ea5ce !important;
     padding-right: 0px !important;
-    font-size: 14px !important;
-    font-weight: bold;
+    font-size: 18px !important;
     margin-top: 5px;
     
 }
 
 .headtext2 {
-    color:  #333332 !important;
-    font-size: 14px !important;
+    color:  #3ea5ce !important;
+    font-size: 18px !important;
     padding-right: 0px !important;
-    font-weight: bold;
+    margin-top: 5px;
+    
     }
 
  .navbar.transparent.navbar-inverse .navbar-inner {
-   border-bottom: 0px solid #eeeeee !important;
+   border: 0px solid #eeeeee !important;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
-   border-top : 4px solid #a03600;
    text-align: center !important;
 }
 
@@ -666,7 +665,8 @@ p {
     font-weight: bold;
     color: white !important;
     background-color: #a03600;
-    margin-top: 5px;
+    margin-top: 20px;
+    border: 0px;
     cursor: pointer;
 
 }
@@ -689,9 +689,7 @@ p {
    color: #a03600 !important; 
 }
 
-.favouritebuttonleft:hover {
-   color: #a03600 !important; 
-}
+
 
 .favouritebuttonleft2:hover {
    color: #a03600 !important; 
@@ -823,12 +821,12 @@ p {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 42px;
+    font-size: 44px;
     font-weight: bold;
     margin-bottom: 40px;
     letter-spacing: -0.04em;
     line-height: 1.1;
-    text-align: center;
+    
     
     
 }
@@ -953,6 +951,8 @@ p {
     font-size: 42px;
     line-height: 110%;
     font-weight: 600;
+    position: absolute;
+    top: 0;
 }
 
 @media (max-width: 975px) {
@@ -1879,7 +1879,7 @@ border:1px solid white;
     padding: 0px !important;
     margin: 0px !important;
     font-family: "PT-serif", sans-serif !important;
-    width: 80% !important;
+    width: 100% !important;
     font-size: 17px !important;
     color: rgba(0,0,0,0.78);
     -webkit-font-smoothing: antialiased;
@@ -3394,9 +3394,9 @@ and (max-device-width : 1024px)
 .eventimagetop img {
     
     width: 100%;
-    height: 408px;
+    height: 550px;
     margin-bottom: 40px;
-    float: left;
+    
 }
 
 .eventimagetoptablet img {
@@ -3408,7 +3408,7 @@ and (max-device-width : 1024px)
 
 
 .eventimagetop {
-    
+    position: relative;
 }
 
 .eventimage2 img {
@@ -3502,12 +3502,11 @@ margin: 0 auto;
 }
 
 .circleb img {
-width: 90px;
-height: 90px;
+width: 100px;
+height: 100px;
 display: block;
-margin: 0 auto;
 margin-bottom: 30px;
-border-radius: 45px;
+border-radius: 50px;
 margin-bottom: 20px;
 
 
@@ -4502,10 +4501,10 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      font-weight: bold;
-     font-size: 18px;
+     font-size: 20px;
      color: #333332 !important;
      margin-bottom: 40px;
-     text-align: center;
+     
      
      
      
@@ -4543,9 +4542,9 @@ margin-bottom: 20px;
     font-weight: bold;
     color: white !important;
     background-color: #a03600;
-    margin-top: 5px;
+    margin-top: 10px;
     display: inline-block;
-    float: right;
+    
 
 }
 
@@ -5309,7 +5308,8 @@ margin-right: auto;
 
 @media (min-width: 1195px) {
     .eventimagetop img {
-      height: 408px;
+      height: 550px;
+      position: relative;
     }
 }
 
@@ -5352,4 +5352,26 @@ margin-right: auto;
 
 .commentshowmargin {
     margin-top: 70px;
+}
+
+.no-padding {
+   padding: 0;
+ }
+
+
+.fullwidthbanner img {
+    width: 100%;
+    height: 550px;
+    
+}
+
+.fullwidthbanner {
+    position: relative;
+    display: block;
+}
+
+.fullwidthbannertext {
+    position: absolute;
+    width: 100%;
+    
 }
