@@ -286,7 +286,7 @@ p {
 }
 
 .headtext {
-    color:  #3ea5ce !important;
+    color:  #29689D !important;
     padding-right: 0px !important;
     font-size: 18px !important;
     margin-top: 5px;
@@ -294,7 +294,7 @@ p {
 }
 
 .headtext2 {
-    color:  #3ea5ce !important;
+    color: #29689D !important;
     font-size: 18px !important;
     padding-right: 0px !important;
     margin-top: 5px;
@@ -3414,11 +3414,24 @@ and (max-device-width : 1024px)
 .eventimage2 img {
     
     width: 100%;
-    height: 225px;
+    height: 270px;
     
 }
 
+.eventimage2 {
+    position: relative;
+}
 
+.eventimage2top img {
+    
+    width: 100%;
+    height: 600px;
+    
+}
+
+.eventimage2top {
+    position: relative;
+}
 
 .marginpost {
     margin-left: 20px;
@@ -5038,10 +5051,17 @@ margin-right: auto;
 
 
 .posttext {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: white !important;
+    background: rgba(0,0,0,0.2);
+
 }
 
 .postgridmargin {
@@ -5233,12 +5253,12 @@ margin-right: auto;
 }
 
 .homepagegrid {
-    margin-left: 14px;
+    margin-left: 4px;
 
 }
 
 .homepagegrid2 {
-    margin-right: 14px;
+    margin-right: 4px;
     
 }
 
@@ -5325,7 +5345,7 @@ margin-right: auto;
 
 @media (min-width: 1195px) {
     .eventimage2 img {
-      height: 249px;
+      height: 270px;
     }
 }
 
@@ -5361,7 +5381,7 @@ margin-right: auto;
 
 .fullwidthbanner img {
     width: 100%;
-    height: 550px;
+    height: 600px;
     
 }
 
