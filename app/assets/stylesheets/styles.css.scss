@@ -192,7 +192,7 @@ body{
     line-height: 1.1; 
     font-weight: normal;
     font-size: 18px;
-    font-family: "jaf-bernino-sans", sans-serif !important;
+    font-family: 'Open Sans', sans-serif;
     color: rgba(0,0,0,0.8) !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -3415,6 +3415,7 @@ and (max-device-width : 1024px)
     
     width: 100%;
     height: 270px;
+    margin-top: 1px;
     
 }
 
@@ -5051,6 +5052,20 @@ margin-right: auto;
 
 
 .posttext {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: white !important;
+    background: rgba(0,0,0,0.2);
+
+}
+
+.posttext2 {
     font-size: 28px;
     font-weight: bold;
     padding: 20px;
