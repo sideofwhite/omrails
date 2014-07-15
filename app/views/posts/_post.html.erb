@@ -31,12 +31,11 @@
 <div class="homepagegrid">
 
 <div class="eventimage2">
-<%= image_tag post.image %>
+<%= image_tag post.image %> 
 
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
+</div>
 
-
-</div> 
 </div>
 
 <% else %>
@@ -45,9 +44,10 @@
 
 <div class="eventimage2">
 <%= image_tag post.image %>
-<%= link_to (post.title), post_path(post), class: "posttext" %> 
 
-</div> 
+
+<%= link_to (post.title), post_path(post), class: "posttext" %> 
+</div>
 
 </div>
 <% end %>
