@@ -9,22 +9,35 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="span8 centered">
-<div class="eventimagetop">
-<%= image_tag @post.image %> 
-</div>
+<div class="eventimage2top">
+<%= image_tag @post.image %>
 
-
-
-
-<div class='titlecontainershow'>
+<div class="absolutecontainer">
+<div class="relativecontainer">	
+<div class="posttext2">
 <%= @post.title %> 
 </div>
-<hr/>
-<div>
+<div class="bottomtext">
+<%= pluralize(@post.comments.count, 'Questions') %> 
+</div>
+</div>
+</div>
+</div>
 
 
-<div class="floatright">
+<div class="span7 centered">
+
+
+
+<div class="descriptionmargin">	
+<%= @post.description %>
+</div>
+<div class='linkinline'>
+<%= link_to (@post.domain), url_for(@post.link) %>
+</div>
+
+
+<div class='block'>
 <% if @post.country.present? %>
 <div class="boldletters3">
 <%= image_tag ("http://i.imgur.com/GR9sx1c.png") %>
@@ -39,44 +52,40 @@
 <%= image_tag ("http://i.imgur.com/WPRxG3G.png") %>	
 <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
-
 </div>
-
-<div class='textbox'>
-<div class="descriptionmargin">	
-<%= @post.description %>
-<div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link) %>
-</div>
-</div>
-</div>
-
 
 <% if @post.comments.count < 1 %>
-<div class="thirty"></div>
 
 <div class="hrevent"></div>
 <div class="center">
 <div class="eventmargin2">
-There are no interviews yet
+There are no questions yet
 </div>
 </div>
 <% else %>
 
-<div class="thirty"></div>
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext3b">	
-<%= pluralize(@post.comments.count, 'Interview') %> 
-</div>
-<% if user_signed_in? %> 
-<%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "eventtoptext3" %>
-<% else %>
-<%= link_to 'Be Interviewed', new_user_registration_path, class: "eventtoptext3" %>
-<% end %>
-<div class="sixty"></div>
 
+<% if user_signed_in? %> 
+<div class="eventtoptext3">
+<div id="showmenu">Ask Question</div>
+</div>
+<% else %>
+<%= link_to 'Ask Question', new_user_registration_path, class: "eventtoptext3" %>
+<% end %>
+<div class="eventtoptext3b">	
+last question added 
+</div>
+
+<div class="menu" style="display: none;">
+<%= render :partial => "comments/form" %>
+</div>
+
+
+<div class="sixty"></div>
+<div class="row"></div>
 
 
 <% end %>
@@ -95,9 +104,15 @@ There are no interviews yet
 
 
 
+<script>
+ $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu').toggle();
+                
+        });
+    }); 
 
-
-
+</script>
 
 
 

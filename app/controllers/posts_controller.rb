@@ -61,8 +61,7 @@ end
   def show
   @post = Post.friendly.find(params[:id])
   @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(8)
-  @links = @post.links.order(:created_at).limit(5)
-
+  @comment = Comment.new
   end
 
   # GET /posts/new

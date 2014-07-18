@@ -5,29 +5,28 @@
 <div class="span7 centered">
 
 
+<div class="unansweredtag">
+Answered
+</div>
+
+
 <div class='yui3-g'>
 	
 
 
 <% @comments.each_with_index  do |comment, i| %>
+<% if comment.questions.count > 0 %>
 <div class="yui3-u-1-2">
 <% if i.odd? %>
 <div class="interviewgrid">
 
 
 <% if i > 1 %>
+<div class="opacityzero">
 <hr6/>
+</div>
 <div class="gridmargin"></div>
 <% end %>
-
-
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-<div class="row"></div>
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
 
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
@@ -36,7 +35,7 @@
 <%= time_ago_in_words(comment.created_at) %> ago
 </div>
 <div class="postinterviewtext4">
- asked <%= pluralize(comment.questions.count, 'question') %>
+ <%= pluralize(comment.questions.count, 'question') %>
 </div>
 
 
@@ -49,17 +48,14 @@
 <div class="interviewgrid2">
 
 <% if i > 1 %>
+<div class="opacityzero">
 <hr6/>
+</div>
 <div class="gridmargin"></div>
 <% end %>
 
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-<div class="row"></div>
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
+
+
 <div class="titlecontainer2">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
@@ -67,7 +63,7 @@
 <%= time_ago_in_words(comment.created_at) %> ago
 </div>
 <div class="postinterviewtext4">
- asked <%= pluralize(comment.questions.count, 'question') %>
+<%= pluralize(comment.questions.count, 'question') %>
 </div>
 
 
@@ -79,15 +75,30 @@
 <% end %>
 </div>
 <% end %>
+<% end %>
 
 
 
 </div>
+
+<div class="sixty"></div>
+
+<div class="unansweredtag">
+Unanswered
 </div>
 
+<% @comments.each_with_index  do |comment, i| %>
+<% unless comment.questions.count > 0 %>
+<div class="titlecontainer5">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+<div class="interviewgriddate2">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+<% end %>
+<% end %>
 
-
-
+</div>
 </div>
 
  

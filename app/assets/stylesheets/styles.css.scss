@@ -4,6 +4,7 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 $baseBorderRadius: 0;
+$navbarHeight: 40px;
 $placeholderText: #bebebe;
 
 
@@ -26,6 +27,10 @@ body .modal {
     
 
     
+}
+
+.navbar {
+    margin-bottom: 0px !important;
 }
 
 a {
@@ -189,10 +194,10 @@ placeholder {
 
 body{
     letter-spacing: -0.02em;
-    line-height: 1.2; 
+    line-height: 1.1; 
     font-weight: normal;
     font-size: 18px;
-    font-family: 'jaf-bernino-sans-condensed', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     color: rgba(0,0,0,0.8) !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -211,7 +216,7 @@ p {
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.78) !important;
-    font-family: "PT-serif", sans-serif !important;
+    font-family: "Helvetica Neue", sans-serif !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
@@ -286,18 +291,19 @@ p {
 }
 
 .headtext {
-    color:  #29689D !important;
+    color:  #333333 !important;
     padding-right: 0px !important;
-    font-size: 18px !important;
-    margin-top: 5px;
+    font-size: 14px !important;
+    opacity: 0.75;
+
     
 }
 
 .headtext2 {
-    color: #29689D !important;
-    font-size: 18px !important;
+    color: #333333 !important;
+    font-size: 14px !important;
     padding-right: 0px !important;
-    margin-top: 5px;
+    opacity: 0.75;
     
     }
 
@@ -306,6 +312,7 @@ p {
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
    text-align: center !important;
+
 }
 
 
@@ -541,7 +548,7 @@ p {
 
 }
 .myButton {
-   margin-top: 20px; 
+   margin-top: 10px; 
 }
 
 .cancel {
@@ -646,15 +653,16 @@ p {
 
 
 .favouritebutton {
-    color: rgba(0,0,0,0.8) !important;
-    border: 1px solid #eeeeee;
-    background-color: white; 
-    padding: 7px;
-    font-size: 15px;
+    color: #018BC6 !important;
+    border: 1px solid #018BC6; 
+    width: 66px !important;
+    height: 32px;
+    border-radius: 33px;
+    background-color: white !important;
+    font-size: 14px;
     text-decoration: none !important;
     cursor: pointer;
-    float: right;
-    font-family: "jaf-bernino-sans", sans-serif !important;
+    font-family: "Helvetica Neue", sans-serif !important;
     display: inline-block !important;
 }
 
@@ -686,7 +694,7 @@ p {
 }
 
 .favouritebutton:hover {
-   color: #a03600 !important; 
+   font-weight: bold;
 }
 
 
@@ -983,11 +991,23 @@ p {
 
 .titlecontainer2 {
     
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: 5px;
+
    
+
+}
+
+
+.titlecontainer5 {
+    
+    
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+
+    
+    
 
 }
 
@@ -1001,7 +1021,7 @@ p {
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.78) !important;
-    font-family: "PT-serif", sans-serif !important;
+    font-family: "noto-sans", sans-serif !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     
@@ -1010,18 +1030,7 @@ p {
 
 
 
-.titlecontainer5 {
-    
-    
-    font-size: 18px;
-    padding-bottom: 15px;
-    line-height: 110%;
-    color: grey;
 
-    
-    
-
-}
 
 .description {
     
@@ -1493,8 +1502,8 @@ width: 500px;
 
 
 .blue{
-    color: #006aa0 !important;
-    display: inline-block;
+    color: #018BC6 !important;
+    
 
 }
 
@@ -1589,10 +1598,11 @@ hr {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1);
+border-top: 1px solid #333333;
 margin-top: 30px; 
 margin-bottom: 30px;
 padding: 0px; 
+opacity: 0.1;
 }
 
 .hr2 { 
@@ -1641,10 +1651,11 @@ hr6 {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1);
+border-top: 1px solid #333333;
 margin-top: 60px; 
 margin-bottom: 60px;
 padding: 0px; 
+
 
 }
 
@@ -1664,38 +1675,40 @@ padding: 0px;
  
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1); 
+border-top: 1px solid #333333; 
 margin-bottom: 10px;
 padding: 0px;
+opacity: 0.1;
 
 }
 
 .hrevent2 {
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1); 
+border-top: 1px solid #333333; 
 padding: 0px;
+opacity: 0.1;
 }
 
 .hrpost {
  
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1); 
+border-top: 1px solid #333333; 
 margin-bottom: 10px;
 margin-top: 20px;
 padding: 0px;
-
+opacity: 0.1;
 }
 
 .hrpostshow {
  
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1); 
+border-top: 1px solid #333333; 
 margin-bottom: 10px;
 padding: 0px;
-
+opacity: 0.1;
 }
 
 .hraddon {
@@ -1839,12 +1852,12 @@ border:1px solid white;
     padding: 0px !important;
     font-family: jaf-bernino-sans, sans-serif !important;
     width: 80% !important;
-    font-size: 36px !important;
+    font-size: 24px !important;
     font-weight: bold;
     color: rgba(0,0,0,0.8);
     display: inline-block !important;
     line-height: 1.1;
-
+    margin-top: 50px;
 }
 
 .hello2 {
@@ -3414,9 +3427,10 @@ and (max-device-width : 1024px)
 .eventimage2 img {
     
     width: 100%;
-    height: 270px;
+    height: 365px;
 display: block;  
 vertical-align:text-bottom;
+margin-bottom: 20px;
    
 }
 
@@ -3428,7 +3442,7 @@ position: relative;
 .eventimage2top img {
     
     width: 100%;
-    height: 600px;
+    height: 550px;
     
 }
 
@@ -4229,16 +4243,16 @@ margin-bottom: 20px;
 .descriptionmargin {
     
       font-weight: normal;
-    font-size: 17px !important;
-    line-height: 27px; 
+    font-size: 24px !important;
+    line-height: 34px; 
     letter-spacing: -0.02em;
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.78) !important;
-    font-family: "PT-serif", sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    display: inline;
+    margin-top: 50px;
     
 }
 
@@ -4481,21 +4495,19 @@ margin-bottom: 20px;
     
     
     display: inline;
-    font-size: 14px;
-    line-height: 1.2;
+    font-size: 16px;
     font-weight: bold;
-    float: right;
+    color: #018BC6 !important;
   
 }
 
 .eventtoptext3b {
    
     display: inline;
-    font-size: 14px;
-    padding-top: 5px;
-    line-height: 1.2;
-    font-weight: bold;
-    color: #a03600;
+    font-size: 12px;
+    float: right;
+    opacity: 0.75;
+    color: #333333;
    
 
   
@@ -4798,15 +4810,15 @@ margin-right: auto;
 
 .boldletters2 {
    
-    display: block;
-    font-size: 13px;
+    display: inline-block;
+    font-size: 14px;
     display: inline-block;
 }
 
 .boldletters3 {
 
-    display: block;
-    font-size: 13px;
+    display: inline-block;
+    font-size: 14px;
    
     
 }
@@ -4960,19 +4972,19 @@ margin-right: auto;
 }
 
 .posttag {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: normal;
-    display: block;
+    display: inline-block;
     font-weight: bold;
+    float: right;
 }
 
 .linkinline {
   
-    font-size: 12px !important;
-    background-color: #eeeeee;
-    padding: 4px;
-    display: inline;
-    font-family: "raleway", sans-serif !important;
+    font-size: 16px !important;
+    font-style: italic;
+    display: inline-block;
+    
 }
 
 
@@ -5055,30 +5067,23 @@ margin-right: auto;
 
 .posttext {
      position: absolute;
-    top: 0;
-    right: 0;
     bottom: 0;
     left: 0;
     font-size: 28px;
     color: white !important;
-    padding: 20px;
-    transform: translateY(100%);
-    transition: transform .35s ease-out;
+    padding: 40px;
+    font-weight: bold;
+
 
 
 }
 
 .posttext2 {
-    font-size: 28px;
+    font-size: 46px;
     font-weight: bold;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 0;
+    padding-bottom: 20px;
     color: white !important;
-    background: rgba(0,0,0,0.2);
+   
 
 }
 
@@ -5100,10 +5105,10 @@ margin-right: auto;
 
 .logoimage {
     display: inline !important;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
     float: left;
-    margin-top:10px;
+    margin-top: 6px;
 
 }
 
@@ -5246,7 +5251,11 @@ margin-right: auto;
 
 .interviewgriddate {
     display: inline-block;
-    float: right;
+    font-size: 10px;
+}
+
+.interviewgriddate2 {
+    margin-bottom: 30px;
     font-size: 10px;
 }
 
@@ -5287,11 +5296,7 @@ margin-right: auto;
 
 }
 
-.textbox {
-    padding-right: 15px;
-    overflow: hidden;
-    
-}
+
 
 
 .redquestionsbox {
@@ -5363,7 +5368,7 @@ margin-right: auto;
 
 @media (min-width: 1195px) {
     .eventimage2 img {
-      height: 270px;
+      height: 365px;
     }
 }
 
@@ -5426,3 +5431,54 @@ margin-right: auto;
 }
 
 
+
+.bottomtext {
+          
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 50px;
+   }
+
+
+.absolutecontainer {
+    position: absolute;
+    bottom: 0;
+   
+    width: 670px;
+    left: 50%;
+}
+
+.relativecontainer {
+    position: relative;
+
+    left: -50%;
+}
+
+
+.block {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+
+.unansweredtag {
+    margin-bottom: 30px;
+    font-size: 14px;
+    opacity: 0.75;
+
+}
+
+.opacityzero {
+    opacity: 0.1;
+}
+
+#showmenu {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.postspagemargin {
+    margin-top: 20px;
+}

@@ -1,40 +1,15 @@
 <div class="span7 centered">
 
+
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Ask Question" %>
 
-<hr/>
-
-
-<div class="circleb">
-<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
-</div>
-
-<div class="nameblueside2">
-<%= link_to current_user.name, user_path(current_user) %>
-</div>
-<div class="eventtoptext2">
-<%= link_to (@post.title), post_path(@post) %>
-</div>
-
-<div class="row"></div>
-
-
-<div class="commentlabel">
-About:
-</div>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
-
-<div class="commentlabel2">
-Ask <%= current_user.name %> about: 
-</div>
-<%= f.input :about, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
-
-<div class="underbutton2"></div> 
 
 <%= f.submit "Post", class: "favouritebutton myButton" %>
+
+<hr/>
 
  <% end %>
 

@@ -13,9 +13,6 @@ end
 redirect_to post_comment_path
 end
 
-def comments_count
-  questions.count
-end
 
 
   # GET /comments
