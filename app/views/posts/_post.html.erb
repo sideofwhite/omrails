@@ -1,4 +1,5 @@
 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
 
 <div class="visible-desktop hidden-phone hidden-tablet">
@@ -6,14 +7,12 @@
 
 
 <div class="no-padding">
-
+<div class="span12 centered">
 <% @toppost.each do |post| %>
 
 <div class="eventimage2top">
 <%= image_tag post.image %>
 
-<div class="absolutecontainer">
-<div class="relativecontainer"> 
 <div class="posttext2">
 <%= post.title %> 
 </div>
@@ -21,29 +20,48 @@
 <%= pluralize(post.comments.count, 'Questions') %> 
 </div>
 </div>
-</div>
-</div>
 
 
 <% end %>
 </div>
+</div>
 
-<div class="postspagemargin"></div>
+<div class='yui3-g'>
 
 <div class="span10 centered">
 <% @posts.each_with_index do |post, i| %>
+<div class="yui3-u-1-2">
 
+<% if i.odd? %>
+<div class="homepagegrid">
 
 <div class="eventimage2">
 <%= image_tag post.image %> 
+
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 </div>
 
+</div>
 
+<% else %>
+
+<div class="homepagegrid2">
+
+<div class="eventimage2">
+<%= image_tag post.image %>
+
+
+<%= link_to (post.title), post_path(post), class: "posttext" %> 
+</div>
+
+</div>
+<% end %>
+</div>
 <% end %>
 
 </div>
-
+</div>
+</div>
 
 
 
