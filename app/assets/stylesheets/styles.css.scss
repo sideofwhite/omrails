@@ -4243,15 +4243,17 @@ margin-bottom: 20px;
 .descriptionmargin {
     
       font-weight: normal;
-    font-size: 20px !important;
-    line-height: 1.4; 
+    font-size: 24px !important;
+    line-height: 1.5; 
     letter-spacing: -0.02em;
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.7) !important;
-    font-family: 'FF-meta-serif-web-pro', serif;
+    font-family: 'FF-tisa-web-pro', serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    margin-top: 40px;
+    margin-bottom: 40px;
     
 }
 
@@ -5442,10 +5444,9 @@ margin-right: auto;
 
 .absolutecontainer {
     position: absolute;
-    top: 0;
-    left:0;
-    width: 35%;
-    padding: 30px;
+    bottom: 0;
+    width: 670px;
+    left: 50%;
  
    
 
