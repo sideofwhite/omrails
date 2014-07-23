@@ -6,29 +6,9 @@
 
 
 
-<div class="no-padding">
-<div class="span12 centered">
-<% @toppost.each do |post| %>
-
-<div class="eventimage2top">
-<%= image_tag post.image %>
-
-<div class="posttext2">
-<%= post.title %> 
-</div>
-<div class="bottomtext">
-<%= pluralize(post.comments.count, 'Questions') %> 
-</div>
-</div>
-
-
-<% end %>
-</div>
-</div>
-
 <div class='yui3-g'>
 
-<div class="span10 centered">
+<div class="span12 centered">
 <% @posts.each_with_index do |post, i| %>
 <div class="yui3-u-1-2">
 

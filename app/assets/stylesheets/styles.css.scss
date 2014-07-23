@@ -4,7 +4,7 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 $baseBorderRadius: 0;
-$navbarHeight: 80px;
+$navbarHeight: 40px;
 $placeholderText: #bebebe;
 
 
@@ -197,7 +197,7 @@ body{
     line-height: 1.1; 
     font-weight: normal;
     font-size: 18px;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'news-gothic-std', sans-serif;
     color: rgba(0,0,0,0.8) !important;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -5079,14 +5079,11 @@ margin-right: auto;
 
 .posttext2 {
     font-size: 34px;
-    width: 40%;
     font-weight: bold;
-    padding: 30px;
-    color: #333333 !important;
-    position: asbolute;
-    top: 0;
-    left:0;
+    margin-bottom: 20px;
+    color: white !important;
 
+   
 }
 
 .postgridmargin {
@@ -5445,10 +5442,13 @@ margin-right: auto;
 
 .absolutecontainer {
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left:0;
+    width: 35%;
+    padding: 30px;
+ 
    
-    width: 730px;
-    left: 50%;
+
 }
 
 .relativecontainer {

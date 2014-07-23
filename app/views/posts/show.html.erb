@@ -14,11 +14,14 @@
 <div class="eventimage2top">
 <%= image_tag @post.image %>
 
+
+<div class="absolutecontainer">
 <div class="posttext2">
 <%= @post.title %> 
 </div>
-<div class="bottomtext">
-<%= pluralize(@post.comments.count, 'Questions') %> 
+<div class="descriptionmargin">	
+<%= @post.description %>
+</div>
 </div>
 </div>
 
@@ -35,7 +38,9 @@
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link) %>
 </div>
-
+<div class="bottomtext">
+<%= pluralize(@post.comments.count, 'Questions') %> 
+</div>
 
 <div class='block'>
 <% if @post.country.present? %>
