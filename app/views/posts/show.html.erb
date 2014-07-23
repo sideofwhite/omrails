@@ -43,16 +43,16 @@
 <div class='block'>
 <% if @post.country.present? %>
 <div class="boldletters3">
-<%= image_tag ("http://i.imgur.com/EHSEt9N.png") %>
+<%= image_tag ("http://i.imgur.com/GR9sx1c.png") %>
 <%= @post.country %>
 </div>
 <% end %>
-<%= image_tag ("http://i.imgur.com/Yw6OaxR.png") %>
+<%= image_tag ("http://i.imgur.com/TeucG8m.png") %>
 <div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
 </div>
 <div class="posttag">
-<%= image_tag ("http://i.imgur.com/iQzCGDh.png") %>	
+<%= image_tag ("http://i.imgur.com/WPRxG3G.png") %>	
 <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 </div>
@@ -84,6 +84,7 @@ There are no questions yet
 <div class="eventtoptext3b">	
 last question added 
 </div>
+
 
 
 

@@ -210,13 +210,13 @@ p {
     
     
     font-weight: normal;
-    font-size: 20px !important;
-    line-height: 1.4; 
+    font-size: 19px !important;
+    line-height: 1.5; 
     letter-spacing: -0.02em;
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.7) !important;
-    font-family: 'FF-meta-serif-web-pro', serif;
+    font-family: 'PT-serif', serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
@@ -1015,13 +1015,13 @@ p {
 .underneath {
 
     font-weight: normal;
-    font-size: 20px !important;
+    font-size: 19px !important;
     line-height: 1.4; 
     letter-spacing: -0.02em;
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.7) !important;
-    font-family: 'FF-meta-serif-web-pro', serif;
+    font-family: 'PT-serif', serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     
@@ -4243,16 +4243,16 @@ margin-bottom: 20px;
 .descriptionmargin {
     
       font-weight: normal;
-    font-size: 24px !important;
+    font-size: 19px !important;
     line-height: 1.5; 
     letter-spacing: -0.02em;
     font-weight: 400;
     font-style: normal;
     color: rgba(0,0,0,0.7) !important;
-    font-family: 'FF-tisa-web-pro', serif;
+    font-family: 'PT-serif', serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
     
 }
@@ -5438,7 +5438,8 @@ margin-right: auto;
     font-size: 18px;
     color: white;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
     
    }
 
@@ -5462,7 +5463,7 @@ margin-right: auto;
 .block {
     display: block;
     margin-top: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 
