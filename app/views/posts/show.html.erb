@@ -20,8 +20,8 @@
 <div class="posttext2">
 <%= @post.title %> 
 </div>
-<div class="descriptionmargin">	
-<%= @post.description %>
+<div class="bottomtext">
+<%= pluralize(@post.comments.count, 'Questions') %> 
 </div>
 </div>
 </div>
@@ -39,23 +39,20 @@
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link) %>
 </div>
-<div class="bottomtext">
-<%= pluralize(@post.comments.count, 'Questions') %> 
-</div>
 
 <div class='block'>
 <% if @post.country.present? %>
 <div class="boldletters3">
-<%= image_tag ("http://i.imgur.com/GR9sx1c.png") %>
+<%= image_tag ("http://i.imgur.com/EHSEt9N.png") %>
 <%= @post.country %>
 </div>
 <% end %>
-<%= image_tag ("http://i.imgur.com/TeucG8m.png") %>
+<%= image_tag ("http://i.imgur.com/Yw6OaxR.png") %>
 <div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
 </div>
 <div class="posttag">
-<%= image_tag ("http://i.imgur.com/WPRxG3G.png") %>	
+<%= image_tag ("http://i.imgur.com/iQzCGDh.png") %>	
 <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 </div>
 </div>
@@ -78,6 +75,9 @@ There are no questions yet
 <div class="eventtoptext3">
 <div id="showmenu">Ask Question</div>
 </div>
+<div class="menu" style="display: none;">
+<%= render :partial => "comments/form" %>
+</div>
 <% else %>
 <%= link_to 'Ask Question', new_user_registration_path, class: "eventtoptext3" %>
 <% end %>
@@ -85,9 +85,6 @@ There are no questions yet
 last question added 
 </div>
 
-<div class="menu" style="display: none;">
-<%= render :partial => "comments/form" %>
-</div>
 
 
 <div class="sixty"></div>

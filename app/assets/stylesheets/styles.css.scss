@@ -4252,8 +4252,8 @@ margin-bottom: 20px;
     font-family: 'FF-tisa-web-pro', serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     
 }
 
@@ -4803,24 +4803,26 @@ margin-right: auto;
 
 .boldletters {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
     margin-right: 2px;
     display: inline-block;
+    opacity: 0.75;
 
 }
 
 .boldletters2 {
    
     display: inline-block;
-    font-size: 14px;
+    font-size: 12px;
     display: inline-block;
+    opacity: 0.75;
 }
 
 .boldletters3 {
 
     display: inline-block;
-    font-size: 14px;
-   
+    font-size: 12px;
+    opacity: 0.75;
     
 }
 
@@ -4973,11 +4975,11 @@ margin-right: auto;
 }
 
 .posttag {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
     display: inline-block;
-    font-weight: bold;
     float: right;
+    opacity: 0.75;
 }
 
 .linkinline {
@@ -5072,7 +5074,6 @@ margin-right: auto;
     left: 0;
     font-size: 28px;
     color: white !important;
-    padding: 40px;
     font-weight: bold;
 
 
@@ -5080,9 +5081,8 @@ margin-right: auto;
 }
 
 .posttext2 {
-    font-size: 34px;
+    font-size: 42px;
     font-weight: bold;
-    margin-bottom: 20px;
     color: white !important;
 
    
@@ -5436,8 +5436,9 @@ margin-right: auto;
 .bottomtext {
           
     font-size: 18px;
-    color: #333333;
+    color: white;
     font-weight: bold;
+    margin-top: 10px;
     
    }
 
@@ -5455,8 +5456,6 @@ margin-right: auto;
 .relativecontainer {
     position: relative;
     left: -50%;
-    background: white;
-    padding: 30px;
 }
 
 
@@ -5486,3 +5485,5 @@ margin-right: auto;
 .postspagemargin {
     margin-top: 20px;
 }
+
+
