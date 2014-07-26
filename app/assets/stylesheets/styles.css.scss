@@ -4,7 +4,7 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 $baseBorderRadius: 0;
-$navbarHeight: 40px;
+$navbarHeight: 60px;
 $placeholderText: #bebebe;
 
 
@@ -991,7 +991,7 @@ p {
 
 .titlecontainer2 {
     
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 
    
@@ -1652,8 +1652,8 @@ display: block;
 height: 1px;
 border: 0; 
 border-top: 1px solid #333333;
-margin-top: 60px; 
-margin-bottom: 60px;
+margin-top: 40px; 
+margin-bottom: 40px;
 padding: 0px; 
 
 
@@ -3442,7 +3442,7 @@ position: relative;
 .eventimage2top img {
     
     width: 100%;
-    height: 525px;
+    height: 480px;
     
 }
 
@@ -4243,7 +4243,7 @@ margin-bottom: 20px;
 .descriptionmargin {
     
       font-weight: normal;
-    font-size: 19px !important;
+    font-size: 20px !important;
     line-height: 1.5; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -5081,7 +5081,7 @@ margin-right: auto;
 }
 
 .posttext2 {
-    font-size: 42px;
+    font-size: 44px;
     font-weight: bold;
     color: white !important;
 
@@ -5110,6 +5110,7 @@ margin-right: auto;
     font-weight: bold;
     float: left;
     margin-top: 6px;
+    color: #018BC6 !important;
 
 }
 
