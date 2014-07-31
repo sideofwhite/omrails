@@ -1,0 +1,34 @@
+
+
+
+<div class="visible-desktop hidden-phone hidden-tablet">
+<div class="span6 centered">
+
+
+<% @comments.each_with_index  do |comment, i| %>
+
+
+
+<div class="titlecontainer2">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+
+<%= pluralize(comment.questions.count, 'QUESTION') %> 
+
+<div class="opacityzero">
+<hr6/>
+</div>
+
+
+<% end %>
+
+
+
+
+<div class="sixty"></div>
+
+
+
+
+</div>
+</div>

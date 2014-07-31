@@ -1,64 +1,39 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
 
+<style media="screen">
+  .imagestrip { background-image: url(<%= @comment.post.image %>); }
+</style>
+
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span7 centered">
 
-<% if @comment.active? %>
-<div class="openinterview2">
-Closed interview
-</div>
-<div class="fourtypixel"></div>
-<% else %>
-<% if current_user.try(:admin?) or @comment.user == current_user %>
-<%= link_to "Close Interview", edit_post_comment_path(@comment.post, @comment, anchor: "close"), class: "openinterview" %>
-<div class="openinterview2">
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %>
-</div>
-<div class="fourtypixel"></div>
-<% end %>
-<% end %>
-
-
+<div class='span11 centered'>
+<div class="darker2">
+<div class="imagestrip">
+<div class='darker'></div>
+<div class="span6 centered">
 <div class="eventimagepreviewtext">
-<%= @comment.post.title %>
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+</div>	
+</div>
+</div>
+</div>
 </div>
 
 
-<div class="hrevent"></div>
+<div class="span6 centered">
+
 <div class="commentshowmargin"></div>
 
-<div class="circleb">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
-</div>
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user) %>
-</div>
 
-<div class="row"></div>
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
 
-
-<div class="row"></div>
-
-
-
-
-
-<div class="underneath">
-<div class="commentlabel">
-About 
-</div>	
-<%= @comment.body %>
-<div class="fifteenpixel"></div>
-
-<div class="commentlabel2">
-Ask 
-</div>	
-<%= @comment.about %>
+<div class="nameblueside2">
+<%= link_to @comment.user.name, user_path(@comment.user), class: "blue" %>
 </div>
+
 <div class="interviewdate">
 <%= time_ago_in_words(@comment.created_at) %> ago
 </div>
@@ -67,8 +42,16 @@ Ask
 
 <div class="hrevent"></div>
 
-<div class="eventtoptext3b">
-<%= pluralize(@comment.questions.count, 'Question') %>
+<div class="answersnumber">
+<%= pluralize(@comment.questions.count, 'Answer') %>
+</div>
+
+<div class="askquestionright">
+<% if user_signed_in? %>	
+<%= link_to "Answer Question", new_comment_question_path(@comment), class: "blue" %>
+<% else %>
+<%= link_to "Answer Question", new_user_registration_path, class: "blue" %>
+<% end %>
 </div>
 
 <div class="commentshowmargin"></div>
@@ -77,32 +60,13 @@ Ask
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
 
-<% if question.answer.present? %>
 <div class="lightname">
 <%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
 </div>
 
-<div class="attempt">
-<div class="commentquestion">
+<p>
 <%= question.body %>
-</div>
-</div>
-
-<div class="commentmargin10"></div>
-
-
-<p>	
- <% if question.answer.body.length > 250 %>
-    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
-    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
-  <% else %>
-    <%= question.answer.body %>
-  <% end %>
 </p>
-<div class="lightcontainercomment2">
-<%= time_ago_in_words(question.answer.created_at) %> ago
-</div>
-
 
 
 
@@ -126,73 +90,43 @@ Ask
 <hr6/>
 
 
+</div>
+<% end %>
 
+
+
+
+<% if user_signed_in? %>	
+<%= link_to "Answer Question", new_comment_question_path(@comment), class: "bluebutton" %>
 <% else %>
-
-<% end %>
-</div>
+<%= link_to "Answer Question", new_user_registration_path, class: "bluebutton" %>
 <% end %>
 
 
-<div class="favouritebuttonmargin"></div>
-
-<% unless @comment.active? %>
-<a name="form">
-<%= render :partial => "questions/form" %>
-</a>
-<div class="favouritebuttonmargin"></div>
-<div class="favouritebuttonmargin"></div>
-<% end %>
-
-<% if @unanswered.present? %>
-<div class="hrevent"></div>
-<div class="eventtoptext3b">	
-Unanswered Questions
-</div>
-<div class="commentquestionmargin"></div>
-
-<%= render 'comments/unansweredquestionshow' %>
-
-<% if @unanswered.count > 3 %>
-<%= link_to "See all...", unansweredquestions_post_comment_path, class: "favouritebuttonleft", id: "new_link", :remote => true %>
-
-<% end %>
-<div class="commentquestionmargin"></div>
-<% end %>
+<div class="paddingbottom30"></div>
 
 
 <% if @commentnext.next.present? %>
 <div class="hrevent"></div>
-<div class="eventtoptext3b">	
-Next Interview
+<div class="answersnumber">	
+More Questions
 </div>
 <div class='sixty'></div>
 
 
-<div class='yui3-g'>
-<div class="yui3-u-1-2">
-
-<div class="circle">
-<%= link_to (image_tag(@commentnext.next.user.image)), user_path(@commentnext.next.user) %>
-</div>
-<div class="row"></div>
-<div class="nameblueside">
-<%= link_to @commentnext.next.user.name, user_path(@commentnext.next.user) %>
-</div>
-
 <div class="titlecontainer2">
 <%= link_to "#{@commentnext.next.title}", post_comment_path(@post, @commentnext.next) %>
 </div>
-<div class="interviewgriddate">
+
+<div class="nameblueside2">
+<%= link_to @commentnext.next.user.name, user_path(@commentnext.next.user), class: "blue" %>
+</div>
+<div class="interviewdate">
 <%= time_ago_in_words(@commentnext.next.created_at) %> ago
 </div>
-<div class="postinterviewtext4">
- asked <%= pluralize(@commentnext.next.questions.count, 'question') %>
-</div>
 
 
-</div>
-</div>
+
 
 <% end %>
 

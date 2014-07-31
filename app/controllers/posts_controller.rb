@@ -60,6 +60,18 @@ end
   # GET /posts/1.json
   def show
   @post = Post.friendly.find(params[:id])
+  @comments = @post.questions.order('cached_votes_total desc').page(params[:page]).per_page(8)
+  @comment = Comment.new
+  end
+
+  def shownewquestion
+  @post = Post.friendly.find(params[:id])
+  @comments = @post.comments.order('comments.created_at desc').page(params[:page]).per_page(8)
+  @comment = Comment.new
+  end
+
+  def showtopquestion
+  @post = Post.friendly.find(params[:id])
   @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(8)
   @comment = Comment.new
   end

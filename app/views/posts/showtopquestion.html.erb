@@ -1,18 +1,8 @@
-
-<div class="visible-phone hidden-tablet hidden-desktop">
-<%= render 'posts/showmobile' %>
-</div>
-
-<div class="visible-tablet hidden-phone hidden-desktop">
-<%= render 'posts/showtablet' %>
-</div>
-
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="span11 centered">
 
 <div class="eventimage2top">
-
 <%= image_tag @post.image %>
 <div class="darker"></div>
 
@@ -24,13 +14,11 @@
 <div class="descriptionmargin">	
 <%= @post.description %>
 <div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
+<%= link_to (@post.domain), url_for(@post.link), class: "white" %>
 </div>
 </div>
 <div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
-in 
-<strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
 </div>
 <div class="bottomtext">
 <%= pluralize(@post.comments.count, 'QUESTION').upcase %> 
@@ -44,13 +32,13 @@ in
 <div class="span6 centered">
 
 <div class="width30">
-<div class="questionnavbar50">
-Top Answers
+<div class="questionnavbar52">
+<%= link_to "Top Answers", post_path, class: "questionnavbarlink" %>
 </div>
 </div>
 <div class="width30">
-<div class="questionnavbar51">	
-<%= link_to "Top Questions", topquestions_path, class: "questionnavbarlink" %>
+<div class="questionnavbar50">	
+Top Questions
 </div>
 </div>
 <div class="width30">
@@ -86,6 +74,7 @@ last question added
 
 
 
+
 <% if @post.comments.count < 1 %>
 
 <div class="center">
@@ -98,7 +87,7 @@ There are no questions yet
 
 <div class="sixty"></div>
 
-<%= render 'comments/comment' %>
+<%= render 'comments/commenttop' %>
 
 
 

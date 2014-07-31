@@ -1,5 +1,39 @@
-<%= render 'form' %>
+<style media="screen">
+  .imagestrip { background-image: url(<%= @comment.post.image %>); }
+</style>
 
+<div class='span11 centered'>
+<div class="darker2">
+<div class="imagestrip">
+<div class='darker'></div>
+<div class="span6 centered">
+<div class="eventimagepreviewtext">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+</div>	
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="span6 centered">
+
+<div class="commentshowmargin"></div>
+
+
+<div class="titlecontainer">
+<%= @comment.title %>
+</div>
+
+<hr6/>
+
+<div class="commentshowmargin"></div>
+
+<%= render 'form' %>
+</div>
 
 
 

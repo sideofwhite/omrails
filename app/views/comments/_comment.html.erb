@@ -1,102 +1,46 @@
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+
 
 
 <div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span7 centered">
+<div class="span6 centered">
 
 
-<div class="unansweredtag">
-Answered
-</div>
-
-
-<div class='yui3-g'>
-	
-
-
-<% @comments.each_with_index  do |comment, i| %>
-<% if comment.questions.count > 0 %>
-<div class="yui3-u-1-2">
-<% if i.odd? %>
-<div class="interviewgrid">
-
-
-<% if i > 1 %>
-<div class="opacityzero">
-<hr6/>
-</div>
-<div class="gridmargin"></div>
-<% end %>
-
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="interviewgriddate">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<div class="postinterviewtext4">
- <%= pluralize(comment.questions.count, 'question') %>
-</div>
-
-
-
-
-</div>
-
-
-<% else %>
-<div class="interviewgrid2">
-
-<% if i > 1 %>
-<div class="opacityzero">
-<hr6/>
-</div>
-<div class="gridmargin"></div>
-<% end %>
+<% @comments.each_with_index  do |question, i| %>
 
 
 
 <div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="interviewgriddate">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<div class="postinterviewtext4">
-<%= pluralize(comment.questions.count, 'question') %>
+<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
 </div>
 
-
-
-
-
-
+<div class="namesmall">
+<%= question.user.name %>
 </div>
+
+<p>	
+ <% if question.body.length > 250 %>
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+  <% else %>
+    <%= question.body %>
+  <% end %>
+</p>
+
+
+<div class="opacityzero">
+<hr6/>
+</div>
+
+
 <% end %>
-</div>
-<% end %>
-<% end %>
 
 
 
-</div>
 
 <div class="sixty"></div>
 
-<div class="unansweredtag">
-Unanswered
-</div>
 
-<% @comments.each_with_index  do |comment, i| %>
-<% unless comment.questions.count > 0 %>
-<div class="titlecontainer5">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="interviewgriddate2">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<% end %>
-<% end %>
+
 
 </div>
 </div>
