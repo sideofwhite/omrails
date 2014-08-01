@@ -60,8 +60,12 @@
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
 
+<div class="smallavatar">
+<%= image_tag (question.user.image), user_path(question.user) %>
+</div>
+
 <div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "bordernone" %>
+<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "blue" %>
 </div>
 
 <p>
