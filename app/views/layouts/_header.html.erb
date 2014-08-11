@@ -23,10 +23,11 @@
                       
                        <li><%= link_to (current_user.name), user_path(current_user), class: "headtext" %></li>
                        <% if current_user.image? %>
-
+                       <div class="floatright">
                         <div class="smallavatar2">
                        <li><%= link_to (image_tag(current_user.image)), user_path(current_user) %></li>
                       </div>
+                    </div>
                       <% else %>
                        <div class="floatright">
                     <%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(current_user) %>

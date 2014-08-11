@@ -15,7 +15,8 @@
 <%= image_tag post.image %> 
 <div class="darker"></div>
 
-<div class="homepagecontainer">
+<div class="relativecontainer">
+<div class="absolutecontainer">
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmargin"> 
@@ -27,7 +28,7 @@
 </div>
 
 </div>
-
+</div>
 </div>
 
 <% end %>
@@ -43,7 +44,8 @@
 <div class="homepagestrip">
 <div class="darker"></div>
 
-<div class="homepagecontainer">
+<div class="relativecontainer">
+<div class="absolutecontainer">
 <%= link_to (post.title), post_path(post), class: "posttextstrip" %> 
 
 <div class="descriptionmarginstrip"> 
@@ -53,7 +55,7 @@
 <div class="bottomtext">
 <%= pluralize(post.comments.count, 'QUESTION').upcase %> 
 </div>
-
+</div>
 </div>
 
 </div>
