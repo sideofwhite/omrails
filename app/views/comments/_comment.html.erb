@@ -25,6 +25,8 @@
 <%= question.user.name %>
 </div>
 
+<div class="row"></div>
+
 <div class="p2">	
  <% if question.body.length > 250 %>
     <%= truncate(question.body, :separator => ' ', length: 250) %>

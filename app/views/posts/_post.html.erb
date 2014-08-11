@@ -8,16 +8,60 @@
 
 
 <div class="span11 centered">
-<% @posts.each_with_index do |post, i| %>
+<% @toppost.each_with_index do |post, i| %>
 
 
 <div class="eventimage2top">
 <%= image_tag post.image %> 
+<div class="darker"></div>
 
+<div class="homepagecontainer">
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
+
+<div class="descriptionmargin"> 
+<%= truncate(post.description, length: 200, separator: ' ') %>
+</div>
+
+<div class="bottomtext">
+<%= pluralize(post.comments.count, 'QUESTION').upcase %> 
+</div>
+
+</div>
+
 </div>
 
 <% end %>
+
+
+<% @posts.each_with_index do |post, i| %>
+
+<style media="screen">
+  .homepagestrip { background-image: url(<%= post.image %>); }
+</style>
+
+
+<div class="homepagestrip">
+<div class="darker"></div>
+
+<div class="homepagecontainer">
+<%= link_to (post.title), post_path(post), class: "posttextstrip" %> 
+
+<div class="descriptionmarginstrip"> 
+<%= truncate(post.description, length: 120, separator: ' ') %>
+</div>
+
+<div class="bottomtext">
+<%= pluralize(post.comments.count, 'QUESTION').upcase %> 
+</div>
+
+</div>
+
+</div>
+
+<% end %>
+
+
+
 
 
 </div>

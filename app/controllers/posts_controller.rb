@@ -21,7 +21,7 @@ end
 if params[:tag]
 @posts = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
+             .group('posts.id').offset(1)
              .order('count_comments desc').page(params[:page]).per_page(25).limit(1)
 @postsmobile = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
@@ -36,7 +36,7 @@ else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').page(params[:page]).per_page(25)
+             .order('count_comments desc').page(params[:page]).per_page(25).offset(1)
 @postsmobile = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
