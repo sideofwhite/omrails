@@ -54,18 +54,22 @@
 <% end %>
 </div>
 
-<div class="commentshowmargin"></div>
+<div class="questiondivider">
+<div></div>
+</div>
 
 
 <% @questions.each do |question| %>
 <div id="<%= question.id %>">
 
+<div class="height100">
 <div class="smallavatar">
 <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
 
 <div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}", class: "blue" %>
+<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}" %>
+</div>
 </div>
 
 <div class="row"></div>
@@ -74,7 +78,7 @@
 <%= question.body %>
 </p>
 
-
+<div class="hrevent"></div>
 
 <div class="lightcontainercomment">	
 <% if user_signed_in? %>
@@ -89,11 +93,27 @@
 
 
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/SYYaeQ4.png")), new_user_registration_path %>
+<%= link_to (image_tag("http://i.imgur.com/3EtsnSo.png")), new_user_registration_path %>
 <% end %>
 
+<div class="comments">
 
-<hr6/>
+</div>
+
+
+
+<%= link_to "comment", new_question_answer_path(question) %>
+
+
+
+
+
+
+
+
+<div class="questiondivider">
+<div></div>
+</div>
 
 
 </div>

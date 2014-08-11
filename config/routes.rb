@@ -76,6 +76,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
+  get 'users/:id/notifications', to: 'users#notifications', as: :notifications 
   get 'users/:id/userinterviews', to: 'users#interviews', as: :userinterviews
   get 'posts/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
   get 'posts/:id/newquestions', to: 'posts#shownewquestion', as: :newquestions

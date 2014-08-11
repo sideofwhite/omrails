@@ -21,4 +21,10 @@ class UsersController < ApplicationController
   @comment = @user.comments.order("created_at desc")
   end 
 
+  def notifications 
+  @user = User.friendly.find(params[:id])
+  @comment = @user.comments
+  @answers = @comment.questions
+  end
+
 end

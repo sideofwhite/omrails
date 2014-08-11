@@ -1,0 +1,56 @@
+<% if @post.comments.count < 1 %>
+<div class="thirty"></div>
+
+<div class="hrevent"></div>
+<div class="center">
+<div class="eventmargin2">
+There are no posts yet.
+</div>
+</div>
+<% else %>
+
+<div class="thirty"></div>
+
+<div class="hrevent"></div>
+
+<div class="eventtoptext4">	
+<%= pluralize(@post.comments.count, 'Interview') %> 
+</div>
+<div class="sixty"></div>
+
+
+
+
+<% end %>
+
+
+<% @comments.each do |comment| %>
+
+
+<div class="titlecontainermobile">
+<%= link_to (comment.title), post_comment_path(@post, comment) %>
+</div>
+
+
+
+<div class="circlecommentmobile">
+<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+</div>
+
+<div class="namebluesidemobile">
+<%= link_to comment.user.name, user_path(comment.user) %>
+</div>	
+<div class="postinterviewtext2">
+ 
+</div>
+<div class="namebluesidemargin">
+</div>
+
+
+<div class="namemargin">
+<hr6/>
+</div>
+
+
+
+<% end %>

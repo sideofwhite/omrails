@@ -13,24 +13,34 @@
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
 </div>
 
-<div class="namesmall">
+<% if question.user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+<% end %>
+
+<div class="lightname">
 <%= question.user.name %>
 </div>
 
-<p>	
+<div class="p2">	
  <% if question.body.length > 250 %>
     <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.body}')", class: "blue" %>
   <% else %>
     <%= question.body %>
   <% end %>
-</p>
-
-
-<div class="opacityzero">
-<hr6/>
 </div>
 
+<div class="date">
+Written <%= time_ago_in_words(question.created_at) %> ago
+</div>
+
+<div class="questiondivider">
+<div></div>
+</div>
 
 <% end %>
 

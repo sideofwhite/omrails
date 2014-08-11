@@ -11,7 +11,7 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
 belongs_to :user
 acts_as_votable
 belongs_to :comment, :counter_cache => true
-has_one :answer
+has_many :answers
 has_many :pictures
 
 

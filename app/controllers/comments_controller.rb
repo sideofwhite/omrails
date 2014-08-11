@@ -36,6 +36,7 @@ end
   @questions = @comment.questions.order('cached_votes_total desc')
   @unansweredshow = @comment.questions.order("created_at desc").limit(3)
   @unanswered = @comment.questions.where(answers_count: 0)
+ 
 
   end
 

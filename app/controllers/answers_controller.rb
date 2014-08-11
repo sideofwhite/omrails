@@ -29,15 +29,15 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @skip_footer = true
-    
-    @answer = Answer.new(answer_params)
     @question = Question.friendly.find(params[:question_id])
-  @question.answer = @answer
+    @answer = Answer.new(answer_params)
+    
+    
     
     
     respond_to do |format|
       if @answer.save
-        UserMailer.question_answer(@answer, @user).deliver
+        
         format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer posted' }
         
       else

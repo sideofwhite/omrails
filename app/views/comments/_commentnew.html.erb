@@ -9,11 +9,17 @@
 
 
 
-<div class="titlecontainer2">
+<div class="titlecontainer20">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
-<%= pluralize(comment.questions.count, 'QUESTION') %> 
+<div class="nameblueside2">
+<%= pluralize(comment.questions.count, 'Answer') %> 
+</div>
+
+<div class="date2">
+Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 
 <div class="opacityzero">
 <hr6/>

@@ -75,7 +75,7 @@
 
 
 <% @questions.each do |question| %>
-<% if question.answer.present? %>
+<% if question.answers.present? %>
 
 <div class="circlecomment">
 <%= image_tag question.user.image %>
@@ -124,7 +124,7 @@
 <hr/>
 
 <% @questions.each do |question| %>
-<% unless question.answer.present? %>
+<% unless question.answers.present? %>
 <div class="circlecomment">
 <%= image_tag question.user.image %>
 </div>

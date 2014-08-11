@@ -5,18 +5,16 @@
 <%= link_to (question.user.name), user_path(question.user) %>
 </div>
 
-<div class="attempt">
+
 <div class="commentquestion">
 <%= question.body %>
 </div>
-</div>
+<%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
+<div class="commentmargin10"></div>
 
 <% if @comment.user == current_user or current_user.try(:admin?) %>
  <%= link_to 'Delete', comment_question_path(question.comment, question), method: :delete, data: { confirm: 'Are you sure?' }, class: "lightcontainercomment2" %> 
-<div class="commentmargin10"></div>
 
-
-<%= link_to "Answer", new_question_answer_path(question), class: "fakeenter" %>
 
 
 
