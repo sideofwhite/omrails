@@ -1,3 +1,22 @@
+<script>
+ $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu').slideDown("fast");
+                $('.eventtoptext3').hide();
+                
+                
+        });
+
+   $('.cancelslideup').click(function() {
+    $('.menu').slideUp("fast");
+    $('.eventtoptext3').show();
+
+     }); 
+    }); 
+
+</script>
+
+
 <div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="span11 centered">
@@ -66,6 +85,9 @@ last question added
 </div>
 <div class="menu" style="display: none;">
 <%= render :partial => "comments/form" %>
+<div class="cancelslideup">
+Cancel
+</div>
 </div>
 <% else %>
 <%= link_to 'Ask Question', new_user_registration_path, class: "eventtoptext3" %>
@@ -100,15 +122,7 @@ There are no questions yet
 
 
 
-<script>
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-                $('.menu').toggle();
-                
-        });
-    }); 
 
-</script>
 
 
 

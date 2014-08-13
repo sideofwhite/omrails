@@ -4,7 +4,7 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 $baseBorderRadius: 0;
-$navbarHeight: 60px;
+$navbarHeight: 50px;
 $placeholderText: #bebebe;
 
 
@@ -243,7 +243,7 @@ p {
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
@@ -430,7 +430,7 @@ li {
    background: white;
    box-shadow: none !important;
   -webkit-box-shadow: none !important;
-   border-bottom: 1px solid #eeeeee;
+   
    
 
 }
@@ -688,18 +688,23 @@ li {
 
 
 .favouritebutton {
-    color: #018BC6 !important;
-    border: 1px solid #018BC6; 
-    width: 66px !important;
-    height: 32px;
-    border-radius: 33px;
-    background-color: white !important;
-    font-size: 14px;
+   
+    background-color: #eaeaea !important;
+    border-radius: 2px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+    color: #333332 !important;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: 1px solid #ddd !important;
+    font-weight: 700;
     text-decoration: none !important;
     cursor: pointer;
-    font-family: "Helvetica Neue", sans-serif !important;
+    font-family: "roboto", sans-serif !important;
     display: inline-block !important;
+    float: left;
 }
+
+
 
 
 .favouritebuttonleft {
@@ -865,7 +870,7 @@ li {
     
     color: #333332 !important;
     font-size: 34px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 10px;
     letter-spacing: -0.04em;
     line-height: 1.1;
@@ -1026,9 +1031,8 @@ li {
 
 .titlecontainer2 {
     
-    font-size: 26px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
     font-family: 'jaf-bernino-sans', sans-serif;
     margin-bottom: 20px;
 
@@ -1036,8 +1040,8 @@ li {
 
 .titlecontainer20 {
     
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 10px;
     font-family: 'jaf-bernino-sans', sans-serif;
     
@@ -1644,18 +1648,28 @@ hr {
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid #333333;
+border-top: 1px solid rgba(51,51,51,0.1);
 margin-top: 30px; 
 margin-bottom: 30px;
 padding: 0px; 
-opacity: 0.1;
+
+}
+
+.form {
+   display: block; 
+height: 5px;
+border: 0; 
+border-top: 1px solid rgba(51,51,51,0.1);
+margin-top: 10px; 
+margin-bottom: 10px;
+padding: 0px;  
 }
 
 .hr2 { 
 display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1);
+border-top: 1px solid rgba(51,51,51,0.1);
 margin-top: 2px;
 margin-bottom: 2px;
  }
@@ -1674,7 +1688,7 @@ hr4 {
  display: block; 
 height: 1px;
 border: 0; 
-border-top: 1px solid rgba(0,0,0,0.1);
+border-top: 1px solid rgba(51,51,51,0.1);
 margin-top: 5px; 
 margin-bottom: 5px;
 padding: 0px; 
@@ -1897,7 +1911,7 @@ border:1px solid white;
     resize: none;
     padding: 0px !important;
     font-family: jaf-bernino-sans, sans-serif !important;
-    width: 80% !important;
+    width: 100% !important;
     font-size: 24px !important;
     font-weight: bold;
     color: rgba(0,0,0,0.8);
@@ -4429,10 +4443,10 @@ margin-bottom: 20px;
 }
 
 .lightname {
-    font-size: 14px;
+    font-size: 15px;
     display: inline-block;
     margin-left: 5px;
-    font-weight: 500;
+    font-style: italic;
 }
 
 
@@ -5161,9 +5175,9 @@ margin-right: auto;
 
 .posttext {
   
-    font-size: 54px;
+    font-size: 46px;
     color: white !important;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'jaf-bernino-sans', sans-serif !important;
     line-height: 1;
 
@@ -5172,9 +5186,9 @@ margin-right: auto;
 
 .posttextstrip {
   
-    font-size: 44px;
+    font-size: 38px;
     color: white !important;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'jaf-bernino-sans', sans-serif !important;
     line-height: 1;
 
@@ -5182,8 +5196,8 @@ margin-right: auto;
 }
 
 .posttext2 {
-    font-size: 54px;
-    font-weight: 500;
+    font-size: 46px;
+    font-weight: 600;
     color: white !important;
     font-family: 'jaf-bernino-sans', sans-serif;
     line-height: 1;
@@ -5420,8 +5434,9 @@ margin-right: auto;
 
 .country {
     text-align: center;
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.75;
+    margin-top: 15px;
 }
 
 .gridmargin {
@@ -5892,4 +5907,12 @@ margin-right: auto;
     position: relative;
     margin-bottom: 50px;
     margin-top: 50px;
+}
+
+.cancelslideup {
+    font-size: 10px;
+    display: inline;
+    margin-left: 15px;
+    cursor: pointer;
+    vertical-align: text-bottom;
 }
