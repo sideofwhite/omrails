@@ -1,15 +1,6 @@
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="span7 centered">
-<% if current_user == @user %>
-
-
-<div class="floatright">
-<%= link_to "Settings", edit_user_registration_path(@user), class: "greymargin" %>	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-</div>
-<% end %>
-</div>
-
+<div class="span6 centered">
 
 <%= render 'users/userhead' %>
 
@@ -21,18 +12,27 @@
 
 
 
-<div class="span7 centered">
+<div class="span6 centered">
 
 
 
-<div class="hrevent2"></div>
+<div class="span6 centered">
 
-<div class="redtopline">	
+<div class="width30">
+<div class="questionnavbar50user">
 Upvoted
 </div>
-<%= link_to "Questions", userquestions_path(@user), class: "eventtoptext4" %>
-<%= link_to "Interviews", userinterviews_path(@user), class: "eventtoptext4" %>
-
+</div>
+<div class="width30">
+<div class="questionnavbar51user">	
+<%= link_to "Questions", userquestions_path(@user), class: "questionnavbarlink" %>
+</div>
+</div>
+<div class="width30">
+<div class="questionnavbar51user">	
+<%= link_to "Answers", userinterviews_path(@user), class: "questionnavbarlink" %>
+</div>
+</div>
 
 <div class="profilemargin"></div>
 
@@ -42,20 +42,38 @@ Upvoted
 <%= @user.name %> hasn't upvoted any answers yet.
 </div>
 </div>
+<% else %>
+<div class="row"></div>
+<div class="profilemargin">
+</div>
 <% end %>
+
+
 
 <% @questions.each_with_index do |question, i| %>
 
 
 
 
-<div class="sixty"></div>
-<div class="attempt">
-<div class="commentquestion">
-<%= link_to (question.body), post_comment_path(question.comment.post, question.comment) %>
+<div class="titlecontainer2">
+<%= link_to (question.comment.body), post_comment_path(question.comment.post, question.comment) %>
 </div>
+
+<% if question.user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
-<div class="twenty"></div>
+<% else %>
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+<% end %>
+
+<div class="lightname">
+<%= question.user.name %>
+</div>
+
+<div class="row"></div>
+
+
 <% if question.comment.post.present? %>
 
 <%= link_to post_comment_path(question.comment.post, question.comment) do %>
@@ -66,25 +84,26 @@ Upvoted
 
 <% end %>
 
-<div class="commentmargin10"></div>
 
-<% if question.answer.present? %>
+<% if question.present? %>
 
-<p>	
- <% if question.answer.body.length > 150 %>
-    <%= truncate(question.answer.body, :separator => ' ', length: 250) %>
-    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.answer.body}')", class: "blue" %>
+<div class="p2">	
+ <% if question.body.length > 150 %>
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.body}')", class: "blue" %>
   <% else %>
-    <%= question.answer.body %>
+    <%= question.body %>
 
   <% end %>
-  <div class="lightcontainercomment2">
-<%= time_ago_in_words(question.answer.created_at) %> ago
+
 </div>
-</p>
+
+  <div class="date">
+Written <%= time_ago_in_words(question.created_at) %> ago
+</div>
 
 <% unless (i + 1) == @questions.length %>
-<hr6/>
+<hr/>
 <% end %>
 
 <% end %>

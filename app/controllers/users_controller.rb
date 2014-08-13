@@ -13,12 +13,12 @@ class UsersController < ApplicationController
   def questions
   @user = User.friendly.find(params[:id])
   @question = @user.questions.order("created_at desc")
-  @comments = @user.comments.order(:created_at)
+  @comments = @user.comments.order("created_at desc")
   end 
 
    def interviews
   @user = User.friendly.find(params[:id])
-  @comment = @user.comments.order("created_at desc")
+  @comment = @user.questions.order("created_at desc")
   end 
 
   def notifications 

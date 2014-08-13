@@ -1030,7 +1030,7 @@ li {
     font-weight: 500;
     margin-bottom: 10px;
     font-family: 'franklin-gothic-urw-cond', sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
 }
 
@@ -2058,6 +2058,27 @@ border:1px solid white;
     box-shadow: none !important;
     letter-spacing: -0.02em;
     line-height: 1.5;
+
+
+}
+
+.hellogrey50 {
+    
+    resize: none;
+    border: 0px solid white !important;
+    padding-top: 7px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important;
+    font-family: jaf-bernino-sans, sans-serif !important;
+    font-size: 34px !important;
+    color: rgba(0,0,0,0.8) !important;
+    margin-bottom: 0px !important;
+    box-shadow: none !important;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-align: center;
+    margin-top: 20px;
 
 
 }
@@ -3092,7 +3113,7 @@ text-align:center;
 
 .usernametext2 {
     font-size: 34px;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     margin-top: 20px;
     
@@ -3101,7 +3122,7 @@ text-align:center;
 .usernametext2b {
     font-size: 36px;
     padding-top: 30px;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -3241,11 +3262,12 @@ pull-left{
     
     
     margin-right: 20px;
-    height: 120px;
-    width: 120px;
-    border-radius: 60px;
+    height: 128px;
+    width: 128px;
+    border-radius: 64px;
     display: block;
     margin: 0 auto;
+    
 
 }
 
@@ -3271,9 +3293,9 @@ pull-left{
 
 
 .userimage2 img {
-    height: 150px;
-    width: 150px;
-    border-radius: 75px;
+    height: 128px;
+    width: 128px;
+    border-radius: 64px;
     margin-left: 0 auto;
     margin-right: 0 auto;
     display: block;
@@ -3285,8 +3307,8 @@ pull-left{
 .userimage2 {
    display: block;
    position: relative;
-   margin-left: 0 auto;
-    margin-right: 0 auto;
+   left: -50%;
+
    
 }
 
@@ -3867,12 +3889,13 @@ background:#000;
 
 .addimage {
 
-  padding: 10px;
-  background-image: url(http://i.imgur.com/vdMkjlH.png);
+  padding: 12px;
+  background-image: url(http://i.imgur.com/5lBjrDT.png);
   background-repeat: no-repeat;
   position: absolute;
   width: 0px;
   left: 0;
+
 
 }
 
@@ -4211,17 +4234,9 @@ font-weight: bold;
     position:  absolute;
 }
 
-.addimage img {
-    width: 100%;
-}
 
-.addimage {
-    border: 0px solid #EEEEEE; 
-    display: block;  
-    position: absolute;
-    top: 0;
 
-}
+
 
 
 .opaquepic {
@@ -4550,7 +4565,7 @@ margin-bottom: 20px;
 }
 
 .twenty {
-    margin: 20px;
+    margin-top: 20px;
 }
 
 .sixty {
@@ -5405,7 +5420,6 @@ margin-right: auto;
 
 .country {
     text-align: center;
-    font-weight: bold;
     font-size: 14px;
     margin-top: 10px;
 }
@@ -5612,6 +5626,83 @@ margin-right: auto;
 
 }
 
+
+
+.questionnavbar50user {
+    color: white !important;
+    background: #018BC6;
+    font-size: 12px;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #018BC6;
+    font-weight: 500;
+     
+}
+
+.questionnavbar51user {
+    color: #333333 !important;
+    opacity: 0.75;
+    background: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 15px;
+    border-right: 1px solid rgba(51,51,51,0.1);
+    border-bottom: 1px solid rgba(51,51,51,0.1);
+    border-top: 1px solid rgba(51,51,51,0.1);
+    font-weight: 500;
+
+}
+
+.questionnavbar52user {
+    color: #333333 !important;
+    opacity: 0.75;
+    background: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 15px;
+    border-left: 1px solid rgba(51,51,51,0.1);
+    border-bottom: 1px solid rgba(51,51,51,0.1);
+    border-top: 1px solid rgba(51,51,51,0.1);
+    font-weight: 500;
+
+}
+
+
+
+.settingsnavbar50 {
+
+    color: #333333 !important;
+    opacity: 0.75;
+    background: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    border-left: 1px solid rgba(51,51,51,0.1);
+    border-bottom: 1px solid rgba(51,51,51,0.1);
+    border-top: 1px solid rgba(51,51,51,0.1);
+    border-right: 1px solid rgba(51,51,51,0.1);
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.settingsnavbar51 {
+
+    color: #333333 !important;
+    opacity: 0.75;
+    background: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    border-left: 1px solid rgba(51,51,51,0.1);
+    border-bottom: 1px solid rgba(51,51,51,0.1);
+    border-top: 1px solid rgba(51,51,51,0.1);
+    font-weight: 500;
+   
+    margin-top: 20px;
+}
+
+
 .questionnavbarlink {
     
 }
@@ -5623,6 +5714,12 @@ margin-right: auto;
 
 .width30 {
     width: 33.3%;
+    float: left;
+    
+}
+
+.width50 {
+    width: 50%;
     float: left;
     
 }
@@ -5777,4 +5874,22 @@ margin-right: auto;
     background-size: cover;
     background-size: 100% 500px;
     margin-top: 20px;
+}
+
+
+.absolutepicture {
+    position: absolute;
+    left: 50%;
+    margin-bottom: 20px;
+}
+
+.relativepicture {
+    left: -50%;
+    position: relative;
+}
+
+.absolutepushdown {
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }

@@ -1,34 +1,27 @@
-<div class="span7 centered">
-<% if current_user == @user %>
-
-<div class="greysettings">
-<%= link_to "Back to profile", user_path(@user), class: "greymargin" %>
-</div>
-<% end %>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="span7 centered">
+<div class="span6 centered">
 
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification %>
 
- <div class="settings">
-Settings
-</div> 
+<div class="absolutepushdown">
 
-<div class="floatright">
-<%= f.submit "Save Changes", class: "settingsbutton"%>
+   <div class="absolutepicture">
+ <div class="userimage2">
+<div class="addimage">
+<%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
+</div>
+ <img id="blah"/>
+</div>
 </div>
 
-  <%= f.input :name, input_html: {  :class => "hellogrey" }, label: "Your name", placeholder: "Your name", autocomplete: "off" %>
+</div>
+
+ <%= f.input :name, input_html: {  :class => "hellogrey50" }, label: false, placeholder: "Your name", autocomplete: "off" %>
+
+
+<hr/>
+
   <div class="thirtys"></div>
   <%= f.input :email, input_html: {  :class => "hellogrey" }, label: "Your email", placeholder: "Your email", autocomplete: "off" %>
   <div class="thirtys"></div>
@@ -37,24 +30,23 @@ Settings
   <%= f.input :password, input_html: {  :class => "hellogrey" }, label: "Change Password", placeholder: "Password" , autocomplete: "off" %>
   <%= f.input :password_confirmation, input_html: {  :class => "hellogrey" }, label: false, placeholder: "Password again", autocomplete: "off" %>
   <div class="thirtys"></div>
-<div class="label2">
- Change Image
-</div>
- 
- <div class="userimage2">
-<div class="addimage">
-<%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
-</div>
- <img id="blah"/>
+
+<div class="floatright">
+<%= f.submit "Save Changes", class: "settingsbutton"%>
 </div>
 
 </div>
 <% end %>
 
-
+<% if current_user.image? %>
  <style media="screen">
-  .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 75px; width: 150px; height: 150px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block;}
+  .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 64px; width: 128px; height: 128px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block;}
  </style>
+ <% else %>
+  <style media="screen">
+  .userimage2 { background-image: url("http://i.imgur.com/TKSDwcV.png"); background-size: cover; border-radius: 64px; width: 128px; height: 128px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block;}
+ </style>
+ <% end %>
 
 <script>
 function readURL(input) {

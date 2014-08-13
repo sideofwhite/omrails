@@ -1,94 +1,92 @@
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+
 
 <%= render 'users/userhead' %>
 
 
-<div class="span7 centered">
-<div class="hrevent2"></div>
-<%= link_to "Upvoted", user_path(@user), class: "eventtoptext4" %>
-<%= link_to "Questions", userquestions_path(@user), class: "eventtoptext4" %>
+<div class="span6 centered">
 
-<div class="redtopline">	
-Interviews
+<div class="width30">
+<div class="questionnavbar52user">
+<%= link_to "Upvoted", user_path(@user), class: "questionnavbarlink"  %>
 </div>
-
+</div>
+<div class="width30">
+<div class="questionnavbar52user">	
+<%= link_to "Questions", userquestions_path(@user), class: "questionnavbarlink"  %>
+</div>
+</div>
+<div class="width30">
+<div class="questionnavbar50user">		
+Answers
+</div>
+</div>
 
 <% if @user.comments.count == 0 %>
 <div class="center">
 <div class="eventmargin2">
-<%= @user.name %> hasn't been interviewed yet.
+<%= @user.name %> hasn't answered any questions yet.
 </div>
+</div>
+<% else %>
+<div class="row"></div>
+<div class="profilemargin">
 </div>
 <% end %>
 
 <div class="profilemargin"></div>
 
 
-<div class='yui3-g'>
-
-
-	
-<% @comment.each_with_index  do |comment, i| %>
-<div class="yui3-u-1-2">
-<% if i.odd? %>
-<div class="interviewgrid">
-
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
-</div>
-<div class="row"></div>
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
-
+<%= @comment.each do |question| %>
+<% if question.comment.present? %>
 <div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="interviewgriddate">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<div class="postinterviewtext4">
- asked <%= pluralize(comment.questions.count, 'question') %>
+<%= link_to (question.comment.body), post_comment_path(question.comment.post, question.comment) %>
 </div>
 
-
-
-<hr6/>
-
-
-
+<% if question.user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
-
-
 <% else %>
-<div class="interviewgrid2">
-<div class="circle">
-<%= link_to (image_tag(comment.user.image)), user_path(comment.user) %>
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+<% end %>
+
+<div class="lightname">
+<%= question.user.name %>
 </div>
+
 <div class="row"></div>
-<div class="nameblueside">
-<%= link_to comment.user.name, user_path(comment.user) %>
-</div>
-<div class="titlecontainer2">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="interviewgriddate">
-<%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<div class="postinterviewtext4">
- asked <%= pluralize(comment.questions.count, 'question') %>
-</div>
 
 
-<hr6/>
+<% if question.comment.post.present? %>
 
-
-
-</div>
-<% end %>
+<%= link_to post_comment_path(question.comment.post, question.comment) do %>
+  <div class="interviewgrey">
+  <%= question.comment.user.name %> on <%= question.comment.post.title %>
 </div>
 <% end %>
 
-</div>
+<% end %>
+
+
+<% if question.present? %>
+
+<div class="p2">	
+ <% if question.body.length > 150 %>
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.body}')", class: "blue" %>
+  <% else %>
+    <%= question.body %>
+
+  <% end %>
+
 </div>
 
+  <div class="date">
+Written <%= time_ago_in_words(question.created_at) %> ago
+</div>
+
+<hr/>
+
+<% end %>
+<% end %>
+<% end %>

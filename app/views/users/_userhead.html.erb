@@ -1,10 +1,45 @@
-<div class="span7 centered">	
+<div class="span4 centered">
+
+<% if current_user == @user %>
+
+<div class="width50">
+<div class="settingsnavbar51">
+<%= link_to "Settings", edit_user_registration_path(@user), class: "questionnavbarlink"  %>
+</div>
+</div>
+<div class="width50">
+<div class="settingsnavbar50">
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "questionnavbarlink"  %>
+</div>
+</div>
+
+<div class="row">
+</div>
+
+<div class="profilemargin">
+</div>
+
+<% else %>
+
+<div class="twenty"></div>
+
+<% end %>
+</div>
+
+<div class="row"></div>
+
+
+<div class="span6 centered">	
 
 <% if @user.image? %>	
 
 
 <div class="userimage">
 <%= image_tag @user.image %>
+</div>
+<% else %>
+<div class="userimage">
+<%= image_tag ("http://i.imgur.com/TKSDwcV.png") %>
 </div>
 <% end %>
 
