@@ -7,11 +7,46 @@
 
 
 
-<div class="span11 centered">
+<div class="span10 centered">
+
+
+<hr class="slider"/>
+
+<div class="newspaper6b">
+<%= link_to "Top Stories", root_path %>
+</div>
+
+<div class="newspaper6">
+<a href="/tags/world" >World</a>
+</div>
+
+<div class="newspaper6">
+<a href="/tags/unitedstates" >United States</a>
+</div>
+
+
+<div class="newspaper6">
+<a href="/tags/politics">Politics</a>
+</div>
+
+<div class="newspaper6">
+<a href="/tags/technology">Technology</a>
+</div>
+
+<div class="newspaper6">
+<a href="/tags/science">Science</a>
+</div>
+
+
+
+
+
+
+
 <% @toppost.each_with_index do |post, i| %>
 
 
-<div class="eventimage2top">
+<div class="eventimage2tophome">
 <%= image_tag post.image %> 
 <div class="darker"></div>
 
@@ -19,8 +54,8 @@
 <div class="relativecontainer">
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
-<div class="descriptionmargin"> 
-<%= truncate(post.description, length: 200, separator: ' ') %>
+<div class="descriptionmarginstrip"> 
+<%= truncate(post.description, length: 140, separator: ' ') %>
 </div>
 
 <div class="bottomtext">
@@ -36,31 +71,27 @@
 
 <% @posts.each_with_index do |post, i| %>
 
-
-
-<div class="homepagestrip-<%= post.id %>" style="background-size: cover;
-    background-size: 100% 500px;">
- <div class="homepagestrip"> 
-<style media="screen">
-  .homepagestrip-<%= post.id %> { background-image: url(<%= post.image %>); }
-</style>  
+<div class="eventimage2tophome">
+<%= image_tag post.image %> 
 <div class="darker"></div>
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "posttextstrip" %> 
+<%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmarginstrip"> 
-<%= truncate(post.description, length: 120, separator: ' ') %>
+<%= truncate(post.description, length: 140, separator: ' ') %>
 </div>
 
 <div class="bottomtext">
 <%= pluralize(post.comments.count, 'QUESTION').upcase %> 
 </div>
+
 </div>
 </div>
 </div>
-</div>
+
+
 
 
 

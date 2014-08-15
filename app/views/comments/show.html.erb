@@ -7,7 +7,7 @@
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class='span11 centered'>
+
 <div class="darker2">
 <div class="imagestrip">
 <div class='darker'></div>
@@ -18,29 +18,26 @@
 </div>
 </div>
 </div>
-</div>
+
 
 
 <div class="span6 centered">
 
-<div class="commentshowmargin"></div>
+
+
+<div class="nameblueside2">
+<strong><%= link_to @comment.user.name, user_path(@comment.user) %></strong>
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
 
 
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
 
-<div class="nameblueside2">
-<%= link_to @comment.user.name, user_path(@comment.user), class: "blue" %>
-</div>
 
-<div class="interviewdate">
-<%= time_ago_in_words(@comment.created_at) %> ago
-</div>
 
-<div class="commentshowmargin"></div>
-
-<div class="hrevent"></div>
+<hr class="commentshowhr"/>
 
 <div class="answersnumber">
 <%= pluralize(@comment.questions.count, 'Answer') %>
@@ -121,13 +118,19 @@
 
 
 
-
+<% if @comment.questions.count > 0 %>
 <% if user_signed_in? %>	
 <%= link_to "Answer Question", new_comment_question_path(@comment), class: "bluebutton" %>
 <% else %>
 <%= link_to "Answer Question", new_user_registration_path, class: "bluebutton" %>
 <% end %>
-
+<% else %>
+<div class="center">
+<div class="eventmargin2">
+There are no answers yet.
+</div>
+</div>
+<% end %>
 
 <div class="paddingbottom30"></div>
 

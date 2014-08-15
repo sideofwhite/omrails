@@ -4,7 +4,7 @@ $btnPrimaryBackground: #B23000;
 $btnMediumBackground: #3333CC;
 $btnPrimaryBackgroundHighlight: #B23000;
 $baseBorderRadius: 0;
-$navbarHeight: 50px;
+$navbarHeight: 40px;
 $placeholderText: #bebebe;
 
 
@@ -20,9 +20,14 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 
 }
 
+.navbarline {
+    border-bottom: 1px solid rgba(51,51,51,0.1);
+}
+
 .navbar-inner {
     padding-left: 0px !important;
     padding-right: 0px !important;
+    border-bottom: 1px solid rgba(51,51,51,0.1);
 }
 
 body .modal {
@@ -277,17 +282,7 @@ p {
 .brand {
 
 
-    color: rgba(0,0,0,0.8) !important;
-    font-size: 28px !important;
-    border:1px solid white;
-    font-weight: bold !important;
-    background-color: white;
-    color:  black !important;
-    vertical-align: middle;
-    padding-top: 10px !important;
-    font-family: "jaf-bernino-sans", sans-serif !important;
-    text-align: center !important;
-    display: inline !important;
+
 }
 
 
@@ -311,24 +306,30 @@ p {
 }
 
 .navbar .brand {
-    margin-left: 0px !important;
-    border-bottom: 1px solid #eeeeee;
+   
+  
+  line-height: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "jaf-bernino-sans", sans-serif !important;
+    
     
 }
 
 
 li {
-    line-height: 1 !important;
-    margin: 0px !important;
-    padding: 0px !important;
+    
 }
 
 .headtext {
     color:  #333333 !important;
     padding-right: 0px !important;
     font-size: 14px !important;
-    font-weight: 500;
-    margin-right: 10px;
+    font-weight: 400;
+    margin-top: 2px;
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
 }
 
 .headtext2 {
@@ -372,8 +373,12 @@ li {
 
 .navbar .nav > li > a {
     
-    color:  black;
+   font-size: 14px;
+   line-height: 28px;
+
 }
+
+
 
 .navbar .nav > li > a:hover {
     
@@ -702,21 +707,45 @@ li {
     font-family: "roboto", sans-serif !important;
     display: inline-block !important;
     float: left;
+    opacity: 1 !important;
+}
+
+.navbarbutton {
+   
+    background-color: #eaeaea !important;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+    color: #333332 !important;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: 1px solid #ddd !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-family: "roboto", sans-serif !important;
+    display: inline-block !important;
+    float: right;
+    opacity: 1 !important;
 }
 
 
-
-
 .favouritebuttonleft {
-    font-size: 12px;
-    padding: 5px;
-    font-weight: bold;
-    color: white !important;
-    background-color: #a03600;
-    margin-top: 20px;
-    border: 0px;
+    background-color: #eaeaea !important;
+    border-radius: 2px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+    color: #333332 !important;
+    padding: 8px 15px;
+    font-size: 13px;
+    border: 1px solid #ddd !important;
+    font-weight: 700;
+    text-decoration: none !important;
     cursor: pointer;
-
+    font-family: "roboto", sans-serif !important;
+    display: inline-block !important;
+    margin-top: 30px;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    display: block;
+    text-align: center;
 }
 
 .favouritebuttonleft2 {
@@ -871,7 +900,6 @@ li {
     color: #333332 !important;
     font-size: 34px;
     font-weight: 600;
-    margin-bottom: 10px;
     letter-spacing: -0.04em;
     line-height: 1.1;
     font-family: 'jaf-bernino-sans', sans-serif;
@@ -1683,6 +1711,16 @@ margin-top: 2px;
 margin-bottom: 2px;
  }
 
+.slider {
+  display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid rgba(51,51,51,0.1);
+margin-bottom: 10px; 
+margin-top: 60px;
+padding: 0px;  
+}
+
 
 hr4 {
  display: block; 
@@ -1737,6 +1775,19 @@ height: 1px;
 border: 0; 
 border-top: 1px solid rgba(51,51,51,0.1); 
 margin-bottom: 10px;
+padding: 0px;
+
+
+}
+
+
+.commentshowhr {
+ 
+height: 1px;
+border: 0; 
+border-top: 1px solid rgba(51,51,51,0.1); 
+margin-bottom: 10px;
+margin-top: 40px;
 padding: 0px;
 
 
@@ -2646,11 +2697,11 @@ only screen and (max-device-width : 399px){
 .newspaper6 {
     
 
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
-    margin-right: 10px;
+    font-size: 16px;
+    margin-right: 5px;
     display: inline-block;
+    margin-bottom: 40px;
+    
 }
 
 .newspaper6:hover {
@@ -2678,13 +2729,11 @@ only screen and (max-device-width : 399px){
 
 .newspaper6b {
     
-    border: 1px solid #EEEEEE;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 30px;
-    margin-bottom: 10px;
-    font-size: 18px;
+     font-size: 16px;
+    margin-right: 25px;
+    display: inline-block;
+    margin-bottom: 40px;
+    
     
     
 }
@@ -3524,8 +3573,9 @@ position: relative;
 .eventimage2top img {
     
     width: 100%;
-    height: 500px;
-    z-index:100;
+    height: 650px;
+
+    
 
     
     
@@ -3536,6 +3586,24 @@ position: relative;
     background-color: #eeeeee;
      
 }
+
+.eventimage2tophome img {
+    
+    width: 100%;
+    height: 440px;
+    z-index:100;
+    
+    
+    
+}
+
+
+.eventimage2tophome {
+    position: relative;
+    background-color: #eeeeee;
+     margin-bottom: 15px;
+}
+
 
 .marginpost {
     margin-left: 20px;
@@ -3978,6 +4046,8 @@ background:#000;
     
 }
 
+
+
 .time:hover {
     background-color: rgba(255,255,255,0.4);
 }
@@ -4126,17 +4196,15 @@ background:#000;
 
 display: block;
 background-color: #55acee;
-border-radius: 2px;
 margin: 0 auto;
-margin-top: 30px;
+margin-top: 20px;
 color: white;
-padding: 12px;
+padding:  20px;
 margin-bottom: 20px;
 border: 0px !important;
-font-size: 18px !important;
-font-family: "jaf-bernino-sans", sans-serif !important;
+font-size: 16px !important;
 text-align: center;
-font-weight: bold;
+
 
 
 }
@@ -4323,7 +4391,7 @@ margin-bottom: 20px;
 .descriptionmargin {
     
     font-weight: normal;
-    font-size: 16px !important;
+    font-size: 18px !important;
     line-height: 1.4; 
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -4332,7 +4400,7 @@ margin-bottom: 20px;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 40px;
     
 }
@@ -4349,8 +4417,8 @@ margin-bottom: 20px;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     
 }
 
@@ -4630,13 +4698,20 @@ margin-bottom: 20px;
 .nameblueside2 {
     
      
-     font-size: 14px;
-     color: #333332 !important;
-     display: inline-block;
-     font-weight: 500
+     font-size: 12px;
+ 
+     font-weight: 400;
+     border-top: 1px solid rgba(51,51,51,0.1);
+    padding-top: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: inline-block;
      
      
-     
+}
+
+.opacity75 {
+    opacity: 0.75 !important;
 }
 
 .nameblueside3 {
@@ -4651,9 +4726,8 @@ margin-bottom: 20px;
 
 .namebluesidemobile {
     font-size: 14px;
-    padding-bottom: 5px;
     font-weight: bold;
-    display: inline-block;
+    display: inline;
 
 }
 
@@ -4899,7 +4973,7 @@ margin-right: auto;
 .interviewdate {
     font-size: 12px;
     display: inline-block;
-    margin-left: 5px;
+    
 }
 
 
@@ -4919,6 +4993,7 @@ margin-right: auto;
     color: white !important;
     float: right;
     display: inline;
+    line-height: 14px;
 }
 
 .boldletters3 {
@@ -4954,10 +5029,11 @@ margin-right: auto;
 }
 
 .completeyourprofile {
-    font-size: 22px;
+    font-size: 26px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 10px;
+    font-family: jaf-bernino-sans, sans-serif !important;
 }
 
 .completeyourprofile2 {
@@ -5175,7 +5251,7 @@ margin-right: auto;
 
 .posttext {
   
-    font-size: 46px;
+    font-size: 44px;
     color: white !important;
     font-weight: 600;
     font-family: 'jaf-bernino-sans', sans-serif !important;
@@ -5186,7 +5262,7 @@ margin-right: auto;
 
 .posttextstrip {
   
-    font-size: 38px;
+    font-size: 36px;
     color: white !important;
     font-weight: 600;
     font-family: 'jaf-bernino-sans', sans-serif !important;
@@ -5196,10 +5272,10 @@ margin-right: auto;
 }
 
 .posttext2 {
-    font-size: 46px;
+    font-size: 44px;
     font-weight: 600;
     color: white !important;
-    font-family: 'jaf-bernino-sans', sans-serif;
+    font-family: 'jaf-bernino-sans', sans-serif !important;
     line-height: 1;
    
 }
@@ -5755,11 +5831,11 @@ margin-right: auto;
 
 .imagestrip {
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-color: grey;
     position: relative;
     background-size: cover;
-    background-size: 100% 500px;
+    background-size: 100% 650px;
 }
 
 .whiteblue {
@@ -5773,13 +5849,13 @@ margin-right: auto;
 
 .answersnumber {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 .askquestionright {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     float: right;
     color: #018BC6 !important;
@@ -5819,13 +5895,21 @@ margin-right: auto;
 
 
 .smallavatar2 img {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
     float: right;
-    margin-left: 10px;
     vertical-align: middle;
 
+}
+
+.smallavatar2 {
+    margin-top: 1px;
+    margin-top: 1px;
+}
+
+.paddding {
+    margin-bottom: 2px;
 }
 
 .headertopmargin {
@@ -5884,7 +5968,7 @@ margin-right: auto;
 
 .homepagestrip {
     width: 100%;
-    height: 350px;
+    height: 320px;
     position: relative;
     background-size: cover;
     background-size: 100% 500px;
@@ -5915,4 +5999,12 @@ margin-right: auto;
     margin-left: 15px;
     cursor: pointer;
     vertical-align: text-bottom;
+}
+
+.overline {
+    border-top: 1px solid rgba(51,51,51,0.1);
+    padding-top: 4px;
+    padding-right: 5px; 
+    display: block;
+    margin-top: 20px;
 }
