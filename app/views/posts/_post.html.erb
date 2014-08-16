@@ -16,6 +16,7 @@
 <%= link_to "Top Stories", root_path %>
 </div>
 
+
 <div class="newspaper6">
 <a href="/tags/world" >World</a>
 </div>
@@ -55,10 +56,11 @@
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmarginstrip"> 
-<%= truncate(post.description, length: 140, separator: ' ') %>
+<%= truncate(post.description, length: 150, separator: ' ') %>
 </div>
 
-<div class="bottomtext">
+<div class="bottomtexthome">
+
 <%= pluralize(post.comments.count, 'QUESTION').upcase %> 
 </div>
 
@@ -80,10 +82,11 @@
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmarginstrip"> 
-<%= truncate(post.description, length: 140, separator: ' ') %>
+<%= truncate(post.description, length: 150, separator: ' ') %>
 </div>
 
-<div class="bottomtext">
+<div class="bottomtexthome">
+
 <%= pluralize(post.comments.count, 'QUESTION').upcase %> 
 </div>
 

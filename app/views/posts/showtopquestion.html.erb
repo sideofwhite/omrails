@@ -16,13 +16,18 @@
 
 </script>
 
+<style media="screen">
+  .experiment { background-image: url(<%= @post.image %>); }
+</style>
+
+
+
 
 <div class="visible-desktop hidden-phone hidden-tablet">
 
-<div class="span11 centered">
+<div class="experiment">
 
-<div class="eventimage2top">
-<%= image_tag @post.image %>
+
 <div class="darker"></div>
 
 <div class="absolutecontainer">
@@ -33,19 +38,22 @@
 <div class="descriptionmargin">	
 <%= @post.description %>
 <div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link), class: "white" %>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
 </div>
 </div>
 <div class="boldletters2">
 <%= time_ago_in_words(@post.created_at) %> ago
+in 
+<strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
 </div>
 <div class="bottomtext">
+<%= image_tag ("http://i.imgur.com/Fdtn54B.png") %>
+<div class="left10">
 <%= pluralize(@post.comments.count, 'QUESTION').upcase %> 
 </div>
 </div>
 </div>
 </div>
-
 </div>
 
 <div class="span6 centered">

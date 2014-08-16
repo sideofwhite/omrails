@@ -18,7 +18,9 @@
 </script>
 
 
-
+<style media="screen">
+  .experiment { background-image: url(<%= @post.image %>); }
+</style>
 
 
 
@@ -34,9 +36,9 @@
 
 
 
-<div class="eventimage2top">
+<div class="experiment">
 
-<%= image_tag @post.image(:large) %>
+
 <div class="darker"></div>
 
 <div class="absolutecontainer">
@@ -56,7 +58,10 @@ in
 <strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
 </div>
 <div class="bottomtext">
+<%= image_tag ("http://i.imgur.com/Fdtn54B.png") %>
+<div class="left10">
 <%= pluralize(@post.comments.count, 'QUESTION').upcase %> 
+</div>
 </div>
 </div>
 </div>

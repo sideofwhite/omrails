@@ -1,77 +1,126 @@
-<div class="visible-tablet hidden-phone hidden-desktop">
+<script>
+ $(document).ready(function() {
+        $('#showmenu').click(function() {
+               
+                $('.menu').slideDown("fast");
+                $('.eventtoptext3').hide();
+                
+                
+        });
 
-<div class="span12 centered">
-<div class="eventimagetop">
-<%= image_tag @post.image %> 
-</div>
-</div>
+   $('.cancelslideup').click(function() {
+    $('.menu').slideUp("fast");
+    $('.eventtoptext3').show();
+
+     }); 
+    }); 
+
+</script>
 
 
-<div class="span10 centered">
-<div class='titlecontainershow'>
+<style media="screen">
+  .experiment { background-image: url(<%= @post.image %>); }
+</style>
+
+
+
+
+
+
+<div class="experiment">
+
+
+<div class="darker"></div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">	
+<div class="posttext2">
 <%= @post.title %> 
 </div>
-<div>
-</div>
-
 <div class="descriptionmargin">	
 <%= @post.description %>
 <div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link) %>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
+</div>
+</div>
+<div class="boldletters2">
+<%= time_ago_in_words(@post.created_at) %> ago
+in 
+<strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
+</div>
+<div class="bottomtext">
+<%= pluralize(@post.comments.count, 'QUESTION').upcase %> 
+</div>
+</div>
 </div>
 </div>
 
 
-<% if @post.country.present? %>
-<div class="boldletters3">
-<strong><%= @post.country %></strong>
+
+<div class="span6 centered">
+
+<div class="width30">
+<div class="questionnavbar50">
+Top Answers
 </div>
+</div>
+<div class="width30">
+<div class="questionnavbar51">	
+<%= link_to "Top Questions", topquestions_path, class: "questionnavbarlink" %>
+</div>
+</div>
+<div class="width30">
+<div class="questionnavbar51">	
+<%= link_to "New Questions", newquestions_path, class: "questionnavbarlink" %>
+</div>
+</div>
+
+
+<div class="row"></div>
+
+<div class="fourty"></div>
+
+<div class="hrevent"></div>
+
+<div class="eventtoptext3b">	
+last question added 
+</div>
+
+
+<% if user_signed_in? %> 
+
+<div class="eventtoptext3">
+<div id="showmenu">Ask Question</div>
+</div>
+<div class="menu" style="display: none;">
+<%= render :partial => "comments/form" %>
+<div class="cancelslideup">
+Cancel
+</div>
+</div>
+<% else %>
+<%= link_to 'Ask Question', new_user_registration_path, class: "eventtoptext3" %>
 <% end %>
 
-<div class="boldletters2">
-<%= time_ago_in_words(@post.created_at) %> ago in
-</div>
-<div class="posttag">
-<%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-</div>
 
 
 
 <% if @post.comments.count < 1 %>
-<div class="thirty"></div>
 
-<div class="hrevent"></div>
 <div class="center">
 <div class="eventmargin2">
-There are no interviews yet
+There are no questions yet
 </div>
 </div>
-<% else %>
-
-<div class="thirty"></div>
-
-<div class="hrevent"></div>
-
-<div class="eventtoptext4">	
-<%= pluralize(@post.comments.count, 'Interview') %> 
-</div>
-<% if user_signed_in? %> 
-<%= link_to 'Be Interviewed', new_post_comment_path(@post), class: "eventtoptext3" %>
-<% else %>
-<%= link_to 'Be Interviewed', new_user_registration_path, class: "eventtoptext3" %>
-<% end %>
-<div class="sixty"></div>
-
-
-
 <% end %>
 
-<div class="span10 centered">
-<%= render 'comments/commenttablet' %>
+<div class="questiondivider">
+<div></div>
 </div>
 
-</div>
+<%= render 'comments/comment' %>
 
 
 
 </div>
+

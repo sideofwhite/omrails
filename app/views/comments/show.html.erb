@@ -37,17 +37,20 @@
 
 
 
-<hr class="commentshowhr"/>
 
 <div class="answersnumber">
+<%= image_tag ("http://i.imgur.com/ICc2KdY.png") %>	
 <%= pluralize(@comment.questions.count, 'Answer') %>
 </div>
 
 <div class="askquestionright">
+<div class="plus">
++	
+</div>
 <% if user_signed_in? %>	
-<%= link_to "Answer Question", new_comment_question_path(@comment), class: "blue" %>
+<%= link_to "Answer", new_comment_question_path(@comment), class: "blue" %>
 <% else %>
-<%= link_to "Answer Question", new_user_registration_path, class: "blue" %>
+<%= link_to "Answer", new_user_registration_path, class: "blue" %>
 <% end %>
 </div>
 

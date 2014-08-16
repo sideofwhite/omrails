@@ -898,11 +898,11 @@ li {
 .titlecontainer {
     
     color: #333332 !important;
-    font-size: 34px;
+    font-size: 36px;
     font-weight: 600;
-    letter-spacing: -0.04em;
     line-height: 1.1;
-    font-family: 'jaf-bernino-sans', sans-serif;
+    margin-bottom: 40px;
+    font-family: 'franklin-gothic-urw', sans-serif;
     
     
 }
@@ -1061,7 +1061,7 @@ li {
     
     font-size: 24px;
     font-weight: 600;
-    font-family: 'jaf-bernino-sans', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     margin-bottom: 20px;
 
 }
@@ -1071,7 +1071,7 @@ li {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 10px;
-    font-family: 'jaf-bernino-sans', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     
 
 }
@@ -1766,6 +1766,18 @@ margin-top: 60px;
 margin-bottom: 60px;
 padding: 0px; 
  
+
+}
+
+
+.hruserprofile {
+  display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid white;
+margin-top: 30px; 
+margin-bottom: 30px;
+padding: 0px; 
 
 }
 
@@ -3175,10 +3187,12 @@ text-align:center;
 }
 
 .usernametext2 {
-    font-size: 34px;
+    font-size: 44px;
     font-weight: 500;
     text-align: center;
     margin-top: 20px;
+    color: white !important;
+
     
 }
 
@@ -3324,7 +3338,7 @@ pull-left{
 .userimage img {
     
     
-    margin-right: 20px;
+
     height: 128px;
     width: 128px;
     border-radius: 64px;
@@ -3571,9 +3585,9 @@ position: relative;
 }
 
 .eventimage2top img {
-    
-   width: 100%;
-
+    width: 100%;
+    height: auto;
+   
     
 
     
@@ -3581,8 +3595,11 @@ position: relative;
 }
 
 .eventimage2top {
+    min-width: 100%;
+    max-height: 86%;
     position: relative;
     background-color: #eeeeee;
+    overflow: hidden;
      
 }
 
@@ -4399,8 +4416,8 @@ margin-bottom: 20px;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     
 }
 
@@ -4416,7 +4433,7 @@ margin-bottom: 20px;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
     
 }
@@ -4703,8 +4720,8 @@ margin-bottom: 20px;
      border-top: 1px solid rgba(51,51,51,0.1);
     padding-top: 10px;
     margin-top: 40px;
-    margin-bottom: 40px;
-    display: inline-block;
+    margin-bottom: 20px;
+    
      
      
 }
@@ -4992,7 +5009,7 @@ margin-right: auto;
     color: white !important;
     float: right;
     display: inline;
-    line-height: 14px;
+    line-height: 20px;
 }
 
 .boldletters3 {
@@ -5470,6 +5487,11 @@ margin-right: auto;
     margin-top: 60px;
 }
 
+.profilemarginminus {
+    margin-top: 25px;
+}
+
+
 .homepagegrid {
     margin-left: 4px;
 
@@ -5509,9 +5531,15 @@ margin-right: auto;
 
 .country {
     text-align: center;
-    font-size: 16px;
-    opacity: 0.75;
+    font-size: 14px;
     margin-top: 15px;
+    color: white !important;
+
+}
+
+.countrymarg {
+    margin-top: 5px;
+    display: inline-block;
 }
 
 .gridmargin {
@@ -5574,7 +5602,7 @@ margin-right: auto;
 }
 
 .eventimagepreviewtext {
-    font-family: 'franklin-gothic-urw-cond', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     font-size: 20px;
     font-weight: 500;
     color: white !important;
@@ -5629,12 +5657,28 @@ margin-right: auto;
 
 .bottomtext {
           
-    font-size: 14px;
+    font-size: 12px;
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    font-weight: 500;
 
     
    }
+
+ .bottomtexthome {
+          
+    font-size: 12px;
+    color: white;
+    margin-bottom: 40px;
+    font-weight: 500;
+
+    
+   }  
+
+.left10 {
+    margin-left: 5px;
+    display: inline-block;
+}
 
 
 .absolutecontainer {
@@ -5684,7 +5728,7 @@ margin-right: auto;
     background: #018BC6;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     font-weight: bold;
     border-bottom: 1px solid #018BC6;
     font-weight: 500;
@@ -5697,7 +5741,7 @@ margin-right: auto;
     background: white;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     border-right: 1px solid rgba(51,51,51,0.1);
     border-bottom: 1px solid rgba(51,51,51,0.1);
     font-weight: 500;
@@ -5709,7 +5753,7 @@ margin-right: auto;
     background: white;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     border-left: 1px solid rgba(51,51,51,0.1);
     border-bottom: 1px solid rgba(51,51,51,0.1);
     font-weight: 500;
@@ -5723,7 +5767,7 @@ margin-right: auto;
     background: #018BC6;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     font-weight: bold;
     border-bottom: 1px solid #018BC6;
     font-weight: 500;
@@ -5736,7 +5780,7 @@ margin-right: auto;
     background: white;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     border-right: 1px solid rgba(51,51,51,0.1);
     border-bottom: 1px solid rgba(51,51,51,0.1);
     border-top: 1px solid rgba(51,51,51,0.1);
@@ -5750,7 +5794,7 @@ margin-right: auto;
     background: white;
     font-size: 12px;
     text-align: center;
-    padding: 15px;
+    padding: 17px;
     border-left: 1px solid rgba(51,51,51,0.1);
     border-bottom: 1px solid rgba(51,51,51,0.1);
     border-top: 1px solid rgba(51,51,51,0.1);
@@ -5763,7 +5807,6 @@ margin-right: auto;
 .settingsnavbar50 {
 
     color: #333333 !important;
-    opacity: 0.75;
     background: white;
     font-size: 12px;
     text-align: center;
@@ -5773,13 +5816,12 @@ margin-right: auto;
     border-top: 1px solid rgba(51,51,51,0.1);
     border-right: 1px solid rgba(51,51,51,0.1);
     font-weight: 500;
-    margin-top: 20px;
+    
 }
 
 .settingsnavbar51 {
 
     color: #333333 !important;
-    opacity: 0.75;
     background: white;
     font-size: 12px;
     text-align: center;
@@ -5789,7 +5831,7 @@ margin-right: auto;
     border-top: 1px solid rgba(51,51,51,0.1);
     font-weight: 500;
    
-    margin-top: 20px;
+    
 }
 
 
@@ -5837,6 +5879,16 @@ margin-right: auto;
     background-size: 100% 650px;
 }
 
+
+.experiment {
+     width: 100%;
+    height: 650px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .whiteblue {
     color: white !important;
 }
@@ -5848,16 +5900,16 @@ margin-right: auto;
 
 .answersnumber {
     display: inline-block;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
+    
+
 }
 
 .askquestionright {
     display: inline-block;
-    font-size: 16px;
-    font-weight: 500;
-    float: right;
+    font-size: 14px;
     color: #018BC6 !important;
+    margin-left: 15px;
 }
 
 .bluebutton {
@@ -6007,3 +6059,26 @@ margin-right: auto;
     display: block;
     margin-top: 20px;
 }
+
+.plus {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: light;
+}
+
+.backgroundusergrey {
+    background-color: rgba(0,0,0,0.8);
+    padding-bottom: 60px;
+    
+}
+
+.avatarborder {
+    height: 128px;
+    width: 128px;
+    border-radius: 100%;
+    border: 3px solid white;
+    display: block;
+    margin: 0 auto;
+}
+
+

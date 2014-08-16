@@ -1,3 +1,5 @@
+<div class="backgroundusergrey">
+
 <div class="span4 centered">
 
 <% if current_user == @user %>
@@ -16,30 +18,36 @@
 <div class="row">
 </div>
 
-<div class="profilemargin">
+<div class="profilemarginminus">
 </div>
 
 <% else %>
 
-<div class="twenty"></div>
 
 <% end %>
 </div>
 
 <div class="row"></div>
 
+<div class="span6 centered">
 
-<div class="span6 centered">	
+<% unless current_user == @user %>
+<div class="profilemargin">
+</div>
+<% end %>
 
 <% if @user.image? %>	
 
-
+<div class="avatarborder">
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
+</div>
 <% else %>
+<div class="avatarborder">
 <div class="userimage">
 <%= image_tag ("http://i.imgur.com/TKSDwcV.png") %>
+</div>
 </div>
 <% end %>
 
@@ -53,12 +61,17 @@
 
 <% if @user.place.present? %>
 <div class="country">
+<%= image_tag ("http://i.imgur.com/M47ywsJ.png") %>
+<div class="countrymarg">
 <%= @user.place %>
+</div>
 </div>
 <% end %>
 
 
-<div class="profilemargin"></div>
 
+</div>
+
+</div>
 
 </div>
