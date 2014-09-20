@@ -2677,7 +2677,8 @@ border:1px solid white;
 .hellogrey2 {
     
     resize: none;
-    border: 1px solid rgba(51,51,51,0.1) !important;
+    border: 0px;
+    border-bottom: 1px solid rgba(51,51,51,0.1) !important;
     padding: 7px !important;
     width: 97.2% !important;
     font-family: PT serif, serif !important;
@@ -2700,13 +2701,6 @@ border:1px solid white;
 
 }
 
-.hellogrey2:hover {
-    border: 1px solid rgba(51,51,51,0.1) !important;
-}
-
-.hellogrey2:active {
-    border: 1px solid rgba(51,51,51,0.1) !important;
-}
 
 .hellobio {
       border: 0px solid white !important;
@@ -2784,6 +2778,7 @@ border:1px solid white;
     border: 0px !important;
     color: white !important;
     margin-top: 10px;
+    margin-right: 15px;
     text-decoration: none !important;
 }
 
@@ -6008,7 +6003,7 @@ margin-right: auto;
 }
 
 .posttext2 {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
     color: white !important;
     font-family: "roboto", sans-serif !important;

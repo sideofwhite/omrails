@@ -49,7 +49,7 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to comment_question_path(@comment, @question), notice: 'Answer Posted' }
+        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer Posted' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { redirect_to root_path }
@@ -66,7 +66,7 @@ end
     
     respond_to do |format| 
       if @question.update(question_params)
-        format.html { redirect_to comment_question_path(@comment, @question), notice: 'Answer Updated'  }
+        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer Updated'  }
         format.json { head :no_content }
       else            
         format.html { render action: 'edit' }

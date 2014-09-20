@@ -28,7 +28,7 @@ else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(2)
+             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(5)
           
 
 end
