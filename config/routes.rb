@@ -34,27 +34,15 @@ end
 
 
 
-
-resources :posts do
-  member do
-      put :upvote
-    end
-  resources :links do
-    member do
-      put :upvote
-    end
-  end
-end 
-
 resources :questions do
   member do
       put :upvote
     end
-  resources :answers do
+   resources :links do
     member do
       put :upvote
     end
-  end 
+  end
 end
 
 
@@ -77,6 +65,8 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions
   get 'users/:id/notifications', to: 'users#notifications', as: :notifications 
+  get 'users/:id/allnotifications', to: 'users#allnotifications', as: :allnotifications 
+  post 'users/read_all_notifications', to: 'users#read_all_notification', as: :read_all_notifications 
   get 'users/:id/userinterviews', to: 'users#interviews', as: :userinterviews
   get 'posts/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
   get 'posts/:id/newquestions', to: 'posts#shownewquestion', as: :newquestions

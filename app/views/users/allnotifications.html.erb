@@ -1,0 +1,26 @@
+
+<div class="width6">
+<div class="width50">
+<div class="questionnavbar51user">
+<%= link_to "New Activity", notifications_path(current_user), style: " text-decoration: none !important; color: rgba(51,51,51,0.75) !important;" %>
+</div>
+</div>
+<div class="width50">
+<div class="questionnavbar50user">
+All Activity
+</div>
+</div>
+</div>
+
+
+<div class="width6">
+
+<div class="sixty"></div>	
+
+<div id="products">
+<%= render 'users/allnotifications' %>
+</div>
+
+<%= will_paginate @allnotifications %>
+
+</div>

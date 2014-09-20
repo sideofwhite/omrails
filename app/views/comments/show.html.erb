@@ -1,34 +1,24 @@
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
-
-
-<style media="screen">
-  .imagestrip { background-image: url(<%= @comment.post.image %>); }
-</style>
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-
-
 <div class="darker2">
 <div class="imagestrip">
 <div class='darker'></div>
-<div class="span6 centered">
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+
+</div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
 <div class="eventimagepreviewtext">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>	
 </div>
 </div>
 </div>
-
-
-
-<div class="span6 centered">
-
-
-
-<div class="nameblueside2">
-<strong><%= link_to @comment.user.name, user_path(@comment.user) %></strong>
-<%= time_ago_in_words(@comment.created_at) %> ago
 </div>
+</div>
+
+
+<div class="width6">
+
 
 
 <div class="titlecontainer">
@@ -36,158 +26,99 @@
 </div>
 
 
-
+<hr class="aboveimageline"/>
 
 <div class="answersnumber">
-<%= image_tag ("http://i.imgur.com/ICc2KdY.png") %>	
 <%= pluralize(@comment.questions.count, 'Answer') %>
 </div>
 
-<div class="askquestionright">
-<div class="plus">
-+	
-</div>
+
+<div class="floatright">
 <% if user_signed_in? %>	
-<%= link_to "Answer", new_comment_question_path(@comment), class: "blue" %>
-<% else %>
-<%= link_to "Answer", new_user_registration_path, class: "blue" %>
+
+
+<%= link_to new_comment_question_path(@comment) do %>
+<i class="fa fa-plus-circle"></i>
+<div class="modalaskquestion">
+Answer
+</div>
 <% end %>
+
+<% else %>	
+<%= link_to "Answer", new_user_registration_path, class: "askquestionright" %>
+<%= link_to new_user_registration_path do %>
+<i class="fa fa-plus-circle"></i>
+<% end %>
+<% end %>
+</div>
+
+
+
+
+<hr class="belowimageline2"/>
+
+<div>
+
+
+<%= render 'comments/questions' %>
+
+
+<%= will_paginate @questions %>
 </div>
 
 <div class="questiondivider">
 <div></div>
 </div>
 
-
-<% @questions.each do |question| %>
-<div id="<%= question.id %>">
-
-<div class="height100">
-<div class="smallavatar">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
-
-<div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), id: "question_#{question.id}" %>
-</div>
-</div>
-
-<div class="row"></div>
-
-<p>
-<%= question.body %>
-</p>
-
-<div class="hrevent"></div>
-
-<div class="lightcontainercomment">	
-<% if user_signed_in? %>
-
-<% if current_user.voted_for? question %>
-<%= image_tag ("http://i.imgur.com/gNpXAWn.png") %>
-<% else %>
-<%= link_to upvote_comment_question_path(question.comment, question), remote: true, method: :put do %>
-<div class="upvotebutton2"></div>
-<% end %>
-<% end %>
-
-
-<% else %>
-<%= link_to (image_tag("http://i.imgur.com/3EtsnSo.png")), new_user_registration_path %>
-<% end %>
-
-<div class="comments">
-
-</div>
-
-
-
-<%= link_to "comment", new_question_answer_path(question) %>
-
-
-
-
-
-
-
-
-<div class="questiondivider">
-<div></div>
-</div>
-
-
-</div>
-<% end %>
-
-
+<div class="center">
 
 <% if @comment.questions.count > 0 %>
 <% if user_signed_in? %>	
-<%= link_to "Answer Question", new_comment_question_path(@comment), class: "bluebutton" %>
+<%= link_to "Add Your Answer", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
 <% else %>
-<%= link_to "Answer Question", new_user_registration_path, class: "bluebutton" %>
+<%= link_to "Add Your Answer", new_user_registration_path, class: "favouritebuttonleft" %>
 <% end %>
 <% else %>
-<div class="center">
 <div class="eventmargin2">
 There are no answers yet.
 </div>
-</div>
+
 <% end %>
+</div>
 
 <div class="paddingbottom30"></div>
 
 
-<% if @commentnext.next.present? %>
-<div class="hrevent"></div>
-<div class="answersnumber">	
-More Questions
-</div>
-<div class='sixty'></div>
-
-
-<div class="titlecontainer2">
-<%= link_to "#{@commentnext.next.title}", post_comment_path(@post, @commentnext.next) %>
-</div>
-
-<div class="nameblueside2">
-<%= link_to @commentnext.next.user.name, user_path(@commentnext.next.user), class: "blue" %>
-</div>
-<div class="interviewdate">
-<%= time_ago_in_words(@commentnext.next.created_at) %> ago
-</div>
-
-
-
-
-<% end %>
-
-</div>
 
 </div>
 
 
-<div class="visible-phone hidden-desktop hidden-tablet">
-<%= render 'comments/showmobile' %>
+
+<div class="darker2">
+<div class="imagestrip">
+<div class='darker'></div>
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="eventimagepreviewtext">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
 </div>
-<div class="visible-tablet hidden-desktop hidden-phone">
-<%= render 'comments/showtablet' %>
+</div>
+</div>
+</div>
 </div>
 
 
 
-<script>
-
-$(document).ready(function(){
-    $('.upvotebutton2').click(function(){
-        $(this).toggleClass("clicked");
-    });
-});
-
-</script>
 
 
-
+<style media="screen">
+  .imagestrip { background-image: url(<%= @comment.post.image %>); }
+  .navbar .brand {color: white !important; opacity: 1 !important;} 
+  .headtext {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+  .headtext {color: white !important;} 
+  .navbar .nav > li > a {color: white !important;} 
+</style>
 
 
  

@@ -2,11 +2,10 @@
 <html>
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="http://i.imgur.com/EtuFcrg.png">  
-<script type="text/javascript" src="//use.typekit.net/sjc1uyo.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,400italic,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Podium</title>
@@ -17,7 +16,7 @@
 <body>
 
 <div id="wrap">
-<%= render 'layouts/header' unless @skip_footer %>
+<%= render 'layouts/header', locals: {activities: @activities} unless @skip_footer %>
 <% flash.each do |name, msg| %>
 <div class="span3 centered">
       <div class="alert alert-danger alert-dismissable">
@@ -26,12 +25,14 @@
     </div>
  </div> 
     <% end %>
-<div class="headertopmargin"></div>
+
+
 
     <%= yield %>
 
+
 </div>
-    <%= render 'layouts/footer' unless @skip_footer %>
+    <%= render 'layouts/footer' if @skip_bottom %>
 
 
 

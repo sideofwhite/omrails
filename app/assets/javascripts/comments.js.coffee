@@ -2,34 +2,30 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('#pin').imagesLoaded ->
-    $('#pin').masonry
-      itemSelector: '.boxtwo'
+jQuery ->
+  if $('.pagination').length
+    $(window).scroll ->
+      url = $('.pagination .next_page').attr('href')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+        $('.pagination').text("Loading...")
+        $.getScript(url)
+    $(window).scroll()
 
 
-      $(document).ready ->
-        $("textarea").autosize()
+$(document).ready ->
+  $("textarea").autosize()
+  $("#myModal").autosize()
+  
 
 
      
-
-       $(document).on "page:load", ->
-         window["rangy"].initialized = false
-
-     $ ->
-     $(".myButton").hide()
-     $(".inputBody").keyup ->
-       val = $(this).val()
-       if val.length > 0
-        $(this).parent().siblings(".myButton").show()
-       else
-        $(this).parent().siblings(".myButton").hide()
-       return
-
-      return
+$(document).on "page:load", ->
+  window["rangy"].initialized = false
 
 
+
+      
+    
 
 
       

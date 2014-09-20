@@ -1,43 +1,65 @@
 
+<div class="width6">
 
 
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span6 centered">
-
+<% if @comments.count == 0 %>
+<div class="center">
+<div class="eventmargin2">
+There are no answers yet. 
+<% if @post.comments.count > 0 %>
+<%= link_to "Explore questions instead.", newquestions_path, class: "questionnavbarlink" %>
+<% end %>
+</div>
+</div>
+<% end %>
 
 <% @comments.each_with_index  do |question, i| %>
 
 
 
+
+
+
+
+
+
 <div class="titlecontainer2">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
+
 </div>
 
+
+<div class="p2">	
+ 
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to ("Read More"), post_comment_path(question.comment.post, question.comment) + "#question_#{question.id.to_s}", class: "readmore"  %>
+
+</div>
+
+<div class="tenten"></div>
+
 <% if question.user.image? %>
-<div class="smallavatar">
+<div class="smallavatar4">
 <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+<div class="smallavatar3">
+<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(question.user) %>
+</div>
 <% end %>
 
-<div class="lightname">
+
+
+<div class="dividerlineright2">
+
+<div class="lightname2">
 <%= question.user.name %>
-</div>
-
-<div class="row"></div>
-
-<div class="p2">	
- <% if question.body.length > 250 %>
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to_function (image_tag('http://i.imgur.com/DA3RPOK.png')), "$(this).parent().html('#{escape_javascript question.body}')", class: "blue" %>
-  <% else %>
-    <%= question.body %>
-  <% end %>
-</div>
-
-<div class="date">
-Written <%= time_ago_in_words(question.created_at) %> ago
+</div>	
+<% if question.title? %>
+<%= question.title %>
+<% else %>
+I am an expert in American police forces
+<% end %> 
 </div>
 
 <hr/>
@@ -45,15 +67,15 @@ Written <%= time_ago_in_words(question.created_at) %> ago
 <% end %>
 
 
-
-
-<div class="sixty"></div>
-
-
-
+<% if @comments.count > 0 %>
+<div class="bottomfeedpodium">
+<%= link_to 'Podium.', root_path %>
+</div>
+<% end %>
 
 </div>
-</div>
+
+
+
 
  
-

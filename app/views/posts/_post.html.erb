@@ -1,110 +1,47 @@
 
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
 
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-
-
-
-
-<div class="span10 centered">
-
-
-<hr class="slider"/>
-
-<div class="newspaper6b">
-<%= link_to "Top Stories", root_path %>
-</div>
-
-
-<div class="newspaper6">
-<a href="/tags/world" >World</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/unitedstates" >United States</a>
-</div>
-
-
-<div class="newspaper6">
-<a href="/tags/politics">Politics</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/technology">Technology</a>
-</div>
-
-<div class="newspaper6">
-<a href="/tags/science">Science</a>
-</div>
-
-
-
-
-
-
-
-<% @toppost.each_with_index do |post, i| %>
-
-
-<div class="eventimage2tophome">
-<%= image_tag post.image %> 
-<div class="darker"></div>
-
-<div class="absolutecontainer">
-<div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "posttext" %> 
-
-<div class="descriptionmarginstrip"> 
-<%= truncate(post.description, length: 150, separator: ' ') %>
-</div>
-
-<div class="bottomtexthome">
-
-<%= pluralize(post.comments.count, 'QUESTION').upcase %> 
-</div>
-
-</div>
-</div>
-</div>
-
-<% end %>
+<div class="width10small100">
 
 
 <% @posts.each_with_index do |post, i| %>
 
-<div class="eventimage2tophome">
-<%= image_tag post.image %> 
+<style media="screen">
+  .experimentstrip-<%= post.id %> { background-image: url(<%= post.image %>); }
+</style>
+
+
+
+
+<div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
+  height: 270px; background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; margin-bottom: 5px;">
+
 <div class="darker"></div>
 
-<div class="absolutecontainer">
-<div class="relativecontainer">
+
+<div class="absolutecontainerstrip">
+<div class="relativecontainerstrip">
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
-<div class="descriptionmarginstrip"> 
+<div class="descriptionmarginstripsmall hidden-phone"> 
 <%= truncate(post.description, length: 150, separator: ' ') %>
 </div>
 
-<div class="bottomtexthome">
-
-<%= pluralize(post.comments.count, 'QUESTION').upcase %> 
+<div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
+<%= truncate(post.description, length: 100, separator: ' ') %>
 </div>
 
 </div>
 </div>
 </div>
-
-
-
 
 
 <% end %>
 
-
-
-
-
 </div>
+
+
 
 
 

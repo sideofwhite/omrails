@@ -1,0 +1,88 @@
+<div class="width10">
+<div class="mobilecategory">
+<% if params[:tag] %>
+<%= params[:tag].capitalize %> 
+<% else %>
+Top Stories
+<% end %>
+</div>
+
+
+<div class="allcategory">
+Categories...
+</div>
+
+<div class="allcategoriesmobile" style="display: none;">
+<hr class="mobilecategorieshr"/>
+
+<% if request.original_url == 'http://localhost:3000/' %>	
+<div class="mobilecategoriesboxfaded">
+Top Stories
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<%= link_to "Top Stories", root_path, style: "text-decoration: none !important;", class: "hoverbluemobile" %>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://localhost:3000/tags/world' %>		
+<div class="mobilecategoriesboxfaded">
+World
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/world" style=" text-decoration: none !important;" class="hoverbluemobile"  >World</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://localhost:3000/tags/unitedstates' %>		
+<div class="mobilecategoriesboxfaded">
+United States
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/unitedstates" style=" text-decoration: none !important;" class="hoverbluemobile"  >United States</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://localhost:3000/tags/politics' %>		
+<div class="mobilecategoriesboxfaded">
+Politics
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/politics" style=" text-decoration: none !important;" class="hoverbluemobile"  >Politics</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://localhost:3000/tags/technology' %>		
+<div class="mobilecategoriesboxfaded">
+Technology
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/technology" style=" text-decoration: none !important;" class="hoverbluemobile"   >Technology</a>
+</div>
+<% end %>
+
+</div>
+
+
+<div class="mobile20"></div>
+
+</div>
+
+
+
+
+<script>
+
+    $(document).ready(function() {
+        $('.allcategory').click(function() {
+                $('.allcategoriesmobile').slideToggle("fast");
+               
+                
+        });
+    }); 
+
+</script>

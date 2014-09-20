@@ -1,92 +1,112 @@
 
 
 <%= render 'users/userhead' %>
+<div class="row"></div>
+<div class="profilemargintop">
+</div>
+
+<div class="width6">
+<div class="width50">
+<%= link_to user_path(@user) do %>	
+<div class="floatrightprofile2">	
+<div class="abovenumber">
+Upvotes
+</div>
+<div class="belownumber">	
+<%= @questions.count %>
+</div>
+</div>
+<% end %>
+</div>
 
 
-<div class="span6 centered">
-
-<div class="width30">
-<div class="questionnavbar52user">
-<%= link_to "Upvoted", user_path(@user), class: "questionnavbarlink"  %>
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar52user">	
-<%= link_to "Questions", userquestions_path(@user), class: "questionnavbarlink"  %>
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar50user">		
+<div class="width50">
+<div class="floatleftprofile2">	
+<div class="abovenumber">	
 Answers
 </div>
+<div class="belownumber">	
+<%= @comments.count %>
+</div>
+</div>
+
+<div class="profilemargin5">
+</div>
+</div>
+
+<div class="row"></div>
+<div class="profilemargin">
 </div>
 
 <% if @user.comments.count == 0 %>
 <div class="center">
 <div class="eventmargin2">
-<%= @user.name %> hasn't answered any questions yet.
+<%= @user.name %> hasn't answered any questions.
 </div>
 </div>
-<% else %>
-<div class="row"></div>
-<div class="profilemargin">
-</div>
+
 <% end %>
 
 <div class="profilemargin"></div>
 
 
-<%= @comment.each do |question| %>
-<% if question.comment.present? %>
-<div class="titlecontainer2">
-<%= link_to (question.comment.body), post_comment_path(question.comment.post, question.comment) %>
+<%= @comments.each do |question| %>
+
+<div class="notificationgrey">
+<% if question.comment.post.present? %>
+<%= link_to (question.comment.post.title), post_path(question.comment.post) %>
+<% end %>
 </div>
 
+<div class="titlecontainer2">
+<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
+
+</div>
+
+
+<div class="p2">	
+ 
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to ("Read More"), post_comment_path(question.comment.post, question.comment) + "#question_#{question.id.to_s}", class: "readmore" %>
+
+</div>
+
+<div class="tenten"></div>
+
 <% if question.user.image? %>
-<div class="smallavatar">
+<div class="smallavatar4">
 <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
 <% else %>
-<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+<div class="smallavatar3">
+<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(question.user) %>
+</div>
 <% end %>
 
-<div class="lightname">
+
+
+<div class="dividerlineright2">
+
+<div class="lightname2">
 <%= question.user.name %>
-</div>
-
-<div class="row"></div>
-
-
-<% if question.comment.post.present? %>
-
-<%= link_to post_comment_path(question.comment.post, question.comment) do %>
-  <div class="interviewgrey">
-  <%= question.comment.user.name %> on <%= question.comment.post.title %>
-</div>
-<% end %>
-
-<% end %>
-
-
-<% if question.present? %>
-
-<div class="p2">	
- <% if question.body.length > 150 %>
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to_function '(Read more...)', "$(this).parent().html('#{escape_javascript question.body}')", class: "blue" %>
-  <% else %>
-    <%= question.body %>
-
-  <% end %>
-
-</div>
-
-  <div class="date">
-Written <%= time_ago_in_words(question.created_at) %> ago
+</div>	
+<% if question.title? %>
+<%= question.title %>
+<% else %>
+I am an expert in American police forces
+<% end %> 
 </div>
 
 <hr/>
 
 <% end %>
+
+
+<% if @comments.count > 0 %>
+<div class="bottomfeedpodium">
+<%= link_to 'Podium.', root_path %>
+</div>
 <% end %>
-<% end %>
+
+
+

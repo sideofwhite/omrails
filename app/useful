@@ -700,3 +700,38 @@ No interviews yet.
 
 
 
+
+class UserMailer < ActionMailer::Base
+  default from: "noreplypodium@gmail.com"
+
+  def question_answer(answer, user) 
+  @answer = answer
+  @question = @answer.question
+  @user = user
+  mail(:to => @question.user.email, :subject => "Your question was answered!")  
+  end
+end
+
+
+
+<div class="boldletters2">
+<%= time_ago_in_words(@post.created_at) %> ago
+in 
+<strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
+</div>
+
+
+<div class="anon">
+
+<%= f.check_box :anon, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: "Make your answer anonymous" %> 
+<div class="buttoncheckbox2">
+Make this answer anonymous
+  </div> 
+</div>
+
+<div id="infobutton">What's this?</div>
+<div class="row"></div>
+<div class="infomenu" style="display: none;">
+A bio is one-line explanation of why you're answering this question
+</div>
+

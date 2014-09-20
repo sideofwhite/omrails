@@ -14,8 +14,7 @@ end
   # GET /links
   # GET /links.json
   def index
-   @post = Post.find params[:post_id]
-   @post.links
+ 
    @links = @post.links.order(:created_at)
     
     
@@ -28,7 +27,7 @@ end
 
   # GET /links/new
   def new
-    @post = Post.find params[:post_id]
+    @question = Question.friendly.find(params[:question_id])
   end
 
   # GET /links/1/edit
@@ -38,13 +37,14 @@ end
   # POST /links
   # POST /links.json
   def create
-     @post = Post.find(params[:post_id])
-     @link = @post.links.create(link_params)
+     @question = Question.friendly.find(params[:question_id])
+     @link = @question.links.new(link_params)
+     question_id = @question.id
     
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @post, notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer posted' }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -69,9 +69,11 @@ end
   # DELETE /links/1
   # DELETE /links/1.json
   def destroy
+     @question = Question.friendly.find(params[:question_id])
+     @link = Link.find params[:id]
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to redirect_to post_comment_path(@question.comment.post, @question.comment), notice: 'Answer deleted' }
       format.json { head :no_content }
     end
   end

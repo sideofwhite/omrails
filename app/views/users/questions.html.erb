@@ -1,11 +1,11 @@
 <%= render 'users/userhead' %>
 
-<div class="span6 centered">
+<div class="width6">
 
 
 <div class="width30">
 <div class="questionnavbar52user">
-<%= link_to "Upvoted", user_path(@user), class: "questionnavbarlink" %>
+<%= link_to "Upvoted", user_path(@user) %>
 </div>
 </div>
 <div class="width30">
@@ -15,7 +15,7 @@ Questions
 </div>
 <div class="width30">
 <div class="questionnavbar51user">	
-<%= link_to "Answers", userinterviews_path(@user), class: "questionnavbarlink" %>
+<%= link_to "Answers", userinterviews_path(@user) %>
 </div>
 </div>
 

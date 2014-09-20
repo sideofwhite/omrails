@@ -1,19 +1,17 @@
-<div class="span6 centered">
+
 
 
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "What is your question?" %>
+<%= f.input :title, as: :text, input_html: { rows: "2", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
 
-<hr class="form"/>
-
-<%= f.submit "Post", class: "favouritebutton myButton" %>
-
+<div class="center">
+<%= f.submit "Post", class: "favouritebuttonmodal myButton" %>
+</div>
 
  <% end %>
 
-</div>
 
 
 <script>

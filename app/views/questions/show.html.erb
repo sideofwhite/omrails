@@ -1,75 +1,224 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
+<style media="screen">
+  .imagestrip { background-image: url(<%= @comment.post.image %>); }
+  .navbar .brand {color: white !important;} 
+  .headtext {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+</style>
 
-<div class="container">
- <div class="row">
- 
-<div class="span2">
 
 
-<div class="circle">
-<%= link_to (image_tag(@comment.user.image)), user_path(@comment.user) %>
+
+<div class="darker2">
+<div class="imagestrip">
+<div class='darker'></div>
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+
 </div>
-<div class="greyevent">
-<strong><%= link_to @comment.user.name, user_path(@comment.user) %> </strong>
-<%= @comment.subtitle %>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="eventimagepreviewtext">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+</div>
+</div>
+</div>
 </div>
 </div>
 
-<div class="span7">
+
+<div class="width6">
+
+
+<div class="nameblueside2">
+Asked <%= time_ago_in_words(@comment.created_at) %> ago
+</div>
 
 
 <div class="titlecontainer">
-<%= @question.body %>
-</div>
-<div class="lightcontainer">
-<%= time_ago_in_words(@question.created_at) %> ago <br>
+<%= @comment.title %>
 </div>
 
-<% if @question.answers.count > 0 %>
-fuck off
+
+
+
+<div class="answersnumber">
+1 of <%= pluralize(@comment.questions.count, 'Answer') %>
+</div>
+
+
+
+<% if user_signed_in? %>	
+<div class="askquestionright">	
+<%= link_to "Answer", new_comment_question_path(@comment), class: "blue" %>
+</div>
+<%= link_to new_comment_question_path(@comment) do %>
+<i class="fa fa-plus-circle"></i>
+<% end %>
 <% else %>
-
-<% if current_user == @comment.user %>
-<%= link_to ("Answer this question"), new_question_answer_path(@question) %>
+<div class="askquestionright">		
+<%= link_to "Answer", new_user_registration_path, class: "blue" %>
+</div>
+<%= link_to new_user_registration_path do %>
+<i class="fa fa-plus-circle"></i>
+<% end %>
 <% end %>
 
+
+
+
+
+<hr class="belowimageline"/>
+
+<div class="dividerline50">
+
+<% if @question.user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(@question.user.image)), user_path(@question.user) %>
+</div>
+<% else %>
+<div class="smallavatar">
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(question.user) %>
+</div>
 <% end %>
 
-</div>
-
-
-<div class="span3">
-<div class="eventimage">
-<%= link_to (@comment.post.title), post_comment_path(@comment.post, @comment), class: "titlecontainershow" %>  
- <style media="screen">
-  .eventimage::after { background-image: url(<%= @comment.post.image %>); background-size: cover;}
- </style>
-
-
- </div>
-
-</div>
-
-
-
-
 
 
 
 </div>
+
+<div class="dividerlineright">
+
+<div class="lightname">
+<%= @question.user.name %>
+</div>	
+<% if @question.title? %>
+<%= link_to (@question.title), comment_question_path(@question.comment, @question) %>
+<% else %>
+I am an expert in American police forces
+<% end %> 
+</div>
+
+
+<hr class="aboveanswer"/>
+
+
+
+<p>
+<%= @question.body %>
+</p>
+
+<div class="date">
+Written <%= time_ago_in_words(@question.created_at) %> ago
+</div>
+
+
+<div class="lightcontainercomment">	
+<% if user_signed_in? %>
+
+<% if current_user.voted_for? @question %>
+<div class="clicked"></div>
+<% else %>
+<%= link_to upvote_comment_question_path(@question.comment, @question), remote: true, method: :put do %>
+<div class="upvotebutton2"></div>
+<% end %>
+<% end %>
+
+
+<% else %>
+<%= link_to new_user_registration_path do %>
+<div class="upvotebutton2"></div>
+<% end %>
+<% end %>
+</div>
+
+<div class="<%= @question.id %>">
+
+<% if @question.links.count > 0 %>
+<div class="commenttextbeside">
+<div class="commentbutton"></div>
+</div>
+<% else %>
+<div class="commenttextbeside">
+Add the first comment
+</div>
+<% end %>
+</div>
+
+<div class="menu" style="display: none;">
+
+
+<div id="linkmama">
+<%= render :partial => 'newlink' %>
+</div>
+<div class="commentwidth">
+<div id="linkformmama">
+<%= render :partial => 'links/form', locals: {question: @question} %>
 </div>
 </div>
 
+</div>
 
-<div class="visible-phone hidden-desktop hidden-tablet">
-<%= render 'comments/showphone' %>
+
+<div class="questiondivider">
+<div></div>
+</div>
+
+<div class="center">
+
+<%= link_to "See all answers", post_comment_path(@comment.post, @comment), class: "favouritebuttonleft" %>
+
+</div>
+
+<div class="paddingbottom30"></div>
+
+<hr/>
+
+
+</div>
+
+<div class="darker2">
+<div class="imagestrip">
+<div class='darker'></div>
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="eventimagepreviewtext">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
 
 
+<script>
+
+$(document).ready(function(){
+    $('.upvotebutton2').click(function(){
+        $(this).toggleClass("clicked");
+    });
+});
 
 
+ $(document).ready(function() {
+        $('.<%= @question.id %>').click(function() {
+               
+                $('.menu').slideDown("fast");
+                $('.eventtoptext3').hide();
+                
+                
+        });
+
+   $('.cancelslideup').click(function() {
+    $('.menu').slideUp("fast");
+    $('.eventtoptext3').show();
+
+     }); 
+    }); 
+
+</script>
 
 
 

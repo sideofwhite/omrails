@@ -23,6 +23,7 @@ gem 'autosize-rails'
 gem 'will_paginate'
 gem 'geocoder'
 gem 'friendly_id'
+gem 'public_activity'
 
 # Use sqlite3 as the database for Active Record
 group :production do

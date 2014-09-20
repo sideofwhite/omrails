@@ -36,6 +36,13 @@
   
 <%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "World, United States, Politics, Technology, Science" %>
 
+<a id="close">
+<%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+</a>
+<div class="buttoncheckbox2">
+Hide Post 
+  </div>
+
  <%= f.submit "POST" %>
 
 </div>

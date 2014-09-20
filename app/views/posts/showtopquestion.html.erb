@@ -18,17 +18,22 @@
 
 <style media="screen">
   .experiment { background-image: url(<%= @post.image %>); }
+  .navbar .brand {color: white !important;opacity: 1 !important;} 
+  .headtext {color: white !important;} 
+  .navbar .nav > li > a {color: white !important;}
+  .fa-bell-o { color: white !important;}
 </style>
 
 
-
-
-<div class="visible-desktop hidden-phone hidden-tablet">
 
 <div class="experiment">
 
 
 <div class="darker"></div>
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+
+</div>
 
 <div class="absolutecontainer">
 <div class="relativecontainer">	
@@ -40,89 +45,46 @@
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
 </div>
-</div>
-<div class="boldletters2">
-<%= time_ago_in_words(@post.created_at) %> ago
-in 
-<strong><%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong>
-</div>
-<div class="bottomtext">
-<%= image_tag ("http://i.imgur.com/Fdtn54B.png") %>
-<div class="left10">
-<%= pluralize(@post.comments.count, 'QUESTION').upcase %> 
-</div>
-</div>
-</div>
-</div>
-</div>
 
-<div class="span6 centered">
-
-<div class="width30">
-<div class="questionnavbar52">
-<%= link_to "Top Answers", post_path, class: "questionnavbarlink" %>
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar50">	
-Top Questions
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar51">	
-<%= link_to "New Questions", newquestions_path, class: "questionnavbarlink" %>
-</div>
 </div>
 
 
 <div class="row"></div>
 
-<div class="fourty"></div>
-
-<div class="hrevent"></div>
-
-<div class="eventtoptext3b">	
-last question added 
-</div>
-
-
-<% if user_signed_in? %> 
-
-<div class="eventtoptext3">
-<div id="showmenu">Ask Question</div>
-</div>
-<div class="menu" style="display: none;">
-<%= render :partial => "comments/form" %>
-<div class="cancelslideup">
-Cancel
+<div class="width30">
+<div class="questionnavbar51">
+<%= link_to "Top Answers", post_path, class: "questionnavbarlink" %>
 </div>
 </div>
-<% else %>
-<%= link_to 'Ask Question', new_user_registration_path, class: "eventtoptext3" %>
-<% end %>
-
-
-
-
-
-<% if @post.comments.count < 1 %>
-
-<div class="center">
-<div class="eventmargin2">
-There are no questions yet
+<div class="width30">
+<div class="questionnavbar50">  
+Top Questions
 </div>
 </div>
-<% end %>
+<div class="width30">
+<div class="questionnavbar51">  
+<%= link_to "New Questions", newquestions_path, class: "questionnavbarlink" %>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="width6">
 
 
-<div class="sixty"></div>
+
+
+<%= render 'posts/belowimage' %>
+
 
 <%= render 'comments/commenttop' %>
 
 
 
 </div>
-</div>
+
 
 
 

@@ -1,16 +1,85 @@
 <% if user_signed_in? %>
 
+<%= simple_form_for [@comment, Question.new] do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+
+<% if current_user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+</div>
+<% else %>
+<div class="smallavatar">
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(current_user) %>
+</div>
+<% end %>
+
+
 <div class="lightname">
 <%= current_user.name %>
 </div>
 
-<%= simple_form_for [@comment, Question.new] do |f| %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2 inputBody" }, label: false, placeholder: "Ask Question" %>
+<div style="display: none;">
+<div class="anontext">
+<%= current_user.name %>
+</div>
+</div>	
 
-<%= f.submit "Ask", class: "favouritebuttonleft myButton" %>
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Bio" %>
+
+
+<div class="row"></div>
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer here..." %>
+
+
+<div class="center">
+<%= f.submit "Answer", class: "favouritebuttonleftnomargin myButton" %>
+</div>
+
 <% end %>
 <% else %>
 <%= link_to "Login to Ask Question", new_user_session_path, class: "squareredbutton" %>
 
 <% end %>
+
+
+<script>
+ $(document).ready(function() {
+        $('#infobutton').click(function() {
+               
+                $('.infomenu').toggle();
+                $('.xout').toggle();
+                $('#infobutton').hide();
+          });
+
+
+
+        });
+
+ $(document).ready(function() {
+        $('.anon').click(function() {
+               
+                $('.smallavatar').hide();
+                $('.lightname').hide();
+                $('#infobutton').hide();
+                $('.infomenu').hide();
+                $('.biotext').hide();
+                $('.anontext').show();
+
+          });
+
+
+
+        });
+
+
+
+
+</script>
+
+
+
+
+

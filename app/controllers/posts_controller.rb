@@ -17,34 +17,19 @@ end
   # GET /posts
   # GET /posts.json
   def index
-   
+    @skip_footer = true  
+   @skip_bottom = true  
 if params[:tag]
 @posts = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').tagged_with(params[:tag]).offset(1).limit(4)
-@postsmobile = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc')  
-@toppost = Post.select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc').tagged_with(params[:tag]).limit(1)   
-
+             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(5)
 else
 @posts = Post.select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').offset(1).limit(4)
-@postsmobile = Post.select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc') 
-@toppost = Post.select('posts.*, count(comments.id) as count_comments')
-             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
-             .group('posts.id')
-             .order('count_comments desc').limit(1)             
+             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(2)
+          
 
 end
 
@@ -59,18 +44,21 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
+  @skip_footer = true  
   @post = Post.friendly.find(params[:id])
-  @comments = @post.questions.order('cached_votes_total desc').page(params[:page]).per_page(8)
+  @comments = @post.questions.order('cached_votes_total desc').page(params[:page]).per_page(2)
   @comment = Comment.new
   end
 
   def shownewquestion
+    @skip_footer = true  
   @post = Post.friendly.find(params[:id])
   @comments = @post.comments.order('comments.created_at desc').page(params[:page]).per_page(8)
   @comment = Comment.new
   end
 
   def showtopquestion
+     @skip_footer = true 
   @post = Post.friendly.find(params[:id])
   @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(8)
   @comment = Comment.new

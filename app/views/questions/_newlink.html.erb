@@ -1,0 +1,55 @@
+<hr class="abovecomments"/>	
+
+
+
+<div class="commentsnumber">
+<%= pluralize(@question.links.count, 'Reply') %>
+</div>
+
+<div class="addreply">
+<a href="#addreply">Add Reply</a>
+</div>
+
+<div class="commentwidth">
+
+<% @question.links.each do |link| %>
+<% if link.user.image.present? %>
+<div class="smallavatar3">
+<%= link_to (image_tag(link.user.image)), user_path(link.user) if link.user.present? %>
+</div>
+<% else %>
+<div class="smallavatar3">
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(@question.user) %>
+</div>
+<% end %>
+
+<div class="commentdescriptiontext">
+<div class="commentdescriptionname">	
+<%= link_to (link.user.name), user_path(link.user) if link.user.present? %>	
+</div>
+</div>
+<div class="commentdescriptiontext">
+ <% if link.description.length > 100 %>
+    <%= truncate(link.description, :separator => ' ', length: 100) %>
+    <%= link_to_function ("Read More"), "$(this).parent().html('#{escape_javascript link.description}')", class: "readmorecomment" %>
+  <% else %>
+    <%= link.description %>
+  <% end %>
+
+<div class="date2">
+<%= time_ago_in_words(link.created_at) %> ago
+</div>
+</div>
+
+<hr class="commentdescription"/>
+
+
+
+
+<% end %>
+
+<a href="#addreply">
+
+</a>
+
+</div>

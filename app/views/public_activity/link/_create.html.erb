@@ -1,0 +1,56 @@
+<div class="notificationgrey">
+<%= link_to activity.owner.name, activity.owner if activity.owner %>
+commented on your answer:
+</div>
+
+
+<% if activity.trackable %>
+
+
+<div class="p2">	
+ 
+    <%= truncate(activity.trackable.question.body, :separator => ' ', length: 120) %>
+    <%= link_to ("Read More"), post_comment_path(activity.trackable.question.comment.post, activity.trackable.question.comment) + "#question_#{activity.trackable.question.id.to_s}", class: "readmore"  %>
+
+</div>
+
+<div class="commentwidth">
+<hr class="abovecomments2"/>
+
+<% if activity.trackable.user.image? %>
+<div class="smallavatar3">
+<%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
+</div>
+<% else %>
+<div class="smallavatar3">
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(activity.trackable.user) %>
+</div>
+<% end %>
+
+
+<div class="commentdescriptiontext">
+<div class="commentdescriptionname">	
+<%= activity.trackable.user.name %>
+</div>	
+<% if activity.trackable.description? %>
+<%= activity.trackable.description %>
+<% end %> 
+<div class="row"></div>
+<div class="date3">
+<%= time_ago_in_words(activity.trackable.created_at) %> ago
+</div>
+</div>
+
+
+
+</div>
+
+
+<% else %>
+
+which has since been removed
+
+<% end %>
+
+
+<hr/>

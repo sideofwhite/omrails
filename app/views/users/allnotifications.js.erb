@@ -1,0 +1,6 @@
+$('#products').append('<%= j render(@allnotifications) %>');
+<% if @allnotifcations.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@allnotifications) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

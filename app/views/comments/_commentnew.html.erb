@@ -1,9 +1,13 @@
 
+<div class="width6">
 
-
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="span6 centered">
-
+<% if @comments.count == 0 %>
+<div class="center">
+<div class="eventmargin2">
+There are no questions yet. 
+</div>
+</div>
+<% end %>
 
 <% @comments.each_with_index  do |comment, i| %>
 
@@ -13,15 +17,15 @@
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
 
-<div class="nameblueside2">
-<%= pluralize(comment.questions.count, 'Answer') %> 
+<div class="nameblueside3">
+<%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
 </div>
 
-<div class="date2">
+<div class="date4">
 Asked <%= time_ago_in_words(comment.created_at) %> ago
 </div>
 
-<hr/>
+<hr class="topquestion"/>
 
 
 <% end %>
@@ -34,5 +38,4 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
 
 
 
-</div>
 </div>

@@ -1,0 +1,62 @@
+
+<div class="navbar transparent navbar-inverse ">
+   
+     
+             
+         <div class="nav pull-left">
+             <%= link_to ("Podium."), root_path, class: "brand"  %>
+          </div>    
+              
+            
+            <div class="nav pull-right">
+                      
+                    <% if user_signed_in? %>
+                       <% if notificationcount > 0 %>
+                      <%= link_to notifications_path(current_user) do %>     
+                       <i class="fa fa-bell-o" style="color: #018BC6 !important;"></i>  
+                       <% end %>
+                       <% else %>
+                        <%= link_to notifications_path(current_user) do %>     
+                        <i class="fa fa-bell-o" ></i>  
+                        <% end %>
+                        <% end %> 
+                   
+                     
+                       
+                      
+                                             <% if current_user.image? %>
+                       
+                       
+                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important;" %></li>
+                     
+                    
+                      <% else %>
+                      
+                    <li><%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
+                    
+                      <% end %>
+
+                       
+
+                    
+                     <% else %>
+                    
+                     
+                  
+                      
+                      <li><%= link_to "Login", new_user_session_path, style: "padding-right: 0px !important" %></li>
+                      <li><%= link_to "Sign Up", new_user_registration_path, style: "padding-right: 0px !important; font-weight: bold; margin-right: 15px;" %></li>
+                     
+                      <% end %>
+
+                      
+
+            </div>
+       
+           
+        
+           
+
+              
+        </div>
+  

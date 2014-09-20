@@ -1,0 +1,57 @@
+<div class="notificationgrey">
+<%= link_to activity.owner.name, activity.owner if activity.owner %>	
+answered your question:
+</div>
+
+
+<% if activity.trackable %>
+
+<div class="titlecontainer2">
+<%= activity.trackable.comment.title %>
+</div>
+
+<div class="dividerline50">
+
+<% if activity.trackable.user.image? %>
+<div class="smallavatar">
+<%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
+</div>
+<% else %>
+<div class="smallavatar">
+<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(activity.trackable.user) %>
+</div>
+<% end %>
+
+</div>
+
+<div class="dividerlineright">
+
+<div class="lightname">
+<%= activity.trackable.user.name %>
+</div>	
+<% if activity.trackable.title? %>
+<%= activity.trackable.title %>
+<% else %>
+I am an expert in American police forces
+<% end %> 
+</div>
+
+
+<div class="row"></div>
+
+<div class="p2">	
+ 
+    <%= truncate(activity.trackable.body, :separator => ' ', length: 250) %>
+    <%= link_to ("Read More"), post_comment_path(activity.trackable.comment.post, activity.trackable.comment) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
+
+</div>
+
+
+<% else %>
+
+which has since been removed
+
+<% end %>
+
+
+<hr/>

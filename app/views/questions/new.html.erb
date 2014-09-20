@@ -1,36 +1,40 @@
 <style media="screen">
   .imagestrip { background-image: url(<%= @comment.post.image %>); }
+  .navbar .brand {color: white !important;} 
+  .fa-bell-o { color: white !important;}
 </style>
 
-<div class='span11 centered'>
 <div class="darker2">
 <div class="imagestrip">
 <div class='darker'></div>
-<div class="span6 centered">
+<div class="absoluteheader">
+<%= render 'layouts/xheader' %>
+
+</div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
 <div class="eventimagepreviewtext">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>	
 </div>
 </div>
 </div>
 </div>
+</div>
 
 
-
-
-
-<div class="span6 centered">
-
-<div class="commentshowmargin"></div>
-
-
+<div class="width6">
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
+<hr class="aboveimageline"/>
 
-<hr6/>
+<div class="answersnumber">
+Answer Guidelines
+</div>
 
-<div class="commentshowmargin"></div>
+<hr class="belowimageline2"/>
+<div class='form35'></div>
 
 <%= render 'form' %>
 </div>

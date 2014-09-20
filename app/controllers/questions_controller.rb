@@ -23,18 +23,22 @@ end
   # GET /questions/1
   # GET /questions/1.json
   def show
+  @skip_footer = true   
   @comment = Comment.friendly.find params[:comment_id]
-  @comments = @comment.questions.order(:created_at).last(5)
+  @question = Question.friendly.find params[:id]
   
   end
 
   # GET /questions/new
   def new
+   @skip_footer = true  
   @comment = Comment.friendly.find(params[:comment_id])
   end
 
   # GET /questions/1/edit
   def edit
+   @skip_footer = true  
+  @comment = Comment.friendly.find(params[:comment_id]) 
   end
 
   # POST /questions
@@ -45,7 +49,7 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to post_comment_path(@comment.post, @comment) + "#question_#{@question.id.to_s}", notice: 'Question posted' }
+        format.html { redirect_to comment_question_path(@comment, @question), notice: 'Answer Posted' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { redirect_to root_path }
@@ -57,9 +61,12 @@ end
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    
+    @comment = Comment.friendly.find(params[:comment_id])
+    
     respond_to do |format| 
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to comment_question_path(@comment, @question), notice: 'Answer Updated'  }
         format.json { head :no_content }
       else            
         format.html { render action: 'edit' }

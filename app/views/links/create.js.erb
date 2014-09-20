@@ -1,0 +1,4 @@
+
+$('.favouritebuttoncomment').append("<%= j (render :partial => 'comments/newlink', locals: {question: @question})  %>");
+$('#linkmama').html("<%= j (render :partial => 'comments/newlink', locals: {question: @question})  %>"); 
+$('#linkformama').reset("<%= j (render :partial => 'links/form', locals: {question: @question})  %>");

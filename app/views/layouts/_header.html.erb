@@ -1,39 +1,49 @@
-<div class="visible-desktop visible-tablet hidden-phone">
-<div class="span10 centered">
+
 <div class="navbar transparent navbar-inverse ">
    <nav class="navbar-inner">
      
              
          <div class="nav pull-left">
              <%= link_to ("Podium."), root_path, class: "brand"  %>
+
           </div>    
               
-            
-        
-       
+    
            
         
            <div class="nav pull-right">
                       
                     <% if user_signed_in? %>
+                      
+                      <% if notificationcount > 0 %>
+                      <%= link_to notifications_path(current_user) do %>     
+                       <i class="fa fa-bell-o" style="color: #018BC6 !important;"></i>  
+                       <% end %>
+                       <% else %>
+                        <%= link_to notifications_path(current_user) do %>     
+                        <i class="fa fa-bell-o" ></i>  
+                        <% end %>
+                        <% end %> 
+
                         
                         
-                      <li><%= link_to (current_user.name), user_path(current_user), class: "headtext" %></li>  
+
+                     
                        
                       
                                              <% if current_user.image? %>
                        
                        
-                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2" %></li>
+                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
                      
                     
                       <% else %>
                       
-                    <li><%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(current_user) %></li>
+                    <li><%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
                     
                       <% end %>
 
-                      
+                       
 
                     
                      <% else %>
@@ -41,8 +51,10 @@
                      
                   
                       
-                      <li><%= link_to "Login", new_user_session_path %></li>
-                      <li><%= link_to "Sign Up", new_user_registration_path, class: "navbarbutton" %></li>
+                      
+                      <li><a href="#Login" role="button" data-toggle="modal" style="padding-right: 0px !important; opacity: 0.75;">Login</a></li>
+
+                      <li><a href="#SignUp" role="button" data-toggle="modal" style="padding-right: 0px !important; opacity: 0.75; margin-right: 15px; font-weight: 700;">Sign Up</a></li>
                      
                       <% end %>
 
@@ -51,37 +63,42 @@
             </div>
 
 
+
             </nav>   
         </div>
+  
+
+
+
+
+                      <div id="Login" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Login</h3>
+    <div class="underpodiumhome">
+    Need an account?
+    </div>
   </div>
 
- </div>
-
-
-
-<div class="hidden-desktop visible-phone hidden-tablet">
-<div class="mobilenavbarmargin">   
-   <div class="row">
-
-
-              <%= link_to ("PODIUM"), root_path, class: "logoimage"  %>
-              
-
-<div class="mobilenavbar">
- <% if user_signed_in? %>
-                        
-                        
-                        
-                       
-                       
-                       <%= link_to (current_user.name), user_path(current_user), class: "headtext2" %>
-                     
-                     <% else %>
-                     <%= link_to "Sign Up", new_user_registration_path, class: "headtext" %>
-                    <%= link_to "Login", new_user_session_path, class: "headtext2" %>
-                      <% end %>
-
-   </div>         
- </div>
+  <div class="modal-body">
+    <%= render :partial => "devise/sessions/new" %>
+  </div>
 </div>
+
+
+
+                      <div id="SignUp" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Sign Up</h3>
+    <div class="underpodiumhome">
+    Have an account?
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <%= render :partial => "devise/registrations/new" %>
+  </div>
 </div>
+
+

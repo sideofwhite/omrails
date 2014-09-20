@@ -27,16 +27,19 @@ end
   # GET /comments/1
   # GET /comments/1.json
   def show
+  @skip_footer = true  
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]
   @commentnext = @post.comments.friendly.find(params[:id])
-  @question = Question.new
-  @answer = Answer.new
+  @link = Link.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
-  @questions = @comment.questions.order('cached_votes_total desc')
+  @questions = @comment.questions.order('cached_votes_total desc').page(params[:page]).per_page(1)
   @unansweredshow = @comment.questions.order("created_at desc").limit(3)
   @unanswered = @comment.questions.where(answers_count: 0)
- 
+   respond_to do |format|
+        format.html
+        format.js
+    end
 
   end
 

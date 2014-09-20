@@ -1,17 +1,15 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
+<%= render 'layouts/infoheader' %>
 
 <div class="px300">
-<div class="sixty"></div>
-   <div class="completeyourprofile">
-Create an account
-</div> 
- <div class="or">
-<%= link_to "I already have one", new_user_session_path %>
-</div> 	
 
-<hr/>
+<div class="signuptext20">Sign Up</div>
+
+    <div class="underpodiumhome20">
+    <%= link_to "Have an account?", new_user_session_path %>
+    </div>	
 
  <div class="twitterlogin">
+<i class="fa fa-twitter"></i> 	
 <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
 </div>
 
@@ -22,70 +20,24 @@ or with email
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
  
 
-  <%= f.input :name, input_html: { :class => "hello4" }, label: "Full Name",placeholder: "Full Name" %>
-  <%= f.input :email, input_html: { :class => "hello4" }, label: "Email",placeholder: "yourname@example.com" %>
-
-  <%= f.input :password, input_html: { :class => "hello4" }, label: "Password",placeholder: "Password" %>
-  <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: "Password Confirmation", placeholder: "Password"%>
-<div class="paddingtop">
-</div>
-<div class="lightcontainer">
-By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
-</div>	
-
-<%= f.submit "Sign Up", class: "favouritebuttonleft" %>
-
-</div>
-<% end %>
-
-
-
-
-
-<div class="hidden-desktop visible-phone visible-tablet">
-
-<div class="span5 centered">
- 
-
- <div class="twitterlogin">
- <div class="twitterbird">	
- <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
-</div>
- <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
-</div>
-
-<div class="center">
-<div class="toplight">
-or
-</div>
-</div>
-
-
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
- 
-
-  <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Name" %>
-  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
+  <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Full Name" %>
+  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "yourname@example.com" %>
 
   <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
-  <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: false, placeholder: "Password Confirmation"%>
-
-<%= f.submit "Sign Up", class: "favouritebutton" %>
-
+  <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: false, placeholder: "Password"%>
 <div class="paddingtop">
+</div>
 <div class="lightcontainer">
 By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
 </div>	
+
+<div class="center">
+<%= f.submit "Sign Up", class: "favouritebuttonmodal" %>
 </div>
 
+</div>
 <% end %>
 
-<div class="logotext2">
- <%= link_to ("Login"), new_user_session_path, class: "blue" %>
-</div>
 
-
-</div>
 
 

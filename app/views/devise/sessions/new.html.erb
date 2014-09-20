@@ -1,67 +1,20 @@
-<div class="visible-desktop hidden-phone hidden-tablet">
-<div class="sixty"></div>
+<%= render 'layouts/infoheader' %>
 <div class="px300">
- <div class="completeyourprofile">
-Sign In
-</div> 
- <div class="or">
-<%= link_to "I need an account", new_user_registration_path %>
-</div>  
+<div class="signuptext20">
+Login
+</div>
+    <div class="underpodiumhome20">
+    <%= link_to "Need an account?", new_user_registration_path %>
+    </div>
 
-<hr/>
  <div class="twitterlogin">
-
+<i class="fa fa-twitter"></i>
  <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
 </div>
 
  <div class="or">
 or with email
 </div> 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :email, input_html: { :class => "hello4" }, label: "Email",placeholder: "Email" %>
-  <%= f.input :password, input_html: { :class => "hello4" }, label: "Password",placeholder: "Password" %>
-  <div class="checkboxmargin"></div>
-  <%= f.input :remember_me, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
-  <div class="buttoncheckbox2">
-    Remember Me
-  </div>
-
-<div class="floatright">
-  <div class="return">
-    <%= link_to "Forgot your password?", new_user_password_path(resource_name) %>
-   </div>
-</div>
-
-<div class="paddingtop"></div>
-
-<%= f.submit "Sign In", class: "buttonred" %>
-
-
-<% end %>
-
-</div>
-</div>
-
-
-<div class="hidden-desktop visible-phone visible-tablet">
-
- <div class="span5 centered">
-
-  <div class="twitterlogin"> 
- <div class="twitterbird">  
- <%= image_tag('http://i.imgur.com/LpDbTwS.png') %>
-</div>  
- <%= link_to "Login with Twitter", user_omniauth_authorize_path(:twitter), class: "twitterblue" %>
-</div>
-
-<div class="center">
-<div class="toplight">
-or
-</div>
-</div>
-
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -73,26 +26,16 @@ or
     Remember Me
   </div>
 
-<%= f.submit "Login", class: "buttonred" %>
 
 
- <div class="paddingtop">
-    <%= link_to "Forgot your password?", new_user_password_path(resource_name) %>
-   </div>
-
+<div class="row"></div>
+<div class="center">
+<%= f.submit "Sign In", class: "favouritebuttonmodal" %>
+</div>
 
 <% end %>
 
-
 </div>
-
-
-</div>
-
-
-
-
-
 
 
 

@@ -1,54 +1,66 @@
-<div class="backgroundusergrey">
-
 <div class="span4 centered">
 
 <% if current_user == @user %>
 
-<div class="width50">
-<div class="settingsnavbar51">
-<%= link_to "Settings", edit_user_registration_path(@user), class: "questionnavbarlink"  %>
-</div>
-</div>
-<div class="width50">
+<div class="width30">
 <div class="settingsnavbar50">
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "questionnavbarlink"  %>
+Profile
+</div>
+</div>
+
+<div class="width30">
+<div class="settingsnavbar51">
+<%= link_to "Settings", edit_user_registration_path(@user), class: "navbarlink"   %>
+</div>
+</div>
+<div class="width30">
+<div class="settingsnavbar51">
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbarlink"  %>
 </div>
 </div>
 
 <div class="row">
 </div>
-
-<div class="profilemarginminus">
-</div>
-
-<% else %>
-
-
 <% end %>
+
 </div>
 
-<div class="row"></div>
 
-<div class="span6 centered">
 
-<% unless current_user == @user %>
-<div class="profilemargin">
-</div>
-<% end %>
+<div class="width6">
+
+
+<% if current_user == @user %>
+
 
 <% if @user.image? %>	
 
-<div class="avatarborder">
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
-</div>
+
 <% else %>
-<div class="avatarborder">
 <div class="userimage">
-<%= image_tag ("http://i.imgur.com/TKSDwcV.png") %>
+<%= image_tag ("http://i.imgur.com/MTQl4Q0.png") %>
 </div>
+<% end %>
+
+
+<% else %>
+
+<% if @user.image? %>	
+
+<div class="userimagenotsignedin">
+<%= image_tag @user.image %>
 </div>
+
+<% else %>
+<div class="userimagenotsignedin">
+<%= image_tag ("http://i.imgur.com/MTQl4Q0.png") %>
+</div>
+<% end %>
+
+
 <% end %>
 
 
@@ -61,7 +73,7 @@
 
 <% if @user.place.present? %>
 <div class="country">
-<%= image_tag ("http://i.imgur.com/M47ywsJ.png") %>
+<i class="fa fa-globe"></i>	
 <div class="countrymarg">
 <%= @user.place %>
 </div>
@@ -69,9 +81,6 @@
 <% end %>
 
 
-
 </div>
 
-</div>
 
-</div>

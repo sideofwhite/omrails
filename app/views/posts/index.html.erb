@@ -1,12 +1,21 @@
 
+<%= render 'layouts/headercategories' %>
+
+<div class="margin30"></div>
+
+<div class="hidden-desktop hidden-tablet visible-mobile">
+<%= render 'posts/mobilecategories' %>
+</div>
+
+<div class="row"></div>
 
 
 <div id="products">
-<%= render 'posts/postmobile' %>
+
 <%= render 'posts/post' %>
-<%= render 'posts/posttablet' %>
 </div>
 
+<%= will_paginate @posts %>
 
 
 
