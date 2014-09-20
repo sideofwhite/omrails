@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 extend FriendlyId
-friendly_id :body, use: :slugged
+friendly_id :created_at, use: :slugged
 
 include PublicActivity::Model
 tracked except: :update, owner: ->(controller, model) { controller && controller.current_user }
