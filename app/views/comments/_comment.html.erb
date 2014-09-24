@@ -16,14 +16,16 @@ There are no answers yet.
 <% @comments.each_with_index  do |question, i| %>
 
 
+<div class="experimentname">
+<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
+<% if question.title.present? %>
+ | <%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>	
 
+<div class="row"></div>
 
-
-
-
-
-
-<div class="titlecontainer2">
+<div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
 
 </div>
@@ -36,42 +38,11 @@ There are no answers yet.
 
 </div>
 
-<div class="tenten"></div>
-
-<% if question.user.image? %>
-<div class="smallavatar4">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
-<% else %>
-<div class="smallavatar3">
-<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(question.user) %>
-</div>
-<% end %>
-
-
-
-<div class="dividerlineright2">
-
-<div class="lightname2">
-<%= question.user.name %>
-</div>	
-<% if question.title? %>
-<%= question.title %>
-<% else %>
-I am an expert in American police forces
-<% end %> 
-</div>
 
 <hr/>
 
 <% end %>
 
-
-<% if @comments.count > 0 %>
-<div class="bottomfeedpodium">
-<%= link_to 'Podium.', root_path %>
-</div>
-<% end %>
 
 </div>
 

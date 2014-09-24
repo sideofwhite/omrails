@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     
   @user = User.friendly.find(params[:id])
-  @questions = @user.get_voted Question
+  @questions = @user.get_voted Question .order("created_at desc")
   @comment = @user.questions.order("created_at desc")
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     
   @user = User.friendly.find(params[:id])
-  @questions = @user.get_voted Question 
+  @questions = @user.get_voted Question
   @comments = @user.questions.order("created_at desc")
   end 
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
    def allnotifications 
     
-  @allnotifications = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id).page(params[:page]).per_page(100)
+  @allnotifications = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id).page(params[:page]).per_page(5)
   
   respond_to do |format|
           format.html

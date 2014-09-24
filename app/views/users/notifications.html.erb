@@ -2,13 +2,13 @@
 <div class="width6">
 
 <div class="width50">
-<div class="questionnavbar50user">
+<div class="settingsnavbar50">
 New Activity
 </div>
 </div>
 <div class="width50">
-<div class="questionnavbar51user">
-<%= link_to "All Activity", allnotifications_path(current_user), style: " text-decoration: none !important; color: rgba(51,51,51,0.75) !important;" %>
+<div class="settingsnavbar51">
+<%= link_to "All Activity", allnotifications_path(current_user), class: "navbarlink" %>
 </div>
 </div>
 
@@ -16,7 +16,6 @@ New Activity
 	
 
 <div class="width6">
-<div class="sixty"></div>
 
 <% if notificationcount == 0 %>
 <div class="padding10"></div>
@@ -45,3 +44,15 @@ You have no new notifications.
 </div>
 
 
+<script>
+$(document).ready(function() {
+    $.ajax '/users/read_all_notifications' ,
+        type: "post"
+        dataType: "json"
+        beforeSend: (xhr) ->
+          xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
+        cache: false  // code here
+
+ });
+ 
+ </script>

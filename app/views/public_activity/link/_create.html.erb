@@ -1,10 +1,18 @@
-<div class="notificationgrey">
-<%= link_to activity.owner.name, activity.owner if activity.owner %>
-commented on your answer:
-</div>
+
 
 
 <% if activity.trackable %>
+
+<div class="experimentname">
+<%= link_to activity.owner.name, activity.owner if activity.owner %>
+commented on your answer to...
+</div>
+
+<div class="row"></div>
+
+<div class="titlecontainer30">
+<%= activity.trackable.question.comment.title %>
+</div>
 
 
 <div class="p2">	
@@ -44,13 +52,11 @@ commented on your answer:
 
 
 </div>
-
+<hr/>
 
 <% else %>
 
-which has since been removed
 
 <% end %>
 
 
-<hr/>

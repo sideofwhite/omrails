@@ -4,6 +4,13 @@ friendly_id :title, use: :slugged
 
 has_attached_file :image, styles: { :large => "740x340>" }
 
+scope :hide, where(:hide => false)
+scope :top, (select('posts.*, count(comments.id) as count_comments')
+             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
+             .group('posts.id')
+             .order('count_comments desc')).offset(1)
+
+
 
 validates :user_id, presence: true
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
@@ -19,9 +26,7 @@ has_many :pictures
 geocoded_by :country
 after_validation :geocode, :if => :country_changed?
 
- def next
-    post.comments.where("id > ?", id).order("id ASC").first
-  end
+
 
 
 def image_remote_url=(url_value)

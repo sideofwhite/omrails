@@ -4,7 +4,43 @@
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 
+<div id="hide">
 
+ <hr class="aboveimageline"/>
+
+<div class="answersnumber">
+Write Answer
+</div>   
+<hr class="belowimageline2"/>
+
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Answer..." %>
+
+<hr class="aboveimageline"/>
+
+<div id="showmenu" class="favouritebuttonquestionform2">Next</div>
+
+
+</div>
+
+
+
+<div class="menu5" style="display: none;"> 
+
+ <hr class="aboveimageline"/>
+
+<div class="answersnumber">
+Write Bio
+</div>  
+
+<div class="floatright">
+<div class="answersnumber" id="bio">  
+What's a bio?
+</div> 
+</div>
+
+
+<hr class="belowimageline2"/>  
+<div class='form35'></div>  
 <% if current_user.image? %>
 <div class="smallavatar">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
@@ -24,18 +60,18 @@
 <div class="anontext">
 <%= current_user.name %>
 </div>
-</div>	
+</div>  
 
 
 <%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Bio" %>
 
 
-<div class="row"></div>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer here..." %>
+<hr class="aboveimageline"/>
 
 
-<div class="center">
-<%= f.submit "Answer", class: "favouritebuttonleftnomargin myButton" %>
+<%= f.submit "Post", class: "favouritebuttonquestionform myButton" %>
+
+
 </div>
 
 <% end %>
@@ -44,42 +80,32 @@
 
 <% end %>
 
-
 <script>
- $(document).ready(function() {
-        $('#infobutton').click(function() {
+    $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu5').show();
+                $('#showmenu').hide();
+                $('#hide').hide();
+                $('.hello4').hide();
                
-                $('.infomenu').toggle();
-                $('.xout').toggle();
-                $('#infobutton').hide();
-          });
-
-
-
+                
         });
-
- $(document).ready(function() {
-        $('.anon').click(function() {
-               
-                $('.smallavatar').hide();
-                $('.lightname').hide();
-                $('#infobutton').hide();
-                $('.infomenu').hide();
-                $('.biotext').hide();
-                $('.anontext').show();
-
-          });
-
-
-
-        });
-
-
-
+    }); 
 
 </script>
 
 
+                       <div id="bio" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">What's a bio?</h3>
+    <div class="underpodiumhome">
+    A bio is...
+    </div>
+  </div>
 
+  <div class="modal-body">
+  </div>
+</div>
 
 

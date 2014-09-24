@@ -3,9 +3,15 @@
 
 <hr class="aboveimageline"/>
 
+<% if @topanswers == true %>
+<div class="answersnumber">
+<%= pluralize(@post.questions.count, 'Answer') %>
+</div>
+<% else %>
 <div class="answersnumber">
 <%= pluralize(@post.comments.count, 'Question') %>
 </div>
+<% end %>
 
 <div class="floatright">
 <% if user_signed_in? %> 

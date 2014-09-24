@@ -2,15 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-if ("users" is window.location.pathname.split('/')[1]) and ("notifications" == window.location.pathname.split('/')[3])
-  window.setTimeout ->
-    $.ajax '/users/read_all_notifications' ,
-        type: "post"
-        dataType: "json"
-        beforeSend: (xhr) ->
-          xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
-        cache: false
-  , 1
+
 
 
 jQuery ->

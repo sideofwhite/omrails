@@ -1,12 +1,12 @@
 
 <div class="width6">
 <div class="width50">
-<div class="questionnavbar51user">
-<%= link_to "New Activity", notifications_path(current_user), style: " text-decoration: none !important; color: rgba(51,51,51,0.75) !important;" %>
+<div class="settingsnavbar51">
+<%= link_to "New Activity", notifications_path(current_user), class: "navbarlink" %>
 </div>
 </div>
 <div class="width50">
-<div class="questionnavbar50user">
+<div class="settingsnavbar50">
 All Activity
 </div>
 </div>
@@ -14,8 +14,7 @@ All Activity
 
 
 <div class="width6">
-
-<div class="sixty"></div>	
+	
 
 <div id="products">
 <%= render 'users/allnotifications' %>

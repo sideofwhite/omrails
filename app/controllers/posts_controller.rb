@@ -23,13 +23,17 @@ if params[:tag]
 @posts = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(5)
-else
-@posts = Post.select('posts.*, count(comments.id) as count_comments')
+             .order('count_comments desc').where(:hide => false).offset(1).page(params[:page]).per_page(5)
+@toppost = Post.tagged_with(params[:tag]).select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc').where(:hide => false).page(params[:page]).per_page(5)
-          
+             .order('count_comments desc').where(:hide => false).limit(1)             
+else
+@posts = Post.top.hide.offset(1).page(params[:page]).per_page(1)
+@toppost = Post.select('posts.*, count(comments.id) as count_comments')
+             .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
+             .group('posts.id')
+             .order('count_comments desc').hide.limit(1)  
 
 end
 
@@ -44,9 +48,10 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
+  @topanswers = true   
   @skip_footer = true  
   @post = Post.friendly.find(params[:id])
-  @comments = @post.questions.order('cached_votes_total desc').page(params[:page]).per_page(2)
+  @comments = @post.questions.order('cached_votes_total desc').page(params[:page]).per_page(5)
   @comment = Comment.new
   end
 

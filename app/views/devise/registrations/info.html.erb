@@ -27,7 +27,7 @@ Finish
 
 <div class="row"></div>
 
-<% if current_user.email.blank? %>
+<% if current_user.email.present? %>
 <div class="width6">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
  <div class="userbehindgrey2"> 

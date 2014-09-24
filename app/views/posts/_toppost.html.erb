@@ -1,7 +1,7 @@
 
 
 
-<% @posts.each_with_index do |post, i| %>
+<% @toppost.each_with_index do |post, i| %>
 
 <style media="screen">
   .experimentstrip-<%= post.id %> { background-image: url(<%= post.image %>); }
@@ -9,9 +9,8 @@
 
 <%= link_to post_path(post) do %> 
 
-
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 340px; background-size: cover;
+  height: 500px; background-size: cover;
     background-repeat: no-repeat;
     background-position: center; margin-bottom: 0px;">
 
@@ -111,10 +110,3 @@ There are no answers yet.
 
 
 <% end %>
-
-
-
-
-
-
-

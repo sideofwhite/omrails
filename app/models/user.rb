@@ -7,11 +7,11 @@ friendly_id :name, use: :slugged
 
 include PublicActivity::Model
 tracked except: :update, owner: ->(controller, model) { controller && controller.current_user }
-tracked except: :update, recipient: ->(controller, model) { controller && controller.current_user }
+tracked recipient: ->(controller, model) { model && model }
 
 
 dragonfly_accessor :image 
-has_attached_file :image, :styles => { :thumb => "100x200>" }
+has_attached_file :image, :default_url => 'http://i.imgur.com/mF6Jm6P.png', :styles => { :thumb => "100x200>" }
   
 
   devise :database_authenticatable, :registerable,

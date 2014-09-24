@@ -36,13 +36,8 @@
 <div class="floatright">
 <% if user_signed_in? %>	
 
-
-<%= link_to new_comment_question_path(@comment) do %>
-<i class="fa fa-plus-circle"></i>
-<div class="modalaskquestion">
-Answer
-</div>
-<% end %>
+<i class="fa fa-plus-circle" href="#Answer" role="button" data-toggle="modal"></i>
+<a href="#Answer" role="button" data-toggle="modal" class="modalaskquestion">Answer</a>
 
 <% else %>	
 <%= link_to "Answer", new_user_registration_path, class: "askquestionright" %>
@@ -121,4 +116,18 @@ There are no answers yet.
 </style>
 
 
- 
+                       <div id="Answer" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Before you answer...</h3>
+    <div class="underpodiumhome">
+    Please read the answer guidlines before posting.
+    </div>
+  </div>
+
+  <div class="modal-body">
+  	<div class="center">
+    <%= link_to "Continue", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
+</div>
+  </div>
+</div>

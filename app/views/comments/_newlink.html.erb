@@ -3,20 +3,16 @@
 <div class="commentwidth">
 <div class='commentsbackground'>	
 <div class="commentsnumber">
-<%= pluralize(question.links.count, 'Reply') %>
+<%= pluralize(question.links.count, 'Comment') %>
 </div>
 
 
 <% question.links.each do |link| %>
-<% if link.user.image.present? %>
+
 <div class="smallavatar3">
 <%= link_to (image_tag(link.user.image)), user_path(link.user) if link.user.present? %>
 </div>
-<% else %>
-<div class="smallavatar3">
-<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(question.user) %>
-</div>
-<% end %>
+
 
 <div class="commentdescriptiontext">
 <div class="commentdescriptionname">	

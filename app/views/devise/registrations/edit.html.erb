@@ -23,12 +23,12 @@ Settings
 </div>
 
 </div>
-<div class="width6">
+<div class="px300">
 
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification  %>
-<div class="userbehindgrey2">
+
 
 <div id="showmenuedit2">Edit Profile</div>
 <div class="menu2">  
@@ -73,7 +73,7 @@ Settings
 <%= f.submit "Save", class: "favouritebuttonleft" %>
 </div>
 </div>
-</div>
+
 <% end %>
 
 <% if current_user.image? %>

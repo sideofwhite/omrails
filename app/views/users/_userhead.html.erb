@@ -31,34 +31,18 @@ Profile
 
 
 <% if current_user == @user %>
-
-
-<% if @user.image? %>	
+	
 
 <div class="userimage">
 <%= image_tag @user.image %>
 </div>
 
-<% else %>
-<div class="userimage">
-<%= image_tag ("http://i.imgur.com/MTQl4Q0.png") %>
-</div>
-<% end %>
-
 
 <% else %>
-
-<% if @user.image? %>	
 
 <div class="userimagenotsignedin">
 <%= image_tag @user.image %>
 </div>
-
-<% else %>
-<div class="userimagenotsignedin">
-<%= image_tag ("http://i.imgur.com/MTQl4Q0.png") %>
-</div>
-<% end %>
 
 
 <% end %>

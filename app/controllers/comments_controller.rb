@@ -33,7 +33,7 @@ end
   @commentnext = @post.comments.friendly.find(params[:id])
   @link = Link.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
-  @questions = @comment.questions.order('cached_votes_total desc').page(params[:page]).per_page(2)
+  @questions = @comment.questions.order('cached_votes_total desc').page(params[:page]).per_page(5)
   @unansweredshow = @comment.questions.order("created_at desc").limit(3)
   @unanswered = @comment.questions.where(answers_count: 0)
    respond_to do |format|
