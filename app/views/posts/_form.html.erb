@@ -1,5 +1,10 @@
-<% if current_user.try(:admin?) %>
 
+
+<style media="screen">
+  #blah2 { background-image: '#blah2'); background-color: #333;  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+</style>
 
 
 
@@ -7,25 +12,21 @@
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
-<div class="span8 centered">
 
-<div class="eventimage">
+<div class="width6">
+
+<div class="blah2">
 <div class="addimage">
 <%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
 </div>
-<img id="blah"/>
 </div>
-</div>
+<img id="blah2"/>
 
-</div>
 
-<div class="span7 centered">
+
+
    <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "posttitleform inputBody" },label: false, placeholder: "Event Headline" %>
    <%= f.input :description, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "underneathform inputBody" }, label: false, placeholder: "Summary of the event"%>
- 
-
-
-<%= f.input :country, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Location" %>
 
 <hr/>
 <%= f.input :link, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Link" %>
@@ -43,19 +44,28 @@
 Hide Post 
   </div>
 
- <%= f.submit "POST" %>
+
+<%= f.check_box :top, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+
+<div class="buttoncheckbox2">
+Featured
+</div> 
+
+<%= f.check_box :category, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+
+<div class="buttoncheckbox2">
+Category Featured
+</div> 
+
+<div class="center">
+ <%= f.submit "Publish", class: "favouritebuttonleft" %>
+</div>
 
 </div>
 
-
  <% end %>
 
-<% else %>
 
-This page doesn't exist.
-
-
-<% end %>
 
 
 <script>
@@ -64,7 +74,7 @@ function readURL(input) {
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
+                $('#blah2').attr('src', e.target.result);
             }
             
             reader.readAsDataURL(input.files[0]);

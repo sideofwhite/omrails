@@ -16,6 +16,13 @@
 </div>
 </div>
 
+<% if current_user.try(:admin?) %>
+<%= link_to edit_post_comment_path(@comment.post, @comment) do %>
+<i class="fa fa-cog"></i>
+<% end %>
+
+<% end %>
+
 
 <div class="width6">
 
@@ -24,6 +31,7 @@
 <div class="titlecontainer">
 <%= @comment.title %>
 </div>
+
 
 
 <hr class="aboveimageline"/>
@@ -54,32 +62,67 @@
 
 <div>
 
-
+<div id="products" data-no-turbolink>
 <%= render 'comments/questions' %>
-
+</div>
 
 <%= will_paginate @questions %>
 </div>
+
+
+<% if @hidden.count > 0 %>
+
+<div id="showmenu" class="answersnumberhidden">
+<%= pluralize(@hidden.count, 'Answer')  %> Hidden
+</div>
+
+
+<div class="hiddenquestions" style="display: none;"> 
+<%= render 'comments/hiddenquestions' %>
+</div>
+
+<hr class="belowimageline2hidden"/>
+
+<% end %>
 
 <div class="questiondivider">
 <div></div>
 </div>
 
-<div class="center">
 
 <% if @comment.questions.count > 0 %>
+<div class="center">
 <% if user_signed_in? %>	
 <%= link_to "Add Your Answer", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
 <% else %>
 <%= link_to "Add Your Answer", new_user_registration_path, class: "favouritebuttonleft" %>
 <% end %>
+</div>
 <% else %>
+<div class="center">
 <div class="eventmargin2">
 There are no answers yet.
 </div>
-
-<% end %>
 </div>
+<hr/>
+<div class="row"></div>
+<div class="eventmargin2" style="padding: 0px;">
+Related Questions
+</div>
+<div class="row"></div>
+<% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
+<div class="relatedquestions">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+<div class="nameblueside3" style="font-size: 12px;">
+<%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
+</div>
+<div class="date4">
+Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
+<% end %>
+<% end %>
+
 
 <div class="paddingbottom30"></div>
 
@@ -101,6 +144,7 @@ There are no answers yet.
 </div>
 </div>
 </div>
+</div>
 <% end %>
 
 
@@ -113,21 +157,54 @@ There are no answers yet.
   .fa-bell-o { color: white !important;}
   .headtext {color: white !important;} 
   .navbar .nav > li > a {color: white !important;} 
+  .alert-danger { opacity: 1 !important; color: white !important;}
 </style>
 
 
                        <div id="Answer" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
+  <div class="modal-header" style="padding-bottom: 0px !important;">
     <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Before you answer...</h3>
-    <div class="underpodiumhome">
-    Please read the answer guidlines before posting.
+    <div class="underpodiumhomeguidelinesbig">
+    Answer Guidelines
+  </div>
+  <div class="center">
+    <div class="underpodiumhomeguidelines">
+    Please read the following guidelines before answering:
+    <hr class="profilelinezero"/>
+</div>
     </div>
   </div>
 
-  <div class="modal-body">
+  <div class="modal-body" style="padding-top: 0px !important;">
+    <div class="underpodiumhomeguidelines">
+    <strong>Answers should...</strong>
+    <br>
+    Respond to the question
+    <br>
+    Be factual, authentic and cite sources used (at the bottom of answer)
+    <br>
+    Not personally attack the question or any other answers
+    <br>
+    Answers that do not comply may be hidden, or in some cases, deleted by editors.
+    </div>
+    <hr class="profilelinezero"/>
   	<div class="center">
-    <%= link_to "Continue", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
+    <%= link_to "Got it", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
 </div>
   </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        $('#showmenu').click(function() {
+                
+                $('.hiddenquestions').show();
+                $('.belowimageline2hidden').hide();
+                
+               
+                
+        });
+    }); 
+
+</script>

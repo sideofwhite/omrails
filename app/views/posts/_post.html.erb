@@ -9,7 +9,6 @@
 
 <%= link_to post_path(post) do %> 
 
-
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
   height: 340px; background-size: cover;
     background-repeat: no-repeat;
@@ -24,7 +23,7 @@
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmarginstripsmall hidden-phone"> 
-<%= truncate(post.description, length: 150, separator: ' ') %>
+<%= truncate(post.description, length: 300, separator: ' ') %>
 </div>
 
 <div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
@@ -45,7 +44,7 @@
 <div class="questionoutline">
 <div class="mobilepadding20"></div>
 
-
+<% if post.questions.count > 0 %>
 <div class="topanswershome">
 Top Answers
 </div>
@@ -55,19 +54,23 @@ Top Answers
 <div class="topanswershome">
 <%= link_to "New Questions", newquestions_path(post), class: "navbarlink" %>
 </div>
+<hr class="topquestion"/>
+<% else %>
 
-<% if post.questions.count == 0 %>
 <div class="topanswershomenone">
 There are no answers yet. 
 </div>
+<div class='center'>
+<%= link_to "See questions...", topquestions_path(post), class: "seeallleft" %>
+</div>
+
 <% end %>
 
-<hr class="topquestion"/>
 
 <% post.questions.order('cached_votes_total desc').limit(3).each do |question, i| %>
 
 
-<div class="experimentname">
+<div class="experimentname2">
 <strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
 <% if question.title.present? %>
  | <%= truncate(question.title, :separator => ' ', length: 55) %>
@@ -82,10 +85,10 @@ There are no answers yet.
 </div>
 
 
-<div class="p2">  
+<div class="p3">  
  
     <%= truncate(question.body, :separator => ' ', length: 120) %>
-    <%= link_to ("Read More"), post_comment_path(question.comment.post, question.comment) + "#question_#{question.id.to_s}", class: "readmore"  %>
+    <%= link_to ("Read More"), comment_question_path(question.comment, question), class: "readmore"  %>
 
 </div>
 
@@ -95,12 +98,14 @@ There are no answers yet.
 
 <% unless post.questions.count == 0 %>
 <div class='center'>
-<%= link_to "See all", post_path(post), class: "favouritebuttonlefthome" %>
+<%= link_to "See all...", post_path(post), class: "seeallleft" %>
 </div>
 <% end %>
+
 
 <hr class="homebuttonline"/>
 
+
 </div>
 
 
@@ -111,6 +116,8 @@ There are no answers yet.
 
 
 <% end %>
+
+
 
 
 

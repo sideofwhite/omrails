@@ -15,25 +15,21 @@ commented on your answer to...
 </div>
 
 
-<div class="p2">	
+<div class="p3">	
  
     <%= truncate(activity.trackable.question.body, :separator => ' ', length: 120) %>
-    <%= link_to ("Read More"), post_comment_path(activity.trackable.question.comment.post, activity.trackable.question.comment) + "#question_#{activity.trackable.question.id.to_s}", class: "readmore"  %>
+    <%= link_to ("Read More"), comment_question_path(activity.trackable.question.comment, activity.trackable.question) + "#question_#{activity.trackable.question.id.to_s}", class: "readmore"  %>
 
 </div>
 
 <div class="commentwidth">
 <hr class="abovecomments2"/>
 
-<% if activity.trackable.user.image? %>
+
 <div class="smallavatar3">
 <%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
 </div>
-<% else %>
-<div class="smallavatar3">
-<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(activity.trackable.user) %>
-</div>
-<% end %>
+
 
 
 <div class="commentdescriptiontext">

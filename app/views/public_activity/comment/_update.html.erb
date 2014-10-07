@@ -1,0 +1,21 @@
+<% if activity.trackable %>
+
+<div class="experimentname">
+You question was edited to...
+</div>
+
+<div class="row"></div>
+
+<div class="titlecontainer30">
+<%= activity.trackable.title %>
+</div>
+
+<div class="welcometopodiumunderneath", style="margin-top: 7px;">
+To see reasons for the edit please read our <%= link_to "Question Guidlines", guidelines_path, class: "blue" %>
+</div>
+
+<div class="row"></div>
+
+<hr/>
+
+<% end %>

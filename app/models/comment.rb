@@ -1,6 +1,20 @@
 class Comment < ActiveRecord::Base
 extend FriendlyId
-friendly_id :title, use: :slugged
+friendly_id :title, use: [:slugged, :history]
+
+def should_generate_new_friendly_id?
+  title_changed?
+end
+
+
+scope :nothidden, where(:hide => false)
+
+include PublicActivity::Model
+tracked except: :create, owner: ->(controller, model) { controller && controller.current_user }
+tracked except: :create, recipient: ->(controller, model) { model && model.user }
+
+
+
 
 def next
     post.comments.where("id > ?", id).order('cached_votes_total desc').first

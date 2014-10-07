@@ -33,9 +33,8 @@ end
   @commentnext = @post.comments.friendly.find(params[:id])
   @link = Link.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
-  @questions = @comment.questions.order('cached_votes_total desc').page(params[:page]).per_page(5)
-  @unansweredshow = @comment.questions.order("created_at desc").limit(3)
-  @unanswered = @comment.questions.where(answers_count: 0)
+  @questions = @comment.questions.where(:hide => false).order('cached_votes_total desc').page(params[:page]).per_page(1)
+  @hidden = @comment.questions.where(:hide => true).order('created_at desc')
    respond_to do |format|
         format.html
         format.js
@@ -64,6 +63,7 @@ end
 
   # GET /comments/1/edit
   def edit
+   render_forbidden and return unless can_edit? 
   @post = Post.friendly.find(params[:post_id])  
   end
 
@@ -87,6 +87,7 @@ end
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    render_forbidden and return unless can_edit?
     @post = Post.friendly.find(params[:post_id])  
 
     respond_to do |format|
@@ -114,6 +115,10 @@ end
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.friendly.find(params[:id])
+    end
+
+      def can_edit?
+  current_user.try(:admin?) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

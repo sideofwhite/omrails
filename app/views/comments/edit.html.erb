@@ -1,61 +1,27 @@
-<div class="span7 centered">
+<div class="width6">
 
-<div class="settings">
-Edit Interview
-</div>	
+<div class="sixty"></div>
 
-<div class="floatright">
- <%= link_to 'Delete Interview', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Your interview will be deleted. Are you sure?' }, class: "favouritebutton" %> 	
+<div class="eventtoptext2">
+<%= link_to (@comment.user.name), user_path(@comment.user.name) %>
 </div>
 
 <%= simple_form_for [@post, @comment], :html => { :method => :put } do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Title" %>
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: "Edit Question",placeholder: "Question" %>
 
-<hr/>
-
-
-<div class="circleb">
-<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
-</div>
-
-<div class="nameblueside2">
-<%= link_to current_user.name, user_path(current_user) %>
-</div>
-<% if @post.present? %>
-<div class="eventtoptext2">
-<%= link_to (@post.title), post_path(@post) %>
-</div>
-<% end %>
 
 <div class="row"></div>
 
-
-<div class="commentlabel">
-About:
+<div class="floatright">
+ <%= link_to 'Delete Interview', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'This question will be deleted. Are you sure?' }, class: "favouritebuttonleft" %>   
 </div>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "Description" %>
 
-<div class="commentlabel2">
-Ask <%= current_user.name %> about: 
-</div>
-<%= f.input :about, as: :text, input_html: { rows: "1", :class => "hello2 inputBody", :style => "margin-bottom: 20px;" }, label: false, placeholder: "What the questions should be about" %>
-
-<hr/>
-
-<a id="close">
-<%= f.check_box :active, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
-</a>
-<div class="buttoncheckbox2">
-Close interview to new questions
-  </div>
-
- <div class="row"></div>
-
-<%= f.submit "Save Edits", class: "favouritebuttonleft2" %>
+<%= f.submit "Save Changes", class: "favouritebuttonleft" %>
 
  <% end %>
+
 
 
 </div>

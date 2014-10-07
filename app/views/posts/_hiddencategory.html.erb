@@ -1,0 +1,115 @@
+<% @hidden.each do |post| %>
+
+<style media="screen">
+  .experimentstrip-<%= post.id %> { background-image: url(<%= post.image %>); }
+</style>
+
+<%= link_to post_path(post) do %> 
+
+<div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
+  height: 340px; background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; margin-bottom: 0px;">
+
+
+<div class="darker"></div>
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<%= link_to (post.title), post_path(post), class: "posttext" %> 
+
+<div class="descriptionmarginstripsmall hidden-phone"> 
+<%= truncate(post.description, length: 300, separator: ' ') %>
+</div>
+
+<div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
+<%= truncate(post.description, length: 100, separator: ' ') %>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<% end %>
+
+
+
+<div class="width6">
+
+<div class="questionoutline">
+<div class="mobilepadding20"></div>
+
+<% if post.questions.count > 0 %>
+<div class="topanswershome">
+Top Answers
+</div>
+<div class="topanswershome">
+<%= link_to "Top Questions", topquestions_path(post), class: "navbarlink" %>
+</div>
+<div class="topanswershome">
+<%= link_to "New Questions", newquestions_path(post), class: "navbarlink" %>
+</div>
+<hr class="topquestion"/>
+<% else %>
+
+<div class="topanswershomenone">
+There are no answers yet. 
+</div>
+<div class='center'>
+<%= link_to "See questions...", topquestions_path(post), class: "seeallleft" %>
+</div>
+
+<% end %>
+
+
+<% post.questions.order('cached_votes_total desc').limit(3).each do |question, i| %>
+
+
+<div class="experimentname">
+<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
+<% if question.title.present? %>
+ | <%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>  
+
+<div class="row"></div>
+
+<div class="titlecontainer30">
+<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
+
+</div>
+
+
+<div class="p2">  
+ 
+    <%= truncate(question.body, :separator => ' ', length: 120) %>
+    <%= link_to ("Read More"), comment_question_path(question.comment, question), class: "readmore"  %>
+
+</div>
+
+<hr class="topquestion"/>
+
+<% end %>
+
+<% unless post.questions.count == 0 %>
+<div class='center'>
+<%= link_to "See all...", post_path(post), class: "seeallleft" %>
+</div>
+<% end %>
+
+
+<hr class="homebuttonline"/>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+<% end %>

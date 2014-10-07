@@ -1,27 +1,30 @@
+<% if @user.votes.count == 0 %>
+<style media="screen">
+  .navbarbutton { color: #333 !important; border: 1px solid #333 !important; }
+ </style>
 
+<div class="greyrelative">
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
 
-<%= render 'users/userhead' %>
-<div class="row"></div>
-<div class="profilemargintop">
 </div>
 
-<div class="width6">
+  <div class="absolutecontainerprofile">
+<div class="relativecontainerprofile">
+<div class="userprofilewhite">
 
-<div class="width50">
+<%= render 'users/userhead' %>
+
 <div class="floatrightprofile">	
-
-<div class="abovenumber">
+<div class="abovenumber">	
 Upvotes
 </div>
 <div class="belownumber">	
-<%= @questions.count %>
+<%= @user.votes.count %>
 </div>
 
 </div>
-</div>
 
-
-<div class="width50">
 <%= link_to userinterviews_path(@user) do %>
 <div class="floatleftprofile">	
 <div class="abovenumber">	
@@ -32,54 +35,58 @@ Answers
 </div>
 </div>
 <% end %>
-<div class="profilemargin5">
+
+<%= link_to usercomments_path(@user) do %>
+<div class="floatleftprofile">	
+<div class="abovenumber">	
+Comments
+</div>
+<div class="belownumber">	
+<%= @links.count %>
+</div>
+</div>
+<% end %>
+
+</div>
 </div>
 </div>
 
 <div class="row"></div>
-<hr class="userlineunder"/>
+
+   <div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="eventimagepreviewtext" style="color: rgba(51,51,51,0.75) !important; border-bottom: 1px solid rgba(51,51,51,0.1) !important; font-size: 14px !important; font-weight: 400;">
+<%= @user.name %> hasn't upvoted any answers yet.
+</div>
+</div>
+</div>
 
 
-<% if @user.votes.count == 0 %>
+
+</div>
+</div>
+
+
+<% end %>
+
+
+
+
+
+<div id="products">
+<%= render 'users/show' %>
+</div>
+
+
+
+<% if @questions.count > 5 %>
+
 <div class="center">
-<div class="eventmargin2">
-<%= @user.name %> hasn't upvoted any answers.
+<%= link_to "See all...", upvotes_path(@user), class: "seeallleft" %>
 </div>
-</div>
+
 
 <% end %>
-
-
-
-<% @questions.each_with_index do |question, i| %>
-
-
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= truncate(question.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>	
-
-<div class="row"></div>
-
-<div class="titlecontainer30">
-<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-
-</div>
-
-<div class="p2">	
- 
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), post_comment_path(question.comment.post, question.comment) + "#question_#{question.id.to_s}", class: "readmore" %>
-
-</div>
-
-
-<hr/>
-
-<% end %>
-
 
 
 

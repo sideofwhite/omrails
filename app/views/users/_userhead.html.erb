@@ -1,70 +1,26 @@
-<div class="span4 centered">
 
-<% if current_user == @user %>
-
-<div class="width30">
-<div class="settingsnavbar50">
-Profile
-</div>
-</div>
-
-<div class="width30">
-<div class="settingsnavbar51">
-<%= link_to "Settings", edit_user_registration_path(@user), class: "navbarlink"   %>
-</div>
-</div>
-<div class="width30">
-<div class="settingsnavbar51">
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbarlink"  %>
-</div>
-</div>
-
-<div class="row">
-</div>
-<% end %>
-
-</div>
-
-
-
-<div class="width6">
-
-
-<% if current_user == @user %>
 	
-
-<div class="userimage">
-<%= image_tag @user.image %>
-</div>
-
-
-<% else %>
 
 <div class="userimagenotsignedin">
 <%= image_tag @user.image %>
 </div>
 
+<% if current_user == @user %>
+
+
+<div class="floatright">
+<%= link_to "Settings", edit_user_registration_path(current_user), class: "navbarbutton" %>
+</div>	
 
 <% end %>
-
 
 
 <div class="usernametext2">	
 <%= @user.name %>
 </div>
 
-
-
-<% if @user.place.present? %>
-<div class="country">
-<i class="fa fa-globe"></i>	
-<div class="countrymarg">
-<%= @user.place %>
-</div>
-</div>
-<% end %>
-
-
-</div>
+<div class="row"></div>
+<hr class="profilelinezero"/>
+<div class="row"></div>
 
 

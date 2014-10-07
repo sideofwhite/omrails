@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831172422) do
+ActiveRecord::Schema.define(version: 20141004195819) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -44,6 +44,22 @@ ActiveRecord::Schema.define(version: 20140831172422) do
   add_index "answers", ["slug"], name: "index_answers_on_slug"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
   create_table "comments", force: true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -68,6 +84,19 @@ ActiveRecord::Schema.define(version: 20140831172422) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["slug"], name: "index_comments_on_slug"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "links", force: true do |t|
     t.datetime "created_at"
@@ -117,6 +146,8 @@ ActiveRecord::Schema.define(version: 20140831172422) do
     t.string   "link"
     t.string   "domain"
     t.boolean  "hide",               default: false
+    t.boolean  "top",                default: false
+    t.boolean  "category",           default: false
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug"
@@ -139,6 +170,7 @@ ActiveRecord::Schema.define(version: 20140831172422) do
     t.string   "slug"
     t.integer  "answers_count",      default: 0
     t.boolean  "anon"
+    t.boolean  "hide",               default: false
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"

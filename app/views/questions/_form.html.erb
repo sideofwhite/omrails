@@ -17,7 +17,10 @@ Write Answer
 
 <hr class="aboveimageline"/>
 
-<div id="showmenu" class="favouritebuttonquestionform2">Next</div>
+<div class="explainertext">
+Please write more...
+</div>
+<div id="showmenu" class="favouritebuttonquestionform2" style="display: none !important;">Next</div>
 
 
 </div>
@@ -33,23 +36,16 @@ Write Bio
 </div>  
 
 <div class="floatright">
-<div class="answersnumber" id="bio">  
-What's a bio?
-</div> 
+<a href="#bio" role="button" class="answersnumber" data-toggle="modal">What's a Bio?</a>
 </div>
 
 
 <hr class="belowimageline2"/>  
 <div class='form35'></div>  
-<% if current_user.image? %>
 <div class="smallavatar">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
-<% else %>
-<div class="smallavatar">
-<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(current_user) %>
-</div>
-<% end %>
+
 
 
 <div class="lightname">
@@ -91,6 +87,15 @@ What's a bio?
                 
         });
     }); 
+
+
+    $('.hellogrey2').on("keyup", action);
+function action() {
+   if($('.hellogrey2').val().length > 0) {
+      $('.favouritebuttonquestionform2').show();
+      $('.explainertext').hide();
+   }
+}
 
 </script>
 

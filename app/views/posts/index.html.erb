@@ -20,7 +20,9 @@
 <%= will_paginate @posts %>
 
 
-
+<% if params[:tag] %>
+<%= render 'posts/hiddencategory' %>
+<% end %>
 
 
     

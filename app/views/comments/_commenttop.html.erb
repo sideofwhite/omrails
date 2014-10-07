@@ -1,7 +1,5 @@
 
 
-<div class="width6">
-
 <% if @comments.count == 0 %>
 <div class="center">
 <div class="eventmargin2">
@@ -12,8 +10,9 @@ There are no questions yet.
 
 
 <% @comments.each_with_index  do |comment, i| %>
-
-
+<div class="date4" style="margin: 0px 0px 7px 0px;">
+Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 
 <div class="titlecontainer20">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
@@ -23,11 +22,7 @@ There are no questions yet.
 <%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
 </div>
 
-<div class="date4">
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
-
-<hr class="topquestion"/>
+<hr class="topquestion2"/>
 
 
 <% end %>
@@ -39,5 +34,3 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
 
 
 
-
-</div>

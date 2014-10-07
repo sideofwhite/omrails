@@ -1,21 +1,74 @@
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form' }) do |f| %>
-  <%= f.error_notification %>
+<div class="px300">
 
-  <%= f.input :name %>
 
-  <hr/>
-  <%= f.input :email %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
+  <%= f.error_notification  %>
+
+<div class="underimagemargin">
+
+   <div class="absolutepicture">
+
+ <div class="userimage2">
+
+<div class="addimage">
+<%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
+</div>
+ <img id="blah"/>
+</div>
+</div>
+</div>
+
+  <%= f.input :email, input_html: {  :class => "hello4" }, label: "Your email", placeholder: "Your email", autocomplete: "off" %>
+  
+
+  <%= f.input :password, input_html: {  :class => "hello4" }, label: "Change Password", placeholder: "Password" , autocomplete: "off" %>
+  <div class="commentmargin10"></div>
+  <%= f.input :password_confirmation, input_html: {  :class => "hello4" }, label: false, placeholder: "Password again", autocomplete: "off" %>
  
-  <%= f.input :image %>
-  <hr/>
-  <%= f.input :password, label: "New Password", autocomplete: "off" %>
-  <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
-  To update please enter your current password.
+<div class="center">
+<%= f.submit "Save", class: "favouritebuttonleft" %>
+</div>
 
-  <%= f.input :current_password %>
 
- 
-    <%= f.submit "Update", class: "button5"%>
 <% end %>
+
+</div>
+
+ <style media="screen">
+  .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block; background-position: center;}
+ </style>
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#user_image").change(function(){
+        readURL(this);
+    });
+
+
+    $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu5').show();
+                $('#showmenu').hide();
+                $('#hide').hide();
+                $('.hello4').hide();
+               
+                
+        });
+    }); 
+
+</script>
+

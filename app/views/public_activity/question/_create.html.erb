@@ -37,10 +37,10 @@ answered your question...
 
 <div class="row"></div>
 
-<div class="p2">	
+<div class="p3">	
  
     <%= truncate(activity.trackable.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), post_comment_path(activity.trackable.comment.post, activity.trackable.comment) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
+    <%= link_to ("Read More"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
 
 </div>
 <hr/>

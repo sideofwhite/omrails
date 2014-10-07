@@ -7,32 +7,43 @@
   .headtext {color: white !important;} 
   .navbar .nav > li > a {color: white !important;} 
   .fa-bell-o { color: white !important;}
+  .alert-danger { opacity: 1 !important; color: white !important;}
 </style>
 
 
 
 
-
 <div class="experiment">
+
 <div class="darker"></div>
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
 
 </div>
 
+<% if current_user.try(:admin?) %>
+<%= link_to edit_post_path(@post) do %>
+<i class="fa fa-cog"></i>
+<% end %>
 
+<% end %>
 
 
 <div class="absolutecontainer">
 <div class="relativecontainer">	
+
+
 <div class="posttext2">
 <%= @post.title %> 
 </div>
-<div class="descriptionmargin">	
+<div class="descriptionmargin">	 
 <%= @post.description %>
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
 </div>
+<div class="imagewhitedate">
+<%= time_ago_in_words(@post.created_at).capitalize %> ago
+ </div>  
 </div>
 
 
@@ -103,6 +114,8 @@ Top Answers
 
      }); 
     }); 
+
+
 
 </script>
 

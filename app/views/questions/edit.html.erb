@@ -43,7 +43,15 @@ Answer Guidelines
 
 
 <%= simple_form_for [@comment, @question], :html => { :method => :put } do |f| %>
+<% if current_user.try(:admin?) %>
+<a id="close">
+<%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+</a>
+<div class="buttoncheckbox2">
+Hide Answer
+  </div>
 
+<% else %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 
@@ -75,6 +83,10 @@ Answer Guidelines
 
 <div class="row"></div>
 <%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer here..." %>
+
+
+<% end %>
+
 
 
 <div class="center">

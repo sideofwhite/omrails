@@ -1,0 +1,41 @@
+<div class="width6">
+
+<div class="fourty"></div>
+	
+
+<div class="userimagenotsignedinupvotes">
+<%= image_tag @user.image %>
+</div>
+<div class="usernametext2upvotes">	
+<%= @user.name %>
+</div>
+
+<div class="row"></div>
+<hr class="aboveimageline"/>
+
+<div class="answersnumber">
+All Upvotes
+</div>
+
+<div class="floatright">
+<div class="answersnumber">
+<%= link_to "Back to profile > ", user_path(@user), class: "opacity03" %>
+</div>
+</div>
+
+<hr class="belowimageline2"/>
+
+<div class='upvotesthirty'></div>
+
+<div class="row"></div>
+
+
+
+<div id="products">
+<%= render 'users/upvotes' %>
+</div>
+
+</div>
+
+
+<%= will_paginate @questions %>

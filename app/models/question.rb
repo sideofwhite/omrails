@@ -1,10 +1,14 @@
 class Question < ActiveRecord::Base
 extend FriendlyId
-friendly_id :created_at, use: :slugged
+friendly_id :body, use: :slugged
+
+def normalize_friendly_id(string)
+  super[0..100]
+end
 
 include PublicActivity::Model
-tracked except: :update, owner: ->(controller, model) { controller && controller.current_user }
-tracked recipient: ->(controller, model) { model && model.comment.user }
+tracked only: :create, owner: ->(controller, model) { controller && controller.current_user }
+tracked only: :create, recipient: ->(controller, model) { model && model.comment.user }
 
 has_attached_file :image, styles: { :small => "400x250>", :medium => "320x240>", :large => "740x340>" }
 

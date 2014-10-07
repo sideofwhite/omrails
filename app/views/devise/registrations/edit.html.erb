@@ -1,38 +1,17 @@
-<% if current_user == @user %>
 
-<div class="span4 centered">
-
-<div class="width30">
-<div class="settingsnavbar51">
-<%= link_to "Profile", user_path(@user), class: "navbarlink"   %>
-</div>
-</div>
-
-<div class="width30">
-<div class="settingsnavbar50">
-Settings
-</div>
-</div>
-<div class="width30">
-<div class="settingsnavbar51">
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbarlink"  %>
-</div>
-</div>
-
-<div class="row">
-</div>
-
-</div>
 <div class="px300">
 
+<div class="thirty"></div>
+
+<div class="completeyourprofile">
+Settings
+</div>
+
+<hr/>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= f.error_notification  %>
 
-
-<div id="showmenuedit2">Edit Profile</div>
-<div class="menu2">  
-  <div class="editline">
 <div class="underimagemargin">
 
    <div class="absolutepicture">
@@ -45,48 +24,34 @@ Settings
  <img id="blah"/>
 </div>
 </div>
-
 </div>
 
- <div class="commentmargin10"></div>
- <%= f.input :name, input_html: {  :class => "hello4" }, label: "Name", placeholder: "Name", autocomplete: "off" %>
-
-
-<%= f.input :place, input_html: {  :class => "hello4" }, label: "Location", placeholder: "Location", autocomplete: "off" %>
-</div>
-</div>
-
-<div id="showmenuedit">Edit Email & Password</div>
-<div class="menu" style="display: none;">  
-  <div class="editline">
   <%= f.input :email, input_html: {  :class => "hello4" }, label: "Your email", placeholder: "Your email", autocomplete: "off" %>
   
 
   <%= f.input :password, input_html: {  :class => "hello4" }, label: "Change Password", placeholder: "Password" , autocomplete: "off" %>
   <div class="commentmargin10"></div>
   <%= f.input :password_confirmation, input_html: {  :class => "hello4" }, label: false, placeholder: "Password again", autocomplete: "off" %>
- </div>
-</div>
+ 
+
+<div class="floatright">
+<%= link_to "Logout as #{current_user.name}", destroy_user_session_path, class: "logout", method: :delete %> 
 </div>
 
-<div class="center">
 <%= f.submit "Save", class: "favouritebuttonleft" %>
-</div>
-</div>
+
+
+
 
 <% end %>
 
-<% if current_user.image? %>
+</div>
+
  <style media="screen">
   .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block; background-position: center;}
  </style>
- <% else %>
-  <style media="screen">
-  .userimage2 { background-image: url("http://i.imgur.com/MTQl4Q0.png"); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block;}
- </style>
- <% end %>
 
-<script>
+ <script>
 function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -104,22 +69,16 @@ function readURL(input) {
     });
 
 
-
     $(document).ready(function() {
-        $('#showmenuedit').click(function() {
-                $('.menu').show();
-                $('.menu2').hide();
+        $('#showmenu').click(function() {
+                $('.menu5').show();
+                $('#showmenu').hide();
+                $('#hide').hide();
+                $('.hello4').hide();
+               
+                
         });
-         $('#showmenuedit2').click(function() {
-                $('.menu2').show();
-                $('.menu').hide();
-        });
-    });    
+    }); 
 
 </script>
-
-
-<% else %>
-
-<% end %>
 

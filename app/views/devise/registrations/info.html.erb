@@ -1,36 +1,24 @@
-<%= render 'layouts/infoheader' %>
 
-<div class='width6'>
- 
-<div class="width30">
-<div class="settingsnavbar51info">
-Sign Up
-</div>
-</div>
 
-<div class="width30">
-<div class="settingsnavbar50">
-Complete Profile
-</div>
-</div>
-<div class="width30">
-<div class="settingsnavbar51info">
-Finish
-</div>
-</div>
-
-</div>
-
-<div class="underimagemarginc"></div>
+<div class='px300'>
+<div class="userbehindgrey3"> 
 
 
 
-<div class="row"></div>
+
+
 
 <% if current_user.email.present? %>
-<div class="width6">
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
- <div class="userbehindgrey2"> 
+<div class="completeyourprofile">
+Add an Image
+</div>
+<div class="completesmall">
+Add an image for your profile.
+</div>
+
+<div class="row"></div>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :style => "margin: 0px !important;"}) do |f| %>
+
 
   <%= f.error_notification %>
 
@@ -48,53 +36,52 @@ Finish
 </div>
 </div>
 
-<div class="commentmargin10"></div>
 
-<div class="usernametext2">  
-<%= current_user.name %>
-</div>  
+<div class="row"></div>
 
-<%= f.input :place, as: :text, input_html: { rows: "1", :class => "hellobio2" }, label: false,placeholder: "Location" %>
+<div class="floatright"> 
+<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 60px 0px 0px 0px !important;" %>
+</div>
+<div class="rightskipabsolute">
+<%= link_to "Skip for now", root_path %>
+</div>    
 
+<div class="row"></div>
 
-<div class="center"> 
-<%= f.submit "Finish", class: "favouritebuttonleft"%>
 </div>
 
 
 
 <% end %>
-
 </div>
 
-<% else %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
+<% else %>
+<div class="completeyourprofile">
+Your Email
+</div>
+<div class="completesmall">
+We still need your email to get started.
+</div>
+
+<div class="row"></div>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :style => "margin: 0px !important;"}) do |f| %>
   <%= f.error_notification %>
 
 
-<div id="hide">
-<div class="span4 centered"> 
+
 <%= f.input :email, input_html: { :class => "hello4" }, label: "Email", placeholder: "Email" %>
-</div>
 
-<div class="center">
-<div id="showmenu" class="favouritebuttonlefthide">Next</div>
-</div>
-</div>
 
-<div class="menu5" style="display: none;">  
 
-<div class="span4 centered"> 
-<%= f.input :place, input_html: { :class => "hello4b", :style => "display: block;" }, label: "Location", placeholder: "Your Location" %>
  
 
-<div class="center">
-<%= f.submit "Finish", class: "favouritebuttonleft"%>
+<div class="floatright">
+<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 60px 0px 0px 0px !important;" %>
 </div>
 
-</div>
-</div>
+<div class="row"></div>
 
 <% end %>
 
@@ -103,15 +90,11 @@ Finish
 
 
 
-<% if current_user.image? %>
+
  <style media="screen">
-  .userimage2 { background-image: url(<%= current_user.image %>); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block; background-position: center;}
+  .userimage2 { background-image: url("https://lh4.googleusercontent.com/-e4Z91vRBBfk/AAAAAAAAAAI/AAAAAAAAAAA/6Nzmr0eN0k8/s120-c/photo.jpg"); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block; background-position: center;}
  </style>
- <% else %>
-  <style media="screen">
-  .userimage2 { background-image: url("http://i.imgur.com/MTQl4Q0.png"); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block;}
- </style>
- <% end %>
+
  
 
 <script>

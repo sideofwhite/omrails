@@ -8,9 +8,9 @@
 
           </div>    
               
-          <div class="width10small100">  
+          
         <%= render 'posts/categories' %>
-       </div>
+       
            
         
            <div class="nav pull-right">
@@ -31,19 +31,11 @@
                         
 
                      
-                       
                       
-                                             <% if current_user.image? %>
-                       
                        
                        <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
                      
                     
-                      <% else %>
-                      
-                    <li><%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
-                    
-                      <% end %>
 
                        
 
@@ -78,7 +70,7 @@
     <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Login</h3>
     <div class="underpodiumhome">
-    Need an account?
+    <%= link_to "Need an account?", new_user_registration_path %>
     </div>
   </div>
 
@@ -94,7 +86,7 @@
     <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Sign Up</h3>
     <div class="underpodiumhome">
-    Have an account?
+    <%= link_to "Have an account?", new_user_session_path %>
     </div>
   </div>
 

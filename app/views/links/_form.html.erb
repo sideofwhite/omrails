@@ -1,19 +1,15 @@
 <% if user_signed_in? %>
 
 
-<%= simple_form_for [question, Link.new], :remote => true, id: "new_review" do |f| %>
+<%= simple_form_for [question, Link.new], :remote => true, html: {id: "new_link"} do |f| %>
 <%= f.error_notification %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<% if current_user.image.present? %>
+
 <div class="smallavatar3">
 <%= image_tag (current_user.image) %>
 </div>
-<% else %>
-<div class="smallavatar3">
-<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(question.user) %>
-</div>
-<% end %>
+
 
 <div class="commentdescriptiontext">
 <div class="commentdescriptionname">	
@@ -21,7 +17,7 @@
 </div>
 
 
- <%= f.input :description, as: :text, input_html: { rows: "1", :class => "createcomment" }, label: false,placeholder: "Comment..." %>
+ <%= f.input :description, as: :text, input_html: { rows: "1", :class => "createcomment" }, label: false,placeholder: "Write a comment..." %>
  <%= f.button :submit, "Post", class: "favouritebuttoncomment" %>
 </div>
 
@@ -33,12 +29,8 @@
 <% else %>
 
 
-<%= link_to new_user_registration_path do %>
-<div class="addlink">
-<i class="fa fa-plus-square-o"></i>
-Sign up to reply
-</div>
-<% end %>
+<%= link_to "Sign up to add comment...", new_user_registration_path, class: "addlink" %>
+
 
 <% end %>
 

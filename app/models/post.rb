@@ -4,11 +4,15 @@ friendly_id :title, use: :slugged
 
 has_attached_file :image, styles: { :large => "740x340>" }
 
-scope :hide, where(:hide => false)
+scope :hide, where(:hide => false).where(:top => false)
+scope :topcategory, where(:category => true)
+scope :nothiddencategory, where(:category => false).where(:hide => false)
+scope :hiddencategory, where(:category => false).where(:hide => nil).limit(3)
+scope :featured, where(:top => true).where(:hide => false)
 scope :top, (select('posts.*, count(comments.id) as count_comments')
              .joins("left join comments on comments.post_id = posts.id and comments.created_at >= '#{Time.zone.now.beginning_of_day}'")
              .group('posts.id')
-             .order('count_comments desc')).offset(1)
+             .order('count_comments desc'))
 
 
 

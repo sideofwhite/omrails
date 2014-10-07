@@ -1,0 +1,199 @@
+
+<% @hidden.each_with_index do |question, i| %>
+<div id="question_<%= question.id %>" style="padding-top: 30px;">
+
+<div class="smallavatar">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+
+
+
+
+<div class="lightname">
+<%= link_to (question.user.name), user_path(question.user) %>
+</div>	
+
+<div class="row"></div>
+
+<div class="title50">
+<% if question.title? %>
+<%= question.title %>
+<% else %>
+I am an expert in American police forces
+<% end %> 
+</div>
+
+
+<p>
+<%= simple_format(question.body) %>
+</p>
+
+<div class="date">
+Written <%= time_ago_in_words(question.created_at) %> ago
+</div>
+
+<div class="belowanswer10"></div>
+
+<% if current_user == question.user or current_user.try(:admin?) %>
+<div class="showbuttons-<%= question.id %>">
+<i class="fa fa-ellipsis-h"></i>
+</div>
+
+<div class="hiddenbuttons" style="display: none;">
+<div class="editanswer">
+<%= link_to "Edit Answer", edit_comment_question_path(question.comment, question), class: "opacity7" %>
+<%=  link_to "Delete Answer", comment_question_path(question.comment, question), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "opacity7" %>
+</div>
+</div>
+
+<% end %>
+
+<div class="centericons">
+<div class="lightcontainercomment"> 
+
+
+<% if user_signed_in? %>
+
+<% if current_user.voted_for? question %>
+<div class="clicked"></div>
+<% else %>
+<%= link_to upvote_comment_question_path(question.comment, question), class: "hoverblueupvote", remote: true, method: :put do %>
+<div class="upvotebutton2-<%= question.id %>"></div>
+<% end %>
+<div class="clicked-<%= question.id %>" style="display: none;"></div>
+<% end %>
+
+
+<% else %>
+<%= link_to new_user_registration_path do %>
+<div class="upvotebutton2b"></div>
+<% end %>
+<% end %>
+
+
+
+<div class="<%= question.id %>">
+
+
+<div class="commenttextbeside2hover">
+<div class="commentbutton"></div>
+</div>
+</div>
+
+<div class="commenttextbeside2">
+<%= pluralize(question.links.count, 'Comment') %>
+</div>
+
+</div>
+
+
+<div class="row"></div>
+
+</div>
+
+<div class="menu-<%= question.id %>" style="display: none;">
+
+
+<div id="linkmama">
+<%= render :partial => 'newlink', locals: {question:question} %>
+</div>
+<div id="linkformmama">
+<%= render :partial => "links/form", locals: {question:question} %>
+</div>
+
+
+
+
+</div>
+
+
+<hr class="anchorline"/>
+
+
+
+<script>
+
+$(document).ready(function() {
+        $('.<%= question.id %>').click(function() {
+               
+                $('.menu-<%= question.id %>').toggle();
+                $('.eventtoptext3').hide();
+                
+                
+        });
+
+   $('.cancelslideup').click(function() {
+    $('.menu').slideUp("fast");
+    $('.eventtoptext3').show();
+
+     }); 
+    }); 
+
+$(document).ready(function(){
+    $('.showbuttons-<%= question.id %>').click(function(){
+        $('.hiddenbuttons').toggle();
+    });
+}); 
+
+$(document).ready(function() {
+        $('.upvotebutton2-<%= question.id %>').click(function() {
+                $('.clicked-<%= question.id %>').show();
+                $('.upvotebutton2-<%= question.id %>').hide();
+                $('.commenttextbeside-<%= question.id %>').hide();
+                $('.commenttextbesideblue-<%= question.id %>').show();
+                
+        });
+    }); 
+
+</script>
+
+
+ <style media="screen">
+  .clicked-<%= question.id %> {   background-image: url("http://i.imgur.com/fzrbKut.png");
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    border-radius: 13px;
+    border: 1px solid #018BC6;
+    float: left;
+   margin-right: 10px;
+   background-position: center;
+} 
+  .upvotebutton2-<%= question.id %> {   background-image: url("http://i.imgur.com/garYnbH.png"); 
+   width: 26px;
+   height: 26px;
+   display: inline-block;
+   border: 1px solid rgba(51,51,51,0.5);
+   border-radius: 13px;
+   float: left;
+   margin-right: 10px;
+   opacity: 0.7;
+   background-position: center;
+ } 
+
+
+   .upvotebutton2-<%= question.id %>:hover {  background-image: url("http://i.imgur.com/fzrbKut.png");
+    border: 1px solid #018BC6;
+    opacity: 1 !important;
+    color: #018BC6 !important;}
+
+  .commenttextbeside-<%= question.id %> {    font-size: 11px;
+    display: inline-block;
+    line-height: 27px !important;
+    opacity: 0.5;
+    float: left;
+    margin-right: 15px;}
+  .commenttextbesideblue-<%= question.id %> { font-size: 11px;
+    display: inline-block;
+    line-height: 27px !important;
+    color: #018BC6 !important;
+    float: left;
+    margin-right: 15px;} 
+
+</style>   
+
+
+</div>
+
+
+<% end %>

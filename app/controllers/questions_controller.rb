@@ -39,6 +39,7 @@ end
   def edit
    @skip_footer = true  
   @comment = Comment.friendly.find(params[:comment_id]) 
+   render_forbidden and return unless can_edit?
   end
 
   # POST /questions
@@ -49,7 +50,7 @@ end
     
     respond_to do |format|
       if @question.save
-        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer Posted' }
+        format.html { redirect_to comment_question_path(@question.comment, @question), notice: 'Answer Posted' }
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { redirect_to root_path }
@@ -63,7 +64,7 @@ end
   def update
     
     @comment = Comment.friendly.find(params[:comment_id])
-    
+    render_forbidden and return unless can_edit?
     respond_to do |format| 
       if @question.update(question_params)
         format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer Updated'  }
@@ -91,8 +92,12 @@ end
       @question = Question.friendly.find(params[:id])
     end
 
+     def can_edit?
+    current_user == @comment.user
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :title, :comment_id, :user_id, :image, :image_remote_url, :caption)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id, :image, :image_remote_url, :caption, :hide)
     end
 end

@@ -73,7 +73,7 @@ end
      @link = Link.find params[:id]
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to redirect_to post_comment_path(@question.comment.post, @question.comment), notice: 'Answer deleted' }
+      format.html { redirect_to post_comment_path(@question.comment.post, @question.comment), notice: 'Answer deleted' }
       format.json { head :no_content }
     end
   end

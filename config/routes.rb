@@ -2,6 +2,7 @@ Omrails::Application.routes.draw do
   
 
 
+  
   get "profile/place"
   get "profile/bio"
   get "users/show"
@@ -60,6 +61,8 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
   match '/contact', to: 'pages#contact',  via:'get'
+  match '/guidelines', to: 'pages#guidelines',  via:'get'
+  match '/tos', to: 'pages#tos',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
@@ -68,6 +71,10 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id/allnotifications', to: 'users#allnotifications', as: :allnotifications 
   post 'users/read_all_notifications', to: 'users#read_all_notification', as: :read_all_notifications 
   get 'users/:id/userinterviews', to: 'users#interviews', as: :userinterviews
+  get 'users/:id/usercomments', to: 'users#usercomments', as: :usercomments
+  get 'users/:id/upvotes', to: 'users#upvotes', as: :upvotes
+  get 'users/:id/allanswers', to: 'users#allanswers', as: :allanswers
+  get 'users/:id/allcomments', to: 'users#allcomments', as: :allcomments
   get 'posts/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
   get 'posts/:id/newquestions', to: 'posts#shownewquestion', as: :newquestions
   get 'top', to: 'posts#top', as: :top

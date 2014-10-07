@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
     def info
       @skip_footer = true 
-      @skip_bottom = true 
       @redirect = true
         @user = current_user
         if @user 
@@ -38,7 +37,7 @@ class RegistrationsController < Devise::RegistrationsController
       sign_in @user, :bypass => true
 
     if URI(request.referer).path == '/info'
-  redirect_to root_path
+  redirect_to root_path, notice: "Welcome to Podium!" 
 else 
  redirect_to user_path(@user), notice: "Updates Saved" 
  end

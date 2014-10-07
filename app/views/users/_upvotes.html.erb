@@ -1,0 +1,40 @@
+<% @questions.each do |question| %>
+
+<div class="titlecontainer30">
+<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
+
+</div>
+
+
+<div class="p2">	
+ 
+    <%= truncate(question.body, :separator => ' ', length: 330) %>
+    <%= link_to ("Read More"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
+
+</div>
+
+<div class="five">
+
+
+<div class="feedimage">
+<%= image_tag question.user.image %>
+</div>
+
+<div class="experimentname">
+<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
+<% if question.title.present? %>
+ | <%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>	
+
+</div>
+
+<div class="row"></div>
+
+<hr class="commentfeedline"/>
+
+
+
+
+
+<% end %>

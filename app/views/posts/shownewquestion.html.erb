@@ -48,7 +48,9 @@
 <div class='linkinline'>
 <%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
 </div>
-
+<div class="imagewhitedate">
+<%= time_ago_in_words(@post.created_at).capitalize %> ago
+ </div> 
 </div>
 
 
