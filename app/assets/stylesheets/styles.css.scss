@@ -370,7 +370,15 @@ p {
 
 }
 
+@media screen and (max-width: 500px) 
+{ 
 
+.p3 {
+    font-size: 17px !important;
+    line-height: 1.5; 
+}
+
+}
 
 .whitebrand {
     color: white !important;
@@ -957,26 +965,20 @@ li {
 
 .favouritebuttonquestionform {
     
-    border-radius: 2px;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-    color:  #018BC6 !important;
-    padding: 8px 15px;
-    font-size: 13px;
-    border: 1px solid #018BC6 !important;
-    font-weight: 700;
+     color: #018BC6 !important; 
+    font-size: 14px;
     text-decoration: none !important;
-    cursor: pointer;
-    font-family: "roboto", sans-serif !important;
-    display: inline-block !important;
-    margin-top: 20px;
-
-    margin-left: 0 auto;
-    margin-right: 0 auto;
-    display: block;
     float: right;
-    background-color: white !important;
-    margin-bottom: 20px;
+    font-family: roboto;
+    margin-top: 13px;
+    text-decoration: underline !important;
 }
+
+.favouritebuttonquestionform:hover {
+    text-decoration: underline !important;
+    color: #018BC6 !important;
+}
+
 
 .seeallleft {
     
@@ -1001,27 +1003,23 @@ li {
 }
 
 .favouritebuttonquestionform2 {
-    
-    border-radius: 2px;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-    color:  #018BC6 !important;
-    padding: 11px 15px;
-    font-size: 13px;
-    border: 1px solid #018BC6 !important;
-    font-weight: 700;
+    color: rgba(51,51,51,0.3) !important;
+    font-size: 14px;
     text-decoration: none !important;
-    cursor: pointer;
-    font-family: "roboto", sans-serif !important;
-    display: inline-block !important;
-    margin-top: 20px;
-
-    margin-left: 0 auto;
-    margin-right: 0 auto;
-    display: block;
     float: right;
-    background-color: white !important;
-    margin-bottom: 20px;
+    font-family: roboto;
+    margin-top: 10px;
+
+    
 }
+
+
+
+.favouritebuttonquestionform2:hover {
+    text-decoration: none !important;
+    color: rgba(51,51,51,1) !important;
+}
+
 
 .favouritebuttonquestionform3 {
     
@@ -5144,6 +5142,14 @@ border-radius: 2px;
 
 }
 
+.twitterlogin:hover {
+    text-decoration: none !important;
+}
+
+.whitenotext:hover {
+   text-decoration: none !important; 
+}
+
 .twitterlogin2 {
    
     font-size: 24px !important;
@@ -6384,7 +6390,7 @@ margin-right: auto;
 
 .footertext {
     font-size: 12px;
-    margin-right: 15px;
+    margin-right: 10px;
     display: inline;
     opacity: 0.3;
     padding-bottom: 20px;
@@ -7369,7 +7375,7 @@ margin-right: auto;
     float: left;
     line-height: 1.4;
     font-style: normal;
-    opacity: 0.75;
+    
     
 }
 
@@ -7551,7 +7557,7 @@ margin-right: auto;
 }
 .blueopacity10 {
     color: rgba(1,139,198,1) !important;
-    font-size: 12px;
+    
 
 }
 
@@ -8332,7 +8338,7 @@ margin-left: 5px;
 }
 
 .underpodiumhome {
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(51,51,51);
     opacity: 0.75;
     text-align: center;
@@ -8349,7 +8355,7 @@ margin-left: 5px;
 
 .underpodiumhomeguidelines {
     font-size: 14px;
-    color: rgb(51,51,51);
+    color: rgba(51,51,51, 0.75);
     line-height: 1.5;
 
 }
@@ -8674,7 +8680,7 @@ padding-top: 35px;
 
 
 .underpodiumhome20 {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(51,51,51,0.75) !important;
     text-align: center;
     margin-bottom: 30px;
@@ -8687,7 +8693,7 @@ padding-top: 35px;
     margin-bottom: 5px;
     font-weight: bold;
     text-align: center !important;
-    margin-top: 50px;
+    margin-top: 80px;
     border: 0px !important;
 }
 
@@ -9049,10 +9055,13 @@ margin-top: 30px;
 }
 
 .explainertext {
+    color: rgba(51,51,51,0.3) !important;
+    font-size: 14px;
+    text-decoration: none !important;
     float: right;
-    opacity: 0.5;
-    font-size: 12px;
-    margin-top: 20px;
+    font-family: roboto;
+    margin-top: 10px;
+    display: inline-block;
 
 }
 
@@ -9067,4 +9076,8 @@ margin-top: 30px;
     color: white !important;
     font-size: 10px;
     margin-top: 13px;
+}
+
+.modal-header h3 {
+    margin-bottom: 0px;
 }

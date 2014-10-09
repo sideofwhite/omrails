@@ -39,6 +39,7 @@ end
   def edit
    @skip_footer = true  
   @comment = Comment.friendly.find(params[:comment_id]) 
+  @question = Question.friendly.find(params[:id])
    render_forbidden and return unless can_edit?
   end
 
@@ -64,10 +65,11 @@ end
   def update
     
     @comment = Comment.friendly.find(params[:comment_id])
+    @question = Question.friendly.find(params[:id])
     render_forbidden and return unless can_edit?
     respond_to do |format| 
       if @question.update(question_params)
-        format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) + "#question_#{@question.id.to_s}", notice: 'Answer Updated'  }
+        format.html { redirect_to comment_question_path(@question.comment, @question), notice: 'Answer Updated'  }
         format.json { head :no_content }
       else            
         format.html { render action: 'edit' }
@@ -81,7 +83,7 @@ end
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to post_comment_path(@question.comment.post, @question.comment) }
+      format.html { redirect_to post_comment_path(@question.comment.post, @question.comment), notice: 'Answer Deleted' }
       format.json { head :no_content }
     end
   end
@@ -93,7 +95,7 @@ end
     end
 
      def can_edit?
-    current_user == @comment.user
+    current_user == @question.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

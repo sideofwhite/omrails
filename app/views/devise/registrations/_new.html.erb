@@ -1,34 +1,27 @@
+<style media="screen">
+  a:hover { text-decoration: none !important; }
+</style>
 
 
 <div class="px300">
 
+<%= link_to user_omniauth_authorize_path(:twitter) do %>
  <div class="twitterlogin">
-<i class="fa fa-twitter"></i> 	
-<%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
+<div class="whitenotext">
+<i class="fa fa-twitter"></i>
+Sign up with Twitter
 </div>
-
-
- <div class="or">
-or with email
-</div> 	
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
- 
-
-  <%= f.input :name, input_html: { :class => "hello4" }, label: false,placeholder: "Full Name" %>
-  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "yourname@example.com" %>
-
-  <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
-  <%= f.input :password_confirmation, input_html: { :class => "hello4" }, label: false, placeholder: "Password"%>
-<div class="paddingtop">
-</div>
-<div class="lightcontainer">
-By clicking "Sign Up" you indicate that you have read <br> and agree to the Terms of Service.
-</div>	
-
-<div class="center">
-<%= f.submit "Sign Up", class: "favouritebuttonmodal" %>
-</div>
-
 </div>
 <% end %>
+
+
+ <div class="lightcontainer">
+We will never post to Twitter without your permission. 
+</div>
+<div class="lightcontainer">
+By clicking "Sign up with Twitter" you indicate that you have read <br> and agree to the Terms of Service.
+</div>	
+
+</div>
+
 

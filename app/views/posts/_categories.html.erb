@@ -4,7 +4,7 @@
 
 
 
-<% if request.original_url == 'http://localhost:3000/' %>	
+<% if request.original_url == 'http://readpodium.com/' %>	
 <div class="questionnavbar50home">
 Top Stories
 </div>
@@ -14,7 +14,7 @@ Top Stories
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/world' %>		
+<% if request.original_url == 'http://readpodium.com/tags/world' %>		
 <div class="questionnavbar50home">
 World
 </div>
@@ -24,17 +24,7 @@ World
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/unitedstates' %>		
-<div class="questionnavbar50home">
-United States
-</div>
-<% else %>
-<div class="questionnavbar51b">
-<a href="/tags/unitedstates" style=" text-decoration: none !important;" class="hoverblue"  >United States</a>
-</div>
-<% end %>
-
-<% if request.original_url == 'http://localhost:3000/tags/politics' %>		
+<% if request.original_url == 'http://readpodium.com/tags/politics' %>		
 <div class="questionnavbar50home">
 Politics
 </div>
@@ -44,13 +34,33 @@ Politics
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/technology' %>		
+<% if request.original_url == 'http://readpodium.com/tags/business' %>		
+<div class="questionnavbar50home">
+Business
+</div>
+<% else %>
+<div class="questionnavbar51b">
+<a href="/tags/business" style=" text-decoration: none !important;" class="hoverblue"  >Business</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://readpodium.com/tags/technology' %>		
 <div class="questionnavbar50home">
 Technology
 </div>
 <% else %>
 <div class="questionnavbar51b">
 <a href="/tags/technology" style=" text-decoration: none !important;" class="hoverblue"   >Technology</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://readpodium.com/tags/science' %>		
+<div class="questionnavbar50home">
+Science
+</div>
+<% else %>
+<div class="questionnavbar51b">
+<a href="/tags/science" style=" text-decoration: none !important;" class="hoverblue"  >Science</a>
 </div>
 <% end %>
 

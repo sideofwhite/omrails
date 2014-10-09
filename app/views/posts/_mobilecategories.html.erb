@@ -15,7 +15,7 @@ Categories...
 <div class="allcategoriesmobile" style="display: none;">
 <hr class="mobilecategorieshr"/>
 
-<% if request.original_url == 'http://localhost:3000/' %>	
+<% if request.original_url == 'http://readpodium.com/' %>	
 <div class="mobilecategoriesboxfaded">
 Top Stories
 </div>
@@ -25,7 +25,7 @@ Top Stories
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/world' %>		
+<% if request.original_url == 'http://readpodium.com/tags/world' %>		
 <div class="mobilecategoriesboxfaded">
 World
 </div>
@@ -35,17 +35,7 @@ World
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/unitedstates' %>		
-<div class="mobilecategoriesboxfaded">
-United States
-</div>
-<% else %>
-<div class="mobilecategoriesbox">
-<a href="/tags/unitedstates" style=" text-decoration: none !important;" class="hoverbluemobile"  >United States</a>
-</div>
-<% end %>
-
-<% if request.original_url == 'http://localhost:3000/tags/politics' %>		
+<% if request.original_url == 'http://readpodium.com/tags/politics' %>		
 <div class="mobilecategoriesboxfaded">
 Politics
 </div>
@@ -55,13 +45,33 @@ Politics
 </div>
 <% end %>
 
-<% if request.original_url == 'http://localhost:3000/tags/technology' %>		
+<% if request.original_url == 'http://readpodium.com/tags/business' %>		
+<div class="mobilecategoriesboxfaded">
+Business
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/business" style=" text-decoration: none !important;" class="hoverbluemobile"  >Business</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://readpodium.com/tags/technology' %>		
 <div class="mobilecategoriesboxfaded">
 Technology
 </div>
 <% else %>
 <div class="mobilecategoriesbox">
 <a href="/tags/technology" style=" text-decoration: none !important;" class="hoverbluemobile"   >Technology</a>
+</div>
+<% end %>
+
+<% if request.original_url == 'http://readpodium.com/tags/science' %>		
+<div class="mobilecategoriesboxfaded">
+Science
+</div>
+<% else %>
+<div class="mobilecategoriesbox">
+<a href="/tags/science" style=" text-decoration: none !important;" class="hoverbluemobile"   >Science</a>
 </div>
 <% end %>
 

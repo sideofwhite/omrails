@@ -93,7 +93,7 @@
 <% if @comment.questions.count > 0 %>
 <div class="center">
 <% if user_signed_in? %>	
-<%= link_to "Add Your Answer", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
+<a href="#Answer" role="button" data-toggle="modal" class="favouritebuttonleft">Add Answer</a>
 <% else %>
 <%= link_to "Add Your Answer", new_user_registration_path, class: "favouritebuttonleft" %>
 <% end %>
@@ -179,13 +179,13 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
     <div class="underpodiumhomeguidelines">
     <strong>Answers should...</strong>
     <br>
-    Respond to the question
+    - Directly respond to the question
     <br>
-    Be factual, authentic and cite sources used (at the bottom of answer)
+    - Be factual, authentic and cite sources used (at the bottom of answer)
     <br>
-    Not personally attack the question or any other answers
+    - Not personally attack the question or any other answers
     <br>
-    Answers that do not comply may be hidden, or in some cases, deleted by editors.
+    Answers that do not comply may be hidden, or in some cases, deleted
     </div>
     <hr class="profilelinezero"/>
   	<div class="center">

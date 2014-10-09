@@ -1,6 +1,6 @@
 
 $('.favouritebuttoncomment').append("<%= j (render :partial => 'comments/newlink', locals: {question: @question})  %>");
-$('#linkmama').html("<%= j (render :partial => 'comments/newlink', locals: {question: @question})  %>"); 
+$('#linkmama-<%= @question.id %>').html("<%= j (render :partial => 'comments/newlink', locals: {question: @question})  %>"); 
 $('.createcomment').val(''); 
-$('#linkformama').reset("<%= j (render :partial => 'links/form', locals: {question: @question})  %>");
+$('#linkformama-<%= @question.id %>').reset("<%= j (render :partial => 'links/form', locals: {question: @question})  %>");
 

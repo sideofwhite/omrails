@@ -18,7 +18,7 @@ Write Answer
 <hr class="aboveimageline"/>
 
 <div class="explainertext">
-Please write more...
+Please write more...(min 200 characters)
 </div>
 <div id="showmenu" class="favouritebuttonquestionform2" style="display: none !important;">Next</div>
 
@@ -36,7 +36,7 @@ Write Bio
 </div>  
 
 <div class="floatright">
-<a href="#bio" role="button" class="answersnumber" data-toggle="modal">What's a Bio?</a>
+<a href="#bio" role="button" class="answersnumber" data-toggle="modal" style="text-decoration: none !important;">What's a Bio?</a>
 </div>
 
 
@@ -59,13 +59,25 @@ Write Bio
 </div>  
 
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Bio" %>
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Write bio..." %>
 
 
 <hr class="aboveimageline"/>
 
 
-<%= f.submit "Post", class: "favouritebuttonquestionform myButton" %>
+<div id="showmenuback", style=" color: rgba(51,51,51,0.2) !important;
+    font-size: 14px;
+    text-decoration: none !important;
+    float: right;
+    font-family: roboto;
+    margin-top: 10px;
+    display: inline-block;
+    float: left; cursor: pointer;
+">
+<  back to answer
+</div>
+
+<%= f.submit "Post Answer", class: "favouritebuttonquestionform myButton", style: "background-color: white; border: none; margin-bottom: 30px; font-family: roboto; padding: 0px !important; line-height: 14px !important;" %>
 
 
 </div>
@@ -88,10 +100,21 @@ Write Bio
         });
     }); 
 
+      $(document).ready(function() {
+        $('#showmenuback').click(function() {
+                $('.menu5').hide();
+                $('#showmenu').show();
+                $('#hide').show();
+                $('.hello4').show();
+               
+                
+        });
+    }); 
+
 
     $('.hellogrey2').on("keyup", action);
 function action() {
-   if($('.hellogrey2').val().length > 0) {
+   if($('.hellogrey2').val().length > 200) {
       $('.favouritebuttonquestionform2').show();
       $('.explainertext').hide();
    }

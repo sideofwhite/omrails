@@ -1,39 +1,32 @@
+<style media="screen">
+  a:hover { text-decoration: none !important; }
+</style>
 
 <div class="px300">
 <div class="signuptext20">
-Login
+Podium.
 </div>
     <div class="underpodiumhome20">
-    <%= link_to "Need an account?", new_user_registration_path %>
+    Login 
     </div>
 
+<%= link_to user_omniauth_authorize_path(:twitter) do %>
  <div class="twitterlogin">
+<div class="whitenotext">
 <i class="fa fa-twitter"></i>
- <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class: "white" %>
+Login with Twitter
 </div>
-
- <div class="or">
-or with email
-</div> 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :email, input_html: { :class => "hello4" }, label: false,placeholder: "Email" %>
-  <%= f.input :password, input_html: { :class => "hello4" }, label: false,placeholder: "Password" %>
-  <div class="checkboxmargin"></div>
-  <%= f.input :remember_me, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
-  <div class="buttoncheckbox2">
-    Remember Me
-  </div>
-
-
-
-<div class="row"></div>
-<div class="center">
-<%= f.submit "Login", class: "favouritebuttonmodal" %>
 </div>
-
 <% end %>
+
+  <div class="lightcontainer">
+We will never post to Twitter without your permission.
+</div>  
+<div class="padding5"></div>
+
+ <div class="lightcontainer">
+Need an account? <%= link_to "Create an account.", new_user_registration_path %>
+</div>
 
 </div>
 

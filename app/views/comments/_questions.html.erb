@@ -94,10 +94,10 @@ Written <%= time_ago_in_words(question.created_at) %> ago
 <div class="menu-<%= question.id %>" style="display: none;">
 
 
-<div id="linkmama">
+<div id="linkmama-<%= question.id %>">
 <%= render :partial => 'newlink', locals: {question:question} %>
 </div>
-<div id="linkformmama">
+<div id="linkformmama-<%= question.id %>">
 <%= render :partial => "links/form", locals: {question:question} %>
 </div>
 

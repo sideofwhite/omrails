@@ -18,7 +18,7 @@
 
 
  <%= f.input :description, as: :text, input_html: { rows: "1", :class => "createcomment" }, label: false,placeholder: "Write a comment..." %>
- <%= f.button :submit, "Post", class: "favouritebuttoncomment" %>
+ <%= f.button :submit, "Post", class: "favouritebuttoncomment", data: { disable_with: "Posting..." } %>
 </div>
 
 
