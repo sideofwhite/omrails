@@ -6,18 +6,14 @@
 <div class="center">
 <div class="eventmargin2">
 There are no answers yet. 
-<% if @post.comments.count > 0 %>
-<%= link_to "Explore questions instead.", newquestions_path, class: "questionnavbarlink" %>
-<% end %>
 </div>
 </div>
+<div class="row"></div>
+<div class="sixty"></div>
 <% end %>
+
 
 <% @comments.each_with_index  do |question, i| %>
-
-
-
-
 
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
@@ -42,7 +38,7 @@ There are no answers yet.
 <div class="experimentname">
 <strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
 <% if question.title.present? %>
- | <%= truncate(question.title, :separator => ' ', length: 55) %>
+ | <%= question.title %>
 <% end %>
 </div>	
 
@@ -55,6 +51,7 @@ There are no answers yet.
 <% end %>
 
 <div class="row"></div>
+
 
 </div>
 

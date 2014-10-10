@@ -104,22 +104,25 @@
 There are no answers yet.
 </div>
 </div>
-<hr/>
+<% if @comment.post.comments.count > 1 %>
+<hr class="relatedquestionsline"/>
 <div class="row"></div>
 <div class="eventmargin2" style="padding: 0px;">
 Related Questions
 </div>
 <div class="row"></div>
 <% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
+<div class="date4" style='margin: 20px 0px 0px 0px;'>
+Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 <div class="relatedquestions">
 <%= link_to (comment.title), post_comment_path(comment.post, comment) %>
 </div>
 <div class="nameblueside3" style="font-size: 12px;">
 <%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
 </div>
-<div class="date4">
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
+<div class="row"></div>
+<% end %>
 <% end %>
 <% end %>
 

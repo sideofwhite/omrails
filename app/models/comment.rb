@@ -9,9 +9,7 @@ end
 
 scope :nothidden, where(:hide => false)
 
-include PublicActivity::Model
-tracked except: :create, owner: ->(controller, model) { controller && controller.current_user }
-tracked except: :create, recipient: ->(controller, model) { model && model.user }
+
 
 
 

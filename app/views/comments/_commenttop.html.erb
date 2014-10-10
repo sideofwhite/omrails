@@ -10,20 +10,62 @@ There are no questions yet.
 
 
 <% @comments.each_with_index  do |comment, i| %>
-<div class="date4" style="margin: 0px 0px 7px 0px;">
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
 
+<div class="question75">
+
+<div class="padding1075">
 <div class="titlecontainer20">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-
-<div class="nameblueside3">
-<%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
+<div class="date4" style="margin: 7px 0px 0px 0px;">
+Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
 </div>
 
-<hr class="topquestion2"/>
+</div>
 
+<div class="question25">
+<div class="question25border">		
+<% if comment.questions.count > 0 %>
+
+<div class="nameblueside3" style="margin: 0px 0px 10px 0px; font-size: 12px; color: rgba(51,51,51,0.5) !important;">
+<%= "Answer".pluralize(comment.questions.count) %> from...
+</div>
+<% comment.questions.limit(3).each do |question| %>
+<div class="feedimagetopquestion">
+<%= image_tag question.user.image %>
+</div>
+<% end %>
+<% if comment.questions.count > 3 %>
+<div class="plusmore">
++<%= comment.questions.count - 3 %>
+</div>
+<% end %>
+<% else %>
+
+<% end %>
+<div class="row"></div>
+</div>
+</div>
+
+
+<div class="row"></div>
+
+<hr class="commentfeedline"/>
+
+
+<% end %>
+
+<% if @comments.count > 3 %>
+<div class="topanswershome">
+<%= link_to "Top Answers", post_path(@post), class: "navbarlink" %>
+</div>
+<div class="topanswershome">
+Top Questions
+</div>
+<div class="topanswershome">
+<%= link_to "New Questions", newquestions_path(@post), class: "navbarlink" %>
+</div>
 
 <% end %>
 

@@ -3,7 +3,7 @@
 
 <% if activity.trackable %>
 
-<div class="experimentname">
+<div class="experimentname3">
 <%= link_to activity.owner.name, activity.owner if activity.owner %>	
 answered your question...
 </div>
@@ -11,28 +11,10 @@ answered your question...
 <div class="row"></div>
 
 
-<div class="titlecontainer30b">
+<div class="titlecontainer30">
 <%= activity.trackable.comment.title %>
 </div>
 
-<% if activity.owner.image? %>
-<div class="experimentimagenomargin">
-<%= link_to (image_tag(activity.owner.image)), user_path(activity.owner) %>
-</div>
-<% else %>
-<div class="experimentimagenomargin">
-<%= link_to (image_tag("http://i.imgur.com/MTQl4Q0.png")), user_path(activity.owner) %>
-</div>
-<% end %>
-
-<div class="experimentname">
-<strong><%= link_to (activity.owner.name), user_path(activity.owner) %></strong> 
-<% if activity.trackable.title.present? %>
- | <%= truncate(activity.trackable.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>	
-
-<div class="row"></div>
 
 
 <div class="row"></div>
@@ -43,6 +25,24 @@ answered your question...
     <%= link_to ("Read More"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
 
 </div>
+
+<div class="five">
+
+
+<div class="feedimage">
+<%= image_tag activity.trackable.user.image %>
+</div>
+
+<div class="experimentname">
+<strong><%= link_to (activity.trackable.user.name), user_path(activity.trackable.user) %></strong> 
+<% if activity.trackable.title.present? %>
+ | <%= activity.trackable.title %>
+<% end %>
+</div>	
+
+</div>
+
+
 <hr/>
 
 <% else %>

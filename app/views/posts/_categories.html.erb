@@ -4,7 +4,7 @@
 
 
 
-<% if request.original_url == 'http://readpodium.com/' %>	
+<% if request.path == '/' %>	
 <div class="questionnavbar50home">
 Top Stories
 </div>
@@ -14,7 +14,7 @@ Top Stories
 </div>
 <% end %>
 
-<% if request.original_url == 'http://readpodium.com/tags/world' %>		
+<% if request.path == '/tags/world' %>		
 <div class="questionnavbar50home">
 World
 </div>
@@ -24,7 +24,7 @@ World
 </div>
 <% end %>
 
-<% if request.original_url == 'http://readpodium.com/tags/politics' %>		
+<% if request.path == '/tags/politics' %>		
 <div class="questionnavbar50home">
 Politics
 </div>
@@ -34,7 +34,7 @@ Politics
 </div>
 <% end %>
 
-<% if request.original_url == 'http://readpodium.com/tags/business' %>		
+<% if request.path == '/tags/business' %>		
 <div class="questionnavbar50home">
 Business
 </div>
@@ -44,7 +44,7 @@ Business
 </div>
 <% end %>
 
-<% if request.original_url == 'http://readpodium.com/tags/technology' %>		
+<% if request.path == '/tags/technology' %>		
 <div class="questionnavbar50home">
 Technology
 </div>
@@ -54,7 +54,7 @@ Technology
 </div>
 <% end %>
 
-<% if request.original_url == 'http://readpodium.com/tags/science' %>		
+<% if request.path == '/tags/science' %>		
 <div class="questionnavbar50home">
 Science
 </div>
