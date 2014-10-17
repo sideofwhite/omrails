@@ -1,14 +1,14 @@
 
 
 <div class='px300'>
-<div class="userbehindgrey3"> 
+    <div class="thirty"></div>
+ <div class="center">
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/Screen+Shot+2014-10-06+at+4.25.29+PM.png") %>
+</div>   
 
+<div class="thirty"></div>
 
-
-
-
-
-<% if current_user.email.present? %>
+<% if current_user.email.blank? %>
 <div class="completeyourprofile">
 Add an Image
 </div>
@@ -60,7 +60,7 @@ Add an image for your profile.
 <div class="completeyourprofile">
 Your Email
 </div>
-<div class="completesmall">
+<div class="completesmall" style="margin-bottom: 20px !important;">
 We still need your email to get started.
 </div>
 
@@ -77,11 +77,13 @@ We still need your email to get started.
 
  
 
-<div class="floatright">
-<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 60px 0px 0px 0px !important;" %>
+<div class="center">
+<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 30px 0px 0px 0px !important;" %>
 </div>
-
 <div class="row"></div>
+<hr/>
+
+
 
 <% end %>
 

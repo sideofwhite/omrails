@@ -105,9 +105,12 @@
 
 
 
-
+<% unless @comment.post.pictures.count == 0 %>
 <style media="screen">
-  .imagestrip { background-image: url(<%= @comment.post.image %>); }
+ .imagestrip { background-image: url(<%= @comment.post.pictures.last.image %>); }
+</style>
+<% end %>
+<style media="screen">
   .navbar .brand {color: white !important; opacity: 1 !important;} 
   .headtext {color: white !important;} 
   .fa-bell-o { color: white !important;}
@@ -126,12 +129,12 @@
   <div class="center">
     <div class="underpodiumhomeguidelines">
     Please read the following guidelines before answering:
-    <hr class="profilelinezero"/>
 </div>
     </div>
   </div>
 
-  <div class="modal-body" style="padding-top: 0px !important;">
+  <div class="modal-body" style="padding-top: 0px !important; margin-top: -30px;">
+    <div class="userbehindgrey3"> 
     <div class="underpodiumhomeguidelines">
     <strong>Answers should...</strong>
     <br>
@@ -143,7 +146,8 @@
     <br>
     Answers that do not comply may be hidden, or in some cases, deleted
     </div>
-    <hr class="profilelinezero"/>
+  </div>
+
     <div class="center">
     <%= link_to "Got it", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
 </div>

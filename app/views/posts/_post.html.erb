@@ -3,9 +3,11 @@
 
 <% @posts.each_with_index do |post, i| %>
 
+<% unless post.pictures.count == 0 %>
 <style media="screen">
-  .experimentstrip-<%= post.id %> { background-image: url(<%= post.image %>); }
+  .experimentstrip-<%= post.id %> { background-image: url(<%= post.pictures.last.image %>); }
 </style>
+<% end %>
 
 <%= link_to post_path(post) do %> 
 
@@ -23,7 +25,7 @@
 <%= link_to (post.title), post_path(post), class: "posttext" %> 
 
 <div class="descriptionmarginstripsmall hidden-phone"> 
-<%= truncate(post.description, length: 300, separator: ' ') %>
+<%= truncate(post.description, length: 200, separator: ' ') %>
 </div>
 
 <div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
@@ -57,7 +59,7 @@ Top Answers
 <hr class="topquestion"/>
 <% else %>
 
-<div class="topanswershomenone">
+<div class="topanswershomenone" style="margin-bottom: 15px; opacity: 0.4;">
 There are no answers yet. 
 </div>
 <div class='center'>
@@ -67,15 +69,7 @@ There are no answers yet.
 <% end %>
 
 
-<% post.questions.order('cached_votes_total desc').limit(3).each do |question, i| %>
-
-
-<div class="experimentname2">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= truncate(question.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>  
+<% post.questions.order('cached_votes_total desc').limit(2).each do |question, i| %> 
 
 <div class="row"></div>
 
@@ -87,12 +81,28 @@ There are no answers yet.
 
 <div class="p3">  
  
-    <%= truncate(question.body, :separator => ' ', length: 120) %>
+    <%= truncate(question.body, :separator => ' ', length: 250) %>
     <%= link_to ("Read More"), comment_question_path(question.comment, question), class: "readmore"  %>
 
 </div>
 
-<hr class="topquestion"/>
+<div class="five">
+
+
+<div class="feedimage">
+<%= image_tag question.user.image %>
+</div>
+
+<div class="experimentname">
+<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
+<% if question.title.present? %>
+ | <%= question.title %>
+<% end %>
+</div>  
+
+</div>
+
+<hr class="commentfeedline"/>
 
 <% end %>
 
@@ -103,7 +113,7 @@ There are no answers yet.
 <% end %>
 
 
-<hr class="homebuttonline"/>
+<div class="belowbutton"></div>
 
 
 </div>

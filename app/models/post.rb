@@ -27,8 +27,7 @@ has_many :comments
 has_many :links
 has_many :questions, :through => :comments
 has_many :pictures
-geocoded_by :country
-after_validation :geocode, :if => :country_changed?
+
 
 
 

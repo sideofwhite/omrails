@@ -16,6 +16,15 @@ end
   PublicActivity::Activity.where(recipient_id: current_user.id).where(:read => false).count 
  end
 
+ use Browser::Middleware do
+  redirect_to "/browser" unless browser.modern?
+  if browser.ie10? 
+    redirect_to "/browser" 
+  elsif browser.ie9? 
+   redirect_to "/browser"  
+  end
+end
+
 
  protected
 

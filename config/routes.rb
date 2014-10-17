@@ -20,6 +20,7 @@ resources :posts do
       get :unansweredquestions
     end
   end 
+  resources :pictures
 end
       
 resources :comments do
@@ -63,6 +64,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   match '/contact', to: 'pages#contact',  via:'get'
   match '/guidelines', to: 'pages#guidelines',  via:'get'
   match '/tos', to: 'pages#tos',  via:'get'
+  match '/browser', to: 'pages#browser',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted

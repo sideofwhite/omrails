@@ -18,12 +18,17 @@
 
 </script>
 
+<% unless @post.pictures.count == 0 %>
 <style media="screen">
-  .experiment { background-image: url(<%= @post.image %>); }
+  .experiment { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
+  </style>
+<% end %>
+<style media="screen">
   .navbar .brand {color: white !important;opacity: 1 !important;} 
   .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;}
+  .navbar .nav > li > a {color: white !important;} 
   .fa-bell-o { color: white !important;}
+  .alert-danger { opacity: 1 !important; color: white !important;}
 </style>
 
 
@@ -33,6 +38,13 @@
 
 
 <div class="darker"></div>
+
+<div class="imagepostedby">
+ <div class="imagepostedbytext"> 
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
+</div>
+</div>
+
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
 

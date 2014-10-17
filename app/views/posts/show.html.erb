@@ -1,8 +1,11 @@
 
 
-
+<% unless @post.pictures.count == 0 %>
 <style media="screen">
-  .experiment { background-image:  url(<%= @post.image %>); background-color: #333; }
+  .experiment { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
+  </style>
+<% end %>
+<style media="screen">
   .navbar .brand {color: white !important;opacity: 1 !important;} 
   .headtext {color: white !important;} 
   .navbar .nav > li > a {color: white !important;} 
@@ -11,11 +14,22 @@
 </style>
 
 
-
-
 <div class="experiment">
 
 <div class="darker"></div>
+
+<% if @post.pictures.count > 0 %>
+<div class="imagepostedby">
+ <div class="imagepostedbytext"> 
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
+</div>
+</div>
+<% else %>
+<div class="imagepostedby">
+<a href="#Picture" role="button" data-toggle="modal" class="imagepostedbytext" style="color: white !important;">Add Image</a>
+</div>                 
+<% end %>
+
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
 
@@ -44,7 +58,11 @@
 <div class="imagewhitedate">
 <%= time_ago_in_words(@post.created_at).capitalize %> ago
  </div>  
+
+
 </div>
+
+
 
 
 <div class="row"></div>
@@ -175,7 +193,19 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
 
 
 
+<div id="Picture" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Image</h3>
+    <div class="underpodiumhome">
+    Add a banner image for this event. Please make sure it's your own image.
+    </div>
+  </div>
 
+  <div class="modal-body">
+    <%= render :partial => "pictures/form" %>
+  </div>
+</div>  
 
 
 

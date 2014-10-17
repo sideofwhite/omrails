@@ -55,7 +55,7 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
 
 <% end %>
 
-<% if @comments.count > 3 %>
+<% if @comments.count > 2 %>
 <div class="topanswershome">
 <%= link_to "Top Answers", post_path(@post), class: "navbarlink" %>
 </div>

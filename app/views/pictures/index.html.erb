@@ -1,13 +1,6 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav"> 
-
-<li><%= link_to "Post Picture", new_post_picture_path(@post)%></li>
-</div>
-</ul>
-</div>
 
 
-<% @pictures.each do |picture| %>
-<%= image_tag picture.image(:medium) %>
+
+<% @picture.each do |picture| %>
+<%= image_tag picture.image %>
 <% end %> 

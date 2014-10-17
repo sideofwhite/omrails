@@ -13,4 +13,9 @@ class PagesController < ApplicationController
   def tos
       
   end
+
+  def browser
+     @skip_footer = true  
+  
+  end
 end
