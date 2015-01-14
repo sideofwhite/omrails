@@ -11,11 +11,11 @@
 
 <%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: "Edit Question",placeholder: "Question" %>
 
-
+<%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "Add a development tag" %>
 <div class="row"></div>
 
 <div class="floatright">
- <%= link_to 'Delete Interview', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'This question will be deleted. Are you sure?' }, class: "favouritebuttonleft" %>   
+ <%= link_to 'Delete Question', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'This question will be deleted. Are you sure?' }, class: "favouritebuttonleft" %>   
 </div>
 
 <%= f.submit "Save Changes", class: "favouritebuttonleft" %>

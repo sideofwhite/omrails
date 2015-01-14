@@ -3,6 +3,8 @@ Omrails::Application.routes.draw do
 
 
   
+  
+
   get "profile/place"
   get "profile/bio"
   get "users/show"
@@ -12,9 +14,11 @@ resources :posts do
   member do
       put :upvote
     end
+    resources :events
   resources :comments do
     member do
       put :upvote
+      get :tag
     end
     member do 
       get :unansweredquestions
@@ -66,6 +70,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   match '/tos', to: 'pages#tos',  via:'get'
   match '/browser', to: 'pages#browser',  via:'get'
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'tags/:tag', to: 'posts#show'
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/upvoted', to: 'users#upvoted', as: :upvoted
   get 'users/:id/userquestions', to: 'users#questions', as: :userquestions

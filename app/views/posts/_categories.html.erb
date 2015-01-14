@@ -1,8 +1,8 @@
-<div class="visible-desktop visible-tablet hidden-mobile">
+<div class="visible-desktop visible-tablet visible-mobile">
 
 <div class="postfifty">
 
-
+<div class="categoriesborder">
 
 <% if request.path == '/' %>	
 <div class="questionnavbar50home">
@@ -14,13 +14,15 @@ Top Stories
 </div>
 <% end %>
 
+</div>
+
 <% if request.path == '/tags/world' %>		
 <div class="questionnavbar50home">
 World
 </div>
 <% else %>
 <div class="questionnavbar51b">
-<a href="/tags/world" style=" text-decoration: none !important;" class="hoverblue"  >World</a>
+<a href="/tags/world" style=" text-decoration: none !important;" class="hoverblue2"  >World</a>
 </div>
 <% end %>
 
@@ -30,7 +32,7 @@ Politics
 </div>
 <% else %>
 <div class="questionnavbar51b">
-<a href="/tags/politics" style=" text-decoration: none !important;" class="hoverblue"  >Politics</a>
+<a href="/tags/politics" style=" text-decoration: none !important;" class="hoverblue2"  >Politics</a>
 </div>
 <% end %>
 
@@ -40,7 +42,7 @@ Business
 </div>
 <% else %>
 <div class="questionnavbar51b">
-<a href="/tags/business" style=" text-decoration: none !important;" class="hoverblue"  >Business</a>
+<a href="/tags/business" style=" text-decoration: none !important;" class="hoverblue2"  >Business</a>
 </div>
 <% end %>
 
@@ -50,7 +52,7 @@ Technology
 </div>
 <% else %>
 <div class="questionnavbar51b">
-<a href="/tags/technology" style=" text-decoration: none !important;" class="hoverblue"   >Technology</a>
+<a href="/tags/technology" style=" text-decoration: none !important;" class="hoverblue2"   >Technology</a>
 </div>
 <% end %>
 
@@ -60,10 +62,9 @@ Science
 </div>
 <% else %>
 <div class="questionnavbar51b">
-<a href="/tags/science" style=" text-decoration: none !important;" class="hoverblue"  >Science</a>
+<a href="/tags/science" style=" text-decoration: none !important;" class="hoverblue2"  >Science</a>
 </div>
 <% end %>
-
 
 </div>
 </div>

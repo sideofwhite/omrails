@@ -6,10 +6,11 @@
   </style>
 <% end %>
 <style media="screen">
-  .navbar .brand {color: white !important;opacity: 1 !important;} 
+  .navbar .brand {color: white !important;} 
   .headtext {color: white !important;} 
   .navbar .nav > li > a {color: white !important;} 
   .fa-bell-o { color: white !important;}
+
   .alert-danger { opacity: 1 !important; color: white !important;}
 </style>
 
@@ -21,7 +22,7 @@
 <% if @post.pictures.count > 0 %>
 <div class="imagepostedby">
  <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user), class: "white" %>
 </div>
 </div>
 <% else %>
@@ -35,6 +36,8 @@ Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.las
 
 </div>
 
+<%= render 'posts/belowimage' %>
+
 <% if current_user.try(:admin?) %>
 <%= link_to edit_post_path(@post) do %>
 <i class="fa fa-cog"></i>
@@ -45,44 +48,26 @@ Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.las
 
 <div class="absolutecontainer">
 <div class="relativecontainer">	
-
-
+<div class="descriptionmargin"> 
 <div class="posttext2">
 <%= @post.title %> 
 </div>
-<div class="descriptionmargin">	 
-<%= @post.description %>
-<div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
+
+<hr class="whiteimageline"/>
+
+<% @post.questions.limit(3).each do |question| %>
+<div class="feedimagetopquestion3">
+<%= image_tag question.user.image %>
 </div>
-<div class="imagewhitedate">
-<%= time_ago_in_words(@post.created_at).capitalize %> ago
- </div>  
-
-
+<% end %>
+<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; float: left; margin-right: 0px; margin-left: 7px;">
+ <%= pluralize(@post.questions.count, "Answer") %> 
 </div>
-
-
 
 
 <div class="row"></div>
 
 
-<div class="width30">
-<div class="questionnavbar50">
-Top Answers
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar51">	
-<%= link_to "Top Questions", topquestions_path, class: "questionnavbarlink" %>
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar51">	
-<%= link_to "New Questions", newquestions_path, class: "questionnavbarlink" %>
-</div>
-</div>
 
 
 
@@ -90,18 +75,40 @@ Top Answers
 </div>
 </div>
 
+</div>
 
 
 <div class="width6">
 
+<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
+</div>  
+<div class="p3">  
+<%= @post.description %>
+</div>
+<div style="padding-top: 10px "></div>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "padding-left: 22px; text-decoration: underline;" %>
+ 
+<div class="row"></div>
 
+<div class="newtoggle12" style="margin-bottom: 10px; display: block; margin-top: 0px; opacity: 0.4; font-weight: bold; ">
+<% tag_cloud(@comment.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name } %>...
+<% end %>
+</div>
+ 
 
+<hr class="aboveimageline" style="margin-top: 33px !important;"/>
+<div class="newtoggle">
+Top Answers
+</div>
 
-<%= render 'posts/belowimage' %>
+<div class="newtoggleright blue">
+<%= link_to "Top Questions...", topquestions_path %>
+</div>
 
+<div class="row"></div>
 
-
-
+ 
 
 
 
@@ -110,62 +117,6 @@ Top Answers
 <%= render 'comments/commenttwo' %>
 
 
-<div class="width6">
-<div class="topanswershome"  style="margin-bottom: 30px;">
-<%= link_to "Top Questions", topquestions_path(@post), class: "navbarlink" %>
-</div>
-<div class="mobilepadding20"></div>
-<% @post.comments.order('comments.questions_count desc').limit(3).each do |comment| %>
-<div class="question75">
-
-<div class="padding1075">
-<div class="titlecontainer20">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
-</div>
-<div class="date4" style="margin: 7px 0px 0px 0px;">
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
-</div>
-
-</div>
-
-<div class="question25">
-<div class="question25border">    
-<% if comment.questions.count > 0 %>
-
-<div class="nameblueside3" style="margin: 0px 0px 10px 0px; font-size: 12px; color: rgba(51,51,51,0.5) !important;">
-<%= "Answer".pluralize(comment.questions.count) %> from...
-</div>
-<% comment.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion">
-<%= image_tag question.user.image %>
-</div>
-<% end %>
-<% if comment.questions.count > 3 %>
-<div class="plusmore">
-+<%= comment.questions.count - 3 %>
-</div>
-<% end %>
-<% else %>
-
-<% end %>
-<div class="row"></div>
-</div>
-</div>
-
-
-<div class="row"></div>
-
-<hr class="commentfeedline"/>
-
-<% end %>
-
-<% if @post.comments.count > 3 %>
-<%= link_to "See all...", topquestions_path(@post), class: "seeallleft" %>
-<% end %>
-
-
-</div>
 
 <div class="sixty"></div>
 

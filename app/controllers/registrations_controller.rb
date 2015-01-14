@@ -16,8 +16,15 @@ class RegistrationsController < Devise::RegistrationsController
     
   end
 
+   def edit
+      @skip_footer = true  
+      super
+    
+  end
+
 
    def update
+
     @redirect = false
     # For Rails 4
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)

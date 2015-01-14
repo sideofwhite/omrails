@@ -123,6 +123,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active)
+      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active, :tag_list)
     end
 end

@@ -1,6 +1,6 @@
 <% if @links.count == 0 %>
 <style media="screen">
-  .navbarbutton { color: #333 !important; border: 1px solid #333 !important; }
+  .navbarbutton { background-color: rgba(51,51,51,0.2); }
  </style>
 <div class="greyrelative">
 
@@ -22,7 +22,7 @@
 Upvotes
 </div>
 <div class="belownumber">	
-<%= @questions.count %>
+<%= @user.votes.count %>
 </div>
 </div>
 <% end %>
@@ -59,8 +59,10 @@ Comments
 
    <div class="absolutecontainer">
 <div class="relativecontainer">
-<div class="eventimagepreviewtext" style="color: rgba(51,51,51,0.75) !important; border-bottom: 1px solid rgba(51,51,51,0.1) !important; font-size: 14px !important; font-weight: 400;">
+<div class="descriptionmargin"> 
+<div class="eventimagepreviewtext" style="color: rgba(51,51,51,0.75) !important; border-bottom: 1px solid rgba(51,51,51,0.1) !important; font-size: 14px !important; font-weight: 700; padding-bottom: 10px;">
 <%= @user.name %> hasn't commented on any answers yet.
+</div>
 </div>
 </div>
 </div>
@@ -80,10 +82,12 @@ Comments
 
 <% if @links.count > 5 %>
 
-<div class="center">
-<%= link_to "See all...", allcomments_path(@user), class: "seeallleft" %>
+<div class="width6">
+<div class="floatright">
+<%= link_to "See all comments...", allcomments_path(@user), class: "blue" %>
 </div>
-
+</div>
+<div class="sixty"></div>
 
 <% end %>
 

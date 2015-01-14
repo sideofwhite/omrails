@@ -1,8 +1,4 @@
-
-
-
 <% @posts.each_with_index do |post, i| %>
-
 <% unless post.pictures.count == 0 %>
 <style media="screen">
   .experimentstrip-<%= post.id %> { background-image: url(<%= post.pictures.last.image %>); }
@@ -12,7 +8,7 @@
 <%= link_to post_path(post) do %> 
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 340px; background-size: cover;
+  height: 350px; background-size: cover;
     background-repeat: no-repeat;
     background-position: center; margin-bottom: 0px;">
 
@@ -20,109 +16,37 @@
 <div class="darker"></div>
 
 
+
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "posttext" %> 
-
-<div class="descriptionmarginstripsmall hidden-phone"> 
-<%= truncate(post.description, length: 200, separator: ' ') %>
-</div>
-
-<div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
+<%= link_to (post.title), post_path(post), class: "eventimagepreviewtext", style: 'font-size: 32px !important;' %> 
+<div class="descriptionmargin"> 
+<div class="hidden-phone"> 
 <%= truncate(post.description, length: 100, separator: ' ') %>
 </div>
 
-</div>
-</div>
+<div class="hidden-tablet hidden-desktop"> 
+<%= truncate(post.description, length: 70, separator: ' ') %>
 </div>
 
+<hr class="whiteimageline"/>
 
+<% post.questions.limit(3).each do |question| %>
+<div class="feedimagetopquestion2">
+<%= image_tag question.user.image %>
+</div>
 <% end %>
-
-
-
-<div class="width6">
-
-<div class="questionoutline">
-<div class="mobilepadding20"></div>
-
-<% if post.questions.count > 0 %>
-<div class="topanswershome">
-Top Answers
+<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; line-height: 24px !important; border-left: 1px solid rgba(255,255,255,0.5)">
+ <%= post.questions.count %> Answers
 </div>
-<div class="topanswershome">
-<%= link_to "Top Questions", topquestions_path(post), class: "navbarlink" %>
 </div>
-<div class="topanswershome">
-<%= link_to "New Questions", newquestions_path(post), class: "navbarlink" %>
-</div>
-<hr class="topquestion"/>
-<% else %>
-
-<div class="topanswershomenone" style="margin-bottom: 15px; opacity: 0.4;">
-There are no answers yet. 
-</div>
-<div class='center'>
-<%= link_to "See questions...", topquestions_path(post), class: "seeallleft" %>
-</div>
-
-<% end %>
-
-
-<% post.questions.order('cached_votes_total desc').limit(2).each do |question, i| %> 
 
 <div class="row"></div>
 
-<div class="titlecontainer30">
-<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
 
 </div>
-
-
-<div class="p3">  
- 
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), comment_question_path(question.comment, question), class: "readmore"  %>
-
 </div>
-
-<div class="five">
-
-
-<div class="feedimage">
-<%= image_tag question.user.image %>
 </div>
-
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= question.title %>
-<% end %>
-</div>  
-
-</div>
-
-<hr class="commentfeedline"/>
-
-<% end %>
-
-<% unless post.questions.count == 0 %>
-<div class='center'>
-<%= link_to "See all...", post_path(post), class: "seeallleft" %>
-</div>
-<% end %>
-
-
-<div class="belowbutton"></div>
-
-
-</div>
-
-
-
-
-</div>
-
 
 
 <% end %>
@@ -130,8 +54,6 @@ There are no answers yet.
 
 
 
-
-
-
+<% end %>
 
 

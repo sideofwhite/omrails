@@ -2,32 +2,31 @@
 
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-
 </div>
 
+<div style="padding-top: 25px "></div>
 
-<div class="p2">	
- 
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
+<div class="row"></div>
 
-</div>
-
-<div class="five">
-
-
-<div class="feedimage">
+<div class="smallavatarfeednomargin2">
 <%= image_tag question.user.image %>
 </div>
 
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= truncate(question.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>	
-
+<div class="lightnametopblue"> 
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>
+<div class="title50"> 
+<% if question.title.present? %>
+<%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>
+
+<div class="p2">
+ <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore" %>
+</div>
+
+
 
 <div class="row"></div>
 

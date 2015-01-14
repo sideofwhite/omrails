@@ -6,6 +6,8 @@ def normalize_friendly_id(string)
   super[0..100]
 end
 
+include Bootsy::Container
+
 include PublicActivity::Model
 tracked only: :create, owner: ->(controller, model) { controller && controller.current_user }
 tracked only: :create, recipient: ->(controller, model) { model && model.comment.user }

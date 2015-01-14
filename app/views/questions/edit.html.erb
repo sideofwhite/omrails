@@ -5,7 +5,7 @@
 </style>
 
 <div class="darker2">
-<div class="imagestrip">
+<div class="imagestrip" style="height: 150px;">
 <div class='darker'></div>
 <div class="absoluteheader">
 <%= render 'layouts/xheader' %>
@@ -14,9 +14,15 @@
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<div class="eventimagepreviewtext">
+<div class="descriptionmargin" style="margin-bottom: 25px;"> 
+<div class="eventimagepreviewtext" style="font-size: 14px;">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
 </div>
+
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+
+
+</div>
 </div>
 </div>
 </div>
@@ -24,118 +30,128 @@
 
 
 <div class="width6">
-<div class="titlecontainer">
+<div class="titlecontainer" style="font-size: 26px; opacity: 0.4;">
 <%= @comment.title %>
 </div>
-<hr class="aboveimageline"/>
-
-<div class="answersnumber">
-Edit Answer
-</div>
-
-<hr class="belowimageline2"/>
-<div class='form35'></div>
 
 
-<div class="width6">
 
-<% if user_signed_in? %>
+
+
 
 
 <%= simple_form_for [@comment, @question], :html => { :method => :put } do |f| %>
-<% if current_user.try(:admin?) %>
+<% unless current_user.try(:admin?) %>
 <a id="close">
 <%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
 </a>
 <div class="buttoncheckbox2">
 Hide Answer
-  </div>
+</div>
 
 <% else %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
+<div id="hide">
+
+ <hr class="aboveimageline"/>
+
+<div class="newtoggle" style="opacity: 0.3;">
+EDIT ANSWER
+</div>   
+ 
+<hr class="belowimageline2"/>
+<%= f.input :body, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer..." %>
+
+<div class="sixty"></div>
+
+<div id="showmenu" class="favouritebuttonquestionform2" style="display: none !important;">
+<a href="#Answer" role="button" data-toggle="modal" class="bluecircle white" style="top: 125px; font-size: 18px;">&gt;</a>
+</div>
+
+
+</div>
 
 
 
-<% if current_user.image? %>
-<div class="smallavatar">
+<div class="menu5" style="display: none;"> 
+
+ <hr class="aboveimageline"/>
+
+<div class="newtoggle" style="opacity: 0.3;">
+EDIT BIO
+</div>   
+
+<div class="smallavatarfeednomargin3">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
-<% else %>
-<div class="smallavatar">
-<%= link_to (image_tag("http://i.imgur.com/OCWhfJm.png")), user_path(current_user) %>
-</div>
-<% end %>
 
 
-<div class="lightname">
+
+<div class="lightnametop"> 
 <%= current_user.name %>
 </div>
 
 <div style="display: none;">
-<div class="anontext">
+<div class="lightnametop"> 
 <%= current_user.name %>
 </div>
-</div>	
+</div>  
 
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Your bio..." %>
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Write bio..." %>
 
-
-<div class="row"></div>
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer here..." %>
-
-
-<% end %>
 
 <hr class="aboveimageline"/>
 
-<div class="floatright">
-<%= f.submit "Save Changes", class: "addlink", style: "background-color: white; border: none; margin-bottom: 30px; font-family: roboto;" %>
+
+<div class="showmenuback" id="showmenuback">
+< 
 </div>
 
+<%= f.submit "Save Changes", class: "modalacceptbutton" %>
+
+
+</div>
 <% end %>
-<% else %>
-<%= link_to "Login to Ask Question", new_user_session_path, class: "squareredbutton" %>
+
+
+
 
 <% end %>
-
-
-
-
 
 </div>
 
 <script>
- $(document).ready(function() {
-        $('#infobutton').click(function() {
+    $(document).ready(function() {
+        $('#showmenu').click(function() {
+                $('.menu5').show();
+                $('#showmenu').hide();
+                $('#hide').hide();
+                $('.hello4').hide();
                
-                $('.infomenu').toggle();
-                $('.xout').toggle();
                 
-          });
-
-
-
         });
+    }); 
 
- $(document).ready(function() {
-        $('.anon').click(function() {
+      $(document).ready(function() {
+        $('#showmenuback').click(function() {
+                $('.menu5').hide();
+                $('#showmenu').show();
+                $('#hide').show();
+                $('.hello4').show();
                
-                $('.smallavatar').hide();
-                $('.lightname').hide();
-                $('#infobutton').hide();
-                $('.infomenu').hide();
-                $('.biotext').hide();
-                $('.anontext').show();
-
-          });
-
-
-
+                
         });
+    }); 
 
 
+    $('.hellogrey2').on("keyup", action);
+function action() {
+   if($('.hellogrey2').val().length > -1) {
+      $('.favouritebuttonquestionform2').show();
+      $('.explainertext').hide();
+   }
 
+}
 
 </script>
 

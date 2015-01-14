@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootsy
 //= require jquery.autosize.js
 //= require bootstrap
 //= require bootstrap-modal

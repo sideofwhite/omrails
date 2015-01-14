@@ -1,4 +1,4 @@
-
+<div class="width6">
 
 <% if @comments.count == 0 %>
 <div class="center">
@@ -11,68 +11,64 @@ There are no questions yet.
 
 <% @comments.each_with_index  do |comment, i| %>
 
-<div class="question75">
-
-<div class="padding1075">
 <div class="titlecontainer20">
 <%= link_to (comment.title), post_comment_path(@post, comment) %>
 </div>
-<div class="date4" style="margin: 7px 0px 0px 0px;">
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
+
+<div style="padding-top: 13px "></div>
+<div class="inlineborderfeed">
+
+<div class="inlineborderfeedtext" style="font-size: 14px;">
+<%= pluralize(comment.questions.count, "Answer") %> 
 </div>
 
 </div>
+<div style="padding-top: 20px "></div>
 
-<div class="question25">
-<div class="question25border">		
+<div class="row"></div>
+
+	
 <% if comment.questions.count > 0 %>
 
-<div class="nameblueside3" style="margin: 0px 0px 10px 0px; font-size: 12px; color: rgba(51,51,51,0.5) !important;">
-<%= "Answer".pluralize(comment.questions.count) %> from...
+
+<% comment.questions.limit(2).each_with_index do |question, i| %>
+
+<div class="smallavatarfeednomargin2">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
-<% comment.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion">
-<%= image_tag question.user.image %>
+
+<div class="lightnametopblue"> 
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>
+<div class="title50"> 
+<%= question.title %> 
+</div>
+
+
+<div class="p2">
+<%= truncate(question.body, :separator => ' ', length: 180) %>
+    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
+</div>
+
+<% unless i == 1 %>
+<div class="dottedline"></div>
 <% end %>
-<% if comment.questions.count > 3 %>
-<div class="plusmore">
-+<%= comment.questions.count - 3 %>
-</div>
+
+<div class="row"></div>
+
 <% end %>
+
+<% if comment.questions.count > 1 %>
+<div style="padding-top: 20px "></div>
+<%= link_to ("See 2 more..."), post_comment_path(@post, comment), class: "readmore" %>
+<% end %>
+
 <% else %>
-
 <% end %>
-<div class="row"></div>
-</div>
-</div>
-
-
-<div class="row"></div>
-
-<hr class="commentfeedline"/>
-
-
-<% end %>
-
-<% if @comments.count > 2 %>
-<div class="topanswershome">
-<%= link_to "Top Answers", post_path(@post), class: "navbarlink" %>
-</div>
-<div class="topanswershome">
-Top Questions
-</div>
-<div class="topanswershome">
-<%= link_to "New Questions", newquestions_path(@post), class: "navbarlink" %>
-</div>
-
+<hr/>
 <% end %>
 
 
 
-
-<div class="sixty"></div>
-
-
+</div>
 

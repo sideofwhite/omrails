@@ -38,12 +38,13 @@
 
 
 <div class="darker"></div>
-
+<% if @post.pictures.count > 0 %>
 <div class="imagepostedby">
  <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user), class: "white" %>
 </div>
 </div>
+<% end %>
 
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>

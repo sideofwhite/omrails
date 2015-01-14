@@ -1,37 +1,31 @@
+<div class="settingsnavtop" style="padding: 20px 0px 20px 0px !important; background-color: white !important; border-bottom: 1px solid rgba(51,51,51,0.1);">
+
 
 <div class="width6">
-
-<div class="width50">
-<div class="settingsnavbar50">
-<% if notificationcount > 0 %>
-New Activity (<%= notificationcount %>)
-<% else %>
-New Activity 
-<% end %>
+<div class="underpodiumhomeguidelinesbig" style="display: inline;">
+New Notifications
 </div>
-</div>
-<div class="width50">
-<div class="settingsnavbar51">
-<%= link_to "All Activity", allnotifications_path(current_user), class: "navbarlink" %>
-</div>
+<div class="underpodiumhomeguidelinesbig" style="font-size: 12px; display:inline; margin-left: 10px; opacity: 0.75;">
+<%= link_to "All Notifications...", allnotifications_path(current_user) %>
 </div>
 
+</div> 
 </div>
+
+
 	
-
 <div class="width6">
-
 <% if notificationcount == 0 %>
 <div class="padding10"></div>
 <div class="center">
 
 <div class="eventmargin3">
-<i class="fa fa-bell-o" style="text-align: center !important; line-height: 16px !important; display: block !important; float: none !important; margin-bottom: 15px; opacity: 0.5; margin-top: 30px; font-size: 22px;" ></i>	
-You have no new activity.
+<i class="fa fa-bell-o" style="text-align: center !important; line-height: 16px !important; display: block !important; float: none !important; margin-bottom: 15px; font-size: 18px;" ></i>	
+No new notifications
 </div>
 </div>
 <% end %>
-
+</div>
 
 
 

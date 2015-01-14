@@ -1,19 +1,25 @@
 
-<div class="width6">	
-<div class="width50">
-<div class="settingsnavbar51">
-<%= link_to "New Activity", notifications_path(current_user), class: "navbarlink" %>
-</div>
-</div>
-<div class="width50">
-<div class="settingsnavbar50">
-All Activity 
-</div>
-</div>
-</div>
+	
+
+
+<div class="settingsnavtop" style="padding: 20px 0px 20px 0px !important; background-color: white !important; border-bottom: 1px solid rgba(51,51,51,0.1);">
 
 
 <div class="width6">
+<div class="underpodiumhomeguidelinesbig" style="display: inline;">
+All Notifications
+</div>
+<div class="underpodiumhomeguidelinesbig" style="font-size: 12px; display:inline; margin-left: 10px; opacity: 0.75;">
+<%= link_to "New Notifications...", notifications_path(@user) %>
+</div>
+
+</div> 
+</div>
+
+<div class="width6">
+
+<div style="margin-top: 30px;"></div>
+
 	
 
 <div id="products">
@@ -23,3 +29,5 @@ All Activity
 <%= will_paginate @allnotifications %>
 
 </div>
+
+<div class="row"></div>

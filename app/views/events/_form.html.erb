@@ -1,0 +1,45 @@
+<%= simple_form_for [@post, Event.new] do |f| %>
+  <%= f.error_notification %>
+
+
+<div class="blah2">
+<div class="addimageevent">
+<%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
+</div>
+</div>
+<img id="blah2"/>
+
+
+
+<%= f.input :title, as: :text, input_html: { :class => "eventformtitle" }, label: false ,placeholder: "Title" %>
+<%= f.input :body, as: :text, input_html: { :class => "eventformbody" }, label: false ,placeholder: "Description" %>
+<%= f.input :link, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "Link" %>
+
+<div class="row"></div>
+
+<hr style="margin-bottom: -15px; margin-top: 35px;"/>
+
+<div class="floatright">
+<%= f.submit "Publish", class: "modalacceptbutton", style: "margin-top: 30px" %>
+
+<% end %>
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah2').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#event_image").change(function(){
+        readURL(this);
+    });
+
+</script>

@@ -1,21 +1,23 @@
 <% if @user.votes.count == 0 %>
 <style media="screen">
-  .navbarbutton { color: #333 !important; border: 1px solid #333 !important; }
+  .navbarbutton { background-color: rgba(51,51,51,0.2); }
  </style>
 
 <div class="greyrelative">
+
+
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
-
 </div>
 
-  <div class="absolutecontainerprofile">
+<div class="absolutecontainerprofile">
 <div class="relativecontainerprofile">
 <div class="userprofilewhite">
 
 <%= render 'users/userhead' %>
 
 <div class="floatrightprofile">	
+
 <div class="abovenumber">	
 Upvotes
 </div>
@@ -53,18 +55,19 @@ Comments
 
 <div class="row"></div>
 
-   <div class="absolutecontainer">
+<div class="absolutecontainer">
 <div class="relativecontainer">
-<div class="eventimagepreviewtext" style="color: rgba(51,51,51,0.75) !important; border-bottom: 1px solid rgba(51,51,51,0.1) !important; font-size: 14px !important; font-weight: 400;">
+<div class="descriptionmargin"> 
+
+<div class="eventimagepreviewtext" style="color: rgba(51,51,51,0.75) !important; border-bottom: 1px solid rgba(51,51,51,0.1) !important; font-size: 14px !important; font-weight: 700; padding-bottom: 10px;">
 <%= @user.name %> hasn't upvoted any answers yet.
 </div>
+
+</div>
 </div>
 </div>
 
 
-
-</div>
-</div>
 
 
 <% end %>
@@ -80,11 +83,12 @@ Comments
 
 
 <% if @questions.count > 5 %>
-
-<div class="center">
-<%= link_to "See all...", upvotes_path(@user), class: "seeallleft" %>
+<div class="width6">
+<div class="floatright">
+<%= link_to "See all upvotes...", upvotes_path(@user), class: "blue" %>
 </div>
-
+</div>
+<div class="sixty"></div>
 
 <% end %>
 

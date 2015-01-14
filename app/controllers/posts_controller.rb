@@ -56,10 +56,16 @@ end
 
   def showtopquestion
      @skip_footer = true 
+  if params[:tag]   
   @post = Post.friendly.find(params[:id])
-  @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(8)
+  @comments = @post.comments.tagged_with(params[:tag]).order('comments.questions_count desc').page(params[:page]).per_page(2)
   @comment = Comment.new
+  else 
+   @post = Post.friendly.find(params[:id])
+  @comments = @post.comments.order('comments.questions_count desc').page(params[:page]).per_page(2)
+  @comment = Comment.new 
   end
+end
 
   # GET /posts/new
   def new

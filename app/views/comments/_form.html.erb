@@ -1,18 +1,24 @@
 
-
+<div class="width6">
 
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 <%= f.input :title, as: :text, input_html: { rows: "2", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
 
-<div class="center">
-<%= f.submit "Post", class: "favouritebuttonmodal myButton" %>
+    
+    <div class="floatright">
+  <%= f.submit "Post", class: "modalacceptbutton" %>
 </div>
+
+
+
+
+
 
  <% end %>
 
-
+</div>
 
 <script>
 function readURL(input) {

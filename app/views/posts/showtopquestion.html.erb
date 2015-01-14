@@ -1,6 +1,119 @@
+<% unless @post.pictures.count == 0 %>
+<style media="screen">
+  .imagestripquestions { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
+  </style>
+<% end %>
+<style media="screen">
+  .navbar .brand {color: white !important;} 
+  .headtext {color: white !important;} 
+  .navbar .nav > li > a {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+
+  .alert-danger { opacity: 1 !important; color: white !important;}
+</style>
+
+
+<div class="imagestripquestions">
+
+<div class="darker"></div>
+
+<% if @post.pictures.count > 0 %>
+<div class="imagepostedby">
+ <div class="imagepostedbytext"> 
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user), class: "white" %>
+</div>
+</div>
+<% else %>
+<div class="imagepostedby">
+<a href="#Picture" role="button" data-toggle="modal" class="imagepostedbytext" style="color: white !important;">Add Image</a>
+</div>                 
+<% end %>
+
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+
+</div>
+
+<%= render 'posts/belowimage' %>
+
+<% if current_user.try(:admin?) %>
+<%= link_to edit_post_path(@post) do %>
+<i class="fa fa-cog"></i>
+<% end %>
+
+<% end %>
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer"> 
+<div class="descriptionmargin"> 
+<div class="posttext2" style="font-size: 30px;">
+<%= @post.title %> 
+</div>
+
+<hr class="whiteimageline"/>
+
+<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; float: left; line-height: 1.1;">
+ <%= pluralize(@post.comments.count, "Question") %> 
+</div>
+
+
+<div class="row"></div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="width6">
+
+<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
+</div>  
+<div class="p3">  
+ <%= truncate(@post.description, :separator => ' ', length: 180) %>
+</div>
+<div style="padding-top: 10px "></div>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "padding-left: 22px; text-decoration: underline;" %>
+ 
+<div class="row"></div>
+
+
+ 
+
+<hr class="aboveimageline" style="margin-top: 33px !important;"/>
+<div class="newtoggle">
+Top Questions
+</div>
+
+<div class="newtoggleright blue">
+<%= link_to "Top Answers...", post_path(@post) %>
+</div>
+
+<div class="row"></div>
+
+ 
+
+
+
+
+</div>
+<%= render 'comments/commenttoptwo' %>
+
+
+
+<div class="sixty"></div>
+
+
 <script>
  $(document).ready(function() {
         $('#showmenu').click(function() {
+               
                 $('.menu').slideDown("fast");
                 $('.eventtoptext3').hide();
                 
@@ -14,97 +127,25 @@
      }); 
     }); 
 
+
+
 </script>
 
-<% unless @post.pictures.count == 0 %>
-<style media="screen">
-  .experiment { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
-  </style>
-<% end %>
-<style media="screen">
-  .navbar .brand {color: white !important;opacity: 1 !important;} 
-  .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important;}
-  .alert-danger { opacity: 1 !important; color: white !important;}
-</style>
 
 
+<div id="Picture" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Image</h3>
+    <div class="underpodiumhome">
+    Add a banner image for this event. Please make sure it's your own image.
+    </div>
+  </div>
 
-<div class="experiment">
-
-
-<div class="darker"></div>
-<% if @post.pictures.count > 0 %>
-<div class="imagepostedby">
- <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
-</div>
-</div>
-<% end %>
-
-<div class="imagepostedby">
- <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
-</div>
-</div>
-
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-
-</div>
-
-<div class="absolutecontainer">
-<div class="relativecontainer">	
-<div class="posttext2">
-<%= @post.title %> 
-</div>
-<div class="descriptionmargin">	
-<%= @post.description %>
-<div class='linkinline'>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
-</div>
-<div class="imagewhitedate">
-<%= time_ago_in_words(@post.created_at).capitalize %> ago
- </div> 
-</div>
-
-
-<div class="row"></div>
-
-<div class="width30">
-<div class="questionnavbar51">
-<%= link_to "Top Answers", post_path, class: "questionnavbarlink" %>
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar50">  
-Top Questions
-</div>
-</div>
-<div class="width30">
-<div class="questionnavbar51">  
-<%= link_to "New Questions", newquestions_path, class: "questionnavbarlink" %>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
-<div class="width6">
-
-
-
-
-<%= render 'posts/belowimage' %>
-
-
-<%= render 'comments/commenttop' %>
-
-
-
-</div>
+  <div class="modal-body">
+    <%= render :partial => "pictures/form" %>
+  </div>
+</div>  
 
 
 
@@ -121,12 +162,4 @@ Top Questions
 
 
 
-
-
-
-
-
-
-
- 
 

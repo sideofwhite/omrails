@@ -1,3 +1,12 @@
+
+
+<% if current_user.try(:admin?) %>
+<%= link_to edit_post_comment_path(@comment.post, @comment) do %>
+<i class="fa fa-cog"></i>
+<% end %>
+<% end %>
+
+
 <div class="darker2">
 <div class="imagestrip">
 <div class='darker'></div>
@@ -6,26 +15,28 @@
 
 </div>
 
+<% if user_signed_in? %>  
+  <a href="#Answer" role="button" data-toggle="modal" class="bluecircle white">+</a>
+<% else %>  
+  <%= link_to "+", new_user_registration_path, class: "bluecircle white" %>
+<% end %>
+
 <div class="absolutecontainer">
 <div class="relativecontainer">
+<div class="descriptionmargin"> 
 <div class="eventimagepreviewtext">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
 </div>
-</div>
-</div>
-</div>
-</div>
 
-<% if current_user.try(:admin?) %>
-<%= link_to edit_post_comment_path(@comment.post, @comment) do %>
-<i class="fa fa-cog"></i>
-<% end %>
+<hr class="whiteimageline"/>
 
-<% end %>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 
 <div class="width6">
-
 
 
 <div class="titlecontainer">
@@ -33,47 +44,64 @@
 </div>
 
 
+<hr style="margin-top: 20px; margin-bottom: 20px !important;"/>
 
-<hr class="aboveimageline"/>
 
-<div class="answersnumber">
-<%= pluralize(@comment.questions.count, 'Answer') %>
+<% @comment.questions.limit(3).each do |question| %>
+<div class="feedimagetopquestion2" style="floatright;">
+<%= image_tag question.user.image %>
+</div>
+<% end %>
+
+<div class="answersnumber" style="color: rgba(51,51,51,0.4) !important;">
+<%= pluralize(@comment.questions.count, 'Answer') %> 
 </div>
 
 
-<div class="floatright">
-<% if user_signed_in? %>	
-
-<i class="fa fa-plus-circle" href="#Answer" role="button" data-toggle="modal"></i>
-<a href="#Answer" role="button" data-toggle="modal" class="modalaskquestion">Answer</a>
-
-<% else %>	
-<%= link_to "Answer", new_user_registration_path, class: "askquestionright" %>
-<%= link_to new_user_registration_path do %>
-<i class="fa fa-plus-circle"></i>
-<% end %>
+<div class="newtoggle12" style="margin-bottom: 10px; display: block; margin-top: 0px; opacity: 0.4; font-weight: bold; ">
+<% tag_cloud(@comment.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name } %>...
 <% end %>
 </div>
 
+<div class="newtoggle12" style="margin-bottom: 0px; display: block; margin-top: 0px; opacity: 0.4;">
+Asked <%= time_ago_in_words(@comment.created_at) %> ago
+</div>
+
+<% if @comment.questions.count > 0 %>
+<div class="newtoggle12" style="margin-bottom: 0px; margin-top: 10px; opacity: 0.4;">
+Last answer <%= time_ago_in_words(@comment.questions.last.created_at) %> ago
+</div>
+<% end %>
 
 
 
-<hr class="belowimageline2"/>
+
+
+<div style="margin-top: 20px; margin-bottom: 15px !important;"></div>
+
+
+
 
 <div>
+
+ 
+
+
+
 
 <div id="products" data-no-turbolink>
 <%= render 'comments/questions' %>
 </div>
 
 <%= will_paginate @questions %>
-</div>
+
 
 
 <% if @hidden.count > 0 %>
 
-<div id="showmenu" class="answersnumberhidden">
-<%= pluralize(@hidden.count, 'Answer')  %> Hidden
+<div id="showmenu" class="answersnumberhidden blue">
+<%= pluralize(@hidden.count, 'Answer')  %> Hidden Answers
 </div>
 
 
@@ -90,59 +118,105 @@
 </div>
 
 
-<% if @comment.questions.count > 0 %>
-<div class="center">
-<% if user_signed_in? %>	
-<a href="#Answer" role="button" data-toggle="modal" class="favouritebuttonleft">Add Answer</a>
-<% else %>
-<%= link_to "Add Your Answer", new_user_registration_path, class: "favouritebuttonleft" %>
-<% end %>
+
+<div class="answerrequest">
+Know someone who could answer?
+<%= link_to "Ask them...", root_path, class: "blue", style: "margin-left: 3px;" %>
 </div>
-<% else %>
+
+
+
+
+
+<% if @comment.questions.count == 0 %>
+<div class="width6">
 <div class="center">
 <div class="eventmargin2">
-There are no answers yet.
+There are no answers yet. 
 </div>
 </div>
+<div class="row"></div>
 <% if @comment.post.comments.count > 1 %>
-<hr class="relatedquestionsline"/>
-<div class="row"></div>
-<div class="eventmargin2" style="padding: 0px;">
-Related Questions
+<hr class="commentfeedline"/>
+<div class="intercontent">
+<div class="inlineborderfeedtext">
+MORE QUESTIONS
 </div>
+<% if @post.comments.count > 2 %>
+<div class="inlineborderfeedtextright">  
+<%= link_to "SEE ALL...", topquestions_path(@comment.post), class: "blue" %>
+</div>
+<% end %>
 <div class="row"></div>
+<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 0px !important;">
 <% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
-<div class="date4" style='margin: 20px 0px 0px 0px;'>
-Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
-<div class="relatedquestions">
+<div class="inlineborderfeedquestion">
 <%= link_to (comment.title), post_comment_path(comment.post, comment) %>
 </div>
-<div class="nameblueside3" style="font-size: 12px;">
-<%= link_to (pluralize(comment.questions.count, 'Answer')), post_comment_path(@post, comment), class: "blue"  %> 
+<div class="inlineborderfeedquestionsmall">
+<%= pluralize(comment.questions.count, 'Answer') %>
 </div>
 <div class="row"></div>
 <% end %>
+</div>
+<hr class="commentfeedline"/>
 <% end %>
+</div>
 <% end %>
 
 
-<div class="paddingbottom30"></div>
 
 
 
+
+
+
+
+
+<div class="width6">
+<% if @comment.post.comments.count > 1 %>
+<div class="intercontent">
+<div class="questionnavbartext">
+More Questions
+</div>
+
+<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 20px !important;">
+<% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
+<div class="smallquestiontitle">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+<div class="smallquestioncount">
+<%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+<div class="row"></div>
+<% end %>
+</div>
+<hr class="commentfeedline"/>
+<% end %>
 </div>
 
 
+</div>
+</div>
+
+<div class="questiondivider">
+<div></div>
+</div>
 <% if @questions.count > 0 %>
 <div class="darker2">
 <div class="imagestrip">
 <div class='darker'></div>
 <div class="absolutecontainer">
 <div class="relativecontainer">
+
+<div class="descriptionmargin"> 
 <div class="eventimagepreviewtext">
 <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
 </div>
+
+<hr class="whiteimageline"/>
+</div>
+
 </div>
 </div>
 </div>
@@ -159,50 +233,50 @@ Asked <%= time_ago_in_words(comment.created_at) %> ago
 </style>
 <% end %>
 <style media="screen">
-  .navbar .brand {color: white !important; opacity: 1 !important;} 
-  .headtext {color: white !important;} 
-  .fa-bell-o { color: white !important;}
+.navbar .brand {color: white !important;} 
   .headtext {color: white !important;} 
   .navbar .nav > li > a {color: white !important;} 
-  .alert-danger { opacity: 1 !important; color: white !important;}
+  .fa-bell-o { color: white !important; }
+
+  .alert-danger { opacity: 1 !important; color: white !important;} 
 </style>
 
 
-                       <div id="Answer" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header" style="padding-bottom: 0px !important;">
+                       <div id="Answer" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="width6">                    
+  <div class="modal-header">
     <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="underpodiumhomeguidelinesbig">
     Answer Guidelines
   </div>
-  <div class="center">
     <div class="underpodiumhomeguidelines">
     Please read the following guidelines before answering:
-   
-</div>
+
     </div>
   </div>
+  <div class="row"></div>
 
-  <div class="modal-body" style="padding-top: 0px !important; margin-top: -30px;">
+  <div class="modal-body" style="padding-top: 0px;">
    <div class="userbehindgrey3"> 
     <div class="underpodiumhomeguidelines">
-    <strong>Answers should...</strong>
+    Answers should...
     <br>
-    - Directly respond to the question
+    • Directly respond to the question
     <br>
-    - Be factual, authentic and cite sources used (at the bottom of answer)
+    • Be factual, authentic and cite sources used (at the bottom of answer)
     <br>
-    - Not personally attack the question or any other answers
+    • Not personally attack the question or any other answers
     <br>
-    Answers that do not comply may be hidden, or in some cases, deleted
+    • Answers that do not comply may be hidden, or in some cases, deleted
     </div>
   </div>
     
-  	<div class="center">
-    <%= link_to "Got it", new_comment_question_path(@comment), class: "favouritebuttonleft" %>
+  	<div class="floatright">
+    <%= link_to "OK, I Agree", new_comment_question_path(@comment), class: "modalacceptbutton" %>
 </div>
   </div>
 </div>
-
+</div>
 
 <script>
     $(document).ready(function() {

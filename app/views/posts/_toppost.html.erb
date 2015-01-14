@@ -18,111 +18,120 @@
 
 <div class="darker"></div>
 
+<div class="absoluteheader">
+<%= render 'layouts/headercategories' %>
+
+</div>
+
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "posttext" %> 
-
-<div class="descriptionmarginstripsmall hidden-phone"> 
+<%= link_to (post.title), post_path(post), class: "posttext2" %> 
+<div class="descriptionmargin"> 
+<div class="hidden-phone"> 
 <%= truncate(post.description, length: 200, separator: ' ') %>
 </div>
 
-<div class="descriptionmarginstripsmall hidden-tablet hidden-desktop"> 
+<div class="hidden-tablet hidden-desktop"> 
 <%= truncate(post.description, length: 100, separator: ' ') %>
 </div>
 
-</div>
-</div>
-</div>
+<hr class="whiteimageline"/>
 
-
-<% end %>
-
-
-
-<div class="width6">
-
-<div class="questionoutline">
-<div class="mobilepadding20"></div>
-
-<% if post.questions.count > 0 %>
-<div class="topanswershome">
-Top Answers
-</div>
-<div class="topanswershome">
-<%= link_to "Top Questions", topquestions_path(post), class: "navbarlink" %>
-</div>
-<div class="topanswershome">
-<%= link_to "New Questions", newquestions_path(post), class: "navbarlink" %>
-</div>
-<hr class="topquestion"/>
-<% else %>
-<div class="topanswershomenone" style="margin-bottom: 15px; opacity: 0.4;">
-There are no answers yet. 
-</div>
-<div class='center'>
-<%= link_to "See questions...", topquestions_path(post), class: "seeallleft" %>
+<% post.questions.limit(3).each do |question| %>
+<div class="feedimagetopquestion2">
+<%= image_tag question.user.image %>
 </div>
 <% end %>
-
-
-
-<% post.questions.order('cached_votes_total desc').limit(2).each do |question, i| %>
-
-<div class="whitesquare">
+<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; line-height: 24px !important; border-left: 1px solid rgba(255,255,255,0.5)">
+ <%= post.questions.count %> Answers
+</div>
+</div>
 
 <div class="row"></div>
 
+
+</div>
+</div>
+</div>
+
+
+<% end %>
+
+<div class="hidden-phone"> 
+
+<div class="width6">
+
+<div class="questionnavbar51" style="padding-bottom: 0px !important;">
+3 of <%= post.questions.count %> Answers
+</div>
+
+
+<div class="questionnavbar50right">  
+<%= link_to "See all...", post_path(post), class: "blue" %>
+</div>
+
+
+<hr class="aboveimageline"/>
+
+
+
+<div class="homepagefeedpadding">
+
+<% post.questions.where(:hide => false).order('cached_votes_total desc').limit(3).each do |question| %>
+
+
+
+
+
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-
-</div>
-
-
-<div class="p3">  
- 
-    <%= truncate(question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
-
-</div>
-
-<div class="five">
-
-
-<div class="feedimage">
-<%= image_tag question.user.image %>
-</div>
-
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= question.title %>
-<% end %>
 </div>	
 
-</div>
+
+
+<div class="p2">	
+ 
+    <%= truncate(question.body, :separator => ' ', length: 300) %>
+    <%= link_to ("(Read More)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
 
 </div>
+
+
+<div class="smallavatarfeed">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>	
+<div class="feedlinetop">
+<div class="lightnametopblue" style="line-height: 30px;"> 
+    <%= link_to (question.user.name), user_path(question.user), class: "blue" %>
+     </div> 
+      <div class="title50" style="line-height: 30px;"> 
+        <% if question.title? %> 
+
+<%= question.title %> 
+<% else %> 
+I am an expert in American police forces 
+<% end %> 
+</div> 
+<div class="row"></div>
+</div>
+
+
+
+<div class="row"></div>
+
 <hr class="commentfeedline"/>
 
-<% end %>
 
-<% unless post.questions.count == 0 %>
-<div class='center'>
-<%= link_to "See all...", post_path(post), class: "seeallleft" %>
-</div>
 
 <% end %>
-<div class="belowbutton"></div>
-
-
+<div class="questionnavbar50right" style="margin-top: 0px !important;">  
+<%= link_to "See all...", post_path(post), class: "blue" %>
+</div>
+<div class="row"></div>
+</div>
 </div>
 
-
-
-
 </div>
-
-
 
 <% end %>

@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+
 <%= simple_form_for([@post, Picture.new]) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
@@ -14,4 +16,9 @@
 
   <% end %>
 
-  
+  <% else %>
+
+Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to add an image.
+
+
+<% end %> 

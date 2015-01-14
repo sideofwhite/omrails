@@ -1,3 +1,7 @@
+
+
+
+
 <% if user_signed_in? %>
 
 <%= simple_form_for [@comment, Question.new] do |f| %>
@@ -8,19 +12,26 @@
 
  <hr class="aboveimageline"/>
 
-<div class="answersnumber">
-Write Answer
+<div class="newtoggle" style="opacity: 0.3;">
+WRITE ANSWER
 </div>   
-<hr class="belowimageline2"/>
-
-<%= f.input :body, as: :text, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Answer..." %>
-
-<hr class="aboveimageline"/>
-
+<div class="floatright">
 <div class="explainertext">
-Please write more...(min 200 characters)
+PLEASE RIGHT MORE... (MINIMUM 200 CHARACTERS)
 </div>
-<div id="showmenu" class="favouritebuttonquestionform2" style="display: none !important;">Next</div>
+</div>  
+<hr class="belowimageline2"/>
+<%= f.input :body, input_html: { rows: "1", :class => "hellogrey2" }, label: false, placeholder: "Your answer..." %>
+
+
+
+<div id="showmenu" class="favouritebuttonquestionform2" style="display: none !important;">
+<% if user_signed_in? %>  
+  <a href="#Answer" role="button" data-toggle="modal" class="bluecircle white" style="top: 125px; font-size: 18px;">&gt;</a>
+<% else %>  
+  <%= link_to "&gt;", new_user_registration_path, class: "bluecircle white", style: "top: 125px; font-size: 18px;" %>
+<% end %>
+</div>
 
 
 </div>
@@ -31,29 +42,28 @@ Please write more...(min 200 characters)
 
  <hr class="aboveimageline"/>
 
-<div class="answersnumber">
-Write Bio
-</div>  
+<div class="newtoggle" style="opacity: 0.3;">
+WRITE BIO
+</div>   
 
 <div class="floatright">
-<a href="#bio" role="button" class="answersnumber" data-toggle="modal" style="text-decoration: none !important;">What's a Bio?</a>
+<a href="#bio" role="button" class="newtoggle" data-toggle="modal" style="text-decoration: none !important; opacity: 0.3;">WHAT'S A BIO?</a>
 </div>
 
 
-<hr class="belowimageline2"/>  
-<div class='form35'></div>  
-<div class="smallavatar">
+ 
+<div class="smallavatarfeednomargin3">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
 
 
 
-<div class="lightname">
+<div class="lightnametop"> 
 <%= current_user.name %>
 </div>
 
 <div style="display: none;">
-<div class="anontext">
+<div class="lightnametop"> 
 <%= current_user.name %>
 </div>
 </div>  
@@ -65,19 +75,11 @@ Write Bio
 <hr class="aboveimageline"/>
 
 
-<div id="showmenuback", style=" color: rgba(51,51,51,0.2) !important;
-    font-size: 14px;
-    text-decoration: none !important;
-    float: right;
-    font-family: roboto;
-    margin-top: 10px;
-    display: inline-block;
-    float: left; cursor: pointer;
-">
-<  back to answer
+<div class="showmenuback" id="showmenuback">
+< 
 </div>
 
-<%= f.submit "Post Answer", class: "favouritebuttonleft myButton", style: "float: right; margin-top: 10px !important; padding: 6px 15px !important;" %>
+<%= f.submit "Post", class: "modalacceptbutton" %>
 
 
 </div>
@@ -114,7 +116,7 @@ Write Bio
 
     $('.hellogrey2').on("keyup", action);
 function action() {
-   if($('.hellogrey2').val().length > 200) {
+   if($('.hellogrey2').val().length > 2) {
       $('.favouritebuttonquestionform2').show();
       $('.explainertext').hide();
    }

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   	@skip_bottom = true  
   end
   def contact
+    @skip_footer = true 
   	@skip_bottom = true  
   end
    def guidelines

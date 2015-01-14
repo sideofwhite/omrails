@@ -30,9 +30,9 @@
 
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 500px; background-size: cover;
+  height: 350px; background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; margin-bottom: 30px;">
+    background-position: center; margin-bottom: 35px;">
    <div class="darker"></div>
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
@@ -88,12 +88,14 @@ Comments
    <div class="absolutecontainer">
 <div class="relativecontainer">
 
-
-
-
-   <div class="eventimagepreviewtext">
-<%= link_to (post.title), post_path(post), class: "whiteblue" %>
+<div class="descriptionmargin"> 
+<div class="eventimagepreviewtext">
+<%= link_to (post.title), post_path(post), class: "whiteblue", style: "font-size: 14px;" %>
 </div>
+
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+</div>
+
 </div>
 </div>
 </div>
@@ -101,15 +103,21 @@ Comments
 <% else %>
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 200px; background-size: cover;
+  height: 250px; background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; margin-bottom: 30px; margin-top: 30px">
+    background-position: center; margin-bottom: 35px; margin-top: 35px">
    <div class="darker"></div>
    <div class="absolutecontainer">
 <div class="relativecontainer">
-   <div class="eventimagepreviewtext">
-<%= link_to (post.title), post_path(post), class: "whiteblue" %>
+
+<div class="descriptionmargin"> 
+<div class="eventimagepreviewtext">
+<%= link_to (post.title), post_path(post), class: "whiteblue", style: "font-size: 14px;" %>
 </div>
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+</div>
+
+
 </div>
 </div>
 </div>
@@ -124,31 +132,31 @@ Comments
 
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-
 </div>
 
-<div class="p2">	
- 
-    <%= truncate(question.body, :separator => ' ', length: 330) %>
-    <%= link_to ("Read More"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore" %>
+<div style="padding-top: 25px "></div>
 
-</div>
+<div class="row"></div>
 
-<div class="five">
-
-
-<div class="feedimage">
+<div class="smallavatarfeednomargin2">
 <%= image_tag question.user.image %>
 </div>
 
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= truncate(question.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>	
-
+<div class="lightnametopblue"> 
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>
+<div class="title50"> 
+<% if question.title.present? %>
+<%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>
+
+<div class="p2">
+ <%= truncate(question.body, :separator => ' ', length: 250) %>
+    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore" %>
+</div>
+
+
 
 <div class="row"></div>
 

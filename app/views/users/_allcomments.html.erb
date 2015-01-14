@@ -2,48 +2,60 @@
 
 <div class="titlecontainer30">
 <%= link_to (link.question.comment.title), post_comment_path(link.question.comment.post, link.question.comment) %>
-
 </div>
 
+<div style="padding-top: 25px "></div>
 
-<div class="p2">  
- 
-    <%= truncate(link.question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), comment_question_path(link.question.comment, link.question) + "#question_#{link.question.id.to_s}", class: "readmore"  %>
+<div class="row"></div>
 
+<div class="smallavatarfeednomargin2">
+<%= link_to (image_tag(link.question.user.image)), user_path(link.question.user) %>
 </div>
+
+<div class="lightnametopblue"> 
+<%= link_to (link.question.user.name), user_path(link.question.user), class: "blue" %>
+</div>
+<div class="title50"> 
+<% if link.question.title.present? %>
+<%= truncate(link.question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>
+
+<div class="p2">
+  <%= truncate(link.question.body, :separator => ' ', length: 250) %>
+    <%= link_to ("(more)"), comment_question_path(link.question.comment, link.question) + "#question_#{link.question.id.to_s}", class: "readmore" %>
+</div>
+
+<div class="row"></div>
 
 <div class="commentwidth">
-<hr class="abovecomments2"/>
-
+<div class="inlineborderfeed" style="margin-top: 15px;">
 
 <div class="smallavatar3">
-<%= link_to (image_tag(link.user.image)), user_path(link.user) %>
+<%= link_to (image_tag(link.user.image)), user_path(link.user) if link.user.present? %>
 </div>
-
-
 
 <div class="commentdescriptiontext">
 <div class="commentdescriptionname">  
-<%= link.user.name %>
-</div>  
-<% if link.description? %>
+<%= link_to (link.user.name), user_path(link.user), class: "blue" if link.user.present? %>  
+</div>
+</div>
+
+
+<div class="commentdescriptiontext" style="color: rgba(51,51,51,0.75);">
+<div>
 <%= link.description %>
-<% end %> 
-<div class="row"></div>
+</div>
 <div class="date3">
 <%= time_ago_in_words(link.created_at) %> ago
 </div>
 </div>
 
-
-
+</div>
 </div>
 
-<div class="row"></div>
-
 <hr class="commentfeedline"/>
-
+<div class="row"></div>
 
 
 

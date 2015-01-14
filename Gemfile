@@ -18,13 +18,15 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'simple_dragonfly_preview'
-gem 'bootstrap-wysihtml5-rails'
 gem 'autosize-rails'
 gem 'will_paginate'
 gem 'geocoder'
 gem 'friendly_id'
 gem 'public_activity'
 gem 'browser'
+gem 'bootsy'
+gem 'bootstrap-wysihtml5-rails'
+gem 'social-share-button'
 
 # Use sqlite3 as the database for Active Record
 group :production do

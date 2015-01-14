@@ -55,7 +55,7 @@ after_action :read_all_notification, only: [:notifications]
   @links = @user.links.order("created_at desc").page(params[:page]).per_page(10)
   end 
 
-  def notifications
+  def notifications 
   @user = User.friendly.find(params[:id]) 
   render_forbidden and return unless can_edit?
   @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: current_user.id).where(:read => false)

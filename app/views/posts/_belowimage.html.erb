@@ -1,51 +1,47 @@
-<div class="row"></div>
 
-
-<hr class="aboveimageline"/>
-
-<% if @topanswers == true %>
-<div class="answersnumber">
-<%= pluralize(@post.questions.count, 'Answer') %>
-</div>
-<% else %>
-<div class="answersnumber">
-<%= pluralize(@post.comments.count, 'Question') %>
-</div>
-<% end %>
-
-<div class="floatright">
 <% if user_signed_in? %> 
 
-<a href="#myModal" role="button" class="fa fa-plus-circle" data-toggle="modal"></a>	
-<a href="#myModal" role="button" class="modalaskquestion" data-toggle="modal">Ask Question</a>
 
+
+<div class="questionnavbar50right">
+<a href="#myModal" role="button" class="bluecircle2 white" style="" data-toggle="modal">+</a>
+</div>
 
 
 <!-- Modal -->
-<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Ask Question</h3>
-    <div class="underpodiumhome">
-    Please read <strong><%= link_to "our guidelines", guidelines_path, class: "opacity75" %></strong> before asking question.
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="width6">
+   <div class="modal-header">
+<button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+ <div class="underpodiumhomeguidelinesbig">
+    Ask Question
+  </div>
+    <div class="underpodiumhomeguidelines">
+    Please read our <%= link_to "Question Guidelines", guidelines_path, style: "text-decoration: underline;" %> before posting.
+
     </div>
   </div>
+</div>
 
   <div class="modal-body">
     <%= render :partial => "comments/form" %>
+    
   </div>
-</div>
+  </div>
+
+
+
+
 
 
 
 <% else %>
-<i class="fa fa-plus-circle"></i>
-<%= link_to 'Question', new_user_registration_path, class: "modalaskquestion" %>
+
+<%= link_to '+', new_user_registration_path, class: "bluebutton2" %>
 
 <% end %>
-</div>
 
-<hr class="modalline"/>
+
 
 
 <script>

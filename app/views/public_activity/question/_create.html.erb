@@ -4,46 +4,43 @@
 <% if activity.trackable %>
 
 <div class="experimentname3">
-<%= link_to activity.owner.name, activity.owner if activity.owner %>	
+<%= link_to activity.owner.name, activity.owner, class: "blue" if activity.owner %>	
 answered your question...
 </div>
 
 <div class="row"></div>
 
 
-<div class="titlecontainer30">
+<div class="titlecontainer30" style="font-size: 20px;">
 <%= activity.trackable.comment.title %>
+</div>
+
+<div style="padding-top: 25px "></div>
+
+<div class="row"></div>
+
+<div class="smallavatarfeednomargin2">
+<%= image_tag activity.trackable.user.image %>
+</div>
+
+<div class="lightnametopblue"> 
+<%= link_to (activity.trackable.user.name), user_path(activity.trackable.user), class: "blue" %>
+</div>
+<div class="title50"> 
+ <%= activity.trackable.title %>
+</div>
+
+<div class="p2">
+<%= truncate(activity.trackable.body, :separator => ' ', length: 250) %>
+    <%= link_to ("(more)"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
 </div>
 
 
 
 <div class="row"></div>
 
-<div class="p3">	
- 
-    <%= truncate(activity.trackable.body, :separator => ' ', length: 250) %>
-    <%= link_to ("Read More"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
+<hr class="commentfeedline"/>
 
-</div>
-
-<div class="five">
-
-
-<div class="feedimage">
-<%= image_tag activity.trackable.user.image %>
-</div>
-
-<div class="experimentname">
-<strong><%= link_to (activity.trackable.user.name), user_path(activity.trackable.user) %></strong> 
-<% if activity.trackable.title.present? %>
- | <%= activity.trackable.title %>
-<% end %>
-</div>	
-
-</div>
-
-
-<hr/>
 
 <% else %>
 

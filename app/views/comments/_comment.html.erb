@@ -1,59 +1,126 @@
-
-<div class="width6">
-
-
 <% if @comments.count == 0 %>
+<div class="width6">
 <div class="center">
 <div class="eventmargin2">
 There are no answers yet. 
 </div>
 </div>
 <div class="row"></div>
-<div class="sixty"></div>
+<hr class="commentfeedline"/>
+<div class="intercontent">
+<div class="inlineborderfeedtext">
+<%= pluralize(@post.comments.count, 'Question').upcase %>
+</div>
+<% if @post.comments.count > 2 %>
+<div class="inlineborderfeedtextright">  
+<%= link_to "SEE ALL...", topquestions_path(@post), class: "blue" %>
+</div>
+<% end %>
+<div class="row"></div>
+<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 0px !important;">
+<% @post.comments.order('comments.questions_count desc').limit(3).each do |comment| %>
+<div class="inlineborderfeedquestion">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+<div class="inlineborderfeedquestionsmall">
+<%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+
+<div class="row"></div>
+<% end %>
+</div>
+<hr class="commentfeedline"/>
+</div>
 <% end %>
 
 
 <% @comments.each_with_index  do |question, i| %>
+<div class="width6">
+
+
+<% if question.comment.post.comments.count > 0 && @comments.current_page == 2 && i == 1 %>
+<div class="intercontent">
+<div class="questionnavbartext">
+Top Questions
+</div>
+<div class="questionnavbartextright">  
+<%= link_to "See all...", topquestions_path(question.comment.post), class: "blue" %>
+</div>
+<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 20px !important;">
+<% question.comment.post.comments.order('comments.questions_count desc').limit(3).each do |comment| %>
+<div class="smallquestiontitle">
+<%= comment.title %>
+</div>
+<div class="smallquestioncount">
+<%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+<div class="row"></div>
+<% end %>
+</div>
+<hr class="commentfeedline"/>
+<% end %>
+
+<% if question.comment.post.comments.count > 0 && @comments.current_page == 4 && i == 0 %>
+<div class="intercontent">
+<div class="questionnavbartext">
+New Questions
+</div>
+<div class="questionnavbartextright">  
+<%= link_to "See all...", newquestions_path(question.comment.post), class: "blue" %>
+</div>
+<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 20px !important;">
+<% question.comment.post.comments.order('comments.created_at desc').limit(3).each do |comment| %>
+<div class="smallquestiontitle">
+<%= comment.title %>
+</div>
+<div class="smallquestioncount">
+<%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+<div class="row"></div>
+<% end %>
+</div>
+<hr class="commentfeedline"/>
+<% end %>
 
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-
 </div>
 
+<div style="padding-top: 25px "></div>
 
-<div class="p2">	
- 
-    <%= truncate(question.body, :separator => ' ', length: 330) %>
-    <%= link_to ("Read More"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
+<div class="row"></div>
 
-</div>
-
-<div class="five">
-
-
-<div class="feedimage">
+<div class="smallavatarfeednomargin2">
 <%= image_tag question.user.image %>
 </div>
 
-<div class="experimentname">
-<strong><%= link_to (question.user.name), user_path(question.user) %></strong> 
-<% if question.title.present? %>
- | <%= question.title %>
-<% end %>
-</div>	
-
+<div class="lightnametopblue"> 
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>
+<div class="title50"> 
+<% if question.title.present? %>
+<%= truncate(question.title, :separator => ' ', length: 55) %>
+<% end %>
+</div>
+
+<div class="p2">
+ <%= simple_format(question.body) %>
+    
+</div>
+
+
 
 <div class="row"></div>
 
 <hr class="commentfeedline"/>
 
+
+
 <% end %>
 
 <div class="row"></div>
 
 
-</div>
 
 
 

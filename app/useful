@@ -1,3 +1,18 @@
+<div class="darker"></div>
+
+<% if @post.pictures.count > 0 %>
+<div class="imagepostedby">
+ <div class="imagepostedbytext"> 
+Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user.name), class: "white" %>
+</div>
+</div>
+<% else %>
+
+
+<% end %>
+
+
+
 
 <div class="span3">
 
@@ -733,5 +748,31 @@ Make this answer anonymous
 <div class="row"></div>
 <div class="infomenu" style="display: none;">
 A bio is one-line explanation of why you're answering this question
+</div>
+
+
+
+
+
+
+
+
+
+<div class="userbehindgrey">
+<div class="center">
+
+<div class="contactus">
+  Contact Us
+</div>
+
+
+<div class="contactussmall">
+Whether you have a question or just want to say hi, we want to talk to you!
+</div>
+<a href="mailto:hello@readpodium.com" target="_top" class="dropalineblue">
+Drop us a line.</a>
+
+</div>
+</div>
 </div>
 
