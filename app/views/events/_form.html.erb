@@ -13,7 +13,8 @@
 
 <%= f.input :title, as: :text, input_html: { :class => "eventformtitle" }, label: false ,placeholder: "Title" %>
 <%= f.input :body, as: :text, input_html: { :class => "eventformbody" }, label: false ,placeholder: "Description" %>
-<%= f.input :link, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "Link" %>
+<%= f.input :link, as: :text, input_html: { :class => "eventformlink", :style => "color: #333 !important;" }, label: false ,placeholder: "www.example.com/123abc" %>
+<%= f.input :domain, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "www.example.com" %>
 
 <div class="row"></div>
 
@@ -21,7 +22,7 @@
 
 <div class="floatright">
 <%= f.submit "Publish", class: "modalacceptbutton", style: "margin-top: 30px" %>
-
+</div>
 <% end %>
 
 

@@ -1,4 +1,5 @@
 <% @posts.each_with_index do |post, i| %>
+
 <% unless post.pictures.count == 0 %>
 <style media="screen">
   .experimentstrip-<%= post.id %> { background-image: url(<%= post.pictures.last.image %>); }
@@ -8,52 +9,78 @@
 <%= link_to post_path(post) do %> 
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 350px; background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; margin-bottom: 0px;">
-
-
+height: 300px; background-size: cover;
+background-repeat: no-repeat;
+background-position: center; margin-top: 35px;">
 <div class="darker"></div>
-
-
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "eventimagepreviewtext", style: 'font-size: 32px !important;' %> 
 <div class="descriptionmargin"> 
-<div class="hidden-phone"> 
-<%= truncate(post.description, length: 100, separator: ' ') %>
-</div>
 
-<div class="hidden-tablet hidden-desktop"> 
-<%= truncate(post.description, length: 70, separator: ' ') %>
+<% if post.event == true %>
+<div class="answersnumberbox">
+  <%= pluralize(post.events.first.questions.count, "Answer") %> 
 </div>
-
-<hr class="whiteimageline"/>
-
-<% post.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion2">
-<%= image_tag question.user.image %>
+<div class="posttext2">
+  <%= post.events.first.title %> 
 </div>
-<% end %>
-<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; line-height: 24px !important; border-left: 1px solid rgba(255,255,255,0.5)">
- <%= post.questions.count %> Answers
+<% else %>
+<div class="titletextunderneath">
+  <%= pluralize(post.comments.count, "Question") %> | <%= pluralize(post.questions.count, "Answer") %>
 </div>
+<div class="posttext2" style="font-size: 32px;">
+  <%= post.title %> 
 </div>
-
-<div class="row"></div>
-
-
-</div>
-</div>
-</div>
-
-
 <% end %>
 
 
+   </div>
+  <div class="row"></div>
+ </div>
+</div>
+
+
+</div>
 
 
 <% end %>
+
+
+<div class="width6">
+
+<div style="margin-bottom: 30px !important;"> 
+</div>  
+<div class="p3">  
+<%= truncate(post.description, :separator => ' ', length: 150) %>
+</div>
+
+
+</div>
+
+
+
+<% if post.questions.where(:hide => true, :recommend => true).present? %>
+
+<hr class='dividerline'/>
+<div class="width6">
+<div class="dividerhead">
+ANSWERS
+</div>
+
+
+<% post.questions.where(:hide => true, :recommend => true).limit(3).each do |question| %>
+  <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+<% end %>
+</div>
+
+<% end %>
+
+
+
+
+<% end %>
+
+
 
 

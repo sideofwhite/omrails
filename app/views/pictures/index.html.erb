@@ -1,6 +1,36 @@
+<div class="settingsnavtop" style="margin-bottom: -1px;">
+<div class="width6">
+
+<div class="underpodiumhomeguidelinesbig" style="color: white; display: inline;">
+Image for <strong><%= link_to (@post.title), post_path(@post), class: "white" %></strong>
+</div>
+</div>
+<div class="absoluteheader">
+<%= render 'layouts/xheader' %>
+
+</div>
+</div>
+
+<div class="row"></div>
+
+
+<style media="screen">
+  .experiment { background-image:  url(<%= @post.pictures.first.image %>); background-color: #333; }
+  </style>
+<div class="experiment">
+<div class="darker"></div>
+<%= link_to "Change/Delete Image", edit_post_picture_path(@post, @post.pictures.first), class: "white", style: "margin: 40px; background-color: rgba(255,255,255,0.3); font-size: 12px; font-weight: bold; padding: 10px; position: absolute;" %>
+</div>
 
 
 
-<% @picture.each do |picture| %>
-<%= image_tag picture.image %>
-<% end %> 
+<div class="padding10"></div>
+<div class="center">
+
+
+<div class="width6">
+<div class="eventmargin3">
+Image uploaded by <strong><%= link_to (@post.pictures.first.user.name), user_path(@post.pictures.first.user) %></strong>
+</div>
+</div>
+</div>

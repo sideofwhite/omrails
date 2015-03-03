@@ -1,0 +1,50 @@
+<ul id="questions" data-update-url="<%= sort_post_path(@post) %>">
+<% @ordered.each do |question| %>
+<%= content_tag_for :li, question do %>
+
+<span class="handle">+</span>
+<div class="dragborder">
+<div class="row"></div>
+<div style="margin-top: 10px;"></div>
+<div class="titlecontainer30">
+<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
+</div>
+
+
+
+<div class="leftinfomargin">
+<div class="leftinfoimage">
+
+<div class="smallavatar">
+<div class="smallavatarfeednomargin2">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+</div>
+
+</div>
+
+<div class="rightinfo">
+
+<div class="lightname" style="font-size: 16px;">
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
+</div>  
+
+<div class="datecenter" style="font-size: 14px; opacity: 0.6;">
+<%= question.title %>
+</div>
+
+</div>
+</div>
+
+
+<p>
+  <%= truncate(question.body, :separator => ' ', length: 400) %>
+  <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore" %>
+</p>
+
+
+
+    </div>
+  <% end %>
+<% end %>
+</ul>

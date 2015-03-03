@@ -1,0 +1,19 @@
+<%= simple_form_for [@event, Article.new] do |f| %>
+  <%= f.error_notification %>
+
+<div class="modal-body">
+    <%= f.input :title, as: :text, input_html: { :class => "articletitleform" }, label: false ,placeholder: "Title" %>
+    <%= f.input :link, as: :text, input_html: { :class => "eventformlink", :style => "color: #333 !important;" }, label: false ,placeholder: "www.example.com/123abc" %>
+    <%= f.input :domain, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "www.example.com" %>
+</div>
+
+ <div class="modal-footer">
+
+<hr style="margin-top: 0px; margin-bottom: 30px;"/>
+
+ 
+    <%= f.submit "ADD ARTICLE", class: "modalacceptbutton" %>
+
+</div>
+
+<% end %>

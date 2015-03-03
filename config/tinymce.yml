@@ -1,0 +1,16 @@
+default:
+  plugins:
+    - image
+    - link
+
+alternate:
+  menubar: false
+  selector: .textarea
+  toolbar: uploadimage
+  width: 100%
+  auto_focus: true
+  paste_retain_style_properties: "all"
+  plugins:
+    - table
+
+

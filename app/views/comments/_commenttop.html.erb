@@ -1,71 +1,43 @@
 <div class="width6">
 
 <% if @comments.count == 0 %>
-<div class="center">
-<div class="eventmargin2">
-There are no questions yet. 
-</div>
+<div class="eventmargin3">
+There are no questions yet.
 </div>
 <% end %>
 
 
 <% @comments.each_with_index  do |comment, i| %>
 
-<div class="titlecontainer20">
-<%= link_to (comment.title), post_comment_path(@post, comment) %>
+<div class="titlecontainer-question">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
 </div>
 
-<div style="padding-top: 13px "></div>
-<div class="inlineborderfeed">
+<div style="margin-top: 10px;">
 
-<div class="inlineborderfeedtext" style="font-size: 14px;">
-<%= pluralize(comment.questions.count, "Answer") %> 
+<div class="answersnumber-text">
+  <%= pluralize(comment.questions.count, 'Answer') %>
 </div>
 
-</div>
-<div style="padding-top: 20px "></div>
-
-<div class="row"></div>
-
-	
-<% if comment.questions.count > 0 %>
-
-
-<% comment.questions.limit(2).each_with_index do |question, i| %>
-
-<div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
-
-<div class="lightnametopblue"> 
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-</div>
-<div class="title50"> 
-<%= question.title %> 
+<div class="datecenter" style="display: inline-block;">
+• Asked <%= time_ago_in_words(comment.created_at) %> ago
 </div>
 
 
-<div class="p2">
-<%= truncate(question.body, :separator => ' ', length: 180) %>
-    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
+
 </div>
 
-<% unless i == 1 %>
-<div class="dottedline"></div>
+<% unless @comments.count == ( i + 1 ) %>
+<hr class="linksline"/>
 <% end %>
 
-<div class="row"></div>
+
+
+<% if @comment.questions.where(:hide => true).present? %>
 
 <% end %>
 
-<% if comment.questions.count > 1 %>
-<div style="padding-top: 20px "></div>
-<%= link_to ("See 2 more..."), post_comment_path(@post, comment), class: "readmore" %>
-<% end %>
 
-<% else %>
-<% end %>
-<hr/>
 <% end %>
 
 

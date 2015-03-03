@@ -1,24 +1,17 @@
-
-	
-
-
-<div class="settingsnavtop" style="padding: 20px 0px 20px 0px !important; background-color: white !important; border-bottom: 1px solid rgba(51,51,51,0.1);">
-
-
 <div class="width6">
-<div class="underpodiumhomeguidelinesbig" style="display: inline;">
+<div style="margin-top: 20px;"></div>
+<div class="notificationcount-text floatright" style="font-size: 14px;">
+<%= link_to "See new...", notifications_path(@user), class: "blue" %>
+</div>
+<div class="notificationcount-text">
 All Notifications
 </div>
-<div class="underpodiumhomeguidelinesbig" style="font-size: 12px; display:inline; margin-left: 10px; opacity: 0.75;">
-<%= link_to "New Notifications...", notifications_path(@user) %>
-</div>
 
-</div> 
-</div>
+<hr style='margin-bottom: 20px; margin-top: 5px;'/>
 
-<div class="width6">
 
-<div style="margin-top: 30px;"></div>
+
+
 
 	
 
@@ -28,6 +21,10 @@ All Notifications
 
 <%= will_paginate @allnotifications %>
 
+
+
+<div class="timeline-bottom"></div>
+<div class="timeline-bottom"></div>
+
 </div>
 
-<div class="row"></div>

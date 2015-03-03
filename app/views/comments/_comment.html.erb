@@ -1,39 +1,3 @@
-<% if @comments.count == 0 %>
-<div class="width6">
-<div class="center">
-<div class="eventmargin2">
-There are no answers yet. 
-</div>
-</div>
-<div class="row"></div>
-<hr class="commentfeedline"/>
-<div class="intercontent">
-<div class="inlineborderfeedtext">
-<%= pluralize(@post.comments.count, 'Question').upcase %>
-</div>
-<% if @post.comments.count > 2 %>
-<div class="inlineborderfeedtextright">  
-<%= link_to "SEE ALL...", topquestions_path(@post), class: "blue" %>
-</div>
-<% end %>
-<div class="row"></div>
-<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 0px !important;">
-<% @post.comments.order('comments.questions_count desc').limit(3).each do |comment| %>
-<div class="inlineborderfeedquestion">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-<div class="inlineborderfeedquestionsmall">
-<%= pluralize(comment.questions.count, 'Answer') %>
-</div>
-
-<div class="row"></div>
-<% end %>
-</div>
-<hr class="commentfeedline"/>
-</div>
-<% end %>
-
-
 <% @comments.each_with_index  do |question, i| %>
 <div class="width6">
 

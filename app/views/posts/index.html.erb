@@ -1,23 +1,52 @@
 
 <style media="screen">
-  .navbar .brand {color: white !important;opacity: 1 !important; } 
   .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important;}
   .alert-danger { opacity: 1 !important; color: white !important;}
+ .eventimage { background-image: url("http://www.spacex.com/sites/spacex/files/canaveral.jpg"); }
+ .eventimage2 { background-image: url("http://localhost:3000/system/pictures/images/000/000/020/original/canadainterestrates.jpg"); }
+
+.fa-bell-o { background-color: rgba(51,51,51,0.3);}
 </style>
 
 
+<div class="homepageinfobanner" style="border-bottom: 5px solid rgba(51,51,51,0.5);">
+<div class="absoluteheader">
+<%= render 'layouts/headercategories' %>
+</div>
+
+<% if current_user.try(:admin?) %>
+<%= link_to admin_path do %>
+<i class="fa fa-bars"></i>
+<% end %>
+<% end %>
 
 
 <div class="row"></div>
+<div style="margin-top: 60px;"></div>
+<div class="row"></div>
 
+<div style="width: 640px; margin: 0 auto;">
+<hr style="border-top: 1px solid rgba(255,255,255,0.5); margin-top: -5px; margin-bottom: 30px;"/>  
+<div style="width: 70%;">
+<div style="font-size: 24px; color: white; line-height: 1.2; font-weight: bold;">
+Podium is new.
+</div>
+<div class="clicked" style="float: left; margin-top: 12px;">
+Learn More
+</div>
+</div>
+
+<div class="row"></div>
+
+</div>
+</div>
 
 <%= render 'posts/toppost' %>
+</div>
+
 
 
 <div id="products">
-
 <%= render 'posts/post' %>
 </div>
 
@@ -27,6 +56,3 @@
 <% if params[:tag] %>
 <%= render 'posts/hiddencategory' %>
 <% end %>
-
-
-    

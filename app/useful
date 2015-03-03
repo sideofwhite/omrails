@@ -776,3 +776,13 @@ Drop us a line.</a>
 </div>
 </div>
 
+
+
+
+
+
+This went on the home page under header.
+<% post.questions.where(:hide => false).order('cached_votes_total desc').limit(3).each do |question| %>
+
+
+

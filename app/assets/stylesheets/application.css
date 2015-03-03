@@ -10,8 +10,11 @@
  *
  *= require_self
  *= require bootsy
+ *= require jquery-ui
  *= require 'masonry/transitions'
  *= require_tree .
  *= require bootsy
  *= require bootstrap-wysihtml5
+ *= require medium-editor/medium-editor
+ *= require medium-editor/themes/bootstrap
  */

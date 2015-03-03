@@ -1,133 +1,112 @@
+<style media="screen">
+body {background-color: rgba(245,245,245, 0.97);}
+</style>
 
 
-<div class='px300'>
-    <div class="thirty"></div>
- <div class="center">
-<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/Screen+Shot+2014-10-06+at+4.25.29+PM.png") %>
-</div>   
-
-<div class="thirty"></div>
-
-<% if current_user.email.blank? %>
-<div class="completeyourprofile">
-Add an Image
-</div>
-<div class="completesmall">
-Add an image for your profile.
+<div class="absoluteheader">
+  <%= render 'layouts/infoheader' %>
 </div>
 
-<div class="row"></div>
+
+<div class="width6">
+
+
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :style => "margin: 0px !important;"}) do |f| %>
 
 
-  <%= f.error_notification %>
+<div class="email">
 
-
-<div class="underimagemargin">
-   <div class="absolutepicture">
-
- <div class="userimage2">
-
-<div class="addimage">
-<%= f.input :image, input_html: {  :style => "opacity:0;" }, label: false  %>
+<div class="infopage-container">
+<div class="infopage-boldtext">
+Almost Done
 </div>
- <img id="blah"/>
-</div>
-</div>
+<div class="infopage-smalltext">
+We still need your email.
 </div>
 
 
-<div class="row"></div>
+<%= f.input :email, input_html: { :class => "infoform" }, placeholder: "your_email@example.com", label: false %>
 
-<div class="floatright"> 
-<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 60px 0px 0px 0px !important;" %>
+
+<div class="infopage-infotext">
+We hate spam as much as you. We promise never to send you much email.
 </div>
-<div class="rightskipabsolute">
-<%= link_to "Skip for now", root_path %>
-</div>    
 
-<div class="row"></div>
 
 </div>
+
+
+<div style="text-align: center; margin-top: 40px;">
+<div class="submitblueinfo" id='nextbutton'>
+Submit
+</div>
+</div>
+
+</div>
+
+
+
+<div class="profile" style="display: none;">
+<div class="infopage-container">
+
+<div class="infopage-boldtext">
+One last step (optional)
+</div>
+<div class="infopage-smalltext">
+Add some basic facts about you to make public on your profile.
+</div>  
+
+<div style="background-color: #018bc6; padding-bottom: 40px;">
+<div style="padding: 30px 20px 0px 20px"></div>
+</div>
+
+
+<div class="infoformavatar">
+<%= image_tag current_user.image %>
+</div>
+
+
+<div style="font-size: 20px; text-align: center; margin-bottom: 20px;">
+<%= current_user.name %>
+</div>
+
+<%= f.input :age, input_html: { :class => "infoform" }, placeholder: "A short bio", label: false %>
+
+<%= f.input :place, input_html: { :class => "infoform" }, placeholder: "Location", label: false %>
+
+<div class="infopage-infotext">
+You can edit this information at any time.
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+<%= f.submit "Finish", class: "submitblueinfo" %>
+</div>
+
+
+</div>
+
+
 
 
 
 <% end %>
-</div>
-
-
-<% else %>
-<div class="completeyourprofile">
-Your Email
-</div>
-<div class="completesmall" style="margin-bottom: 20px !important;">
-We still need your email to get started.
-</div>
-
-<div class="row"></div>
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :style => "margin: 0px !important;"}) do |f| %>
-  <%= f.error_notification %>
-
-
-
-<%= f.input :email, input_html: { :class => "hello4" }, label: "Email", placeholder: "Email" %>
-
-
-
  
 
-<div class="center">
-<%= f.submit "Done", class: "favouritebuttonleft", style: "margin: 30px 0px 0px 0px !important;" %>
+
+
 </div>
-<div class="row"></div>
-<hr/>
 
 
-
-<% end %>
-
-<% end %>
-
-
-
-
-
- <style media="screen">
-  .userimage2 { background-image: url("https://lh4.googleusercontent.com/-e4Z91vRBBfk/AAAAAAAAAAI/AAAAAAAAAAA/6Nzmr0eN0k8/s120-c/photo.jpg"); background-size: cover; border-radius: 55px; width: 110px; height: 110px; background-repeat:no-repeat; margin-right: 0 auto; margin-left: 0 auto; display: block; background-position: center;}
- </style>
-
- 
 
 <script>
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#user_image").change(function(){
-        readURL(this);
-    });
 
+$("#nextbutton").click(function(){
+    $(".email").hide();
+    $(".profile").slideDown();
 
-    $(document).ready(function() {
-        $('#showmenu').click(function() {
-                $('.menu5').show();
-                $('#showmenu').hide();
-                $('#hide').hide();
-                $('.hello4').hide();
-               
-                
-        });
-    }); 
+});
 
 </script>
-
 

@@ -27,6 +27,11 @@ gem 'browser'
 gem 'bootsy'
 gem 'bootstrap-wysihtml5-rails'
 gem 'social-share-button'
+gem 'medium-editor-rails'
+gem 'jquery-ui-rails'
+gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+gem 'acts_as_list'
 
 # Use sqlite3 as the database for Active Record
 group :production do

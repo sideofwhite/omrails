@@ -1,3 +1,27 @@
+<style media="screen">
+  .navbar .brand {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+</style>
+
+<div class="settingsnavtop">
+
+<div class="width6">
+<div class="floatright">
+ <%= link_to 'Delete Story', post_path(@post), method: :delete, data: { confirm: 'This story will be deleted. Are you sure?' }, class: "clicked" %>   
+</div>	
+<div class="underpodiumhomeguidelinesbig" style="color: white; display: inline;">
+Edit Story
+</div>
+</div>
+
+
+</div>
+
+
+
+<div class="width6">
+<div class="sixty"></div>
 <%= render 'form' %>
+</div>
 
 

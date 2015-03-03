@@ -27,5 +27,7 @@ acts_as_taggable
 belongs_to :post, :counter_cache => true
 belongs_to :user
 has_many :questions
+has_many :categorizations
+has_many :events, through: :categorizations
 
 end

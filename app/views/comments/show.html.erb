@@ -1,19 +1,33 @@
+<% unless @comment.post.pictures.count == 0 %>
+<style media="screen">
+ .imagestrip { background-image: url(<%= @comment.post.pictures.last.image %>); }
+</style>
+<% end %>
+<style media="screen">
+  .read-more-<%= @comment.id %> { opacity: 0.4;}
+</style>
 
 
 <% if current_user.try(:admin?) %>
-<%= link_to edit_post_comment_path(@comment.post, @comment) do %>
-<i class="fa fa-cog"></i>
+ <%= link_to edit_post_comment_path(@comment.post, @comment) do %>
+  <i class="fa fa-cog"></i>
+ <% end %>
 <% end %>
+
+
+
+ <div class="imagestrip">
+  <div class='darker'></div>
+   <div class="absoluteheader">
+     <%= render 'layouts/headerimage' %>
+   </div>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to edit_post_comment_path(@comment.post, @comment) do %>
+    <i class="fa fa-pencil-square-o"></i>
+  <% end %>
 <% end %>
 
-
-<div class="darker2">
-<div class="imagestrip">
-<div class='darker'></div>
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-
-</div>
 
 <% if user_signed_in? %>  
   <a href="#Answer" role="button" data-toggle="modal" class="bluecircle white">+</a>
@@ -21,77 +35,123 @@
   <%= link_to "+", new_user_registration_path, class: "bluecircle white" %>
 <% end %>
 
+
 <div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin"> 
-<div class="eventimagepreviewtext">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>
+ <div class="relativecontainer">
+  <div class="descriptionmargin"> 
 
-<hr class="whiteimageline"/>
+   <div class="eventimagepreviewtext">
+     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+   </div>
 
-</div>
-</div>
-</div>
-</div>
+    <hr class="whiteimageline"/>
+
+    
+     <% if @comment.events.present? %>
+      <div class="eventlight">
+        Event:
+      </div>
+      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
+      <% end %>
+
+   </div>
+  </div>
+ </div>
+
+
 </div>
 
 <div class="width6">
 
 
-<div class="titlecontainer">
-<%= @comment.title %>
+<div style="margin-top: 35px;"></div>
+
+<div class="widthquestioncontainer">
+
+ <div class="titlecontainer">
+  <%= @comment.title %>
+ </div>
+
+
+ <i class="fa fa-star-o"></i>
+ <i class="fa fa-share-square-o"></i>
+
+</div>
+
+<div class="widthinfocontainer">
+<div class="dividerhead" style="padding: 0px; margin: 13px 0px 10px 0px; float: right;">
+ANSWERS
+</div>  
+<div class="row"></div>
+<% @questions.limit(3).each do |question| %>
+  <%= link_to (question.user.name), user_path(question.user), class: "blue floatright" %>
+<% end %>
+<div class="row"></div>
+<hr class="line30" style="float: right; margin-top: 15px; margin-bottom: 15px;"/>
+<div class="row"></div>
+<div class="dividerhead" style="padding: 0px; margin: 0px 0px 10px 0px; float: right;">
+ASKED
+</div>
+<div class="row"></div>
+<div class="userprofile-event floatright" style="font-size: 12px;">
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
+<div class="row"></div>
+<hr class="line30" style="float: right; margin-top: 15px; margin-bottom: 15px;"/>
+
+</div>
+
+<div class="row"></div>
+
+
+<hr class="line30" style="margin: 15px 0px 0px 0px;"/>
+
+
+
+
+<% if @comment.info.present? %>
+<div class="questionsdetailsbox-show">
+<strong>Background:</strong>
+  <div style="display: inline;">
+  <% if @comment.info.length > 150 %>
+    <%= truncate(@comment.info, length: 150) %>
+    <%= link_to '(more)', '', class: "read-more-#{@comment.id}" %>
+    <script>
+      $('.read-more-<%= @comment.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript @comment.info %>')
+      })
+    </script>
+  <% else %>
+    <%= @comment.info %>
+  <% end %>
+</div>
+<div style="margin-top: 5px;">
+  <%= link_to truncate(@comment.link, :length => 50), url_for(@comment.link), :target => "_blank", style: "opacity: 0.4;" %>
+ </div>
 </div>
 
 
-<hr style="margin-top: 20px; margin-bottom: 20px !important;"/>
+<hr class="line30info"/>
 
 
-<% @comment.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion2" style="floatright;">
-<%= image_tag question.user.image %>
-</div>
+
 <% end %>
 
-<div class="answersnumber" style="color: rgba(51,51,51,0.4) !important;">
-<%= pluralize(@comment.questions.count, 'Answer') %> 
-</div>
 
 
-<div class="newtoggle12" style="margin-bottom: 10px; display: block; margin-top: 0px; opacity: 0.4; font-weight: bold; ">
-<% tag_cloud(@comment.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, { :action => :tag, :id => tag.name } %>...
+<% if @questions.count == 0 %>
+  <div style="margin-top: 15px;"></div>
+    <div class="shownoactivity-text">
+      There are no published answers yet.
+    </div>
+    <div class="row"></div>
+    <a href="#Answer" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Write an answer</a>
 <% end %>
-</div>
-
-<div class="newtoggle12" style="margin-bottom: 0px; display: block; margin-top: 0px; opacity: 0.4;">
-Asked <%= time_ago_in_words(@comment.created_at) %> ago
-</div>
-
-<% if @comment.questions.count > 0 %>
-<div class="newtoggle12" style="margin-bottom: 0px; margin-top: 10px; opacity: 0.4;">
-Last answer <%= time_ago_in_words(@comment.questions.last.created_at) %> ago
-</div>
-<% end %>
-
-
-
-
-
-<div style="margin-top: 20px; margin-bottom: 15px !important;"></div>
-
-
-
-
-<div>
-
- 
-
-
 
 
 <div id="products" data-no-turbolink>
-<%= render 'comments/questions' %>
+  <%= render 'comments/questions' %>
 </div>
 
 <%= will_paginate @questions %>
@@ -99,69 +159,15 @@ Last answer <%= time_ago_in_words(@comment.questions.last.created_at) %> ago
 
 
 <% if @hidden.count > 0 %>
-
-<div id="showmenu" class="answersnumberhidden blue">
-<%= pluralize(@hidden.count, 'Answer')  %> Hidden Answers
-</div>
-
+  <hr class="dividerline"/>
+  <div id="showmenu" class="dividerhead">
+    <%= pluralize(@hidden.count, 'Unpublished Answer').upcase %>
+  </div>
 
 <div class="hiddenquestions" style="display: none;"> 
-<%= render 'comments/hiddenquestions' %>
+  <%= render 'comments/hiddenquestions' %>
 </div>
 
-<hr class="belowimageline2hidden"/>
-
-<% end %>
-
-<div class="questiondivider">
-<div></div>
-</div>
-
-
-
-<div class="answerrequest">
-Know someone who could answer?
-<%= link_to "Ask them...", root_path, class: "blue", style: "margin-left: 3px;" %>
-</div>
-
-
-
-
-
-<% if @comment.questions.count == 0 %>
-<div class="width6">
-<div class="center">
-<div class="eventmargin2">
-There are no answers yet. 
-</div>
-</div>
-<div class="row"></div>
-<% if @comment.post.comments.count > 1 %>
-<hr class="commentfeedline"/>
-<div class="intercontent">
-<div class="inlineborderfeedtext">
-MORE QUESTIONS
-</div>
-<% if @post.comments.count > 2 %>
-<div class="inlineborderfeedtextright">  
-<%= link_to "SEE ALL...", topquestions_path(@comment.post), class: "blue" %>
-</div>
-<% end %>
-<div class="row"></div>
-<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 0px !important;">
-<% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
-<div class="inlineborderfeedquestion">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-<div class="inlineborderfeedquestionsmall">
-<%= pluralize(comment.questions.count, 'Answer') %>
-</div>
-<div class="row"></div>
-<% end %>
-</div>
-<hr class="commentfeedline"/>
-<% end %>
-</div>
 <% end %>
 
 
@@ -173,109 +179,57 @@ MORE QUESTIONS
 
 
 
-<div class="width6">
-<% if @comment.post.comments.count > 1 %>
-<div class="intercontent">
-<div class="questionnavbartext">
-More Questions
-</div>
 
-<hr class='aboveimageline' style="margin-top: 10px !important; margin-bottom: 20px !important;">
-<% @comment.post.comments.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
-<div class="smallquestiontitle">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-<div class="smallquestioncount">
-<%= pluralize(comment.questions.count, 'Answer') %>
-</div>
-<div class="row"></div>
+<% @comment.post.questions.where("comments.id NOT IN (?)", @comment.id).limit(3).each do |comment| %>
+
 <% end %>
-</div>
-<hr class="commentfeedline"/>
-<% end %>
-</div>
 
 
 </div>
-</div>
 
-<div class="questiondivider">
-<div></div>
-</div>
+
 <% if @questions.count > 0 %>
-<div class="darker2">
-<div class="imagestrip">
-<div class='darker'></div>
-<div class="absolutecontainer">
-<div class="relativecontainer">
 
-<div class="descriptionmargin"> 
-<div class="eventimagepreviewtext">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>
-
-<hr class="whiteimageline"/>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
 <% end %>
 
 
 
 
-<% unless @comment.post.pictures.count == 0 %>
-<style media="screen">
- .imagestrip { background-image: url(<%= @comment.post.pictures.last.image %>); }
-</style>
-<% end %>
-<style media="screen">
-.navbar .brand {color: white !important;} 
-  .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important; }
-
-  .alert-danger { opacity: 1 !important; color: white !important;} 
-</style>
 
 
-                       <div id="Answer" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-     <div class="width6">                    
-  <div class="modal-header">
-    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <div class="underpodiumhomeguidelinesbig">
+
+
+
+  <div id="Answer" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-header">
+    <button type="button" class="close2" style="font-size: 24px; color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
     Answer Guidelines
-  </div>
-    <div class="underpodiumhomeguidelines">
-    Please read the following guidelines before answering:
-
+    <div class="modal-header-text">
+      Please read the following guidelines before answering:
     </div>
   </div>
-  <div class="row"></div>
 
-  <div class="modal-body" style="padding-top: 0px;">
-   <div class="userbehindgrey3"> 
-    <div class="underpodiumhomeguidelines">
-    Answers should...
-    <br>
-    • Directly respond to the question
-    <br>
-    • Be factual, authentic and cite sources used (at the bottom of answer)
-    <br>
-    • Not personally attack the question or any other answers
-    <br>
-    • Answers that do not comply may be hidden, or in some cases, deleted
+  <div class="modal-body">
+    <div class="modal-header-box">
+      <strong>Self-promotion</strong> in answers is permitted only in the context of a sincere, helpful, and direct response, otherwise it is considered to be spam.
+Answers promoting products or services must include a disclosure of any affiliations that might inform the answer's interpretation.
+<div style='margin-top: 10px;'></div>
+<strong>Self-promotional</strong> links that do not form a part of a direct and helpful response to the question are not allowed in answers.
+Affiliate links are not allowed.
+<div style='margin-top: 10px;'></div>
+<strong>Answers</strong> must not violate the Be Nice, Be Respectful policy, e.g. by containing personal attacks, disrespectful or insulting attacks on the question or other answers, or hate speech.
+Answers should be written in English with correct spelling, punctuation, and grammar, and sentence capitalization.
     </div>
   </div>
-    
-  	<div class="floatright">
-    <%= link_to "OK, I Agree", new_comment_question_path(@comment), class: "modalacceptbutton" %>
-</div>
+
+  <div class="modal-footer">
+  <hr style="margin-top: 0px; margin-bottom: 30px;"/>
+    <%= link_to "OK, I AGREE", new_comment_question_path(@comment), class: "modalacceptbutton" %>
+  <div class="modaldecline">
+    CANCEL
   </div>
-</div>
+  </div>
+
 </div>
 
 <script>
@@ -291,3 +245,6 @@ More Questions
     }); 
 
 </script>
+
+
+<div class="sixty"></div>

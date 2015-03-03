@@ -1,68 +1,47 @@
 <% if activity.trackable %>
-<div class="experimentname3">
-<%= link_to activity.owner.name, activity.owner, class: "blue" if activity.owner %>
-commented on your answer...
+<div class="timeline-dot">
 </div>
 
+<div class="timeline-content" style="width: 100%;">
 
-<div class="titlecontainer30" style="font-size: 20px;">
-<%= activity.trackable.question.comment.title %>
+<div style="width: 70%">
+<div class="timeline-date">
+<%= time_ago_in_words(activity.trackable.created_at) %> ago
+</div>	
+<div class="notification-smalltext">
+<%= activity.owner.name  %>
+commented on your answer to <%= link_to (activity.trackable.question.comment.title), comment_question_path(activity.trackable.question.comment, activity.trackable.question), class: "notification-smalltextlink" %>
+</div>
 </div>
 
-<div style="padding-top: 25px "></div>
-
-<div class="row"></div>
-
-<div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(activity.trackable.question.user.image)), user_path(activity.trackable.question.user) %>
-</div>
-
-<div class="lightnametopblue"> 
-<%= link_to (activity.trackable.question.user.name), user_path(activity.trackable.question.user), class: "blue" %>
-</div>
-<div class="title50"> 
-<%= activity.trackable.question.title %>
-</div>
-
-<div class="p2">
- <%= truncate(activity.trackable.question.body, :separator => ' ', length: 180) %>
-    <%= link_to ("(more)"), comment_question_path(activity.trackable.question.comment, activity.trackable.question) + "#question_#{activity.trackable.question.id.to_s}", class: "readmore"  %> 
-</div>
-
-<div class="row"></div>
-
+<div class="notification-content">
 <div class="commentwidth">
-<div class="inlineborderfeed" style="margin-top: 15px;">
 
 <div class="smallavatar3">
 <%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
 </div>
 
-<div class="commentdescriptiontext">
 <div class="commentdescriptionname">  
 <%= link_to (activity.trackable.user.name), user_path(activity.trackable.user), class: "blue" %>  
 </div>
-</div>
 
 
-<div class="commentdescriptiontext" style="color: rgba(51,51,51,0.75);">
-<div>
+
+<div class="commentdescriptiontext">
 <%= activity.trackable.description %>
 </div>
-<div class="date3">
-<%= time_ago_in_words(activity.trackable.created_at) %> ago
-</div>
-</div>
 
 </div>
 </div>
 
-<hr class="commentfeedline"/>
-<div class="row"></div>
+</div>
 
-<% else %>
+
+
 
 
 <% end %>
+
+
 
 

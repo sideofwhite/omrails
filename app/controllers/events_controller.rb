@@ -4,12 +4,22 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @skip_footer = true 
+    @post = Post.friendly.find(params[:post_id])
+    @events = @post.events.order('created_at desc')
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @skip_footer = true 
+    @image_bottom = true 
+    @post = Post.friendly.find(params[:post_id])
+    @event = Event.friendly.find(params[:id])
+    @questions = @event.questions.where(:hide => true).order('cached_votes_total desc')
+    @comments = @event.comments.order("created_at desc")
+    @article = Article.new
+    @articles = @event.articles.order("created_at desc")
   end
 
   # GET /events/new
@@ -21,6 +31,9 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @skip_footer = true
+    @post = Post.friendly.find(params[:post_id])
+    @event = Event.friendly.find(params[:id])
   end
 
   # POST /events
@@ -31,7 +44,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to post_event_path(@event.post, @event), notice: 'Event Published' }
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -45,7 +58,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to post_event_path(@event.post, @event), notice: 'Event Updated' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -67,11 +80,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :body, :link)
+      params.require(:event).permit(:title, :body, :link, :domain, :image, :categorization_ids => [])
     end
 end

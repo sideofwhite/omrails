@@ -4,24 +4,22 @@
 
 
 
-<div class="px300">
+<div class="infopage-boldtext" style="font-size: 14px; color: rgba(255,255,255,1);">
+Sign in / Sign up
+</div>
+<div class="infopage-smalltext" style="font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.5);">
+Sign in or create an account
+</div>
+
 
 <%= link_to user_omniauth_authorize_path(:twitter) do %>
  <div class="twitterlogin">
-<div class="whitenotext">
-<i class="fa fa-twitter"></i>
-Login with Twitter
-</div>
+<i class="fa fa-twitter-square"></i>  
+Sign in with Twitter
 </div>
 <% end %>
- 
- <div class="lightcontainer">
-We will never post to Twitter without your permission.
-</div>  
-<div class="padding5"></div>
- <div class="lightcontainer">
-Need an account? <%= link_to "Create an account.", new_user_registration_path %>
-</div>
 
+<div class="infopage-infotext" style="color: rgba(255,255,255,0.5); width: 100%; margin-top: 20px; font-size: 10px;">
+  By clicking 'Sign up with Twitter' you agree the Podiums Terms and Conditions.
 
 </div>

@@ -1,0 +1,43 @@
+<div class="dividerhead">
+LATEST EVENTS
+</div>
+
+<% @events.each do |event| %>
+
+<div class="timeline-dot">
+</div>
+
+
+<div class="timeline-image" style="background-image: url(<%= event.image %>);">
+</div>
+
+<div class="timeline-content">
+
+
+<div class="timeline-date">
+<%= time_ago_in_words(event.created_at) %> ago
+</div>
+
+
+<%= link_to (event.title), post_event_path(event.post, event) %>
+
+<div class="timeline-description">
+<%= truncate(event.body, :separator => ' ', length: 110) %>  
+</div>
+
+</div>
+
+
+
+<% end %>
+
+<% if @post.events.count > 1 %>
+<div class="timeline-dot">
+</div>
+<div class="timeline-more">
+<%= link_to "More events...", post_events_path(@post), class: "blue" %>
+</div>
+<% end %>
+
+<div class="timeline-bottom"></div>
+<div class="timeline-bottom"></div>

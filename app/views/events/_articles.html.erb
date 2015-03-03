@@ -1,0 +1,24 @@
+<div class="row"></div>
+<hr class="dividerline"/>
+<div class="dividerhead">
+FURTHER READING
+</div>
+
+
+<% @articles.each_with_index do |article, i| %>
+<div class="articletitle">
+<%= link_to (article.title), url_for(article.link), :target => "_blank", class: "blue" %>
+</div>
+<div>
+<%= link_to (article.domain), url_for(article.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left;" %>
+</div>
+
+
+<div class="row"></div>
+
+<% unless (i + 1) == @articles.count  %>
+<hr class="linksline"/>
+<% end %>
+
+
+<% end %>

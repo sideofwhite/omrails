@@ -15,7 +15,10 @@ validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image
 
 belongs_to :post
 belongs_to :user
-
+has_many :categorizations
+has_many :comments, through: :categorizations
+has_many :questions, through: :comments
+has_many :articles
 
 
 end

@@ -34,6 +34,7 @@ has_attached_file :image, :default_url => 'http://i.imgur.com/ijGMsx5.png', :sty
     user.provider = auth.provider
     user.uid = auth.uid
     user.name = auth.info.name
+    user.twitter = auth.info.nickname
     user.image = URI.parse(auth.info.image.sub("_normal", "")) if auth.info.image?
   end
 end

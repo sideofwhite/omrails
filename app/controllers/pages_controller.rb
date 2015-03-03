@@ -1,12 +1,15 @@
 class PagesController < ApplicationController
+  
+  
   def home
   end
   def about
-  	@skip_bottom = true  
+  	
+    @skip_footer = true 
   end
   def contact
     @skip_footer = true 
-  	@skip_bottom = true  
+
   end
    def guidelines
   	@skip_bottom = true  
@@ -19,4 +22,5 @@ class PagesController < ApplicationController
      @skip_footer = true  
   
   end
+
 end

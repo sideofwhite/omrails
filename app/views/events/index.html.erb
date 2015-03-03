@@ -1,31 +1,74 @@
-<h1>Listing events</h1>
+<style media="screen">
+  .imagestrip { background-image: url(<%= @post.pictures.first.image %>); }
+  .navbar .brand {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+</style>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.body %></td>
-        <td><%= event.link %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="darker2">
+<div class="imagestrip" style="height: 100% !important; position: fixed;">
+<div class='darker' style=" 
+opacity: 0.8; z-index: -1;"></div>
 
-<br>
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
 
-<%= link_to 'New Event', new_event_path %>
+</div>
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="width6">
+ <div class="descriptionmargin" style="padding-top: 100px;"> 
+<div class="eventimagepreviewtext" style="font-size: 14px; opacity: 0.95 !important;">
+<%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
+<div class="eventtextheader" style="color: #018bc6;">
+All Events
+</div>
+
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 60px !important; opacity: 0.95 !important;"/>
+
+
+</div> 
+
+
+<% @events.each do |event| %>
+<div class="timeline-dot-index">
+</div>
+
+
+<div class="timeline-image" style="background-image: url(<%= event.image %>);">
+</div>
+
+<div class="timeline-content-index">
+
+<div class="timeline-date-index">
+<%= time_ago_in_words(event.created_at) %> ago
+</div>
+
+<%= event.title %>
+
+<div class="timeline-description-index">
+<%= truncate(event.body, :separator => ' ', length: 110) %>  
+</div>
+
+
+
+
+</div>
+<% end %>
+
+<div class="timeline-bottom-index"></div>
+<div class="timeline-bottom-index"></div>
+
+
+</div>
+

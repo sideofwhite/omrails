@@ -1,6 +1,4 @@
-<div class="width6"> 
-<div class="inlineborderfeed">
-<div class="commentwidth">	
+<div class="commentwidth"> 
 
 <% if user_signed_in? %>
 
@@ -30,7 +28,7 @@
 
 <div class="row"></div>
 
- <%= f.button :submit, "Post", class: "bluebuttonask", style: "font-size: 10px !important; padding: 3px 10px 3px 10px !important; margin-top: -5px;", data: { disable_with: "Posting..." } %>
+ <%= f.button :submit, "Post", class: "bluebuttonask", data: { disable_with: "Posting..." } %>
 </div>
 
 
@@ -46,8 +44,4 @@
 
 
 <% end %>
-
-
-</div>
-</div>
 </div>

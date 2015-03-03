@@ -2,11 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('#pins').imagesLoaded ->
-    $('#pins').masonry
-      itemSelector: '.box'
-      isResizable: true
+jQuery ->
+  $('#questions').sortable
+    axis: 'y'
+    handle: '.handle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
 
 
       jQuery ->
@@ -27,4 +28,5 @@ $ ->
         $("ul", this).stop().slideUp 100
         return
 
- 
+
+  

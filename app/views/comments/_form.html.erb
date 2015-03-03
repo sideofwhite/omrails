@@ -1,40 +1,21 @@
 
-<div class="width6">
 
 <%= simple_form_for [@post, Comment.new] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
+<div class="modal-body">
+<%= f.input :title, as: :text, input_html: { rows: "3", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
+</div>
 
-<%= f.input :title, as: :text, input_html: { rows: "2", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
-
-    
-    <div class="floatright">
-  <%= f.submit "Post", class: "modalacceptbutton" %>
+<div class="modal-footer">
+<div style="position: fixed; bottom: 40px; width: 640px;">
+<hr/>
+<div class="modal-header-text">
+      Please read our question guidelines before submitting a question. All questions will be reviewed by an editor before being published.
+    </div>
+<%= f.submit "Submit Question", class: "submitbluemodal" %>
+</div>
 </div>
 
 
+<% end %>
 
-
-
-
- <% end %>
-
-</div>
-
-<script>
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#user_image").change(function(){
-        readURL(this);
-    });
-
-</script>

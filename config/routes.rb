@@ -4,6 +4,7 @@ Omrails::Application.routes.draw do
 
   
   
+ post '/tinymce_assets' => 'tinymce_assets#create'
 
   get "profile/place"
   get "profile/bio"
@@ -11,6 +12,10 @@ Omrails::Application.routes.draw do
 
 
 resources :posts do
+   member do
+    post "sort" => "questions#sort"
+  end
+   collection { post :sort }
   member do
       put :upvote
     end
@@ -38,6 +43,9 @@ resources :comments do
   end
 end 
 
+ resources :events do
+ resources :articles
+end
 
 
 resources :questions do
@@ -83,7 +91,9 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id/allanswers', to: 'users#allanswers', as: :allanswers
   get 'users/:id/allcomments', to: 'users#allcomments', as: :allcomments
   get 'posts/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
-  get 'posts/:id/newquestions', to: 'posts#shownewquestion', as: :newquestions
+  get 'posts/:id/answersmore', to: 'posts#showanswersmore', as: :answersmore
+  get 'posts/:id/ordered', to: 'posts#ordered', as: :ordered
+  get '/admin', to: 'posts#admin', as: :admin
   get 'top', to: 'posts#top', as: :top
 
    devise_scope :user do

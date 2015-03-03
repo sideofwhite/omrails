@@ -1,19 +1,146 @@
-<p id="notice"><%= notice %></p>
+<style media="screen">
+  .experimentevent { background-image: url(<%= @post.pictures.first.image %>); }
+</style>
 
-<p>
-  <strong>Title:</strong>
+<div class="darker2">
+<div class="experimentevent">
+<div class='darker'></div>
+
+<div class="absoluteheader">
+  <%= render 'layouts/headerimage' %>
+</div>
+
+  <%= render 'posts/belowimage' %>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin"> 
+
+
+<div class="eventimagepreviewtext">
+   <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
+
+<hr class="whiteimageline"/>
+
+<div class="posttext2event" style="margin-top: 20px;">
   <%= @event.title %>
-</p>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @event.link %>
-</p>
+</div>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+</div>
+</div>
+
+
+<div class="width6">
+<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
+</div>  
+
+<style media="screen">
+  .eventimage-<%= @event.id %> { background-image: url(<%= @event.image %>); }
+</style>
+<div class="eventimage-<%= @event.id %>" style="position: relative; width: 220px;
+  height: 160px; background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; margin-bottom: 20px; margin-left: 30px; margin-top: 6px; float: right;
+    margin-left: 20px;">
+ <div class='darker' style="opacity: 0.1;"></div>
+</div>
+<div class="p3">  
+ <%= @event.body %>
+</div>
+<div style="padding-top: 10px "></div>
+<%= link_to (@event.domain), url_for(@event.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left;" %>
+<div class="row"></div>
+</div>
+
+<hr class="dividerline"/>
+<div class="width6">
+
+
+<% if @questions.present? %>
+<%= render 'events/questions' %>
+<% end %>
+
+
+<% if @comments.present? %>
+<% unless @questions.blank? %>
+  <div class="row"></div>
+  <hr class="dividerline"/>
+<% end %>
+
+<%= render 'events/comments' %>
+<% end %>
+
+
+<% if @questions.blank? and @comments.blank? %>
+<div class="shownoactivity-text" style='margin-top: 35px;'>
+  There's no activity here yet...
+</div>
+<div class="row"></div>
+<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<% end %>
+
+
+<% if @articles.present? %>
+<%= render 'events/articles' %>
+<% end %>
+
+
+<% if current_user.try(:admin?) %>
+<div class="row"></div>
+<div class="sixty"></div>
+<a href="#AddArticle" role="button" class="dividerheadlink white" data-toggle="modal">+ Article</a>
+
+
+  <div id="AddArticle" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-header">
+    <button type="button" class="close2" style="font-size: 24px; color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
+    Add Article
+    <div class="modal-header-text">
+    </div>
+  </div>
+  
+   <%= render 'articles/form' %>
+  
+  
+
+</div>
+</div>
+
+<% end %>
+
+
+</div>
+
+<div class="sixty"></div>
+
+
+<% if @questions.present? %>
+
+<div class="experimentevent" style="height: 175px;">
+<div class='darker'></div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin"> 
+
+<div class="eventimagepreviewtext">
+   <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
+
+<hr class="whiteimageline"/>
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+<% end %>

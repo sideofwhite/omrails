@@ -1,0 +1,1 @@
+tinyMCE.addI18n("zh-cn",{"Insert an image from your computer":"上传图片","Insert image":"插入图片","Choose an image":"选择图片","You must choose a file":"必须选择文件","Got a bad response from the server":"服务器返回错误","Didn't get a response from the server":"服务器没有响应",Insert:"插入",Cancel:"取消","Image description":"图片描述"});

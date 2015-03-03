@@ -1,0 +1,121 @@
+<style media="screen">
+.fa-bell-o { background-color: rgba(51,51,51,0.3);}
+</style>
+
+<div class="homepageinfobanner">
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+</div>
+<div class="row"></div>
+<div style="margin-top: 60px;"></div>
+<div class="row"></div>
+
+<div class="width6">
+<hr style="border-top: 1px solid rgba(255,255,255,0.5); margin-top: -5px; margin-bottom: 20px;"/>  
+<div style="width: 70%;">
+<div style="font-size: 24px; color: white; line-height: 1.2; font-weight: bold;">
+Hey, <%= current_user.name %>
+</div>
+<div style='margin-top: 20px;'></div>
+<%= link_to 'New Story', new_post_path, class: "clicked" %>
+</div>
+
+<div class="row"></div>
+
+
+
+</div>
+</div>
+
+
+
+
+<div class="width6">
+
+<hr style="margin-top: 35px; margin-bottom: 10px !important;"/>
+<div class="dividerhead">
+HEADER STORY
+</div>
+
+
+<% @toppost.each do |post| %>
+<% unless post.pictures.count == 0 %>
+<style media="screen">
+  .imagestripquestions { background-image:  url(<%= post.pictures.first.image %>); background-color: #333; }
+  </style>
+<% end %>
+<div class="imagestripquestions">
+<div class="darker"></div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin"> 
+
+<div class="eventimagepreviewtext">
+<%= link_to (post.title), post_path(post), class: "whiteblue" %>
+</div>
+<hr class="whiteimageline"/>
+
+</div>
+</div>
+</div>
+</div>
+
+<% end %>
+
+<hr style="margin-top: 35px; margin-bottom: 10px !important;"/>
+<div class="dividerhead">
+TOP STORIES
+</div>
+
+
+<ul id="posts" data-update-url="<%= sort_posts_url %>">
+<% @posts.each do |post| %>
+  <%= content_tag_for :li, post do %>
+ <span class="handle">+</span>
+
+
+<% unless post.pictures.count == 0 %>
+<style media="screen">
+  .imagestripquestions-<%= post.id %> { background-image:  url(<%= post.pictures.first.image %>); background-color: #333; }
+  </style>
+<% end %>
+
+
+
+<div class="imagestripquestions-<%= post.id %>" style="position: relative; width: 100%;
+  height: 175px; background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; margin-bottom: 15px;">
+
+<div class="darker"></div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin"> 
+
+<div class="eventimagepreviewtext">
+<%= link_to (post.title), post_path(post), class: "whiteblue" %>
+</div>
+<hr class="whiteimageline"/>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<% end %>
+<% end %>
+</ul>
+<hr/>
+
+
+<% Question.order("created_at desc").each do |question| %>
+<%= question.body %>
+<hr/>
+<% end %>
+
+
+</div>

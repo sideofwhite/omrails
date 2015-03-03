@@ -1,79 +1,73 @@
 <% @links.group_by {|l| l.question.comment.post}.take(5).each_with_index do |(post, links), i| %>
+
 <% if post.present? %>
+
+
 <% unless post.pictures.count == 0 %>
 <style media="screen">
   .experimentstrip-<%= post.id %> { background-image: url(<%= post.pictures.last.image %>); }
 </style>
 <% end %>
 
-<style media="screen">
-
-  .navbar .brand {color: white !important;opacity: 1 !important;} 
-  .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important;}
-  .alert-danger { opacity: 1 !important; color: white !important;}
-  .usernametext2 {  color: white !important;}
-  .floatleftprofile { color: white !important;}
-  .floatrightprofile { opacity: 1 !important; color: white !important; border-left: 1px solid rgba(255, 255, 255, 0.7)}
-  .profilelinezero {  border-top: 1px solid rgba(255, 255, 255, 0.7) !important;}
-  .floatleftprofile { padding-bottom: 0px !important; border-left: 1px solid rgba(255, 255, 255, 0.7)}
-  .abovenumber { opacity: 1 !important; color: white !important;}
-
-</style>
-
 
 <% if i == 0 %>
 
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 350px; background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; margin-bottom: 35px;">
-   <div class="darker"></div>
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
+height: 350px; background-size: cover;
+background-repeat: no-repeat;
+background-position: center; margin-bottom: 35px;">
+<div class="darker"></div>
 
+<div class="absoluteheader">
+  <%= render 'layouts/headerimage' %>
 </div>
 
-  <div class="absolutecontainerprofile">
-<div class="relativecontainerprofile">
-<div class="userprofilewhite">
+<div class="absolutecontainerprofile">
+<div class="relativecontainer">
 
-<%= render 'users/userhead' %>
+<div class="userprofileimage-container">
+
+<div class="userprofileimage-image">
+ <%= image_tag @user.image %>
+</div>
+
+<div class="userprofileimage-name">
+ <%= @user.name %>
+</div>
+
+<hr style="margin-top: 15px; margin-bottom: 10px;"/>
 
 <%= link_to user_path(@user) do %>
 <div class="floatleftprofile">  
 
 <div class="abovenumber">
-Upvotes
+  Upvotes
 </div>
 <div class="belownumber"> 
-<%= @questions.count %>
+  <%= @questions.count %>
 </div>
 </div>
 <% end %>
 
 <%= link_to userinterviews_path(@user) do %>
 <div class="floatleftprofile">  
-<div class="abovenumber"> 
-Answers
-</div>
-<div class="belownumber"> 
-<%= @comment.count %>
-</div>
-</div>
+ <div class="abovenumber"> 
+  Answers
+ </div>
+ <div class="belownumber"> 
+   <%= @comment.count %>
+  </div>
+ </div>
 <% end %>
 
 <div class="floatrightprofile"> 
-
-<div class="abovenumber">
-Comments
-</div>
-<div class="belownumber"> 
-<%= @links.count %>
-</div>
-
+ <div class="abovenumber">
+   Comments
+ </div>
+ <div class="belownumber"> 
+   <%= @links.count %>
+ </div>
 </div>
 
 <div class="row"></div>
@@ -82,15 +76,14 @@ Comments
 </div>
 </div>
 
-<div class="row"></div>
 
-   <div class="absolutecontainer">
+<div class="absolutecontainer">
 <div class="relativecontainer">
 
 <div class="descriptionmargin"> 
-<div class="eventimagepreviewtext">
-<%= link_to (post.title), post_path(post), class: "whiteblue", style: "font-size: 14px;" %>
-</div>
+ <div class="eventimagepreviewtext">
+   <%= link_to (post.title), post_path(post), class: "whiteblue", style: "font-size: 14px;" %>
+ </div>
 <hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
 </div>
 
@@ -131,58 +124,77 @@ Comments
 <%= link_to (link.question.comment.title), post_comment_path(link.question.comment.post, link.question.comment) %>
 </div>
 
-<div style="padding-top: 25px "></div>
+<div style="margin-top: 20px;"></div>
 
-<div class="row"></div>
 
+<div class="leftinfomargin">
+<div class="leftinfoimage">
+
+<div class="smallavatar">
 <div class="smallavatarfeednomargin2">
 <%= link_to (image_tag(link.question.user.image)), user_path(link.question.user) %>
 </div>
+</div>
 
-<div class="lightnametopblue"> 
+</div>
+
+<div class="rightinfo">
+
+<div class="largename">
 <%= link_to (link.question.user.name), user_path(link.question.user), class: "blue" %>
-</div>
-<div class="title50"> 
-<% if link.question.title.present? %>
-<%= truncate(link.question.title, :separator => ' ', length: 55) %>
-<% end %>
-</div>
+</div>  
 
-<div class="p2">
-  <%= truncate(link.question.body, :separator => ' ', length: 250) %>
-    <%= link_to ("(more)"), comment_question_path(link.question.comment, link.question) + "#question_#{link.question.id.to_s}", class: "readmore" %>
+<div class="answertitle">
+<%= link.question.title %>
 </div>
 
-<div class="row"></div>
+</div>
+</div>
 
-<div class="commentwidth">
-<div class="inlineborderfeed" style="margin-top: 15px;">
+
+<div style="margin-top: 12px;"></div>
+
+<div class="p3">
+<%= truncate(link.question.body, :separator => ' ', length: 250) %>
+</div>
+
+
+<div style="margin-top: 10px;"></div>
+
+<div class="commentwidth"> 
+
+<hr class="linelinks"/>
 
 <div class="smallavatar3">
-<%= link_to (image_tag(link.user.image)), user_path(link.user) if link.user.present? %>
+  <%= link_to (image_tag(link.user.image)), user_path(link.user) %>
 </div>
+
+
+<div class="commentdescriptionname">  
+  <%= link_to (link.user.name), user_path(link.user), class: "blue" %>
+</div>
+
 
 <div class="commentdescriptiontext">
-<div class="commentdescriptionname">  
-<%= link_to (link.user.name), user_path(link.user), class: "blue" if link.user.present? %>  
-</div>
-</div>
+ <%= link.description %>
 
 
-<div class="commentdescriptiontext" style="color: rgba(51,51,51,0.75);">
-<div>
-<%= link.description %>
-</div>
 <div class="date3">
 <%= time_ago_in_words(link.created_at) %> ago
 </div>
 </div>
 
+
 </div>
 </div>
 
-<hr class="commentfeedline"/>
-<div class="row"></div>
+
+</div>
+
+
+
+
+
 <% end %>
 </div>
 

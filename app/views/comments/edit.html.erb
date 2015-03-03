@@ -1,24 +1,96 @@
+<style media="screen">
+  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
+</style>
+
+<div class="settingsnavtop">
 <div class="width6">
 
-<div class="sixty"></div>
-
-<div class="eventtoptext2">
-<%= link_to (@comment.user.name), user_path(@comment.user.name) %>
+<div class="underpodiumhomeguidelinesbig" style="color: white; display: inline;">
+Edit Question
+</div>
+<div class="floatright">
+ <%= link_to 'Delete Question', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'This question will be deleted. Are you sure?' }, class: "clicked" %>  
+</div>
 </div>
 
-<%= simple_form_for [@post, @comment], :html => { :method => :put } do |f| %>
+</div>
+
+<div class="darker2">
+<div class="imagestrip" style="height: 150px; margin-top: -2px;">
+<div class='darker'></div>
+
+
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin" style="margin-bottom: 25px;"> 
+<div class="eventimagepreviewtext" style="font-size: 14px;">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+</div>
+
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div style='margin-top: 35px;'></div>
+
+
+
+
+
+
+
+<div class="width6">
+
+
+
+<%= simple_form_for [@post, @comment] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: "Edit Question",placeholder: "Question" %>
-
-<%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "Add a development tag" %>
-<div class="row"></div>
-
-<div class="floatright">
- <%= link_to 'Delete Question', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'This question will be deleted. Are you sure?' }, class: "favouritebuttonleft" %>   
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Question" %>
+<div style="margin-top: 20px; font-size: 12px; opacity: 0.75; margin-bottom: 35px;">
+Question asked by <strong><%= link_to (@comment.user.name), user_path(@comment.user.name) %></strong>
 </div>
 
-<%= f.submit "Save Changes", class: "favouritebuttonleft" %>
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-check"></i></div>
+<div class="floatright" style="display: inline;">
+<%= f.check_box :published, as: :boolean, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+PUBLISH 
+</div> 
+<div class="row"></div>
+</div>
+
+
+<hr/>
+
+<%= f.input :info, as: :text, input_html: { rows: "1", :class => "additionalinfoform" }, label: false,placeholder: "Additional Info" %>
+<%= f.input :link, as: :text, input_html: { rows: "1", :class => "eventformlink" }, label: false,placeholder: "www.example.com/123abc" %>
+
+<hr/>
+
+<%= f.association :events, :as => :check_boxes, :collection => @comment.post.events, :item_wrapper_class => 'checkbox_container' %>
+<div style='margin-top: 35px;'></div>
+<%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "Tag" %>
+<div class="row"></div>
+
+
+
+
+<hr style="margin-bottom: -15px; margin-top: 35px;"/>
+
+<div class="floatright">
+<%= f.submit "SAVE CHANGES", class: "modalacceptbutton", style: "margin-top: 30px; font-size: 12px;" %>
+</div>
 
  <% end %>
 

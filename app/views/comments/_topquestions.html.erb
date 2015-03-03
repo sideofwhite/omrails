@@ -1,0 +1,33 @@
+
+
+<div class="dividerhead">
+<%= link_to "QUESTIONS", topquestions_path(@post) %>
+</div>
+
+
+<% @topquestions.each_with_index  do |comment, i| %>
+
+<div class="titlecontainer-question">
+<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
+</div>
+
+<div style="margin-top: 10px;">
+
+<div class="answersnumber-text">
+  <%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+
+<div class="datecenter" style="display: inline-block;">
+• Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+
+
+</div>
+
+<% unless @topquestions.count == ( i + 1 ) %>
+<hr class="linksline"/>
+<% end %>
+
+
+<% end %>

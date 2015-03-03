@@ -2,7 +2,6 @@
   a:hover { text-decoration: none !important; }
 </style>
 
-<div class="px300">
 <div class="signuptext20">
 Podium.
 </div>
@@ -12,23 +11,13 @@ Podium.
 
 <%= link_to user_omniauth_authorize_path(:twitter) do %>
  <div class="twitterlogin">
-<div class="whitenotext">
-<i class="fa fa-twitter"></i>
+<i class="fa fa-twitter-square"></i>
 Login with Twitter
-</div>
 </div>
 <% end %>
 
-  <div class="lightcontainer">
-We will never post to Twitter without your permission.
-</div>  
-<div class="padding5"></div>
 
- <div class="lightcontainer">
-Need an account? <%= link_to "Create an account.", new_user_registration_path %>
-</div>
 
-</div>
 
 
 

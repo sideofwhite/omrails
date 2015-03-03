@@ -15,50 +15,68 @@
 
 <div class="width6">
 
+
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "eventformtitlelarge", :style => "font-size: 34px;" }, label: false ,placeholder: "Title" %>
+<%= f.input :description, as: :text, input_html: { :class => "eventformbody" }, label: false ,placeholder: "Description" %>
+<div class="row"></div>
+
 <div class="blah2">
-<div class="addimage">
+<div class="addimageevent2">
 <%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
 </div>
 </div>
-<img id="blah2"/>
+<img id="addnewslogo"/>
 
+<%= f.input :domain, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "www.example.com" %>
+<%= f.input :link, as: :text, input_html: { :class => "eventformlink", :style => "width: 98% !important;" }, label: false ,placeholder: "www.example.com/123abc" %>
 
-
-
-   <%= f.input :title, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "posttitleform inputBody" },label: false, placeholder: "Event Headline" %>
-   <%= f.input :description, as: :text, input_html: { rows: "1", :style=> 'width: 95.7%',:class => "underneathform inputBody" }, label: false, placeholder: "Summary of the event"%>
-
+<div class="row"></div>
 <hr/>
-<%= f.input :link, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Link" %>
 
-<%= f.input :domain, as: :text, input_html: { rows: "1",:style=> 'width: 95.7%',:class => "locationform inputBody" }, label: false, placeholder: "Domain" %>
+<div class="row"></div>
 
-<%= f.label :tag_list, label: false %>
-  
-<%= f.input :tag_list, as: :text,  input_html: { rows: "2", :style=> 'width: 95.7%',:class => "create" }, label: false, placeholder: "World, Politics, Technology, Business, Science" %>
+<%= f.input :tag_list, as: :text,  input_html: { rows: "1", :class => "taglistform" }, label: false, placeholder: "World, Politics, Technology, Business, Science" %>
 
+<div class="checkboxcover">
 <a id="close">
 <%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
 </a>
 <div class="buttoncheckbox2">
-Hide Post 
+Take post off home page
   </div>
+</div>
 
-
+<div class="checkboxcover">
 <%= f.check_box :top, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
 
 <div class="buttoncheckbox2">
-Featured
+Featured on home page
 </div> 
+</div>
 
+<div class="checkboxcover">
 <%= f.check_box :category, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
-
 <div class="buttoncheckbox2">
-Category Featured
+Featured on category page
 </div> 
+</div>
 
-<div class="center">
- <%= f.submit "Publish", class: "favouritebuttonleft" %>
+<% if @post.events.present? %>
+<div class="checkboxcover">
+<%= f.check_box :event, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+<div class="buttoncheckbox2">
+Show latest event for post
+</div> 
+</div>
+<% end %>
+
+<div class="row"></div>
+
+<hr style="margin-bottom: -15px; margin-top: 35px;"/>
+
+<div class="floatright">
+<%= f.submit "Publish", class: "modalacceptbutton", style: "margin-top: 30px" %>
 </div>
 
 </div>
@@ -74,7 +92,7 @@ function readURL(input) {
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                $('#blah2').attr('src', e.target.result);
+                $('#addnewslogo').attr('src', e.target.result);
             }
             
             reader.readAsDataURL(input.files[0]);

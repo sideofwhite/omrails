@@ -1,44 +1,25 @@
-<div class="settingsnavtop" style="padding: 20px 0px 20px 0px !important; background-color: white !important; border-bottom: 1px solid rgba(51,51,51,0.1);">
-
-
 <div class="width6">
-<div class="underpodiumhomeguidelinesbig" style="display: inline;">
+<div style="margin-top: 20px;"></div>
+<div class="notificationcount-text floatright" style="font-size: 14px;">
+<%= link_to "See older...", allnotifications_path(current_user), class: "blue" %>
+</div>
+<div class="notificationcount-circle">
+<%= notificationcount %>
+</div>
+<div class="notificationcount-text">
 New Notifications
 </div>
-<div class="underpodiumhomeguidelinesbig" style="font-size: 12px; display:inline; margin-left: 10px; opacity: 0.75;">
-<%= link_to "All Notifications...", allnotifications_path(current_user) %>
-</div>
 
-</div> 
-</div>
+<hr style='margin-bottom: 20px; margin-top: 20px;'/>
 
 
-	
-<div class="width6">
+
+
 <% if notificationcount == 0 %>
-<div class="padding10"></div>
-<div class="center">
-
-<div class="eventmargin3">
-<i class="fa fa-bell-o" style="text-align: center !important; line-height: 16px !important; display: block !important; float: none !important; margin-bottom: 15px; font-size: 18px;" ></i>	
-No new notifications
-</div>
-</div>
 <% end %>
-</div>
-
-
-
 <% @activities.each do |activity| %>	
-
-
-<%= render_activity activity %>	
-
-
-
+  <%= render_activity activity %>	
 <% end %>
-
-
 </div>
 
 

@@ -28,13 +28,14 @@ end
   # GET /comments/1.json
   def show
   @skip_footer = true  
+  @image_bottom = true 
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]
   @commentnext = @post.comments.friendly.find(params[:id])
   @link = Link.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
-  @questions = @comment.questions.where(:hide => false).order('cached_votes_total desc').page(params[:page]).per_page(1)
-  @hidden = @comment.questions.where(:hide => true).order('created_at desc')
+  @questions = @comment.questions.where(:hide => true).order('cached_votes_total desc').page(params[:page]).per_page(1)
+  @hidden = @comment.questions.where(:hide => false).order('created_at desc')
    respond_to do |format|
         format.html
         format.js
@@ -57,12 +58,14 @@ end
 
   # GET /comments/new
   def new
+
     @post = Post.friendly.find(params[:post_id])
     @links = @post.links.order(:created_at).limit(5)
   end
 
   # GET /comments/1/edit
   def edit
+    @skip_footer = true  
    render_forbidden and return unless can_edit? 
   @post = Post.friendly.find(params[:post_id])  
   end
@@ -104,9 +107,10 @@ end
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @post = Post.friendly.find(params[:post_id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to post_path(@post) }
       format.json { head :no_content }
     end
   end
@@ -123,6 +127,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active, :tag_list)
+      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active, :info, :link, :published, :tag_list, :event_ids => [])
     end
 end

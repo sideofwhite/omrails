@@ -1,0 +1,40 @@
+<% @questions.each_with_index  do |question, i| %>
+<style media="screen">
+  .read-more-<%= question.id %> { opacity: 0.4;}
+</style>
+
+
+
+<% if question.comment.info.present? %>
+<div class="questionsdetailsbox">
+<div>
+ <% if question.comment.info.length > 150 %>
+    <%= truncate(question.comment.info, length: 150) %>
+    <%= link_to '(more)', '', class: "read-more-#{question.id}" %>
+    <script>
+      $('.read-more-<%= question.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript question.comment.info %>')
+      })
+    </script>
+  <% else %>
+    <%= question.comment.info %>
+  <% end %>
+</div>
+<div style="margin-top: 5px;">
+<%= link_to truncate(question.comment.link, :length => 50), url_for(question.comment.link), :target => "_blank", style: "opacity: 0.4;" %>
+</div>
+</div>
+<% end %>
+
+
+<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+
+
+<% unless @questions.count == (i + 1) %>
+<hr style="width: 30%;"/>
+<% end %>
+
+
+
+<% end %>

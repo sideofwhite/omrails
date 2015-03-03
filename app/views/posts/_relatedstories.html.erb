@@ -1,0 +1,29 @@
+<div class="row"></div>
+<hr class="dividerline"/>
+<div class="dividerhead">
+RELATED STORIES
+</div>
+<div class="row"></div>
+
+
+<% @related.order("created_at desc").each_with_index do |post, i| %>
+
+
+<div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image %>);">
+  <div class="darker" style="opacity: 0.2;"></div>
+</div>
+
+<div class="eventfeedtitle-text">
+<%= link_to (post.title), post_path(post) %>
+</div>
+<div class="p3">
+<%= truncate(post.description, :separator => ' ', length: 110) %>
+</div>
+<div style="margin-top: 10px;"></div>
+<%= link_to ("Read more..."), post_path(post), class: "blue" %>
+
+<% unless i == 1 %>
+<hr/>
+<% end %>
+
+<% end %>

@@ -1,0 +1,38 @@
+
+
+<div class="smallavatar3">
+  <%= link_to (image_tag(link.user.image)), user_path(link.user) %>
+</div>
+
+
+<div class="commentdescriptionname">  
+  <%= link_to (link.user.name), user_path(link.user), class: "blue" %>
+</div>
+
+
+<div class="commentdescriptiontext">
+<div>
+ <% if link.description.length > 150 %>
+    <%= truncate(link.description, :separator => ' ', length: 150) %>
+    <%= link_to_function ("(more)"), "$(this).parent().html('#{escape_javascript link.description}')", class: "readmorecomment" %>
+  <% else %>
+    <%= link.description %>
+  <% end %>
+</div>
+
+<div class="date3">
+<%= time_ago_in_words(link.created_at) %> ago
+</div>
+
+<% if current_user == link.user %>
+<div class="date3">|</div> <%= link_to "delete", question_link_path(link.question, link), method: :delete, data: { confirm: 'Delete this comment?' }, class: "date3" %>
+<% end %>
+
+
+<hr class="linelinks"/>
+
+</div>
+
+
+
+</div>

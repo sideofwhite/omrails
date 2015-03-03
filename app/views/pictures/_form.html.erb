@@ -1,17 +1,19 @@
-<% if user_signed_in? %>
+ <% if user_signed_in? %>
 
 <%= simple_form_for([@post, Picture.new]) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :image_file_size, class: "alert alert-error" %>
-  <%= f.full_error :image_content_type, class: "alert alert-error" %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<div class="blah2">
+<div class="addimageevent">
+<%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
+</div>
+</div>
+<img id="blah2" style="margin-bottom: 0px; background-color: rgba(51,51,51,0.03) !important;"/>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.input :image, label: "Upload an image" %>
+<div class="floatright">
+<%= f.submit "Add Image", class: "modalacceptbutton", style: "margin-bottom: 30px;" %>
+</div>
 
-  
-  <div class="center">
-    <%= f.button :submit, class: "favouritebuttonleft" %>
-  </div>
+
 
 
   <% end %>
@@ -22,3 +24,23 @@ Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", n
 
 
 <% end %> 
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah2').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#picture_image").change(function(){
+        readURL(this);
+    });
+
+</script>

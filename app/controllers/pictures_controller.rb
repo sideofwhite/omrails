@@ -4,8 +4,9 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
+    @skip_footer = true 
     @post = Post.friendly.find(params[:post_id])
-    @pictures = @post.picture
+    @pictures = @post.pictures
   end
 
   # GET /pictures/1
@@ -24,8 +25,9 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    @skip_footer = true 
     @post = Post.friendly.find(params[:post_id])
-     @picture = Picture.find(params[:id])
+
   end
 
   # POST /pictures
@@ -78,7 +80,7 @@ class PicturesController < ApplicationController
     end
 
      def can_edit?
-  current_user.try(:admin?) 
+    current_user.try(:admin?) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

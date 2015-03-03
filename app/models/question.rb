@@ -6,24 +6,16 @@ def normalize_friendly_id(string)
   super[0..100]
 end
 
-include Bootsy::Container
-
-include PublicActivity::Model
-tracked only: :create, owner: ->(controller, model) { controller && controller.current_user }
-tracked only: :create, recipient: ->(controller, model) { model && model.comment.user }
-
-has_attached_file :image, styles: { :small => "400x250>", :medium => "320x240>", :large => "740x340>" }
+has_attached_file :file
 
 
-validates :body, presence: true
-validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
-                             size: { less_than: 5.megabytes }
 belongs_to :user
 acts_as_votable
 belongs_to :comment, :counter_cache => true
 has_many :answers
 has_many :links
 has_many :pictures
+acts_as_list
 
 
  def image_remote_url=(url_value)

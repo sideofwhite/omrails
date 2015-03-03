@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require tinymce-jquery
 //= require bootsy
 //= require jquery.autosize.js
 //= require bootstrap
@@ -24,6 +26,7 @@
 //= require bigSlide.js
 //= require jquery.infinitescroll
 //= require bootstrap-wysihtml5
+//= require medium-editor
 //= require_tree .
 
 

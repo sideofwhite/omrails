@@ -1,6 +1,3 @@
-
-
-
 <% @toppost.each_with_index do |post, i| %>
 <% unless post.pictures.count == 0 %>
 <style media="screen">
@@ -11,127 +8,76 @@
 <%= link_to post_path(post) do %> 
 
 <div class="experimentstrip-<%= post.id %>" style="position: relative; width: 100%;
-  height: 500px; background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; margin-bottom: 0px;">
-
-
+height: 400px; background-size: cover;
+background-repeat: no-repeat;
+background-position: center; margin-bottom: 0px;">
 <div class="darker"></div>
-
-<div class="absoluteheader">
-<%= render 'layouts/headercategories' %>
-
-</div>
-
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<%= link_to (post.title), post_path(post), class: "posttext2" %> 
 <div class="descriptionmargin"> 
-<div class="hidden-phone"> 
-<%= truncate(post.description, length: 200, separator: ' ') %>
+
+<% if post.event == true %>
+<div class="answersnumberbox">
+  <%= pluralize(post.events.first.questions.count, "Answer") %> 
 </div>
-
-<div class="hidden-tablet hidden-desktop"> 
-<%= truncate(post.description, length: 100, separator: ' ') %>
+<div class="posttext2">
+  <%= post.events.first.title %> 
 </div>
-
-<hr class="whiteimageline"/>
-
-<% post.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion2">
-<%= image_tag question.user.image %>
+<% else %>
+<div class="titletextunderneath">
+  <%= pluralize(post.comments.count, "Question") %> | <%= pluralize(post.questions.count, "Answer") %>
+</div>
+<div class="posttext2">
+  <%= post.title %> 
 </div>
 <% end %>
-<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; line-height: 24px !important; border-left: 1px solid rgba(255,255,255,0.5)">
- <%= post.questions.count %> Answers
-</div>
-</div>
-
-<div class="row"></div>
 
 
+   </div>
+  <div class="row"></div>
+ </div>
 </div>
-</div>
+
+
 </div>
 
 
 <% end %>
 
-<div class="hidden-phone"> 
 
 <div class="width6">
 
-<div class="questionnavbar51" style="padding-bottom: 0px !important;">
-3 of <%= post.questions.count %> Answers
+<div style="margin-bottom: 30px !important;"> 
+</div>  
+<div class="p3">  
+<%= truncate(post.description, :separator => ' ', length: 150) %>
 </div>
 
-
-<div class="questionnavbar50right">  
-<%= link_to "See all...", post_path(post), class: "blue" %>
-</div>
-
-
-<hr class="aboveimageline"/>
-
-
-
-<div class="homepagefeedpadding">
-
-<% post.questions.where(:hide => false).order('cached_votes_total desc').limit(3).each do |question| %>
-
-
-
-
-
-<div class="titlecontainer30">
-<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment) %>
-</div>	
-
-
-
-<div class="p2">	
- 
-    <%= truncate(question.body, :separator => ' ', length: 300) %>
-    <%= link_to ("(Read More)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
 
 </div>
 
 
-<div class="smallavatarfeed">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>	
-<div class="feedlinetop">
-<div class="lightnametopblue" style="line-height: 30px;"> 
-    <%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-     </div> 
-      <div class="title50" style="line-height: 30px;"> 
-        <% if question.title? %> 
 
-<%= question.title %> 
-<% else %> 
-I am an expert in American police forces 
-<% end %> 
-</div> 
-<div class="row"></div>
+<% if post.questions.where(:hide => true, :recommend => true).present? %>
+
+<hr class='dividerline'/>
+<div class="width6">
+<div class="dividerhead">
+ANSWERS
 </div>
 
 
-
-<div class="row"></div>
-
-<hr class="commentfeedline"/>
-
-
-
+<% post.questions.where(:hide => true, :recommend => true).limit(3).each_with_index do |question, i| %>
+  <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+  <% unless (i + 1) == post.questions.where(:hide => true, :recommend => true).count or (i + 1) ==3 %>
+  <hr class="line30"/>
+  <% end %>
 <% end %>
-<div class="questionnavbar50right" style="margin-top: 0px !important;">  
-<%= link_to "See all...", post_path(post), class: "blue" %>
-</div>
-<div class="row"></div>
-</div>
-</div>
-
 </div>
 
 <% end %>
+
+<% end %>
+
+

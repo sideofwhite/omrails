@@ -18,7 +18,12 @@ end
   @answer = Answer.new
 end
     
-
+  def sort
+  params[:question].each_with_index do |id, index|
+    Question.update_all({position: index+1}, {id: id})
+  end
+  render nothing: true
+end
 
   # GET /questions/1
   # GET /questions/1.json
@@ -100,6 +105,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :title, :comment_id, :user_id, :image, :image_remote_url, :caption, :hide, :bootsy_image_gallery_id)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id, :file, :caption, :hide, :recommend, :bootsy_image_gallery_id, :position)
     end
 end

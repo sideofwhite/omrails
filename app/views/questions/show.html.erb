@@ -41,28 +41,6 @@
 
 
 
-<div class="titlecontainer">
-<%= @comment.title %>
-</div>
-
-
-<hr style="margin-top: 20px; margin-bottom: 20px !important;"/>
-
-<div class="feedimagetopquestion2" style="floatright;">
-<%= image_tag @question.user.image %>
-</div>
-<div class="answersnumber" style="color: rgba(51,51,51,0.4) !important;">
-<%= @question.user.name %>'s Answer
-</div>
-
-<div class="newtoggle12" style="margin-bottom: 0px; display: block; margin-top: 0px; opacity: 0.4;">
-Asked <%= time_ago_in_words(@comment.created_at) %> ago
-</div>
-
-
-<div class="newtoggle12" style="margin-bottom: 30px; margin-top: 10px; opacity: 0.4;">
-<strong><%= link_to ("See all answers..."), post_comment_path(@question.comment.post, @question.comment) %></strong>
-</div>
 
 <div>
 

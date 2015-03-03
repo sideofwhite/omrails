@@ -2,33 +2,37 @@
 
 <% unless @post.pictures.count == 0 %>
 <style media="screen">
-  .experiment { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
+  .experiment { background-image:  url(<%= @post.pictures.first.image %>); background-color: #333; }
   </style>
 <% end %>
-<style media="screen">
-  .navbar .brand {color: white !important;} 
-  .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important;}
 
-  .alert-danger { opacity: 1 !important; color: white !important;}
+<style media="screen">
+ .alert-danger { opacity: 1 !important; color: white !important;}
 </style>
 
 
-<div class="experiment">
 
+
+<div class="experiment">
 <div class="darker"></div>
+
 
 <% if @post.pictures.count > 0 %>
 <div class="imagepostedby">
  <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user), class: "white" %>
+  <% if @post.pictures.first.user.present? %>
+<i class="fa fa-picture-o"></i> <%= link_to (@post.pictures.first.user.name), user_path(@post.pictures.last.user), class: "white" %>
+<% end %>
 </div>
 </div>
 <% else %>
-<div class="imagepostedby">
-<a href="#Picture" role="button" data-toggle="modal" class="imagepostedbytext" style="color: white !important;">Add Image</a>
-</div>                 
+<div class="absolutecontainerprofile">
+<div class="relativecontainer">
+<div class="userprofileimage-container" style="margin-top: 60px;">
+<a href="#Picture" role="button" data-toggle="modal" class="userprofileimage-name">+ Header Image</a>
+</div>         
+</div>
+</div>        
 <% end %>
 
 <div class="absoluteheader">
@@ -40,34 +44,23 @@ Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.las
 
 <% if current_user.try(:admin?) %>
 <%= link_to edit_post_path(@post) do %>
-<i class="fa fa-cog"></i>
+<i class="fa fa-pencil-square-o"></i>
 <% end %>
-
 <% end %>
 
 
 <div class="absolutecontainer">
 <div class="relativecontainer">	
 <div class="descriptionmargin"> 
+
+<div class="titletextunderneath">
+<%= pluralize(@post.comments.count, "Question") %> | <%= pluralize(@post.questions.count, "Answer") %>
+</div>
+
+
 <div class="posttext2">
 <%= @post.title %> 
 </div>
-
-<hr class="whiteimageline"/>
-
-<% @post.questions.limit(3).each do |question| %>
-<div class="feedimagetopquestion3">
-<%= image_tag question.user.image %>
-</div>
-<% end %>
-<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; float: left; margin-right: 0px; margin-left: 7px;">
- <%= pluralize(@post.questions.count, "Answer") %> 
-</div>
-
-
-<div class="row"></div>
-
-
 
 
 
@@ -80,45 +73,115 @@ Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.las
 
 <div class="width6">
 
-<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
+<div style="margin-bottom: 30px !important;"> 
 </div>  
 <div class="p3">  
 <%= @post.description %>
 </div>
 <div style="padding-top: 10px "></div>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "padding-left: 22px; text-decoration: underline;" %>
- 
 <div class="row"></div>
+<div class="linklogoimage">
+<%= image_tag (@post.image) %>
+</div>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px;" %>
+<div class="row"></div>
+</div>
 
-<div class="newtoggle12" style="margin-bottom: 10px; display: block; margin-top: 0px; opacity: 0.4; font-weight: bold; ">
-<% tag_cloud(@comment.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, { :action => :tag, :id => tag.name } %>...
+<hr class="dividerline"/>
+<div class="width6">
+
+<% if @events.present? %>
+<%= render 'posts/timeline' %>
+  <% if @topquestions.count == 0 %>
+    <hr class="dividerline"/>
+    <div class="dividerhead">
+    ACTIVITY
+  </div>
+  <% end %>
 <% end %>
-</div>
- 
 
-<hr class="aboveimageline" style="margin-top: 33px !important;"/>
-<div class="newtoggle">
-Top Answers
-</div>
 
-<div class="newtoggleright blue">
-<%= link_to "Top Questions...", topquestions_path %>
-</div>
-
+<% if @ordered.present? %>
 <div class="row"></div>
 
- 
+<% unless @events.blank? %>
+  <hr class="dividerline"/>
+<% end %>
+
+<div class="dividerhead">
+ <% if current_user.try(:admin?) %>  
+  <%= link_to "RECOMMENDED ANSWERS", ordered_path(@post) %>
+ <% else %>
+  RECOMMENDED ANSWERS
+ <% end %>
+</div>
+
+ <%= render 'comments/commenttwo' %>
+<% end %>
 
 
+<% if @answersmore.present? %>
+<% unless @events.blank? and @ordered.blank? %>
+  <div class="row"></div>
+  <hr class="dividerline"/>
+<% end %>
+
+<%= render 'comments/answersmore' %>
+
+<% if @answersmore.count > 0 %>
+  <hr style="width: 30%; margin-bottom: 20px;"/>
+  <%= link_to "More >", answersmore_path(@post), class: "dividerheadlink" %>
+<% end %>
+
+<% end %>
+
+
+<% if @topquestions.present? %>
+<% unless @events.blank? and @answers.blank? %>
+  <div class="row"></div>
+  <hr class="dividerline"/>
+<% end %>
+
+<%= render 'comments/topquestions' %>
+<div class="row"></div>
+<% if @topquestions.count > 2 %>
+<div class="dividerheadlink">
+  <%= link_to "More...", topquestions_path(@post), class: "white" %>
+</div>
+<% end %>
+
+<% end %>
+
+
+<% if @topquestions.count == 0 %>
+<div class="shownoactivity-text" style='margin-top: 35px;'>
+  There's no activity here yet...
+</div>
+<div class="row"></div>
+<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<% elsif @topquestions.count.between?(1, 2)%>
+<hr class="line30"/>
+ <div class="shownoactivity-text">
+   There's not much activity here yet...
+  </div>
+<div class="row"></div>
+<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<% end %>
+
+
+<% if @articles.present? %>
+<%= render 'posts/articles' %>
+<% end %>
+
+
+<% if @related.present? %>
+<%= render 'posts/relatedstories' %>
+<% end %>
 
 
 </div>
-<%= render 'comments/commenttwo' %>
 
 
-
-<div class="sixty"></div>
 
 
 <script>
@@ -144,23 +207,35 @@ Top Answers
 
 
 
-<div id="Picture" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+                       <div id="Picture" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        
   <div class="modal-header">
-    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Add Image</h3>
-    <div class="underpodiumhome">
-    Add a banner image for this event. Please make sure it's your own image.
+    <button type="button" class="close2" style="font-size: 30px; color: white !important;" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="underpodiumhomeguidelinesblue">
+     <div class="width6"> 
+     <div class="modaltextlarge">
+    Add Image
+  </div>
+    <div class="underpodiumhomeguidelines">
+    Please make sure you own the rights to the image
+</div>
+</div>
     </div>
   </div>
-
-  <div class="modal-body">
+  <div class="row"></div>
+<div class="width6"> 
+  <div class="modal-body" style="padding-top: 0px;">
+   <div class="modal-body">
     <%= render :partial => "pictures/form" %>
+
   </div>
-</div>  
-
-
-
-
+    </div>
+ 
+</div>
+</div>
+</div>
 
 
 

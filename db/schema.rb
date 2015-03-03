@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114031113) do
+ActiveRecord::Schema.define(version: 20150228194614) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20150114031113) do
   add_index "answers", ["slug"], name: "index_answers_on_slug"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.string   "domain"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
+
+  add_index "articles", ["event_id"], name: "index_articles_on_event_id"
+
   create_table "bootsy_image_galleries", force: true do |t|
     t.integer  "bootsy_resource_id"
     t.string   "bootsy_resource_type"
@@ -57,6 +68,16 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "categorizations", force: true do |t|
+    t.integer  "comment_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categorizations", ["comment_id"], name: "index_categorizations_on_comment_id"
+  add_index "categorizations", ["event_id"], name: "index_categorizations_on_event_id"
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
@@ -77,6 +98,9 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.string   "slug"
     t.text     "about"
     t.boolean  "active"
+    t.string   "link"
+    t.text     "info"
+    t.boolean  "published",          default: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
@@ -89,12 +113,17 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain"
+    t.integer  "post_id"
+    t.string   "slug"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "domain"
   end
+
+  add_index "events", ["post_id"], name: "index_events_on_post_id"
+  add_index "events", ["slug"], name: "index_events_on_slug"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -136,6 +165,8 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.datetime "updated_at"
   end
 
+  add_index "pictures", ["post_id"], name: "index_pictures_on_post_id"
+
   create_table "posts", force: true do |t|
     t.text     "description"
     t.datetime "created_at"
@@ -159,6 +190,8 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.boolean  "hide",               default: false
     t.boolean  "top",                default: false
     t.boolean  "category",           default: false
+    t.integer  "position"
+    t.boolean  "event",              default: false
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug"
@@ -172,21 +205,38 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.datetime "updated_at"
     t.string   "title"
     t.integer  "cached_votes_total", default: 0
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "caption"
     t.string   "slug"
     t.integer  "answers_count",      default: 0
     t.boolean  "anon"
     t.boolean  "hide",               default: false
+    t.boolean  "recommend",          default: false
+    t.integer  "position"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "alt",                default: ""
+    t.string   "hint",               default: ""
   end
 
   add_index "questions", ["comment_id"], name: "index_questions_on_comment_id"
   add_index "questions", ["slug"], name: "index_questions_on_slug"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+
+  create_table "rich_rich_files", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        default: "file"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -243,7 +293,7 @@ ActiveRecord::Schema.define(version: 20150114031113) do
     t.datetime "image_updated_at"
     t.string   "place"
     t.string   "image_uid"
-    t.integer  "age"
+    t.text     "age"
     t.string   "twitter"
     t.string   "slug"
   end

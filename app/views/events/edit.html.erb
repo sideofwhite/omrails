@@ -1,6 +1,99 @@
-<h1>Editing event</h1>
+<style media="screen">
+  .imagestrip { background-image: url(<%= @post.pictures.first.image %>); }
+  .navbar .brand {color: white !important;} 
+  .fa-bell-o { color: white !important;}
+</style>
 
-<%= render 'form' %>
+<div class="settingsnavtop">
+<div class="width6">
+<div class="floatright">
+ <%= link_to 'Delete Event', post_event_path(@post, @event), method: :delete, data: { confirm: 'This event will be deleted. Are you sure?' }, class: "clicked" %>   
+</div>
+<div class="underpodiumhomeguidelinesbig" style="color: white; display: inline;">
+Edit Event
+</div>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+</div>
+<div class="absoluteheader">
+<%= render 'layouts/xheader' %>
+
+</div>
+</div>
+
+<div class="darker2">
+<div class="imagestrip" style="height: 150px; margin-top: -2px;">
+<div class='darker'></div>
+
+
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin" style="margin-bottom: 25px;"> 
+<div class="eventimagepreviewtext" style="font-size: 14px;">
+<%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
+
+<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="width6">
+<div class="sixty"></div>
+<%= simple_form_for [@post, Event.new] do |f| %>
+  <%= f.error_notification %>
+
+
+<div class="blah2">
+<div class="addimageevent">
+<%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
+</div>
+</div>
+<img id="blah2"/>
+
+
+
+<%= f.input :title, as: :text, input_html: { :class => "eventformtitle" }, label: false ,placeholder: "Title" %>
+<%= f.input :body, as: :text, input_html: { :class => "eventformbody" }, label: false ,placeholder: "Description" %>
+<%= f.input :link, as: :text, input_html: { :class => "eventformlink", :style => "color: #333 !important;" }, label: false ,placeholder: "www.example.com/123abc" %>
+<%= f.input :domain, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "www.example.com" %>
+
+<div class="row"></div>
+
+<hr style="margin-bottom: -15px; margin-top: 35px;"/>
+
+<div class="floatright">
+<%= f.submit "Publish", class: "modalacceptbutton", style: "margin-top: 30px" %>
+
+<% end %>
+
+
+</div>
+
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah2').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#event_image").change(function(){
+        readURL(this);
+    });
+
+</script>
+

@@ -1,118 +1,146 @@
-
 <% @questions.each_with_index do |question, i| %>
 <div id="question_<%= question.id %>" style="padding-top: 35px;">
-<div class="width6"> 
 
+<div class="leftinfomargin">
+<div class="leftinfoimage">
+
+<div class="smallavatar">
 <div class="smallavatarfeednomargin2">
 <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+</div>
+
+</div>
+
+<div class="rightinfo">
+
+<div class="largename">
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>  
 
-<div class="lightnametopblue"> 
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-</div> 
-<div class="title50"> 
-<%= question.title %> 
-</div> 
+<div class="answertitle">
+<%= question.title %>
+</div>
+
+</div>
+</div>
 
 
 
+
+<div style="margin-bottom: 16px !important;"> </div>
 
 <%= simple_format(question.body) %>
 
+<div class="datecenter" style="margin-bottom: 15px;">
+  <%= time_ago_in_words(question.created_at) %> ago
+  <% if current_user == question.user or current_user.try(:admin?) %>
+    | <%= link_to "Edit", edit_comment_question_path(question.comment, question) %>
+  <% end %>
+</div>
 
-<div class="mobilepadding10"></div>
 
+<div class="row"></div>
 
 <% if user_signed_in? %>
 
 <% if current_user.voted_for? question %>
-<div class="clicked">
-Upvoted
-</div>
+ <div class="clicked">
+   + <div style="display: inline;opacity: 0.3;">|</div> Upvoted
+ </div>
 <% else %>
+
 <%= link_to upvote_comment_question_path(question.comment, question), class: "hoverblueupvote", remote: true, method: :put do %>
-<div class="upvotebutton2-<%= question.id %>">
-Upvote
-</div>
+ <div class="upvotebutton2-<%= question.id %>">
+   + <div style="display: inline;opacity: 0.3;">|</div> Upvote
+ </div>
 <% end %>
-<div class="clicked-<%= question.id %>" style="display: none;">
-Upvoted
-</div>
+
+ <div class="clicked-<%= question.id %>" style="display: none;">
+   + <div style="display: inline;opacity: 0.3;">|</div> Upvoted
+ </div>
 <% end %>
+
 <% else %>
+
 <%= link_to new_user_registration_path do %>
 <div class="upvotebutton2">
-Upvote
+  + <div style="display: inline;opacity: 0.3;">|</div> Upvote
 </div>
+
 <% end %>
 <% end %>
-<div class="<%= question.id %>">
-<div class="commenttextbeside2hover">
-<div class="commentbutton">
-<strong><%= question.links.count %></strong> Comments 
-</div>
-</div>
-</div>
 
 
 
-
-<div class="leftinfoimage">
-<div class="smallavatar">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
-</div>
-<div class="rightinfo">
-<div class="lightname">
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-</div>  
-<div class="datecenter">
-<%= time_ago_in_words(question.created_at) %> ago
-</div>
-</div>
-
-
-
-<% if current_user == question.user or current_user.try(:admin?) %>
+<% if question.votes.count > 0 %>
+ <div class="answersnumber" style=" font-size: 12px; float: left;  line-height: 29px; color: #018bc6;">
+ </div>
+<% else %>
+ <div class="answersnumber" style=" font-size: 12px; float: left;  line-height: 29px; color: #018bc6;">
+    No upvotes yet
+  </div>
 <% end %>
 
 
-<div class='row'></div>
 
-<% if current_user != question.user %>
+<div class="row"></div>
 
 
-<div class="hiddenbuttons">
-<div class="editanswer">
-<%= link_to "Edit Answer", edit_comment_question_path(question.comment, question), class: "opacity7" %>
-<%=  link_to "Delete Answer", comment_question_path(question.comment, question), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: "opacity7" %>
+ 
+
+
+  
+<% if question.links.present? %>
+<div class="commentwidth"> 
+<hr class="linelinks"/>
+ <% question.links.limit(1).each do |link| %>
+   <%= render :partial => 'firstcomment', locals: {link:link} %>
+ <% end %>
 </div>
-</div>
-
 <% end %>
 
 <div class="row"></div>
 
-</div>
+<% if question.links.count > 1 %>
+  <div class="add-first-reply <%= question.id %>">
+    See more...
+  </div>
+<% elsif question.links.count == 1 %>
+  <div class="add-first-reply <%= question.id %>">
+    Add a reply...
+   </div>
+<% elsif question.links.count == 0 %>
+  <div class="see-all-replies <%= question.id %>">
+    Add the first comment...
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
 
 <div class="menu-<%= question.id %>" style="display: none;">
-
-
-<div id="linkmama-<%= question.id %>">
-<%= render :partial => 'newlink', locals: {question:question} %>
-</div>
-<div id="linkformmama-<%= question.id %>">
-<%= render :partial => "links/form", locals: {question:question} %>
-</div>
-
-
-
-
-</div>
+ <div id="linkmama-<%= question.id %>">
+   <%= render :partial => 'newlink', locals: {question:question} %>
+  </div>
+  <div id="linkformmama-<%= question.id %>">
+    <%= render :partial => "links/form", locals: {question:question} %>
+  </div>
 </div>
 
 
-<div class="width6"> 
+
+<% unless (i + 1) == @questions.count %>
+<hr/>
+<% end %>
+
 
 
 <script>
@@ -121,7 +149,7 @@ $(document).ready(function() {
         $('.<%= question.id %>').click(function() {
                
                 $('.menu-<%= question.id %>').toggle();
-                $('.eventtoptext3').hide();
+                $('.<%= question.id %>').hide();
                 
                 
         });
@@ -154,29 +182,30 @@ $(document).ready(function() {
 
  <style media="screen">
   .clicked-<%= question.id %> {   
-    display: inline;
-   background: rgba(51,51,51,0.2) !important;
+     display: inline;
+   background: rgba(51,51,51,0.3) !important;
    padding: 8px 12px 8px 12px;
    font-size: 12px;
    font-weight: bold;
-   margin-top: 8px;
-   float: right;
    color: white !important;
-   border-radius: 2px;
-   box-shadow: 1px 1px 1px rgba(51,51,51,0.1);
+   border-radius: 1px;
+   border: none !important;
+   text-shadow: none !important;
 
    
 } 
   .upvotebutton2-<%= question.id %> {   
-    display: inline;
+   display: inline-block;
    background: #018BC6 !important;
-   padding: 8px 12px 8px 12px;
+   padding: 10px 15px 9px 15px;
    font-size: 12px;
    font-weight: bold;
-   margin-top: 8px;
-   float: right;
+   float: left;
+   margin-top: 20px;
+   margin-right: 15px;
    color: white !important;
-   border-radius: 2px;
+   border-radius: 1px;
+   box-shadow: 1px 1px 1px rgba(51,51,51,0.05);
    
    
  } 
@@ -204,8 +233,8 @@ $(document).ready(function() {
 
 </style>   
 
-<hr class="anchorline"/>
-</div>
+
+
 
 
 <% end %>

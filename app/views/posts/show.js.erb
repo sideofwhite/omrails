@@ -1,6 +1,6 @@
-$('#products').append('<%= j render('comments/comment') %>');
-<% if @comments.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@comments) %>');
+$('#products').append('<%= j render('comments/ordered') %>');
+<% if @ordered.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@ordered) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>

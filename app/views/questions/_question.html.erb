@@ -2,19 +2,9 @@
 
 <div class="width6"> 
 
-<div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(@question.user.image)), user_path(@question.user) %>
-</div>  
-
-<div class="lightnametopblue"> 
-<%= link_to (@question.user.name), user_path(@question.user), class: "blue" %>
-</div> 
-<div class="title50"> 
-<%= @question.title %> 
-</div> 
 
 
-
+<div class="sixty"></div>
 
 <%= simple_format(@question.body) %>
 

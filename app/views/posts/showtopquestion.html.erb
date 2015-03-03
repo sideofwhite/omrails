@@ -1,6 +1,6 @@
 <% unless @post.pictures.count == 0 %>
 <style media="screen">
-  .imagestripquestions { background-image:  url(<%= @post.pictures.last.image %>); background-color: #333; }
+  .imagestripquestions { background-image:  url(<%= @post.pictures.first.image %>); background-color: #333; }
   </style>
 <% end %>
 <style media="screen">
@@ -14,138 +14,56 @@
 
 
 <div class="imagestripquestions">
-
 <div class="darker"></div>
 
-<% if @post.pictures.count > 0 %>
-<div class="imagepostedby">
- <div class="imagepostedbytext"> 
-Image: <%= link_to (@post.pictures.last.user.name), user_path(@post.pictures.last.user), class: "white" %>
-</div>
-</div>
-<% else %>
-<div class="imagepostedby">
-<a href="#Picture" role="button" data-toggle="modal" class="imagepostedbytext" style="color: white !important;">Add Image</a>
-</div>                 
-<% end %>
 
 <div class="absoluteheader">
 <%= render 'layouts/headerimage' %>
-
 </div>
-
 <%= render 'posts/belowimage' %>
 
-<% if current_user.try(:admin?) %>
-<%= link_to edit_post_path(@post) do %>
-<i class="fa fa-cog"></i>
-<% end %>
-
-<% end %>
-
-
 <div class="absolutecontainer">
-<div class="relativecontainer"> 
+<div class="relativecontainer">
 <div class="descriptionmargin"> 
-<div class="posttext2" style="font-size: 30px;">
-<%= @post.title %> 
-</div>
 
+<div class="eventimagepreviewtext">
+<%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
 <hr class="whiteimageline"/>
 
-<div class="answersnumber" style="color: rgba(255,255,255,0.75) !important; float: left; line-height: 1.1;">
- <%= pluralize(@post.comments.count, "Question") %> 
-</div>
-
-
-<div class="row"></div>
-
-
-
-
-
 </div>
 </div>
 </div>
-
 </div>
 
 
 <div class="width6">
-
-<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
+<div style="margin-bottom: 30px !important;"> 
 </div>  
 <div class="p3">  
- <%= truncate(@post.description, :separator => ' ', length: 180) %>
+<%= truncate(@post.description, :separator => ' ', length: 190) %>
 </div>
 <div style="padding-top: 10px "></div>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "padding-left: 22px; text-decoration: underline;" %>
- 
 <div class="row"></div>
-
-
- 
-
-<hr class="aboveimageline" style="margin-top: 33px !important;"/>
-<div class="newtoggle">
-Top Questions
+<div class="linklogoimage">
+<%= image_tag (@post.image) %>
 </div>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px;" %>
 
-<div class="newtoggleright blue">
-<%= link_to "Top Answers...", post_path(@post) %>
-</div>
 
 <div class="row"></div>
-
- 
-
-
-
-
+<hr class="dividerline"/>
+<div class="dividerhead">
+TOP QUESTIONS
 </div>
+
 <%= render 'comments/commenttoptwo' %>
 
-
-
-<div class="sixty"></div>
-
-
-<script>
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-               
-                $('.menu').slideDown("fast");
-                $('.eventtoptext3').hide();
-                
-                
-        });
-
-   $('.cancelslideup').click(function() {
-    $('.menu').slideUp("fast");
-    $('.eventtoptext3').show();
-
-     }); 
-    }); 
+</div>
 
 
 
-</script>
 
-
-
-<div id="Picture" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Add Image</h3>
-    <div class="underpodiumhome">
-    Add a banner image for this event. Please make sure it's your own image.
-    </div>
-  </div>
-
-  <div class="modal-body">
-    <%= render :partial => "pictures/form" %>
-  </div>
-</div>  
 
 
 
