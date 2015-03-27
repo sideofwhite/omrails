@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
   def contact
     @skip_footer = true 
-
+ 
   end
    def guidelines
   	@skip_bottom = true  
@@ -22,5 +22,9 @@ class PagesController < ApplicationController
      @skip_footer = true  
   
   end
+
+  def admin_questions
+  @comments = Comment.all.order("created_at desc")
+  end 
 
 end

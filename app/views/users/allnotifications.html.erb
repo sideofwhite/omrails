@@ -1,19 +1,29 @@
 <div class="width6">
-<div style="margin-top: 20px;"></div>
-<div class="notificationcount-text floatright" style="font-size: 14px;">
-<%= link_to "See new...", notifications_path(@user), class: "blue" %>
+<div class="notifications-margin"></div>
+
+<div class="leftstoryimage">
+<div class="notificationcount-circle">
+<%= @allnotifications.count %>
 </div>
-<div class="notificationcount-text">
+</div>
+
+<div class="rightstorytitle">
+
+
+<div class="notificationcount-text" style="font-size: 16px;">
 All Notifications
 </div>
 
-<hr style='margin-bottom: 20px; margin-top: 5px;'/>
+<div class="notificationcount-text">
+<%= link_to "See new", notifications_path(current_user), class: "blue" %>
+</div>
+
+<hr style='margin-bottom: 0px; margin-top: 10px;'/>
+</div>
 
 
+<div class="notificationheadermargin"></div>
 
-
-
-	
 
 <div id="products">
 <%= render 'users/allnotifications' %>
@@ -23,8 +33,8 @@ All Notifications
 
 
 
-<div class="timeline-bottom"></div>
-<div class="timeline-bottom"></div>
+<div class="timeline-bottom" style="border-left: 2px solid rgba(51,51,51,0.1);"></div>
+<div class="timeline-bottom" style="border-left: 2px solid rgba(51,51,51,0.1);"></div>
 
 </div>
 

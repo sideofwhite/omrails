@@ -1,0 +1,18 @@
+<div class="titlecontainer30">
+<%= link_to (comment.title), post_comment_path(comment.post, comment), class: 'blue' %>
+</div>
+
+<div style="margin-top: 10px;">
+
+<div class="answersnumber-text">
+  <%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+
+<div class="datecenter" style="display: inline-block;">
+• Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+
+
+</div>
+

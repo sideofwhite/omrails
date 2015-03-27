@@ -1,21 +1,36 @@
 <% if activity.trackable %>
+
+<% if activity.read == true %>
+
+<div class="timeline-dot" style="background-color: rgba(51,51,51,0.1);">
+</div>
+
+<div class="timeline-content" style="width: 100%; border-left: 2px solid rgba(51,51,51,0.1);">
+
+<% else %>
+
 <div class="timeline-dot">
 </div>
 
 <div class="timeline-content" style="width: 100%;">
 
+
+<% end %>
+
+
 <div style="width: 70%">
-<div class="timeline-date">
+<div class="timeline-date" style="font-size: 11px; margin-bottom: 4px;">
 <%= time_ago_in_words(activity.trackable.created_at) %> ago
 </div>	
 <div class="notification-smalltext">
+<%= link_to ("#{activity.trackable.question.comment.title}:"), comment_question_path(activity.trackable.question.comment, activity.trackable.question), class: "notification-smalltextlink" %>	
 <%= activity.owner.name  %>
-commented on your answer to <%= link_to (activity.trackable.question.comment.title), comment_question_path(activity.trackable.question.comment, activity.trackable.question), class: "notification-smalltextlink" %>
+commented on your answer.
 </div>
 </div>
 
 <div class="notification-content">
-<div class="commentwidth">
+<div class="commentwidth-notification">
 
 <div class="smallavatar3">
 <%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
@@ -34,11 +49,11 @@ commented on your answer to <%= link_to (activity.trackable.question.comment.tit
 </div>
 </div>
 
+
+
+
+<div class="row"></div>
 </div>
-
-
-
-
 
 <% end %>
 

@@ -3,45 +3,60 @@
 
 <% if activity.trackable %>
 
-<div class="experimentname3">
-<%= link_to activity.owner.name, activity.owner, class: "blue" if activity.owner %>	
-answered your question...
+<% if activity.read == true %>
+
+<div class="timeline-dot" style="background-color: rgba(51,51,51,0.1);">
 </div>
 
-<div class="row"></div>
+<div class="timeline-content" style="width: 100%; border-left: 2px solid rgba(51,51,51,0.1);">
 
+<% else %>
 
-<div class="titlecontainer30" style="font-size: 20px;">
-<%= activity.trackable.comment.title %>
+<div class="timeline-dot">
 </div>
 
-<div style="padding-top: 25px "></div>
+<div class="timeline-content" style="width: 100%;">
 
-<div class="row"></div>
 
-<div class="smallavatarfeednomargin2">
-<%= image_tag activity.trackable.user.image %>
+<% end %>
+
+
+
+<div style="width: 70%">
+<div class="timeline-date" style="font-size: 11px; margin-bottom: 4px;">
+<%= time_ago_in_words(activity.trackable.created_at) %> ago
+</div>	
+<div class="notification-smalltext">
+<%= link_to ("#{activity.trackable.comment.title}:"), comment_question_path(activity.trackable.comment, activity.trackable), class: "notification-smalltextlink" %>	
+<%= activity.owner.name  %>
+answered your question.
+</div>
 </div>
 
-<div class="lightnametopblue"> 
+
+<div class="notification-content">
+
+<div class="small-image">
+<%= sanitize(activity.trackable.body.gsub(/<p>.<\/p>/,"").truncate(200, separator: ' ')) %>
+</div>
+
+<div class="row" style="margin-top: -7px;"></div>
+
+<div class="answer-feed-avatar">
+<%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user), class: "blue" %>
+</div>
+
+<div style="font-size: 1em; line-height: 34px;">
 <%= link_to (activity.trackable.user.name), user_path(activity.trackable.user), class: "blue" %>
+<div style="display: inline; color: rgba(51,51,51,0.4);">
+<%= link_to ("• Continue reading"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", style: "color: rgba(51,51,51,0.5) !important;" %>	
+ <i class="fa fa-long-arrow-right"></i>
 </div>
-<div class="title50"> 
- <%= activity.trackable.title %>
-</div>
-
-<div class="p2">
-<%= truncate(activity.trackable.body, :separator => ' ', length: 250) %>
-    <%= link_to ("(more)"), comment_question_path(activity.trackable.comment, activity.trackable) + "#question_#{activity.trackable.id.to_s}", class: "readmore"  %>
 </div>
 
+</div>
 
-
-<div class="row"></div>
-
-<hr class="commentfeedline"/>
-
-
+</div>
 <% else %>
 
 

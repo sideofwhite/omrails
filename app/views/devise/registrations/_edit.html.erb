@@ -1,32 +1,44 @@
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
-<div class="infopage-container">
+
+<div class="modal-width-slide">
+<div class="infopage-container-modal">
+
+<div class="guidelines-text-light" style="color: #018bc6 !important; font-size: 14px;">
+Edit
+</div>
+
 <div class="floatright">
- <%= link_to "Sign Out", destroy_user_session_path, class: "submitblueinfo", method: :delete %> 
-</div>   
-<div class="infopage-boldtext">
-Edit Profile 
-</div>
-<div class="infopage-smalltext">
-Change your email, personla bio and location.
-</div>
+ <%= link_to "Sign Out", destroy_user_session_path, class: "guidelines-text-light", method: :delete %> 
+</div> 
+<div class='row'></div>
+<hr class="modalline-slide" style="margin-top: 10px; margin-bottom: 35px;"/>
+
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
+
+
+
   <%= f.error_notification %>
 
 
-<%= f.input :email, input_html: { :class => "infoform" }, placeholder: "your_email@example.com", label: "EMAIL" %>
-
+<%= f.input :email, input_html: { :class => "infoform" }, placeholder: "Your Email", label: "Email" %>
 <div class="row"></div>
-<%= f.input :age, input_html: { :rows => 1, :class => "infoform" }, placeholder: "A short bio", label: "BIO" %>
+<%= f.input :place, input_html: { :class => "infoform" }, placeholder: "Where do you live?", label: "Location" %>
 <div class="row"></div>
-<%= f.input :place, input_html: { :class => "infoform" }, placeholder: "Location", label: "LOCATION" %>
+<%= f.input :age, input_html: { :rows => 1, :class => "infoform-text", :maxlength => 140 }, placeholder: "A short bio", label: "Bio" %>
+<hr class="modalline-slide"/>
 
- </div>
 
-<div style="text-align: center; margin-top: 40px;">
-<%= f.submit "Save", class: "submitblueinfo" %>
-</div>
+<%= f.submit "Save", class: "submitbluemodal" %>
+
+
+<div class="modaldeclinebutton">Cancel</div>
+  
 
 
 <% end %>
+
+</div>
+</div>
 
 
 

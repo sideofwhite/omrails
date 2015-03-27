@@ -1,79 +1,11 @@
 
 <div class="navbar transparent navbar-inverse ">
    
-     
-             
-         <div class="nav pull-left">
-             <%= link_to ("Podium."), root_path, class: "brand"  %>
 
-          </div>    
               
           
         <%= render 'posts/categories' %>
        
            
         
-           <div class="nav pull-right">
-                      
-                    <% if user_signed_in? %>
-                      
-                      <% if notificationcount > 0 %>
-                      <%= link_to notifications_path(current_user) do %>     
-                       <i class="fa fa-bell" style="background-color: #f9a825 !important;"></i>  
-                       <% end %>
-                       <% else %>
-                        <%= link_to notifications_path(current_user) do %>     
-                        <i class="fa fa-bell" ></i>  
-                        <% end %>
-                        <% end %> 
-
-                        
-                        
-
-                     
-                      
-                       
-                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important; padding-right: 0px !important;" %></li>
-                     
-                    
-
-                       
-
-                    
-                     <% else %>
-                    
-                     
-                  
-                      
-                      
-                      <li><div id="login">Login/Sign Up</div></li>
-                     
-                      <% end %>
-
-                      
-
-            </div>
-
-
- 
-        </div>
-  
-
-
-
-<div class="loginpanel" style="display: none;">
-
-  <%= render :partial => "devise/sessions/new" %>
-
-</div>
-
-
-<script>
-
-$("#login").click(function(){
-    $(".loginpanel").show();
-
-});
-
-</script>
-                      
+          </div>

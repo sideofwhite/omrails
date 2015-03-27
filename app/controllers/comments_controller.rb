@@ -1,19 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
- def top
-@comments = Comment.order("cached_votes_total desc")
-end  
- 
-
 
  def upvote
 @comment = Comment.friendly.find params[:id]
 @comment.liked_by current_user
-redirect_to post_comment_path
 end
 
-
+def unpublished 
+  @comment = Comment.friendly.find params[:id]
+  @hidden = @comment.questions.where(:hide => false).order('created_at desc')
+end
 
   # GET /comments
   # GET /comments.json
@@ -35,10 +32,13 @@ end
   @link = Link.new
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
   @questions = @comment.questions.where(:hide => true).order('cached_votes_total desc').page(params[:page]).per_page(1)
+  @published = @comment.questions.where(:hide => true).order('created_at')
+  @related = @comment.post.questions.where(:hide => true).order('created_at')
   @hidden = @comment.questions.where(:hide => false).order('created_at desc')
    respond_to do |format|
         format.html
         format.js
+        format.json
     end
 
   end

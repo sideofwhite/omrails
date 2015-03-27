@@ -1,0 +1,38 @@
+<div class="underpodiumhomeguidelinesbig" style="color: white; display: inline;">
+Edit Question
+</div>
+
+
+
+<%= simple_form_for [@post, @comment, remote: true] do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Question" %>
+
+
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-check"></i></div>
+<div class="floatright" style="display: inline;">
+<%= f.check_box :published, as: :boolean, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+PUBLISH 
+</div> 
+<div class="row"></div>
+</div>
+
+
+
+
+
+<hr/>
+
+<div class="floatright">
+<%= f.submit "Save", class: "modalacceptbutton", style: "margin-top: 30px; font-size: 12px;" %>
+</div>
+
+ <% end %>
+
+
+
+

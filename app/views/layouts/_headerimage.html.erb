@@ -13,7 +13,9 @@
                     <% if user_signed_in? %>
                        <% if notificationcount > 0 %>
                       <%= link_to notifications_path(current_user) do %>     
-                       <i class="fa fa-bell" style="background-color: #f9a825 !important;"></i>  
+                       <div class='bell-number'>
+                        <%= notificationcount %>
+                      </div>
                        <% end %>
                        <% else %>
                         <%= link_to notifications_path(current_user) do %>     
@@ -37,19 +39,9 @@
                     
                      <% else %>
                     
-                     
-                  <li><div class="login">Login/Sign Up</div></li>
-                  
-                    <div style="position: fixed; top: 75px; right: 0;">
+  
+                  <li><div class="login" id="login-recommend-add">Login/Sign Up</div></li>
 
-<div class="myDiv" style="display: none;">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
-    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
-    <%= render :partial => "devise/sessions/new" %>
-   </div>
- </div>
-
-</div>
                      
                       <% end %>
 
@@ -60,20 +52,5 @@
 
 
 
-<script>
-$('.login, .close-twitter').click(function () {
-    if($('.login').is(':visible')){
-    $('.login').fadeOut(function () {
-        $('.myDiv').toggle('slide', {
-            direction: 'right'
-        }, 300);
-    });
-    }
-    else{
-        $('.myDiv').toggle('slide', {
-            direction: 'right'
-        }, 300, function(){ $('.login').fadeIn();});
-    }
-});
-</script>
+
   

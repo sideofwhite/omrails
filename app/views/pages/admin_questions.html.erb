@@ -1,0 +1,37 @@
+<div class="width6">
+
+<% @comments.each do |comment| %>
+
+<%= comment.title %>
+
+<div class="form-next">
+Edit
+</div>
+
+<hr/>
+
+<div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
+<div class="form-sidebar" style="display: none;">
+<button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button>	
+<div class="width6">
+
+h
+
+</div>
+</div>
+</div>
+
+
+<% end %>
+
+</div>
+
+
+<script>
+$('.form-next, .close-editor').click(function () {
+        $('.form-sidebar').toggle('slide', {
+            direction: 'down'
+        }, 300);
+    });
+
+</script>

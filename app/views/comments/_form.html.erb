@@ -1,21 +1,37 @@
+<div class="modal-width-slide">
+<div class="infopage-container-modal">
 
-
-<%= simple_form_for [@post, Comment.new] do |f| %>
+<%= simple_form_for [@post, Comment.new], url: post_comments_path(@post)  do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-<div class="modal-body">
-<%= f.input :title, as: :text, input_html: { rows: "3", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
+
+<div class="guidelines-text-light" style="color: #018bc6 !important; font-size: 14px;">
+Ask Question
 </div>
 
-<div class="modal-footer">
-<div style="position: fixed; bottom: 40px; width: 640px;">
-<hr/>
-<div class="modal-header-text">
+<hr class="modalline-slide" style="margin-top: 10px;"/>
+
+
+
+
+<%= f.input :title, as: :text, input_html: { rows: "3", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
+
+
+
+
+<%= f.submit "Submit", class: "submitbluemodal" %>
+
+
+<div class="modaldeclinebutton">Cancel</div>
+
+<div class="row"></div>
+<hr class="modalline-slide"/>
+<div class="guidelines-text-light">
       Please read our question guidelines before submitting a question. All questions will be reviewed by an editor before being published.
     </div>
-<%= f.submit "Submit Question", class: "submitbluemodal" %>
-</div>
-</div>
+
 
 
 <% end %>
 
+</div>
+</div>

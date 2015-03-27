@@ -5,10 +5,7 @@
  </style>
 <% end %>
 <% else %>
-<style media="screen">
-   .profileimage-banner { background-image: url(http://img.qz.com/2014/11/iss-space-repair.jpg?w=1600);}
-   .darker {opacity: 0.7; background-color: #018bc6;} }
- </style>
+
  <% end %>
 
 
@@ -18,114 +15,146 @@
 <div class="darker"></div>
 
 
+ <% if current_user == @user %>
+
+<div class="blue-edit-profile">
+Edit Profile
+</div>
+
+<div class="fullpage-modal-container">  
+
+  <div class="fullpage-modal" style="display: none;">
+<button type="button" class="close-modal-slide" data-dismiss="modal" aria-hidden="true">×</button>
+<hr class="modalline-slide" style="margin-top: 0px"/>
+ <%= render :partial => "devise/registrations/edit" %>
+</div>
+</div>
+
+
+
+<% end %>
+
+
+
+
+
+<div class="absolutecontainer" style="top: 0;">
+<div class="relativecontainer" style="height: 100%;">
+<div class="profile-banner" style="height: 100%;">
+
+<div class="element-vertical">
+
+<%= render 'profile_head' %>
+
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
 <div class="absoluteheader">
   <%= render 'layouts/headerimage' %>
-  <% if current_user == @user %>
-<i href="#Edit" role="button" data-toggle="modal" class="fa fa-user"></i>
-<% end %>
-</div>
-
-
-
-
-<div class="absolutecontainer">
- <div class="relativecontainer">
-  
-
-
-<div class="avatar-border">
-<div class="userprofileimage-image">
- <%= image_tag @user.image %>
-</div>
-</div>
-
-
- </div>
  </div>
 
+
+
 </div>
+
+<div class="blueprofileex">
 
 <div class="width6">
 
-<div class="userprofileimage-width">
-<div class="userprofileimage-name">
- <%= @user.name %>
+<div class="nav-container-profile-selected"> 
+
+
+<div class="selected-toggle-number">
+<%= @questions.count %>
+</div>
+<div class="selected-toggle">
+Recommended 
 </div>
 
-<% if @user.age.present? %>  
-<div class="userprofileimage-bio">
-<%= @user.age %>
+</div>
+
+
+<div style="display: inline-block; float: right;">
+
+<div class='select-toggle-line'>
+
+<%= link_to allanswers_path(@user) do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+<%= @comments.count %>
+</div>
+<div class="select-toggle">
+Answers
+</div>
 </div>
 <% end %>
 
-<li class="profilemenu">
-<% if @user.twitter.present? %>  
-<ul class="profilemenu-item">
-<i class="fa fa-twitter"></i>
-@<%= @user.twitter %>
-</ul>
-<% end %>
-<% if @user.place.present? %>  
-<ul class="profilemenu-item" style="border-left: 1px solid rgba(51,51,51,0.1);">
-<i class="fa fa-map-marker"></i>
-<%= @user.place %>
-</ul>
-<% end %>
-
-
-</li>
-
-
 </div>
 
 
 
-<div class="row"></div>
-<hr class='dividerline'/>
-<div class="dividerhead">
-ANSWERS 
+<%= link_to allcomments_path(@user) do %>
+<div class="nav-container-profile" style="margin-right: 0px;"> 
+<div class="select-toggle-number">
+<%= @links.count %>
+</div>
+<div class="select-toggle">
+Replies
+</div>
+</div>
+<% end %>
+
+</div>
+
+
 </div>
 </div>
 
 
 
 
-
-<div id="products">
-<%= render 'users/show' %>
-</div>
-
-
-<% if @user.votes.count == 0 %>
-  <%= @user.name %> hasn't upvoted any answers yet.
-<% end %>
-
-
-
-<% if @questions.count > 5 %>
- <div class="width6">
-  <div class="floatright">
-    <%= link_to "See all upvotes...", upvotes_path(@user), class: "blue" %>
-   </div>
- </div>
-<% end %>
-
-
-
-
-
-
-  <div id="Edit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- 
-    <button type="button" class="close2" style="color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
 
 <div class="width6">
-  
-    <%= render :partial => "devise/registrations/edit" %>
-  
- </div> 
+
+<% if @user.votes.present? %>
+<%= render 'show' %>
+<% elsif @user.votes.blank? and @user == current_user %>
+<div class="nonew-notifications">
+   You haven't recommenced any answers yet. Click the blue 'plus' button below an answer and it will show up here.
+</div>
+<% elsif @user.votes.blank? %>
+<div class="nonew-notifications">
+    <%= @user.name %> hasn't recommended any answers yet.
+</div>
+<% end %>
 
 </div>
+
+
+
+
+
+
+ <script>
+$('.blue-edit-profile, .close-modal-slide, .modaldeclinebutton').click(function () {
+        $('.fullpage-modal').toggle('slide', {
+            direction: 'top'
+        }, 300);
+    });
+</script>
+
+
+
+
 
 
 

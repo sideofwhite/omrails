@@ -1,6 +1,17 @@
+<% @posts.each do |post| %>
+
 <style media="screen">
-body {background-color: rgba(245,245,245, 0.97);}
+.imagestrip {background-image: url(<%= post.pictures.first.image %>);}
 </style>
+
+
+<% end %>
+
+
+<div class="imagestrip" style="height: 100% !important; position: fixed;">
+
+<div class='darker' style=" 
+opacity: 0.8; z-index: -1;"></div>
 
 
 <div class="absoluteheader">
@@ -9,6 +20,9 @@ body {background-color: rgba(245,245,245, 0.97);}
 
 
 <div class="width6">
+
+
+
 
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :style => "margin: 0px !important;"}) do |f| %>
@@ -25,68 +39,107 @@ We still need your email.
 </div>
 
 
-<%= f.input :email, input_html: { :class => "infoform" }, placeholder: "your_email@example.com", label: false %>
+<%= f.input :email, input_html: { :class => "infoform-email" }, placeholder: "your_email@example.com", label: false %>
 
 
-<div class="infopage-infotext">
+
+</div>
+
+
+<hr class="whiteimageline" style="margin-top: 0px; margin-bottom: 20px !important; opacity: 0.5"/>
+
+
+<div class="infopage-infotext" style="float: left;">
 We hate spam as much as you. We promise never to send you much email.
 </div>
 
-
+<div class="submitblueinfo" id='nextbutton' style="float: right;">
+Next
 </div>
 
-
-<div style="text-align: center; margin-top: 40px;">
-<div class="submitblueinfo" id='nextbutton'>
-Submit
-</div>
-</div>
 
 </div>
 
 
 
 <div class="profile" style="display: none;">
+
 <div class="infopage-container">
 
-<div class="infopage-boldtext">
-One last step (optional)
-</div>
-<div class="infopage-smalltext">
-Add some basic facts about you to make public on your profile.
+<div class="skip-mouse">
+
+<div class="blue-skip" id="nextbutton-profile">
+<i class="fa fa-long-arrow-right" style="color: white; margin-left: 0px;"></i>
 </div>  
 
-<div style="background-color: #018bc6; padding-bottom: 40px;">
-<div style="padding: 30px 20px 0px 20px"></div>
+<div class="blue-skip-text" id="nextbutton-profile">
+Skip
+</div>
+
+</div>
+
+<div class="infopage-boldtext">
+Add a bio
+</div>
+
+<div class="infopage-smalltext">
+Make it short...and sweet.
 </div>
 
 
-<div class="infoformavatar">
-<%= image_tag current_user.image %>
+<%= f.input :age, input_html: { :class => "infoform-email", :maxlength => 140 }, placeholder: "A one-line bio", label: false %>
+
 </div>
 
+<hr class="whiteimageline" style="margin-top: 0px; margin-bottom: 20px !important; opacity: 0.5"/>
 
-<div style="font-size: 20px; text-align: center; margin-bottom: 20px;">
-<%= current_user.name %>
-</div>
 
-<%= f.input :age, input_html: { :class => "infoform" }, placeholder: "A short bio", label: false %>
-
-<%= f.input :place, input_html: { :class => "infoform" }, placeholder: "Location", label: false %>
-
-<div class="infopage-infotext">
+<div class="infopage-infotext" style="float: left;">
 You can edit this information at any time.
 </div>
 
+
+<div class="submitblueinfo" id="nextbutton-profile" style="float: right;">
+Next
 </div>
 
-<div style="text-align: center; margin-top: 40px;">
-<%= f.submit "Finish", class: "submitblueinfo" %>
-</div>
-
 
 </div>
 
+
+<div class="location" style="display: none;">
+
+
+<div class="infopage-container">
+
+
+<div class="infopage-boldtext">
+Add a location
+</div>
+<div class="infopage-smalltext">
+Where do you live?
+</div>
+
+
+<%= f.input :place, input_html: { :class => "infoform-email" }, placeholder: "Location", label: false %>
+
+
+</div>
+
+<hr class="whiteimageline" style="margin-top: 0px; margin-bottom: 20px !important; opacity: 0.5"/>
+
+
+<div class="infopage-infotext" style="float: left;">
+You can edit this information at any time.
+</div>
+
+
+
+<%= f.submit "Finish", class: "submitblueinfo", style: "float: right;" %>
+
+
+
+</div>
 
 
 
@@ -95,7 +148,25 @@ You can edit this information at any time.
  
 
 
+<% @posts.each do |post| %>
 
+
+<div class="imagepostedby" style="opacity: 0.75;">
+
+<div class="imagepostedby-event">
+<%= post.title %>
+</div>
+
+ <div class="imagepostedbytext"> 
+<i class="fa fa-picture-o"></i> <%= post.pictures.first.user.name %>
+</div>
+</div>
+
+
+<% end %>
+
+
+</div>
 </div>
 
 
@@ -104,9 +175,15 @@ You can edit this information at any time.
 
 $("#nextbutton").click(function(){
     $(".email").hide();
-    $(".profile").slideDown();
-
+    $(".profile").show();
 });
+
+
+$("#nextbutton-profile").click(function(){
+    $(".profile").hide();
+    $(".location").show();
+});
+
 
 </script>
 

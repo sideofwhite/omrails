@@ -24,7 +24,7 @@ validates :title, presence: true
 validates :user_id, presence: true
 acts_as_votable
 acts_as_taggable
-belongs_to :post, :counter_cache => true
+belongs_to :post, :counter_cache => true, :dependent => :destroy
 belongs_to :user
 has_many :questions
 has_many :categorizations

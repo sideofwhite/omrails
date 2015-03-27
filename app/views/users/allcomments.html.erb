@@ -1,33 +1,112 @@
+<% if @links.present? %>
+<% @links.limit(1).each do |link| %>
+<style media="screen">
+   .profileimage-banner { background-image: url(<%= link.question.comment.post.pictures.first.image %>); }
+ </style>
+<% end %>
+<% else %>
+<style media="screen">
+   .profileimage-banner { background-image: url(http://img.qz.com/2014/11/iss-space-repair.jpg?w=1600);}
+   .darker {opacity: 0.7; background-color: #018bc6;} }
+ </style>
+ <% end %>
+
+
+<div class="profileimage-banner">
+   
+<div class="darker"></div>
+
+
+<div class="absoluteheader">
+  <%= render 'layouts/headerimage' %>
+ </div>
+
+
+
+<div class="absolutecontainer" style="top: 0;">
+<div class="relativecontainer" style="height: 100%;">
+<div class="profile-banner" style="height: 100%;">
+
+<div class="element-vertical">
+
+<%= render 'profile_head' %>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="blueprofileex">
+
 <div class="width6">
 
+<div class="nav-container-profile-selected"> 
 
-	
-
-<div class="userimagenotsignedinupvotes">
-<%= image_tag @user.image %>
+<div class="selected-toggle-number">
+<%= @links.count %>
 </div>
-<div class="usernametext2upvotes">	
-<%= @user.name %>
-</div>
-
-<div class="row"></div>
-<hr class="aboveimageline"/>
-
-<div class="newtoggle">
-ALL COMMENTS (<%= @user.links.count %>)
+<div class="selected-toggle">
+Replies
 </div>
 
-<div class="floatright">
-<div class="newtoggleright">
-<%= link_to "BACK TO PROFILE...", usercomments_path(@user), class: "blue" %>
+</div>
+
+
+<div style="display: inline-block; float: right;">
+
+<div class='select-toggle-line'>
+
+<%= link_to user_path(@user) do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+<%= @questions.count %>
+</div>
+<div class="select-toggle">
+Recommended
+</div>
+</div>
+<% end %>
+
+</div>
+
+
+<%= link_to allanswers_path(@user) do %>
+<div class="nav-container-profile" style="margin-right: 0px;"> 
+<div class="select-toggle-number">
+<%= @comments.count %>
+</div>
+<div class="select-toggle">
+Answers
+</div>
+</div>
+<% end %>
+
+</div>
+
+
 </div>
 </div>
 
-<hr class="belowimageline2"/>
 
-<div class='upvotesthirty'></div>
+<div class="width6">
 
-<div class="row"></div>
+<% if @links.blank? and @user == current_user %>
+<div class="nonew-notifications">
+   You haven't replied to any answers yet. Click the 'reply' button at the bottom of an answer to add your [jssajc].
+</div>
+<% elsif @links.blank? %>
+<div class="nonew-notifications">
+    <%= @user.name %> hasn't replied to any answered yet.
+</div>
+<% end %>
 
 
 
@@ -39,3 +118,6 @@ ALL COMMENTS (<%= @user.links.count %>)
 
 
 <%= will_paginate @links %>
+
+
+<div class="row"></div>

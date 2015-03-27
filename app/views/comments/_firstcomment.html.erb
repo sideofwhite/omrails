@@ -25,14 +25,9 @@
 </div>
 
 <% if current_user == link.user %>
-<div class="date3">|</div> <%= link_to "delete", question_link_path(link.question, link), method: :delete, data: { confirm: 'Delete this comment?' }, class: "date3" %>
+<div class="date3">•</div> <%= link_to "Delete", question_link_path(link.question, link), method: :delete, data: { confirm: 'Delete this comment?' }, class: "date3" %>
 <% end %>
-
-
-<hr class="linelinks"/>
-
 </div>
 
 
 
-</div>

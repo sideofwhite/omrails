@@ -1,31 +1,119 @@
+<% if @comments.present? %>
+<% @comments.limit(1).each do |question| %>
+<style media="screen">
+   .profileimage-banner { background-image: url(<%= question.comment.post.pictures.first.image %>); }
+ </style>
+<% end %>
+<% else %>
+<style media="screen">
+   .profileimage-banner { background-image: url(http://img.qz.com/2014/11/iss-space-repair.jpg?w=1600);}
+   .darker {opacity: 0.7; background-color: #018bc6;} }
+ </style>
+ <% end %>
+
+
+<div class="profileimage-banner">
+   
+<div class="darker"></div>
+
+<div class="absolutecontainer" style="top: 0;">
+<div class="relativecontainer" style="height: 100%;">
+<div class="profile-banner" style="height: 100%;">
+
+<div class="element-vertical">
+
+<%= render 'profile_head' %>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="absoluteheader">
+  <%= render 'layouts/headerimage' %>
+</div>
+
+
+
+</div>
+
+
+
+<div class="blueprofileex">
+
 <div class="width6">
 
 
-<div class="userimagenotsignedinupvotes">
-<%= image_tag @user.image %>
+<div class="nav-container-profile-selected"> 
+<div class="selected-toggle-number">
+<%= @comments.count %>
 </div>
-<div class="usernametext2upvotes">	
-<%= @user.name %>
-</div>
-
-<div class="row"></div>
-<hr class="aboveimageline"/>
-
-<div class="newtoggle">
-ALL ANSWERS (<%= @user.questions.count %>)
-</div>
-
-<div class="floatright">
-<div class="newtoggleright">
-<%= link_to "BACK TO PROFILE...", userinterviews_path(@user), class: "blue" %>
+<div class="selected-toggle">
+Answers
 </div>
 </div>
 
-<hr class="belowimageline2"/>
 
-<div class='upvotesthirty'></div>
 
-<div class="row"></div>
+<div style="display: inline-block; float: right;">
+
+<div class='select-toggle-line'>
+
+<%= link_to user_path(@user) do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+<%= @questions.count %>
+</div>
+<div class="select-toggle">
+Recommended
+</div>
+</div>
+<% end %>
+
+</div>
+
+
+
+<%= link_to allcomments_path(@user) do %>
+<div class="nav-container-profile" style="margin-right: 0px;"> 
+<div class="select-toggle-number">
+<%= @links.count %>
+</div>
+<div class="select-toggle">
+Replies
+</div>
+</div>
+<% end %>
+
+</div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="width6">
+
+
+<% if @comments.blank? and @user == current_user %>
+<div class="nonew-notifications">
+   You haven't answered any questions yet. Click the blue 'plus' circle beisde a question to add an answer.
+</div>
+<% elsif @comments.blank? %>
+<div class="nonew-notifications">
+    <%= @user.name %> hasn't answered any questions yet.
+</div>
+<% end %>
+
 
 
 

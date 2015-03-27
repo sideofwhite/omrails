@@ -2,10 +2,12 @@ p img {
     width: 100% !important;
     height: auto;
     display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
 
 }
+
 
 
 p {
@@ -20,11 +22,43 @@ p {
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     text-rendering: optimizeLegibility;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 25px 0px;
     font-smooth:always;
+    color: rgba(51,51,51,0.92);
     
     
     
+}
+
+
+@media screen and (max-width: 500px) 
+{ 
+
+p {
+    font-size: 17px !important;
+    line-height: 1.5; 
+}
+
+}
+
+
+.mce-tooltip {
+    display: none;
+}
+
+.mce-content-body img[data-mce-selected], hr[data-mce-selected] {
+
+outline: 3px solid #018bc6;
+
+}
+
+#inputText {
+    height : 1000px;
+}
+
+.mce-content-body {
+    border-top: 2px dashed rgba(51,51,51,0.1);
+    padding-top: 20px;
 }
 
 #mytoolbar {

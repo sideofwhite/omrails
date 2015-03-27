@@ -1,16 +1,8 @@
-
-
 <% unless @post.pictures.count == 0 %>
 <style media="screen">
-  .experiment { background-image:  url(<%= @post.pictures.first.image %>); background-color: #333; }
+  .experiment { background-image:  url(<%= @post.pictures.first.image %>);}
   </style>
 <% end %>
-
-<style media="screen">
- .alert-danger { opacity: 1 !important; color: white !important;}
-</style>
-
-
 
 
 <div class="experiment">
@@ -51,7 +43,7 @@
 
 <div class="absolutecontainer">
 <div class="relativecontainer">	
-<div class="descriptionmargin"> 
+<div class="descriptionmargin-story"> 
 
 <div class="titletextunderneath">
 <%= pluralize(@post.comments.count, "Question") %> | <%= pluralize(@post.questions.count, "Answer") %>
@@ -110,9 +102,9 @@
 
 <div class="dividerhead">
  <% if current_user.try(:admin?) %>  
-  <%= link_to "RECOMMENDED ANSWERS", ordered_path(@post) %>
+  <%= link_to "TOP ANSWERS", ordered_path(@post) %>
  <% else %>
-  RECOMMENDED ANSWERS
+ TOP ANSWERS
  <% end %>
 </div>
 
@@ -158,14 +150,14 @@
   There's no activity here yet...
 </div>
 <div class="row"></div>
-<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
 <% elsif @topquestions.count.between?(1, 2)%>
-<hr class="line30"/>
+<hr class="questionsline"/>
  <div class="shownoactivity-text">
    There's not much activity here yet...
   </div>
 <div class="row"></div>
-<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
 <% end %>
 
 

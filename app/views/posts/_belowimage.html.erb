@@ -1,35 +1,21 @@
 
 <% if user_signed_in? %> 
+<a class="bluecircle white" id="logged-in">+</a>
 
 
+<div class="fullpage-modal-container">  
 
-<div class="questionnavbar50right">
-<a href="#myModal" role="button" class="bluecircle2 white" style="" data-toggle="modal">+</a>
+  <div class="fullpage-modal" style="display: none;">
+<button type="button" class="close-modal-slide" data-dismiss="modal" aria-hidden="true">×</button>
+<hr class="modalline-slide" style="margin-top: 0px"/>
+  <%= render :partial => "comments/form" %>
+</div>
 </div>
 
-
-<!-- Modal -->
-
+<% else %>
 
 
-
-
-
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- 
-    <button type="button" class="close2" style="color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
-
-<div class="width6">
-<div class="modal-header">    
-    Ask Question
-  </div>
-  
-    <%= render :partial => "comments/form" %>
-  
- </div> 
-
-</div>
-
+<div class="bluecircle white">+</div>
 
 
 <% end %>
@@ -38,20 +24,9 @@
 
 
 <script>
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-               
-                $('.menugrey').slideDown("fast");
-                $('.eventtoptext3').hide();
-                
-                
-        });
-
-   $('.cancelslideup').click(function() {
-    $('.menugrey').slideUp("fast");
-    $('.eventtoptext3').show();
-
-     }); 
-    }); 
-
+$('#logged-in.bluecircle, #logged-in.submitblue, .close-modal-slide, .modaldeclinebutton').click(function () {
+        $('.fullpage-modal').toggle('slide', {
+            direction: 'top'
+        }, 300);
+    });
 </script>

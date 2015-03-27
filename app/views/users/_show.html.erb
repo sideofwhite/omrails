@@ -1,60 +1,77 @@
 <% @questions.group_by {|q| q.comment.post}.take(5).each_with_index do |(post, questions), i| %>
 
-<% if post.present? %>
 
-<% unless post.pictures.count == 0 %>
- 
-<% end %>
+
+
+
+
 
 
 <% if i == 0 %>
 
-
-
-
-<% else %>
-
-<style media="screen">
-   .eventfeedimage-<%= post.id %> { background-image:  url(<%= post.pictures.first.image %>); background-color: #333; }
-  </style>
-
-<div class="width6">
-
+<div class="event-orangeHead"></div>
 
 <div class="userprofile-event">
 <%= link_to (post.title), post_path(post) %>
+<div class="timeline-description" style='line-height: 1.45;'>
+  <%= truncate(post.description, :separator => ' ', length: 110) %>  
 </div>
-<div class="eventfeedimage-<%= post.id %>" style="width: 100%; height: 150px; background-color: rgba(51,51,51,0.1); margin-top: 15px; float: left;  position: relative;
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center; background-image: url(https://d262ilb51hltx0.cloudfront.net/max/1600/1*8t_guKy3Y1944KJ9IFU9hw.jpeg); border: 1px solid rgba(51,51,51,0.1);">
-  <div class="darker" style="opacity: 0.2;"></div>
 </div>
+
+<hr class="linelinks" style="width: 30%; margin-top: 20px;"/>
+
+<% else %>
+
+<div class="event-orangeHead"></div>
+<div style="overflow: hidden; float: left;">
+<div class="userprofile-event">
+<%= link_to (post.title), post_path(post) %>
+<div class="timeline-description" style='line-height: 1.45;'>
+  <%= truncate(post.description, :separator => ' ', length: 110) %>  
+</div>
+</div>
+</div>
+
+
+
+<div class="row"></div>
+
+<div class="eventfeedimage-profile" style="background-image: url(<%= post.pictures.first.image %>);">
+  <div class="darker" style="opacity: 0.3;"></div>
+</div>
+
+
+
+
+
+
 
 <div class="row"></div>
 <div style="margin-bottom: 35px;"></div>
 
 
 
-</div>
-
 
 
 <% end %>
 
-<% end %>
 
-<div class="width6">
  
 <% for question in questions %>
 
 <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+
 <hr class="line30"/>
 
 <% end %>
 
-</div>
+
 
 <% end %>
 
+<% if @questions.present? %>
+<div class="end-page-circle"></div>
+<div class="end-page-circle-small"></div>
+<div class="row"></div>
+<% end %>
 

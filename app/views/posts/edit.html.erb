@@ -1,7 +1,4 @@
-<style media="screen">
-  .navbar .brand {color: white !important;} 
-  .fa-bell-o { color: white !important;}
-</style>
+
 
 <div class="settingsnavtop">
 
@@ -21,7 +18,106 @@ Edit Story
 
 <div class="width6">
 <div class="sixty"></div>
-<%= render 'form' %>
+
+
+<style media="screen">
+  #blah2 { background-image: '#blah2'); background-color: #333;  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+</style>
+
+
+
+   <%= simple_form_for @post do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :image_file_size, class: "alert alert-error" %>
+  <%= f.full_error :image_content_type, class: "alert alert-error" %>
+
+<div class="width6">
+
+
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "eventformtitlelarge", :style => "font-size: 34px;" }, label: false ,placeholder: "Title" %>
+<%= f.input :description, as: :text, input_html: { :class => "eventformbody" }, label: false ,placeholder: "Description" %>
+<div class="row"></div>
+
+<div class="blah2">
+<div class="addimageevent2">
+<%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
+</div>
+</div>
+<img id="addnewslogo"/>
+
+<%= f.input :domain, as: :text, input_html: { :class => "eventformlink" }, label: false ,placeholder: "www.example.com" %>
+<%= f.input :link, as: :text, input_html: { :class => "eventformlink", :style => "width: 98% !important;" }, label: false ,placeholder: "www.example.com/123abc" %>
+
+<div class="row"></div>
+<hr/>
+
+<div class="row"></div>
+
+<%= f.input :tag_list, as: :text,  input_html: { rows: "1", :class => "taglistform" }, label: false, placeholder: "World, Politics, Technology, Business, Science" %>
+
+<div class="checkboxcover">
+<a id="close">
+<%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+</a>
+<div class="buttoncheckbox2">
+Publish to homepage
+  </div>
 </div>
 
+<div class="checkboxcover">
+<%= f.check_box :category, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+<div class="buttoncheckbox2">
+Featured on category page
+</div> 
+</div>
 
+<% if @post.events.present? %>
+<div class="checkboxcover">
+<%= f.check_box :event, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+<div class="buttoncheckbox2">
+Show latest event for post
+</div> 
+</div>
+<% end %>
+
+<div class="row"></div>
+
+<hr style="margin-bottom: -15px; margin-top: 35px;"/>
+
+<div class="floatright">
+<%= f.submit "Publish", class: "modalacceptbutton", style: "margin-top: 30px" %>
+</div>
+
+</div>
+
+ <% end %>
+
+
+
+
+
+
+
+</div>
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#addnewslogo').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#post_image").change(function(){
+        readURL(this);
+    });
+
+</script>

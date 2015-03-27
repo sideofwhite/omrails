@@ -6,54 +6,28 @@ after_action :read_all_notification, only: [:notifications]
   @skip_footer = true  
   @user = User.friendly.find(params[:id])
   @questions = @user.get_voted Question .order("created_at desc")
-  @comment = @user.questions.order("created_at desc")
+  @comments = @user.questions.order("created_at desc")
   @links = @user.links.order("created_at desc")
   end
 
-   def upvotes
-    
-  @user = User.friendly.find(params[:id])
-  @questions = @user.get_voted Question .order("created_at desc").page(params[:page]).per_page(10)
-  
-  end
+
 
   def allanswers
-    
+  @skip_footer = true   
   @user = User.friendly.find(params[:id])
   @comments = @user.questions.order("created_at desc").page(params[:page]).per_page(10)
-  
+  @questions = @user.get_voted Question
+  @links = @user.links.order("created_at desc")
   end
 
  def allcomments
-    
+  @skip_footer = true   
   @user = User.friendly.find(params[:id])
   @links = @user.links.order("created_at desc").page(params[:page]).per_page(10)
-  
-  end
-
-  def upvoted  
-  @user = User.friendly.find(params[:id])
-  @questions = @user.get_voted Question.offset(5)
-  end
-
-
-   def interviews
-
-    @skip_footer = true  
-  @user = User.friendly.find(params[:id])
-  @questions = @user.get_voted Question
-  @links = @user.links.order("created_at desc")
   @comments = @user.questions.order("created_at desc")
-  end 
-
-    def usercomments
-
-   @skip_footer = true  
-  @user = User.friendly.find(params[:id])
   @questions = @user.get_voted Question
-  @comment = @user.questions.order("created_at desc")
-  @links = @user.links.order("created_at desc").page(params[:page]).per_page(10)
-  end 
+  end
+
 
   def notifications 
   @user = User.friendly.find(params[:id]) 

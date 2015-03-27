@@ -1,0 +1,33 @@
+<div class="avatar-border">
+<div class="userprofileimage-image">
+ <%= image_tag @user.image %>
+</div>
+</div>
+
+
+<div class="userprofileimage-name">
+ <%= @user.name %>
+</div>
+
+<% if @user.age.present? %>  
+<div class="userprofileimage-bio">
+<%= @user.age %>
+</div>
+<% end %>
+
+<li class="profilemenu">
+<% if @user.twitter.present? %>  
+<ul class="profilemenu-item">
+<i class="fa fa-twitter"></i>
+@<%= link_to truncate(@user.twitter, length:10), root_path, class: "white" %>
+</ul>
+<% end %>
+<% if @user.place.present? %>  
+<ul class="profilemenu-item" style="border-left: 1px solid rgba(255,255,255,0.5); padding-left: 10px;">
+<i class="fa fa-map-marker"></i>
+<%= @user.place %>
+</ul>
+<% end %>
+
+
+</li>

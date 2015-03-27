@@ -1,4 +1,4 @@
-<div class="width6">
+
 
 <% if @comments.count == 0 %>
 <div class="eventmargin3">
@@ -9,32 +9,10 @@ There are no questions yet.
 
 <% @comments.each_with_index  do |comment, i| %>
 
-<div class="titlecontainer-question">
-<%= link_to (comment.title), post_comment_path(comment.post, comment) %>
-</div>
-
-<div style="margin-top: 10px;">
-
-<div class="answersnumber-text">
-  <%= pluralize(comment.questions.count, 'Answer') %>
-</div>
-
-<div class="datecenter" style="display: inline-block;">
-• Asked <%= time_ago_in_words(comment.created_at) %> ago
-</div>
-
-
-
-</div>
+<%= render :partial => 'layouts/questionsfeed', locals: {comment:comment} %>
 
 <% unless @comments.count == ( i + 1 ) %>
-<hr class="linksline"/>
-<% end %>
-
-
-
-<% if @comment.questions.where(:hide => true).present? %>
-
+<hr class="questionsline"/>
 <% end %>
 
 
@@ -42,5 +20,5 @@ There are no questions yet.
 
 
 
-</div>
+
 

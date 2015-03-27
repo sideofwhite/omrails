@@ -1,6 +1,8 @@
-<div class="commentwidth"> 
+<hr class="linelinks"/>
+<div class="row"></div>
 
 <% if user_signed_in? %>
+
 
 
 <%= simple_form_for [question, Link.new], :remote => true, html: {id: "new_link"} do |f| %>
@@ -8,12 +10,7 @@
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 
-<div class="smallavatar3">
-<%= image_tag (current_user.image) %>
-</div>
 
-
-<div class="commentdescriptiontext">
 <div class="commentdescriptionname">	
 <%= link_to (current_user.name), user_path(current_user), class: "blue" %>	
 </div>
@@ -24,12 +21,15 @@
 
 <div class="row"></div>
 
-<hr style="margin-bottom: 15px !important; margin-top: 15px !important; width: 100px;" />
 
-<div class="row"></div>
 
- <%= f.button :submit, "Post", class: "bluebuttonask", data: { disable_with: "Posting..." } %>
+ <%= f.button :submit, "→", class: "bluebuttonask", data: { disable_with: "..." } %>
+
+<div class="ask-details">
+Please read guidelines before replying.
 </div>
+
+
 
 
 
@@ -39,9 +39,11 @@
 
 <% else %>
 
-
-<%= link_to "Sign up to add comment...", new_user_registration_path, class: "addlink" %>
-
+<%= link_to user_omniauth_authorize_path(:twitter) do %>
+<div class="twitter-reply">
+<i class="fa fa-twitter" style="color: #018bc6; font-size: 16px; display: inline-block; margin-right: 4px;"></i> Login with Twitter to reply
+</div>
+<% end %>
 
 <% end %>
-</div>
+

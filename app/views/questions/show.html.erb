@@ -1,203 +1,352 @@
+<% unless @comment.post.pictures.count == 0 %>
+<style media="screen">
+ .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
+</style>
+<% end %>
+<style>
+  .read-more-<%= @comment.id %> { opacity: 0.4;}
+</style>
+
+
+ <div class="imagestrip">
+  <div class='darker'></div>
+   <div class="absoluteheader">
+     <%= render 'layouts/headerimage' %>
+   </div>
+
 <% if current_user.try(:admin?) %>
-<%= link_to edit_post_comment_path(@comment.post, @comment) do %>
-<i class="fa fa-cog"></i>
+  <%= link_to edit_post_comment_path(@comment.post, @comment) do %>
+    <i class="fa fa-pencil-square-o"></i>
+  <% end %>
 <% end %>
-<% end %>
 
-
-<div class="darker2">
-<div class="imagestrip">
-<div class='darker'></div>
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-
-</div>
-
+<% if @comment.published %>
 <% if user_signed_in? %>  
-  <a href="#Answer" role="button" data-toggle="modal" class="bluecircle white">+</a>
+  <div id="logged-in" class="bluecircle white">+</div>
 <% else %>  
-  <%= link_to "+", new_user_registration_path, class: "bluecircle white" %>
+<div class="bluecircle white" id="login-recommend-add">+</div>
+<% end %>
 <% end %>
 
 <div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin"> 
-<div class="eventimagepreviewtext">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>
+ <div class="relativecontainer">
+  <div class="descriptionmargin"> 
 
-<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
+   <div class="eventimagepreviewtext">
+     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+   </div>
+
+    <hr class="whiteimageline"/>
+
+    
+     <% if @comment.events.present? %>
+      <div class="eventlight">
+        Event:
+      </div>
+      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
+      <% end %>
+
+   </div>
+  </div>
+ </div>
 
 
-
 </div>
-</div>
-</div>
-</div>
-</div>
-
 
 <div class="width6">
 
 
 
+<% if @comment.info.present? %>
+<div class="questionsdetailsbox-show">
+<strong>Background:</strong>
+  <div style="display: inline;">
+  <% if @comment.info.length > 150 %>
+    <%= truncate(@comment.info, length: 150) %>
+    <%= link_to '(more)', '', class: "read-more-#{@comment.id}" %>
+    <script>
+      $('.read-more-<%= @comment.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript @comment.info %>')
+      })
+    </script>
+  <% else %>
+    <%= @comment.info %>
+  <% end %>
+</div>
+<div style="margin-top: 5px;">
+  <%= link_to truncate(@comment.link, :length => 30), url_for(@comment.link), :target => "_blank", style: "opacity: 0.4;" %>
+ </div>
+</div>
 
-<div>
+
+<% end %>
+
+
+ <div class="titlecontainer">
+  <%= link_to (@comment.title), post_comment_path(@comment.post, @comment), class: "blue" %>
+ </div>
+
+ <div class="row"></div>
+
+<div style="margin-top: 20px;"></div>
 
 
 
+<div class="dividerheadinline">
+ANSWERS
+</div>
+
+
+<div class="dividerheadinline-info">
+<% if @question.hide == true %>
+<% if @published.count > 1 %>
+1 of <%= @published.count %> <%= link_to "See all...", post_comment_path(@comment.post, @comment), class: "blue" %>
+<% end %>
+<% else %>
+
+
+<%= link_to (@question.user.name), user_path(@question.user), class: "blue" %>
+
+
+
+<% end %>
+
+
+
+</div>
+
+
+
+   
+
+
+<div class="dividerheadinline" style='margin-left: 10px;'>
+ASKED
+</div>
+<div class="dividerheadinline-info">
+<%= time_ago_in_words(@comment.created_at) %> ago
+</div>
+
+
+
+<hr style="margin-bottom: 10px; margin-top: 10px;"/>
+
+
+
+
+
+<div style="display: inline-block; float: right;">
+<div class="submit-share">
+Share
+</div>  
+
+
+
+<% if user_signed_in? %>
+
+<% if current_user.voted_for? @comment %>
+<div class="submitblue-small-clicked">
+Following
+</div>
+<% else %>
+
+<div id="<%= @comment.id %>" style="display: inline;">
+<%= link_to upvote_post_comment_path(@comment.post, @comment), remote: true, method: :put do %>
+ <div class="submitblue-small" id="follow-<%= @comment.id %>">
+   Follow
+ </div>
+<% end %>
+</div>
+ <div class="submitblue-small-clicked" style="display: none;" id="followed-<%= @comment.id %>">
+Following
+</div>
+<% end %>
+
+<% else %>
+<div class="submitblue-small" id="login-recommend-add">
+   Follow
+ </div>
+<% end %>
+</div>
+
+
+
+
+
+
+
+<div class="row"></div>
+
+<div style="margin-top: 40px;"></div>
 
 
 <%= render 'questions/question' %>
 
 
-</div>
-</div>
-
-<div class="questiondivider">
-<div></div>
-</div>
 
 
 
+<% if @hidden.present? %>
+<hr class="dividerline" style="border-top: 0px;"/>
 
 
+<%= link_to unpublished_path(@comment), :remote => true, class: "unpublished-link", data: { disable_with: "Loading..." } do %>
 
-<div class="width6">
-<% if @question.comment.questions.count > 1 %>
+<%= pluralize(@hidden.count, "Unpublished Answer") %>
 
-<div class="newtoggle12" style="margin-bottom: 40px; margin-top: -10px;">
-MORE ANSWERS
-</div>
-
-
-<% @question.comment.questions.where("questions.id NOT IN (?)", @question.id).limit(2).each_with_index do |question, i| %>
-
-<div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
-
-<div class="lightnametopblue"> 
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-</div>
-<div class="title50"> 
-<%= question.title %> 
-</div>
-
-
-<div class="p2">
-<%= truncate(question.body, :separator => ' ', length: 180) %>
-    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore"  %>
-</div>
-
-<% unless i == 1 or @question.comment.questions.where("questions.id NOT IN (?)", @question.id).count == 1 %>
-<div class="dottedline"></div>
 <% end %>
 
+
+
+<div id="unpublished">
+</div>
 <div class="row"></div>
-
 <% end %>
-<% if @question.comment.questions.where("questions.id NOT IN (?)", @question.id).count == 1 %>
-<div style="padding-top: 20px "></div>
-<%= link_to ("See 2 more..."), post_comment_path(@question.comment.post, @question.comment), class: "readmore" %>
-<% end %>
-<hr style="margin-bottom: 45px;"/>
-<% end %>
+
+
+
+
 </div>
 
 
 
+<div class="imagestrip" style="height: 150px; margin-top: 60px;">
+  <div class='darker'></div>
+  <div class="absolutecontainer">
+ <div class="relativecontainer">
+  <div class="descriptionmargin"> 
 
+   <div class="eventimagepreviewtext">
+     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
+   </div>
 
+    <hr class="whiteimageline"/>
 
-
-
-<div class="darker2">
-<div class="imagestrip">
-<div class='darker'></div>
-<div class="absolutecontainer">
-<div class="relativecontainer">
-
-<div class="descriptionmargin"> 
-<div class="eventimagepreviewtext">
-<%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-</div>
-
-<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 15px !important;"/>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-<% unless @comment.post.pictures.count == 0 %>
-<style media="screen">
- .imagestrip { background-image: url(<%= @comment.post.pictures.last.image %>); }
-</style>
-<% end %>
-<style media="screen">
-.navbar .brand {color: white !important;} 
-  .headtext {color: white !important;} 
-  .navbar .nav > li > a {color: white !important;} 
-  .fa-bell-o { color: white !important; }
-
-  .alert-danger { opacity: 1 !important; color: white !important;} 
-</style>
-
-
-                       <div id="Answer" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-     <div class="width6">                    
-  <div class="modal-header">
-    <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
-    <div class="underpodiumhomeguidelinesbig">
-    Answer Guidelines
-  </div>
-    <div class="underpodiumhomeguidelines">
-    Please read the following guidelines before answering:
-
-    </div>
-  </div>
-  <div class="row"></div>
-
-  <div class="modal-body" style="padding-top: 0px;">
-   <div class="userbehindgrey3"> 
-    <div class="underpodiumhomeguidelines">
-    Answers should...
-    <br>
-    • Directly respond to the question
-    <br>
-    • Be factual, authentic and cite sources used (at the bottom of answer)
-    <br>
-    • Not personally attack the question or any other answers
-    <br>
-    • Answers that do not comply may be hidden, or in some cases, deleted
-    </div>
-  </div>
     
-    <div class="floatright">
-    <%= link_to "OK, I Agree", new_comment_question_path(@comment), class: "modalacceptbutton" %>
-</div>
+     <% if @comment.events.present? %>
+      <div class="eventlight">
+        Event:
+      </div>
+      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
+      <% end %>
+
+   </div>
   </div>
+ </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="fullpage-modal-container"> 
+
+  <div class="fullpage-modal" style="display: none;">
+<button type="button" class="close-modal-slide" data-dismiss="modal" aria-hidden="true">×</button>
+<hr class="modalline-slide" style="margin-top: 0px"/>
+<%= render :partial => "pages/answerguidelines", :object => @comment %>
 </div>
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#showmenu').click(function() {
-                
-                $('.hiddenquestions').show();
-                $('.belowimageline2hidden').hide();
-                
-               
-                
+   $(document).ready(function() {
+        $('#follow-<%= @comment.id %>').click(function() {
+                $('#followed-<%= @comment.id %>').show(); 
+                 $('#follow-<%= @comment.id %>').hide();
         });
     }); 
+</script>
+
+
+<% if user_signed_in? %>
+
+<div style="position: fixed; top: 75px; right: 0;">
+
+<div class="share-social" style="display: none;">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="infopage-boldtext" style="font-size: 14px; color: rgba(255,255,255,1);">
+Share Question
+</div>
+<div class="infopage-smalltext" style="font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.5);">
+Share to Facebook and Twitter
+</div>
+<div style="text-align: center">
+   <%= link_to "http://twitter.com/home?status=#{@comment.title} readpodium.com#{post_comment_path(@comment.post, @comment)}", :target => "_blank" do %>
+    <i class="fa fa-twitter" style="color: white; font-size: 34px; display: inline-block; margin-right: 15px;"></i>
+   <% end %>
+   <%= link_to "http://www.facebook.com/sharer.php?u=URL", :target => "_blank" do %>
+   <i class="fa fa-facebook-square"></i>
+   <% end %>
+   </div>
+ </div>
+ </div>
+
+</div>
+
+
+<% else %>
+
+
+
+
+
+ <div style="position: fixed; top: 75px; right: 0;">
+
+<div class="login-recommend-add-div" style="display: none;">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+
+</div>
+
+
+<% end %>
+
+
+<script>
+
+$('#logged-in.bluecircle, #logged-in.dividerheadinline, .close-modal-slide').click(function () {
+        $('.fullpage-modal').toggle('slide', {
+            direction: 'top'
+        }, 300);
+    });
+
+</script>
+
+<script>
+$('.submit-share, .close-twitter').click(function () {
+        $('.share-social').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+
+$('#login-recommend-add, .close-twitter').click(function () {
+    if($('.login').is(':visible')){
+    $('.login').fadeOut(function () {
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+    }
+    else{
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300, function(){ $('.login').fadeIn();});
+    }
+});
+
+
+
+
 
 </script>
 
@@ -205,6 +354,24 @@ MORE ANSWERS
 
 
 
+
+
+
+
+
+
+
+
+<% @question.comment.questions.where("questions.id NOT IN (?)", @question.id).limit(2).each_with_index do |question, i| %>
+
+
+<% end %>
+
+
+
+
+
+ 
 
 
 

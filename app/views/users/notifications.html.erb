@@ -1,25 +1,55 @@
 <div class="width6">
-<div style="margin-top: 20px;"></div>
-<div class="notificationcount-text floatright" style="font-size: 14px;">
-<%= link_to "See older...", allnotifications_path(current_user), class: "blue" %>
-</div>
+<div class="notifications-margin"></div>
+
+<div class="leftstoryimage">
+<% if notificationcount > 0 %>
 <div class="notificationcount-circle">
 <%= notificationcount %>
 </div>
-<div class="notificationcount-text">
+<% else %>
+<div class="notificationcount-circle" style="opacity: 0.5;">
+<%= notificationcount %>
+</div>
+<% end %>
+</div>
+
+<div class="rightstorytitle">
+
+
+<div class="notificationcount-text" style="font-size: 16px;">
 New Notifications
 </div>
 
-<hr style='margin-bottom: 20px; margin-top: 20px;'/>
+<div class="notificationcount-text">
+<%= link_to "See older", allnotifications_path(current_user), class: "blue" %>
+</div>
 
+<hr style='margin-bottom: 0px; margin-top: 10px;'/>
+</div>
 
 
 
 <% if notificationcount == 0 %>
+ <div class="nonew-notifications">
+  You don’t have any new notifications. When someone answers your question, replies to or recommends your answer, you will see it here.
+  </div>
 <% end %>
+
+
 <% @activities.each do |activity| %>	
+
   <%= render_activity activity %>	
+
 <% end %>
+
+
+<% if notificationcount > 0 %>
+<div class="timeline-bottom"></div>
+<div class="timeline-bottom"></div>
+<% end %>
+
+
+
 </div>
 
 

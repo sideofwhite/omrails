@@ -32,36 +32,7 @@ Hey, <%= current_user.name %>
 
 <div class="width6">
 
-<hr style="margin-top: 35px; margin-bottom: 10px !important;"/>
-<div class="dividerhead">
-HEADER STORY
-</div>
 
-
-<% @toppost.each do |post| %>
-<% unless post.pictures.count == 0 %>
-<style media="screen">
-  .imagestripquestions { background-image:  url(<%= post.pictures.first.image %>); background-color: #333; }
-  </style>
-<% end %>
-<div class="imagestripquestions">
-<div class="darker"></div>
-
-<div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin"> 
-
-<div class="eventimagepreviewtext">
-<%= link_to (post.title), post_path(post), class: "whiteblue" %>
-</div>
-<hr class="whiteimageline"/>
-
-</div>
-</div>
-</div>
-</div>
-
-<% end %>
 
 <hr style="margin-top: 35px; margin-bottom: 10px !important;"/>
 <div class="dividerhead">
@@ -111,11 +82,6 @@ TOP STORIES
 </ul>
 <hr/>
 
-
-<% Question.order("created_at desc").each do |question| %>
-<%= question.body %>
-<hr/>
-<% end %>
 
 
 </div>

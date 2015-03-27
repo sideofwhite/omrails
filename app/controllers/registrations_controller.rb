@@ -2,6 +2,8 @@ class RegistrationsController < Devise::RegistrationsController
     def info
       @skip_footer = true 
       @redirect = true
+      @posts = Post.where(:hide => true).order("position").limit(1)
+
         @user = current_user
         if @user 
             render :info

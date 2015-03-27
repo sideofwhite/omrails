@@ -11,7 +11,7 @@ Omrails::Application.routes.draw do
   get "users/show"
 
 
-resources :posts do
+resources :posts, :path => "news" do
    member do
     post "sort" => "questions#sort"
   end
@@ -20,7 +20,7 @@ resources :posts do
       put :upvote
     end
     resources :events
-  resources :comments do
+  resources :comments, :path => "q" do
     member do
       put :upvote
       get :tag
@@ -32,11 +32,11 @@ resources :posts do
   resources :pictures
 end
       
-resources :comments do
+resources :comments, :path => "q" do
     member do
       put :upvote
     end
-    resources :questions do
+    resources :questions, :path => "a" do
     member do
       put :upvote
     end
@@ -48,7 +48,7 @@ end
 end
 
 
-resources :questions do
+resources :questions, :path => "a" do
   member do
       put :upvote
     end
@@ -85,15 +85,16 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'users/:id/notifications', to: 'users#notifications', as: :notifications 
   get 'users/:id/allnotifications', to: 'users#allnotifications', as: :allnotifications 
   post 'users/read_all_notifications', to: 'users#read_all_notification', as: :read_all_notifications 
-  get 'users/:id/userinterviews', to: 'users#interviews', as: :userinterviews
-  get 'users/:id/usercomments', to: 'users#usercomments', as: :usercomments
   get 'users/:id/upvotes', to: 'users#upvotes', as: :upvotes
   get 'users/:id/allanswers', to: 'users#allanswers', as: :allanswers
   get 'users/:id/allcomments', to: 'users#allcomments', as: :allcomments
-  get 'posts/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
-  get 'posts/:id/answersmore', to: 'posts#showanswersmore', as: :answersmore
-  get 'posts/:id/ordered', to: 'posts#ordered', as: :ordered
+  get 'news/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
+  get 'news/:id/answersmore', to: 'posts#showanswersmore', as: :answersmore
+  get 'news/:id/ordered', to: 'posts#ordered', as: :ordered
+  get 'comments/:id/unpublished', to: 'comments#unpublished', as: :unpublished
   get '/admin', to: 'posts#admin', as: :admin
+  get '/admin/questions', to: 'pages#admin_questions', as: :adminquestions
+  get '/following', to: 'pages#following', as: :following
   get 'top', to: 'posts#top', as: :top
 
    devise_scope :user do

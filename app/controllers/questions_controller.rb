@@ -28,16 +28,19 @@ end
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @image_bottom = true 
   @skip_footer = true   
   @comment = Comment.friendly.find params[:comment_id]
   @question = Question.friendly.find params[:id]
+  @published = @comment.questions.where(:hide => true).order('created_at')
   
   end
 
   # GET /questions/new
   def new
-   @skip_footer = true  
+    @skip_footer = true  
   @comment = Comment.friendly.find(params[:comment_id])
+  render_forbidden and return unless can_answer?
   end
 
   # GET /questions/1/edit
@@ -51,6 +54,7 @@ end
   # POST /questions
   # POST /questions.json
   def create
+   
     @comment = Comment.friendly.find(params[:comment_id])
     @question = @comment.questions.new(question_params)
     
@@ -101,6 +105,10 @@ end
 
      def can_edit?
     current_user == @question.user
+    end
+
+    def can_answer?
+   @comment.published == true
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

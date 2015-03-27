@@ -9,7 +9,12 @@ alternate:
   toolbar: uploadimage
   width: 100%
   auto_focus: true
+  indentation : '0px'
+  object_resizing : false
+  autoresize_min_height: 10000
   paste_retain_style_properties: "all"
+  entity_encoding: raw
+  relative_urls: false
   plugins:
     - table
 

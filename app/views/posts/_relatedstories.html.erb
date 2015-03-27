@@ -8,6 +8,11 @@ RELATED STORIES
 
 <% @related.order("created_at desc").each_with_index do |post, i| %>
 
+<% unless i == 0 %>
+<hr/>
+<% end %>
+
+
 
 <div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image %>);">
   <div class="darker" style="opacity: 0.2;"></div>
@@ -16,14 +21,11 @@ RELATED STORIES
 <div class="eventfeedtitle-text">
 <%= link_to (post.title), post_path(post) %>
 </div>
-<div class="p3">
+<div class="p4">
 <%= truncate(post.description, :separator => ' ', length: 110) %>
 </div>
 <div style="margin-top: 10px;"></div>
 <%= link_to ("Read more..."), post_path(post), class: "blue" %>
 
-<% unless i == 1 %>
-<hr/>
-<% end %>
 
 <% end %>

@@ -1,0 +1,108 @@
+
+
+
+<style media="screen">
+  .headtext {color: white !important;} 
+  .alert-danger { opacity: 1 !important; color: white !important;}
+ .eventimage { background-image: url("http://www.spacex.com/sites/spacex/files/canaveral.jpg"); }
+ .eventimage2 { background-image: url("http://localhost:3000/system/pictures/images/000/000/020/original/canadainterestrates.jpg"); }
+
+.fa-bell { background-color: rgba(51,51,51,0.3);}
+.navbar .brand { position: absolute; padding: 0px 45px 0px 25px !important; font-size: 28px; line-height: 80px;}
+.nav { margin-bottom: 0px; }
+</style>
+
+<div class="homepageinfobanner" style="border-bottom: 3px solid rgba(51,51,51,0.5);">
+
+<div class="navbar navbar-inverse ">
+<div class="nav pull-left">
+             <%= link_to ("Podium."), root_path, class: "brand", style: "border-right: none !important"  %>
+          </div> 
+ </div>
+
+
+
+<div class="row"></div>
+<div style="margin-top: 30px;"></div>
+<div class="row"></div>
+
+<div style="width: 640px; margin: 0 auto;">
+  
+
+<div style="font-size: 22px; color: white; float: left;">
+Sharing the world's stories.
+</div>
+
+<div class="banner-button" style="margin-left: 25px;">
+Learn More
+</div>
+
+</div>
+
+
+
+<div class="nav pull-right">
+
+<div class="banner-button" id="login-recommend-add" style="margin-right: 25px;"> Sign in / Sign up 
+</div>
+
+</div>
+
+<div class="row"></div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div style="position: fixed; top: 100px; right: 0; z-index: 10000;">
+
+<div class="login-recommend-add" style="display: none; z-index: 100000;">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+$('#login-recommend-add, .close-twitter').click(function () {
+    if($('.login').is(':visible')){
+    $('.login').fadeOut(function () {
+        $('.login-recommend-add').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+    }
+    else{
+        $('.login-recommend-add').toggle('slide', {
+            direction: 'right'
+        }, 300, function(){ $('.login').fadeIn();});
+    }
+});
+
+
+
+
+
+</script>
+
+
+
+

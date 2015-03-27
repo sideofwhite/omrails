@@ -4,7 +4,7 @@ tracked only: :create, owner: ->(controller, model) { controller && controller.c
 tracked only: :create, recipient: ->(controller, model) { model && model.question.user }
 
 acts_as_votable
-belongs_to :question
+belongs_to :question, :dependent => :destroy
 belongs_to :user
 validates :description, presence: true
 validates :user_id, presence: true

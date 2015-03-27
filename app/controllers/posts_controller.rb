@@ -15,13 +15,12 @@ end
     @skip_footer = true  
   @skip_bottom = true  
 if params[:tag]
-@posts = Post.where(:top => false, :hide => false).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)
-@toppost = Post.where(:top => true, :hide => false).tagged_with(params[:tag]).order("created_at").limit(1) 
+@posts = Post.where(:hide => true).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)
 @hidden = Post.hiddencategory.order("created_at desc").tagged_with(params[:tag]) 
 
 else
-@posts = Post.where(:top => false, :hide => false).order("position").page(params[:page]).per_page(3)
-@toppost = Post.where(:top => true, :hide => false).order("created_at").limit(1)  
+@posts = Post.where(:hide => true).order("position").page(params[:page]).per_page(1)
+
 
 
 end
@@ -43,7 +42,7 @@ end
   @answersmore = @post.questions.where(:hide => true, :recommend => false).order('cached_votes_total desc').limit(3)
   @ordered = @post.questions.where(:hide => true, :recommend => true).order("position").page(params[:page]).per_page(2)
   @answers = @post.questions.where(:hide => true)
-  @topquestions = @post.comments.order('comments.questions_count desc').limit(3)
+  @topquestions = @post.comments.where(:published => true).order('comments.questions_count desc').limit(3)
   @articles = @post.articles.order("created_at desc").limit(5)
   @comment = Comment.new
   @events = @post.events.order("created_at desc").limit(2)
@@ -53,8 +52,7 @@ end
 
   def admin
   @skip_footer = true 
-  @posts = Post.where(:top => false, :hide => false).order("position")
-  @toppost = Post.where(:top => true, :hide => false).order("created_at").limit(1)
+  @posts = Post.where(:hide => true).order("position")
  end
 
  def sort
@@ -132,8 +130,7 @@ end
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        redirect_to root_path
       end
     end
   end
@@ -164,3 +161,7 @@ end
       params.require(:post).permit(:description, :image, :image_remote_url, :title, :country, :tag_list, :link, :domain, :top, :hide, :category, :event)
     end
 end
+
+
+
+  

@@ -8,7 +8,7 @@
 
 
 
-   <%= simple_form_for(@post) do |f| %>
+   <%= simple_form_for @post, url: posts_path do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
@@ -43,16 +43,8 @@
 <%= f.check_box :hide, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
 </a>
 <div class="buttoncheckbox2">
-Take post off home page
+Publish to homepage
   </div>
-</div>
-
-<div class="checkboxcover">
-<%= f.check_box :top, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
-
-<div class="buttoncheckbox2">
-Featured on home page
-</div> 
 </div>
 
 <div class="checkboxcover">

@@ -1,78 +1,104 @@
 <style media="screen">
-.formimage-comment { background-image: url("<%= @comment.post.pictures.first.image %>");} 
+ .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
 </style>
 
-<%= render 'layouts/logo' %>
 
-<div class="formpadding"></div>
-<%= simple_form_for [@comment, Question.new], :html => {:multipart => true} do |f| %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
+<div class="settingsnavtop" style="margin-bottom: -2px;">
 
-<div class="imagebottomnav">
+<div class="width6">
+<div class="blue-header-text">
+<%= @comment.title %>
 </div>
+</div>
+
+<div class="absoluteheader">
+<%= render 'layouts/xheader' %>
+</div>
+
+</div>
+
+
+
+<div class="imagestrip" style="height: 150px;">
+  <div class='darker'></div>
+
+</div>
+
+
+<div class="width6">
+<div class="answer-feed-margin"></div>
+
+
+
+</div>
+
+<div class="row"></div>
+
+
+
+
+<%= simple_form_for [@comment, Question.new], url: comment_questions_path do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 <div class="width6">
 
-<div class="leftstoryimage">
+<div class="hidden-phone">
 
-<div class="formimage-comment">
+<div class="answer-profile-float" style="margin-top: 50px;">
+<div class="smallavatarfeednomargin2">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+</div>
 </div>
 
 </div>
 
-<div class="rightstorytitle">
+<div class="answer-overflow">
 
-<div class="rightstorytext">
-<%= @comment.post.title %>
-</div>
-
-</div>
-
-<hr class="line30" style="margin-top: 27px; margin-bottom: 15px;"/>
-<div class="titlecontainer" style="font-size: 26px; margin-top: 0px; margin-bottom: 15px;">
-<%= @comment.title %>
-</div> 
-
-<div class='dividerhead'>
-Write Answer
-</div>
-<hr class="line30" style="margin-top: -20px; margin-bottom: 15px;"/>
 
 
 <%= f.text_area :body, :class => "tinymce textarea", :style => "margin: 0px;" %>
-<div class="row"></div>
-<div style="margin-top: 10px;">
-<div class="row"></div>
+</div>
+
 </div>
 
 
-<div class="form-sidebar">
-<div class="darker" style="background-color: white; opacity: 0.87;"></div>  
-<div class="form-sidebar-inner">
-<div class="sidebartitle">
-Add a Bio
+<div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
+<div class="form-sidebar" style="display: none;">
+<button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button>	
+<div class="width6">
+
+<div class="answer-feed-avatar">
+<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
-<hr class="sidebardivider"/>
-<div class="sidebaravatar">
-<%= image_tag (current_user.image) %>
+
+<div style="font-size: 14px; line-height: 34px; color: #018bc6;">
+Add a Bio (optional)
 </div>
-<div class="sidebarusername">
-<%= current_user.name %>
-</div>
-<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext" }, label: false, placeholder: "Bio (optional)" %>
-<hr class="sidebardivider"/>
-<div class="sidebarexplaintext">
-A bio is a short (1 line) explanation of why you're answering '<%= @comment.title %>'.
-</div>
-<hr class="sidebardivider"/>
-<div class="center">
-<%= f.submit "Submit Answer", class: "submitblue" %>
-</div>
-<hr class="sidebardivider"/>
+<hr class="sidebardivider"/>	
+
+
+<div class="row"></div>
+
+<%= f.input :title, as: :text, input_html: { rows: "1", :class => "biotext", :style => "height: 19px;" }, label: false, placeholder: "#{current_user.name} is..." %>
+
+
+<%= f.submit "Publish", class: "submitblue", style: "float: right; margin-top: 15px;" %>
 
 <div class="sidebarexplaintext">
 Please note: all submitted answers are reviewed by an editor to make sure it complies with Podium's <%= link_to "Answer Guidelines", guidelines_path, class: "blue" %>
 </div>
+
+
+
+</div>
+
+</div>
+</div>
+
+
+<div class="imagebottomnav">	
+<div class="form-next">
+<i class="fa fa-angle-up"></i>
 </div>
 </div>
 
@@ -81,3 +107,11 @@ Please note: all submitted answers are reviewed by an editor to make sure it com
 
 <%= tinymce :alternate, plugins: ["uploadimage, autoresize, paste"], :content_css => asset_path('tinymce.css.scss') %>
 
+<script>
+$('.form-next, .close-editor').click(function () {
+        $('.form-sidebar').toggle('slide', {
+            direction: 'down'
+        }, 300);
+    });
+
+</script>

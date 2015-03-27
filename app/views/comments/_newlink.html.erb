@@ -1,8 +1,39 @@
-<div class="commentwidth"> 
-<% question.links.offset(1).each do |link| %>
-  <%= render :partial => 'firstcomment', locals: {link:link} %>
+<% if question.links.present? %>
+  <hr class="linelinks"/>
+  <div class="row"></div>
+<% end %>
+
+
+<% question.links.limit(2).each do |link| %>
+  <%= render :partial => 'comments/firstcomment', locals: {link:link} %>
+  <div class="twenty"></div>
+<% end %>
+
+
+<% if question.links.count == 3 %>
+<div class="show-more-links" id="<%= question.id %>">
+1 more reply...
+</div>
+<% elsif question.links.count > 3 %>
+<div class="show-more-links" id="<%= question.id %>">
+<%= question.links.count - 2 %> more replies...
+</div>
+<% end %>
+
+<div class="more-links" id="<%= question.id %>" style="display: none;">
+<% question.links.offset(2).each do |link| %>
+  <%= render :partial => 'comments/firstcomment', locals: {link:link} %>
+  <div class="twenty"></div>
 <% end %>
 </div>
+
+<script>
+$('#<%= question.id %>.show-more-links').click(function () {
+        $('#<%= question.id %>.more-links').show();
+        $('#<%= question.id %>.show-more-links').hide();
+    });
+
+</script>
 
 
 
