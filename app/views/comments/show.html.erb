@@ -3,9 +3,7 @@
  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
 </style>
 <% end %>
-<style>
-  .read-more-<%= @comment.id %> { opacity: 0.4;}
-</style>
+
 
 
  <div class="imagestrip">
@@ -57,83 +55,7 @@
 
 
 
-<% if @comment.info.present? %>
-<div class="questionsdetailsbox-show">
-<strong>Background:</strong>
-  <div style="display: inline;">
-  <% if @comment.info.length > 150 %>
-    <%= truncate(@comment.info, length: 150) %>
-    <%= link_to '(more)', '', class: "read-more-#{@comment.id}" %>
-    <script>
-      $('.read-more-<%= @comment.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript @comment.info %>')
-      })
-    </script>
-  <% else %>
-    <%= @comment.info %>
-  <% end %>
-</div>
-<div style="margin-top: 5px;">
-  <%= link_to truncate(@comment.link, :length => 30), url_for(@comment.link), :target => "_blank", style: "opacity: 0.4;" %>
- </div>
-</div>
-
-
-<% end %>
-
-
- <div class="titlecontainer">
-  <%= @comment.title %>
- </div>
-
- <div class="row"></div>
-
-
-
-<% if @published.present? %>
-<div class="dividerheadinline">
-ANSWERS
-</div>
-<div class="dividerheadinline-info">
-<% @published.order('created_at desc').limit(2).each_with_index do |question, i| %>
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-<% if i == 0 and @published.count > 1 %>,
-<% end %>
-<% end %>
-<% if @published.count > 2 %>
-and <%= pluralize(@published.count - 2, "other") %>
-<% end %>
-
-</div>
-<% else %>
-<% if @comment.published %>
-<div id="logged-in" class="dividerheadinline-info blue">Write an answer</div>
-<% else %>
-<div class="dividerheadinline-info">
-Question has not been published
-</div>   
-<% end %>
-<% end %>  
-
-
-<div class="hidden-phone" style="display: inline;">
-<div class="dividerheadinline" style='margin-left: 10px;'>
-ASKED
-</div>
-<div class="dividerheadinline-info">
-<%= time_ago_in_words(@comment.created_at) %> ago
-</div>
-</div>
-
-
-<hr style="margin-bottom: 10px; margin-top: 10px;"/>
-
-
-
-
-
-<div style="display: inline-block; float: right;">
+<div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 20px; margin-left: 30px;">
 <div class="submit-share">
 Share
 </div>  
@@ -169,7 +91,72 @@ Following
 
 
 
+ <div class="titlecontainer">
+  <%= @comment.title %>
+ </div>
 
+
+
+
+<div class='row'></div>
+
+<hr style="margin-bottom: 10px; margin-top: 10px;"/>
+
+
+
+<div class="under-question-info">
+<% if @comment.published %>
+<div class="dividerhead" style="margin-bottom: 3px;">
+<%= pluralize(@published.count, 'Answer').upcase %>
+</div>
+<% else %>
+<div class="dividerhead" style="margin-bottom: 3px;">
+0 ANSWERS
+</div>
+<div class="unpublished-box" style='width: 100%; margin-top: 15px;'>
+<div class="blue">Locked Question</div>
+<div style="margin-top: 5px"></div>
+This question has not been reviewed by editors to confirm its follows Podium's <%= link_to "question guidelines", guidelines_path, class: "blue" %>.
+</div>
+<% end %>  
+</div>
+
+
+<% if @comment.info.present? %>
+<div class="under-question-info">
+
+<div class="dividerhead" style="margin-bottom: 0px;">
+QUESTION INFO
+</div>
+
+<div class="questionsdetailsbox-show">
+
+
+    
+  <% if @comment.info.length > 130 %>
+    <%= truncate(@comment.info, length: 130) %>
+    <%= link_to 'More', '', class: "blue" %>
+    <script>
+      $('.read-more-<%= @comment.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript @comment.info %>')
+      })
+    </script>
+  <% else %>
+    <%= @comment.info %>
+  <% end %>
+
+
+
+<%= link_to  url_for(@comment.link), :target => "_blank" do %>
+<i class="fa fa-link"></i>
+<% end %>
+ 
+
+</div>
+</div>
+
+<% end %>
 
 
 
@@ -178,27 +165,29 @@ Following
 <div class="answer-feed-margin"></div>
 
 
-<% unless @comment.published %>
-<div class="lockedquestion">
-<i class="fa fa-lock"></i>
-<div class="lockedquestion-text">
-This question needs to be reviewed by editors. 
+<% if @comment.published and @comment.questions.blank? %>
+<div style="width: 50%">
+<hr class="line30" style="margin-top: 20px; margin-bottom: 10px;"/>
+<div class="timeline-date" style="margin-bottom: 17px; color: #018bc6;">
+Share question on Twitter
 </div>
+
+<div class="welcome-twitter-share">
+[Tagline here]. Check out Podium at http://readpodium.com
+</div>
+
+
+<%= link_to "http://twitter.com/home?status=[Tagline here]. Check out Podium at readpodium.com", :target => "_blank" do %>
+<div class="submitblue-small" style="float: right;">
+<i class="fa fa-twitter-square" style="font-size: 13px;"></i> Tweet
+</div>
+<% end %>
 <div class="row"></div>
 </div>
 <% end %>
 
 
-<% if @questions.count == 0 and @comment.published? %>
-<hr class="line30"/>
- <div class="shownoactivity-text">
-   Know someone who could answer?
-  </div>
-<div class="row"></div>
-<%= link_to "http://twitter.com/home?status=#{@comment.title} readpodium.com#{post_comment_path(@comment.post, @comment)}", :target => "_blank" do %>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Request answer on Twitter</div>
-<% end %>
-<% end %>
+
 
 
 <div id="products" data-no-turbolink>
@@ -212,15 +201,19 @@ This question needs to be reviewed by editors.
 
 
 <% if @hidden.present? %>
-<hr class="dividerline" style="border-top: 0px;"/>
+<hr class="dividerline"/>
 
-
+<div class="unpublished-box">
 <%= link_to unpublished_path(@comment), :remote => true, class: "unpublished-link", data: { disable_with: "Loading..." } do %>
 
-<%= pluralize(@hidden.count, "Unpublished Answer") %>
+
+
+Unpublished Answers (<%= @hidden.count %>)
 
 <% end %>
-
+<div style="margin-top: 5px"></div>
+These answers have not been reviewed by editors to confirm they follow our <%= link_to "answer guidelines", guidelines_path, class: "blue" %>.
+</div>
 
 
 <div id="unpublished">
@@ -237,7 +230,9 @@ RELATED ANSWERS
 <% @related.where("comments.id NOT IN (?)", @comment.id).limit(2).each do |question| %>
 <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
 <hr style="width: 30%;"/>
+</div>
 <% end %>
+
 <% end %>
 
 </div>
@@ -330,10 +325,10 @@ Share to Facebook and Twitter
 
 
 
- <div style="position: fixed; top: 75px; right: 0;">
+ <div class="blue-slider-position">
 
 <div class="login-recommend-add-div" style="display: none;">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+   <div class="blue-slider">
     <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
     <%= render :partial => "devise/sessions/new" %>
    </div>
@@ -362,7 +357,7 @@ $('.submit-share, .close-twitter').click(function () {
         }, 300);
     });
 
-$('#login-recommend-add, .close-twitter').click(function () {
+$('#login-recommend-add, .close-twitter, .recommend-logged-out').click(function () {
     if($('.login').is(':visible')){
     $('.login').fadeOut(function () {
         $('.login-recommend-add-div').toggle('slide', {

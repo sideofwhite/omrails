@@ -17,7 +17,9 @@
                       
                       <% if notificationcount > 0 %>
                       <%= link_to notifications_path(current_user) do %>     
-                       <i class="fa fa-bell" style="background-color: #f9a825 !important;"></i>  
+                       <div class='bell-number'>
+                        <%= notificationcount %>
+                      </div> 
                        <% end %>
                        <% else %>
                         <%= link_to notifications_path(current_user) do %>     

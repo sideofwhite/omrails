@@ -68,11 +68,11 @@ Next
 
 <div class="skip-mouse">
 
-<div class="blue-skip" id="nextbutton-profile">
+<div class="blue-skip" id="skip-profile">
 <i class="fa fa-long-arrow-right" style="color: white; margin-left: 0px;"></i>
 </div>  
 
-<div class="blue-skip-text" id="nextbutton-profile">
+<div class="blue-skip-text" id="skip-profile">
 Skip
 </div>
 
@@ -87,7 +87,7 @@ Make it short...and sweet.
 </div>
 
 
-<%= f.input :age, input_html: { :class => "infoform-email", :maxlength => 140 }, placeholder: "A one-line bio", label: false %>
+<%= f.input :age, input_html: { :class => "infoform-bio", :maxlength => 140 }, placeholder: "A one-line bio", label: false %>
 
 </div>
 
@@ -180,6 +180,11 @@ $("#nextbutton").click(function(){
 
 
 $("#nextbutton-profile").click(function(){
+    $(".profile").hide();
+    $(".location").show();
+});
+
+$("#skip-profile").click(function(){
     $(".profile").hide();
     $(".location").show();
 });

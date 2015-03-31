@@ -63,7 +63,7 @@
 <% else %>
 
 
-<div class="upvotebutton2" id="login-recommend-add">
+<div class="upvotebutton2" id="login-recommend-add-<%= question.id %>">
     <i class="fa fa-check-circle"></i> Recommend
  </div>
 
@@ -84,7 +84,7 @@
 <% else %>
 
 <div class="replies-button-text" id="<%= question.id %>">
-  Add a Reply
+  + Add the first reply
 </div>
 
 <% end %>
@@ -193,6 +193,7 @@ Recommends
 
 <div class="menu" style="display: none;" id="<%= question.id %>">
    <div class="commentwidth"> 
+   <div style="margin-top: 20px;"></div>
  
  <div id="linkmama-<%= question.id %>">
  <%= render :partial => 'newlink', locals: {question:question} %>
@@ -208,7 +209,7 @@ Recommends
 
 <div class="row"></div>
 
-<% unless (i + 1) == @questions.count %>
+<% unless @questions.current_page == @questions.count %>
 <hr/>
 <% end %>
 
@@ -261,6 +262,8 @@ $(document).ready(function() {
                 
         });
     }); 
+
+
 
 
 </script>

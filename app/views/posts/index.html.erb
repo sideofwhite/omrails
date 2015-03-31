@@ -3,7 +3,6 @@
 <% end %>
 
 
-
 <div id="products">
 <%= render 'posts/post' %>
 </div>
@@ -12,3 +11,6 @@
 
 
 
+<% if params[:tag] %>
+<%= render 'posts/hiddencategory' %>
+<% end %>

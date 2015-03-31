@@ -1,0 +1,53 @@
+<% @following.limit(5).each_with_index do |comment, i| %>
+
+
+<div class="titlecontainer30" style='font-size: 20px;'>
+<%= link_to (comment.title), post_comment_path(comment.post, comment), class: 'blue' %>
+</div>
+
+<div style="margin-top: 10px;">
+
+<div class="answersnumber-text">
+  <%= pluralize(comment.questions.count, 'Answer') %>
+</div>
+
+<div class="datecenter" style="display: inline-block;">
+• Asked <%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+</div>
+
+
+<% if comment.questions.where(:hide => true).present? %>
+<hr class="questionsline" style="width: 100%;"/>
+<% else %>
+<hr class="questionsline"/>
+<% end %>
+
+<% comment.questions.where(:hide => true).order('created_at').limit(2).each do |question| %>
+<div class="small-image">
+  <%= sanitize(question.body.gsub(/<p>.<\/p>/,"").truncate(200, separator: ' ')) %>
+</div>
+
+<div class="row" style="margin-top: -7px;"></div>
+
+<div class="answer-feed-avatar">
+  <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+
+<div style="font-size: 1em; line-height: 34px;">
+  <%= link_to (question.user.name), user_path(question.user), class: "blue" %> 
+<div style="display: inline; color: rgba(51,51,51,0.4);">
+
+<%= link_to ("• Continue reading"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", style: "color: rgba(51,51,51,0.5) !important;" %>	
+
+<i class="fa fa-long-arrow-right"></i>
+
+</div>
+</div>
+
+<hr class="questionsline"/>
+</div>
+<% end %>
+
+<% end %>

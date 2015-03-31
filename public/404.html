@@ -2,50 +2,83 @@
 <html>
 <body>
 
-<div class="border">
-
-<div class="nopagetitle">
-Page Not Found
-</div>
-
-<div class="nopagetext">
-We're sorry but we can't find the page you're looking for.
-</div>
-
-</div>
 
 <style>
-.nopagetitle {
-  font-size: 30px;
+
+
+body {
+ font-family: "Pragmatica-Web" !important; 
+}
+
+.imagestrip {
+    width: 100%;
+    height: 200px;
+    background-color: #018bc6;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imagestrip {background-image: url("http://i.imgur.com/kCTNpw3.jpg");}
+
+.darker { 
+position: absolute; 
+top: 0px; 
+left: 0px; 
+background-color: #000; 
+opacity: 0.5; 
+width: 100%; 
+height: 100%;
+}
+
+.not-found {
+  font-weight: bold;
+  color: white;
+  line-height: 1.3;
   text-align: center;
-  margin-bottom: 10px;
-  font-family: 'roboto', sans-serif;
-  font-weight: 300;
-  color: #333;
-  opacity: 0.75;
-  margin-top: 60px;
+  font-size: 22px;
   
 }
 
-.nopagetext {
-   font-size: 14px;
-  text-align: center;
-  font-family: 'roboto', sans-serif;
-  font-weight: 400;
-  color: #333;
-  opacity: 0.75;
-  
-}
-
-.border {
-  background-color: #eee;
-  bottom: 0px;
-  top:0px;
-  right: 0px;
-  left: 0px;
-  position: absolute;
-}
 </style>
+
+
+
+
+<div class="imagestrip" style="height: 100% !important; position: fixed;">
+
+<div class='darker'></div>
+
+
+<div class="absoluteheader">
+<%= render 'layouts/logo' %>
+</div>
+
+
+
+ <div style="position: fixed; left: 50%; top: 50%; margin-top: -101px; margin-left: -120px;">
+
+<div class="login-recommend-add-div">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <div class="not-found">
+    Sorry, we cannot find the page you are looking for
+    <div style="font-weight: normal; font-size: 16px; margin-top: 10px;">
+    <a href="/" style="color: white;">Explore the top stories of today.</a>
+    </div>
+  </div>
+   </div>
+ </div>
+
+</div>  
+
+<div class="border">
+
+
+
+</div>
+
+
 
 </body>
 </html>

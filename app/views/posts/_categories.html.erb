@@ -4,7 +4,7 @@
 
 <div class="categoriesborder">
 
-<% if request.path == '/' || '/news' %>	
+<% if request.path == '/' %>	
 <div class="questionnavbar50home">
 Top Stories
 </div>
@@ -54,6 +54,14 @@ Technology
 <div class="questionnavbar51b">
 <a href="/tags/technology" style=" text-decoration: none !important;" class="hoverblue2"   >Technology</a>
 </div>
+<% end %>
+
+<% if request.path == '/following' %>		
+<div class="questionnavbar50home">
+Following
+</div>
+<% else %>
+<%= link_to "Following", following_path, class: "questionnavbar51b" %>
 <% end %>
 
 

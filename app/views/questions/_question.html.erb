@@ -207,8 +207,9 @@ Recommends
 <div class="row"></div>
 
 
+<% unless @related.where("questions.id NOT IN (?)", @question.id).present? %>
 <hr/>
-
+<% end %>
 
 
 

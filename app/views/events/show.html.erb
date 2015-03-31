@@ -17,15 +17,17 @@
 <div class="descriptionmargin"> 
 
 
+
+
+<div class="posttext2event" style="margin-bottom: 35px;">
+  <%= @event.title %>
+</div>
+
 <div class="eventimagepreviewtext">
    <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
 </div>
 
 <hr class="whiteimageline"/>
-
-<div class="posttext2event" style="margin-top: 20px;">
-  <%= @event.title %>
-</div>
 
 
 </div>
@@ -82,13 +84,29 @@
   There's no activity here yet...
 </div>
 <div class="row"></div>
-<a href="#myModal" role="button" class="submitblue" style="display: inline-block;" data-toggle="modal">Submit a question</a>
+<% if user_signed_in? %>
+<div class="submitblue" style="display: inline-block;">Submit a question</div>
+<% else %>
+<div class="login-recommend-add-button" style="display: inline-block;">Submit a question</div>
 <% end %>
+<% end %>
+
+
+
+
+
 
 
 <% if @articles.present? %>
 <%= render 'events/articles' %>
 <% end %>
+
+<% if @questions.blank? and @comments.blank? %>
+<%= render 'related' %>
+<% end %>
+
+
+
 
 
 <% if current_user.try(:admin?) %>
@@ -113,6 +131,8 @@
 </div>
 
 <% end %>
+
+
 
 
 </div>
@@ -144,3 +164,27 @@
 </div>
 
 <% end %>
+
+
+<script>
+
+$('#login-recommend-add, .close-twitter, .login-recommend-add-button').click(function () {
+    if($('.login').is(':visible')){
+    $('.login').fadeOut(function () {
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+    }
+    else{
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300, function(){ $('.login').fadeIn();});
+    }
+});
+
+
+
+
+
+</script>

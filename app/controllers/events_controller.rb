@@ -20,6 +20,7 @@ class EventsController < ApplicationController
     @comments = @event.comments.order("created_at desc")
     @article = Article.new
     @articles = @event.articles.order("created_at desc")
+    @related = @event.post.questions.where(:hide => true).order('cached_votes_total desc')
   end
 
   # GET /events/new

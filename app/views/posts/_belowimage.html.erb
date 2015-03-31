@@ -15,16 +15,26 @@
 <% else %>
 
 
-<div class="bluecircle white">+</div>
+<div class="bluecircle white" id="login-recommend-add">+</div>
 
+
+ <div class="blue-slider-position">
+
+<div class="login-recommend-add-div" style="display: none;">
+   <div class="blue-slider">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+
+</div>
 
 <% end %>
 
 
 
-
-<script>
-$('#logged-in.bluecircle, #logged-in.submitblue, .close-modal-slide, .modaldeclinebutton').click(function () {
+ <script>
+$('#logged-in, .close-modal-slide, .modaldeclinebutton').click(function () {
         $('.fullpage-modal').toggle('slide', {
             direction: 'top'
         }, 300);

@@ -33,6 +33,7 @@ end
   @comment = Comment.friendly.find params[:comment_id]
   @question = Question.friendly.find params[:id]
   @published = @comment.questions.where(:hide => true).order('created_at')
+  @related = @question.comment.questions.where(:hide => true).order('cached_votes_total desc')
   
   end
 

@@ -8,9 +8,7 @@ RELATED STORIES
 
 <% @related.order("created_at desc").each_with_index do |post, i| %>
 
-<% unless i == 0 %>
-<hr/>
-<% end %>
+
 
 
 
@@ -18,14 +16,31 @@ RELATED STORIES
   <div class="darker" style="opacity: 0.2;"></div>
 </div>
 
+
+<div style="overflow: hidden;">
+
 <div class="eventfeedtitle-text">
 <%= link_to (post.title), post_path(post) %>
 </div>
-<div class="p4">
+<div class="p3">
 <%= truncate(post.description, :separator => ' ', length: 110) %>
 </div>
-<div style="margin-top: 10px;"></div>
-<%= link_to ("Read more..."), post_path(post), class: "blue" %>
+<div class="row"></div>
+<%= link_to post_path(post) do %>
+<div class="link-mouse">
+<div class="link-skip-text">
+Full story
+</div>
 
+<div class="link-skip">
+<i class="fa fa-long-arrow-right" style="color: #018bc6; margin-left: 0px;"></i>
+</div>  
+
+</div>
+
+
+<% end %>
+<hr/>
+</div>
 
 <% end %>

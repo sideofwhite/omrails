@@ -4,41 +4,42 @@
 <div id="question_<%= question.id %>">
 
 
+<div class="answer-profile-float" style="border-top: 3px solid rgba(51,51,51,0.1);">
+<div class="smallavatarfeednomargin2">
+<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+</div>
+<div class="row"></div>
+
 <div class="largename">
 <%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>  
 
-<div class="answertitle">
-<%= question.title %>
+<div class="hidden-phone">
+<div class="row"></div>
+<hr class="line30" style="margin-top: 0px; margin-bottom: 6px;"/>
+</div>
+
+<div class="date-answer">
+<%= time_ago_in_words(question.created_at) %> ago
+</div>
+
+<div class="row"></div>
+
 </div>
 
 
-<div class="row" style='margin-top: 20px;'></div>
+<div class="answer-overflow">
 
-<div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
-</div>
 
 <div class="large-image">
 <%= sanitize question.body_format %>
 </div>
 
-<% if i == i %>
-<style media="screen">
-  p { margin: 0px !important;}
-  p img { width: 100% !important; margin: 10px 10px 10px 0px;}
-</style>
-<% end %>
-
-<div class="datecenter" style="margin-bottom: 15px;">
-  <%= time_ago_in_words(question.created_at) %> ago
-  <% if current_user == question.user or current_user.try(:admin?) %>
-    • <%= link_to "Edit", edit_comment_question_path(question.comment, question) %>
-  <% end %>
+<div class="answertitle">
+<%= question.title %>
 </div>
 
-
-
+<hr class="line30" style="margin: 20px 0px 23px 0px">
 
 <div class="row"></div>
 
@@ -46,132 +47,169 @@
 
 <% if current_user.voted_for? question %>
  <div class="clicked">
-   + <div style="display: inline;opacity: 0.3;">|</div> Upvoted
+    <i class="rec fa fa-check-circle"></i> Recommended 
  </div>
 <% else %>
 
 <%= link_to upvote_comment_question_path(question.comment, question), class: "hoverblueupvote", remote: true, method: :put do %>
- <div class="upvotebutton2-<%= question.id %>">
-   + <div style="display: inline;opacity: 0.3;">|</div> Upvote
+ <div class="upvotebutton2" id="<%= question.id %>">
+   <i class="fa fa-check-circle"></i> Recommend 
  </div>
 <% end %>
 
- <div class="clicked-<%= question.id %>" style="display: none;">
-   + <div style="display: inline;opacity: 0.3;">|</div> Upvoted
+ <div class="rec clicked" id="<%= question.id %>" style="display: none;">
+   <i class="rec fa fa-check-circle"></i> Recommended 
  </div>
 <% end %>
 
 <% else %>
 
-<%= link_to new_user_registration_path do %>
-<div class="upvotebutton2">
-  + <div style="display: inline;opacity: 0.3;">|</div> Upvote
-</div>
 
-<% end %>
-<% end %>
-
-
-
-<% if question.votes.count == 0 %>
-<div class="answersnumber">
-  No upvotes yet
-</div>
-<% elsif question.votes.count == 1 %>
- <div class="answersnumber">
-  <% question.votes.by_type(User).voters.each do |user| %>
-  <%= link_to (user.name), user_path(user), class: "blue" %>
-  <% end %> upvoted this.
+<div class="upvotebutton2" id="login-recommend-add">
+    <i class="fa fa-check-circle"></i> Recommend
  </div>
- <% elsif question.votes.count == 2 %>
-  <div class="answersnumber">
-  <% question.votes.by_type(User).voters.limit(1).each do |user| %>
-  <%= link_to (user.name), user_path(user), class: "blue" %>,
-  <% end %> and 1 other upvoted this.
- </div>
-<% else %>
- <div class="answersnumber">
-  <% question.votes.by_type(User).voters.limit(2).each do |user| %>
-  <%= link_to (user.name), user_path(user), class: "blue" %>,
-  <% end %> and <%= pluralize(question.cached_votes_total - 2, "other") %> upvoted this.
- </div>
+
 <% end %>
 
 
 
-<div class="row"></div>
-
-
- 
-<div class="commentwidth"> 
-
-  
+<%# Right options %>
 <% if question.links.present? %>
 
-<hr class="linelinks"/>
- <% question.links.limit(1).each do |link| %>
-   <%= render :partial => 'firstcomment', locals: {link:link} %>
- <% end %>
+<div class="replies-button-number" id="<%= question.id %>">
+  <%= question.links.count %>
+</div>
+<div class="replies-button-text" id="<%= question.id %>">
+  Replies
+</div>
+
+<% else %>
+
+<div class="replies-button-text" id="<%= question.id %>">
+  + Add the first reply
+</div>
 
 <% end %>
+
+
+<div class="replies-button-text-share">
+Share 
+</div>
+
+ <% if current_user == question.user or current_user.try(:admin?) %>
+  <%= link_to "Edit", edit_comment_question_path(question.comment, question), class: "replies-button-text-edit" %>
+<% end %>
+
+
+<%# end of right options %>
+
+
+
+
+
+
+<div class="row"></div>
+<% if question.cached_votes_total == 0 %>
+<div class="answersnumber" id="be-the-first">
+Be the first to recommend
+</div>
+<div class="answersnumber" id="the-first" style="display: none;">
+You recommended
+</div>
+<% elsif question.cached_votes_total == 1 %>
+ <div class="answersnumber">
+  <% if user_signed_in? and current_user.voted_for? question %>
+  You
+  <% else %>
+  <% question.votes.by_type(User).limit(1).voters.each do |user| %>
+  <%= link_to (user.name), user_path(user), class: "blue" %>
+  <% end %>
+  <% end %> recommended
+</div>
+ <% elsif question.cached_votes_total > 1 %>
+  <div class="answersnumber">
+  <% question.votes.by_type(User).voters.limit(1).each do |user| %>
+  <% if user_signed_in? and current_user != user %>
+  <%= link_to (user.name), user_path(user), class: "blue" %>
+  <% else %>
+  You
+  <% end %>
+  <% end %> and <div id="popover-click"><%= pluralize(question.cached_votes_total - 1, "other") %></div> recommended
+ </div>
+
+<% end %>
+
+
+
+<%# Recommended List Popover %>
+
+<% if question.cached_votes_total > 1 %>
+
+<div class="hidden">
+ <div id="recommend-list">
+  <div class="popover-text">
+
+Recommends
+
+<% question.votes.by_type(User).limit(10).voters.each do |user| %>
+ <div class="popover-text-margin">
+   <%= link_to (user.name), user_path(user), class: "blue" %>
+ </div>
+<% end %>
+
+<% if question.cached_votes_total > 10 %>
+ <div class="popover-text-margin">
+   and <%= question.cached_votes_total - 10 %> more
+ </div>
+<% end %>
+
+  </div>
+ </div>
+</div>
+
+<% end %>
+
+
+<div class="hidden">
+<div class="share-answer">
+<div style="text-align: center">
+
+<%= link_to "http://twitter.com/home?status=#{question.user.name}'s answer to #{question.comment.title} readpodium.com#{comment_question_path(question.comment, question)}", :target => "_blank" do %>
+    <i class="fa fa-twitter" style="color: #018bc6; font-size: 18px; display: inline-block; margin-right: 5px;"></i>
+  <% end %>
+<%= link_to "http://www.facebook.com/sharer.php?u=URL", :target => "_blank" do %>
+   <i class="fa fa-facebook-square" style="color: #018bc6; font-size: 18px;"></i>
+   <% end %>
+
+</div>
+</div>
+</div>
+<%# End of Recommended List Popover %>
+
 
 <div class="row"></div>
 
 
-<% if question.links.count > 1 %>
-  <div class="add-first-reply <%= question.id %>">
-    See more...
-  </div>
-<% end %>
-
-<% if user_signed_in? %>
-
-<% if question.links.count == 1 %>
-  <div class="add-first-reply <%= question.id %>">
-    Add a reply...
-   </div>
-<% elsif question.links.count == 0 %>
-  <div class="see-all-replies <%= question.id %>">
-    Add the first comment...
-  </div>
-<% end %>
+<%# Replies %>
 
 
-<% else %>
+<div class="menu" style="display: none;" id="<%= question.id %>">
+   <div class="commentwidth"> 
 
-<% if question.links.count == 1 %>
-  <div class="add-first-reply">
-    <%= link_to "Login to write a reply", new_user_session_path, class: "blue" %>
-   </div>
-<% elsif question.links.count == 0 %>
-  <div class="commentdescriptiontext" style="margin-top: 25px; color: rgba(51,51,51,0.5);">
-Have a question or a comment on his answer? <%= link_to "Login to write a reply", new_user_session_path, class: "blue" %>
-</div>
-<% end %>
-
-<% end %>
-
-
-
-
-
-
-
-
-
-
-
-<div class="menu-<%= question.id %>" style="display: none;">
-  <div class="twenty"></div>
+ 
  <div id="linkmama-<%= question.id %>">
-   <%= render :partial => 'newlink', locals: {question:question} %>
-  </div>
-  <div id="linkformmama-<%= question.id %>">
-    <%= render :partial => "links/form", locals: {question:question} %>
-  </div>
-</div>
+ <%= render :partial => 'newlink', locals: {question:question} %>
+ </div>
+ <div id="linkformmama-<%= question.id %>">
+ <%= render :partial => "links/form", locals: {question:question} %>
+ </div>
+
 
 </div>
+</div>
+<%# End of Replies %>
+
+<div class="row"></div>
 
 <% unless (i + 1) == @hidden.count %>
 <hr/>
@@ -179,103 +217,62 @@ Have a question or a comment on his answer? <%= link_to "Login to write a reply"
 
 
 
+
+
 <script>
 
-$(document).ready(function() {
-        $('.<%= question.id %>').click(function() {
-               
-                $('.menu-<%= question.id %>').toggle();
-                $('.<%= question.id %>').hide();
-                
-                
-        });
 
-   $('.cancelslideup').click(function() {
-    $('.menu').slideUp("fast");
-    $('.eventtoptext3').show();
-
-     }); 
-    }); 
-
-$(document).ready(function(){
-    $('.showbuttons-<%= question.id %>').click(function(){
-        $('.hiddenbuttons').toggle();
+$('#<%= question.id %>.replies-button-text, #<%= question.id %>.replies-button-number').click(function () {
+        $('#<%= question.id %>.menu').toggle('slide', {
+            direction: 'left'
+        }, 200);
     });
-}); 
+
+
+$(function ()  
+{
+  
+  $('#popover-click, .close-twitter').popover(
+  {
+     trigger: 'click',
+     html: true,
+     placement: 'top',
+     content: $('#recommend-list').parent().html()
+  });
+});
+
+
+$(function ()  
+{
+  
+  $('.replies-button-text-share').popover(
+  {
+     trigger: 'click',
+     html: true,
+     placement: 'top',
+     content: $('.share-answer').parent().html()
+  });
+});
+
 
 $(document).ready(function() {
-        $('.upvotebutton2-<%= question.id %>').click(function() {
-                $('.clicked-<%= question.id %>').show();
-                $('.upvotebutton2-<%= question.id %>').hide();
-                $('.commenttextbeside-<%= question.id %>').hide();
-                $('.commenttextbesideblue-<%= question.id %>').show();
+        $('#<%= question.id %>.upvotebutton2').click(function() {
+                $('#<%= question.id %>.clicked').show();
+                $('#<%= question.id %>.upvotebutton2').hide();
+                $('#be-the-first').hide();
+                $('#the-first').show();
                 
         });
     }); 
-
 
 
 </script>
 
 
- <style media="screen">
-  .clicked-<%= question.id %> {   
-    display: inline-block;
-   background: rgba(51,51,51,0.03) !important;
-   border: 1px solid rgba(51,51,51,0.1);
-    padding: 9px 14px 8px 14px;
-   font-weight: bold;
-   font-size: 12px;
-   color: rgba(51,51,51,0.5) !important;
-   border-radius: 1px;
-   text-shadow: none !important;
-   float: left;
-   margin-right: 15px;
-
-   
-} 
-  .upvotebutton2-<%= question.id %> {   
  
-   display: inline-block;
-   background: rgba(1,139,198,0.1) !important;
-   border: 1px solid rgba(1,139,198,0.5);
-    padding: 9px 14px 8px 14px;
-   font-weight: bold;
-   font-size: 12px;
-   color: #018bc6 !important;
-   border-radius: 1px;
-   text-shadow: none !important;
-   float: left;
-   margin-right: 15px;
-   
-   
- } 
-
-
-   .upvotebutton2-<%= question.id %>:hover {  
-    
-     
-    
-
-  }
-
-  .commenttextbeside-<%= question.id %> {    font-size: 11px;
-    display: inline-block;
-    line-height: 27px !important;
-    opacity: 0.5;
-    float: left;
-    margin-right: 15px;}
-  .commenttextbesideblue-<%= question.id %> { font-size: 11px;
-    display: inline-block;
-    line-height: 27px !important;
-    color: #018BC6 !important;
-    float: left;
-    margin-right: 15px;} 
-
-</style>   
-
+</div>
+</div>
+<% end %>
 
 
 </div>
-
-<% end %>

@@ -14,19 +14,11 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require tinymce-jquery
-//= require bootsy
 //= require jquery.autosize.js
 //= require bootstrap
 //= require bootstrap-modal
 //= require jquery.turbolinks
 //= require turbolinks
-//= require masonry/jquery.masonry
-//= require jquery.masonry.min.js
-//= require masonry/jquery.infinitescroll.min
-//= require bigSlide.js
-//= require jquery.infinitescroll
-//= require bootstrap-wysihtml5
-//= require medium-editor
 //= require_tree .
 
 

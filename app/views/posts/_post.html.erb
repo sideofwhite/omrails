@@ -135,7 +135,17 @@
 <div class="linklogoimage">
 <%= image_tag (post.image) %>
 </div>
-<%= link_to (post.domain), url_for(post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px;" %>
+<%= link_to (post.domain), url_for(post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px; margin-right: 3px;" %>
+<div class="readmore" style=" display: inline; line-height: 24px;">
+•
+<%= link_to post_path(post) do %>
+<div class="blue" style="display: inline;">
+Full story
+</div>
+ <i class="fa fa-long-arrow-right" style='color: #018bc6;'></i>
+<% end %>
+
+</div>
 <div class="row"></div>
 
 
@@ -147,9 +157,12 @@
 <hr class='dividerline'/>
 
 <div class="width6">
+
 <div class="dividerhead">
 ANSWERS
 </div>
+
+
 
 
 <% post.questions.where(:hide => true, :recommend => true).limit(2).each_with_index do |question, i| %>
@@ -158,22 +171,26 @@ ANSWERS
   <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
   
   <% unless (i + 1) == post.questions.where(:hide => true, :recommend => true).limit(2).count %>
-  <hr style="margin-bottom: 15px;"/>
+  <hr style="width: 30%;"/>
   <% end %>
-  
+
+</div>
+
 
 <% end %>
 
+<div class="width6">
 <%= link_to post_path(post) do %>
 <div class="go-story">
 Go to story
 </div>
 <% end %>
+</div>
 
 <div class='row'></div>
 
 
-</div>
+
 
 
 <% end %>

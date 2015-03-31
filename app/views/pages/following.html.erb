@@ -1,0 +1,118 @@
+<% if user_signed_in? %>
+<% @following.limit(1).each do |comment| %>
+<style media="screen">
+  .imagestripquestions { background-image:  url(<%= comment.post.pictures.first.image %>); background-color: #333; }
+  </style>
+<% end %>
+
+
+
+<div class="imagestripquestions">
+<div class="darker"></div>
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+</div>
+
+<div class="absoluteheader" style="margin-left: 148px; width: 80%;">
+<%= render 'layouts/headercategories' %>
+</div>
+
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin"> 
+
+<div class="eventimagepreviewtext">
+Following
+</div>
+<div class="eventtextheader" style="color: #018bc6;">
+<%= pluralize(@following.count, "Question") %>
+</div>
+<hr class="whiteimageline"/>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="width6" style="margin-top: 35px;">
+<% if @following.present? %>
+
+<div id="products" data-no-turbolink>
+ <%= render 'following' %>
+</div>
+
+<%= will_paginate @following %>
+
+<% else %>
+<div class="nonew-notifications">
+   You haven't followed any questions yet. Click the blue 'follow' button below a questions and it will show up here.
+</div>
+<% end %>
+
+
+</div>
+
+
+<% else %>
+
+<% @post.each do |post| %>
+<style media="screen">
+.imagestrip {background-image: url(<%= post.pictures.first.image %>);}
+</style>
+<% end %>
+
+
+
+
+<div class="imagestrip" style="height: 100% !important; position: fixed;">
+
+<div class='darker' style=" 
+opacity: 0.8; z-index: -1;"></div>
+
+
+<div class="absoluteheader">
+<%= render 'layouts/logo' %>
+</div>
+
+<div class="absoluteheader" style="margin-left: 148px; width: 80%;">
+<%= render 'layouts/headercategories' %>
+</div>
+
+
+ <div style="position: fixed; left: 50%; top: 50%; margin-top: -101px; margin-left: -120px;">
+
+<div class="login-recommend-add-div">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+
+</div>
+
+
+<% @post.each do |post| %>
+
+
+<div class="imagepostedby" style="opacity: 0.75;">
+
+<div class="imagepostedby-event">
+<%= link_to (post.title), post_path(post), class: "white" %>
+</div>
+
+ <div class="imagepostedbytext"> 
+<i class="fa fa-picture-o"></i> <%= post.pictures.first.user.name %>
+</div>
+</div>
+
+
+<% end %>
+
+
+
+
+</div>
+
+
+<% end %>

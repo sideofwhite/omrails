@@ -3,6 +3,20 @@ class PagesController < ApplicationController
   
   def home
   end
+
+
+  def following 
+  @skip_footer = true  
+  if user_signed_in?
+  @skip_bottom = true    
+  @user = current_user 
+  @following = @user.get_voted Comment .order("created_at desc").page(params[:page]).per_page(3)
+  else 
+  @post = Post.where(:hide => true).order("RANDOM()").limit(1)
+  end
+  end
+
+
   def about
   	
     @skip_footer = true 
@@ -12,7 +26,8 @@ class PagesController < ApplicationController
  
   end
    def guidelines
-  	@skip_bottom = true  
+   @skip_bottom = true  
+
   end
   def tos
       

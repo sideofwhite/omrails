@@ -1,0 +1,88 @@
+
+<div class="navbar navbar-inverse ">
+   
+     
+             
+         <div class="nav pull-left">
+             <%= link_to ("Podium."), root_path, class: "brand", style: "border-right: none !important"  %>
+          </div>    
+              
+            
+            <div class="nav pull-right">
+                      
+                    <% if user_signed_in? %>
+                       <% if notificationcount > 0 %>
+                      <%= link_to notifications_path(current_user) do %>     
+                       <div class='bell-number'>
+                        <%= notificationcount %>
+                      </div>
+                       <% end %>
+                       <% else %>
+                        <%= link_to notifications_path(current_user) do %>     
+                        <i class="fa fa-bell" ></i>  
+                        <% end %>
+                        <% end %> 
+                   
+                     
+                       
+                      
+                                          
+                       
+                       
+                       <li><%= link_to (image_tag(current_user.image)), user_path(current_user), class: "smallavatar2", style: "margin-right: 0px !important; margin-left: 0px !important; float: right !important; margin-top: 0px !important;" %></li>
+                     
+                    
+                  
+
+                       
+
+                    
+                     <% else %>
+                    
+  
+                  <li><div class="login" id="login-recommend-add">Login/Sign Up</div></li>
+
+                     
+                     <div class="blue-slider-position">
+
+<div class="login-recommend-add-div" style="display: none;">
+   <div class="blue-slider">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+
+</div>
+
+
+                      <% end %>
+
+                      
+
+            </div>
+        </div>
+
+
+
+<script>
+
+$('#login-recommend-add, .close-twitter').click(function () {
+    if($('.login').is(':visible')){
+    $('.login').fadeOut(function () {
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+    }
+    else{
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300, function(){ $('.login').fadeIn();});
+    }
+});
+
+
+
+
+
+</script>

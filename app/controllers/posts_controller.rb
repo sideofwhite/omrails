@@ -17,7 +17,6 @@ end
 if params[:tag]
 @posts = Post.where(:hide => true).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)
 @hidden = Post.hiddencategory.order("created_at desc").tagged_with(params[:tag]) 
-
 else
 @posts = Post.where(:hide => true).order("position").page(params[:page]).per_page(1)
 

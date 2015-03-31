@@ -56,87 +56,7 @@
 <div class="width6">
 
 
-
-<% if @comment.info.present? %>
-<div class="questionsdetailsbox-show">
-<strong>Background:</strong>
-  <div style="display: inline;">
-  <% if @comment.info.length > 150 %>
-    <%= truncate(@comment.info, length: 150) %>
-    <%= link_to '(more)', '', class: "read-more-#{@comment.id}" %>
-    <script>
-      $('.read-more-<%= @comment.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript @comment.info %>')
-      })
-    </script>
-  <% else %>
-    <%= @comment.info %>
-  <% end %>
-</div>
-<div style="margin-top: 5px;">
-  <%= link_to truncate(@comment.link, :length => 30), url_for(@comment.link), :target => "_blank", style: "opacity: 0.4;" %>
- </div>
-</div>
-
-
-<% end %>
-
-
- <div class="titlecontainer">
-  <%= link_to (@comment.title), post_comment_path(@comment.post, @comment), class: "blue" %>
- </div>
-
- <div class="row"></div>
-
-<div style="margin-top: 20px;"></div>
-
-
-
-<div class="dividerheadinline">
-ANSWERS
-</div>
-
-
-<div class="dividerheadinline-info">
-<% if @question.hide == true %>
-<% if @published.count > 1 %>
-1 of <%= @published.count %> <%= link_to "See all...", post_comment_path(@comment.post, @comment), class: "blue" %>
-<% end %>
-<% else %>
-
-
-<%= link_to (@question.user.name), user_path(@question.user), class: "blue" %>
-
-
-
-<% end %>
-
-
-
-</div>
-
-
-
-   
-
-
-<div class="dividerheadinline" style='margin-left: 10px;'>
-ASKED
-</div>
-<div class="dividerheadinline-info">
-<%= time_ago_in_words(@comment.created_at) %> ago
-</div>
-
-
-
-<hr style="margin-bottom: 10px; margin-top: 10px;"/>
-
-
-
-
-
-<div style="display: inline-block; float: right;">
+<div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 20px; margin-left: 30px;">
 <div class="submit-share">
 Share
 </div>  
@@ -172,13 +92,74 @@ Following
 
 
 
+ <div class="titlecontainer">
+  <%= link_to (@comment.title), post_comment_path(@comment.post, @comment), class: "blue" %>
+ </div>
 
+
+
+
+<div class='row'></div>
+
+<hr style="margin-bottom: 10px; margin-top: 10px;"/>
+
+
+
+<div class="under-question-info">
+<% if @comment.questions.count > 1 %>
+<div class="dividerhead" style="margin-bottom: 3px;">
+ 1 OF <%= pluralize(@published.count, 'Answer').upcase %>
+</div>
+<% else %>
+<div class="dividerhead" style="margin-bottom: 3px;">
+1 ANSWER
+</div>
+<% end %>
+</div>
+
+
+<% if @comment.info.present? %>
+<div class="under-question-info">
+
+<div class="dividerhead" style="margin-bottom: 0px;">
+QUESTION INFO
+</div>
+
+<div class="questionsdetailsbox-show">
+
+
+    
+  <% if @comment.info.length > 130 %>
+    <%= truncate(@comment.info, length: 130) %>
+    <%= link_to 'More', '', class: "blue" %>
+    <script>
+      $('.read-more-<%= @comment.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript @comment.info %>')
+      })
+    </script>
+  <% else %>
+    <%= @comment.info %>
+  <% end %>
+
+
+
+<%= link_to  url_for(@comment.link), :target => "_blank" do %>
+<i class="fa fa-link"></i>
+<% end %>
+ 
+
+</div>
+</div>
+
+<% end %>
 
 
 
 <div class="row"></div>
 
-<div style="margin-top: 40px;"></div>
+<div class="answer-feed-margin"></div>
+
 
 
 <%= render 'questions/question' %>
@@ -186,22 +167,17 @@ Following
 
 
 
-
-<% if @hidden.present? %>
-<hr class="dividerline" style="border-top: 0px;"/>
-
-
-<%= link_to unpublished_path(@comment), :remote => true, class: "unpublished-link", data: { disable_with: "Loading..." } do %>
-
-<%= pluralize(@hidden.count, "Unpublished Answer") %>
-
+<% if @related.where("questions.id NOT IN (?)", @question.id).present? %>
+<hr class="dividerline"/>
+<div class="dividerhead">
+MORE ANSWERS
+</div>
+<% @related.where("questions.id NOT IN (?)", @question.id).limit(2).each do |question| %>
+<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+<hr style="width: 30%;"/>
+</div>
 <% end %>
 
-
-
-<div id="unpublished">
-</div>
-<div class="row"></div>
 <% end %>
 
 
@@ -215,7 +191,7 @@ Following
   <div class='darker'></div>
   <div class="absolutecontainer">
  <div class="relativecontainer">
-  <div class="descriptionmargin"> 
+  <div class="descriptionmargin" style="margin-bottom: 25px;"> 
 
    <div class="eventimagepreviewtext">
      <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>

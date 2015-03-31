@@ -15,8 +15,9 @@
                     <% if user_signed_in? %>
                        <% if notificationcount > 0 %>
                        
-                       <i class="fa fa-bell" style="background-color: #f9a825 !important; opacity: 0.3;"></i>  
-                       
+                       <div class='bell-number'>
+                        <%= notificationcount %>
+                      </div>
                        <% else %>
                       
                         <i class="fa fa-bell" style="opacity: 0.3;" ></i>  

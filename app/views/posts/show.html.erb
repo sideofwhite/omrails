@@ -120,9 +120,11 @@
 
 <%= render 'comments/answersmore' %>
 
-<% if @answersmore.count > 0 %>
+<% if @answersmore.count > 3 %>
   <hr style="width: 30%; margin-bottom: 20px;"/>
-  <%= link_to "More >", answersmore_path(@post), class: "dividerheadlink" %>
+  <div class="dividerheadlink">
+  <%= link_to pluralize(@answersmore.count - 3, "more answer"), answersmore_path(@post), class: "blue" %>
+</div>
 <% end %>
 
 <% end %>
@@ -136,30 +138,33 @@
 
 <%= render 'comments/topquestions' %>
 <div class="row"></div>
-<% if @topquestions.count > 2 %>
+<% if @topquestions.count > 3 %>
+<hr class="questionsline"/>
 <div class="dividerheadlink">
-  <%= link_to "More...", topquestions_path(@post), class: "white" %>
+  <%= link_to pluralize(@topquestions.count - 3, "more question"), topquestions_path(@post), class: "blue" %>...
 </div>
 <% end %>
 
 <% end %>
-
 
 <% if @topquestions.count == 0 %>
 <div class="shownoactivity-text" style='margin-top: 35px;'>
   There's no activity here yet...
 </div>
-<div class="row"></div>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
-<% elsif @topquestions.count.between?(1, 2)%>
+<% else %>
 <hr class="questionsline"/>
  <div class="shownoactivity-text">
-   There's not much activity here yet...
+   Have a question?
   </div>
-<div class="row"></div>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
 <% end %>
 
+<% if user_signed_in? %>
+<div class="row"></div>
+<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
+<% else %>
+<div class="row"></div>
+<div class="submitblue" id="login-recommend-add-button" style="display: inline-block;">Submit a question</div>
+<% end %>
 
 <% if @articles.present? %>
 <%= render 'posts/articles' %>
@@ -174,28 +179,6 @@
 </div>
 
 
-
-
-<script>
- $(document).ready(function() {
-        $('#showmenu').click(function() {
-               
-                $('.menu').slideDown("fast");
-                $('.eventtoptext3').hide();
-                
-                
-        });
-
-   $('.cancelslideup').click(function() {
-    $('.menu').slideUp("fast");
-    $('.eventtoptext3').show();
-
-     }); 
-    }); 
-
-
-
-</script>
 
 
 
@@ -231,7 +214,44 @@
 
 
 
+<script>
+ $(document).ready(function() {
+        $('#showmenu').click(function() {
+               
+                $('.menu').slideDown("fast");
+                $('.eventtoptext3').hide();
+                
+                
+        });
 
+   $('.cancelslideup').click(function() {
+    $('.menu').slideUp("fast");
+    $('.eventtoptext3').show();
+
+     }); 
+    }); 
+
+
+
+$('#login-recommend-add, .close-twitter, #login-recommend-add-button').click(function () {
+    if($('.login').is(':visible')){
+    $('.login').fadeOut(function () {
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
+    }
+    else{
+        $('.login-recommend-add-div').toggle('slide', {
+            direction: 'right'
+        }, 300, function(){ $('.login').fadeIn();});
+    }
+});
+
+
+
+
+</script>
 
 
  
