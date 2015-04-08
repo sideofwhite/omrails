@@ -1,5 +1,14 @@
 <style media="screen">
  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
+ .popover { max-width: 380px; z-index: 1;}
+
+@media screen and (max-width: 500px) 
+{ .popover {
+     max-width: 80%;
+     margin: 0 auto;
+    }
+}
+
 </style>
 
 
@@ -44,7 +53,7 @@
 
 <div class="hidden-phone">
 
-<div class="answer-profile-float" style="margin-top: 50px;">
+<div class="answer-profile-float" style="margin-top: 60px;">
 <div class="smallavatarfeednomargin2">
 <%= link_to (image_tag(current_user.image)), user_path(current_user) %>
 </div>
@@ -55,8 +64,11 @@
 <div class="answer-overflow">
 
 
+<div class="editor-info">
+ Write answer • <div id="answer-info" class="popover-x blue"> Publishing Help</div>
+</div>
 
-<%= f.text_area :body, :class => "tinymce textarea", :style => "margin: 0px;" %>
+<%= f.text_area :body, :class => "tinymce textarea", :id => "editor_area", :style => "margin: 0px;" %>
 </div>
 
 </div>
@@ -105,6 +117,47 @@ Please note: all submitted answers are reviewed by an editor to make sure it com
 
 <% end %>
 
+
+<div class="hidden">
+<div class="share-answer" class="hide">
+
+
+<strong>Publishing Help</strong>
+<div style="float: right">
+Question? <%= link_to "Contact us", contact_path, :target => "_blank", class: "blue", style: "margin-left: 4px;" %>
+</div>	
+
+
+<hr style="margin-top: 10px; margin-bottom: 20px;"/>
+
+<div class="welcome-homepage">
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon_editor.png") %>
+</div>
+
+<div class="welcome-homepage-text">
+<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px; line-height: 1.4;">
+Add an images and text until your answer is complete. Then, click the orange circle at the bottom right.
+</div>
+</div>
+
+<hr style="margin-top: 20px; margin-bottom: 20px;"/>
+
+<div class="welcome-homepage">
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon_editorbio.png") %>
+</div>
+
+<div class="welcome-homepage-text">
+<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px; line-height: 1.4;">
+Add a short bio about yourself. A good bio should describe key areas of expertise, experience or interest in the question's topic.<br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
 <%= tinymce :alternate, plugins: ["uploadimage, autoresize, paste"], :content_css => asset_path('tinymce.css.scss') %>
 
 <script>
@@ -113,5 +166,26 @@ $('.form-next, .close-editor').click(function () {
             direction: 'down'
         }, 300);
     });
+
+
+
+$('#answer-info').popover({
+    html: true,
+    title: '<div class="close-popover">&times;</div>',
+    placement: 'bottom',
+    content: $('.share-answer').html(),
+});
+
+$('#answer-info').click(function (e) {
+    e.stopPropagation();
+});
+
+$(document).click(function (e) {
+    if (($('.popover-x').has(e.target).length == 0) || $(e.target).is('.close')) {
+        $('#answer-info').popover('hide');
+    }
+});
+
+
 
 </script>

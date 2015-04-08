@@ -1,17 +1,53 @@
-<div class="width6">
+<style>
+p { font-family: pragmatica-web, sans-serif; font-size: 1em; color: rgba(51,51,51,0.5); line-height: 1.45;}
+
+</style>
 
 
-<div class="sixty"></div>
+<div class='blue-page'>
 
+<%= link_to root_path do %>
+<div class="about-back">
 
-<div class="row"></div>
-
-<div class="completeyourprofile" style="text-align: left;">
-Podium Terms of Service 
+<div class="orange-back">
+<i class="fa fa-long-arrow-left" style="color: white; margin-left: 0px;"></i>
+</div>
+<div class="orange-back-text">
+Home
 </div>
 
-<p>Last updated: March 25, 2015</p>
+</div>
+<% end %>
+
+<div class="width6">
+
+<div class="blue-page-logo-small">
+Podium.
+</div>
+
+<div class="blue-page-tagline small">
+Sharing the world's stories.
+</div>
+
+</div>
+</div>
+
+<div class="width6">
+
+<div class="large-para-width"><span class="large-para"> 
+<strong>Terms of Service</strong>
+<br>
+Last updated: March 25, 2015
+</span>
+</div>
+
 <hr/>
+
+
+
+
+
+
 
 <p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the  http://www.readpodium.com website (the "Service") operated by Podium ("us", "we", or "our").</p>
 
@@ -134,10 +170,12 @@ A statement that the information in the notification is accurate, and under pena
 
 <hr/>
 
-<p><strong>Contact Us</strong></p>
+<div class="large-para-width"><span class="large-para"> 
 
-<p>If you have any questions about these Terms, please <%= link_to "contact us", contact_path, class: "blue" %>.</p>
+Question? <%= link_to "Contact us", contact_path, class: "blue", style: "text-decoration: underline !important;" %>.</span></div>
 
-<hr/>
+</div>
+
+
 
 </div>

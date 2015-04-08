@@ -1,6 +1,8 @@
+<% if @post.pictures.present? %>
 <style media="screen">
   .experimentevent { background-image: url(<%= @post.pictures.first.image %>); }
 </style>
+<% end %>
 
 <div class="darker2">
 <div class="experimentevent">
@@ -19,7 +21,7 @@
 
 
 
-<div class="posttext2event" style="margin-bottom: 35px;">
+<div class="posttext2event">
   <%= @event.title %>
 </div>
 
@@ -42,14 +44,10 @@
 <div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
 </div>  
 
-<style media="screen">
-  .eventimage-<%= @event.id %> { background-image: url(<%= @event.image %>); }
-</style>
-<div class="eventimage-<%= @event.id %>" style="position: relative; width: 220px;
-  height: 160px; background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; margin-bottom: 20px; margin-left: 30px; margin-top: 6px; float: right;
-    margin-left: 20px;">
+
+
+<div id="event" class="eventfeedimage" style="background-image:  url(<%= @event.image %>);">
+
  <div class='darker' style="opacity: 0.1;"></div>
 </div>
 <div class="p3">  
@@ -81,19 +79,39 @@
 
 <% if @questions.blank? and @comments.blank? %>
 <div class="shownoactivity-text" style='margin-top: 35px;'>
-  There's no activity here yet...
+No questions yet
 </div>
 <div class="row"></div>
 <% if user_signed_in? %>
-<div class="submitblue" style="display: inline-block;">Submit a question</div>
+<div class="submitblue" id="logged-in" style="display: inline-block;">Ask question</div>
 <% else %>
-<div class="login-recommend-add-button" style="display: inline-block;">Submit a question</div>
+<div class="submitblue login-recommend-add-button" style="display: inline-block;">Ask question</div>
 <% end %>
 <% end %>
 
 
 
+<% if current_user.try(:admin?) %>
 
+<a href="#AddArticle" role="button" class="dividerheadlink" data-toggle="modal">+ Article</a>
+
+
+  <div id="AddArticle" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-header">
+
+    <button type="button" class="close2" style="font-size: 24px; color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
+    Add Article
+    
+  </div>
+  
+   <%= render 'articles/form' %>
+  
+  
+
+</div>
+
+
+<% end %>
 
 
 
@@ -109,61 +127,35 @@
 
 
 
-<% if current_user.try(:admin?) %>
-<div class="row"></div>
-<div class="sixty"></div>
-<a href="#AddArticle" role="button" class="dividerheadlink white" data-toggle="modal">+ Article</a>
 
 
-  <div id="AddArticle" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <div class="modal-header">
-    <button type="button" class="close2" style="font-size: 24px; color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
-    Add Article
-    <div class="modal-header-text">
-    </div>
+
+</div>
+
+
+<% if @questions.present? or @related.present? %>
+<div class="experimentevent" style="height: 150px; margin-top: 60px;">
+  <div class='darker'></div>
+  <div class="absolutecontainer">
+ <div class="relativecontainer">
+  <div class="descriptionmargin" style="margin-bottom: 25px; margin-right: 0px;"> 
+
+   <div class="eventimagepreviewtext">
+     <%= link_to (@event.post.title), post_path(@event.post), class: "whiteblue" %>
+   </div>
+
+    <hr class="whiteimageline"/>
+
+
+   </div>
   </div>
-  
-   <%= render 'articles/form' %>
-  
-  
-
-</div>
-</div>
-
-<% end %>
-
-
-
-
-</div>
-
-<div class="sixty"></div>
-
-
-<% if @questions.present? %>
-
-<div class="experimentevent" style="height: 175px;">
-<div class='darker'></div>
-
-<div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin"> 
-
-<div class="eventimagepreviewtext">
-   <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
-</div>
-
-<hr class="whiteimageline"/>
-
-
-</div>
-</div>
-</div>
-
+ </div>
 
 </div>
 
 <% end %>
+
+
 
 
 <script>

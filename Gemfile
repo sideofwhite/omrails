@@ -31,7 +31,7 @@ gem 'medium-editor-rails'
 gem 'jquery-ui-rails'
 gem 'tinymce-rails'
 gem 'acts_as_list'
-
+gem 'deadweight'
 
 # Use sqlite3 as the database for Active Record
 group :production do

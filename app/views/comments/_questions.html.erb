@@ -30,7 +30,7 @@
 
 
 <div class="large-image">
-<%= sanitize question.body_format %>
+<%= sanitize question.body_format, :tags => %w"p img" %>
 </div>
 
 <div class="answertitle">
@@ -214,8 +214,18 @@ Recommends
 <% end %>
 
 
+<% unless user_signed_in? %>
+ <div class="blue-slider-position">
 
+<div class="login-recommend-add-div" style="display: none;">
+   <div class="blue-slider">
+    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
+</div>
 
+<% end %>
 
 <script>
 
@@ -264,6 +274,21 @@ $(document).ready(function() {
     }); 
 
 
+$('#login-recommend-add-<%= question.id %>').click(function() {
+  if ($('.login').is(':visible')) {
+    $('.login').fadeOut(function() {
+      $('.login-recommend-add-div').toggle('slide', {
+        direction: 'right'
+      }, 300);
+    });
+  } else {
+    $('.login-recommend-add-div').toggle('slide', {
+      direction: 'right'
+    }, 300, function() {
+      $('.login').fadeIn();
+    });
+  }
+});
 
 
 </script>

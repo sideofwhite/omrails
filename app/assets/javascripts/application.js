@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-slide
 //= require tinymce-jquery
 //= require jquery.autosize.js
-//= require bootstrap
-//= require bootstrap-modal
+//= require bootstrap-tooltip
+//= require bootstrap-popover
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .

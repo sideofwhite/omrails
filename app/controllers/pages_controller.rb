@@ -18,19 +18,21 @@ class PagesController < ApplicationController
 
 
   def about
-  	
+  	@skip_bottom = true  
     @skip_footer = true 
   end
   def contact
+    @skip_bottom = true  
     @skip_footer = true 
  
   end
    def guidelines
    @skip_bottom = true  
-
+   @skip_footer = true 
   end
   def tos
-      
+      @skip_bottom = true  
+    @skip_footer = true 
   end
 
   def browser

@@ -101,6 +101,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
     get "/info" => "registrations#info"
   end
 
+  get '*path' => redirect('/')
 
 
   # The priority is based upon order of creation: first created -> highest priority.

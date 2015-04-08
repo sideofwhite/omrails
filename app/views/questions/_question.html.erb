@@ -28,7 +28,7 @@
 
 
 <div class="large-image">
-<%= sanitize @question.body_format %>
+<%= sanitize @question.body_format, :tags => %w"p img" %>
 </div>
 
 <div class="answertitle">

@@ -1,4 +1,4 @@
-<% unless @comment.post.pictures.count == 0 %>
+<% if @comment.post.pictures.present? %>
 <style media="screen">
  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
 </style>
@@ -56,9 +56,16 @@
 
 
 <div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 20px; margin-left: 30px;">
+
+<% if user_signed_in? %>
 <div class="submit-share">
 Share
 </div>  
+<% else %>
+<div class="submit-share" id="share-signin">
+Share
+</div> 
+<% end %>
 
 
 
@@ -208,11 +215,11 @@ Share question on Twitter
 
 
 
-Unpublished Answers (<%= @hidden.count %>)
+Unreviewed Answers (<%= @hidden.count %>)
 
 <% end %>
 <div style="margin-top: 5px"></div>
-These answers have not been reviewed by editors to confirm they follow our <%= link_to "answer guidelines", guidelines_path, class: "blue" %>.
+These answers have not been reviewed by editors to confirm they follow Podium's <%= link_to "answer guidelines", guidelines_path(:anchor => "answers"), :target => "_blank", style: "text-decoration: underline !important; color: rgba(51,51,51,0.5) !important;" %>.
 </div>
 
 
@@ -251,13 +258,14 @@ RELATED ANSWERS
 
     <hr class="whiteimageline"/>
 
-    
-     <% if @comment.events.present? %>
+    <% if @comment.events.present? %>
       <div class="eventlight">
         Event:
       </div>
       <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
       <% end %>
+     
+      
 
    </div>
   </div>
@@ -357,7 +365,7 @@ $('.submit-share, .close-twitter').click(function () {
         }, 300);
     });
 
-$('#login-recommend-add, .close-twitter, .recommend-logged-out').click(function () {
+$('#login-recommend-add, .close-twitter, .recommend-logged-out, #share-signin').click(function () {
     if($('.login').is(':visible')){
     $('.login').fadeOut(function () {
         $('.login-recommend-add-div').toggle('slide', {

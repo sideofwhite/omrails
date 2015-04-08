@@ -1,30 +1,5 @@
 
 
-<div class="titlecontainer30">
-<%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment), class: 'blue' %>
-</div>
-
-
-
-
-
-
-<div class="hidden-phone" style="display: inline;">
-
-<div class="questioninfo-container">
-	
-<% if question.comment.questions.count > 1 %>
-<%= link_to ("1 of #{question.comment.questions.count} Answers"), post_comment_path(question.comment.post, question.comment), class: "half-grey" %>
-<% else %>
-<%= link_to "1 Answer", comment_question_path(question.comment, question), class: "half-grey" %>
-<% end %>
-
- </div>
-</div>
-
-
-<div class="row" style="margin-top: 30px;"></div>
-
 <div class="answer-feed-avatar">
 <%= link_to (image_tag(question.user.image)), user_path(question.user) %>
 </div>
@@ -54,6 +29,3 @@
 
 
 </div>
-
-
-

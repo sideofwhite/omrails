@@ -5,12 +5,17 @@
  </style>
 <% end %>
 <% else %>
+<style media="screen">
+.navbar .brand { background: rgba(51,51,51,0.3); }
+.fa-bell { background-color: rgba(51,51,51,0.3);}
+</style>
  <% end %>
 
 
 <div class="profileimage-banner">
-   
+<% if @comments.present? %>
 <div class="darker"></div>
+<% end %>
 
 <div class="absolutecontainer" style="top: 0;">
 <div class="relativecontainer" style="height: 100%;">
@@ -101,13 +106,13 @@ Replies
 
 
 <% if @comments.blank? and @user == current_user %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
    You haven't answered any questions yet. Click the blue 'plus' circle beisde a question to add an answer.
-</div>
+</span></div>
 <% elsif @comments.blank? %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
     <%= @user.name %> hasn't answered any questions yet.
-</div>
+</span></div>
 <% end %>
 
 

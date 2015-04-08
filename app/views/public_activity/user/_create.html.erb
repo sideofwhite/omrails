@@ -23,10 +23,10 @@
 <%= time_ago_in_words(activity.trackable.created_at) %> ago
 </div>  
 <div class="notification-smalltext" style="font-size: 16px; display: block; margin-bottom: 0px; color: #018bc6 !important;">
-Welcome to Podium, <%= current_user.name %>
+Welcome to Podium, <%= current_user.name.split(" ")[0] %>
 </div>
 <div class="notification-smalltext" style="display: inline-block; font-size: 14px; margin-bottom: 3px;">
-Podium is new blah
+Sharing the world's stories.
 </div>
 
 <hr class="line30" style="margin-top: 10px; margin-bottom: 10px;"/>
@@ -38,15 +38,15 @@ This is your notifications page where you'll see answers to your questions, repl
 
 <div class="welcome-homepage">
 
-<%= image_tag ("http://i.imgur.com/PQPK4kq.png") %>
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon-homepage.png") %>
 
 </div>
 
 
 <div class="welcome-homepage-text">
 <div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-The homepage shows the latest stories happening around the world. Updated every day.
-<%= link_to "Go to home", root_path, class: "blue" %>
+The homepage shows the latest stories and best answers on Podium.
+<%= link_to "Go home.", root_path, class: "blue" %>
 </div>
 
 </div>
@@ -57,7 +57,7 @@ The homepage shows the latest stories happening around the world. Updated every 
 
 <div class="welcome-homepage">
 
-<%= image_tag ("http://i.imgur.com/F69dzjC.png") %>
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon-plus.png") %>
 
 </div>
 
@@ -65,7 +65,27 @@ The homepage shows the latest stories happening around the world. Updated every 
 
 <div class="welcome-homepage-text">
 <div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-Look for the blue 'plus' circle to add a question or write an answer. 
+Look for the blue 'plus' circle to ask a question or write an answer. 
+</div>
+
+</div>
+
+<div class="row"></div>
+
+
+<div class="row" style="margin-top: 20px;"></div>
+
+<div class="welcome-homepage">
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon-recommend.png") %>
+
+
+</div>
+
+
+
+<div class="welcome-homepage-text">
+<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
+Recommend answers you find interesting and informative. Popular answers will rise to the top so others can read them.
 </div>
 
 </div>
@@ -77,7 +97,7 @@ Look for the blue 'plus' circle to add a question or write an answer.
 
 <div class="welcome-homepage">
 
-<%= image_tag ("http://i.imgur.com/uHmyiuo.png") %>
+<%= image_tag ("https://s3.amazonaws.com/podiumimages/static/icon-profile.png") %>
 
 </div>
 
@@ -85,27 +105,7 @@ Look for the blue 'plus' circle to add a question or write an answer.
 
 <div class="welcome-homepage-text">
 <div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-Recommend answers you find interesting and informative. Popular answers will rise to the top so others can find them.
-</div>
-
-</div>
-
-<div class="row"></div>
-
-
-<div class="row" style="margin-top: 20px;"></div>
-
-<div class="welcome-homepage">
-
-<%= image_tag ("http://i.imgur.com/IJ15EW2.png") %>
-
-</div>
-
-
-
-<div class="welcome-homepage-text">
-<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-The answers you recommend will be shown on your profile along with any answers or replies you've written. <%= link_to "Your profile", root_path, class: "blue" %>
+The answers you recommend will be shown on your profile along with any answers or replies you've written. <%= link_to "See profile.", root_path, class: "blue" %>
 </div>
 
 </div>
@@ -117,11 +117,11 @@ The answers you recommend will be shown on your profile along with any answers o
 
 <hr class="line30" style="margin-top: 20px; margin-bottom: 10px;"/>
 <div class="timeline-date" style="margin-bottom: 17px; color: #018bc6;">
-Share Podium on Twitter
+Tweet about Podium
 </div>
 
 <div class="welcome-twitter-share">
-[Tagline here]. Check out Podium at http://readpodium.com
+Sharing the world's stories. Check out Podium at http://readpodium.com
 </div>
 
 

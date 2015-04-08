@@ -21,9 +21,6 @@ LATEST EVENTS
 
 <%= link_to (event.title), post_event_path(event.post, event) %>
 
-<div class="timeline-description">
-<%= truncate(event.body, :separator => ' ', length: 110) %>  
-</div>
 
 </div>
 

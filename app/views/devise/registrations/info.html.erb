@@ -1,9 +1,10 @@
 <% @posts.each do |post| %>
 
+<% if post.pictures.present? %>
 <style media="screen">
 .imagestrip {background-image: url(<%= post.pictures.first.image %>);}
 </style>
-
+<% end %>
 
 <% end %>
 

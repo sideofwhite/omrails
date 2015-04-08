@@ -10,15 +10,10 @@ end
 scope :nothidden, where(:hide => false)
 
 
-
-
-
-
-def next
-    post.comments.where("id > ?", id).order('cached_votes_total desc').first
+def body_format
+  self.body.gsub(/<p>.<\/p>/,"")
 end
 
-has_attached_file :image, :styles => { :medium => "400x300>" }
 
 validates :title, presence: true
 validates :user_id, presence: true

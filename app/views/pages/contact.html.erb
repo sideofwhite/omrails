@@ -1,159 +1,44 @@
-<div class="width6">
-<div style="margin-top: 60px;"></div>
+<style>
+body {background-color: rgba(1,139,198,0.03);}
+</style>
 
-<div class="leftstoryimage">
-<div class="notificationcount-circle">
-1
+<div class='blue-page'>
+
+<%= link_to root_path do %>
+<div class="about-back">
+
+<div class="orange-back">
+<i class="fa fa-long-arrow-left" style="color: white; margin-left: 0px;"></i>
 </div>
-</div>
-
-
-
-<div class="rightstorytitle">
-
-
-<div class="notificationcount-text" style="font-size: 16px;">
-New Notifications
+<div class="orange-back-text">
+Home
 </div>
 
-<div class="notificationcount-text">
-<%= link_to "See older", allnotifications_path(current_user), class: "blue" %>
-</div>
-
-<hr style='margin-bottom: 0px; margin-top: 10px;'/>
-
-</div>
-
-
-
-
-
-
-<div style="margin-top: 40px;"></div>
-
-<div class="timeline-dot">
-</div>
-
-<div class="timeline-content" style="width: 100%;">
-
-
-
-<div style="width: 70%">
-
-<div class="timeline-date" style="font-size: 11px; margin-bottom: 4px;">
-2 minutes ago
-</div>  
-<div class="notification-smalltext" style="font-size: 16px; display: block; margin-bottom: 0px; color: #018bc6 !important;">
-Welcome to Podium, Nevan
-</div>
-<div class="notification-smalltext" style="display: inline-block; font-size: 14px; margin-bottom: 3px;">
-Podium is new blah
-</div>
-
-<hr class="line30" style="margin-top: 10px; margin-bottom: 10px;"/>
-
-<div class="notification-smalltext" style="display: inline-block;">
-This is your notifications page where you'll see answers to your questions, replies to your answers and more.
-</div>
-
-
-<div class="welcome-homepage">
-
-<%= image_tag ("http://i.imgur.com/PQPK4kq.png") %>
-
-</div>
-
-
-<div class="welcome-homepage-text">
-<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-The homepage shows the latest stories happening around the world. Updated every day.
-<%= link_to "Go to home", root_path, class: "blue" %>
-</div>
-
-</div>
-
-
-
-<div class="row" style="margin-top: 20px;"></div>
-
-<div class="welcome-homepage">
-
-<%= image_tag ("http://i.imgur.com/F69dzjC.png") %>
-
-</div>
-
-
-
-<div class="welcome-homepage-text">
-<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-Look for the blue 'plus' circle to add a question or write an answer. 
-</div>
-
-</div>
-
-<div class="row"></div>
-
-
-<div class="row" style="margin-top: 20px;"></div>
-
-<div class="welcome-homepage">
-
-<%= image_tag ("http://i.imgur.com/uHmyiuo.png") %>
-
-</div>
-
-
-
-<div class="welcome-homepage-text">
-<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-Recommend answers you find interesting and informative. Popular answers will rise to the top so others can find them.
-</div>
-
-</div>
-
-<div class="row"></div>
-
-
-<div class="row" style="margin-top: 20px;"></div>
-
-<div class="welcome-homepage">
-
-<%= image_tag ("http://i.imgur.com/IJ15EW2.png") %>
-
-</div>
-
-
-
-<div class="welcome-homepage-text">
-<div class="notification-smalltext" style="display: inline-block; margin-bottom: 0px;">
-The answers you recommend will be shown on your profile along with any answers or replies you've written. <%= link_to "Your profile", root_path, class: "blue" %>
-</div>
-
-</div>
-
-<div class="row"></div>
-
-
-
-
-<hr class="line30" style="margin-top: 20px; margin-bottom: 10px;"/>
-<div class="timeline-date" style="margin-bottom: 17px; color: #018bc6;">
-Share Podium on Twitter
-</div>
-
-<div class="welcome-twitter-share">
-[Tagline here]. Check out Podium at http://readpodium.com
-</div>
-<%= link_to "http://twitter.com/home?status=[Tagline here]. Check out Podium at readpodium.com", :target => "_blank" do %>
-<div class="submitblue-small" style="float: right;">
-<i class="fa fa-twitter-square" style="font-size: 13px;"></i> Tweet
 </div>
 <% end %>
 
+<div class="width6">
 
-<div class="row"></div>
+<div class="blue-page-logo-small">
+Podium.
+</div>
+
+<div class="blue-page-tagline small">
+Sharing the world's stories.
+</div>
 
 </div>
 </div>
+
+<div class="width6">
+
+<div class="large-para-width"><span class="large-para"> 
+Have a question?
+<a href="mailto:hello@readpodium.com" target="_top" class="blue" style="text-decoration: underline !important;">
+Drop us a line.</a>
+</span>
+</div>
+
+<hr/>
 
 </div>

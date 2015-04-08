@@ -19,7 +19,7 @@
 <% if @user.twitter.present? %>  
 <ul class="profilemenu-item">
 <i class="fa fa-twitter"></i>
-@<%= link_to truncate(@user.twitter, length:10), root_path, class: "white" %>
+@<%= link_to truncate(@user.twitter, length:10), "http://www.twitter.com/" + @user.twitter, class: "white" %>
 </ul>
 <% end %>
 <% if @user.place.present? %>  

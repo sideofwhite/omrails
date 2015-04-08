@@ -1,8 +1,8 @@
+<% if @post.pictures.present? %>
 <style media="screen">
   .imagestrip { background-image: url(<%= @post.pictures.first.image %>); }
-  .navbar .brand {color: white !important;} 
-  .fa-bell-o { color: white !important;}
 </style>
+<% end %>
 
 
 <div class="darker2">

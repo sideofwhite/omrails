@@ -1,4 +1,4 @@
-<% unless @post.pictures.count == 0 %>
+<% if @post.pictures.present? %>
 <style media="screen">
   .experiment { background-image:  url(<%= @post.pictures.first.image %>);}
   </style>
@@ -20,9 +20,7 @@
 <% else %>
 <div class="absolutecontainerprofile">
 <div class="relativecontainer">
-<div class="userprofileimage-container" style="margin-top: 60px;">
-<a href="#Picture" role="button" data-toggle="modal" class="userprofileimage-name">+ Header Image</a>
-</div>         
+<i class="fa fa-picture-o" id="picture" style="font-size: 40px; color: white; text-align: center; margin-top: 60px; display: block; cursor: pointer;"></i>
 </div>
 </div>        
 <% end %>
@@ -149,21 +147,18 @@
 
 <% if @topquestions.count == 0 %>
 <div class="shownoactivity-text" style='margin-top: 35px;'>
-  There's no activity here yet...
+  No questions yet
 </div>
 <% else %>
 <hr class="questionsline"/>
- <div class="shownoactivity-text">
-   Have a question?
-  </div>
 <% end %>
 
 <% if user_signed_in? %>
 <div class="row"></div>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Submit a question</div>
+<div class="submitblue" id="logged-in" style="display: inline-block;">Ask question</div>
 <% else %>
 <div class="row"></div>
-<div class="submitblue" id="login-recommend-add-button" style="display: inline-block;">Submit a question</div>
+<div class="submitblue" id="login-recommend-add-button" style="display: inline-block;">Ask question</div>
 <% end %>
 
 <% if @articles.present? %>
@@ -179,38 +174,16 @@
 </div>
 
 
+<div class="fullpage-modal-container">  
 
-
-
-
-
-                       <div id="Picture" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        
-  <div class="modal-header">
-    <button type="button" class="close2" style="font-size: 30px; color: white !important;" data-dismiss="modal" aria-hidden="true">×</button>
-    <div class="underpodiumhomeguidelinesblue">
-     <div class="width6"> 
-     <div class="modaltextlarge">
-    Add Image
-  </div>
-    <div class="underpodiumhomeguidelines">
-    Please make sure you own the rights to the image
-</div>
-</div>
-    </div>
-  </div>
-  <div class="row"></div>
-<div class="width6"> 
-  <div class="modal-body" style="padding-top: 0px;">
-   <div class="modal-body">
+  <div class="fullpage-modal-picture" id="picture" style="display: none;">
+<button type="button" class="close-modal-slide" id="picture" data-dismiss="modal" aria-hidden="true">×</button>
+<hr class="modalline-slide" style="margin-top: 0px"/>
     <%= render :partial => "pictures/form" %>
+   </div>
+ </div>
 
-  </div>
-    </div>
- 
-</div>
-</div>
-</div>
+
 
 
 
@@ -249,7 +222,11 @@ $('#login-recommend-add, .close-twitter, #login-recommend-add-button').click(fun
 });
 
 
-
+$('#picture, .close-modal-slide#picture, .modaldeclinebutton#picture').click(function () {
+        $('.fullpage-modal-picture').toggle('slide', {
+            direction: 'right'
+        }, 300);
+    });
 
 </script>
 

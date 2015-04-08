@@ -6,78 +6,66 @@
 <style>
 
 
-body {
- font-family: "Pragmatica-Web" !important; 
+.completeyourprofile {
+    font-size: 24px;
+    color: #f9a825;
+    border: 1px solid rgba(249,168,37,0.5);
+    padding: 15px;
+    margin-bottom: 35px;
+    display: inline-block;
+    
 }
 
-.imagestrip {
-    width: 100%;
-    height: 200px;
-    background-color: #018bc6;
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.width6 {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 120px;
+  font-family: sans-serif;
 }
 
-.imagestrip {background-image: url("http://i.imgur.com/kCTNpw3.jpg");}
+.guidelines-text-large {
+   
+    line-height: 1.5;
+    font-size: 16px;
+    color: #018bc6;
+    background-color: rgba(1,139,198,0.1);
 
-.darker { 
-position: absolute; 
-top: 0px; 
-left: 0px; 
-background-color: #000; 
-opacity: 0.5; 
-width: 100%; 
-height: 100%;
-}
-
-.not-found {
-  font-weight: bold;
-  color: white;
-  line-height: 1.3;
-  text-align: center;
-  font-size: 22px;
   
+}
+
+
+.modalline-slide { 
+display: block; 
+height: 1px;
+border: 0; 
+border-top: 1px solid rgba(51,51,51,0.1);
+margin-top: 20px; 
+margin-bottom: 20px;
+padding: 0px; 
+
 }
 
 </style>
 
+<div class="width6">
+
+
+<div class="row"></div>
 
 
 
-<div class="imagestrip" style="height: 100% !important; position: fixed;">
 
-<div class='darker'></div>
-
-
-<div class="absoluteheader">
-<%= render 'layouts/logo' %>
+<div class="completeyourprofile">
+Page not Found
 </div>
 
+<div style="width:100%;"><span class="guidelines-text-large">
+Sorry, but the requested page could not be found.</span></div>
 
-
- <div style="position: fixed; left: 50%; top: 50%; margin-top: -101px; margin-left: -120px;">
-
-<div class="login-recommend-add-div">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
-    <div class="not-found">
-    Sorry, we cannot find the page you are looking for
-    <div style="font-weight: normal; font-size: 16px; margin-top: 10px;">
-    <a href="/" style="color: white;">Explore the top stories of today.</a>
-    </div>
-  </div>
-   </div>
- </div>
-
-</div>  
-
-<div class="border">
-
-
-
-</div>
-
+   <hr class="modalline-slide"/>
+<div style="width:100%;"><span class="guidelines-text-large">
+   <a href="/" style="color: #018bc6;">Go back home.</a>
+</span></div>
 
 
 </body>

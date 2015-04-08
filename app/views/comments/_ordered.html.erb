@@ -2,9 +2,7 @@
 
 
 <% @ordered.each_with_index  do |question, i| %>
-<style media="screen">
-  .read-more-<%= question.id %> { opacity: 0.4;}
-</style>
+
 
 <% unless @ordered.current_page == 1 && i == 0 %>
 <hr style="width: 30%;"/>

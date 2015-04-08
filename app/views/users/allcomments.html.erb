@@ -5,13 +5,17 @@
  </style>
 <% end %>
 <% else %>
+<style media="screen">
+.navbar .brand { background: rgba(51,51,51,0.3); }
+.fa-bell { background-color: rgba(51,51,51,0.3);}
+</style>
  <% end %>
 
 
 <div class="profileimage-banner">
-   
+<% if @links.present? %>  
 <div class="darker"></div>
-
+<% end %>
 
 <div class="absoluteheader">
   <%= render 'layouts/headerimage_login' %>
@@ -95,13 +99,13 @@ Answers
 <div class="width6">
 
 <% if @links.blank? and @user == current_user %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
    You haven't replied to any answers yet. Click the 'reply' button at the bottom of an answer to add your [jssajc].
-</div>
+</span></div>
 <% elsif @links.blank? %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
     <%= @user.name %> hasn't replied to any answered yet.
-</div>
+</span></div>
 <% end %>
 
 

@@ -106,7 +106,7 @@ Following
 
 
 <div class="under-question-info">
-<% if @comment.questions.count > 1 %>
+<% if @published.count > 1 %>
 <div class="dividerhead" style="margin-bottom: 3px;">
  1 OF <%= pluralize(@published.count, 'Answer').upcase %>
 </div>
@@ -173,9 +173,12 @@ QUESTION INFO
 MORE ANSWERS
 </div>
 <% @related.where("questions.id NOT IN (?)", @question.id).limit(2).each do |question| %>
-<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+
+<%= render :partial => 'layouts/answersfeed_noquestion', locals: {question:question} %>
+
+
 <hr style="width: 30%;"/>
-</div>
+
 <% end %>
 
 <% end %>
@@ -272,8 +275,7 @@ Share to Facebook and Twitter
 
 
 
-
- <div style="position: fixed; top: 75px; right: 0;">
+<div class="blue-slider-position">
 
 <div class="login-recommend-add-div" style="display: none;">
    <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
@@ -327,21 +329,6 @@ $('#login-recommend-add, .close-twitter').click(function () {
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<% @question.comment.questions.where("questions.id NOT IN (?)", @question.id).limit(2).each_with_index do |question, i| %>
-
-
-<% end %>
 
 
 

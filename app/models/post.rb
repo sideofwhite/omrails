@@ -2,8 +2,12 @@ class Post < ActiveRecord::Base
 extend FriendlyId
 friendly_id :title, use: :slugged
 
-has_attached_file :image, styles: { :large => "740x340>" }
+has_attached_file :image, styles: { :small => "220x160>" }
 
+
+def body_format
+  self.body.gsub(/<p>.<\/p>/,"")
+end
 
 scope :topcategory, where(:category => true)
 scope :nothiddencategory, where(:category => false).where(:hide => false)

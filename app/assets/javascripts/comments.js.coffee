@@ -14,6 +14,7 @@ jQuery ->
 
 $(document).ready ->
   $("textarea").autosize()
+  $(".modal").autosize()
   $("#myModal").autosize()
   
 
@@ -21,6 +22,7 @@ $(document).ready ->
      
 $(document).on "page:load", ->
   window["rangy"].initialized = false
+
 
 
 

@@ -8,15 +8,17 @@
  .eventimage2 { background-image: url("http://localhost:3000/system/pictures/images/000/000/020/original/canadainterestrates.jpg"); }
 
 .fa-bell { background-color: rgba(51,51,51,0.3);}
-.navbar .brand { position: absolute; padding: 0px 45px 0px 25px !important; font-size: 28px; line-height: 80px;}
 .nav { margin-bottom: 0px; }
 </style>
 
-<div class="homepageinfobanner" style="border-bottom: 3px solid rgba(51,51,51,0.5);">
+
+<div class="hidden-phone">
+
+<div class="homepageinfobanner">
 
 <div class="navbar navbar-inverse ">
 <div class="nav pull-left">
-             <%= link_to ("Podium."), root_path, class: "brand", style: "border-right: none !important"  %>
+             <%= link_to ("Podium."), root_path, id: "home-banner", class: "brand", style: "border-right: none !important"  %>
           </div> 
  </div>
 
@@ -26,15 +28,16 @@
 <div style="margin-top: 30px;"></div>
 <div class="row"></div>
 
-<div style="width: 640px; margin: 0 auto;">
+<div class="width6">
   
-
+<div class="banner-text">
 <div style="font-size: 22px; color: white; float: left;">
 Sharing the world's stories.
 </div>
 
-<div class="banner-button" style="margin-left: 25px;">
-Learn More
+
+<%= link_to "Learn More", about_path, class: "banner-button", style: "margin-left: 25px;" %>
+
 </div>
 
 </div>
@@ -59,6 +62,59 @@ Learn More
 
 
 </div>
+</div>
+
+
+
+
+
+<div class="hidden-desktop hidden-tablet">
+
+
+
+
+<div class="homepageinfobanner">
+<div class="width6">
+
+<div class="navbar navbar-inverse ">
+<div class="nav pull-left">
+             <%= link_to ("Podium."), root_path, id: "home-banner", class: "brand", style: "border-right: none !important"  %>
+          </div> 
+ </div>
+
+
+
+<div class="nav pull-right">
+
+<div class="banner-button" id="login-recommend-add" > Sign in / Sign up 
+</div>
+</div>
+
+<div class="row"></div>
+
+
+<div class="banner-text">
+
+Sharing the world's stories.
+
+
+
+<%= link_to "Learn More", about_path, class: "banner-button", id: "seemore" %>
+
+</div>
+
+
+<div class="row"></div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
 
 
 
@@ -73,6 +129,8 @@ Learn More
  </div>
 
 </div>
+
+
 
 
 

@@ -1,4 +1,4 @@
-<% unless @post.pictures.count == 0 %>
+<% if @post.pictures.present? %>
 <style media="screen">
   .imagestripquestions { background-image:  url(<%= @post.pictures.first.image %>); background-color: #333; }
   </style>

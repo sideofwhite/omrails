@@ -18,7 +18,7 @@ end
 
 has_attached_file :file
 
-
+validates :body, presence: true
 belongs_to :user
 acts_as_votable
 belongs_to :comment, :counter_cache => true, :dependent => :destroy

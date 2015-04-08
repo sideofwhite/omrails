@@ -5,14 +5,19 @@
  </style>
 <% end %>
 <% else %>
+<style media="screen">
+.navbar .brand { background: rgba(51,51,51,0.3); }
+.fa-bell { background-color: rgba(51,51,51,0.3);}
+</style>
  <% end %>
 
 
 
 <div class="profileimage-banner">
    
+<% if @questions.present? %>
 <div class="darker"></div>
-
+<% end %>
 
  <% if current_user == @user %>
 
@@ -127,13 +132,13 @@ Replies
 <% if @user.votes.present? %>
 <%= render 'show' %>
 <% elsif @user.votes.blank? and @user == current_user %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
    You haven't recommenced any answers yet. Click the blue 'plus' button below an answer and it will show up here.
-</div>
+</span></div>
 <% elsif @user.votes.blank? %>
-<div class="nonew-notifications">
+<div class="nonew-outside"><span class="nonew-notifications-profile">
     <%= @user.name %> hasn't recommended any answers yet.
-</div>
+</span></div>
 <% end %>
 
 </div>

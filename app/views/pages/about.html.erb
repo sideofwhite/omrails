@@ -1,23 +1,109 @@
+<style>
+body {background-color: rgba(1,139,198,0.03);}
+</style>
 
+<div class='blue-page'>
 
+<%= link_to root_path do %>
+<div class="about-back">
 
-<div class="imagestrip" style="height: 100% !important; position: fixed;">
+<div class="orange-back">
+<i class="fa fa-long-arrow-left" style="color: white; margin-left: 0px;"></i>
+</div>
+<div class="orange-back-text">
+Home
+</div>
 
+</div>
+<% end %>
 
 <div class="width6">
-<div class="sixty"></div>
-<div class="p2" style="font-size: 26px !important; text-align: center; color: white !important;">
-Connect the dots, and put history in the palm of your hand. Timeline gives the busy reader a brief overview, with in-depth analysis and historical context under every surface.
+
+<div class="blue-page-logo">
+Podium.
 </div>
-<hr style="border-top: 1px solid rgba(255,255,255,1) !important; opacity: 0.5 !important;"/>
-<div class="p2" style="font-size: 20px !important; border-left: 2px solid rgba(255,255,255,0.5); padding-left: 20px; color: white !important;">
-Connect the dots, and put history in the palm of your hand. Timeline gives the busy reader a brief overview, with in-depth analysis and historical context under every surface.
+
+<div class="blue-page-tagline">
+Sharing the world's stories.
 </div>
+
 </div>
 </div>
 
 <div class="width6">
 
+<div class="large-para-width"><span class="large-para">	
+Lorem ipsum dolor sit amet, ne nec labores eleifend appellantur, cu ridens prodesset ius. An pro facete graecis reprimique
+</span>
+</div>
 
+<hr/>
+
+
+<div class="about-item">
+<div class='about-item-inside'>
+
+<div class="about-item-image"><%= image_tag ("http://i.imgur.com/skgN8uU.png") %></div>
+
+<strong> Stories </strong>	
+<div style="margin-top: 5px;"></div>
+Lorem ipsum dolor sit amet, ne nec labores eleifend
+</div>
+</div>
+
+<div class="about-item">
+<div class='about-item-inside'>
+
+<div class="about-item-image"><%= image_tag ("http://i.imgur.com/pxD0cbd.png") %></div>
+
+<strong> Questions </strong>	
+<div style="margin-top: 5px;"></div>	
+Lorem ipsum dolor sit amet, ne nec labores eleifend
+</div>
+</div>
+
+<div class="about-item">
+<div class='about-item-inside'>
+
+<div class="about-item-image"><%= image_tag ("http://i.imgur.com/amKu6Ai.png") %></div>
+
+<strong> Answers </strong>	
+<div style="margin-top: 5px;"></div>	
+Lorem ipsum dolor sit amet, ne nec labores eleifend
+</div>
+</div>
+
+<hr/>
+
+<div class="sign-up-back">
+
+<%= link_to user_omniauth_authorize_path(:twitter) do %>
+<div class="about-twitter">
+<i class="fa fa-twitter" style="color: #fff; font-size: 36px; line-height: 72px;"></i> 
+</div>
+<% end %>
+
+<div class="small-para">
+<strong>Sign up with Twitter</strong>
+<div style="margin-top: 5px;"></div>	
+Create an account to follow and ask questions, reply to answers and more.
+</div>
 
 </div>
+
+</div>
+
+
+
+<div class='blue-page-bottom'>
+<div class="darker" style="background-color: #018bc6; opacity: 0.95;"></div>
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div style='margin-bottom: 62px;'>
+<%= link_to "Explore", root_path, class: "about-banner-button" %>
+</div>
+</div>
+</div>	
+</div>
+
+
