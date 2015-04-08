@@ -169,22 +169,6 @@ $('.form-next, .close-editor').click(function () {
 
 
 
-$('#answer-info').popover({
-    html: true,
-    title: '<div class="close-popover">&times;</div>',
-    placement: 'bottom',
-    content: $('.share-answer').html(),
-});
-
-$('#answer-info').click(function (e) {
-    e.stopPropagation();
-});
-
-$(document).click(function (e) {
-    if (($('.popover-x').has(e.target).length == 0) || $(e.target).is('.close')) {
-        $('#answer-info').popover('hide');
-    }
-});
 
 
 

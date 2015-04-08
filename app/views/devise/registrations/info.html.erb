@@ -158,9 +158,11 @@ You can edit this information at any time.
 <%= post.title %>
 </div>
 
+<% if post.pictures.present? %>
  <div class="imagepostedbytext"> 
 <i class="fa fa-picture-o"></i> <%= post.pictures.first.user.name %>
 </div>
+<% end %>
 </div>
 
 

@@ -9,6 +9,9 @@
  <%= @user.name %>
 </div>
 
+
+<div class="profile-banner-info">
+
 <% if @user.age.present? %>  
 <div class="userprofileimage-bio">
 <%= @user.age %>
@@ -19,7 +22,7 @@
 <% if @user.twitter.present? %>  
 <ul class="profilemenu-item">
 <i class="fa fa-twitter"></i>
-@<%= link_to truncate(@user.twitter, length:10), "http://www.twitter.com/" + @user.twitter, class: "white" %>
+@<%= link_to truncate(@user.twitter, length:10), "http://www.twitter.com/" + @user.twitter, :target => "_blank", class: "white" %>
 </ul>
 <% end %>
 <% if @user.place.present? %>  
@@ -31,3 +34,5 @@
 
 
 </li>
+
+</div>

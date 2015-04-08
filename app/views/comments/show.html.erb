@@ -123,7 +123,7 @@ Following
 <div class="unpublished-box" style='width: 100%; margin-top: 15px;'>
 <div class="blue">Locked Question</div>
 <div style="margin-top: 5px"></div>
-This question has not been reviewed by editors to confirm its follows Podium's <%= link_to "question guidelines", guidelines_path, class: "blue" %>.
+This question has not been reviewed by editors to confirm it follows Podium's <%= link_to "question guidelines", guidelines_path, class: "blue" %>.
 </div>
 <% end %>  
 </div>
@@ -172,15 +172,15 @@ QUESTION INFO
 <div class="answer-feed-margin"></div>
 
 
-<% if @comment.published and @comment.questions.blank? %>
-<div style="width: 50%">
+<% if @comment.published and @published.blank? %>
+<div class="half-width">
 <hr class="line30" style="margin-top: 20px; margin-bottom: 10px;"/>
 <div class="timeline-date" style="margin-bottom: 17px; color: #018bc6;">
 Share question on Twitter
 </div>
 
 <div class="welcome-twitter-share">
-[Tagline here]. Check out Podium at http://readpodium.com
+<%= @comment.title %>
 </div>
 
 

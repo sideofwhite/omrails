@@ -177,7 +177,7 @@
 <div class="fullpage-modal-container">  
 
   <div class="fullpage-modal-picture" id="picture" style="display: none;">
-<button type="button" class="close-modal-slide" id="picture" data-dismiss="modal" aria-hidden="true">×</button>
+<button type="button" class="close-modal-slide-picture" id="picture" data-dismiss="modal" aria-hidden="true">×</button>
 <hr class="modalline-slide" style="margin-top: 0px"/>
     <%= render :partial => "pictures/form" %>
    </div>
@@ -222,7 +222,7 @@ $('#login-recommend-add, .close-twitter, #login-recommend-add-button').click(fun
 });
 
 
-$('#picture, .close-modal-slide#picture, .modaldeclinebutton#picture').click(function () {
+$('#picture, .close-modal-slide-picture, .modaldeclinebutton-picture').click(function () {
         $('.fullpage-modal-picture').toggle('slide', {
             direction: 'right'
         }, 300);

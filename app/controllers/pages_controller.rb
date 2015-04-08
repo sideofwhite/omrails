@@ -7,8 +7,7 @@ class PagesController < ApplicationController
 
   def following 
   @skip_footer = true  
-  if user_signed_in?
-  @skip_bottom = true    
+  if user_signed_in?  
   @user = current_user 
   @following = @user.get_voted Comment .order("created_at desc").page(params[:page]).per_page(3)
   else 

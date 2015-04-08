@@ -2338,7 +2338,20 @@ padding: 0px;
    cursor: pointer;
 }
 
-
+.modaldeclinebutton-picture {
+       display: inline;
+   background: rgba(51,51,51,0.15) !important;
+   padding: 5px 8px 4px 8px;
+   font-size: 11px;
+   font-weight: bold;
+   color: white !important;
+   border-radius: 1px;
+   border: none !important;
+   text-shadow: none !important;
+   float: right;
+   margin-right: 5px;
+   cursor: pointer;
+}
 
 
 
@@ -3009,6 +3022,20 @@ padding: 0px;
 }
 
 
+.close-modal-slide-picture {
+    font-size: 18px;
+    border: 0px !important;
+    color: #f9a825 !important;
+    margin: 5px;
+    font-size: 26px;
+    background: rgba(0,0,0,0);
+    width: 24px;
+    height: 24px;
+    line-height: 21px;
+   
+
+
+}
 
 
 .close-twitter {
@@ -10394,18 +10421,23 @@ border-radius: 100%;
 .profile-banner {
 
 
-    width: 40%;
+
     -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
+
+
+.profile-banner-info {
+    width: 40%;
+}
+
 @media (max-width: 950px) {
-.profile-banner {
+.profile-banner-info {
     width: 100%;
 }
 }
-
 
 .widthquestioncontainer {
     width: 70%; 
@@ -10877,7 +10909,6 @@ max-width: 110px;
     margin: 0 auto;
     margin-top: 60px; 
     line-height: 1.5; 
-    background: rgba(51,51,51,0.03);
     font-size: 14px;
     text-align: center;
 }
@@ -11426,3 +11457,15 @@ padding-left: 25px;
     line-height: 1.4;
     color: rgba(51,51,51,0.5);
 }
+
+.half-width {
+    width: 50%;
+
+}
+
+
+@media screen and (max-width: 500px) { 
+.half-width {
+    width: 100%;
+ } 
+ }

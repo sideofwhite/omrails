@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
 
-has_attached_file :image, :styles => { :medium => "400x300>" }
+has_attached_file :image, :styles => { :small => "220x160>" }
 validates :image, presence: true
 
 belongs_to :post

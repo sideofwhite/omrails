@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 extend FriendlyId
 friendly_id :title, use: :slugged
 
-has_attached_file :image, styles: { :small => "220x160>" }
+has_attached_file :image
 
 
 def body_format
