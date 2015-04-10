@@ -5,7 +5,7 @@
 <div style="margin-top: 10px;">
 
 <div class="answersnumber-text">
-  <%= pluralize(comment.questions.count, 'Answer') %>
+  <%= link_to pluralize(comment.questions.count, 'Answer'), post_comment_path(comment.post, comment), class: 'blue' %>
 </div>
 
 <div class="datecenter" style="display: inline-block;">

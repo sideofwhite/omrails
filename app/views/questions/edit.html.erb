@@ -30,17 +30,57 @@
 
 
 
+
+
+
 </div>
 
+
+
 <div class="row"></div>
+
+
 
 
 <% if current_user == @question.user %>
 
 <%= simple_form_for [@comment, @question] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-
 <div class="width6">
+<% if current_user.try(:admin?) %>
+ 
+
+<hr/>
+
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-check"></i></div>
+<div class="floatright" style="display: inline;">
+<%= f.check_box :hide, as: :boolean, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+PUBLISH TO QUESTION PAGE
+</div> 
+<div class="row"></div>
+</div>
+
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-bookmark"></i></div> 
+<div class="floatright" style="display: inline;"> 
+<%= f.check_box :recommend, as: :recommend, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+RECOMMENDED BY EDITORS
+</div> 
+<div class="row"></div>
+</div>  
+
+<%= f.submit "Save", class: "submitblue", style: "float: right; margin-top: 15px;" %>
+
+<% else %>
+
+
+
+
 
 <div style="width: 80px; margin-right: 20px; float: left; border-top: 3px solid #018bc6; padding-top: 15px; float: left; margin-top: 50px;">
 
@@ -106,6 +146,12 @@ Please note: all submitted answers are reviewed by an editor to make sure it com
 
 <% end %>
 
+
+
+<% end %>
+<% end %>
+
+
 <%= tinymce :alternate, plugins: ["uploadimage, autoresize, paste"], :content_css => asset_path('tinymce.css.scss') %>
 
 <script>
@@ -116,39 +162,3 @@ $('.form-next, .close-editor').click(function () {
     });
 
 </script>
-
-
-
-
-
-
-<% elsif current_user.try(:admin?) %>
- 
-
-<hr/>
-
-<div class="checkboxcover">
-<div class="checkboxicon"><i class="fa fa-check"></i></div>
-<div class="floatright" style="display: inline;">
-<%= f.check_box :hide, as: :boolean, input_html: { :class => "" }, label: false %>
-</div>
-<div class="buttoncheckbox2">
-PUBLISH TO QUESTION PAGE
-</div> 
-<div class="row"></div>
-</div>
-
-<div class="checkboxcover">
-<div class="checkboxicon"><i class="fa fa-bookmark"></i></div> 
-<div class="floatright" style="display: inline;"> 
-<%= f.check_box :recommend, as: :recommend, input_html: { :class => "" }, label: false %>
-</div>
-<div class="buttoncheckbox2">
-RECOMMENDED BY EDITORS
-</div> 
-<div class="row"></div>
-</div>
-
-
-<% end %>
-

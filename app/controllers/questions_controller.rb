@@ -91,9 +91,11 @@ end
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    @comment = Comment.friendly.find(params[:comment_id])
+    @question = Question.friendly.find(params[:id])
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to post_comment_path(@question.comment.post, @question.comment), notice: 'Answer Deleted' }
+      format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Answer Deleted' }
       format.json { head :no_content }
     end
   end

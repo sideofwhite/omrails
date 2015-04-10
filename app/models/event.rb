@@ -7,10 +7,10 @@ def should_generate_new_friendly_id?
 end
 
 
-has_attached_file :image
+has_attached_file :image, :styles => { :original => "260x260>" }
 
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
-                             size: { less_than: 100.megabytes }
+                             size: { less_than: 1.megabytes }
 
 
 belongs_to :post

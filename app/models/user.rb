@@ -11,7 +11,7 @@ tracked only: :create, recipient: ->(controller, model) { model && model }
 
 
 dragonfly_accessor :image 
-has_attached_file :image, :default_url => 'http://i.imgur.com/ijGMsx5.png', :styles => { :thumb => "100x200>" }
+has_attached_file :image, :styles => { :thumb => "60x60>", :original => '200x200>' }
   
 
   devise :database_authenticatable, :registerable,

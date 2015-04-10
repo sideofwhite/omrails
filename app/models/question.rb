@@ -17,13 +17,14 @@ end
 
 
 has_attached_file :file
-
+validates_attachment :file, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
+                             size: { less_than: 1.megabytes }
 
 belongs_to :user
 acts_as_votable
-belongs_to :comment, :counter_cache => true, :dependent => :destroy
+belongs_to :comment, :counter_cache => true
 has_many :answers
-has_many :links
+has_many :links, :dependent => :destroy
 has_many :pictures
 acts_as_list
 

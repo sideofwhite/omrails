@@ -43,7 +43,7 @@ answered your question.
 <div class="row" style="margin-top: -7px;"></div>
 
 <div class="answer-feed-avatar">
-<%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user), class: "blue" %>
+<%= link_to (image_tag(activity.trackable.user.image(:thumb))), user_path(activity.trackable.user), class: "blue" %>
 </div>
 
 <div style="font-size: 1em; line-height: 34px;">

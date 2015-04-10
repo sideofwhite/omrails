@@ -11,11 +11,11 @@ RELATED STORIES
 
 
 
-
-<div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image %>);">
+<% if post.pictures.present? %>
+<div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image(:small) %>);">
   <div class="darker" style="opacity: 0.2;"></div>
 </div>
-
+<% end %>
 
 <div class="related-overflow">
 

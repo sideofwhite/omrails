@@ -4,7 +4,7 @@
 
 <div class="answer-profile-float">
 <div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(question.user.image)), user_path(question.user) %>
+<%= link_to (image_tag(question.user.image(:thumb))), user_path(question.user) %>
 </div>
 <div class="row"></div>
 

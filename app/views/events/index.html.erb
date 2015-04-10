@@ -66,8 +66,14 @@ All Events
 </div>
 <% end %>
 
+<% if @events.present? %>
 <div class="timeline-bottom-index"></div>
 <div class="timeline-bottom-index"></div>
+<% else %>
+<div class="nonew-notifications" style="color: #fff; opacity: 0.99;">
+  No events yet.
+  </div>
+<% end %>
 
 
 </div>

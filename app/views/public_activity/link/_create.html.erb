@@ -33,7 +33,7 @@ commented on your answer.
 <div class="commentwidth-notification">
 
 <div class="smallavatar3">
-<%= link_to (image_tag(activity.trackable.user.image)), user_path(activity.trackable.user) %>
+<%= link_to (image_tag(activity.trackable.user.image(:thumb))), user_path(activity.trackable.user) %>
 </div>
 
 <div class="commentdescriptionname">  

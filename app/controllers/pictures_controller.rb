@@ -38,7 +38,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @post, notice: 'Picture was successfully created.' }
+        format.html { redirect_to @post, notice: 'Picture posted.' }
         format.json { render action: 'show', status: :created, location: @picture }
       else
         format.html { render action: 'new' }
@@ -54,7 +54,7 @@ class PicturesController < ApplicationController
      @picture = Picture.find(params[:id])
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @post, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Picture updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

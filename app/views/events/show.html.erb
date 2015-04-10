@@ -79,47 +79,40 @@
 
 <% if @questions.blank? and @comments.blank? %>
 <div class="shownoactivity-text" style='margin-top: 35px;'>
-No questions yet
+There is no activity here yet.
 </div>
 <div class="row"></div>
 <% if user_signed_in? %>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Ask question</div>
+<div class="submitblue-ask" id="logged-in" style="display: inline-block;">Ask question</div>
 <% else %>
-<div class="submitblue login-recommend-add-button" style="display: inline-block;">Ask question</div>
+<div class="submitblue-ask login-recommend-add-button" style="display: inline-block;">Ask question</div>
 <% end %>
 <% end %>
 
 
 
-<% if current_user.try(:admin?) %>
 
-<a href="#AddArticle" role="button" class="dividerheadlink" data-toggle="modal">+ Article</a>
-
-
-  <div id="AddArticle" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <div class="modal-header">
-
-    <button type="button" class="close2" style="font-size: 24px; color: #018bc6 !important;" data-dismiss="modal" aria-hidden="true">×</button>
-    Add Article
-    
-  </div>
-  
-   <%= render 'articles/form' %>
-  
-  
-
-</div>
-
-
-<% end %>
 
 
 
 <% if @articles.present? %>
 <%= render 'events/articles' %>
 <% end %>
+<% if current_user.try(:admin?) %>
 
-<% if @questions.blank? and @comments.blank? %>
+<div class="go-story" id="add-article"> Add article </div>
+
+<div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
+<div class="form-sidebar" style="display: none;">
+<button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button> 
+<div class="width6">
+<%= render 'articles/form' %>
+</div>
+</div>
+</div>
+<% end %>
+
+<% if @related.present? %>
 <%= render 'related' %>
 <% end %>
 
@@ -153,6 +146,10 @@ No questions yet
 
 </div>
 
+<% else %>
+
+<div class="sixty"></div>
+
 <% end %>
 
 
@@ -176,7 +173,11 @@ $('#login-recommend-add, .close-twitter, .login-recommend-add-button').click(fun
 });
 
 
-
+$('#add-article, .close-editor').click(function () {
+        $('.form-sidebar').toggle('slide', {
+            direction: 'down'
+        }, 300);
+    });
 
 
 </script>

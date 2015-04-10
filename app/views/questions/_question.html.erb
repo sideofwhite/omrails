@@ -4,7 +4,7 @@
 <div style="width: 80px; margin-right: 20px; float: left; border-top: 3px solid #018bc6; padding-top: 15px; float: left; margin-top: 8px;">
   
 <div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(@question.user.image)), user_path(@question.user) %>
+<%= link_to (image_tag(@question.user.image(:thumb))), user_path(@question.user) %>
 </div>
 <div class="row"></div>
 
@@ -82,7 +82,7 @@
 <% else %>
 
 <div class="replies-button-text" id="<%= @question.id %>">
-  Add a Reply
+  + Add the first reply
 </div>
 
 <% end %>
@@ -191,7 +191,7 @@ Recommends
 
 <div class="menu" style="display: none;" id="<%= @question.id %>">
    <div class="commentwidth"> 
- 
+    <div style="margin-top: 20px;"></div>
  <div id="linkmama-<%= @question.id %>">
  <%= render :partial => 'comments/newlink', locals: {question:@question} %>
  </div>
@@ -207,9 +207,7 @@ Recommends
 <div class="row"></div>
 
 
-<% unless @related.where("questions.id NOT IN (?)", @question.id).present? %>
-<hr/>
-<% end %>
+
 
 
 

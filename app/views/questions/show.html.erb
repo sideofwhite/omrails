@@ -245,10 +245,11 @@ MORE ANSWERS
 
 <% if user_signed_in? %>
 
-<div style="position: fixed; top: 75px; right: 0;">
+
+ <div class="blue-slider-position">
 
 <div class="share-social" style="display: none;">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+   <div class="blue-slider">
     <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="infopage-boldtext" style="font-size: 14px; color: rgba(255,255,255,1);">
 Share Question
@@ -278,7 +279,7 @@ Share to Facebook and Twitter
 <div class="blue-slider-position">
 
 <div class="login-recommend-add-div" style="display: none;">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+   <div class="blue-slider">
     <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
     <%= render :partial => "devise/sessions/new" %>
    </div>

@@ -55,7 +55,7 @@
 
 <div class="answer-profile-float" style="margin-top: 60px;">
 <div class="smallavatarfeednomargin2">
-<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user) %>
 </div>
 </div>
 
@@ -78,9 +78,10 @@
 <div class="form-sidebar" style="display: none;">
 <button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button>	
 <div class="width6">
+<div class="bioform-margin">
 
 <div class="answer-feed-avatar">
-<%= link_to (image_tag(current_user.image)), user_path(current_user) %>
+<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user) %>
 </div>
 
 <div style="font-size: 14px; line-height: 34px; color: #018bc6;">
@@ -97,10 +98,10 @@ Add a Bio (optional)
 <%= f.submit "Publish", class: "submitblue", style: "float: right; margin-top: 15px;" %>
 
 <div class="sidebarexplaintext">
-Please note: all submitted answers are reviewed by an editor to make sure it complies with Podium's <%= link_to "Answer Guidelines", guidelines_path, class: "blue" %>
+Your answer will be reviewed by an editor to make sure it complies with Podium's <%= link_to "answer guidelines", guidelines_path, class: "blue" %>.
 </div>
 
-
+</div>
 
 </div>
 
@@ -169,6 +170,22 @@ $('.form-next, .close-editor').click(function () {
 
 
 
+$('#answer-info').popover({
+    html: true,
+    title: '<div class="close-popover">&times;</div>',
+    placement: 'bottom',
+    content: $('.share-answer').html(),
+});
+
+$('#answer-info').click(function (e) {
+    e.stopPropagation();
+});
+
+$(document).click(function (e) {
+    if (($('.popover-x').has(e.target).length == 0) || $(e.target).is('.close')) {
+        $('#answer-info').popover('hide');
+    }
+});
 
 
 

@@ -219,7 +219,7 @@ Unreviewed Answers (<%= @hidden.count %>)
 
 <% end %>
 <div style="margin-top: 5px"></div>
-These answers have not been reviewed by editors to confirm they follow Podium's <%= link_to "answer guidelines", guidelines_path(:anchor => "answers"), :target => "_blank", style: "text-decoration: underline !important; color: rgba(51,51,51,0.5) !important;" %>.
+These answers have not been reviewed by editors to confirm they follow Podium's <%= link_to "answer guidelines", guidelines_path(:anchor => "answers"), :target => "_blank", class: "blue" %>.
 </div>
 
 
@@ -272,6 +272,10 @@ RELATED ANSWERS
  </div>
 
 </div>
+
+<% else %>
+
+<div class="sixty"></div>
 
 <% end %>
 

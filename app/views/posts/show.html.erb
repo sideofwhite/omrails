@@ -91,6 +91,7 @@
 <% end %>
 
 
+
 <% if @ordered.present? %>
 <div class="row"></div>
 
@@ -147,19 +148,18 @@
 
 <% if @topquestions.count == 0 %>
 <div class="shownoactivity-text" style='margin-top: 35px;'>
-  No questions yet
+  There is no activity here yet.
 </div>
-<% else %>
-<hr class="questionsline"/>
-<% end %>
-
 <% if user_signed_in? %>
 <div class="row"></div>
-<div class="submitblue" id="logged-in" style="display: inline-block;">Ask question</div>
+<div class="submitblue-ask" id="logged-in" style="display: inline-block;">Ask question</div>
 <% else %>
 <div class="row"></div>
-<div class="submitblue" id="login-recommend-add-button" style="display: inline-block;">Ask question</div>
+<div class="submitblue-ask" id="login-recommend-add-button" style="display: inline-block;">Ask question</div>
 <% end %>
+<% end %>
+
+
 
 <% if @articles.present? %>
 <%= render 'posts/articles' %>
