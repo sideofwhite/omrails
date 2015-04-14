@@ -38,7 +38,7 @@
 <%= time_ago_in_words(question.created_at) %> ago
 </div>
 
-<div class="row" style="margin-top: 9px;"></div>
+<div class="row" style="margin-top: 7px;"></div>
 
 <div class="small-image">
 <%= sanitize(question.body.gsub(/<p>.<\/p>/,""), tags: %w(p)).truncate(200, :separator => " ").html_safe %>

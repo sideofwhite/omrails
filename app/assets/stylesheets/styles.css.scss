@@ -5459,8 +5459,7 @@ margin-right: auto;
 
 @media screen and (max-width: 500px) { 
 .submitblue-ask {
-    padding: 8px 12px 7px 12px;
-    font-size: 11px;
+    border: 1px solid rgba(1,139,198,0.9) !important;
  }
 }
 
@@ -5767,11 +5766,12 @@ margin-right: auto;
     color: white !important;
     background: rgba(255,255,255,0.3);
     padding: 5px 10px 5px 10px;
-    display: inline;
+    display: inline-block;
     text-shadow: none !important;
     text-overflow: ellipsis; 
    overflow: hidden; 
    white-space: nowrap;
+   max-width: 640px;
     
 }
 
@@ -7232,7 +7232,7 @@ height: 100%;
 }
 
 .profilemenu {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 12px;
     color: rgba(255,255,255,1);
 }
@@ -10230,8 +10230,11 @@ margin-top: 15px;
 
 .eventlinkdark {
      color: rgb(255,255,255) !important;
-     font-size: 14px;
+     font-size: 12px;
      font-weight: bold;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
 }
 
 
@@ -10283,7 +10286,7 @@ margin-bottom: 10px;
 
 .userprofileimage-name {
     font-size: 32px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     color: #fff;
     font-weight: bold;
     
@@ -10294,7 +10297,7 @@ margin-bottom: 10px;
 .userprofileimage-bio {
     font-size: 14px;
     color: rgba(255,255,255,1);
-    line-height: 1.3;
+    line-height: 1.4;
     
     
 }
@@ -10347,7 +10350,7 @@ margin-bottom: 10px;
 
 
 .shownoactivity-text {
-    font-size: 1em; 
+    font-size: 14px; 
     margin-bottom: 15px;
     color: rgba(51,51,51,0.75);
     display: block;
@@ -10683,7 +10686,7 @@ border-radius: 100%;
 
 
 .selected-toggle-number {
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 4px;
     display: inline-block;
     font-weight: bold;
@@ -10700,7 +10703,7 @@ border-radius: 100%;
 }
 
 .select-toggle-number {
-    font-size: 20px;
+    font-size: 18px;
       margin-right: 4px;
       font-weight: bold;
     display:inline-block

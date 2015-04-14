@@ -31,9 +31,11 @@
 <%= sanitize @question.body_format, :tags => %w"p img" %>
 </div>
 
+<% if @question.title.present? %>
 <div class="answertitle">
 <%= @question.title %>
 </div>
+<% end %>
 
 <hr class="line30" style="margin: 20px 0px 23px 0px">
 

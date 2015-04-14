@@ -3,8 +3,12 @@ QUESTIONS
 </div>
 
 
-<% @comments.each do |comment| %>
+<% @comments.each_with_index do |comment, i| %>
 
-	<%= comment.title %>
+<%= render :partial => 'layouts/questionsfeed', locals: {comment:comment} %>
+
+<% unless @comments.count == ( i + 1 ) %>
+<hr class="questionsline"/>
+<% end %>
 
 <% end %>

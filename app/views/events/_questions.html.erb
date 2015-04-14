@@ -5,40 +5,15 @@ ANSWERS
 <div class="row"></div>
 
 
-<% @questions.group_by {|q| q.comment}.take(5).each_with_index do |(comment, questions), i| %>
-<div class="titlecontainer30">
-<%= comment.title %> 
-</div>
-<div class="row"></div>
-<div style="padding-top: 23px "></div>
-<div class="row"></div>
-<% for question in questions %>
-<div class="leftinfoimage">
-<div class="smallavatar">
-<div class="smallavatarfeednomargin2">
-<%= image_tag (question.user.image) %>
-</div>
-</div>
-</div>
-<div class="rightinfo">
-<div class="lightname" style="font-size: 16px;">
-<%= link_to (question.user.name), user_path(question.user), class: "blue" %>
-</div>  
-<div class="datecenter" style="font-size: 14px; opacity: 0.6;">
-<%= question.title %>
-</div>
-</div>
-<div style="margin-bottom: 10px !important;"> </div>
-<div class="row"></div>
-
-<div class="p2">
- <%= truncate(question.body, :separator => ' ', length: 400) %>
-    <%= link_to ("(more)"), comment_question_path(question.comment, question) + "#question_#{question.id.to_s}", class: "readmore" %>
-</div>
+<% @questions.each_with_index do |question, i| %>
 
 
-<hr style="width: 40%;"/>
+<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+
+<% unless @questions.count == (i + 1) %>
+<hr style="width: 30%;"/>
+<% end %>
 
 
 <% end %>
-<% end %>
+

@@ -116,6 +116,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :title, :comment_id, :user_id, :file, :caption, :hide, :recommend, :bootsy_image_gallery_id, :position)
+      params.require(:question).permit(:body, :title, :comment_id, :user_id, :file, :caption, :hide, :recommend, :position)
     end
 end

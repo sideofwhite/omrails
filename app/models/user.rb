@@ -10,7 +10,7 @@ tracked only: :create, owner: ->(controller, model) { controller && controller.c
 tracked only: :create, recipient: ->(controller, model) { model && model }
 
 
-dragonfly_accessor :image 
+
 has_attached_file :image, :styles => { :thumb => "60x60>", :original => '200x200>' }
   
 

@@ -38,9 +38,6 @@
 
     
      <% if @comment.events.present? %>
-      <div class="eventlight">
-        Event:
-      </div>
       <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
       <% end %>
 
@@ -258,14 +255,6 @@ RELATED ANSWERS
 
     <hr class="whiteimageline"/>
 
-    <% if @comment.events.present? %>
-      <div class="eventlight">
-        Event:
-      </div>
-      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
-      <% end %>
-     
-      
 
    </div>
   </div>

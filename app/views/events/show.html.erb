@@ -112,7 +112,7 @@ There is no activity here yet.
 </div>
 <% end %>
 
-<% if @related.present? %>
+<% if @related.present? and @comments.blank? %>
 <%= render 'related' %>
 <% end %>
 

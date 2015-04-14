@@ -16,34 +16,37 @@ Please read the following policies and guidelines before answering.
 
 
 <div style="width:100%;"><span class="guidelines-text">
-Answers should be truthful and authentic. Incorrect, outdated, or otherwise misleading answers are not helpful.</span></div>
-<div class="guidelines-text-more">Read more...</div>
-
+Answers should directly respond to the question.</span></div>
+<%= link_to "Read more...", guidelines_path(:anchor => "respond-to-question"), :target => "_blank", class: "guidelines-text-more" %>
 
 
 <hr class="modalline-slide"/>
 
 <div style="width:100%;"><span class="guidelines-text">
-Answers must not contain personal attacks, disrespectful or insulting attacks on the question or other answers, or hate speech.</span></div>
-<div class="guidelines-text-more">Read more...</div>
+Answers should be factual. Incorrect, outdated, or misleading answers are not permitted.</span></div>
+<%= link_to "Read more...", guidelines_path(:anchor => "factual-answers"), :target => "_blank", class: "guidelines-text-more" %>
 
 
 <hr class="modalline-slide"/>
 
 
 <div style="width:100%;"><span class="guidelines-text">
-Answers should be truthful and authentic. Incorrect, outdated, or otherwise misleading answers are not helpful.</span></div>
-<div class="guidelines-text-more">Read more...</div>
+Answers must be respectful. No personal or insulting attacks on the question or other answers.</span></div>
+<%= link_to "Read more...", guidelines_path(:anchor => "respectful-answers"), :target => "_blank", class: "guidelines-text-more" %>
 
+<div style="width:100%;"><span class="guidelines-text">
+Answers should be written with correct spelling, punctuation, and grammar, and sentence capitalization.</span></div>
+<%= link_to "Read more...", guidelines_path(:anchor => "spelling-punctuation"), :target => "_blank", class: "guidelines-text-more" %>
 
+<hr class="modalline-slide"/>
 
 <hr class="modalline-slide"/>
 <div class="guidelines-text-light">
-Answers will not be published or may be deleted if they do not comply with the above policies.
+All answers will be reviewed by editors to make sure they comply with the above guidelines.
 </div>
 <hr class="modalline-slide"/>
 <div class="guidelines-text-light" style="display: block; text-align: center;">
-Answer <strong><%= @comment.title %></strong>
+<strong><%= @comment.title %></strong>
 </div>  
 <%= link_to "→", new_comment_question_path(@comment), class: "form-next-modal" %>
 <div class="row"></div>
