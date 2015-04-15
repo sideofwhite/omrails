@@ -67,9 +67,9 @@ end
 
 
 
-# devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, 
-# controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registrations, sessions: "sessions"}
-  
+devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :omniauth_providers => [:twitter],
+controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registrations, sessions: "sessions"}
+   
   
   root to: 'posts#index'
   match '/about', to: 'pages#about',  via:'get'
@@ -94,6 +94,8 @@ end
   get 'comments/:id/unpublished', to: 'comments#unpublished', as: :unpublished
   get '/admin', to: 'posts#admin', as: :admin
   get '/admin/questions', to: 'pages#admin_questions', as: :adminquestions
+  get '/admin/answers', to: 'pages#admin_answers', as: :adminanswers
+  get '/admin/replies', to: 'pages#admin_replies', as: :adminreplies
   get '/following', to: 'pages#following', as: :following
   get 'top', to: 'posts#top', as: :top
 

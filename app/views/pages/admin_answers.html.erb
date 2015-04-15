@@ -20,7 +20,7 @@
 
 
 <div class="selected-toggle">
-Stories
+Answers
 </div>
 
 </div>
@@ -29,6 +29,17 @@ Stories
 <div style="display: inline-block; float: right;">
 
 <div class='select-toggle-line'>
+
+<%= link_to admin_path do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+
+</div>
+<div class="select-toggle">
+Stories
+</div>
+</div>
+<% end %>
 
 <%= link_to adminquestions_path do %>
 <div class="nav-container-profile"> 
@@ -41,16 +52,6 @@ Questions
 </div>
 <% end %>
 
-<%= link_to adminanswers_path do %>
-<div class="nav-container-profile"> 
-<div class="select-toggle-number">
-
-</div>
-<div class="select-toggle">
-Answers
-</div>
-</div>
-<% end %>
 
 <%= link_to adminreplies_path do %>
 <div class="nav-container-profile"> 
@@ -63,18 +64,13 @@ Replies
 </div>
 <% end %>
 
+
+</div>
+</div>
+</div>
 </div>
 
 
-
-</div>
-
-
-</div>
-
-
-
-</div>
 
 
 
@@ -83,59 +79,24 @@ Replies
 
 
 <div class="notificationcount-text" style="font-size: 16px; margin-top: 35px;">
-Top Stories
+New Answers
 </div>
 <hr/>
 
+<% @answers.limit(10).each do |question| %>
+
+<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
 
 
-<ul id="posts" data-update-url="<%= sort_posts_url %>">
-<% @posts.each do |post| %>
-  <%= content_tag_for :li, post do %>
- <span class="handle" style="float: right; margin-top: 3px;">+</span>
+<hr class="questionsline"/>
 
-
-<% if post.pictures.present? %>
-<div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image(:small) %>);">
-  <div class="darker" style="opacity: 0.2;"></div>
-</div>
-<% end %>
-
-<div class="related-overflow">
-
-<div class="eventfeedtitle-text">
-<%= link_to (post.title), post_path(post) %>
-</div>
-<div class="p3">
-<%= truncate(post.description, :separator => ' ', length: 110) %>
-</div>
-<div class="row"></div>
-<%= link_to post_path(post) do %>
-<div class="link-mouse">
-<div class="link-skip-text">
-Full story
-</div>
-
-<div class="link-skip">
-<i class="fa fa-long-arrow-right" style="color: #018bc6; margin-left: 0px;"></i>
-</div>  
-
-</div>
 
 
 <% end %>
 
-</div>
-<hr class="line30"/>
 
 
-<% end %>
-<% end %>
-</ul>
 
 
-<div class="end-page-circle"></div>
-<div class="end-page-circle-small"></div>
-<div class="row"></div>
 
 </div>

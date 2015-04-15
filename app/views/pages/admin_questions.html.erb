@@ -1,25 +1,96 @@
+<style media="screen">
+.navbar .brand { background: rgba(51,51,51,0.3); }
+.fa-bell { background-color: rgba(51,51,51,0.3);}
+.blue-edit-profile { background-color: rgba(51,51,51,0.3); }
+</style>
+
+<div class="homepageinfobanner">
+<div class="absoluteheader">
+<%= render 'layouts/headerimage' %>
+</div>
+<div class="row"></div>
+<div style="margin-top: 60px;"></div>
+<div class="row"></div>
+
 <div class="width6">
+
+
+<div class="nav-container-profile-selected"> 
+
+
+
+<div class="selected-toggle">
+Questions
+</div>
+
+</div>
+
+
+<div style="display: inline-block; float: right;">
+
+<div class='select-toggle-line'>
+
+<%= link_to admin_path do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+
+</div>
+<div class="select-toggle">
+Stories
+</div>
+</div>
+<% end %>
+
+
+<%= link_to adminanswers_path do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+
+</div>
+<div class="select-toggle">
+Answers
+</div>
+</div>
+<% end %>
+
+<%= link_to adminreplies_path do %>
+<div class="nav-container-profile"> 
+<div class="select-toggle-number">
+
+</div>
+<div class="select-toggle">
+Replies
+</div>
+</div>
+<% end %>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="width6">
+
+
+<div class="notificationcount-text" style="font-size: 16px; margin-top: 35px;">
+New Questions
+</div>
+<hr/>
 
 <% @comments.each do |comment| %>
 
-<%= comment.title %>
+<%= render :partial => 'layouts/questionsfeed', locals: {comment:comment} %>
 
-<div class="form-next">
-Edit
-</div>
 
-<hr/>
+<hr class="questionsline"/>
 
-<div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
-<div class="form-sidebar" style="display: none;">
-<button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button>	
-<div class="width6">
-
-h
-
-</div>
-</div>
-</div>
 
 
 <% end %>
@@ -27,11 +98,3 @@ h
 </div>
 
 
-<script>
-$('.form-next, .close-editor').click(function () {
-        $('.form-sidebar').toggle('slide', {
-            direction: 'down'
-        }, 300);
-    });
-
-</script>

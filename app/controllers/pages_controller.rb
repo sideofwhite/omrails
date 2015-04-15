@@ -40,7 +40,18 @@ class PagesController < ApplicationController
   end
 
   def admin_questions
+  @skip_footer = true   
   @comments = Comment.all.order("created_at desc")
+  end 
+
+  def admin_answers
+  @skip_footer = true   
+  @answers = Question.all.order("created_at desc")
+  end 
+
+  def admin_replies
+  @skip_footer = true   
+  @replies = Link.all.order("created_at desc")
   end 
 
 end

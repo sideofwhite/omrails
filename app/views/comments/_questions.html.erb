@@ -6,14 +6,13 @@
 <div class="smallavatarfeednomargin2">
 <%= link_to (image_tag(question.user.image(:thumb))), user_path(question.user) %>
 </div>
-<div class="row"></div>
+
 
 <div class="largename">
 <%= link_to (question.user.name), user_path(question.user), class: "blue" %>
 </div>  
 
 <div class="hidden-phone">
-<div class="row"></div>
 <hr class="line30" style="margin-top: 0px; margin-bottom: 6px;"/>
 </div>
 
@@ -33,9 +32,11 @@
 <%= sanitize question.body_format, :tags => %w"p img" %>
 </div>
 
+<% if question.title.present? %>
 <div class="answertitle">
-<%= question.user.name %> <%= question.title %>
+<%= question.title %>
 </div>
+<% end %>
 
 <hr class="line30" style="margin: 20px 0px 23px 0px">
 

@@ -9,8 +9,7 @@
 
 
 <div class="notification-smalltext">
-<%= link_to ("#{link.question.comment.title}:"), post_comment_path(link.question.comment.post, link.question.comment), class: 'blue' %>
-<%= link_to (link.question.user.name), user_path(link.question.user), class: "notification-smalltext" %>'s Answer
+<%= link_to ("#{link.question.user.name}'s"), user_path(link.question.user), class: "blue" %> answer to <%= link_to (link.question.comment.title), post_comment_path(link.question.comment.post, link.question.comment), class: "blue" %>
 </div>
 
 </div>
@@ -22,7 +21,7 @@
 <div class="commentwidth-notification">
 
 <div class="smallavatar3">
-  <%= link_to (image_tag(link.user.image)), user_path(link.user) %>
+  <%= link_to (image_tag(link.user.image(:thumb))), user_path(link.user) %>
 </div>
 
 
@@ -60,3 +59,4 @@
 <div class="timeline-bottom"></div>
 <div class="timeline-bottom"></div>
 <% end %>
+

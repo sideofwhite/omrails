@@ -16,7 +16,7 @@
 <div class="row" style="margin-top: 7px;"></div>
 
 <div class="small-image">
-<%= sanitize(question.body.gsub(/<p>.<\/p>/,""), tags: %w(p img)).truncate(200, :separator => " ").html_safe %>
+<%= truncate_html(sanitize(question.body.gsub(/<p>.<\/p>/,""), tags: %w(p img)), length: 200).html_safe %>
 </div>
 
 

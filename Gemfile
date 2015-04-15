@@ -11,7 +11,6 @@ gem 'bootswatch-rails'
 gem 'acts_as_votable', '0.7.1'
 gem 'dragonfly'
 gem "jquery-turbolinks", "~> 2.0.1"
-gem 'masonry-rails', '~> 0.2.0'
 gem 'acts-as-taggable-on'
 gem 'pry'
 gem 'omniauth'
@@ -26,11 +25,11 @@ gem 'browser'
 
 gem 'bootstrap-wysihtml5-rails'
 gem 'social-share-button'
-gem 'medium-editor-rails'
 gem 'jquery-ui-rails'
 gem 'tinymce-rails'
 gem 'acts_as_list'
 gem 'deadweight'
+gem 'truncate_html'
 
 # Use sqlite3 as the database for Active Record
 group :production do

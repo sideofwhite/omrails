@@ -23,9 +23,8 @@
 <%= time_ago_in_words(activity.trackable.created_at) %> ago
 </div>	
 <div class="notification-smalltext">
-<%= link_to ("#{activity.trackable.question.comment.title}:"), comment_question_path(activity.trackable.question.comment, activity.trackable.question), class: "notification-smalltextlink" %>	
-<%= activity.owner.name  %>
-commented on your answer.
+<%= link_to (activity.owner.name), user_path(activity.owner), class: "notification-smalltextlink"  %>
+commented on your answer to <%= link_to (activity.trackable.question.comment.title), comment_question_path(activity.trackable.question.comment, activity.trackable.question), class: "notification-smalltextlink" %>	
 </div>
 </div>
 
