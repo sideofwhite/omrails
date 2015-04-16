@@ -30,12 +30,12 @@ opacity: 0.8; z-index: -1;"></div>
 <div class="eventimagepreviewtext" style="font-size: 14px; opacity: 0.95 !important;">
 <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
 </div>
+
+
+<hr class="whiteimageline" style="margin-bottom: 20px !important; opacity: 0.95 !important;"/>
 <div class="eventtextheader" style="color: #018bc6;">
 All Events
 </div>
-
-<hr class="whiteimageline" style="margin-top: 13px !important; margin-bottom: 60px !important; opacity: 0.95 !important;"/>
-
 
 </div> 
 
@@ -45,10 +45,9 @@ All Events
 </div>
 
 
-<div class="timeline-image" style="background-image: url(<%= event.image %>);">
-</div>
-
 <div class="timeline-content-index">
+
+<%= link_to post_event_path(event.post, event), class: "white" do %>
 
 <div class="timeline-date-index">
 <%= time_ago_in_words(event.created_at) %> ago
@@ -61,7 +60,7 @@ All Events
 </div>
 
 
-
+<% end %>
 
 </div>
 <% end %>

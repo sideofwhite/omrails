@@ -74,6 +74,13 @@ Featured on category page
 </div> 
 </div>
 
+<div class="checkboxcover">
+<%= f.check_box :top, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>
+<div class="buttoncheckbox2">
+Is the story a topic?
+</div> 
+</div>
+
 <% if @post.events.present? %>
 <div class="checkboxcover">
 <%= f.check_box :event, as: :boolean, input_html: { :class => "buttoncheckbox" }, label: false %>

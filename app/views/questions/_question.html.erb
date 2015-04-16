@@ -1,30 +1,30 @@
 <div id="question_<%= @question.id %>" style="margin-top: 35px;">
 
 
-<div style="width: 80px; margin-right: 20px; float: left; border-top: 3px solid #018bc6; padding-top: 15px; float: left; margin-top: 8px;">
-  
+<div class="answer-profile-float">
 <div class="smallavatarfeednomargin2">
 <%= link_to (image_tag(@question.user.image(:thumb))), user_path(@question.user) %>
 </div>
-<div class="row"></div>
+
 
 <div class="largename">
 <%= link_to (@question.user.name), user_path(@question.user), class: "blue" %>
 </div>  
 
-<div class="row"></div>
+<div class="hidden-phone">
 <hr class="line30" style="margin-top: 0px; margin-bottom: 6px;"/>
+</div>
 
 <div class="date-answer">
 <%= time_ago_in_words(@question.created_at) %> ago
 </div>
 
-
+<div class="row"></div>
 
 </div>
 
 
-<div style="overflow: hidden;">
+<div class="answer-overflow">
 
 
 <div class="large-image">

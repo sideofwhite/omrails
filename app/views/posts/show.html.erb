@@ -5,7 +5,14 @@
 <% end %>
 
 
+<% if @post.top == true %>
+<div class="experiment" style="height: 250px;">
+<% else %>
 <div class="experiment">
+<% end %>
+
+
+
 <div class="darker"></div>
 
 
@@ -43,14 +50,21 @@
 <div class="relativecontainer">	
 <div class="descriptionmargin-story"> 
 
+<% if @post.top == true %>
+<div class="eventimagepreviewtext">
+<%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+</div>
+<hr class="whiteimageline"/>
+<% else %>
+
 <div class="titletextunderneath">
 <%= pluralize(@post.comments.count, "Question") %> | <%= pluralize(@post.questions.count, "Answer") %>
 </div>
-
-
 <div class="posttext2">
 <%= @post.title %> 
 </div>
+<% end %>
+
 
 
 
