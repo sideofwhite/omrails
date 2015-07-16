@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @skip_footer = true 
+
     @post = Post.friendly.find(params[:post_id])
     @events = @post.events.order('created_at desc')
   end
@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @skip_footer = true 
+
     @image_bottom = true 
     @post = Post.friendly.find(params[:post_id])
     @event = Event.friendly.find(params[:id])

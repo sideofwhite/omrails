@@ -1,28 +1,10 @@
-<style media="screen">
-  a:hover { text-decoration: none !important; }
-</style>
+ <div style="position: fixed; left: 50%; top: 0%; margin-left: -120px;">
 
-
-<div class="px300">
-
-<div class="signuptext20">Podium.</div>
-
-    <div class="underpodiumhome20">
-    Sign Up for Podium
-    </div>	
-
-<%= link_to user_omniauth_authorize_path(:twitter) do %>
- <div class="twitterlogin">
-<div class="whitenotext">
-<i class="fa fa-twitter"></i>
-Sign up with Twitter
-</div>
-</div>
-<% end %>
-
-
-
-
+<div class="login-recommend-add-div">
+   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
+    <%= render :partial => "devise/sessions/new" %>
+   </div>
+ </div>
 
 </div>
 

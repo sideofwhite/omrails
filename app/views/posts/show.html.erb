@@ -1,207 +1,273 @@
-<% if @post.pictures.present? %>
-<style media="screen">
-  .experiment { background-image:  url(<%= @post.pictures.first.image %>);}
-  </style>
-<% end %>
-
-
-<% if @post.top == true %>
-<div class="experiment" style="height: 250px;">
-<% else %>
-<div class="experiment">
-<% end %>
 
 
 
-<div class="darker"></div>
+<% if @post.image.present? %>
 
 
-<% if @post.pictures.count > 0 %>
-<div class="imagepostedby">
- <div class="imagepostedbytext"> 
-  <% if @post.pictures.first.user.present? %>
-<i class="fa fa-picture-o"></i> <%= link_to (@post.pictures.first.user.name), user_path(@post.pictures.last.user), class: "white" %>
-<% end %>
-</div>
-</div>
-<% else %>
-<div class="absolutecontainerprofile">
+<div class='home-feed-image' style="background-image: url(<%= @post.image %>);">
+
+
+
+<div class="absolutecontainer" style="top: 15px;">
 <div class="relativecontainer">
-<i class="fa fa-picture-o" id="picture" style="font-size: 40px; color: white; text-align: center; margin-top: 60px; display: block; cursor: pointer;"></i>
+
+<%= link_to question_form_post_url(@post), :remote => true do  %>
+<div class="bluecircle-small">
+<i class="material-icons plus-blue">add</i>
 </div>
-</div>        
-<% end %>
-
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-
-</div>
-
-<%= render 'posts/belowimage' %>
-
-<% if current_user.try(:admin?) %>
-<%= link_to edit_post_path(@post) do %>
-<i class="fa fa-pencil-square-o"></i>
-<% end %>
 <% end %>
 
 
-<div class="absolutecontainer">
-<div class="relativecontainer">	
-<div class="descriptionmargin-story"> 
-
-<% if @post.top == true %>
-<div class="eventimagepreviewtext">
-<%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+<% if user_signed_in? %>
+<% if current_user.voted_for? @post %>
+<div class="topimage-icon-green" id="bookmark-clicked">
+  <i class="material-icons icon-on-image">bookmark</i>
 </div>
-<hr class="whiteimageline"/>
 <% else %>
+<%= link_to upvote_post_path(@post), remote: true, method: :put do %>
+<div class="topimage-icon" id="bookmark-click">
+  <i class="material-icons icon-on-image">bookmark</i>
+</div>
+<% end %>
+<div class="topimage-icon-green" id="bookmark-clicked" style="display: none;">
+  <i class="material-icons icon-on-image">bookmark</i>
+</div>
+<% end %>
+<% else %>
+<div class="topimage-icon" id="login-recommend-add">
+  <i class="material-icons icon-on-image">bookmark</i>
+</div>
+<% end %>
 
-<div class="titletextunderneath">
-<%= pluralize(@post.comments.count, "Question") %> | <%= pluralize(@post.questions.count, "Answer") %>
+
+<div class="topimage-icon-share" id="sharestory-icon">
+   <i class="material-icons icon-on-image">share</i>
 </div>
-<div class="posttext2">
-<%= @post.title %> 
+
+
+  </div>
 </div>
+
+ <div style="border-top: 0px solid #0882d1;  font-size: 16px; font-weight: 900; background-color: rgba(255,255,255,1); position: absolute; bottom: 0; right: 0; left: 0; text-transform: uppercase; margin-bottom: 3px; display: inline;">
+<div class="width7">
+
+<div style="display: inline-block; padding: 13px 0px 11px 0px;">
+<%= @post.title %>
+</div>
+
+<div style="display: inline; float: right; text-transform: none;">
+
+<div style="display: inline-block; padding: 13px  0px 11px 0px; line-height: 16px;">
+  <div class="readmore">
+ <%= time_ago_in_words(@post.created_at) %> ago 
+</div>
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore blue" %>
+
+
+</div>
+
+<% if @post.pictures.present? %>
+<div class="linklogoimage-large">
+<%= image_tag (@post.pictures.first.image) %>
+</div>
+<% end %>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
 <% end %>
 
 
 
 
-</div>
-</div>
-</div>
+
+
+<div class="width7">
+
+<div class="story-title">
 
 </div>
 
 
-<div class="width6">
 
-<div style="margin-bottom: 30px !important;"> 
-</div>  
-<div class="p3">  
+</div>
+
+
+
+<div class="width7">
+
+<div class="width5">
+
+
+
+<div class="p2" style="font-weight: bold;">
 <%= @post.description %>
 </div>
-<div style="padding-top: 10px "></div>
+<hr class="feed-line"/>
+
+
+
 <div class="row"></div>
-<div class="linklogoimage">
-<%= image_tag (@post.image) %>
+
+
+<% if @comments.present? %>
+
+<div id="products">
+<%= render 'comments/post_feed' %>
 </div>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px;" %>
-<div class="row"></div>
+<%= will_paginate @comments %>
+
+<% end %>
+
+
+
+
 </div>
 
-<hr class="dividerline"/>
-<div class="width6">
+
+
+
+<div class="width2">
+<div style="margin-top: 8px;"></div>
+<%# Images %>
+<div class="right-element-container">
+
+<div class="small-dividerhead">
+Latest Events
+</div>
 
 <% if @events.present? %>
 <%= render 'posts/timeline' %>
-  <% if @topquestions.count == 0 %>
-    <hr class="dividerline"/>
-    <div class="dividerhead">
-    ACTIVITY
-  </div>
-  <% end %>
 <% end %>
 
-
-
-<% if @ordered.present? %>
-<div class="row"></div>
-
-<% unless @events.blank? %>
-  <hr class="dividerline"/>
-<% end %>
-
-<div class="dividerhead">
- <% if current_user.try(:admin?) %>  
-  <%= link_to "TOP ANSWERS", ordered_path(@post) %>
- <% else %>
- TOP ANSWERS
- <% end %>
 </div>
 
- <%= render 'comments/commenttwo' %>
+<%# Images %>
+<% if @media.present? %>
+<%= render 'posts/media' %>
 <% end %>
 
 
-<% if @answersmore.present? %>
-<% unless @events.blank? and @ordered.blank? %>
-  <div class="row"></div>
-  <hr class="dividerline"/>
+
+<%# Followers %>
+<% if @post.cached_votes_total > 0 %>
+<%= render 'posts/followers' %>
 <% end %>
 
-<%= render 'comments/answersmore' %>
+<%# sources %>
+<%= render 'posts/sources' %>
 
-<% if @answersmore.count > 3 %>
-  <hr style="width: 30%; margin-bottom: 20px;"/>
-  <div class="dividerheadlink">
-  <%= link_to pluralize(@answersmore.count - 3, "more answer"), answersmore_path(@post), class: "blue" %>
+
 </div>
-<% end %>
-
-<% end %>
 
 
-<% if @topquestions.present? %>
-<% unless @events.blank? and @answers.blank? %>
-  <div class="row"></div>
-  <hr class="dividerline"/>
-<% end %>
-
-<%= render 'comments/topquestions' %>
-<div class="row"></div>
-<% if @topquestions.count > 3 %>
-<hr class="questionsline"/>
-<div class="dividerheadlink">
-  <%= link_to pluralize(@topquestions.count - 3, "more question"), topquestions_path(@post), class: "blue" %>...
 </div>
-<% end %>
 
-<% end %>
-
-<% if @topquestions.count == 0 %>
-<div class="shownoactivity-text" style='margin-top: 35px;'>
-  There is no activity here yet.
-</div>
-<% if user_signed_in? %>
 <div class="row"></div>
-<div class="submitblue-ask" id="logged-in" style="display: inline-block;">Ask question</div>
-<% else %>
-<div class="row"></div>
-<div class="submitblue-ask" id="login-recommend-add-button" style="display: inline-block;">Ask question</div>
-<% end %>
-<% end %>
-
-
-
-<% if @articles.present? %>
-<%= render 'posts/articles' %>
-<% end %>
 
 
 <% if @related.present? %>
+<div style="margin-top: 35px"></div>
+
 <%= render 'posts/relatedstories' %>
+
 <% end %>
 
+
+
+
+
+<div class="row"></div>
+
+
+
+<%# modals %>
+
+
+
+<div class="modal-custom" id="sharestory-modal" style="display: none;">
+<div class="modal-custom-inner-left">
+<i class="material-icons close-modal-button" id="close-share-modal">close</i>
+<div style=" font-weight: 500; font-size: 18px;">
+Share Story
+</div>
+</div>
+</div>
+
+
+
+<div class="modal-custom" id="submitpost-modal" style="display: none;">
+
+<div class="modal-custom-inner">
+
+<i class="material-icons close-modal-button-white" id="close-post-modal">close</i>
+
+<div style="font-weight: 500; font-size: 20px;">
+Add Post / Ask Question
+</div>
+
+
+
+
+<div id="post-guidelines">
+
+<hr/>
+<div class="button-text-upper arrow-up-next">OK, Got It</div>
+<div class="button-text-upper cancel-upper">Cancel</div>
 
 </div>
 
 
-<div class="fullpage-modal-container">  
 
-  <div class="fullpage-modal-picture" id="picture" style="display: none;">
-<button type="button" class="close-modal-slide-picture" id="picture" data-dismiss="modal" aria-hidden="true">×</button>
-<hr class="modalline-slide" style="margin-top: 0px"/>
-    <%= render :partial => "pictures/form" %>
-   </div>
- </div>
+<div id="choose-post-type" style="display: none;">
+
+
+
+<div id="submitpost">
+</div>
+</div>
+</div>
+
+
+
+</div>
+
 
 
 
 
 
 <script>
+
+$('.bluecircle-small').click(function () {
+  $('#submitpost-modal').show();
+ });
+
+$('.arrow-up-next').click(function () {
+  $('#choose-post-type').show();
+  $('#post-guidelines').hide();
+ });
+
+$('#close-post-modal').click(function () {
+  $('#submitpost-modal').hide();
+  $('#choose-post-type').hide();
+  $('#post-guidelines').show();
+ });
+
+
+ $('#sharestory-icon').click(function () {
+  $('#sharestory-modal').show();
+ });
+  
+ $('#close-share-modal').click(function () {
+  $('#sharestory-modal').hide();
+ });
+
+
  $(document).ready(function() {
         $('#showmenu').click(function() {
                
@@ -219,28 +285,14 @@
     }); 
 
 
-
-$('#login-recommend-add, .close-twitter, #login-recommend-add-button').click(function () {
-    if($('.login').is(':visible')){
-    $('.login').fadeOut(function () {
-        $('.login-recommend-add-div').toggle('slide', {
-            direction: 'right'
-        }, 300);
-    });
-    }
-    else{
-        $('.login-recommend-add-div').toggle('slide', {
-            direction: 'right'
-        }, 300, function(){ $('.login').fadeIn();});
-    }
-});
+$(document).ready(function() {
+        $('#bookmark-click').click(function() {
+                $('#bookmark-clicked').show(); 
+                 $('#bookmark-click').hide();
+        });
+    }); 
 
 
-$('#picture, .close-modal-slide-picture, .modaldeclinebutton-picture').click(function () {
-        $('.fullpage-modal-picture').toggle('slide', {
-            direction: 'right'
-        }, 300);
-    });
 
 </script>
 

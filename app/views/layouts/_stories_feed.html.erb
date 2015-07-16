@@ -1,0 +1,27 @@
+<div style="float: left;border-bottom: 1px solid rgba(51,51,51,0.1);">
+<% if post.image.present? %>
+<div class="story-feed-image">
+<div class="more-stories-image" style='background-image: url(<%= post.image %>)'> 
+
+<% if post.pictures.present? %>
+ <div class="linklogoimage">
+   <%= image_tag (post.pictures.first.image) %>
+ </div>
+<% end %>
+</div>
+</div>
+<% end %>
+
+<div class="story-feed-content">
+<div style="font-size: 22px; font-weight: 700; line-height: 1.2;">
+<%= link_to (post.title), post_path(post) %>
+</div>
+<div style="font-size: 16px; font-weight: 500; color: rgba(51,51,51,0.75); margin-top: 5px; line-height: 1.5;">
+<%= truncate(post.description, length: 180, separator: ' ') %>
+</div>
+<div style="font-size: 12px; font-weight: 300; margin-top: 8px; ">
+<%= time_ago_in_words(post.created_at) %> ago
+</div>
+<div class="row"></div>
+</div>
+</div>

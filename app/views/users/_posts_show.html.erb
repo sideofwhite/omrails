@@ -1,0 +1,9 @@
+<% @upvoted_posts.each_with_index  do |comment, i| %>
+
+
+<%= link_to (comment.post.title), post_path(comment.post) %>
+
+<%= render 'comments/post_feed' %>
+
+
+<% end %>

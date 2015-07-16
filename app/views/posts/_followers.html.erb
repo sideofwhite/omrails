@@ -1,0 +1,23 @@
+<div class="right-element-container">
+<div class="small-dividerhead">
+Followers
+</div>
+
+<% @post.votes.by_type(User).limit(3).voters.each do |user| %>
+  <div class="follower-avatar-border" style="margin-left: 0px;">
+  <div class="follower-image">
+<%= image_tag user.image %>
+</div>
+</div>
+  <div class="follower-avatar-border">
+  <div class="follower-image">
+<%= image_tag user.image %>
+</div>
+</div>
+<% end %>
+
+<div class="row"></div>
+
+</div>
+
+<div class="row"></div>

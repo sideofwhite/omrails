@@ -7,6 +7,13 @@ class CommentsController < ApplicationController
 @comment.liked_by current_user
 end
 
+  def sort
+  params[:comment].each_with_index do |id, index|
+    Comment.update_all({position: index+1}, {id: id})
+  end
+  render nothing: true
+end
+
 def unpublished 
   @comment = Comment.friendly.find params[:id]
   @hidden = @comment.questions.where(:hide => false).order('created_at desc')
@@ -24,8 +31,7 @@ end
   # GET /comments/1
   # GET /comments/1.json
   def show
-  @skip_footer = true  
-  @image_bottom = true 
+  
   @post = Post.friendly.find(params[:post_id])
   @comment = Comment.friendly.find params[:id]
   @commentnext = @post.comments.friendly.find(params[:id])
@@ -33,7 +39,7 @@ end
   @comments = @post.comments.order('cached_votes_total desc').limit(3)
   @questions = @comment.questions.where(:hide => true).order('cached_votes_total desc').page(params[:page]).per_page(1)
   @published = @comment.questions.where(:hide => true).order('created_at')
-  @related = @comment.post.questions.where(:hide => true).order('created_at')
+  @related = @comment.post.comments.order(position: :asc).where("position > ?", @comment.position).limit(2)
   @hidden = @comment.questions.where(:hide => false).order('created_at desc')
    respond_to do |format|
         format.html
@@ -78,7 +84,7 @@ end
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_comment_path(@post, @comment), notice: 'Posted Successfully' }
+        format.html { redirect_to post_comment_path(@post, @comment), notice: 'Question Asked' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
         format.html { render action: 'new' }
@@ -95,7 +101,7 @@ end
 
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Comment was successfully updated.' }
+        format.html { redirect_to post_comment_path(@comment.post, @comment), notice: 'Question Updated' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -127,6 +133,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :title, :subtitle, :body, :image, :about, :active, :info, :link, :published, :tag_list, :event_ids => [])
+      params.require(:comment).permit(:post_id, :user_id, :title, :tweet, :quote_author, :body, :image, :about, :active, :info, :link, :video_url, :published, :tag_list, :event_ids => [])
     end
 end

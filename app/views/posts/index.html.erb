@@ -1,16 +1,32 @@
-<% unless user_signed_in? %>
-<%= render 'layouts/homebanner' %>
-<% end %>
 
 
-<div id="products">
-<%= render 'posts/post' %>
-</div>
 
-<%= will_paginate @posts %>
+
+
+
+
+
+
+
+
+
 
 
 
 <% if params[:tag] %>
-<%= render 'posts/hiddencategory' %>
+<div class='home-feed-image' style="height: 100px; background-image: url(http://i.imgur.com/aisLBMi.png);">
+<div class="darker" style="opacity: 0.8; background-color: #fff;"></div>
+
+
+<div class="absolutecontainer" style="bottom: -25px;">
+<div class="relativecontainer">
+
+<div style="font-weight: 700; color: #0882d1; opacity: 0.5; font-size: 80px;">
+<%= params[:tag].titleize %>
+</div>
+
+</div>
+</div>
+
+</div>
 <% end %>

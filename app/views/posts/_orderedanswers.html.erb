@@ -1,6 +1,6 @@
-<ul id="questions" data-update-url="<%= sort_post_path(@post) %>">
-<% @ordered.each do |question| %>
-<%= content_tag_for :li, question do %>
+<ul id="comments" data-update-url="<%= sort_post_path(@post) %>">
+<% @ordered.each do |comment| %>
+<%= content_tag_for :li, comment do %>
 
 <span class="handle">+</span>
 <div class="dragborder">
@@ -9,7 +9,7 @@
 
 
 
-<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+<%= render :partial => "layouts/#{comment.feed}_post", locals: {comment:comment} %>
 
 
     </div>

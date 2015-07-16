@@ -40,7 +40,7 @@ We still need your email.
 </div>
 
 
-<%= f.input :email, input_html: { :class => "infoform-email" }, placeholder: "your_email@example.com", label: false %>
+<%= f.input :email, input_html: { :class => "infoform-email", :id => "email-form", :maxlength => 140 }, placeholder: "your_email@example.com", label: false %>
 
 
 
@@ -54,8 +54,14 @@ We still need your email.
 Don't worry, we hate spam as much as you.
 </div>
 
+<div class="submitblueinfo-opacity" style="float: right;">
+Next
+</div>
+
+<div id='email-button' style="display: none;">
 <div class="submitblueinfo" id='nextbutton' style="float: right;">
 Next
+</div>
 </div>
 
 
@@ -79,16 +85,16 @@ Skip
 
 </div>
 
+
 <div class="infopage-boldtext">
 Complete Your Profile
 </div>
-
 <div class="infopage-smalltext">
-Add a short bio about youself.
+Add your location (optional).
 </div>
 
+<%= f.input :place, input_html: { :class => "infoform-email", :maxlength => 140 }, placeholder: "Where do you live?", label: false %>
 
-<%= f.input :age, input_html: { :class => "infoform-bio", :maxlength => 140 }, placeholder: "Your bio...", label: false %>
 
 </div>
 
@@ -113,16 +119,15 @@ Next
 
 <div class="infopage-container">
 
-
 <div class="infopage-boldtext">
 Complete Your Profile
 </div>
+
 <div class="infopage-smalltext">
-Add your location.
+Add a short bio about youself (optional).
 </div>
 
-
-<%= f.input :place, input_html: { :class => "infoform-email" }, placeholder: "Where do you live?", label: false %>
+<%= f.input :age, input_html: { :class => "infoform-email", :maxlength => 140 }, placeholder: "Bio...", label: false %>
 
 
 </div>
@@ -176,6 +181,24 @@ You can edit this information at any time.
 
 <script>
 
+$(function(){
+     $("#email-button").hide();
+
+     $(".infoform-email").keyup(function() {
+         var val = $(this).val();
+         if (val.length > 0) {
+             $('#email-button').show();
+             $('.submitblueinfo-opacity').hide();
+         }
+         else {
+             $('#email-button').hide();
+         }
+
+     });
+});
+
+
+
 $("#nextbutton").click(function(){
     $(".email").hide();
     $(".profile").show();
@@ -191,6 +214,10 @@ $("#skip-profile").click(function(){
     $(".profile").hide();
     $(".location").show();
 });
+
+
+
+
 
 
 </script>

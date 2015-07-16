@@ -1,46 +1,27 @@
-<div class="row"></div>
-<hr class="dividerline"/>
-<div class="dividerhead">
-RELATED STORIES
-</div>
-<div class="row"></div>
-
-
-<% @related.order("created_at desc").each_with_index do |post, i| %>
 
 
 
+<% @related.order("created_at desc").limit(1).each do |post| %>
 
-<% if post.pictures.present? %>
-<div class="eventfeedimage" style="background-image:  url(<%= post.pictures.first.image(:small) %>);">
-  <div class="darker" style="opacity: 0.2;"></div>
-</div>
-<% end %>
+<div class='home-feed-image' style="height: 240px; background-image: url(http://i.imgur.com/aisLBMi.png);">
+<div class="darker" style="opacity: 0.8; background-color: #fff;"></div>
 
-<div class="related-overflow">
 
-<div class="eventfeedtitle-text">
-<%= link_to (post.title), post_path(post) %>
-</div>
-<div class="p3">
-<%= truncate(post.description, :separator => ' ', length: 110) %>
-</div>
-<div class="row"></div>
-<%= link_to post_path(post) do %>
-<div class="link-mouse">
-<div class="link-skip-text">
-Full story
+<div class="absolutecontainer" style="bottom: 25px;">
+<div class="relativecontainer">
+
+
+<div style="margin-bottom: 25px; font-weight: 700; font-size: 16px;">
+Related Story <div style="display: inline; font-weight: 300;">in</div> <div style="display: inline; color: #0882d1;">Sports</div>
 </div>
 
-<div class="link-skip">
-<i class="fa fa-long-arrow-right" style="color: #018bc6; margin-left: 0px;"></i>
-</div>  
+<%= render :partial => 'layouts/stories_feed', locals: {post:post} %>
+</div>
+</div>
+
 
 </div>
 
 
 <% end %>
 
-</div>
-<hr/>
-<% end %>

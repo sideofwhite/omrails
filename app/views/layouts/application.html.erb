@@ -5,8 +5,10 @@
 <script src="//use.typekit.net/sjc1uyo.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 <script>
 window.setTimeout(function() {
@@ -38,9 +40,10 @@ window.setTimeout(function() {
 </head>
 <body>
 
-<div id="wrap">
-  <div class="container100">
+
 <%= render 'layouts/header', locals: {activities: @activities} unless @skip_footer %>
+
+<div class="navbar-content-container">
 <% flash.each do |name, msg| %>
 <div class="alert alert-danger alert-dismissable">
   <%= content_tag(:div, msg) %>
@@ -51,11 +54,11 @@ window.setTimeout(function() {
 
 
 
-</div>
+
     <%= render 'layouts/footer' if @skip_bottom %>
     <%= render 'layouts/spacefooter' unless @skip_bottom or @image_bottom %>
-</div>
 
+</div>
 
 </body>
 </html>

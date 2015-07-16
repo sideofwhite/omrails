@@ -1,0 +1,25 @@
+<div class="width7">
+<div class="sixty"></div>
+<div class="story-large-title">
+<%= @post.title %>
+</div>
+
+
+<hr style="margin-bottom: 20px; margin-top: 20px;"/>
+
+
+
+<div class="width5">
+
+  
+<div class="row"></div>
+
+<% @new_posts.each do |comment| %>
+<%= render :partial => "layouts/#{comment.feed}_post", locals: {comment:comment} %>
+<% end %>
+
+
+
+
+</div>
+</div>

@@ -1,0 +1,70 @@
+
+
+
+<div id="step2-text" style="display: none;">
+
+<div style='border-top: 5px solid rgba(51,51,51,0.3); width: 50%; margin-top: -5px;'></div>
+
+</div>
+
+
+
+
+
+
+<div class="row"></div>
+
+
+
+<%= simple_form_for [@post, Comment.new], url: post_comments_path(@post)  do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<div id="text">
+<%= f.input :body, as: :text, input_html: { :class => "post-form post-text-inline" }, label: false ,placeholder: "Text" %>
+
+<div class="button-text-upper" id="text-source-next">
+Next
+</div>
+<div class="button-text-upper cancel-upper" id="">
+Cancel
+</div>
+
+</div>
+
+
+<div id="text-source" style="display: none;">
+<%= f.input :link, as: :text, input_html: { :class => "post-form", :maxlength => 140 }, label: false ,placeholder: "Past source URL" %>
+<%= f.submit "Post", class: "button-text-upper" %>
+<div class="button-text-upper cancel-upper" id="">
+Cancel
+</div>
+</div>
+
+
+
+<div class="row"></div>
+
+
+
+
+
+
+<% end %>
+
+
+<div class="row"></div>
+
+<script>
+
+$("#text-source-next").click(function(){
+    $("#text").hide();
+    $("#text-source").show();
+    $("#step2-text").show();
+    $("#step1-text").hide();
+});
+
+
+
+
+
+</script>

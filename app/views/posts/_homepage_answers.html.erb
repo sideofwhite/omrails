@@ -1,0 +1,132 @@
+<% @homepage_answers.each_with_index do |question, i| %>
+
+<% if i == 0 %>
+
+
+<% if question.comment.post.pictures.present? %>
+<div class="home-featured-image" style='background-image: url(<%= question.comment.post.pictures.first.image %>)'>
+<% else %>
+<div>
+<% end %>
+
+<div class="darker"></div>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div class="descriptionmargin-story">  
+
+ <div class="eventimagepreviewtext">
+     <%= link_to (question.comment.post.title), post_path(question.comment.post), class: "whiteblue" %>
+   </div>
+
+    <hr class="whiteimageline"/>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="width6">
+
+<div style="margin-bottom: 30px !important;"> 
+</div>  
+
+<div class="p3">  
+<%= truncate(question.comment.post.description, :separator => ' ', length: 150) %>
+</div>
+
+<div style="padding-top: 10px "></div>
+
+<div class="row"></div>
+
+<div class="linklogoimage">
+<%= image_tag (question.comment.post.image) %>
+</div>
+
+<%= link_to (question.comment.post.domain), url_for(question.comment.post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px; margin-right: 3px;" %>
+
+<div class="readmore" style=" display: inline; line-height: 24px;">
+<div style="display: inline; color: rgba(51,51,51,0.5);">
+•
+</div>
+<%= link_to post_path(question.comment.post) do %>
+<div class="blue" style="display: inline;">
+Full Story
+ <i class="fa fa-long-arrow-right"></i>
+</div>
+<% end %>
+</div>
+
+
+<hr class='dividerline'/>  
+
+<div class="dividerhead">
+ANSWERS
+</div>
+
+
+</div>
+
+
+
+
+
+
+<% else %>
+
+<div class="width6">
+
+<div class="event-orangeHead"></div>
+
+
+<% if question.comment.post.pictures.present? %>
+<div class="home-feed-image" style='background-image: url(<%= question.comment.post.pictures.first.image %>)'>
+<% else %>
+<div>
+<% end %>
+
+
+<div class="darker" style="opacity: 0.2;"></div>
+
+</div>
+
+<div class="userprofile-event" style="color: #018bc6; font-size: 16px; display: inline-block;  overflow: hidden;">
+<%= link_to (question.comment.post.title), post_path(question.comment.post), class: "blue" %>
+<div class="timeline-description" style='line-height: 1.45; color: rgba(51,51,51,0.75); margin-right: 40px;'>
+  <%= truncate(question.comment.post.description, :separator => ' ', length: 110) %>  
+</div>
+
+
+
+<hr class="linelinks" style="margin-top: 15px; margin-bottom: 0px; width: 30%;"/>
+
+</div>
+
+<div class="row"></div>
+<div style="margin-top: 10px;"></div>
+
+</div>
+
+
+<% end %>
+
+
+
+<div class="width6">
+
+
+<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
+
+
+
+<% unless i == 2 || @homepage_answers.count == (i + 1) %>
+<hr/>
+<% end %>
+
+</div>
+
+
+<% end %>

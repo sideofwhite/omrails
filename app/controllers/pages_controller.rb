@@ -6,10 +6,9 @@ class PagesController < ApplicationController
 
 
   def following 
-  @skip_footer = true  
   if user_signed_in?  
   @user = current_user 
-  @following = @user.get_voted Comment .order("created_at desc").page(params[:page]).per_page(3)
+  @following = @user.get_voted Post .order("created_at desc").page(params[:page]).per_page(3)
   else 
   @post = Post.where(:hide => true).order("RANDOM()").limit(1)
   end
@@ -21,8 +20,7 @@ class PagesController < ApplicationController
     @skip_footer = true 
   end
   def contact
-    @skip_bottom = true  
-    @skip_footer = true 
+  
  
   end
    def guidelines

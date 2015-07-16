@@ -46,6 +46,7 @@ Edit Event
 
 <div class="width6">
 <div class="sixty"></div>
+ <%= link_to 'Delete Event', post_event_path(@post, @event), method: :delete, data: { confirm: 'This event will be deleted. Are you sure?' }, class: "clicked" %>   
 <%= simple_form_for [@post, @event] do |f| %>
   <%= f.error_notification %>
 

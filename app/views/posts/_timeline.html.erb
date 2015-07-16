@@ -1,6 +1,4 @@
-<div class="dividerhead">
-LATEST EVENTS
-</div>
+
 
 <% @events.each do |event| %>
 
@@ -12,8 +10,6 @@ LATEST EVENTS
 
 <div class="timeline-content">
 
-<div class="timeline-image" style="background-image: url(<%= event.image %>);">
-</div>
 
 <div class="timeline-date">
 <%= time_ago_in_words(event.created_at) %> ago
@@ -22,6 +18,11 @@ LATEST EVENTS
 
 <%= link_to (event.title), post_event_path(event.post, event) %>
 
+<div style="font-size: 16px; font-weight: 500; color: rgba(51,51,51,0.5); margin-top: 4px; line-height: 1.4;">
+<%= truncate(event.body, length: 100, separator: ' ') %>
+</div>
+
+
 <div class="row"></div>
 </div>
 
@@ -29,13 +30,14 @@ LATEST EVENTS
 
 <% end %>
 
-<% if @post.events.count > 2 %>
-<div class="timeline-dot">
-</div>
+
+<% if @post.events.count > 0 %>
 <div class="timeline-more">
-<%= link_to "More events...", post_events_path(@post), class: "blue" %>
+<%= link_to "#{@post.events.count - 2} more events", post_events_path(@post), class: "blue" %>
 </div>
 <% end %>
 
-<div class="timeline-bottom"></div>
-<div class="timeline-bottom"></div>
+
+
+
+

@@ -1,59 +1,52 @@
 
-
 <div class="titlecontainer30">
 <%= link_to (question.comment.title), post_comment_path(question.comment.post, question.comment), class: 'blue' %>
 </div>
 
+<div class='feed-row-margin'></div>
 
 
 
 
-
-<div class="hidden-phone" style="display: inline;">
-
-<div class="questioninfo-container">
-	
-<% if question.comment.questions.count > 1 %>
-<%= link_to ("1 of #{question.comment.questions.count} Answers"), post_comment_path(question.comment.post, question.comment), class: "half-grey" %>
-<% else %>
-<%= link_to "1 Answer", comment_question_path(question.comment, question), class: "half-grey" %>
-<% end %>
-
- </div>
-</div>
-
-
-<div class="row" style="margin-top: 30px;"></div>
-
-<div class="answer-feed-avatar">
+<div class="small-avatar-feed-test">
 <%= link_to (image_tag(question.user.image(:thumb))), user_path(question.user) %>
 </div>
 
+<div class="largename">
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %> 
+</div> 
 
-<div style="overflow: hidden;">
 
-<%= link_to (question.user.name), user_path(question.user), class: "blue-feed" %> 
+<div class="row"></div>
 
-<div style="display: inline; color: rgba(51,51,51,0.5); font-size: 11px; margin-left: 5px;">
-<%= time_ago_in_words(question.created_at) %> ago
-</div>
+<div style='margin-top: 15px;'>
 
-<div class="row" style="margin-top: 7px;"></div>
 
 <div class="small-image">
 <%= truncate_html(sanitize(question.body.gsub(/<p>.<\/p>/,""), tags: %w(p img)), length: 200).html_safe %>
 </div>
 
 
-<div style="font-size: 1em; display: inline; margin-top: 4px;">
-<%= link_to ("Continue reading"), comment_question_path(question.comment, question), class: "blue-feed" %>	
- <i class="fa fa-long-arrow-right"></i>
 </div>
 
 
 
+<%= link_to comment_question_path(question.comment, question), class: "blue-feed" do %>
+Read more
+<i class="fa fa-long-arrow-right" style='font-size: 12px;'></i>
+<% end %>
 
+<% if question.cached_votes_total > 0 %>
+<i class="fa fa-check-circle" style="color: rgba(51,51,51,0.5); margin-left: 20px;"></i>
+<div style="font-size: 12px; color: rgba(51,51,51,0.5); display: inline; margin-left: 3px;">
+<% question.votes.by_type(User).voters.take(1).each do |user| %>
+<%= link_to (user.name), user_path(user), style: "color: rgba(51,51,51,0.5) !important;" %>
+  <% end %> 
+<% if question.cached_votes_total > 1 %>
+  and <%= pluralize(question.cached_votes_total - 1, "other") %> recommended
+<% end %>
 </div>
+<% end %>
 
 
 

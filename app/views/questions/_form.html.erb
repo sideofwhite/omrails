@@ -1,5 +1,4 @@
 <style media="screen">
- .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
  .popover { max-width: 380px; z-index: 1;}
 
 @media screen and (max-width: 500px) 
@@ -12,34 +11,38 @@
 </style>
 
 
-<div class="settingsnavtop" style="margin-bottom: -2px;">
+<% if @comment.post.pictures.present? %>
+<div class='home-feed-image' style=" background-image: url(<%= @comment.post.pictures.first.image %>); height: 75px; margin-bottom: -3px;">
+<div class="darker" style="background-color: #1572d1; opacity: 0.65;"></div>
 
-<div class="width6">
-<div class="blue-header-text">
-<%= @comment.title %>
+
+<div class="absolutecontainer">
+<div class="relativecontainer">
+<div style="color: #fff; font-size: 12px; margin-bottom: 15px; font-weight: bold;">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "white" %>
 </div>
 </div>
-
-<div class="absoluteheader">
-<%= render 'layouts/xheader' %>
-</div>
-
-</div>
-
-
-
-<div class="imagestrip" style="height: 150px;">
-  <div class='darker'></div>
-
 </div>
 
 
-<div class="width6">
-<div class="answer-feed-margin"></div>
-
-
-
 </div>
+<% end %>
+
+
+<div style=" background-color: #1572D1; padding: 40px 0px 20px 0px; margin-bottom: 20px;">
+<% unless @comment.post.pictures.present? %>
+<div class="width7" style="color: #fff; font-size: 12px; margin-bottom: 20px; font-weight: bold;">
+<%= link_to (@comment.post.title), post_path(@comment.post), class: "white" %>
+</div>
+<% end %>
+
+<div class="width7 story-large-title" style="color: #fff; font-size: 30px;">
+<%= @comment.title %> 
+</div>
+</div>
+
+
+
 
 <div class="row"></div>
 
@@ -49,7 +52,8 @@
 <%= simple_form_for [@comment, Question.new], url: comment_questions_path do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<div class="width6">
+<div class="width7">
+<div class="width5">
 
 <div class="hidden-phone">
 
@@ -65,14 +69,14 @@
 
 
 <div class="editor-info">
- Write answer • <div id="answer-info" class="popover-x blue"> Publishing Help</div>
+ Write answer • <div id="answer-info" class="popover-x blue"> Help</div>
 </div>
 
 <%= f.text_area :body, :class => "tinymce textarea", :id => "editor_area", :style => "margin: 0px;" %>
 </div>
 
 </div>
-
+</div>
 
 <div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
 <div class="form-sidebar" style="display: none;">
@@ -98,7 +102,7 @@ Add a Bio (optional)
 <%= f.submit "Publish", class: "submitblue", style: "float: right; margin-top: 15px;" %>
 
 <div class="sidebarexplaintext">
-Your answer will be reviewed by an editor to make sure it complies with Podium's <%= link_to "answer guidelines", guidelines_path, class: "blue" %>.
+Your answer will be reviewed by an editor to make sure it complies with Podium's <%= link_to "answer guidelines", guidelines_path(:anchor => "answers"), :target => "_blank", class: "blue" %>.
 </div>
 
 </div>

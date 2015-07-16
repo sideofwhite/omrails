@@ -1,6 +1,4 @@
-<style media="screen">
-  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
-</style>
+
 
 <div class="settingsnavtop">
 <div class="width6">
@@ -70,6 +68,16 @@ PUBLISH
 <div class="row"></div>
 </div>
 
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-check"></i></div>
+<div class="floatright" style="display: inline;">
+<%= f.check_box :active, as: :boolean, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+Image
+</div> 
+<div class="row"></div>
+</div>
 
 <hr/>
 

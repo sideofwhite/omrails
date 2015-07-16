@@ -1,0 +1,67 @@
+<% @comments.each_with_index  do |comment, i| %>
+
+
+
+<% if comment.title? %>
+
+<%= comment.title %>
+
+
+
+<% else %>
+
+<div class="recommenders-right">
+<i class="material-icons" style="margin-right: 5px; margin-top: -1px; font-size: 14px; font-weight: bold; float: left; ">check</i> Nevan Whiteside, Nick Misasi and 3 others
+</div>
+
+
+
+<div class="avatar-feed">
+<%= image_tag comment.user.image %>
+</div>
+
+<div style="font-size: 14px; padding-top: 8px; padding-bottom: 3px; text-transform: uppercase;">
+<%= link_to (comment.user.name), user_path(comment.user) %>
+</div>
+<div style="font-size: 12px; opacity: 0.5; font-weight: 300;">
+<%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+
+<div class="row"></div>
+<div style="margin-top: 15px;"></div>
+
+
+<%= simple_format comment.body %>
+
+
+
+
+<%= render :partial => "layouts/#{comment.feed}_post", locals: {comment:comment} %>
+
+<div class="row"></div>
+
+<div class="bottom-feed-button">
+<i class="material-icons" style="margin-right: 10px; font-size: 20px; font-weight: bold; float: left ">check</i> <div style="display: inline; line-height: 25px;">Recommend</div>
+</div>
+
+<div class="bottom-feed-button blue-bottom-feed-button">
+<i class="material-icons" style="margin-right: 10px; font-size: 16px; float: left; margin-top: 2px; ">share</i> <div style="display: inline; line-height: 25px;">Share</div>
+</div>
+
+<% end %>
+
+
+
+
+
+
+<hr class="feed-line"/>
+
+	
+
+
+
+
+
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228194614) do
+ActiveRecord::Schema.define(version: 20150514192110) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20150228194614) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.string   "title"
-    t.string   "subtitle"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,6 +100,10 @@ ActiveRecord::Schema.define(version: 20150228194614) do
     t.string   "link"
     t.text     "info"
     t.boolean  "published",          default: false
+    t.integer  "position"
+    t.string   "video_url"
+    t.string   "tweet"
+    t.string   "quote_author"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
@@ -293,7 +296,7 @@ ActiveRecord::Schema.define(version: 20150228194614) do
     t.datetime "image_updated_at"
     t.string   "place"
     t.string   "image_uid"
-    t.text     "age"
+    t.string   "age"
     t.string   "twitter"
     t.string   "slug"
   end

@@ -5,21 +5,39 @@ class PostsController < ApplicationController
 def upvote
 @post = Post.friendly.find(params[:id])
 @post.liked_by current_user
-redirect_to posts_path
 end
 
+def search
+end
+
+def image_form
+
+respond_to do |format|
+  format.html
+  format.js
+ end
+end 
+
+def question_form
+  @post = Post.friendly.find(params[:id])
+respond_to do |format|
+  format.html
+  format.js
+ end
+end 
 
   # GET /posts
   # GET /posts.json
   def index
-    @skip_footer = true  
+    
   @skip_bottom = true  
 if params[:tag]
 @posts = Post.where(:hide => true).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)
 @hidden = Post.hiddencategory.order("created_at desc").tagged_with(params[:tag]) 
 else
-@posts = Post.where(:hide => true).order("position").page(params[:page]).per_page(1)
-
+@toppost = Post.where(:hide => true).order("position").limit(1)
+@posts = Post.where(:hide => true).order("position").offset(1).limit(2)
+@homepage_answers = Question.where(:hide => true, :recommend => true).limit(1)
 
 
 end
@@ -35,17 +53,18 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
-  @topanswers = true   
-  @skip_footer = true  
+   @image_bottom = true 
   @post = Post.friendly.find(params[:id])
   @answersmore = @post.questions.where(:hide => true, :recommend => false).order('cached_votes_total desc').limit(3)
-  @ordered = @post.questions.where(:hide => true, :recommend => true).order("position").page(params[:page]).per_page(2)
+  @ordered = @post.questions.where(:hide => true, :recommend => true).order("position")
   @answers = @post.questions.where(:hide => true)
-  @topquestions = @post.comments.where(:published => true).order('comments.questions_count desc').limit(3)
+  @questions = @post.comments.where(:published => true)
+  @comments = @post.comments.where(:published => true).order('position').page(params[:page]).per_page(3)
   @articles = @post.articles.order("created_at desc").limit(5)
   @comment = Comment.new
   @events = @post.events.order("created_at desc").limit(2)
   @related = @post.find_related_tags
+  @media = @post.comments.where(:active => true).order("created_at desc").limit(2)
   end
 
 
@@ -63,10 +82,17 @@ end
 
 
     def ordered
-    @skip_footer = true  
     render_forbidden and return unless can_edit?
   @post = Post.friendly.find(params[:id])
-  @ordered = @post.questions.where(:hide => true, :recommend => true).order("position")
+  @ordered = @post.comments.where(:published => true).order("position")
+  @comment = Comment.new
+  end
+
+
+  def new_posts
+  render_forbidden and return unless can_edit?
+  @post = Post.friendly.find(params[:id])
+  @new_posts = @post.comments.where(:published => false).order("created_at desc")
   @comment = Comment.new
   end
 

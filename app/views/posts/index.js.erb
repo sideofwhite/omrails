@@ -1,6 +1,6 @@
-$('#products').append('<%= j render(@posts) %>');
-<% if @posts.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
+$('#products').append('<%= j render('posts/homepage_answers') %>');
+<% if @homepage_answers.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@homepage_answers) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>

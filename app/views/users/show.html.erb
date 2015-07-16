@@ -1,156 +1,85 @@
-<% if @questions.present? %>
-<% @questions.group_by {|q| q.comment.post}.take(1).each do |(post, questions)| %>
-<style media="screen">
-   .profileimage-banner { background-image: url(<%= post.pictures.first.image %>); }
- </style>
-<% end %>
-<% else %>
-<style media="screen">
-.navbar .brand { background: rgba(51,51,51,0.3); }
-.fa-bell { background-color: rgba(51,51,51,0.3);}
-.blue-edit-profile { background-color: rgba(51,51,51,0.3); }
-</style>
- <% end %>
-
-
-
-<div class="profileimage-banner">
-   
-<% if @questions.present? %>
-<div class="darker"></div>
-<% end %>
-
- <% if current_user == @user %>
-
-<div class="blue-edit-profile">
-Edit Profile
-</div>
-
-<div class="fullpage-modal-container">  
-
-  <div class="fullpage-modal" style="display: none;">
-<button type="button" class="close-modal-slide" data-dismiss="modal" aria-hidden="true">×</button>
-<hr class="modalline-slide" style="margin-top: 0px"/>
- <%= render :partial => "devise/registrations/edit" %>
-</div>
-</div>
-
-
-
-<% end %>
-
-
-
-
-
-<div class="absolutecontainer" style="top: 0;">
-<div class="relativecontainer" style="height: 100%;">
-<div class="profile-banner" style="height: 100%;">
-
-<div class="element-vertical">
 
 <%= render 'profile_head' %>
 
 
-</div>
-</div>
-</div>
-</div>
-
-</div>
+<div class="navbar-profile-content-container">
 
 
+<div style="height: 100px; position: relative; margin-bottom: 50px; ">
 
+<div class="width5-center" style="position: absolute; bottom: 0px; margin-left: 180px; border-bottom: 1px solid rgba(51,51,51,0.1);">
 
+<div style="display: inline-block; margin-right: 25px; border-right: 1px solid rgba(51,51,51,0.1); padding-right: 25px; color: #0882d1; padding: 10px 25px 10px 0px; border-bottom: 1px solid #fff; margin-bottom: -1px;">
 
-<div class="absoluteheader">
-  <%= render 'layouts/headerimage_login' %>
- </div>
-
-
-
+<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
+7
 </div>
 
-<div class="blueprofileex">
-
-<div class="width6">
-
-<div class="nav-container-profile-selected"> 
-
-
-<div class="selected-toggle-number">
-<%= @questions.count %>
-</div>
-<div class="selected-toggle">
-Recommended 
-</div>
-
+<div style="font-size: 14px; text-transform: uppercase; font-weight: 300; ">
+Recommended
 </div>
 
 
-<div style="display: inline-block; float: right;">
 
-<div class='select-toggle-line'>
-
-<%= link_to allanswers_path(@user) do %>
-<div class="nav-container-profile"> 
-<div class="select-toggle-number">
-<%= @comments.count %>
 </div>
-<div class="select-toggle">
+
+<div style="display: inline-block; margin-right: 25px; border-right: 1px solid rgba(51,51,51,0.1); padding-right: 25px; color: #0882d1; opacity: 0.5;  padding: 10px 25px 10px 0px;">
+
+<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
+0
+</div>
+<div style="font-size: 14px; text-transform: uppercase;  font-weight: 300;">
+Posts
+</div>
+
+
+
+</div>
+<div style="display: inline-block; margin-right: 25px; color: #0882d1; opacity: 0.5;  padding: 10px 25px 10px 0px;">
+<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
+3
+</div>
+
+<div style="font-size: 14px; text-transform: uppercase; font-weight: 300;">
 Answers
 </div>
-</div>
-<% end %>
-
-</div>
 
 
-
-<%= link_to allcomments_path(@user) do %>
-<div class="nav-container-profile" style="margin-right: 0px;"> 
-<div class="select-toggle-number">
-<%= @links.count %>
-</div>
-<div class="select-toggle">
-Replies
-</div>
-</div>
-<% end %>
 
 </div>
 
 
 </div>
-</div>
 
 
-
-
-
-<div class="width6">
-
-<% if @user.votes.present? %>
-<%= render 'show' %>
-<% elsif @user.votes.blank? and @user == current_user %>
-<div class="nonew-outside"><span class="nonew-notifications-profile">
-   You haven't recommended any answers yet. Click the recommend button below an answer and it will show up here.
-</span></div>
-<% elsif @user.votes.blank? %>
-<div class="nonew-outside"><span class="nonew-notifications-profile">
-    <%= @user.name %> hasn't recommended any answers yet.
-</span></div>
-<% end %>
 
 </div>
 
 
 
 
+<div class="width7">
 
 
- <script>
-$('.blue-edit-profile, .close-modal-slide, .modaldeclinebutton').click(function () {
+
+
+
+<div class="width5-center">
+
+
+
+<%= render 'posts_show' %>
+
+
+</div>
+
+</div>
+</div>
+
+
+
+<script>
+$('#blue-edit-profile, .close-modal-slide, .modaldeclinebutton').click(function () {
         $('.fullpage-modal').toggle('slide', {
             direction: 'top'
         }, 300);

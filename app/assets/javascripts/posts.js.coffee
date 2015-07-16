@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $('#questions').sortable
+  $('#comments').sortable
     axis: 'y'
     handle: '.handle'
     update: ->

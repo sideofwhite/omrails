@@ -1,21 +1,9 @@
 <% @comments.each do |question| %>
-<% if question.comment.present? %>
-<div class="event-orangeHead"></div>
 
-<div class="userprofile-event">
-<%= link_to (question.comment.post.title), post_path(question.comment.post) %>
-<div class="timeline-description" style='line-height: 1.45;'>
-  <%= truncate(question.comment.post.description, :separator => ' ', length: 110) %>  
-</div>
-</div>
-
-<hr class="linelinks" style="width: 30%; margin-top: 20px;"/>
-
-<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
-<hr class="line30"/>
-
-<% end %>
-
+<p>
+<%= question.body %>
+</p>
+<hr/>
 
 
 <% end %>

@@ -1,37 +1,68 @@
-<div class="modal-width-slide">
-<div class="infopage-container-modal">
+
+
+<div class="post-form-nav">
+
+
+<div class="form-head">
+Question
+</div>
+
+<div class="form-head-light">
+
+</div>
+
+
+<%= link_to current_user.name, user_path(current_user), class: "post-form-nav-name" %>
+
+
+</div>
+
+
+<div class="row"></div>
+
+
+<div id="form">
 
 <%= simple_form_for [@post, Comment.new], url: post_comments_path(@post)  do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-<div class="guidelines-text-light" style="color: #018bc6 !important; font-size: 14px;">
-Ask Question
+
+<%= f.input :title, as: :text, input_html: { :class => "post-form ask-question-inline", :maxlength => 140 }, label: false ,placeholder: "What is your question?" %>
+
+
+
+
+<%= f.submit "Post", class: "submitbluemodal" %>
+
+
+<div class="cancel-form" id="close-question">
+Close
 </div>
 
-<hr class="modalline-slide" style="margin-top: 10px;"/>
-
-
-
-
-<%= f.input :title, as: :text, input_html: { rows: "3", :class => "hello" }, label: false ,placeholder: "What is your question?" %>
-
-
-
-
-<%= f.submit "Submit", class: "submitbluemodal" %>
-
-
-<div class="modaldeclinebutton">Cancel</div>
-
 <div class="row"></div>
-<hr class="modalline-slide"/>
-<div class="guidelines-text-light">
-      Please read our <%= link_to "question guidelines", guidelines_path(:anchor => "questions"), :target => "_blank", class: "blue" %> before submitting a question. All questions will be reviewed by an editor before being unlocked to answers.
-    </div>
+
+
+
 
 
 
 <% end %>
+</div>
 
-</div>
-</div>
+<div class="row"></div>
+
+<script>
+
+$(".guidelines-next").click(function(){
+    $("#form").show();
+    $("#guidelines").hide();
+});
+
+$("#close-question").click(function(){
+    $(".plus-post-buttons").hide();
+});
+
+
+
+</script>
+

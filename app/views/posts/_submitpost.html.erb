@@ -1,0 +1,88 @@
+<% if user_signed_in? %>
+
+
+
+
+
+<div id="choose-post-circles">
+
+<hr/>
+
+<div style="width: 49%; display: inline-block;">
+<%= link_to new_post_comment_path(@post) do %>
+<div class="add-post-icon-text">Aa</div>
+<% end %>
+</div>
+
+
+<div style="width: 50%; display: inline-block;">
+<i class="material-icons add-post-icon" id='text-icon-click'>question_answer</i>
+</div>
+
+</div>
+
+
+
+<div class="row"></div>
+
+
+
+
+
+
+<div id="text-form" style="display: none;">
+<%= render 'comments/form' %>
+</div>
+
+
+
+<% else %>
+
+<div class="interstitial-signin">
+
+<div class="interstitial-text">
+Sign in with Twitter to add to the story.
+</div>
+
+<div style="float: right">
+
+<%= link_to user_omniauth_authorize_path(:twitter) do %>  
+<div class="interstitial-button">
+<i class="fa fa-twitter" style="color: #0076bc; font-size: 16px; display: inline-block; margin-bottom: 0px; margin-right: 2px;"></i>
+Sign In
+</div>
+<% end %>
+</div>
+</div>
+<% end %>
+
+
+
+
+
+<script>
+$("#plus-post").click(function(){
+    $("#choose-post-circles").show();
+    $(".left-40").hide();
+    $("#plus-post").hide();
+    
+});
+
+$("#text-icon-click").click(function(){ 
+	$("#choose-post-circles").hide();
+	$("#text-form").show();
+});
+
+
+
+$("#cancel").click(function(){
+    $(".plus-post-buttons").hide();
+    $(".left-40").show();
+    $(".interstitial-left").show();
+    $("#add-fact").hide();
+});
+
+
+
+
+</script>

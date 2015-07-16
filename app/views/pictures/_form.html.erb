@@ -1,6 +1,6 @@
-<div class="modal-width-slide">
+
 <div class="infopage-container-modal">
-<div class="guidelines-text-light" style="color: #018bc6 !important; font-size: 14px;">
+<div class="guidelines-text-light" style="color: #018bc6 !important; font-size: 14px; float: left;">
 Add Image
 </div>
 
@@ -14,22 +14,20 @@ Add Image
 
 
 
-<div class="blah2">
-<div class="addimageevent">
+<i class="fa fa-picture-o" style="margin: 0px; margin-right: 15px; font-size: 28px; display: block; margin: 0 auto; color: #f99625; position: absolute;"></i>
 <%= f.input :image, input_html: { :style => "opacity:0;" }, label: false %>
-</div>
-</div>
 <img id="blah2" style="margin-bottom: 0px; background-color: rgba(51,51,51,0.03) !important;"/>
 
 <hr class="modalline-slide"/>
 
+
+
+<div class="row"></div>
 <%= f.submit "Add", class: "submitbluemodal" %>
 
 
-<div class="modaldeclinebutton" id="picture">Cancel</div>
 
-<div class="row"></div>
-<hr class="modalline-slide"/>
+
 <div class="guidelines-text-light">
 Please make sure you own the rights to the image.
     </div>
@@ -46,7 +44,7 @@ Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", n
 <% end %> 
 
 </div>
-</div>
+
 
 <script>
 function readURL(input) {

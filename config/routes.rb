@@ -13,7 +13,10 @@ Omrails::Application.routes.draw do
 
 resources :posts, :path => "news" do
    member do
-    post "sort" => "questions#sort"
+    post "sort" => "comments#sort"
+  end
+   member do
+    get 'question_form'
   end
    collection { post :sort }
   member do
@@ -91,6 +94,7 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get 'news/:id/topquestions', to: 'posts#showtopquestion', as: :topquestions
   get 'news/:id/answersmore', to: 'posts#showanswersmore', as: :answersmore
   get 'news/:id/ordered', to: 'posts#ordered', as: :ordered
+  get 'news/:id/new_posts', to: 'posts#new_posts', as: :new_posts
   get 'comments/:id/unpublished', to: 'comments#unpublished', as: :unpublished
   get '/admin', to: 'posts#admin', as: :admin
   get '/admin/questions', to: 'pages#admin_questions', as: :adminquestions
@@ -98,6 +102,9 @@ controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: :registra
   get '/admin/replies', to: 'pages#admin_replies', as: :adminreplies
   get '/following', to: 'pages#following', as: :following
   get 'top', to: 'posts#top', as: :top
+  get  '/image_form', to: 'posts#image_form', as: :image_form
+  get  '/search-news', to: 'posts#search', as: :search
+
 
    devise_scope :user do
     get "/info" => "registrations#info"

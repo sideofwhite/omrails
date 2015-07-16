@@ -3,9 +3,7 @@
  .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
 </style>
 <% end %>
-<style>
-  .read-more-<%= @comment.id %> { opacity: 0.4;}
-</style>
+
 
 
  <div class="imagestrip">
@@ -20,19 +18,12 @@
   <% end %>
 <% end %>
 
-<% if @comment.published %>
-<% if user_signed_in? %>  
-  <div id="logged-in" class="bluecircle white">+</div>
-<% else %>  
-<div class="bluecircle white" id="login-recommend-add">+</div>
-<% end %>
-<% end %>
 
 <div class="absolutecontainer">
  <div class="relativecontainer">
   <div class="descriptionmargin"> 
 
-   <div class="eventimagepreviewtext">
+   <div class="eventimagepreviewtext" style="margin-right: 0px;">
      <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
    </div>
 
@@ -53,7 +44,7 @@
 <div class="width6">
 
 
-<div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 20px; margin-left: 30px;">
+<div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 10px; margin-left: 20px;">
 <div class="submit-share">
 Share
 </div>  
@@ -98,58 +89,30 @@ Following
 
 <div class='row'></div>
 
-<hr style="margin-bottom: 10px; margin-top: 10px;"/>
+<hr class="full-length"/>
+<% if @comment.published %>
+<% if user_signed_in? %>  
+  <div id="logged-in" class="bluecircle2 white">+</div>
+<% else %>  
+<div class="bluecircle2 white" id="login-recommend-add">+</div>
+<% end %>
+<% end %>
 
 
-
-<div class="under-question-info">
+<div style="margin-top: 10px;"></div>
 <% if @published.count > 1 %>
-<div class="dividerhead" style="margin-bottom: 3px;">
+<div class="dividerhead" style="margin-left: -35px; margin-bottom: 0px;">
  1 OF <%= pluralize(@published.count, 'Answer').upcase %>
 </div>
 <% else %>
-<div class="dividerhead" style="margin-bottom: 3px;">
+<div class="dividerhead" style="margin-left: -35px; margin-bottom: 0px;">
 1 ANSWER
 </div>
 <% end %>
-</div>
-
-
-<% if @comment.info.present? %>
-<div class="under-question-info">
-
-<div class="dividerhead" style="margin-bottom: 0px;">
-QUESTION INFO
-</div>
-
-<div class="questionsdetailsbox-show">
-
-
-    
-  <% if @comment.info.length > 130 %>
-    <%= truncate(@comment.info, length: 130) %>
-    <%= link_to 'More', '', class: "blue" %>
-    <script>
-      $('.read-more-<%= @comment.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript @comment.info %>')
-      })
-    </script>
-  <% else %>
-    <%= @comment.info %>
-  <% end %>
 
 
 
-<%= link_to  url_for(@comment.link), :target => "_blank" do %>
-<i class="fa fa-link"></i>
-<% end %>
- 
 
-</div>
-</div>
-
-<% end %>
 
 
 
@@ -160,6 +123,24 @@ QUESTION INFO
 
 
 <%= render 'questions/question' %>
+
+
+
+<% if user_signed_in? %>
+
+<hr style="margin-bottom: 15px;"/>
+
+<div class="small-avatar-feed-test">
+<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user) %>
+</div>
+
+<div class="largename">
+<%= link_to 'Write answer....', new_comment_question_path(@question.comment), class: "blue" %> 
+</div> 
+
+<div class="row"></div>
+<% end %>
+
 
 
 
@@ -187,11 +168,11 @@ MORE ANSWERS
 
 
 
-<div class="imagestrip" style="height: 150px; margin-top: 60px;">
+<div class="imagestrip" style="height: 125px; margin-top: 60px;">
   <div class='darker'></div>
   <div class="absolutecontainer">
  <div class="relativecontainer">
-  <div class="descriptionmargin" style="margin-bottom: 25px;"> 
+  <div class="descriptionmargin" style="margin-bottom: 25px; margin-right: 0px;"> 
 
    <div class="eventimagepreviewtext">
      <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
@@ -283,7 +264,7 @@ Share to Facebook and Twitter
 
 <script>
 
-$('#logged-in.bluecircle, #logged-in.dividerheadinline, .close-modal-slide').click(function () {
+$('#logged-in.bluecircle2, #logged-in.dividerheadinline, .close-modal-slide').click(function () {
         $('.fullpage-modal').toggle('slide', {
             direction: 'top'
         }, 300);

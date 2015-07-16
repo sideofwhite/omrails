@@ -30,6 +30,7 @@ gem 'tinymce-rails'
 gem 'acts_as_list'
 gem 'deadweight'
 gem 'truncate_html'
+gem "auto_html"
 
 # Use sqlite3 as the database for Active Record
 group :production do

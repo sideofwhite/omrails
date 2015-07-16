@@ -4,99 +4,98 @@
    .profileimage-banner { background-image: url(<%= link.question.comment.post.pictures.first.image %>); }
  </style>
 <% end %>
-<% else %>
-<style media="screen">
-.navbar .brand { background: rgba(51,51,51,0.3); }
-.fa-bell { background-color: rgba(51,51,51,0.3);}
-</style>
  <% end %>
 
 
-<div class="profileimage-banner">
-<% if @links.present? %>  
+<div class="imagestrip">
+   
+
 <div class="darker"></div>
-<% end %>
+
 
 <div class="absoluteheader">
   <%= render 'layouts/headerimage_login' %>
  </div>
 
+<% if @links.present? %>
+<div class="absolutecontainer">
+ <div class="relativecontainer">
+  <div class="descriptionmargin" style="margin-left: 140px; margin-bottom: 15px;"> 
+<% @links.limit(1).each do |link| %>
+<div style="float: right;">
+   <div class="eventimagepreviewtext" style="font-size: 12px;">
+     <%= link_to (link.question.comment.post.title), post_path(link.question.comment.post), class: "whiteblue" %>
+   </div>
+</div>
+<% end %>
 
+<div class='row'></div>
+    
 
-<div class="absolutecontainer" style="top: 0;">
-<div class="relativecontainer" style="height: 100%;">
-<div class="profile-banner" style="height: 100%;">
-
-<div class="element-vertical">
-
-<%= render 'profile_head' %>
+   </div>
+  </div>
+ </div>
+<% end %>
 
 </div>
-</div>
-</div>
-</div>
-</div>
 
-
-
-
-
-</div>
-
-
-<div class="blueprofileex">
 
 <div class="width6">
+<%= render 'profile_head' %>
 
-<div class="nav-container-profile-selected"> 
+<div class="profile-banner-info" style="float: right;">
+<div class="float: right">
 
-<div class="selected-toggle-number">
-<%= @links.count %>
-</div>
-<div class="selected-toggle">
-Replies
-</div>
-
-</div>
-
-
-<div style="display: inline-block; float: right;">
-
-<div class='select-toggle-line'>
+<ul class="menu" style="float: right; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 20px;">
 
 <%= link_to user_path(@user) do %>
-<div class="nav-container-profile"> 
+<li class="profile-menu-item">
+<div class="select-toggle">
+Recommended
+</div> 
 <div class="select-toggle-number">
 <%= @questions.count %>
 </div>
-<div class="select-toggle">
-Recommended
-</div>
-</div>
+</li>
 <% end %>
 
-</div>
-
-
 <%= link_to allanswers_path(@user) do %>
-<div class="nav-container-profile" style="margin-right: 0px;"> 
-<div class="select-toggle-number">
-<%= @comments.count %>
-</div>
+<li class="profile-menu-item">
 <div class="select-toggle">
 Answers
 </div>
+<div class="select-toggle-number">
+<%= @comments.count %>
 </div>
+</li>
 <% end %>
 
+
+<li class="profile-menu-item" style="padding-right: 0px;">
+<div class="selected-toggle">
+Replies
 </div>
+<div class="selected-toggle-number">
+<%= @links.count %>
+</div>
+</li>
+
+
+
+</ul>
 
 
 </div>
+</div>  
+
+
+<div class="row"></div>
+
+
+<hr class='dividerline'/>
+<div class="dividerhead">
+REPLIES
 </div>
-
-
-<div class="width6">
 
 <% if @links.blank? and @user == current_user %>
 <div class="nonew-outside"><span class="nonew-notifications-profile">
@@ -104,7 +103,7 @@ Answers
 </span></div>
 <% elsif @links.blank? %>
 <div class="nonew-outside"><span class="nonew-notifications-profile">
-    <%= @user.name %> hasn't replied to any answered yet.
+    <%= @user.name %> hasn't replied to any answers yet.
 </span></div>
 <% end %>
 

@@ -26,6 +26,18 @@ World
 </div>
 <% end %>
 
+
+<% if request.path == '/tags/world' %>		
+<div class="questionnavbar50home">
+U.S.
+</div>
+<% else %>
+<div class="questionnavbar51b">
+<a href="/tags/world" style=" text-decoration: none !important;" class="hoverblue2"  >U.S.</a>
+</div>
+<% end %>
+
+
 <% if request.path == '/tags/politics' %>		
 <div class="questionnavbar50home">
 Politics

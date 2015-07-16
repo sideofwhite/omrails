@@ -15,9 +15,9 @@
 <%= link_to (current_user.name), user_path(current_user), class: "blue" %>	
 </div>
 
-
- <%= f.input :description, as: :text, input_html: { rows: "1", :class => "createcomment" }, label: false,placeholder: "Add a comment..." %>
-
+<div id="<%= question.id %>">
+ <%= f.input :description, as: :text, input_html: { rows: "1", :class => "createcomment", :id => "#{question.id }" }, label: false,placeholder: "Add a comment..." %>
+</div>
 
 <div class="row"></div>
 
@@ -46,4 +46,12 @@ Please read Podium's <%= link_to "reply guidelines", guidelines_path(:anchor => 
 <% end %>
 
 <% end %>
+
+<script>
+
+$(document).ready(function() {
+  return $("#<%= question.id %>").autosize();
+});
+
+</script>
 

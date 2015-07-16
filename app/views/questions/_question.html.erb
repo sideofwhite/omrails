@@ -1,43 +1,38 @@
-<div id="question_<%= @question.id %>" style="margin-top: 35px;">
+<div id="question_<%= @question.id %>">
 
 
-<div class="answer-profile-float">
-<div class="smallavatarfeednomargin2">
+
+<div class="small-avatar-feed-test">
 <%= link_to (image_tag(@question.user.image(:thumb))), user_path(@question.user) %>
 </div>
 
-
 <div class="largename">
-<%= link_to (@question.user.name), user_path(@question.user), class: "blue" %>
-</div>  
+<%= link_to (@question.user.name), user_path(@question.user), class: "blue" %> 
+</div> 
 
-<div class="hidden-phone">
-<hr class="line30" style="margin-top: 0px; margin-bottom: 6px;"/>
-</div>
-
-<div class="date-answer">
-<%= time_ago_in_words(@question.created_at) %> ago
-</div>
 
 <div class="row"></div>
 
-</div>
-
-
-<div class="answer-overflow">
+<div style='margin-top: 15px;'>
 
 
 <div class="large-image">
 <%= sanitize @question.body_format, :tags => %w"p img" %>
 </div>
+</div>
 
 <% if @question.title.present? %>
 <div class="answertitle">
+<i class="fa fa-twitter" style="font-size: 14px; color: #0079ff; float: left; margin-right: 5px;"></i>
+<div style="font-size: 12px; color: #0079ff;">
+@nevanwhiteside
+</div>
+<div style="margin-top: 5px;"></div>
 <%= @question.title %>
 </div>
 <% end %>
 
-<hr class="line30" style="margin: 20px 0px 23px 0px">
+
 
 <div class="row"></div>
 
@@ -92,6 +87,10 @@
 
 <div class="replies-button-text-share">
 Share 
+</div>
+
+<div class="replies-button-text-share">
+<%= time_ago_in_words(@question.created_at) %> ago
 </div>
 
  <% if current_user == @question.user or current_user.try(:admin?) %>
@@ -266,7 +265,7 @@ $(document).ready(function() {
 
 
  
-</div>
+
 
 
 

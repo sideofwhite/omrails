@@ -1,3 +1,5 @@
+
+
 <% @questions.group_by {|q| q.comment.post}.take(5).each_with_index do |(post, questions), i| %>
 
 
@@ -9,6 +11,11 @@
 
 <% if i == 0 %>
 
+
+<div class="dividerhead">
+MORE FROM <%= link_to (post.title), post_path(post) %>
+</div>
+
 <div class="event-orangeHead"></div>
 
 <div class="userprofile-event">
@@ -18,36 +25,47 @@
 </div>
 </div>
 
-<hr class="linelinks" style="width: 30%; margin-top: 20px;"/>
+
 
 <% else %>
 
+<% if i == 1 %>
+<hr class='dividerline'/>
+<div class="dividerhead">
+ALL RECOMMENDED
+</div>
+<% end %>
+
 <div class="event-orangeHead"></div>
-<div style="overflow: hidden; float: left;">
-<div class="userprofile-event">
-<%= link_to (post.title), post_path(post) %>
-<div class="timeline-description" style='line-height: 1.45;'>
+
+
+<% if post.pictures.present? %>
+<div class="home-feed-image" style='background-image: url(<%= post.pictures.first.image %>)'>
+<% else %>
+<div>
+<% end %>
+
+
+<div class="darker" style="opacity: 0.2;"></div>
+
+</div>
+
+<div class="userprofile-event" style="color: #018bc6; font-size: 16px; display: inline-block;  overflow: hidden;">
+<%= link_to (post.title), post_path(post), class: "blue" %>
+<div class="timeline-description" style='line-height: 1.45; color: rgba(51,51,51,0.75); margin-right: 40px;'>
   <%= truncate(post.description, :separator => ' ', length: 110) %>  
 </div>
-</div>
-</div>
 
 
+
+<hr class="linelinks" style="margin-top: 15px; margin-bottom: 0px; width: 30%;"/>
+
+</div>
 
 <div class="row"></div>
+<div style="margin-top: 10px;"></div>
 
-<div class="eventfeedimage-profile" style="background-image: url(<%= post.pictures.first.image %>);">
-  <div class="darker" style="opacity: 0.3;"></div>
 </div>
-
-
-
-
-
-
-
-<div class="row"></div>
-<div style="margin-bottom: 35px;"></div>
 
 
 

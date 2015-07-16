@@ -1,280 +1,45 @@
+<div class="width6">
+
+<hr class='dividerline'/>
+<div class="dividerhead">
+NEW STORIES
+</div>
+
+
 <% @posts.each_with_index do |post, i| %>
 
 
-
-
-
-
-
-<% if @posts.current_page == 1 and i == 0 %>
-
-
-<%= link_to post_path(post) do %>
-
+<div class="event-orangeHead"></div>
 
 <% if post.pictures.present? %>
-  <div class="experimentstrip" style="background-image: url(<%= post.pictures.last.image %>);">
+<div class="home-feed-image" style='background-image: url(<%= post.pictures.first.image %>)'>
 <% else %>
-  <div class="experimentstrip">
+<div>
 <% end %>
 
-<div class="darker"></div>
-
-<% if user_signed_in? %>
-
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-</div>
-
-<% if current_user.try(:admin?) %>
-<%= link_to admin_path do %>
-<i class="fa fa-bars"></i>
-<% end %>
-<% end %>
-
-<div class="absoluteheader" style="margin-left: 148px; width: 80%;">
-<%= render 'layouts/headercategories' %>
-</div>
-
-<% else %>
-
-
-<div class="absoluteheader">
-<%= render 'layouts/headercategories' %>
-</div>
-
-<% end %>
-
-
-
-
-
-
-<div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin-story"> 
-
-
-<% if post.event == false %>
-<div class="titletextunderneath">
-  <%= pluralize(post.comments.count, "Question") %> | <%= pluralize(post.questions.count, "Answer") %>
-</div>
-<div class="posttext2">
-  <%= link_to (post.title), post_path(post), class: "white" %> 
-</div>
-
-<% else %>
-<%# timeline %>
-
-<div class="eventimagepreviewtext">
-   <%= link_to (post.title), post_path(post), class: "whiteblue" %>
-</div>
-<hr class="whiteimageline"/>
-<% post.events.limit(1).each do |event| %>
-<%= link_to post_event_path(event.post, event) do %>
-<div class="timeline-dot-index">
-</div>
-<div class="timeline-content-home">
-<div class="timeline-date-index">
-<%= time_ago_in_words(event.created_at) %> ago
-</div>
-<%= event.title %>
-</div>
-<div class="timeline-bottom-index"></div>
-<div class="timeline-bottom-index"></div>
-<% end %>
-
-<% end %>
-
-
-
-
-<% end %>
-
-
-
-   </div>
- </div>
-</div>
+<div class="darker" style="opacity: 0.2;"></div>
 
 </div>
 
-
-<% end %>
-
-
-
-<% else %>
-
-
-
-<%= link_to post_path(post) do %> 
-
-
-<% if post.pictures.present? %>
-  <div class="experimentstrip" style="background-image: url(<%= post.pictures.last.image %>); height: 350px; margin-top: 50px;">
-<% else %>
-  <div class="experimentstrip" style="height: 300px; margin-top: 50px;">
-<% end %>
-
-
-
-
-<div class="darker"></div>
-
-<div class="absolutecontainer">
-<div class="relativecontainer">
-<div class="descriptionmargin-story"> 
-
-
-
-<% if post.event == false %>
-<div class="titletextunderneath">
-  <%= pluralize(post.comments.count, "Question") %> | <%= pluralize(post.questions.count, "Answer") %>
-</div>
-<div class="posttext2" style="font-size: 34px;">
-  <%= link_to (post.title), post_path(post), class: "white" %> 
-</div>
-
-<% else %>
-
-<%# timeline %>
-
-<div class="eventimagepreviewtext">
-   <%= link_to (post.title), post_path(post), class: "whiteblue" %>
-</div>
-<hr class="whiteimageline"/>
-<% post.events.limit(1).each do |event| %>
-<%= link_to post_event_path(event.post, event) do %>
-<div class="timeline-dot-index">
-</div>
-<div class="timeline-content-home">
-<div class="timeline-date-index">
-<%= time_ago_in_words(event.created_at) %> ago
-</div>
-<%= event.title %>
-</div>
-<div class="timeline-bottom-index"></div>
-<div class="timeline-bottom-index"></div>
-<% end %>
-
-
-<% end %>
-
-
-
-
-<% end %>
-
-
-
-   </div>
-  </div>
- </div>
+<div class="userprofile-event" style="color: #018bc6; font-size: 16px; display: inline-block;  overflow: hidden;">
+<%= link_to (post.title), post_path(post), class: "blue" %>
+<div class="timeline-description" style='line-height: 1.45; color: rgba(51,51,51,0.75); margin-right: 40px;'>
+  <%= truncate(post.description, :separator => ' ', length: 110) %>  
 </div>
 
 
 
-
-<% end %>
-
-
-
-
-
-
-
-<% end %>
-
-
-
-
-
-<div class="width6">
-
-<div style="margin-bottom: 30px !important;"> 
-</div>  
-
-<div class="p3">  
-<%= truncate(post.description, :separator => ' ', length: 150) %>
-</div>
-
-<div style="padding-top: 10px "></div>
-
-<div class="row"></div>
-
-<div class="linklogoimage">
-<%= image_tag (post.image) %>
-</div>
-
-<%= link_to (post.domain), url_for(post.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left; line-height: 24px; margin-right: 3px;" %>
-
-<div class="readmore" style=" display: inline; line-height: 24px;">
-<div style="display: inline; color: rgba(51,51,51,0.5);">
-•
-</div>
-
-<%= link_to post_path(post) do %>
-<div class="blue" style="display: inline;">
-Full Story
-</div>
-<% end %>
+<hr class="linelinks" style="margin-top: 15px; margin-bottom: 0px; width: 30%;"/>
 
 </div>
 
 <div class="row"></div>
-
-
-</div>
-
-
-<% if post.questions.where(:hide => true, :recommend => true).present? %>
-
-<hr class='dividerline'/>
-
-<div class="width6">
-
-<div class="dividerhead">
-ANSWERS
-</div>
-
-
-<% post.questions.where(:hide => true, :recommend => true).limit(2).each_with_index do |question, i| %>
-
-
-  <%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
-
-
-  <% unless (i + 1) == post.questions.where(:hide => true, :recommend => true).limit(2).count %>
-  <hr style="width: 30%;"/>
-  <% end %>
-
+<div style="margin-top: 0px;"></div>
 
 
 
 <% end %>
 
-
-<%= link_to post_path(post) do %>
-<div class="go-story">
-Go to story
 </div>
-<% end %>
-</div>
-
-<div class='row'></div>
-
-
-
-
-
-<% end %>
-
-
-
-
-<% end %>
-
-
 
 

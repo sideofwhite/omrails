@@ -20,11 +20,11 @@ Edit
   <%= f.error_notification %>
 
 
-<%= f.input :email, input_html: { :class => "infoform" }, placeholder: "Your Email", label: "Email" %>
+<%= f.input :email, input_html: { :class => "infoform", :maxlength => 140 }, placeholder: "Your Email", label: "Email" %>
 <div class="row"></div>
-<%= f.input :place, input_html: { :class => "infoform" }, placeholder: "Where do you live?", label: "Location" %>
+<%= f.input :place, input_html: { :class => "infoform", :maxlength => 140 }, placeholder: "Where do you live?", label: "Location" %>
 <div class="row"></div>
-<%= f.input :age, input_html: { :class => "infoform-text", :maxlength => 140 }, placeholder: "A short bio", label: "Bio" %>
+<%= f.input :age, as: :text, input_html: { :class => "infoform-text", :maxlength => 140 }, placeholder: "A short bio", label: "Bio" %>
 <hr class="modalline-slide"/>
 
 

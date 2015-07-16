@@ -1,195 +1,158 @@
-<% if @comment.post.pictures.present? %>
-<style media="screen">
- .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
-</style>
-<% end %>
 
 
 
- <div class="imagestrip">
-  <div class='darker'></div>
-   <div class="absoluteheader">
-     <%= render 'layouts/headerimage' %>
-   </div>
 
-<% if current_user.try(:admin?) %>
-  <%= link_to edit_post_comment_path(@comment.post, @comment) do %>
-    <i class="fa fa-pencil-square-o"></i>
-  <% end %>
-<% end %>
-
-<% if @comment.published %>
-<% if user_signed_in? %>  
-  <div id="logged-in" class="bluecircle white">+</div>
-<% else %>  
-<div class="bluecircle white" id="login-recommend-add">+</div>
-<% end %>
-<% end %>
-
-<div class="absolutecontainer">
- <div class="relativecontainer">
-  <div class="descriptionmargin"> 
-
-   <div class="eventimagepreviewtext">
-     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-   </div>
-
-    <hr class="whiteimageline"/>
-
-    
-     <% if @comment.events.present? %>
-      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
-      <% end %>
-
-   </div>
-  </div>
- </div>
-
-
+<% if @comment.post.image.present? %>
+<div class='home-feed-image' style=" background-image: url(<%= @comment.post.image %>); height: 175px; margin-bottom: -3px;">
+  <div style="border-top: 0px solid #0882d1; padding: 13px  0px 11px 0px;  font-size: 14px; font-weight: 900; background-color: rgba(255,255,255,1); position: absolute; bottom: 0; right: 0; left: 0; text-transform: uppercase; margin-bottom: 2px;">
+<div class="width7">
+<%= @comment.post.title %>
+<div style="color: rgba(51,51,51,0.5); display: inline; margin-left: 10px; text-transform: none; font-weight: 400;">
+<%= @comment.post.created_at.strftime("%B %d, %Y") %>
 </div>
 
-<div class="width6">
-
-
-
-
-<div class="buttons-container">
-<% if user_signed_in? %>
-<div class="submit-share">
-Share
-</div>  
-<% else %>
-<div class="submit-share" id="share-signin">
-Share
-</div> 
-<% end %>
-
-
-
-<% if user_signed_in? %>
-
-<% if current_user.voted_for? @comment %>
-<div class="submitblue-small-clicked">
-Following
+<div style="display: inline; float: right;">
+<i class="material-icons icon-on-image" style="color: #0882d1; line-height: 1; font-size: 16px; margin-top: -1px;">share</i>
 </div>
-<% else %>
-
-<div id="<%= @comment.id %>" style="display: inline;">
-<%= link_to upvote_post_comment_path(@comment.post, @comment), remote: true, method: :put do %>
- <div class="submitblue-small" id="follow-<%= @comment.id %>">
-   Follow
- </div>
-<% end %>
 </div>
- <div class="submitblue-small-clicked" style="display: none;" id="followed-<%= @comment.id %>">
-Following
+</div>
 </div>
 <% end %>
 
-<% else %>
-<div class="submitblue-small" id="login-recommend-add">
-   Follow
- </div>
-<% end %>
+
+<% if @comment.title.present? %>
+
+
+<div class="width7">
+
+<hr/>
+
+<%# locked %>
+<% unless @comment.published %>
+<div style="border: 1px solid rgba(51,51,51,0.1); padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 1px -2px rgba(0,0,0,0.15);">
+<i class="material-icons lock">lock_outline</i>
+<div style="font-weight: 300; font-size: 24px; display: inline-block; margin-bottom: 5px;">
+This question is locked.
+</div>
+<div style="font-weight: 300; font-size: 18px; display: inline-block; line-height: 1.3;">
+Editors need to review this question before it is unlocked to answers.
+</div>
+</div>
+<% end %>  
+
+
+<div class="row"></div>
+
+<div class="width5and1">
+
+<div style="font-size: 40px; font-weight: 500; margin-top: -10px; font-weight: 700;">
+What could we do to stop this deadly contagious virus?
+</div>
+<hr/>
+
+
+<div class="width5">
+
+<div class='row'></div>
+<div class="small-avatar-feed-test">
+<%= image_tag("https://pbs.twimg.com/profile_images/420590214591963136/X1f-jmZN_400x400.jpeg") %>
+</div>
+
+<div style="font-size: 16px; margin-bottom: 4px; padding-top: 13px; color: #0882d1; font-weight: bold;">
+Molly Aguiar
+</div>
+<div style=" font-size: 14px; opacity: 0.5;">
+Director of Media grants for the Geraldine R. Dodge Foundation
 </div>
 
 
+<div class="row"></div>
+
+<div style="margin-top: 25px;"></div>
 
 
- <div class="titlecontainer">
-  <%= @comment.title %>
- </div>
+<i class="material-icons" style="font-size: 16px; color: rgba(51,51,51,0.5); margin-right: 10px; font-weight: bold; margin-bottom: 10px; float: left;">check</i>
 
-
+<div style="display: inline-block; font-size: 12px; color: #0882d1; line-height: 20px;">
+Nevan Whiteside, Jon Adams <div style="display: inline; color: rgba(51,51,51,0.5);">and 3 others</div>
+</div>
 
 
 <div class='row'></div>
 
-<hr style="margin-bottom: 10px; margin-top: 10px;"/>
+
+<p>
+  After folding my first company (at 25), I did a retrospective and counted 32 different projects — most of them, whole new products or product variations — I’d started (and almost never completed) in the prior year. I realized this may have had something to do with my failure.
+</p>
+<p>
+  After folding my first company (at 25), I did a retrospective and counted 32 different projects — most of them, whole new products or product variations — I’d started (and almost never completed) in the prior year. I realized this may have had something to do with my failure.
+</p>
 
 
-
-<div class="under-question-info">
-<% if @comment.published %>
-<div class="dividerhead" style="margin-bottom: 3px;">
-<%= pluralize(@published.count, 'Answer').upcase %>
-</div>
-<% else %>
-<div class="dividerhead" style="margin-bottom: 3px;">
-0 ANSWERS
-</div>
-<div class="unpublished-box" style='width: 100%; margin-top: 15px;'>
-<div class="blue">Locked Question</div>
-<div style="margin-top: 5px"></div>
-This question has not been reviewed by editors to confirm it follows Podium's <%= link_to "question guidelines", guidelines_path, class: "blue" %>.
-</div>
-<% end %>  
+<div style="background: #7CB342; padding: 6px 9px; border-radius: 1px; font-size: 12px; color: #fff; display: inline-block; box-shadow: 1px 1px 1px 0px rgba(51, 51, 51, 0.1); font-weight: bold; float: left; margin-right: 15px;">
+<i class="material-icons" style="font-size: 16px; color: #fff; margin-right: 5px; font-weight: bold; float: left;">check</i> <div style="line-height: 16px; display: inline;">Recommend</div>
 </div>
 
+<i class="material-icons" style="color: rgba(51,51,51,0.5); float: left; font-size: 16px; line-height: 28px;">mode_comment</i>
 
-<% if @comment.info.present? %>
-<div class="under-question-info">
+<div class="row"></div>
 
-<div class="dividerhead" style="margin-bottom: 0px;">
-QUESTION INFO
-</div>
-
-<div class="questionsdetailsbox-show">
-
-
-    
-  <% if @comment.info.length > 130 %>
-    <%= truncate(@comment.info, length: 130) %>
-    <%= link_to 'More', '', class: "blue" %>
-    <script>
-      $('.read-more-<%= @comment.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript @comment.info %>')
-      })
-    </script>
-  <% else %>
-    <%= @comment.info %>
-  <% end %>
-
-
-
-<%= link_to  url_for(@comment.link), :target => "_blank" do %>
-<i class="fa fa-link"></i>
-<% end %>
- 
-
-</div>
-</div>
-
-<% end %>
-
+<hr/>
 
 
 <div class="row"></div>
 
-<div class="answer-feed-margin"></div>
 
-
+<%# tweet %>
 <% if @comment.published and @published.blank? %>
-<div class="half-width">
-<hr class="line30" style="margin-top: 20px; margin-bottom: 10px;"/>
-<div class="timeline-date" style="margin-bottom: 17px; color: #018bc6;">
-Share question on Twitter
+<div class="no-answers-yet">
+No Answers Yet
+<div style="font-size: 16px;">
+There are no answers yet.
+</div>
+</div>
+
+
+<div style="border: 1px solid rgba(51,51,51,0.1); padding: 20px; margin-bottom: 20px;">
+
+<i class="fa fa-twitter" style="color: #55acee; font-size: 24px; margin: 0px; display: inline-block; float: right;"></i>  
+
+
+<div class="tweet-avatar">
+<%= image_tag current_user.image %>
+</div>
+<div class="tweet-user-container">
+<div class="tweet-name">
+<%= current_user.name %>
+</div>
+<div class="tweet-username">
+@nevanwhiteside
 </div>
 
 <div class="welcome-twitter-share">
-<%= @comment.title %>
+<%= @comment.title %> Read more at <div class="blue" style="display: inline;">http://readpodium.com/news/fire-burns</div>
 </div>
+</div>
+
+
+
+<div class="row"></div>
+
 
 
 <%= link_to "http://twitter.com/home?status=[Tagline here]. Check out Podium at readpodium.com", :target => "_blank" do %>
-<div class="submitblue-small" style="float: right;">
-<i class="fa fa-twitter-square" style="font-size: 13px;"></i> Tweet
-</div>
+<div class="button-text-upper" style="color: #55acee;">Tweet</div>
 <% end %>
+<div class="button-text-upper cancel-upper" style="font-size: 12px; line-height: 16px; text-transform: none; font-weight: 300;">You can edit before posting</div>
+
 <div class="row"></div>
+
 </div>
 <% end %>
+
+
+
+
 
 
 
@@ -200,7 +163,6 @@ Share question on Twitter
 </div>
 
 <%= will_paginate @questions %>
-
 
 
 
@@ -227,53 +189,91 @@ These answers have not been reviewed by editors to confirm they follow Podium's 
 <% end %>
 
 
+<% if user_signed_in? %>
+<hr/>
+
+<div class="addanswer-item">
+
+<div style="position: absolute;">
+<div class="small-avatar-feed-square">
+<%= image_tag(current_user.image) %>
+</div>
+</div>
+
+<div style="position: absolute; top: 13px; right: 20px;">
+<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2); float: left;">+ Answer</div>
+</div>
+
+
+</div>
+
+
+<div class="row"></div>
+
+
+
+
+<hr style="margin-bottom: 20px;"/>
+
+<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2); float: left;"><i class="fa fa-twitter" style="color: #fff; font-size: 14px; margin: 0px; display: inline-block; margin-right: 3px;"></i>  Sign up</div>
+
+<div class="interstitial-text">
+Sign in with Twitter to add an answer.
+</div>
+
+
+
+<% end %>
+
+
+
+
 <% if @related.where("comments.id NOT IN (?)", @comment.id).present? %>
 <hr class="dividerline"/>
 <div class="dividerhead">
-RELATED ANSWERS
+Related Posts
 </div>
-<% @related.where("comments.id NOT IN (?)", @comment.id).limit(2).each do |question| %>
-<%= render :partial => 'layouts/answersfeed', locals: {question:question} %>
-<hr style="width: 30%;"/>
-</div>
+<% @related.where("comments.id NOT IN (?)", @comment.id).limit(2).each do |comment| %>
+<%= render :partial => "layouts/#{comment.feed}_post", locals: {comment:comment} %>
+
 <% end %>
 
 <% end %>
 
 </div>
 
+</div>
 
-<% if @questions.count > 0 or @related.where("comments.id NOT IN (?)", @comment.id).present? %>
-<div class="imagestrip" style="height: 150px; margin-top: 60px;">
-  <div class='darker'></div>
-  <div class="absolutecontainer">
- <div class="relativecontainer">
-  <div class="descriptionmargin" style="margin-bottom: 25px; margin-right: 0px;"> 
+<div class="width2">
 
-   <div class="eventimagepreviewtext">
-     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-   </div>
+<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; float: right; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2);">+ Answer</div>
 
-    <hr class="whiteimageline"/>
+<div class="row"></div>
 
+<hr class="feedline"/>
 
-   </div>
-  </div>
- </div>
+<div style="background-color: rgba(51,51,51,0.1); height: 200px;"></div>
 
 </div>
+
+
+</div>
+
+
+
+
 
 <% else %>
 
-<div class="sixty"></div>
+
+<%= render 'notquestion' %>
 
 <% end %>
 
 
+<div class="row"></div>
 
-
-
-
+<div class="sixty"></div>
 
 <div class="fullpage-modal-container"> 
 
@@ -296,38 +296,12 @@ RELATED ANSWERS
 
 <% if user_signed_in? %>
 
-<div class="blue-slider-position">
-
-<div class="share-social" style="display: none;">
-   <div class="blue-slider">
-    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
-    <div class="infopage-boldtext" style="font-size: 14px; color: rgba(255,255,255,1);">
-Share Question
-</div>
-<div class="infopage-smalltext" style="font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.5);">
-Share to Facebook and Twitter
-</div>
-<div style="text-align: center">
-   <%= link_to "http://twitter.com/home?status=#{@comment.title} readpodium.com#{post_comment_path(@comment.post, @comment)}", :target => "_blank" do %>
-    <i class="fa fa-twitter" style="color: white; font-size: 34px; display: inline-block; margin-right: 15px;"></i>
-   <% end %>
-   <%= link_to "http://www.facebook.com/sharer.php?u=URL", :target => "_blank" do %>
-   <i class="fa fa-facebook-square"></i>
-   <% end %>
-   </div>
- </div>
- </div>
-
-</div>
 
 
 <% else %>
 
 
-
-
-
- <div class="blue-slider-position">
+<div class="blue-slider-position">
 
 <div class="login-recommend-add-div" style="display: none;">
    <div class="blue-slider">
@@ -353,7 +327,7 @@ $('#logged-in.bluecircle, #logged-in.dividerheadinline, .close-modal-slide').cli
 </script>
 
 <script>
-$('.submit-share, .close-twitter').click(function () {
+$('.submit-share, .close-twitter, #submit-share').click(function () {
         $('.share-social').toggle('slide', {
             direction: 'right'
         }, 300);

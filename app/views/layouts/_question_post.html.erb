@@ -1,0 +1,52 @@
+
+<div class="nav-feed-text">
+?
+</div>
+
+<div class="feed-info-text">
+<%= link_to (comment.user.name), user_path(comment.user), class: "blue" %> | <%= time_ago_in_words(comment.created_at) %> ago
+</div>
+
+
+
+<div class="question-text">
+<%= link_to (comment.title), post_comment_path(comment.post, comment), class: 'blue' %>
+</div>
+
+<div class='feed-row-margin'></div>
+
+<% if comment.questions.present? %>
+
+<% comment.questions.where(:hide => true).order('cached_votes_total desc').limit(1).each do |question| %>
+
+
+<div class="small-avatar-feed-test">
+<%= link_to (image_tag(question.user.image(:thumb))), user_path(question.user) %>
+</div>
+
+<div class="largename">
+<%= link_to (question.user.name), user_path(question.user), class: "blue" %> 
+</div> 
+
+
+<div class="row"></div>
+
+<div style='margin-top: 10px;'>
+
+
+<div class="small-image">
+<%= truncate_html(sanitize(question.body.gsub(/<p>.<\/p>/,""), tags: %w(p img)), length: 200).html_safe %>
+</div>
+
+
+</div>
+
+
+
+<%= link_to 'Read more', comment_question_path(question.comment, question), class: "blue-feed"  %>
+
+
+
+
+<% end %>
+<% end %>

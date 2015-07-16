@@ -1,128 +1,38 @@
-<% if @comments.present? %>
-<% @comments.limit(1).each do |question| %>
-<style media="screen">
-   .profileimage-banner { background-image: url(<%= question.comment.post.pictures.first.image %>); }
- </style>
-<% end %>
-<% else %>
-<style media="screen">
-.navbar .brand { background: rgba(51,51,51,0.3); }
-.fa-bell { background-color: rgba(51,51,51,0.3);}
-</style>
- <% end %>
-
-
-<div class="profileimage-banner">
-<% if @comments.present? %>
-<div class="darker"></div>
-<% end %>
-
-<div class="absolutecontainer" style="top: 0;">
-<div class="relativecontainer" style="height: 100%;">
-<div class="profile-banner" style="height: 100%;">
-
-<div class="element-vertical">
-
 <%= render 'profile_head' %>
 
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<div class="width7">
 
 
 
 
 
-<div class="absoluteheader">
-  <%= render 'layouts/headerimage_login' %>
-</div>
+<div class="width5">
 
-
-
-</div>
-
-
-
-<div class="blueprofileex">
-
-<div class="width6">
-
-
-<div class="nav-container-profile-selected"> 
-<div class="selected-toggle-number">
-<%= @comments.count %>
-</div>
-<div class="selected-toggle">
-Answers
-</div>
-</div>
-
-
-
-<div style="display: inline-block; float: right;">
-
-<div class='select-toggle-line'>
 
 <%= link_to user_path(@user) do %>
-<div class="nav-container-profile"> 
-<div class="select-toggle-number">
-<%= @questions.count %>
-</div>
-<div class="select-toggle">
-Recommended
-</div>
-</div>
+<div class="posts-nav-no-blue">Posts</div>
 <% end %>
-
-</div>
-
-
-
-<%= link_to allcomments_path(@user) do %>
-<div class="nav-container-profile" style="margin-right: 0px;"> 
-<div class="select-toggle-number">
-<%= @links.count %>
-</div>
-<div class="select-toggle">
-Replies
-</div>
-</div>
-<% end %>
-
-</div>
-
-
-</div>
-</div>
+<div class="posts-nav-blue">Answers</div>
 
 
 
-
-
-
-<div class="width6">
-
-
-<% if @comments.blank? and @user == current_user %>
-<div class="nonew-outside"><span class="nonew-notifications-profile">
-   You haven't answered any questions yet. Click the blue 'plus' circle beisde a question to add an answer.
-</span></div>
-<% elsif @comments.blank? %>
-<div class="nonew-outside"><span class="nonew-notifications-profile">
-    <%= @user.name %> hasn't answered any questions yet.
-</span></div>
-<% end %>
-
-
+<div style="margin-top: 35px;"></div>
 
 
 <div id="products">
 <%= render 'users/allanswers' %>
 </div>
 
-</div>
+
 
 
 <%= will_paginate @comments %>
+
+
+</div>
+</div>
+
+
+
+

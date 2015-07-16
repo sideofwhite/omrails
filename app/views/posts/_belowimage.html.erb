@@ -1,21 +1,57 @@
 
 <% if user_signed_in? %> 
 <div class="bluecircle white" id="logged-in">+</div>
+<div id="hidden-icons" style="display: none;">
 
+ <div style="background-color: #0079ff; height: 44px; width: 44px; border-radius: 22px; text-align: center; line-height: 44px; font-size: 22px; color: #fff; margin-right: -100px; float: right; margin-top: -33px;" id="x-close">
+x
+</div>
+ 
+ <%= link_to question_form_path, :remote => true do %>
+<div style="background-color: rgba(0,121,255,0.4); height: 38px; width: 38px; border-radius: 19px; text-align: center; line-height: 38px; font-size: 16px; color: #0079ff; margin-right: -97px; float: right; margin-top: -33px; margin-top: 25px;" id="questions-button">
+?
+</div>
+<% end %>
+
+<%= link_to image_form_path, :remote => true do %>
+<div style="background-color: rgba(0,121,255,0.4); height: 38px; width: 38px; border-radius: 19px; text-align: center; line-height: 38px; font-size: 20px; color: #0079ff; margin-right: -97px; float: right; margin-top: -33px; margin-top: 73px;" id="image-button">
+<i class="fa fa-picture-o" style="font-size: 14px; color: #0079ff; margin: 0px; line-height: 38px;"></i>
+</div>
+<% end %>
+
+
+
+
+</div>
 
 <div class="fullpage-modal-container">  
 
   <div class="fullpage-modal" style="display: none;">
 <button type="button" class="close-modal-slide" data-dismiss="modal" aria-hidden="true">×</button>
 <hr class="modalline-slide" style="margin-top: 0px"/>
-  <%= render :partial => "comments/form" %>
+ 
+<div class="modal-width-slide">
+<div class="infopage-container-modal">
+
+ <div id="image_form">
+
 </div>
+</div>
+  </div>
+</div>
+
+
+
 </div>
 
 <% else %>
 
 
 <div class="bluecircle white" id="login-recommend-add">+</div>
+
+
+
+
 
 
  <div class="blue-slider-position">
@@ -34,9 +70,27 @@
 
 
  <script>
-$('#logged-in, .close-modal-slide, .modaldeclinebutton').click(function () {
+
+$("#logged-in").click(function(){
+    $("#hidden-icons").show();
+    $("#logged-in").hide();
+});
+
+$("#x-close").click(function(){
+    $("#hidden-icons").hide();
+    $("#logged-in").show();
+});
+
+
+
+
+$('#questions-button, #image-button, .close-modal-slide, .modaldeclinebutton').click(function () {
         $('.fullpage-modal').toggle('slide', {
             direction: 'top'
         }, 300);
+
     });
+
+
+
 </script>

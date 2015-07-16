@@ -1,116 +1,92 @@
-<% if @post.pictures.present? %>
-<style media="screen">
-  .experimentevent { background-image: url(<%= @post.pictures.first.image %>); }
-</style>
-<% end %>
+<% if @event.post.image.present? %>
+<div class='story-strip-image' style="background-image: url(<%= @post.image %>);">
 
-<div class="darker2">
-<div class="experimentevent">
-<div class='darker'></div>
+<div class="darker"></div>
+<div class="darker-bottom-fade"></div>
 
-<div class="absoluteheader">
-  <%= render 'layouts/headerimage' %>
-</div>
-
-  <%= render 'posts/belowimage' %>
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
-<div class="descriptionmargin"> 
-
-
-
-
-<div class="posttext2event">
-  <%= @event.title %>
-</div>
 
 <div class="eventimagepreviewtext">
-   <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
+<%= link_to (@event.post.title), post_path(@event.post), class: "whiteblue" %>
 </div>
 
-<hr class="whiteimageline"/>
-
-
-</div>
-</div>
+<div class="topimage-icon" id="sharestory-icon" style="float: right; margin: 0px;">
+   <i class="material-icons icon-on-image">share</i>
 </div>
 
 </div>
 </div>
-
-
-<div class="width6">
-<div class="descriptionmargin" style="margin-bottom: 27px !important;"> 
-</div>  
-
-
-
-<div id="event" class="eventfeedimage" style="background-image:  url(<%= @event.image %>);">
-
- <div class='darker' style="opacity: 0.1;"></div>
 </div>
-<div class="p3">  
- <%= @event.body %>
+
+<% end %>
+
+
+<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 10px; margin-bottom: 32px;">
+<div class="width7">
+
+<div style="font-size: 34px; margin: 20px 0px 20px 0px; font-weight: 700;">
+<%= @event.title %>
 </div>
-<div style="padding-top: 10px "></div>
-<%= link_to (@event.domain), url_for(@event.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left;" %>
+
+
+<div class="readmore">
+ <%= time_ago_in_words(@event.created_at) %> ago 
+</div>
+
+<div style="color: rgba(51,51,51,.5); font-weight: 500; display: inline-block; line-height: 24px; font-size: 12px; text-transform: uppercase;">
+Posts <div style="color: #0288d1; display: inline-block; font-size: 14px; line-height: 24px; font-weight: 700; margin-left: 3px;">7</div>
+</div>
+ 
+
+</div>
+
 <div class="row"></div>
 </div>
 
-<hr class="dividerline"/>
-<div class="width6">
 
 
-<% if @questions.present? %>
-<%= render 'events/questions' %>
-<% end %>
+
+<div class="width7">
+
+
+<div class="width2 padding-top">
+
+<div class="feed-source-text" style="color: #ff9800;">
+Editors
+</div>
+
+
+
+<%= link_to (@event.domain), url_for(@event.link), :target => "_blank", class: "readmore", style: "color: #333 !important; opacity: 0.5; float: left;" %>
+</div>
+
+<div class="width5">
+
+<div class="p2">  
+ <%= @event.body %>
+</div>
+
+<hr class="feed-line"/>
+
+</div>
+
+
+
 
 
 <% if @comments.present? %>
-<% unless @questions.blank? %>
-  <div class="row"></div>
-  <hr class="dividerline"/>
-<% end %>
-
 <%= render 'events/comments' %>
 <% end %>
 
 
-<% if @questions.blank? and @comments.blank? %>
-<div class="shownoactivity-text" style='margin-top: 35px;'>
-There is no activity here yet.
-</div>
-<div class="row"></div>
-<% if user_signed_in? %>
-<div class="submitblue-ask" id="logged-in" style="display: inline-block;">Ask question</div>
-<% else %>
-<div class="submitblue-ask login-recommend-add-button" style="display: inline-block;">Ask question</div>
-<% end %>
-<% end %>
 
 
 
 
 
 
-
-<% if @articles.present? %>
-<%= render 'events/articles' %>
-<% end %>
-<% if current_user.try(:admin?) %>
-
-<div class="go-story" id="add-article"> Add article </div>
-
-<div style="position: fixed; bottom: 0; right: 0; left: 0; z-index: 20;">
-<div class="form-sidebar" style="display: none;">
-<button type="button" class="close-editor" data-dismiss="modal" aria-hidden="true">×</button> 
-<div class="width6">
-<%= render 'articles/form' %>
-</div>
-</div>
-</div>
-<% end %>
 
 <% if @related.present? and @comments.blank? %>
 <%= render 'related' %>
@@ -126,58 +102,8 @@ There is no activity here yet.
 </div>
 
 
-<% if @questions.present? or @related.present? %>
-<div class="experimentevent" style="height: 150px; margin-top: 60px;">
-  <div class='darker'></div>
-  <div class="absolutecontainer">
- <div class="relativecontainer">
-  <div class="descriptionmargin" style="margin-bottom: 25px; margin-right: 0px;"> 
-
-   <div class="eventimagepreviewtext">
-     <%= link_to (@event.post.title), post_path(@event.post), class: "whiteblue" %>
-   </div>
-
-    <hr class="whiteimageline"/>
-
-
-   </div>
-  </div>
- </div>
-
-</div>
-
-<% else %>
-
-<div class="sixty"></div>
-
-<% end %>
 
 
 
 
-<script>
 
-$('#login-recommend-add, .close-twitter, .login-recommend-add-button').click(function () {
-    if($('.login').is(':visible')){
-    $('.login').fadeOut(function () {
-        $('.login-recommend-add-div').toggle('slide', {
-            direction: 'right'
-        }, 300);
-    });
-    }
-    else{
-        $('.login-recommend-add-div').toggle('slide', {
-            direction: 'right'
-        }, 300, function(){ $('.login').fadeIn();});
-    }
-});
-
-
-$('#add-article, .close-editor').click(function () {
-        $('.form-sidebar').toggle('slide', {
-            direction: 'down'
-        }, 300);
-    });
-
-
-</script>

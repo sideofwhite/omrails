@@ -4,7 +4,7 @@ Edit Question
 
 
 
-<%= simple_form_for [@post, @comment, remote: true] do |f| %>
+<%= simple_form_for [@post, @comment] do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
 <%= f.input :title, as: :text, input_html: { rows: "1", :class => "hello" }, label: false,placeholder: "Question" %>
@@ -21,7 +21,16 @@ PUBLISH
 <div class="row"></div>
 </div>
 
-
+<div class="checkboxcover">
+<div class="checkboxicon"><i class="fa fa-check"></i></div>
+<div class="floatright" style="display: inline;">
+<%= f.check_box :active, as: :boolean, input_html: { :class => "" }, label: false %>
+</div>
+<div class="buttoncheckbox2">
+Image
+</div> 
+<div class="row"></div>
+</div>
 
 
 

@@ -1,62 +1,58 @@
-<% if @post.pictures.present? %>
-<style media="screen">
-  .imagestrip { background-image: url(<%= @post.pictures.first.image %>); }
-</style>
-<% end %>
+<% if @post.image.present? %>
+<div class='story-strip-image' style="background-image: url(<%= @post.image %>);">
 
-
-<div class="darker2">
-<div class="imagestrip" style="height: 100% !important; position: fixed;">
-<div class='darker' style=" 
-opacity: 0.8; z-index: -1;"></div>
-
-<div class="absoluteheader">
-<%= render 'layouts/headerimage' %>
-
-</div>
+<div class="darker"></div>
+<div class="darker-bottom-fade"></div>
 
 
 <div class="absolutecontainer">
 <div class="relativecontainer">
 
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="width6">
- <div class="descriptionmargin" style="padding-top: 100px;"> 
-<div class="eventimagepreviewtext" style="font-size: 14px; opacity: 0.95 !important;">
+<div class="eventimagepreviewtext">
 <%= link_to (@post.title), post_path(@post), class: "whiteblue" %>
 </div>
 
-
-<hr class="whiteimageline" style="margin-bottom: 20px !important; opacity: 0.95 !important;"/>
-<div class="eventtextheader" style="color: #018bc6;">
-All Events
+<div class="topimage-icon" id="sharestory-icon" style="float: right; margin: 0px;">
+   <i class="material-icons icon-on-image">share</i>
 </div>
 
-</div> 
+</div>
+</div>
+</div>
+
+<% end %>
 
 
+<div class="width7">
+
+
+<div class="timeline-dot" style="margin-top: 20px;">
+</div>
+<div style="border: 1px solid rgba(51,51,51,0.1); padding: 80px; border-radius: 1px; margin-bottom: 20px; margin-top: 10px;">
+</div>
+
+<div class="width2">
+<div style="border-top: 1px solid rgba(51,51,51,0.1);"></div>
+</div>
+
+<div class="width5">
 <% @events.each do |event| %>
-<div class="timeline-dot-index">
+<div class="timeline-dot">
 </div>
 
 
-<div class="timeline-content-index">
+<div class="timeline-content">
 
-<%= link_to post_event_path(event.post, event), class: "white" do %>
+<%= link_to post_event_path(event.post, event) do %>
 
-<div class="timeline-date-index">
+<div class="timeline-date">
 <%= time_ago_in_words(event.created_at) %> ago
 </div>
 
 <%= event.title %>
 
-<div class="timeline-description-index">
-<%= truncate(event.body, :separator => ' ', length: 110) %>  
+<div class="timeline-description">
+<%= truncate(event.body, :separator => ' ', length: 100) %>  
 </div>
 
 
@@ -65,15 +61,13 @@ All Events
 </div>
 <% end %>
 
-<% if @events.present? %>
-<div class="timeline-bottom-index"></div>
-<div class="timeline-bottom-index"></div>
-<% else %>
-<div class="nonew-notifications" style="color: #fff; opacity: 0.99;">
+<% unless @events.present? %>
+<div class="nonew-notifications">
   No events yet.
   </div>
 <% end %>
 
+</div>
 
 </div>
 
