@@ -1,26 +1,6 @@
 
-<% if @upvoted_posts.present? %>
-
-<% @upvoted_posts.limit(1).each do |comment| %>
-
-<% if comment.post.image.present? %>
-<div class="sidebar-profile-nav" style="background-image: url(http://i.imgur.com/aisLBMi.png);">
-<div class="darker" style="opacity: 0.5; background-color: #333;"></div>	
-<% else %>
 <div class="sidebar-profile-nav">
-<% end %>
 
-<% end %>
-
-
-<% else %>
-<div class="sidebar-profile-nav">
-<% end %>
-
-
-
-<div class="absolute-profile">
-   <div style="position: relative; left: -50%;">
 
 
 <div class="avatar-border">
@@ -34,33 +14,29 @@
 <div class="userprofileimage-name">
 <%= @user.name %>
 </div>
+
 <div class="userprofileimage-username">
-@nytimes
+<i class="fa fa-twitter" style="color: #288bff; font-size: 18px; display: inline-block; margin-right: 4px;"></i> 
+@nevanwhiteside
 <% if @user.twitter.present? %> 
-<%= link_to truncate('@nevanwhiteside', length:10), "http://www.twitter.com/", :target => "_blank", style: "color: rgba(255,255,255,0.75) !important; margin-left: 5px;" %>
+<%= link_to truncate('@nevanwhiteside', length:10), "http://www.twitter.com/", :target => "_blank", style: "color: #288bff !important;" %>
 <% end %>
 </div>
 
 <% if @user.place.present? %>  
-<div style="text-align: center; margin-top: 5px;">
-<i class="material-icons location-icon">location_on</i>
-<div style="display: inline-block; color: #0882d1; font-size: 14px;">
+<div class="userprofileimage-username">
+<i class="fa fa-map-marker"></i> 
 <%= @user.place %>
-</div>
 </div>
 <% end %>
 
 
 
-
-</div>
-</div>
-
-
 <% if current_user == @user %>
 
-
+<hr style="margin-bottom: 15px;"/>
 <i class="material-icons profile-settings" id="blue-edit-profile">settings</i>
+
 
 <div class="fullpage-modal-container">  
 

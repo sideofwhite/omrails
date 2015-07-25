@@ -5,10 +5,10 @@
 
 
 <div class='home-feed-image' style="background-image: url(<%= @post.image %>);">
+<div class="darker"></div>
 
 
-
-<div class="absolutecontainer" style="top: 15px;">
+<div class="absolutecontainer" style="top: 35px;">
 <div class="relativecontainer">
 
 <%= link_to question_form_post_url(@post), :remote => true do  %>
@@ -48,22 +48,13 @@
   </div>
 </div>
 
- <div style="border-top: 0px solid #0882d1;  font-size: 16px; font-weight: 900; background-color: rgba(255,255,255,1); position: absolute; bottom: 0; right: 0; left: 0; text-transform: uppercase; margin-bottom: 3px; display: inline;">
-<div class="width7">
 
-<div style="display: inline-block; padding: 13px 0px 11px 0px;">
+<div class="absolutecontainer" style="bottom: 50px;">
+<div class="relativecontainer">
+
+
+<div class="story-title">
 <%= @post.title %>
-</div>
-
-<div style="display: inline; float: right; text-transform: none;">
-
-<div style="display: inline-block; padding: 13px  0px 11px 0px; line-height: 16px;">
-  <div class="readmore">
- <%= time_ago_in_words(@post.created_at) %> ago 
-</div>
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "readmore blue" %>
-
-
 </div>
 
 <% if @post.pictures.present? %>
@@ -72,10 +63,20 @@
 </div>
 <% end %>
 
+<div style="font-size: 14px; font-weight: 500; color: #fff; line-height: 34px; text-transform: uppercase; display: inline;">
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
 </div>
+<div style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 34px; margin-left: 10px; display: inline;">
+<%= time_ago_in_words(@post.created_at) %> ago 
+</div>
+
+
 
 </div>
 </div>
+
+
+
 
 </div>
 
@@ -86,27 +87,37 @@
 
 
 
+
+
+<% if @events.present? %>
+<%= render 'posts/timeline' %>
+<% else %>
+<div class="width7">
+<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 0px 0px 3px 3px; display: inline-block; margin-top: -2px; margin-bottom: 30px;">
+Summary
+</div>
+</div>
+<% end %>
+
+
+
+
 <div class="width7">
 
-<div class="story-title">
-
-</div>
-
-
-
-</div>
-
-
-
-<div class="width7">
 
 <div class="width5">
 
 
+<% if @events.present? %>
+<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 3px; display: inline-block; margin-bottom: 20px;">
+Summary
+</div>
+<% end %>
 
 <div class="p2" style="font-weight: bold;">
 <%= @post.description %>
 </div>
+
 <hr class="feed-line"/>
 
 
@@ -140,9 +151,7 @@
 Latest Events
 </div>
 
-<% if @events.present? %>
-<%= render 'posts/timeline' %>
-<% end %>
+
 
 </div>
 

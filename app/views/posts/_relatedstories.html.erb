@@ -1,27 +1,28 @@
+<div style="background-color: rgba(51,51,51,0.1); padding: 35px 0px;">
+<div class="width7">
+
+<% @related.order("created_at desc").limit(1).each_with_index do |post,i| %>
 
 
-
-<% @related.order("created_at desc").limit(1).each do |post| %>
-
-<div class='home-feed-image' style="height: 240px; background-image: url(http://i.imgur.com/aisLBMi.png);">
-<div class="darker" style="opacity: 0.8; background-color: #fff;"></div>
+<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 3px; display: inline-block; margin-bottom: 15px;">
+More Stories
+</div>	
 
 
-<div class="absolutecontainer" style="bottom: 25px;">
-<div class="relativecontainer">
+<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 15px 0px 15px 0px; font-weight: 700; font-size: 22px;">
 
 
-<div style="margin-bottom: 25px; font-weight: 700; font-size: 16px;">
-Related Story <div style="display: inline; font-weight: 300;">in</div> <div style="display: inline; color: #0882d1;">Sports</div>
-</div>
-
-<%= render :partial => 'layouts/stories_feed', locals: {post:post} %>
-</div>
-</div>
-
+<%= link_to (post.title.titleize), post_path(post) %>
+<div class="row"></div>
 
 </div>
+
+
+
 
 
 <% end %>
 
+<div class="row"></div>
+</div>
+</div>

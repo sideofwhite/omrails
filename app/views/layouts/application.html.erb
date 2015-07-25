@@ -40,8 +40,11 @@ window.setTimeout(function() {
 </head>
 <body>
 
-
+<% if @category_header %>
+<%= render 'layouts/headercategories', locals: {activities: @activities}  %>
+<% else %>
 <%= render 'layouts/header', locals: {activities: @activities} unless @skip_footer %>
+<% end %>
 
 <div class="navbar-content-container">
 <% flash.each do |name, msg| %>

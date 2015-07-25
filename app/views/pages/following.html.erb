@@ -1,27 +1,17 @@
 <% if user_signed_in? %>
 
+<div style="background-color: rgba(51,51,51,0.1); padding: 25px 0px 30px 0px; line-height: 1;">
+<div class="width7">
 
+<div style="font-weight: 700; color: #288bff; font-size: 40px; text-transform: uppercase; display: inline; ">
+Followed Stories (<%= @following.count %>)
+</div>
 
-<div class="width7" style="margin-top: 35px;">
-
-<div class="leftstoryimage">
-<div class="notificationcount-circle" style="background-color: #7CB342;">
-<%= @following.count %>
 </div>
 </div>
 
-<div class="rightstorytitle">
 
-
-<div class="notificationcount-text" style="font-size: 16px;">
-Followed Stories
-</div>
-
-<hr style='margin-bottom: 0px; margin-top: 10px;'/>
-</div>
-
-<div style="margin-top: 35px;"></div>
-
+<div class="width7">
 <% if @following.present? %>
 
 <div id="products" data-no-turbolink>
@@ -37,34 +27,15 @@ Followed Stories
 <% end %>
 
 
-</div>
+
 
 
 <% else %>
 
-<% @post.each do |post| %>
-<style media="screen">
-.imagestrip {background-image: url(<%= post.pictures.first.image %>);}
-</style>
+
+
+
+
 <% end %>
-
-
-
- <div style="position: fixed; left: 50%; top: 50%; margin-top: -101px; margin-left: -120px;">
-
-<div class="login-recommend-add-div">
-   <div style="background: rgba(1,139,198,1); padding: 20px; width: 200px; right: 0; top: 75px;">
-    <%= render :partial => "devise/sessions/new" %>
-   </div>
- </div>
 
 </div>
-
-
-
-
-
-
-
-
-<% end %>

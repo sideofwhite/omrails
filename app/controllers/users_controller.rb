@@ -14,7 +14,7 @@ after_action :read_all_notification, only: [:notifications]
 
 
   def allanswers
-  @skip_footer = true   
+  
   @user = User.friendly.find(params[:id])
   @comments = @user.questions.order("created_at desc").page(params[:page]).per_page(3)
   @questions = @user.get_voted Question
@@ -22,7 +22,7 @@ after_action :read_all_notification, only: [:notifications]
   end
 
  def allcomments
-  @skip_footer = true   
+  
   @user = User.friendly.find(params[:id])
   @links = @user.links.order("created_at desc").page(params[:page]).per_page(10)
   @comments = @user.questions.order("created_at desc")

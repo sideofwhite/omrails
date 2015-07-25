@@ -1,37 +1,62 @@
+
 <%= render 'profile_head' %>
+
+
+<div class="navbar-profile-content-container">
 
 
 <div class="width7">
 
 
+<div style="margin-top: 35px;"></div>
 
-
-
-<div class="width5">
 
 
 <%= link_to user_path(@user) do %>
-<div class="posts-nav-no-blue">Posts</div>
+<div class="profile-post-types">
+Recommended
+</div>
 <% end %>
-<div class="posts-nav-blue">Answers</div>
+
+<%= link_to allcomments_path(@user) do %>
+<div class="profile-post-types">
+Posts
+</div>
+<% end %>
+
+<div class="profile-post-types" style="color: #288bff;">
+Replies & Answers
+</div>
+
+<hr style="margin-top: 20px;"/>
 
 
 
-<div style="margin-top: 35px;"></div>
 
+
+<div class="width5-center">
+
+
+<div style="display: none;">
 
 <div id="products">
 <%= render 'users/allanswers' %>
 </div>
-
-
-
-
 <%= will_paginate @comments %>
-
+</div>
 
 </div>
 </div>
+
+</div>
+
+
+
+
+
+
+
+
 
 
 

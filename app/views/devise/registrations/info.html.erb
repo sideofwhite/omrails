@@ -1,26 +1,17 @@
-<% @posts.each do |post| %>
 
-<% if post.pictures.present? %>
-<style media="screen">
-.imagestrip {background-image: url(<%= post.pictures.first.image %>);}
+<style>
+
+body {background-color: rgba(51,51,51,0.1);}
+
 </style>
-<% end %>
-
-<% end %>
 
 
-<div class="imagestrip" style="height: 100% !important; position: fixed;">
-
-<div class='darker' style=" 
-opacity: 0.8; z-index: -1;"></div>
-
-
-<div class="absoluteheader">
-  <%= render 'layouts/infoheader' %>
+<div class="topbar-nav-cover">
+</div>
+<div class="sidebar-nav-cover">
 </div>
 
-
-<div class="width6">
+<div class="width5-center">
 
 
 
@@ -174,8 +165,6 @@ You can edit this information at any time.
 <% end %>
 
 
-</div>
-</div>
 
 
 

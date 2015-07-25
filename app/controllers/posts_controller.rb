@@ -29,7 +29,7 @@ end
   # GET /posts
   # GET /posts.json
   def index
-    
+   @category_header = true 
   @skip_bottom = true  
 if params[:tag]
 @posts = Post.where(:hide => true).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)

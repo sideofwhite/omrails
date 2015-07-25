@@ -1,0 +1,32 @@
+<% comment.questions.each do |question| %>
+
+
+<div class="smallavatar3">
+  <%= link_to (image_tag(question.user.image(:thumb))), user_path(question.user) %>
+</div>
+
+
+<div class="commentdescriptionname">  
+  <%= link_to (question.user.name), user_path(question.user), class: "blue" %>
+</div>
+
+
+<div class="commentdescriptiontext">
+<div>
+ <% if question.body.length > 150 %>
+    <%= truncate(question.body, :separator => ' ', length: 150) %>
+    <%= link_to_function ("(more)"), "$(this).parent().html('#{escape_javascript question.body}')", class: "readmorecomment" %>
+  <% else %>
+    <%= question.body %>
+  <% end %>
+</div>
+
+<div class="date3">
+<%= time_ago_in_words(question.created_at) %> ago
+</div>
+
+<% if current_user == question.user %>
+<div class="date3">•</div> <%= link_to "Delete", comment_question_path(question.comment, question), method: :delete, data: { confirm: 'Delete this comment?' }, class: "date3", style: "color: #288bff !important; opacity: 1;" %>
+<% end %>
+</div>
+<% end %>

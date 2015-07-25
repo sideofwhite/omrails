@@ -2,33 +2,48 @@
 <div class='width7'>
 
 <i class="material-icons menu" id="menu">menu</i>
-<i class="material-icons menu search-menu">search</i>
+<i class="material-icons menu-search">search</i>
 
 </div>
 </div>
 
 
+<div class="topbar-nav">
 
+<%= link_to search_path do %>
+<i class="material-icons icon-nav-search" style="font-size: 26px; line-height: 50px; margin-top: -1px;">search</i>
+<% end %>
+
+
+<div class="top-nav-text">
+<%= link_to "Learn More", about_path, class: "white" %>
+</div>
+
+
+
+
+</div>
 
 
 
 <div class="sidebar-nav">
 
-<div style='position: fixed; width: 200px; height: 100px; top: 0; background: #0882d1; margin-bottom: 35px;'></div>
 
-<div style="padding-top: 135px;"></div>
-<div style='padding: 0px 15px 0px 15px; overflow-y: scroll;'>
 
-<div style="color: rgba(255,255,255,0.75); text-transform: uppercase; font-size: 12px; margin-bottom: 20px;">
+<div style="padding-top: 35px;"></div>
+<div style='padding: 0px 20px 0px 20px; overflow-y: scroll;'>
+
+<div style="color: rgba(255,255,255,0.75); text-transform: uppercase; font-size: 12px; margin-bottom: 10px;">
 Topics
 </div>
+
 <div class="row"></div>
 
 <%= link_to 'Top Stories', root_path, class: "margin-c" %>
 <a href="/tags/world" class="margin-c"  >World</a>
 <a href="/tags/united-states" class="margin-c"  >U.S.</a>
 <a href="/tags/politics" class="margin-c"  >Politics</a>
-<a href="/tags/business" class="margin-c"  >Business & Economy</a>
+<a href="/tags/business" class="margin-c"  >Business</a>
 <a href="/tags/technology" class="margin-c" >Technology</a>
 <a href="/tags/science" class="margin-c"  >Science</a>
 
@@ -36,59 +51,45 @@ Topics
 
 
 
-<%= link_to search_path do %>
-<i class="material-icons icon-nav-search">search</i>
-<div style="color: #fff; font-size: 14px; display: inline-block; margin-top: 20px; ">
-Search
-</div>
-<% end %> 
-
-<hr style="border-top: 1px solid rgba(255,255,255,0.3); display: block; margin-top: 20px; margin-bottom: 20px;"/>
 
 
 </div>
 
 
 
-<div style='position: fixed; width: 200px; bottom: 0; height: 180px; background-color: #2d2d2d; box-shadow: 0 -5px 5px -5px rgba(0,0,0,.9);'>
-<div style='padding: 0px 15px 0px 15px;'>
-<hr style="border-top: 0px solid rgba(255,255,255,0.3); margin-top: 10px; margin-bottom: 10px;"/>
+<div style='position: fixed; width: 200px; bottom: 20px; background-color: #288bff;'>
+
+<div style='padding: 0px 20px 0px 20px;'>
+
 
 <% if user_signed_in? %>
                       
                       
 
 <%= link_to following_path do %>
-<i class="material-icons icon-nav-search" style=" margin: 0px; margin-right: 10px;font-size: 18px; color: #fff;">bookmark</i>
-<div style="color: #fff; font-size: 14px; display: inline-block; ">
+<div style="color: #fff; font-size: 16px; display: inline-block; ">
 Following
 </div>
 <% end %>
 
 
-<hr style="border-top: 0px solid rgba(255,255,255,0.3); margin-top: 10px; margin-bottom: 10px;"/>
+<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
 
 
- <% if notificationcount > 0 %>
-  <%= link_to notifications_path(current_user) do %>     
-<i class="material-icons icon-nav-search" style=" margin: 0px; margin-right: 10px;font-size: 18px; color: #fff;">notifications</i>
-<div style="color: #fff; font-size: 14px; display: inline-block; ">
-<%= pluralize(notificationcount, "notification") %>
-</div>
-  <% end %>
-  <% else %>
+
+    
 <%= link_to notifications_path(current_user) do %>     
-<i class="material-icons icon-nav-search" style=" margin: 0px; margin-right: 10px;font-size: 18px; color: #fff;">notifications</i>
-<div style="color: #fff; font-size: 14px; display: inline-block; ">
-No new notifications
+<div style="color: #fff; font-size: 16px; display: inline-block; ">
+Notifications
 </div>
+
+<div style="float: right; display: inline-block; background-color: #fff; height: 20px; width: 20px; border-radius: 10px; text-align: center; font-size: 14px; line-height: 18px; font-weight: 700; color: #288bff;"><%= notificationcount %></div>
+
+
 <% end %>
-<% end %> 
 
 
-
-
-<hr style="border-top: 1px solid rgba(255,255,255,0.3); display: block; margin-top: 20px; margin-bottom: 20px;"/>
+<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
 
 <%= link_to user_path(current_user) do %>
 
@@ -104,9 +105,19 @@ No new notifications
 
 <% else %>
 
-   <div class="sign-in-button-mobile" id="login-recommend-add">
-  Sign Up
-  </div>
+
+<div class="nav-signup-explain">
+Share the world's stories on Podium.
+</div>
+
+<%= link_to user_omniauth_authorize_path(:twitter) do %>
+<div class="sign-in-button-large">
+<i class="fa fa-twitter" style="color: #288bff; font-size: 18px; display: inline-block; margin-right: 4px; margin-bottom: 0px;"></i> Sign in with Twitter
+</div>
+<% end %>
+
+
+
 <% end %>
 
 </div>

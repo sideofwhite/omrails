@@ -1,43 +1,38 @@
-
+<div class="width7">
+<div style="background: #FF612F; padding: 6px 8px; color: #fff; border-radius: 0px 0px 3px 3px; display: inline-block; margin-top: -3px;">
+Latest Events
+</div>
+</div>
 
 <% @events.each do |event| %>
 
-<div class="timeline-dot">
+<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 25px 0px 15px 0px; font-weight: 700; font-size: 22px;">
+<div class="width7">
+<%= link_to (event.title.titleize), post_event_path(event.post, event) %>
 </div>
-
-
-
-
-<div class="timeline-content">
-
-
-<div class="timeline-date">
-<%= time_ago_in_words(event.created_at) %> ago
 </div>
-
-
-<%= link_to (event.title), post_event_path(event.post, event) %>
-
-<div style="font-size: 16px; font-weight: 500; color: rgba(51,51,51,0.5); margin-top: 4px; line-height: 1.4;">
-<%= truncate(event.body, length: 100, separator: ' ') %>
-</div>
-
-
-<div class="row"></div>
-</div>
-
 
 
 <% end %>
 
-
+<div class="width7">
 <% if @post.events.count > 0 %>
-<div class="timeline-more">
-<%= link_to "#{@post.events.count - 2} more events", post_events_path(@post), class: "blue" %>
+
+
+<div style="color: #FF612F; font-size: 14px; font-weight: 700; margin-top: 25px;">
+
+<div style="float: left;">
+<%= link_to "ALL #{@post.events.count} EVENTS", post_events_path(@post), class: "orange" %>
+</div> 
+
+<i class="material-icons" style=" margin-top: -4px;">keyboard_arrow_right</i>
+
 </div>
+
+
 <% end %>
+</div>
 
 
 
-
-
+<div style="margin-top: 35px;"></div>

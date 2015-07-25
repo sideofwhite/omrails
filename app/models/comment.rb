@@ -11,7 +11,6 @@ user.name
 end
 
 def feed
-  return "question" if title.present?
   return "image" if image.present?
   return "video" if video_url.present?
   return "tweet" if tweet.present?
@@ -31,7 +30,7 @@ auto_html_for :tweet do
   twitter
 end
 
-has_attached_file :image, :styles => { :original => "560x" }
+has_attached_file :image, :styles => { :original => "540x" }
 validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                              size: { less_than: 1.megabytes }
 

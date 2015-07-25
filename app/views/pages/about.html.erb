@@ -1,109 +1,248 @@
+
 <style>
-body {background-color: rgba(1,139,198,0.03);}
+
+.navbar-content-container { width: -webkit-calc(100% - 200px); margin-top: 50px; }
+
+body { font-family: 'sofia-pro', sans-serif !important; }
+
+
+
+.material-icons.plus-blue { font-size: 28px; line-height: 50px;}
+.bluecircle-small { height: 50px; width: 50px; border-radius: 25px; background-color: #288bff;}
+.topimage-icon-share { height: 32px; width: 32px; border-radius: 19px; border: 2px solid rgba(255,255,255,0.7); background-color: rgba(0,0,0,0);}
+.material-icons.icon-on-image { line-height: 32px; font-size: 16px; }
+
+.topimage-icon-green { height: 32px; width: 32px; border-radius: 19px; border: 2px solid rgba(255,255,255,0.7); background-color: rgba(0,0,0,0); }
+.material-icons.icon-on-image {
+  line-height: 32px;
+  font-size: 16px;
+}
+
+
+
+
 </style>
 
-<div class='blue-page'>
+<div style="position: fixed; top: 0; right: 0; left: 0; height: 50px; background: #323232; padding-left: 20px; padding-right: 20px; z-index: 1000000;">
 
-<%= link_to root_path do %>
-<div class="about-back">
 
-<div class="orange-back">
-<i class="fa fa-long-arrow-left" style="color: white; margin-left: 0px;"></i>
+<i class="material-icons icon-nav-search" style="font-size: 26px; line-height: 50px; margin-top: -1px;">search</i>
+
+
+
+<div style="float: right; text-transform: uppercase; color: rgba(255,255,255,1); display: inline-block; line-height: 50px; font-size: 14px; font-weight: 600; margin-left: 20px; ">
+ Learn More
 </div>
-<div class="orange-back-text">
-Home
+<div style="float: right; text-transform: uppercase; color: rgba(255,255,255,1); display: inline-block; line-height: 50px; font-size: 14px; font-weight: 600; ">
+Video
 </div>
 
+
 </div>
+
+<div class="sidebar-nav" style="width: 200px; background-color: #288bff; top: 50px;">
+
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 35px;">
+World
+</div>
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 20px;">
+U.S.
+</div>
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 20px;">
+Politics
+</div>
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 20px;">
+Business
+</div>
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 20px;">
+Technology
+</div>
+<div style="color: #fff; font-size: 20px; padding-left: 20px; padding-top: 20px;">
+Science
+</div>
+
+<div style='position: fixed; width: 200px; bottom: 0; height: 200px; background-color: #288bff;'>
+<div style='padding: 0px 15px 0px 15px;'>
+
+
+<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
+
+<%= link_to following_path do %>
+
+<div style="color: #fff; font-size: 16px; display: inline-block; ">
+Following
+</div>
+
+<div style="float: right; display: inline-block; background-color: #fff; height: 20px; width: 20px; border-radius: 10px; text-align: center; font-size: 14px; line-height: 20px; font-weight: 700; color: #288bff;">3</div>
+
 <% end %>
 
-<div class="width6">
+<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
 
-<div class="blue-page-logo">
-Podium.
+<%= link_to following_path do %>
+
+<div style="color: #fff; font-size: 16px; display: inline-block; ">
+Activity
 </div>
-
-<div class="blue-page-tagline">
-Sharing the world's stories.
-</div>
-
-</div>
-</div>
-
-<div class="width6">
-
-<div class="large-para-width"><span class="large-para">	
-Lorem ipsum dolor sit amet, ne nec labores eleifend appellantur, cu ridens prodesset ius. An pro facete graecis reprimique
-</span>
-</div>
-
-<hr/>
-
-
-<div class="about-item">
-<div class='about-item-inside'>
-
-<div class="about-item-image"><%= image_tag ("http://i.imgur.com/skgN8uU.png") %></div>
-
-<strong> Stories </strong>	
-<div style="margin-top: 5px;"></div>
-Lorem ipsum dolor sit amet, ne nec labores eleifend
-</div>
-</div>
-
-<div class="about-item">
-<div class='about-item-inside'>
-
-<div class="about-item-image"><%= image_tag ("http://i.imgur.com/pxD0cbd.png") %></div>
-
-<strong> Questions </strong>	
-<div style="margin-top: 5px;"></div>	
-Lorem ipsum dolor sit amet, ne nec labores eleifend
-</div>
-</div>
-
-<div class="about-item">
-<div class='about-item-inside'>
-
-<div class="about-item-image"><%= image_tag ("http://i.imgur.com/amKu6Ai.png") %></div>
-
-<strong> Answers </strong>	
-<div style="margin-top: 5px;"></div>	
-Lorem ipsum dolor sit amet, ne nec labores eleifend
-</div>
-</div>
-
-<hr/>
-
-<div class="sign-up-back">
-
-<%= link_to user_omniauth_authorize_path(:twitter) do %>
-<div class="about-twitter">
-<i class="fa fa-twitter" style="color: #fff; font-size: 36px; line-height: 72px;"></i> 
-</div>
+<div style="float: right; display: inline-block; background-color: #fff; height: 20px; width: 20px; border-radius: 10px; text-align: center; font-size: 14px; line-height: 20px; font-weight: 700; color: #288bff;">7</div>
 <% end %>
 
-<div class="small-para">
-<strong>Sign up with Twitter</strong>
-<div style="margin-top: 5px;"></div>	
-Create an account to follow and ask questions, reply to answers and more.
+
+
+
+<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
+<%= link_to user_path(current_user) do %>
+
+<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user), class: "smallavatar2" %>
+
+<div style="line-height: 44px; color: #fff; font-size: 16px; overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;">
+<%= current_user.name %>
 </div>
 
+<% end %>
+</div>
 </div>
 
+
 </div>
 
 
+<div class='home-feed-image' style="background-image: url(http://files.itproportal.com/wp-content/uploads/2015/01/mark-zuckerberg-facebook.jpg); height: 550px; margin-bottom: 0px;">
+<div class="darker"></div>
 
-<div class='blue-page-bottom'>
-<div class="darker" style="background-color: #018bc6; opacity: 0.95;"></div>
-<div class="absolutecontainer">
+<div class="absolutecontainer" style="top: 35px;">
 <div class="relativecontainer">
-<div style='margin-bottom: 62px;'>
-<%= link_to "Explore", root_path, class: "about-banner-button" %>
+
+<div class="bluecircle-small">
+<i class="material-icons plus-blue">add</i>
+</div>
+
+
+
+<div class="topimage-icon-green" id="bookmark-clicked">
+  <i class="material-icons icon-on-image">bookmark</i>
+</div>
+
+<div class="topimage-icon-share" id="sharestory-icon">
+   <i class="material-icons icon-on-image">share</i>
+</div>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="absolutecontainer" style="bottom: 50px;">
+<div class="relativecontainer">
+<div style="font-size: 55px; font-weight: 700; width: 80%; color: #fff; margin-bottom: 25px;">
+Elon Musk Says Self-Driving Cars Will Be Here By 2020
+</div>
+
+<div class="linklogoimage-large">
+<%= image_tag ('http://graphics8.nytimes.com/images/icons/t_logo_291_black.png') %>
+</div>
+
+
+<div style="font-size: 14px; font-weight: 500; color: #fff; line-height: 34px; text-transform: uppercase; display: inline;">
+The New York Times
+</div>
+<div style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 34px; margin-left: 10px; display: inline;">
+2 hours ago
 </div>
 </div>
+</div>
+
+
+
+
+
+
+</div>
+
+<div class="width7">
+<div style="background: #FF612F; padding: 6px 8px; color: #fff; border-radius: 0px 0px 3px 3px; display: inline-block; margin-top: -3px;">
+Latest Events
+</div>
+</div>
+
+<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 25px 0px 15px 0px; font-weight: 700; font-size: 22px;">
+<div class="width7">
+Elon Musk Says Self-Driving Cars Will Be Here By 2020
+</div>
+</div>
+<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 15px 0px 15px 0px; margin-bottom: 25px; font-weight: 700; font-size: 22px;">
+<div class="width7">
+Messenger is being downloaded more than Facebook’s flagship app
+</div>
+</div>
+
+
+
+
+<div class="width7">
+
+<div style="color:  #FF612F; margin-bottom: 35px; font-size: 14px; font-weight: 700;">
+<div style="float: left;">ALL 7 EVENTS</div> <i class="material-icons" style=" margin-top: -4px;">keyboard_arrow_right</i>
 </div>	
+
+<div class="width5">
+
+<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 3px; display: inline-block; margin-bottom: 20px;">
+Summary
 </div>
+
+<p style="font-weight: 700;">
+From 2012 to the first half of 2015, Messenger accumulated 646.6 million downloads, according to data provided by app analytics firm Sensor Tower. During this same period, the social media network’s flagship Facebook app racked up 568 million downloads. 
+</p>
+
+<hr/>
+
+<p>
+From 2012 to the first half of 2015, Messenger accumulated 646.6 million downloads, according to data provided by app analytics firm Sensor Tower. During this same period, the social media network’s flagship Facebook app racked up 568 million downloads. 
+</p>
+
+<hr/>
+
+</div>
+
+<div class="width2">
+
+	<div style='height: 200px; width: 100%; border: 1px solid rgba(51,51,51,0.1);'></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<script>
+
+$('#login-recommend-add').click(function () {
+  $('#signin').show();
+ });
+
+ 
+$('#close-signin-modal').click(function () {
+  $('#signin').hide();
+ });
+ 
+ $('#menu').click(function () {
+        $('.sidebar-nav').toggle('slide', {
+            direction: 'left'
+        }, 300);
+    });
+
+
+ </script>
+
+
 
 

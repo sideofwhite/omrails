@@ -1,0 +1,7 @@
+<%= simple_form_for [comment, Question.new], url: comment_questions_path(comment) do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+<%= f.input :body, as: :text, input_html: { rows: "1", :class => "biotext", :style => "height: 19px;" }, label: false, placeholder: "Reply to the post" %>
+
+<%= f.submit "Publish", class: "submitblue", style: "float: right; margin-top: 15px;" %>
+<% end %>

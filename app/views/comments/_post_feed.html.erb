@@ -2,30 +2,37 @@
 
 
 
-<% if comment.title? %>
+<% if comment.about.present? %>
 
-<%= comment.title %>
 
+<div style="font-size: 24px; font-weight: 300;">
+<%= comment.about %>
+</div>
+
+<%= render :partial => 'comments/feed_comments', locals: {comment:comment} %>
 
 
 <% else %>
 
-<div class="recommenders-right">
-<i class="material-icons" style="margin-right: 5px; margin-top: -1px; font-size: 14px; font-weight: bold; float: left; ">check</i> Nevan Whiteside, Nick Misasi and 3 others
-</div>
 
+<% if comment.title? %>
+<div style="font-size: 24px; font-weight: 700;">
+<%= comment.title %>
+</div>
+<% end %>
 
 
 <div class="avatar-feed">
 <%= image_tag comment.user.image %>
 </div>
 
-<div style="font-size: 14px; padding-top: 8px; padding-bottom: 3px; text-transform: uppercase;">
-<%= link_to (comment.user.name), user_path(comment.user) %>
+<div style="font-size: 14px; padding-bottom: 4px; text-transform: uppercase; display: inline; color: #288bff; line-height: 40px; font-weight: 600;">
+<%= link_to (comment.user.name), user_path(comment.user), class: "blue" %>
 </div>
-<div style="font-size: 12px; opacity: 0.5; font-weight: 300;">
+<div style="font-size: 14px; display: inline; line-height: 40px; margin-left: 5px; opacity: 0.5;">
 <%= time_ago_in_words(comment.created_at) %> ago
 </div>
+
 
 
 <div class="row"></div>
@@ -39,29 +46,100 @@
 
 <%= render :partial => "layouts/#{comment.feed}_post", locals: {comment:comment} %>
 
-<div class="row"></div>
 
-<div class="bottom-feed-button">
-<i class="material-icons" style="margin-right: 10px; font-size: 20px; font-weight: bold; float: left ">check</i> <div style="display: inline; line-height: 25px;">Recommend</div>
+<%# recommend button %>
+<% if user_signed_in? %>
+<% if current_user.voted_for? comment %>
+<i class="material-icons check-recommend-checked">check</i>
+<% else %>
+<%= link_to upvote_post_comment_path(comment.post, comment), remote: true, method: :put do %>
+<div class="not-recommended" id="<%= comment.id %>">
+<i class="material-icons check-recommend">check</i>
 </div>
-
-<div class="bottom-feed-button blue-bottom-feed-button">
-<i class="material-icons" style="margin-right: 10px; font-size: 16px; float: left; margin-top: 2px; ">share</i> <div style="display: inline; line-height: 25px;">Share</div>
+<% end %>
+<div class="is-recommended" id="<%= comment.id %>" style="display: none;">
+<i class="material-icons check-recommend-checked">check</i>
 </div>
-
 <% end %>
 
+<% else %>
+<div class="unknown-class" id="login-recommend-add-<%= comment.id %>">
+ <i class="material-icons check-recommend">check</i>
+</div>
+<% end %>
+<%# recommend button ends %>
+
+
+
+<i class="material-icons feed-comments-icon">chat_bubble_outline</i>
 
 
 
 
+
+<%# recommends %>
+<% if comment.cached_votes_total == 0 %>
+<div class="answersnumber" id="be-the-first">
+Be the first to recommend
+</div>
+<div class="answersnumber" id="the-first" style="display: none;">
+You recommended
+</div>
+<% elsif comment.cached_votes_total == 1 %>
+ <div class="answersnumber">
+  <% if user_signed_in? and current_user.voted_for? comment %>
+  You
+  <% else %>
+  <% comment.votes.by_type(User).limit(1).voters.each do |user| %>
+  <%= link_to (user.name), user_path(user), class: "blue" %>
+  <% end %>
+  <% end %> recommended
+</div>
+ <% elsif question.cached_votes_total > 1 %>
+  <div class="answersnumber">
+  <% comment.votes.by_type(User).voters.limit(1).each do |user| %>
+  <% if user_signed_in? and current_user != user %>
+  <%= link_to (user.name), user_path(user), class: "blue" %>
+  <% else %>
+  You
+  <% end %>
+  <% end %> and <div id="popover-click"><%= pluralize(comment.cached_votes_total - 1, "other") %></div> recommended
+ </div>
+
+<% end %>
+<%# end of recommends %>
+
+
+
+
+
+<div class="commentwidth"> 
+<hr/>
+ 
+<%= render :partial => 'comments/feed_comments', locals: {comment:comment} %>
+<%= render :partial => 'questions/feed_form', locals: {comment:comment} %>
+
+</div>
+
+
+<% end %>
 
 <hr class="feed-line"/>
 
-	
 
 
+<script>
+$(document).ready(function() {
+        $('#<%= comment.id %>.not-recommended').click(function() {
+                $('#<%= comment.id %>.is-recommended').show();
+                $('#<%= comment.id %>.not-recommended').hide();
+                $('#be-the-first').hide();
+                $('#the-first').show();
+                
+        });
+    });
 
-
-
+</script>
 <% end %>
+
+

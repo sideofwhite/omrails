@@ -5,60 +5,30 @@
 <div class="navbar-profile-content-container">
 
 
-<div style="height: 100px; position: relative; margin-bottom: 50px; ">
+<div class="width7">
 
-<div class="width5-center" style="position: absolute; bottom: 0px; margin-left: 180px; border-bottom: 1px solid rgba(51,51,51,0.1);">
 
-<div style="display: inline-block; margin-right: 25px; border-right: 1px solid rgba(51,51,51,0.1); padding-right: 25px; color: #0882d1; padding: 10px 25px 10px 0px; border-bottom: 1px solid #fff; margin-bottom: -1px;">
+<div style="margin-top: 35px;"></div>
 
-<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
-7
-</div>
 
-<div style="font-size: 14px; text-transform: uppercase; font-weight: 300; ">
+
+<div class="profile-post-types" style="color: #288bff;">
 Recommended
 </div>
 
-
-
-</div>
-
-<div style="display: inline-block; margin-right: 25px; border-right: 1px solid rgba(51,51,51,0.1); padding-right: 25px; color: #0882d1; opacity: 0.5;  padding: 10px 25px 10px 0px;">
-
-<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
-0
-</div>
-<div style="font-size: 14px; text-transform: uppercase;  font-weight: 300;">
+<%= link_to allcomments_path(@user) do %>
+<div class="profile-post-types">
 Posts
 </div>
+<% end %>
 
-
-
+<%= link_to allanswers_path(@user) do %>
+<div class="profile-post-types">
+Replies & Answers
 </div>
-<div style="display: inline-block; margin-right: 25px; color: #0882d1; opacity: 0.5;  padding: 10px 25px 10px 0px;">
-<div style="font-size: 30px; display: block; margin-bottom: 5px; font-weight: 900;">
-3
-</div>
+<% end %>
 
-<div style="font-size: 14px; text-transform: uppercase; font-weight: 300;">
-Answers
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-<div class="width7">
+<hr style="margin-top: 20px;"/>
 
 
 
@@ -67,13 +37,13 @@ Answers
 <div class="width5-center">
 
 
-
+<div style="display: none;">
 <%= render 'posts_show' %>
-
-
 </div>
 
 </div>
+</div>
+
 </div>
 
 

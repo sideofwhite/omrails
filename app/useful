@@ -1,3 +1,8 @@
+green: #39C417
+
+
+
+
 <% @comment.post.tag_counts_on(:tags).each do |tag| %>
 <div class="follow-share-button" style="color: #1572d1;">
 <%= tag.name.titleize %>

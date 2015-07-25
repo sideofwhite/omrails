@@ -1,28 +1,20 @@
-<div class="width6">
-<div class="notifications-margin"></div>
-
-<div class="leftstoryimage">
-<div class="notificationcount-circle">
-<%= @allnotifications.count %>
+<div style="background-color: rgba(51,51,51,0.1); padding: 25px 0px 30px 0px; line-height: 1;">
+<div class="width7">
+<div style="font-weight: 700; color: #288bff; font-size: 40px; text-transform: uppercase; display: inline; ">
+All Notifications (<%= @allnotifications.count %>)
+</div>
+<div style="font-weight: 700; color: #288bff; font-size: 20px; margin-left: 15px; display: inline; ">
+<%= link_to "New Notifications", notifications_path(current_user), class: "blue" %>
 </div>
 </div>
-
-<div class="rightstorytitle">
-
-
-<div class="notificationcount-text" style="font-size: 16px;">
-All Notifications
-</div>
-
-<div class="notificationcount-text">
-<%= link_to "See new", notifications_path(current_user), class: "blue" %>
-</div>
-
-<hr style='margin-bottom: 0px; margin-top: 10px;'/>
 </div>
 
 
-<div class="notificationheadermargin"></div>
+
+<div class="width5-center">
+
+
+
 
 
 <div id="products">
@@ -32,13 +24,6 @@ All Notifications
 <%= will_paginate @allnotifications %>
 
 
-
-<div class="timeline-bottom" style="border-left: 2px solid rgba(51,51,51,0.1);"></div>
-<div class="timeline-bottom" style="border-left: 2px solid rgba(51,51,51,0.1);"></div>
-<div class="row"></div>
-<div class="end-page-circle"></div>
-<div class="end-page-circle-small"></div>
-<div class="row"></div>
-
 </div>
+
 

@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
 
   def about
-  	@skip_bottom = true  
+  	  
     @skip_footer = true 
   end
   def contact

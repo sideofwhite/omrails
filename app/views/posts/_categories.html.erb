@@ -1,91 +1,62 @@
-<div class="visible-desktop visible-tablet visible-mobile">
-
-<div class="postfifty">
-
-<div class="categoriesborder">
-
 <% if request.path == '/' %>	
-<div class="questionnavbar50home">
+<div class="margin-c-dark">
 Top Stories
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<%= link_to "Top Stories", root_path, style: "text-decoration: none !important;", class: "hoverblue" %>
-</div>
+<%= link_to 'Top Stories', root_path, class: "margin-c" %>
 <% end %>
 
-</div>
+
 
 <% if request.path == '/tags/world' %>		
-<div class="questionnavbar50home">
+<div class="margin-c-dark">
 World
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/world" style=" text-decoration: none !important;" class="hoverblue2"  >World</a>
-</div>
+<a href="/tags/world" class="margin-c"  >World</a>
 <% end %>
 
 
-<% if request.path == '/tags/world' %>		
-<div class="questionnavbar50home">
+<% if request.path == '/tags/united-states' %>		
+<div class="margin-c-dark">
 U.S.
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/world" style=" text-decoration: none !important;" class="hoverblue2"  >U.S.</a>
-</div>
+<a href="/tags/united-states" class="margin-c"  >U.S.</a>
 <% end %>
 
 
 <% if request.path == '/tags/politics' %>		
-<div class="questionnavbar50home">
+<div class="margin-c-dark">
 Politics
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/politics" style=" text-decoration: none !important;" class="hoverblue2"  >Politics</a>
-</div>
+<a href="/tags/politics" class="margin-c"  >Politics</a>
 <% end %>
 
 <% if request.path == '/tags/business' %>		
-<div class="questionnavbar50home">
-Business & Economy
+<div class="margin-c-dark">
+Business 
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/business" style=" text-decoration: none !important;" class="hoverblue2"  >Business & Economy</a>
-</div>
+<a href="/tags/business" class="margin-c"  >Business</a>
 <% end %>
 
 <% if request.path == '/tags/technology' %>		
-<div class="questionnavbar50home">
+<div class="margin-c-dark">
 Technology
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/technology" style=" text-decoration: none !important;" class="hoverblue2"   >Technology</a>
-</div>
+<a href="/tags/technology" class="margin-c" >Technology</a>
 <% end %>
 
 <% if request.path == '/tags/science' %>		
-<div class="questionnavbar50home">
+<div class="margin-c-dark">
 Science
 </div>
 <% else %>
-<div class="questionnavbar51b">
-<a href="/tags/science" style=" text-decoration: none !important;" class="hoverblue2"   >Science</a>
-</div>
-<% end %>
-
-<% if request.path == '/following' %>		
-<div class="questionnavbar50home">
-Following
-</div>
-<% else %>
-<%= link_to "Following", following_path, class: "questionnavbar51b" %>
+<a href="/tags/science" class="margin-c"  >Science</a>
 <% end %>
 
 
-</div>
-</div>
+
