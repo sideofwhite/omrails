@@ -2,13 +2,7 @@
 <html>
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="http://i.imgur.com/D1shFYH.jpg">  
-<script src="//use.typekit.net/sjc1uyo.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
 <script>
 window.setTimeout(function() {
@@ -19,7 +13,8 @@ window.setTimeout(function() {
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Podium</title>
+  
+<title>Podium</title>
 
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -40,28 +35,23 @@ window.setTimeout(function() {
 </head>
 <body>
 
-<% if @category_header %>
-<%= render 'layouts/headercategories', locals: {activities: @activities}  %>
-<% else %>
-<%= render 'layouts/header', locals: {activities: @activities} unless @skip_footer %>
-<% end %>
 
-<div class="navbar-content-container">
+
+
+<%= render 'layouts/header', locals: {activities: @activities} unless @skip_footer %>
+
+
+
+
 <% flash.each do |name, msg| %>
 <div class="alert alert-danger alert-dismissable">
-  <%= content_tag(:div, msg) %>
+<%= content_tag(:div, msg) %>
 </div>
 <% end %>
-    <%= yield %>
-
-
-
-
-
-    <%= render 'layouts/footer' if @skip_bottom %>
-    <%= render 'layouts/spacefooter' unless @skip_bottom or @image_bottom %>
-
-</div>
+    
+<%= yield %>
+<%= render 'layouts/footer' if @skip_bottom %>
+<%= render 'layouts/spacefooter' unless @skip_bottom or @image_bottom %>
 
 </body>
 </html>

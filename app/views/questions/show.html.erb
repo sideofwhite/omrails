@@ -1,88 +1,64 @@
-<% unless @comment.post.pictures.count == 0 %>
-<style media="screen">
- .imagestrip { background-image: url(<%= @comment.post.pictures.first.image %>); }
-</style>
-<% end %>
+<div class="sidebar-profile-nav" style="padding: 0px; width: 350px; background-color: #fff; border-right: 1px solid rgba(51,51,51,0.1);">
 
-
-
- <div class="imagestrip">
-  <div class='darker'></div>
-   <div class="absoluteheader">
-     <%= render 'layouts/headerimage' %>
-   </div>
-
-<% if current_user.try(:admin?) %>
-  <%= link_to edit_post_comment_path(@comment.post, @comment) do %>
-    <i class="fa fa-pencil-square-o"></i>
-  <% end %>
-<% end %>
-
-
-<div class="absolutecontainer">
- <div class="relativecontainer">
-  <div class="descriptionmargin"> 
-
-   <div class="eventimagepreviewtext" style="margin-right: 0px;">
-     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-   </div>
-
-    <hr class="whiteimageline"/>
-
-    
-     <% if @comment.events.present? %>
-      <%= link_to (@comment.events.first.title), post_event_path(@comment.post, @comment.events.first), class: "eventlinkdark" %>
-      <% end %>
-
-   </div>
-  </div>
- </div>
-
-
-</div>
-
-<div class="width6">
-
-
-<div style="display: inline-block; float: right; margin-top: 10px; border-left: 1px solid rgba(51,51,51,0.1); padding-left: 10px; margin-left: 20px;">
-<div class="submit-share">
-Share
-</div>  
-
-
-
-<% if user_signed_in? %>
-
-<% if current_user.voted_for? @comment %>
-<div class="submitblue-small-clicked">
-Following
-</div>
-<% else %>
-
-<div id="<%= @comment.id %>" style="display: inline;">
-<%= link_to upvote_post_comment_path(@comment.post, @comment), remote: true, method: :put do %>
- <div class="submitblue-small" id="follow-<%= @comment.id %>">
-   Follow
- </div>
-<% end %>
-</div>
- <div class="submitblue-small-clicked" style="display: none;" id="followed-<%= @comment.id %>">
-Following
+<% if @comment.post.image.present? %>
+<div class='home-feed-image' style="background-image: url(<%= @comment.post.image %>);">
 </div>
 <% end %>
 
-<% else %>
-<div class="submitblue-small" id="login-recommend-add">
-   Follow
- </div>
-<% end %>
+
+<div style="padding: 0px 20px 0px 20px;">
+
+
+<div class="story-title">
+<%= @comment.post.title %>
 </div>
 
 
 
- <div class="titlecontainer">
-  <%= link_to (@comment.title), post_comment_path(@comment.post, @comment), class: "blue" %>
- </div>
+
+<div class="actionable-buttons" id="sharestory-icon">
+All Stories
+</div>
+
+
+<div class="row" style="margin-bottom: 10px;"></div>
+
+<div style="font-size: 16px; line-height: 1.4; opacity: 1;">
+<%= @comment.post.description %>
+</div>
+
+
+<hr style="margin: 20px;"/>
+
+<% if @comment.post.pictures.present? %>
+<div class="linklogoimage-large">
+<%= image_tag (@comment.post.pictures.first.image) %>
+</div>
+<% end %>
+
+<div class="article-info-text">
+<%= link_to (@comment.post.domain), url_for(@comment.post.link), :target => "_blank" %>
+</div>
+<div class="article-info-text" style="margin-left: 10px;">
+<%= time_ago_in_words(@comment.post.created_at) %> ago 
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="navbar-profile-content-container">
+
+<div class="width5-center" style="margin-top: 35px;">
+
+
+<div class="titlecontainer">
+  <%= link_to (@comment.title), post_comment_path(@comment.post, @comment) %>
+</div>
 
 
 
@@ -90,41 +66,15 @@ Following
 <div class='row'></div>
 
 <hr class="full-length"/>
+
 <% if @comment.published %>
 <% if user_signed_in? %>  
-  <div id="logged-in" class="bluecircle2 white">+</div>
-<% else %>  
-<div class="bluecircle2 white" id="login-recommend-add">+</div>
+
 <% end %>
 <% end %>
-
-
-<div style="margin-top: 10px;"></div>
-<% if @published.count > 1 %>
-<div class="dividerhead" style="margin-left: -35px; margin-bottom: 0px;">
- 1 OF <%= pluralize(@published.count, 'Answer').upcase %>
-</div>
-<% else %>
-<div class="dividerhead" style="margin-left: -35px; margin-bottom: 0px;">
-1 ANSWER
-</div>
-<% end %>
-
-
-
-
-
-
-
-<div class="row"></div>
-
-<div class="answer-feed-margin"></div>
-
 
 
 <%= render 'questions/question' %>
-
-
 
 <% if user_signed_in? %>
 
@@ -168,27 +118,9 @@ MORE ANSWERS
 
 
 
-<div class="imagestrip" style="height: 125px; margin-top: 60px;">
-  <div class='darker'></div>
-  <div class="absolutecontainer">
- <div class="relativecontainer">
-  <div class="descriptionmargin" style="margin-bottom: 25px; margin-right: 0px;"> 
 
-   <div class="eventimagepreviewtext">
-     <%= link_to (@comment.post.title), post_path(@comment.post), class: "whiteblue" %>
-   </div>
-
-    <hr class="whiteimageline"/>
-
-
-   </div>
-  </div>
- </div>
 
 </div>
-
-
-
 
 
 
@@ -247,16 +179,7 @@ Share to Facebook and Twitter
 
 
 
-<div class="blue-slider-position">
 
-<div class="login-recommend-add-div" style="display: none;">
-   <div class="blue-slider">
-    <button type="button" class="close-twitter" data-dismiss="modal" aria-hidden="true">×</button>
-    <%= render :partial => "devise/sessions/new" %>
-   </div>
- </div>
-
-</div>
 
 
 <% end %>

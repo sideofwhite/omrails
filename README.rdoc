@@ -1,1 +1,6 @@
+<p>A question and answer site for news events. Ask questions and write or recommend answers about current stories in the news. Recommended answers rise to the top and are displayed on a user's profile page. Editor-chosen answers are shown on the homepage alongside the most relevant stories of the day. </p>
+
+<br>
+
+<p>A few design explorations for the project can be seen <a href="http://imgur.com/a/Qo0te">here</a>.</p>
 

@@ -28,8 +28,7 @@ end
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @image_bottom = true 
-  @skip_footer = true   
+ 
   @comment = Comment.friendly.find params[:comment_id]
   @question = Question.friendly.find params[:id]
   @published = @comment.questions.where(:hide => true).order('created_at')

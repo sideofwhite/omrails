@@ -1,38 +1,42 @@
-<div class="width7">
-<div style="background: #FF612F; padding: 6px 8px; color: #fff; border-radius: 0px 0px 3px 3px; display: inline-block; margin-top: -3px;">
+<div class="width5-center-large">
+<div class="grey-banner">
+
+
+
+<div class="capital-title">
 Latest Events
-</div>
 </div>
 
 <% @events.each do |event| %>
+<%= link_to post_event_path(event.post, event) do %>
+<div class="event-container">
 
-<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 25px 0px 15px 0px; font-weight: 700; font-size: 22px;">
-<div class="width7">
-<%= link_to (event.title.titleize), post_event_path(event.post, event) %>
+<div class="event-image-thumb" style="background-image: url(<%= event.image %>)"></div>
+
+
+<div class="event-title">
+<%= event.title.titleize %>
 </div>
+<div class="event-description-light">
+<%= event.body[0..100] %>
 </div>
 
+
+</div>
 
 <% end %>
-
-<div class="width7">
-<% if @post.events.count > 0 %>
-
-
-<div style="color: #FF612F; font-size: 14px; font-weight: 700; margin-top: 25px;">
-
-<div style="float: left;">
-<%= link_to "ALL #{@post.events.count} EVENTS", post_events_path(@post), class: "orange" %>
-</div> 
-
-<i class="material-icons" style=" margin-top: -4px;">keyboard_arrow_right</i>
-
-</div>
-
-
 <% end %>
+
+<div class="row"></div>
+
+
+
+<% if @post.events.count > 1 %>
+<%= link_to "ALL #{@post.events.count} EVENTS", post_events_path(@post), class: "capital-title-link" %>
+ <% end %>
+
 </div>
 
 
 
-<div style="margin-top: 35px;"></div>
+</div>

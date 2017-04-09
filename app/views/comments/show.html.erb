@@ -1,109 +1,11 @@
-
-
-
-
-<% if @comment.post.image.present? %>
-<div class='home-feed-image' style=" background-image: url(<%= @comment.post.image %>); height: 175px; margin-bottom: -3px;">
-  <div style="border-top: 0px solid #0882d1; padding: 13px  0px 11px 0px;  font-size: 14px; font-weight: 900; background-color: rgba(255,255,255,1); position: absolute; bottom: 0; right: 0; left: 0; text-transform: uppercase; margin-bottom: 2px;">
-<div class="width7">
-<%= @comment.post.title %>
-<div style="color: rgba(51,51,51,0.5); display: inline; margin-left: 10px; text-transform: none; font-weight: 400;">
-<%= @comment.post.created_at.strftime("%B %d, %Y") %>
-</div>
-
-<div style="display: inline; float: right;">
-<i class="material-icons icon-on-image" style="color: #0882d1; line-height: 1; font-size: 16px; margin-top: -1px;">share</i>
-</div>
-</div>
-</div>
-</div>
-<% end %>
-
-
-<% if @comment.title.present? %>
-
-
-<div class="width7">
-
-<hr/>
-
+<div class="width5-center">
 <%# locked %>
 <% unless @comment.published %>
-<div style="border: 1px solid rgba(51,51,51,0.1); padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 1px -2px rgba(0,0,0,0.15);">
-<i class="material-icons lock">lock_outline</i>
-<div style="font-weight: 300; font-size: 24px; display: inline-block; margin-bottom: 5px;">
-This question is locked.
-</div>
-<div style="font-weight: 300; font-size: 18px; display: inline-block; line-height: 1.3;">
-Editors need to review this question before it is unlocked to answers.
-</div>
-</div>
+This question is locked
 <% end %>  
 
 
-<div class="row"></div>
 
-<div class="width5and1">
-
-<div style="font-size: 40px; font-weight: 500; margin-top: -10px; font-weight: 700;">
-What could we do to stop this deadly contagious virus?
-</div>
-<hr/>
-
-
-<div class="width5">
-
-<div class='row'></div>
-<div class="small-avatar-feed-test">
-<%= image_tag("https://pbs.twimg.com/profile_images/420590214591963136/X1f-jmZN_400x400.jpeg") %>
-</div>
-
-<div style="font-size: 16px; margin-bottom: 4px; padding-top: 13px; color: #0882d1; font-weight: bold;">
-Molly Aguiar
-</div>
-<div style=" font-size: 14px; opacity: 0.5;">
-Director of Media grants for the Geraldine R. Dodge Foundation
-</div>
-
-
-<div class="row"></div>
-
-<div style="margin-top: 25px;"></div>
-
-
-<i class="material-icons" style="font-size: 16px; color: rgba(51,51,51,0.5); margin-right: 10px; font-weight: bold; margin-bottom: 10px; float: left;">check</i>
-
-<div style="display: inline-block; font-size: 12px; color: #0882d1; line-height: 20px;">
-Nevan Whiteside, Jon Adams <div style="display: inline; color: rgba(51,51,51,0.5);">and 3 others</div>
-</div>
-
-
-<div class='row'></div>
-
-
-<p>
-  After folding my first company (at 25), I did a retrospective and counted 32 different projects — most of them, whole new products or product variations — I’d started (and almost never completed) in the prior year. I realized this may have had something to do with my failure.
-</p>
-<p>
-  After folding my first company (at 25), I did a retrospective and counted 32 different projects — most of them, whole new products or product variations — I’d started (and almost never completed) in the prior year. I realized this may have had something to do with my failure.
-</p>
-
-
-<div style="background: #7CB342; padding: 6px 9px; border-radius: 1px; font-size: 12px; color: #fff; display: inline-block; box-shadow: 1px 1px 1px 0px rgba(51, 51, 51, 0.1); font-weight: bold; float: left; margin-right: 15px;">
-<i class="material-icons" style="font-size: 16px; color: #fff; margin-right: 5px; font-weight: bold; float: left;">check</i> <div style="line-height: 16px; display: inline;">Recommend</div>
-</div>
-
-<i class="material-icons" style="color: rgba(51,51,51,0.5); float: left; font-size: 16px; line-height: 28px;">mode_comment</i>
-
-<div class="row"></div>
-
-<hr/>
-
-
-<div class="row"></div>
-
-
-<%# tweet %>
 <% if @comment.published and @published.blank? %>
 <div class="no-answers-yet">
 No Answers Yet
@@ -112,42 +14,8 @@ There are no answers yet.
 </div>
 </div>
 
+Tweet this question
 
-<div style="border: 1px solid rgba(51,51,51,0.1); padding: 20px; margin-bottom: 20px;">
-
-<i class="fa fa-twitter" style="color: #55acee; font-size: 24px; margin: 0px; display: inline-block; float: right;"></i>  
-
-
-<div class="tweet-avatar">
-<%= image_tag current_user.image %>
-</div>
-<div class="tweet-user-container">
-<div class="tweet-name">
-<%= current_user.name %>
-</div>
-<div class="tweet-username">
-@nevanwhiteside
-</div>
-
-<div class="welcome-twitter-share">
-<%= @comment.title %> Read more at <div class="blue" style="display: inline;">http://readpodium.com/news/fire-burns</div>
-</div>
-</div>
-
-
-
-<div class="row"></div>
-
-
-
-<%= link_to "http://twitter.com/home?status=[Tagline here]. Check out Podium at readpodium.com", :target => "_blank" do %>
-<div class="button-text-upper" style="color: #55acee;">Tweet</div>
-<% end %>
-<div class="button-text-upper cancel-upper" style="font-size: 12px; line-height: 16px; text-transform: none; font-weight: 300;">You can edit before posting</div>
-
-<div class="row"></div>
-
-</div>
 <% end %>
 
 
@@ -172,16 +40,12 @@ There are no answers yet.
 
 <div class="unpublished-box">
 <%= link_to unpublished_path(@comment), :remote => true, class: "unpublished-link", data: { disable_with: "Loading..." } do %>
-
-
-
 Unreviewed Answers (<%= @hidden.count %>)
-
 <% end %>
+
 <div style="margin-top: 5px"></div>
 These answers have not been reviewed by editors to confirm they follow Podium's <%= link_to "answer guidelines", guidelines_path(:anchor => "answers"), :target => "_blank", class: "blue" %>.
 </div>
-
 
 <div id="unpublished">
 </div>
@@ -192,37 +56,10 @@ These answers have not been reviewed by editors to confirm they follow Podium's 
 <% if user_signed_in? %>
 <hr/>
 
-<div class="addanswer-item">
-
-<div style="position: absolute;">
 <div class="small-avatar-feed-square">
 <%= image_tag(current_user.image) %>
 </div>
-</div>
-
-<div style="position: absolute; top: 13px; right: 20px;">
-<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2); float: left;">+ Answer</div>
-</div>
-
-
-</div>
-
-
-<div class="row"></div>
-
-
-
-
-<hr style="margin-bottom: 20px;"/>
-
-<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2); float: left;"><i class="fa fa-twitter" style="color: #fff; font-size: 14px; margin: 0px; display: inline-block; margin-right: 3px;"></i>  Sign up</div>
-
-<div class="interstitial-text">
-Sign in with Twitter to add an answer.
-</div>
-
-
-
++ Answer
 <% end %>
 
 
@@ -240,40 +77,10 @@ Related Posts
 
 <% end %>
 
-</div>
 
-</div>
-
-<div class="width2">
-
-<div style="background-color: #0882d1; border-radius: 1px; color: #fff; font-size: 12px; text-transform: uppercase; padding: 10px 15px; display: inline-block; float: right; font-weight: 700; box-shadow:         1px 1px 1px 0px rgba(51, 51, 51, 0.2);">+ Answer</div>
-
-<div class="row"></div>
-
-<hr class="feedline"/>
-
-<div style="background-color: rgba(51,51,51,0.1); height: 200px;"></div>
-
-</div>
 
 
 </div>
-
-
-
-
-
-<% else %>
-
-
-<%= render 'notquestion' %>
-
-<% end %>
-
-
-<div class="row"></div>
-
-<div class="sixty"></div>
 
 <div class="fullpage-modal-container"> 
 

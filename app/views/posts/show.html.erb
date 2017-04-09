@@ -1,164 +1,115 @@
+<div class="sidebar-profile-nav">
 
 
 
 <% if @post.image.present? %>
-
-
 <div class='home-feed-image' style="background-image: url(<%= @post.image %>);">
-<div class="darker"></div>
-
-
-<div class="absolutecontainer" style="top: 35px;">
-<div class="relativecontainer">
-
-<%= link_to question_form_post_url(@post), :remote => true do  %>
-<div class="bluecircle-small">
-<i class="material-icons plus-blue">add</i>
 </div>
 <% end %>
 
-
-<% if user_signed_in? %>
-<% if current_user.voted_for? @post %>
-<div class="topimage-icon-green" id="bookmark-clicked">
-  <i class="material-icons icon-on-image">bookmark</i>
-</div>
-<% else %>
-<%= link_to upvote_post_path(@post), remote: true, method: :put do %>
-<div class="topimage-icon" id="bookmark-click">
-  <i class="material-icons icon-on-image">bookmark</i>
-</div>
-<% end %>
-<div class="topimage-icon-green" id="bookmark-clicked" style="display: none;">
-  <i class="material-icons icon-on-image">bookmark</i>
-</div>
-<% end %>
-<% else %>
-<div class="topimage-icon" id="login-recommend-add">
-  <i class="material-icons icon-on-image">bookmark</i>
-</div>
-<% end %>
-
-
-<div class="topimage-icon-share" id="sharestory-icon">
-   <i class="material-icons icon-on-image">share</i>
-</div>
-
-
-  </div>
-</div>
-
-
-<div class="absolutecontainer" style="bottom: 50px;">
-<div class="relativecontainer">
-
-
-<div class="story-title">
-<%= @post.title %>
-</div>
-
+<div class="sidebar-nav-inner" style="padding: 13px 20px 0px 20px;">
 <% if @post.pictures.present? %>
 <div class="linklogoimage-large">
 <%= image_tag (@post.pictures.first.image) %>
 </div>
 <% end %>
 
-<div style="font-size: 14px; font-weight: 500; color: #fff; line-height: 34px; text-transform: uppercase; display: inline;">
-<%= link_to (@post.domain), url_for(@post.link), :target => "_blank", class: "white" %>
+<div class="article-info-text">
+<%= link_to (@post.domain), url_for(@post.link), :target => "_blank" %>
 </div>
-<div style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 34px; margin-left: 10px; display: inline;">
+<div class="article-info-text" style="margin-left: 10px; opacity: 0.7; font-weight: 400;">
 <%= time_ago_in_words(@post.created_at) %> ago 
 </div>
 
 
+<div class="row"></div>
 
-</div>
-</div>
+<hr style="margin-top: 15px; margin-bottom: 10px;"/>
 
-
-
-
+<div class="row"></div>
 </div>
 
-<% end %>
+<div class="sidebar-nav-inner">
 
 
-
-
-
-
-
-
-<% if @events.present? %>
-<%= render 'posts/timeline' %>
-<% else %>
-<div class="width7">
-<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 0px 0px 3px 3px; display: inline-block; margin-top: -2px; margin-bottom: 30px;">
-Summary
+<div class="story-title" style="padding-top: 0px;">
+<%= @post.title %>
 </div>
-</div>
-<% end %>
 
-
-
-
-<div class="width7">
-
-
-<div class="width5">
-
-
-<% if @events.present? %>
-<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 3px; display: inline-block; margin-bottom: 20px;">
-Summary
-</div>
-<% end %>
-
-<div class="p2" style="font-weight: bold;">
+<div class="card-description">
 <%= @post.description %>
 </div>
-
-<hr class="feed-line"/>
-
-
+<div class="actionable-clicks" id="sharestory-icon" style="margin-top: 20px; float: none; display: inline-block;">
+Full Story
+</div>
 
 <div class="row"></div>
 
 
-<% if @comments.present? %>
 
-<div id="products">
-<%= render 'comments/post_feed' %>
+
 </div>
-<%= will_paginate @comments %>
+</div>
 
+
+
+
+<div class="navbar-profile-content-container">
+
+<div class="width5-center-large">
+
+<div class="story-title-small">
+<%= @post.title %>
+</div>
+
+
+<%= link_to question_form_post_url(@post), :remote => true do  %>
+<div id="bluecircle-small">
+
+</div>
+<% end %>
+
+<% if user_signed_in? %>
+<% if current_user.voted_for? @post %>
+<div class="actionable-clicks" id="bookmark-clicked">
+Following
+</div>
+<% else %>
+<%= link_to upvote_post_path(@post), remote: true, method: :put do %>
+<div class="actionable-clicks" id="bookmark-click">
+Follow
+</div>
+<% end %>
+<div class="actionable-clicks" id="bookmark-clicked" style="display: none;">
+Following
+</div>
+<% end %>
+<% else %>
+<div class="actionable-clicks" id="login-recommend-add">
+Follow
+</div>
 <% end %>
 
 
-
-
+<div class="actionable-clicks" id="sharestory-icon" style="margin-right: 10px;">
+Share
+</div>
+<div id="addstory-icon">
++ Question
 </div>
 
+<div class="row"></div>
 
 
 
-<div class="width2">
-<div style="margin-top: 8px;"></div>
-<%# Images %>
-<div class="right-element-container">
-
-<div class="small-dividerhead">
-Latest Events
+<hr style="margin-top: 0px; margin-bottom: 35px;"/>
 </div>
 
+<div class="width5-center">
 
-
-</div>
-
-<%# Images %>
-<% if @media.present? %>
-<%= render 'posts/media' %>
-<% end %>
+<p>
+In India, there is a sacrosanct hierarchy of academic degrees, and nothing comes close to a bachelor’s from one of the Indian Institutes of Technology. It is something to which parents aspire for their children even before they have children. The child might be a gifted writer, painter or cricketer, but preparing for the IIT examination is practically a rite of passage for any self-respecting, middle-class Indian student.
+</p>
 
 
 
@@ -167,83 +118,84 @@ Latest Events
 <%= render 'posts/followers' %>
 <% end %>
 
-<%# sources %>
-<%= render 'posts/sources' %>
 
-
-</div>
-
-
-</div>
 
 <div class="row"></div>
 
 
+
+
+
+</div>
+
+
+<%# Followers %>
+<% if @events.present? %>
+<%= render 'posts/timeline' %>
+<% end %>
+
+
+<div class="width5-center">
+<p>
+In India, there is a sacrosanct hierarchy of academic degrees, and nothing comes close to a bachelor’s from one of the Indian Institutes of Technology. It is something to which parents aspire for their children even before they have children. The child might be a gifted writer, painter or cricketer, but preparing for the IIT examination is practically a rite of passage for any self-respecting, middle-class Indian student.
+</p>
+</div>
+
+
+
+<% if @answers.present? %>
+Answers
+<div id="products">
+<%= render 'comments/answers_feed' %>
+</div>
+<%= will_paginate @answers %>
+<% end %>
+
+<%= render 'questions_banner' %>
+
+
+
+<div class="width5-center">
 <% if @related.present? %>
-<div style="margin-top: 35px"></div>
-
 <%= render 'posts/relatedstories' %>
+<% end %>
+</div>
 
+
+<% unless user_signed_in? %>
+<div class="prompt-banner">
+<div class="width5-center">
+Sign up to see more great stories and experience all of Flipboard.
+<div class="actionable-buttons sign-in-prompt" id="signin-click">Sign Up</div>
+</div>
+</div>
 <% end %>
 
 
 
 
 
-<div class="row"></div>
-
-
 
 <%# modals %>
 
 
+<div class="modal-custom" id="submitpost-modal" style="display: none;">
+<i class="material-icons close-modal-button" id="close-post-modal">close</i>
+<% if user_signed_in? %>
+<%= render 'comments/form' %>
+<% end %>
+</div>
 
 <div class="modal-custom" id="sharestory-modal" style="display: none;">
-<div class="modal-custom-inner-left">
 <i class="material-icons close-modal-button" id="close-share-modal">close</i>
-<div style=" font-weight: 500; font-size: 18px;">
-Share Story
-</div>
-</div>
 </div>
 
 
-
-<div class="modal-custom" id="submitpost-modal" style="display: none;">
-
-<div class="modal-custom-inner">
-
-<i class="material-icons close-modal-button-white" id="close-post-modal">close</i>
-
-<div style="font-weight: 500; font-size: 20px;">
-Add Post / Ask Question
+<div class="modal-custom" id="signin-modal" style="display: none;">
+<i class="material-icons close-modal-button" id="close-signin-modal">close</i>
+<%= render 'layouts/sign_in' %>
 </div>
 
-
-
-
-<div id="post-guidelines">
-
-<hr/>
-<div class="button-text-upper arrow-up-next">OK, Got It</div>
-<div class="button-text-upper cancel-upper">Cancel</div>
-
-</div>
-
-
-
-<div id="choose-post-type" style="display: none;">
-
-
-
-<div id="submitpost">
-</div>
-</div>
-</div>
-
-
-
-</div>
 
 
 
@@ -252,7 +204,7 @@ Add Post / Ask Question
 
 <script>
 
-$('.bluecircle-small').click(function () {
+$('#addstory-icon').click(function () {
   $('#submitpost-modal').show();
  });
 
@@ -271,6 +223,16 @@ $('#close-post-modal').click(function () {
  $('#sharestory-icon').click(function () {
   $('#sharestory-modal').show();
  });
+
+
+  $('#signin-click').click(function () {
+  $('#signin-modal').show();
+ });
+ $('#close-signin-modal').click(function () {
+  $('#signin-modal').hide();
+ });
+
+  
   
  $('#close-share-modal').click(function () {
   $('#sharestory-modal').hide();

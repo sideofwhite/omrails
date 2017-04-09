@@ -1,23 +1,20 @@
 <div class="mobile-nav-top">
 <div class='width7'>
 
-<i class="material-icons menu" id="menu">menu</i>
-<i class="material-icons menu-search">search</i>
+<i class="material-icons" style="font-size: 24px; margin-right: 35px;">trending_up</i>
+<i class="material-icons" style="font-size: 24px; opacity: 0.5;">star_border</i>
 
 </div>
 </div>
 
-
+<div class="topbar-yellow"></div>
 <div class="topbar-nav">
 
-<%= link_to search_path do %>
-<i class="material-icons icon-nav-search" style="font-size: 26px; line-height: 50px; margin-top: -1px;">search</i>
-<% end %>
 
 
-<div class="top-nav-text">
-<%= link_to "Learn More", about_path, class: "white" %>
-</div>
+
+
+
 
 
 
@@ -28,17 +25,26 @@
 
 <div class="sidebar-nav">
 
+<div style="background-color: #fff; border-bottom: 1px solid rgba(51,51,51,0.1); height: 56px;">
 
-
-<div style="padding-top: 35px;"></div>
-<div style='padding: 0px 20px 0px 20px; overflow-y: scroll;'>
-
-<div style="color: rgba(255,255,255,0.75); text-transform: uppercase; font-size: 12px; margin-bottom: 10px;">
-Topics
 </div>
+
+<div class="sidebar-nav-inner">
+<div style="padding-top: 35px;"></div>
+
+
+<i class="material-icons sidebar-icon-type">trending_up</i>
+<div class="sidebar-nav-head">
+Categories
+</div>
+
 
 <div class="row"></div>
 
+
+<% if @category_header %>
+<%= render 'posts/categories' %>
+<% else %>
 <%= link_to 'Top Stories', root_path, class: "margin-c" %>
 <a href="/tags/world" class="margin-c"  >World</a>
 <a href="/tags/united-states" class="margin-c"  >U.S.</a>
@@ -46,75 +52,58 @@ Topics
 <a href="/tags/business" class="margin-c"  >Business</a>
 <a href="/tags/technology" class="margin-c" >Technology</a>
 <a href="/tags/science" class="margin-c"  >Science</a>
+<% end %>
 
 <div class="row"></div>
 
+<hr style="margin-top: 20px; margin-bottom: 20px;"/>
 
-
-
-
+<% unless @top_stories_none %>
+<i class="material-icons sidebar-icon-type">trending_up</i>
+<div class="sidebar-nav-head">
+Trending Stories
 </div>
+<% end %>
+
+<div class="row"></div>
+
+<%= link_to search_path do %>
+<i class="material-icons sidebar-icon-type">search</i>
+<div class="sidebar-nav-head">
+Search
+</div>
+<% end %> 
 
 
 
-<div style='position: fixed; width: 200px; bottom: 20px; background-color: #288bff;'>
-
-<div style='padding: 0px 20px 0px 20px;'>
-
-
+<div style="position: absolute; bottom: 20px;">
 <% if user_signed_in? %>
-                      
-                      
+
+
+<%= link_to notifications_path(current_user) do %> 
+<div class="sidebar-nav-head">
+Activity
+</div>
+<% end %>
 
 <%= link_to following_path do %>
-<div style="color: #fff; font-size: 16px; display: inline-block; ">
+<div class="sidebar-nav-head">
 Following
 </div>
 <% end %>
 
+<div class="row"></div>
 
-<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
-
-
-
-    
-<%= link_to notifications_path(current_user) do %>     
-<div style="color: #fff; font-size: 16px; display: inline-block; ">
-Notifications
-</div>
-
-<div style="float: right; display: inline-block; background-color: #fff; height: 20px; width: 20px; border-radius: 10px; text-align: center; font-size: 14px; line-height: 18px; font-weight: 700; color: #288bff;"><%= notificationcount %></div>
+<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user), class: "signedin-profile" %>
 
 
-<% end %>
-
-
-<hr style="border-top: 1px solid rgba(255,255,255,0.3); margin-top: 15px; margin-bottom: 15px;"/>
-
-<%= link_to user_path(current_user) do %>
-
-<%= link_to (image_tag(current_user.image(:thumb))), user_path(current_user), class: "smallavatar2" %>
-
-<div style="line-height: 44px; color: #fff; font-size: 16px; overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;">
-<%= current_user.name %>
-</div>
-
-<% end %>
 
 <% else %>
 
 
-<div class="nav-signup-explain">
-Share the world's stories on Podium.
+<div class="logged_out_button" id="signin-click">
+Sign In 
 </div>
-
-<%= link_to user_omniauth_authorize_path(:twitter) do %>
-<div class="sign-in-button-large">
-<i class="fa fa-twitter" style="color: #288bff; font-size: 18px; display: inline-block; margin-right: 4px; margin-bottom: 0px;"></i> Sign in with Twitter
-</div>
-<% end %>
 
 
 
@@ -122,63 +111,34 @@ Share the world's stories on Podium.
 
 </div>
 
+
+
+
+
 </div>
 </div>
 
-
-
-
-
-  
-
-<div class="modal-custom" id="signin" style="display: none;">
+<div class="modal-custom modal-custom-full" id="signin-modal" style="display: none;">
 <i class="material-icons close-modal-button" id="close-signin-modal">close</i>
-<div class="modal-custom-inner-left">
-<div style="font-size: 24px; text-align: center; font-weight: 700; margin-left: 20px;">
-Sign In
+<%= render 'layouts/sign_in' %>
 </div>
-<div style=" font-weight: 500; font-size: 16px; text-align: center; opacity: 0.5; line-height: 1.4; width: 75%; display: block; margin: 0 auto; margin-top: 10px">
-With the world’s best sources organized into thousands of topics, it’s a single.
-</div>
-</div>
-
-
-<div class="modal-custom-inner" style="background: #333;">
-
-<%= link_to user_omniauth_authorize_path(:twitter) do %> 
-<div class="twitterlogin">
-<i class="fa fa-twitter" style="color: #fff; font-size: 20px; display: inline-block; margin: 0px 5px 0px 0px;"></i> Sign in with Twitter
-</div>
-<% end %>
-
-<div class="infopage-infotext" style="color: rgba(255,255,255,0.5); width: 50%; margin-top: 20px; font-size: 11px; margin: 0 auto;">
-  By clicking 'Sign up with Twitter' you agree to Podium's <%= link_to "terms and conditions", tos_path, style: "color: rgba(255,255,255,0.5) !important; text-decoration: underline !important;" %>.
-
-</div>
-
-
-</div>
-
-</div>
-
 
 <script>
 
-$('#login-recommend-add').click(function () {
-  $('#signin').show();
+  $('#signin-click').click(function () {
+  $('#signin-modal').show();
  });
-
- 
-$('#close-signin-modal').click(function () {
-  $('#signin').hide();
+ $('#close-signin-modal').click(function () {
+  $('#signin-modal').hide();
  });
- 
- $('#menu').click(function () {
-        $('.sidebar-nav').toggle('slide', {
-            direction: 'left'
-        }, 300);
-    });
 
 
  </script>
+
+
+
+
+
+
+
 

@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 extend FriendlyId
-friendly_id :user_name, use: [:slugged, :history]
+friendly_id :title, use: [:slugged, :history]
 
 def should_generate_new_friendly_id?
   title_changed?

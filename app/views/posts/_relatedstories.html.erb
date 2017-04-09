@@ -1,28 +1,9 @@
-<div style="background-color: rgba(51,51,51,0.1); padding: 35px 0px;">
-<div class="width7">
+<div class="capital-title">
+Related Stories
+</div>
 
 <% @related.order("created_at desc").limit(1).each_with_index do |post,i| %>
-
-
-<div style="background: #288bff; padding: 6px 8px; color: #fff; border-radius: 3px; display: inline-block; margin-bottom: 15px;">
-More Stories
-</div>	
-
-
-<div style="border-bottom: 1px solid rgba(51,51,51,0.1); padding: 15px 0px 15px 0px; font-weight: 700; font-size: 22px;">
-
-
-<%= link_to (post.title.titleize), post_path(post) %>
-<div class="row"></div>
-
-</div>
-
-
-
-
-
+<%= link_to (post.title.titleize), post_path(post), class: "blue" %>
 <% end %>
 
-<div class="row"></div>
-</div>
-</div>
+

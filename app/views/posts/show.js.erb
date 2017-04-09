@@ -1,4 +1,4 @@
-$('#products').append('<%= j render('comments/post_feed') %>');
+$('#products').append('<%= j render('comments/answers_feed') %>');
 <% if @comments.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@comments) %>');
 <% else %>

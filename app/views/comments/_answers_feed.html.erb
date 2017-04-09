@@ -1,0 +1,42 @@
+<% @answers.each_with_index  do |question, i| %>
+<div class="width5-center">
+
+<div class="avatar-contribute">
+<%= image_tag (question.user.image) %>
+</div>
+
+<div style="float: left; margin-top: 3px;">
+<%= link_to (question.user.name), user_path(question.user) %>
+</div>
+<div style="opacity: 0.75; float: left; margin-left: 3px; margin-top: 3px;">
+<%= question.title %>
+</div>
+
+
+<div class="row"></div>
+
+<p>
+<%= question.body %>
+</p>
+
+<%= link_to "Continue reading", comment_question_path(question.comment, question), class: "blue" %>
+
+<% if question.cached_votes_total > 0 %>
+<% question.votes.by_type(User).voters.each do |user| %>
+<%= link_to (user.name), user_path %>
+<% end %>
+recommended
+<% end %>
+
+
+<hr/>
+
+</div>
+
+<% if i == 0 %>
+
+<% end %>
+
+<% end %>
+
+<%= render 'questions_banner' %>

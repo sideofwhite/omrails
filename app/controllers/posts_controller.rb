@@ -31,6 +31,8 @@ end
   def index
    @category_header = true 
   @skip_bottom = true  
+  @top_stories_none = true 
+  
 if params[:tag]
 @posts = Post.where(:hide => true).tagged_with(params[:tag]).order("created_at desc").page(params[:page]).per_page(3)
 @hidden = Post.hiddencategory.order("created_at desc").tagged_with(params[:tag]) 
@@ -60,6 +62,7 @@ end
   @answers = @post.questions.where(:hide => true)
   @questions = @post.comments.where(:published => true)
   @comments = @post.comments.where(:published => true).order('position').page(params[:page]).per_page(3)
+  @answers = @post.questions.page(params[:page]).per_page(3)
   @articles = @post.articles.order("created_at desc").limit(5)
   @comment = Comment.new
   @events = @post.events.order("created_at desc").limit(2)

@@ -27,6 +27,3 @@ jQuery ->
       ), ->
         $("ul", this).stop().slideUp 100
         return
-
-
-  
